@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-04 18:06+0000\n"
+"POT-Creation-Date: 2026-04-08 20:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:26
+#: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:22
 msgid "Families"
 msgstr ""
 
-#: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:35
+#: ../src/Plugins/FamilyDashboardWidget/v2/templates/View.php:31
 msgid "View Families"
 msgstr ""

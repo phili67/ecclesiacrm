@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1380,6 +1380,15 @@ msgstr "Er du sikker på, at du vil stoppe deling for udvalgte brugere?"
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Er du sikker på, at du vil stoppe al deling?"
 
+msgid "Selected Rows"
+msgstr "Udvalgte rækker"
+
+msgid "Pledge"
+msgstr "Løfte"
+
+msgid "Payment"
+msgstr "Betaling"
+
 msgid "Confirm Delete"
 msgstr "Bekræft Sletning"
 
@@ -1394,15 +1403,6 @@ msgstr "Denne handling kan IKKE gøres om, og kan have juridiske konsekvenser!"
 
 msgid "Please ensure this what you want to do."
 msgstr "Sørg for, at det er det, du ønsker at gøre."
-
-msgid "Pledge"
-msgstr "Løfte"
-
-msgid "Selected Rows"
-msgstr "Udvalgte rækker"
-
-msgid "Payment"
-msgstr "Betaling"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1452,6 +1452,21 @@ msgstr "Metode"
 msgid "Check Number"
 msgstr "Kontrolnummer"
 
+msgid "Tracking"
+msgstr "Sporing"
+
+msgid "Filter by Family"
+msgstr "Filtrer efter familie"
+
+msgid "Filter by Fund"
+msgstr "Filtrer efter fond"
+
+msgid "Export"
+msgstr "Eksport"
+
+msgid "Slip PDF"
+msgstr "Slip PDF"
+
 msgid "Deposit ID"
 msgstr "ID for indskud"
 
@@ -1470,17 +1485,24 @@ msgstr "Lukket"
 msgid "Deposit Type"
 msgstr "Indlånstype"
 
-msgid "Export"
-msgstr "Eksport"
+msgid "Please enter at least one winner."
+msgstr "Angiv venligst mindst én vinder."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Generer indbetalingsseddel for valgt"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Ufuldstændige indtastninger fundet. Udfyld venligst alle felter (Vare, "
+"Vinder, Pris) for hver række, du vil gemme."
 
-msgid "Rows"
-msgstr "Rækker"
+msgid "Please enter a number greater than 0."
+msgstr "Indtast venligst et tal større end 0."
 
 msgid "Number"
 msgstr "Nummer"
+
+msgid "You're about to delete the item !!!"
+msgstr "Du er ved at slette varen!!!"
 
 msgid "Item"
 msgstr "Varen"
@@ -1509,8 +1531,11 @@ msgstr "Materiel værdi"
 msgid "Minimum Price"
 msgstr "Minimumspris"
 
-msgid "Add buyer"
-msgstr "Tilføj køber"
+msgid "You're about to delete the buyer !!!"
+msgstr "Du er ved at slette køberen!!!"
+
+msgid "Unassigned"
+msgstr "Ikke tildelt"
 
 msgid "Buyer Number"
 msgstr "Køberens nummer"
@@ -1524,8 +1549,8 @@ msgstr "Generere erklæring"
 msgid "Buyer Number Editor"
 msgstr "Købernummer Editor"
 
-msgid "Select"
-msgstr "Vælg"
+msgid "Please select at least one buyer."
+msgstr "Vælg venligst mindst én køber."
 
 msgid "Your operation completed successfully."
 msgstr "Din operation er afsluttet med succes."
@@ -1583,6 +1608,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Deaktivere gruppespecifikke egenskaber"
 
+msgid "Role"
+msgstr "Rolle"
+
+msgid "Please enter a role name."
+msgstr "Indtast venligst et rollenavn."
+
 msgid "Confirm Delete Role"
 msgstr "Bekræft Slet rolle"
 
@@ -1609,26 +1640,50 @@ msgstr "Standard"
 msgid "Sequence"
 msgstr "Sekvens"
 
+msgid "Move Up"
+msgstr "Bevæg dig opad"
+
+msgid "Move Down"
+msgstr "Bevæg dig nedad"
+
+msgid "Add New Group"
+msgstr "Tilføj ny gruppe"
+
+msgid "Enter group name"
+msgstr "Indtast gruppens navn"
+
+msgid "Please enter a group name."
+msgstr "Indtast venligst et gruppenavn."
+
+msgid "Group actions"
+msgstr "Gruppehandlinger"
+
+msgid "View"
+msgstr "Udsigt"
+
 msgid "Members"
 msgstr "Medlemmer"
-
-msgid "Group Cart Status"
-msgstr "Status for gruppekurv"
-
-msgid "All members of this group are in the cart"
-msgstr "Alle medlemmer af denne gruppe er i kurven"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Ikke alle medlemmer af denne gruppe er i vognen"
-
-msgid "Cart isn't showable"
-msgstr "Kurven kan ikke vises"
 
 msgid "Group Type"
 msgstr "Gruppe Type"
 
-msgid "Unassigned"
-msgstr "Ikke tildelt"
+msgid "Group Cart Status"
+msgstr "Status for gruppekurv"
+
+msgid "In cart"
+msgstr "I indkøbsvogn"
+
+msgid "Remove from cart"
+msgstr "Fjern fra indkøbskurven"
+
+msgid "Not in cart"
+msgstr "Ikke i indkøbskurven"
+
+msgid "Add to cart"
+msgstr "Læg i kurv"
+
+msgid "Cart isn't showable"
+msgstr "Kurven kan ikke vises"
 
 msgid "Value"
 msgstr "Værdi"
@@ -1731,8 +1786,8 @@ msgstr "Er du sikker på, at du ønsker at slette alle ledere?"
 msgid "Appointment"
 msgstr "Udnævnelse"
 
-msgid "Tracking"
-msgstr "Sporing"
+msgid "Never contacted"
+msgstr "Aldrig kontaktet"
 
 msgid "Visits/calls"
 msgstr "Besøg/samtaler"
@@ -1981,6 +2036,15 @@ msgstr "Deaktivere"
 msgid "Activate"
 msgstr "Aktivér"
 
+msgid "Property actions"
+msgstr "Ejendomshandlinger"
+
+msgid "Assigning..."
+msgstr "Tildeling af..."
+
+msgid "Assign"
+msgstr "Tildel"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Er du sikker på, at du ønsker at fjerne denne persons medlemskab fra"
 
@@ -1998,6 +2062,9 @@ msgstr "Ændring af klassifikation"
 
 msgid "Change role"
 msgstr "Ændre rolle"
+
+msgid "Volunteer actions"
+msgstr "Frivillige handlinger"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Bekræft Slet frivillig Mulighed"
@@ -2105,8 +2172,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Validér"
 
+msgid "Enter menu link name"
+msgstr "Indtast navnet på menulinket"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Indtast URL, der starter med http:// eller https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Dette link skal begynde med : http://.... eller https://...."
@@ -2410,14 +2483,20 @@ msgstr "Identificer"
 msgid "Accept"
 msgstr "Accepter"
 
-msgid "2 Factor Authentication Secret"
-msgstr "Hemmelig 2-faktor-autentifikation"
+msgid "Two factors authentications"
+msgstr "Godkendelse af to faktorer"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Genoprettelse af hemmeligheden for 2-faktor-autentificering"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Fjern hemmeligheden for 2-faktor-autentificering"
+
+msgid "2 Factor Authentication Secret"
+msgstr "Hemmelig 2-faktor-autentifikation"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Indtast TOTP-kode for at bekræfte tilmeldingen"
@@ -2429,6 +2508,9 @@ msgstr ""
 "Opbevar disse sikkerhedskopierede adgangskoder et sikkert sted, hvis du "
 "skulle miste OTP-oplysningerne."
 
+msgid "Unable to remove 2FA right now."
+msgstr "Det er ikke muligt at fjerne 2FA lige nu."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Sikkerhedskopien er færdig, klar til download."
 
@@ -2437,6 +2519,9 @@ msgstr "Brugeren skal have en e-mailadresse."
 
 msgid "Select your Role"
 msgstr "Vælg din rolle"
+
+msgid "and update its name if needed."
+msgstr "og opdater navnet, hvis det er nødvendigt."
 
 msgid "Role management"
 msgstr "Forvaltning af roller"
@@ -2450,12 +2535,11 @@ msgstr "Omdøb"
 msgid "Choose a Role Name"
 msgstr "Vælg et navn på en rolle"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>Du skal angive et andet navn til en rolle <br>-- eller --<br> dette "
-"navn findes allerede !!!</center>"
+msgid "You must set another Role Name"
+msgstr "Du skal angive et andet Role Name"
+
+msgid "this Role Name already exist !!!"
+msgstr "Dette rollenavn findes allerede!!!"
 
 msgid "You've to check at least one user."
 msgstr "Du skal kontrollere mindst én bruger."
@@ -2491,6 +2575,9 @@ msgstr "Handling Bekræftelse"
 msgid "Please confirm reset failed login count"
 msgstr "Bekræft venligst at nulstille antallet af mislykkede login"
 
+msgid "Reset"
+msgstr "Nulstil"
+
 msgid "Reset failed login count for"
 msgstr "Nulstil antallet af fejlslagne login for"
 
@@ -2500,14 +2587,14 @@ msgstr "udført."
 msgid "Please confirm the password reset of this user"
 msgstr "Bekræft venligst nulstillingen af denne brugers adgangskode"
 
+msgid "Reset & Send"
+msgstr "Nulstil og send"
+
 msgid "Password reset for"
 msgstr "Nulstilling af adgangskode for"
 
 msgid "Mail connection failure"
 msgstr "Fejl i mailforbindelsen"
-
-msgid "Two factors authentications"
-msgstr "Godkendelse af to faktorer"
 
 msgid "to remove two-factor authentication"
 msgstr "for at fjerne to-faktor-autentifikation"
@@ -2527,9 +2614,8 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "Brugeren har 60 sekunder til at bruge sine gendannelseskoder."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Vælg mulighed for frivilligt arbejde"
+msgstr "Tilføj ny mulighed for frivilligt arbejde"
 
 msgid "Activ"
 msgstr "Aktiv"
@@ -2540,29 +2626,57 @@ msgstr "Forælder (hierarki)"
 msgid "Color"
 msgstr "Farve"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Indtast navnet på den frivillige mulighed"
+
+msgid "Enter a brief description"
+msgstr "Indtast en kort beskrivelse"
+
 msgid "Add to volunteer opportunities"
-msgstr "Vælg mulighed for frivilligt arbejde"
+msgstr "Tilføj til muligheder for frivilligt arbejde"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Vælg mulighed for frivilligt arbejde"
+msgstr "Gå til muligheder for frivilligt arbejde"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Bekræft Slet frivillig Mulighed"
+msgstr "Bekræft Slet denne mulighed"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Bekræft venligst sletning af denne gruppepost"
+msgstr "Bekræft venligst sletning af denne post"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr ""
-"Alle gruppemedlemsskaber og egenskaber vil blive ødelagt.  Selve "
-"gruppemedlemmerne ændres ikke."
+"Alle medlemskaber vil blive ødelagt.  Medlemmerne selv vil ikke blive ændret."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Generer indbetalingsseddel for valgt"
+
+#~ msgid "Rows"
+#~ msgstr "Rækker"
+
+#~ msgid "Add buyer"
+#~ msgstr "Tilføj køber"
+
+#~ msgid "Select"
+#~ msgstr "Vælg"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Alle medlemmer af denne gruppe er i kurven"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Ikke alle medlemmer af denne gruppe er i vognen"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Genoprettelse af hemmeligheden for 2-faktor-autentificering"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>Du skal angive et andet navn til en rolle <br>-- eller --<br> "
+#~ "dette navn findes allerede !!!</center>"
 
 #~ msgid "Done !"
 #~ msgstr "Færdig!"

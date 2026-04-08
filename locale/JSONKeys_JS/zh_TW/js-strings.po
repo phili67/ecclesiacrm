@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1346,6 +1346,15 @@ msgstr "您确定要停止共享选定的用户吗？"
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "你确定要停止所有共享？"
 
+msgid "Selected Rows"
+msgstr "选定的行"
+
+msgid "Pledge"
+msgstr "认捐"
+
+msgid "Payment"
+msgstr "付款方式"
+
 msgid "Confirm Delete"
 msgstr "确认删除"
 
@@ -1360,15 +1369,6 @@ msgstr "这一行动不能被撤销，而且可能会有法律上的影响。"
 
 msgid "Please ensure this what you want to do."
 msgstr "请确保这是你想做的事。"
-
-msgid "Pledge"
-msgstr "认捐"
-
-msgid "Selected Rows"
-msgstr "选定的行"
-
-msgid "Payment"
-msgstr "付款方式"
 
 msgid "Depid"
 msgstr "デバイド"
@@ -1418,6 +1418,21 @@ msgstr "方法"
 msgid "Check Number"
 msgstr "检查号码"
 
+msgid "Tracking"
+msgstr "追踪"
+
+msgid "Filter by Family"
+msgstr "按家庭筛选"
+
+msgid "Filter by Fund"
+msgstr "按基金筛选"
+
+msgid "Export"
+msgstr "出口"
+
+msgid "Slip PDF"
+msgstr "滑动 PDF"
+
 msgid "Deposit ID"
 msgstr "储户身份"
 
@@ -1436,17 +1451,23 @@ msgstr "关闭"
 msgid "Deposit Type"
 msgstr "存款类型"
 
-msgid "Export"
-msgstr "出口"
+msgid "Please enter at least one winner."
+msgstr "请至少输入一位获奖者。"
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "生成选定的存款单"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr "发现不完整条目。请填写要保存的每一行的所有字段（项目、优胜者、价格）。"
 
-msgid "Rows"
-msgstr "行数"
+msgid "Please enter a number greater than 0."
+msgstr "请输入大于 0 的数字。"
 
 msgid "Number"
 msgstr "数量"
+
+#, fuzzy
+msgid "You're about to delete the item !!!"
+msgstr "你要删除一个标签!"
 
 msgid "Item"
 msgstr "项目"
@@ -1475,8 +1496,11 @@ msgstr "材料价值"
 msgid "Minimum Price"
 msgstr "最低价格"
 
-msgid "Add buyer"
-msgstr "添加买家"
+msgid "You're about to delete the buyer !!!"
+msgstr "您即将删除买家！！！"
+
+msgid "Unassigned"
+msgstr "未分配的"
 
 msgid "Buyer Number"
 msgstr "买方编号"
@@ -1490,8 +1514,8 @@ msgstr "生成报表"
 msgid "Buyer Number Editor"
 msgstr "买方编号编辑"
 
-msgid "Select"
-msgstr "选择"
+msgid "Please select at least one buyer."
+msgstr "请至少选择一位买家。"
 
 msgid "Your operation completed successfully."
 msgstr "您的操作成功完成。"
@@ -1544,6 +1568,12 @@ msgstr "你确定你要删除组内特定的人的属性吗？所有组内成员
 msgid "Disable Group Specific Properties"
 msgstr "禁用组的特定属性"
 
+msgid "Role"
+msgstr "角色"
+
+msgid "Please enter a role name."
+msgstr "请输入角色名称。"
+
 msgid "Confirm Delete Role"
 msgstr "确认删除角色"
 
@@ -1568,26 +1598,50 @@ msgstr "默认情况下"
 msgid "Sequence"
 msgstr "序列"
 
+msgid "Move Up"
+msgstr "向上移动"
+
+msgid "Move Down"
+msgstr "向下移动"
+
+msgid "Add New Group"
+msgstr "添加新组"
+
+msgid "Enter group name"
+msgstr "输入组名"
+
+msgid "Please enter a group name."
+msgstr "请输入组名。"
+
+msgid "Group actions"
+msgstr "小组行动"
+
+msgid "View"
+msgstr "查看"
+
 msgid "Members"
 msgstr "成员"
-
-msgid "Group Cart Status"
-msgstr "组车状态"
-
-msgid "All members of this group are in the cart"
-msgstr "该组的所有成员都在购物车中"
-
-msgid "Not all members of this group are in the cart"
-msgstr "该组成员并非都在车内"
-
-msgid "Cart isn't showable"
-msgstr "购物车无法显示"
 
 msgid "Group Type"
 msgstr "集团类型"
 
-msgid "Unassigned"
-msgstr "未分配的"
+msgid "Group Cart Status"
+msgstr "组车状态"
+
+msgid "In cart"
+msgstr "手推车"
+
+msgid "Remove from cart"
+msgstr "从购物车中移除"
+
+msgid "Not in cart"
+msgstr "不在购物车中"
+
+msgid "Add to cart"
+msgstr "添加到购物车"
+
+msgid "Cart isn't showable"
+msgstr "购物车无法显示"
 
 msgid "Value"
 msgstr "价值"
@@ -1686,8 +1740,8 @@ msgstr "你确定你要删除所有的管理人员吗？"
 msgid "Appointment"
 msgstr "任命"
 
-msgid "Tracking"
-msgstr "追踪"
+msgid "Never contacted"
+msgstr "从未联系过"
 
 msgid "Visits/calls"
 msgstr "访问/通话"
@@ -1932,6 +1986,15 @@ msgstr "停用"
 msgid "Activate"
 msgstr "激活"
 
+msgid "Property actions"
+msgstr "财产行动"
+
+msgid "Assigning..."
+msgstr "分配..."
+
+msgid "Assign"
+msgstr "分配"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "你确定要把这个人的会员资格从"
 
@@ -1949,6 +2012,9 @@ msgstr "改变分类"
 
 msgid "Change role"
 msgstr "改变角色"
+
+msgid "Volunteer actions"
+msgstr "志愿者行动"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "确认删除志愿者机会"
@@ -2052,8 +2118,14 @@ msgstr "身份证"
 msgid "Validate"
 msgstr "验证"
 
+msgid "Enter menu link name"
+msgstr "输入菜单链接名称"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "输入以 http:// 或 https:// 开头的 URL"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "该链接应以：http://.... 或 https://.... 开始。"
@@ -2340,14 +2412,20 @@ msgstr "识别"
 msgid "Accept"
 msgstr "接受"
 
-msgid "2 Factor Authentication Secret"
-msgstr "双因素认证的秘密"
+msgid "Two factors authentications"
+msgstr "双因素认证"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "重新生成2因素认证的秘密"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "移除2因素认证的秘密"
+
+msgid "2 Factor Authentication Secret"
+msgstr "双因素认证的秘密"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "输入TOTP代码以确认注册"
@@ -2357,6 +2435,9 @@ msgid ""
 "credentials."
 msgstr "将这些备份密码保存在一个安全的地方，以防你丢失OTP证书。"
 
+msgid "Unable to remove 2FA right now."
+msgstr "现在无法移除 2FA。"
+
 msgid "Backup Complete, Ready for Download."
 msgstr "备份完成，可供下载。"
 
@@ -2365,6 +2446,9 @@ msgstr "该用户必须有一个电子邮件地址。"
 
 msgid "Select your Role"
 msgstr "选择你的角色"
+
+msgid "and update its name if needed."
+msgstr "并根据需要更新其名称。"
 
 msgid "Role management"
 msgstr "角色管理"
@@ -2378,12 +2462,11 @@ msgstr "重命名"
 msgid "Choose a Role Name"
 msgstr "选择一个角色名称"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>你必须设置另一个角色名称<br>--或者--<br>这个角色名称已经存在！！</"
-"center>"
+msgid "You must set another Role Name"
+msgstr "您必须设置另一个角色名称"
+
+msgid "this Role Name already exist !!!"
+msgstr "此角色名称已经存在"
 
 msgid "You've to check at least one user."
 msgstr "你至少要检查一个用户。"
@@ -2417,6 +2500,9 @@ msgstr "行动确认"
 msgid "Please confirm reset failed login count"
 msgstr "请确认重置失败的登录次数"
 
+msgid "Reset"
+msgstr "重置"
+
 msgid "Reset failed login count for"
 msgstr "重置登录失败计数"
 
@@ -2426,14 +2512,14 @@ msgstr "完成了。"
 msgid "Please confirm the password reset of this user"
 msgstr "请确认该用户的密码重置"
 
+msgid "Reset & Send"
+msgstr "重置和发送"
+
 msgid "Password reset for"
 msgstr "密码重设为"
 
 msgid "Mail connection failure"
 msgstr "邮件连接失败"
-
-msgid "Two factors authentications"
-msgstr "双因素认证"
 
 msgid "to remove two-factor authentication"
 msgstr "移除双因素认证"
@@ -2452,9 +2538,8 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "用户有60秒的时间来使用他的恢复密码。"
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "选择志愿者机会"
+msgstr "添加新的志愿者机会"
 
 msgid "Activ"
 msgstr "激活"
@@ -2465,27 +2550,56 @@ msgstr "母体（等级制度）"
 msgid "Color"
 msgstr "颜色"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "输入志愿者机会名称"
+
+msgid "Enter a brief description"
+msgstr "输入简要说明"
+
 msgid "Add to volunteer opportunities"
-msgstr "选择志愿者机会"
+msgstr "添加到志愿者机会"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "选择志愿者机会"
+msgstr "转到志愿者机会"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "确认删除志愿者机会"
+msgstr "确认删除此机会"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "请确认删除该组记录"
+msgstr "请确认删除此记录"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
-msgstr "所有组的成员和属性都将被销毁。  组成员本身不会被改变。"
+msgstr "所有成员资格将被销毁。  成员本身不会改变。"
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "生成选定的存款单"
+
+#~ msgid "Rows"
+#~ msgstr "行数"
+
+#~ msgid "Add buyer"
+#~ msgstr "添加买家"
+
+#~ msgid "Select"
+#~ msgstr "选择"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "该组的所有成员都在购物车中"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "该组成员并非都在车内"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "重新生成2因素认证的秘密"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>你必须设置另一个角色名称<br>--或者--<br>这个角色名称已经存在！！</"
+#~ "center>"
 
 #~ msgid "Done !"
 #~ msgstr "完成了!"

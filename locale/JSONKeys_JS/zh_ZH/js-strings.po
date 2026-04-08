@@ -2553,6 +2553,142 @@ msgstr "删除此页"
 msgid "Remove All results"
 msgstr "删除所有结果"
 
+msgid "Filter by Family"
+msgstr "按家庭筛选"
+
+msgid "Filter by Fund"
+msgstr "按基金筛选"
+
+msgid "Slip PDF"
+msgstr "滑动 PDF"
+
+msgid "Please enter at least one winner."
+msgstr "请至少输入一位获奖者。"
+
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr "发现不完整条目。请填写要保存的每一行的所有字段（项目、优胜者、价格）。"
+
+msgid "Please enter a number greater than 0."
+msgstr "请输入大于 0 的数字。"
+
+msgid "You're about to delete the item !!!"
+msgstr ""
+
+msgid "You're about to delete the buyer !!!"
+msgstr "您即将删除买家！！！"
+
+msgid "Please select at least one buyer."
+msgstr "请至少选择一位买家。"
+
+msgid "Role"
+msgstr "角色"
+
+msgid "Please enter a role name."
+msgstr "请输入角色名称。"
+
+msgid "Move Up"
+msgstr "向上移动"
+
+msgid "Move Down"
+msgstr "向下移动"
+
+msgid "Add New Group"
+msgstr "添加新组"
+
+msgid "Enter group name"
+msgstr "输入组名"
+
+msgid "Please enter a group name."
+msgstr "请输入组名。"
+
+msgid "Group actions"
+msgstr "小组行动"
+
+msgid "View"
+msgstr "查看"
+
+msgid "In cart"
+msgstr "手推车"
+
+msgid "Remove from cart"
+msgstr "从购物车中移除"
+
+msgid "Not in cart"
+msgstr "不在购物车中"
+
+msgid "Add to cart"
+msgstr "添加到购物车"
+
+msgid "Never contacted"
+msgstr "从未联系过"
+
+msgid "Property actions"
+msgstr "财产行动"
+
+msgid "Assigning..."
+msgstr "分配..."
+
+msgid "Assign"
+msgstr "分配"
+
+msgid "Volunteer actions"
+msgstr "志愿者行动"
+
+msgid "Enter menu link name"
+msgstr "输入菜单链接名称"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "输入以 http:// 或 https:// 开头的 URL"
+
+msgid "Unable to remove 2FA right now."
+msgstr "现在无法移除 2FA。"
+
+msgid "and update its name if needed."
+msgstr "并根据需要更新其名称。"
+
+msgid "You must set another Role Name"
+msgstr "您必须设置另一个角色名称"
+
+msgid "this Role Name already exist !!!"
+msgstr "此角色名称已经存在"
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "Reset & Send"
+msgstr "重置和发送"
+
+msgid "Enter volunteer opportunity name"
+msgstr "输入志愿者机会名称"
+
+msgid "Enter a brief description"
+msgstr "输入简要说明"
+
+msgid "Add to volunteer opportunities"
+msgstr "添加到志愿者机会"
+
+msgid "Move to volunteer opportunities"
+msgstr "转到志愿者机会"
+
+msgid "Confirm Delete This Opportunity"
+msgstr "确认删除此机会"
+
+msgid "Please confirm deletion of this record"
+msgstr "请确认删除此记录"
+
+msgid ""
+"All membership will be destroyed.  The members themselves will not be "
+"altered."
+msgstr "所有成员资格将被销毁。  成员本身不会改变。"
+
+msgid "2FA is already enabled on your account."
+msgstr "您的账户已启用 2FA。"
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "如果需要，您可以将其删除，然后重新注册。"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

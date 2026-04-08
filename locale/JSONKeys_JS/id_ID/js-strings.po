@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1385,6 +1385,15 @@ msgstr "Apakah Anda yakin ingin berhenti berbagi untuk pengguna tertentu?"
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Apakah Anda yakin, Anda ingin menghentikan semua berbagi?"
 
+msgid "Selected Rows"
+msgstr "Terpilih Rows"
+
+msgid "Pledge"
+msgstr "Pledge"
+
+msgid "Payment"
+msgstr "Pembayaran"
+
 msgid "Confirm Delete"
 msgstr "Konfirmasi Hapus"
 
@@ -1400,15 +1409,6 @@ msgstr ""
 
 msgid "Please ensure this what you want to do."
 msgstr "Tolong pastikan ini apa yang ingin kau lakukan."
-
-msgid "Pledge"
-msgstr "Pledge"
-
-msgid "Selected Rows"
-msgstr "Terpilih Rows"
-
-msgid "Payment"
-msgstr "Pembayaran"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1458,6 +1458,21 @@ msgstr "Metode"
 msgid "Check Number"
 msgstr "Periksa nomor"
 
+msgid "Tracking"
+msgstr "Melacak"
+
+msgid "Filter by Family"
+msgstr "Filter berdasarkan Keluarga"
+
+msgid "Filter by Fund"
+msgstr "Filter berdasarkan Dana"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Slip PDF"
+msgstr "Selipkan PDF"
+
 msgid "Deposit ID"
 msgstr "Tanda pengenal"
 
@@ -1476,17 +1491,24 @@ msgstr "Ditutup"
 msgid "Deposit Type"
 msgstr "Deposit tipe"
 
-msgid "Export"
-msgstr "Export"
+msgid "Please enter at least one winner."
+msgstr "Harap masukkan setidaknya satu pemenang."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Generate Deposit Slip untuk terpilih"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Ditemukan entri yang tidak lengkap. Isi semua kolom (Item, Pemenang, Harga) "
+"untuk setiap baris yang ingin Anda simpan."
 
-msgid "Rows"
-msgstr "Dayung"
+msgid "Please enter a number greater than 0."
+msgstr "Masukkan angka yang lebih besar dari 0."
 
 msgid "Number"
 msgstr "Nomor"
+
+msgid "You're about to delete the item !!!"
+msgstr "Anda akan menghapus item !!!"
 
 msgid "Item"
 msgstr "Item"
@@ -1515,8 +1537,11 @@ msgstr "Karya Value"
 msgid "Minimum Price"
 msgstr "Minimum Price"
 
-msgid "Add buyer"
-msgstr "Tambahkan pembeli"
+msgid "You're about to delete the buyer !!!"
+msgstr "Anda akan menghapus pembeli !!!"
+
+msgid "Unassigned"
+msgstr "Tidak ditugaskan"
 
 msgid "Buyer Number"
 msgstr "Pembeli Nomor"
@@ -1530,8 +1555,8 @@ msgstr "Statemen Generate"
 msgid "Buyer Number Editor"
 msgstr "Pembeli Editor"
 
-msgid "Select"
-msgstr "Pilih"
+msgid "Please select at least one buyer."
+msgstr "Silakan pilih setidaknya satu pembeli."
 
 msgid "Your operation completed successfully."
 msgstr "Operasimu berhasil."
@@ -1588,6 +1613,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Matikan Grup Spesifik Properties"
 
+msgid "Role"
+msgstr "Peran"
+
+msgid "Please enter a role name."
+msgstr "Silakan masukkan nama peran."
+
 msgid "Confirm Delete Role"
 msgstr "Konfirmasi Delete Role"
 
@@ -1612,26 +1643,50 @@ msgstr "Default"
 msgid "Sequence"
 msgstr "Urutan"
 
+msgid "Move Up"
+msgstr "Pindah ke atas"
+
+msgid "Move Down"
+msgstr "Pindah ke bawah"
+
+msgid "Add New Group"
+msgstr "Tambahkan Grup Baru"
+
+msgid "Enter group name"
+msgstr "Masukkan nama grup"
+
+msgid "Please enter a group name."
+msgstr "Masukkan nama grup."
+
+msgid "Group actions"
+msgstr "Tindakan kelompok"
+
+msgid "View"
+msgstr "Melihat"
+
 msgid "Members"
 msgstr "Anggota"
-
-msgid "Group Cart Status"
-msgstr "Status Grup Cart"
-
-msgid "All members of this group are in the cart"
-msgstr "Semua anggota kelompok ini berada di kereta"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Tidak semua anggota kelompok ini berada di kereta"
-
-msgid "Cart isn't showable"
-msgstr "Mobil tidak bisa dipamerkan"
 
 msgid "Group Type"
 msgstr "Kelompok tipe"
 
-msgid "Unassigned"
-msgstr "Tidak ditugaskan"
+msgid "Group Cart Status"
+msgstr "Status Grup Cart"
+
+msgid "In cart"
+msgstr "Dalam keranjang"
+
+msgid "Remove from cart"
+msgstr "Hapus dari troli"
+
+msgid "Not in cart"
+msgstr "Tidak dalam keranjang"
+
+msgid "Add to cart"
+msgstr "Tambahkan ke troli"
+
+msgid "Cart isn't showable"
+msgstr "Mobil tidak bisa dipamerkan"
 
 msgid "Value"
 msgstr "Value"
@@ -1734,8 +1789,8 @@ msgstr "Apakah Anda yakin, Anda ingin menghapus semua manajer?"
 msgid "Appointment"
 msgstr "Penampilan"
 
-msgid "Tracking"
-msgstr "Melacak"
+msgid "Never contacted"
+msgstr "Tidak pernah dihubungi"
 
 msgid "Visits/calls"
 msgstr "Pengunjung/panggilan"
@@ -1990,6 +2045,15 @@ msgstr "Menonaktifkan"
 msgid "Activate"
 msgstr "Aktifkan"
 
+msgid "Property actions"
+msgstr "Tindakan properti"
+
+msgid "Assigning..."
+msgstr "Menetapkan..."
+
+msgid "Assign"
+msgstr "Tetapkan"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Kau yakin ingin menghapus keanggotaan orang ini"
 
@@ -2007,6 +2071,9 @@ msgstr "Mengubah klasifikasi"
 
 msgid "Change role"
 msgstr "Ganti peran"
+
+msgid "Volunteer actions"
+msgstr "Tindakan sukarela"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Konfirmasi peluang sukarelawan"
@@ -2114,8 +2181,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Validate"
 
+msgid "Enter menu link name"
+msgstr "Masukkan nama tautan menu"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Masukkan URL yang dimulai dengan http:// atau https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr ""
@@ -2420,14 +2493,20 @@ msgstr "Identifikasi"
 msgid "Accept"
 msgstr "Terima"
 
-msgid "2 Factor Authentication Secret"
-msgstr "2 Factor Authentication Secret"
+msgid "Two factors authentications"
+msgstr "Dua faktor otentikasi"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Regenerasi 2 Factor Rahasia"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Lepaskan 2 Factor Authentication Secret"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2 Factor Authentication Secret"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Masukkan kode TTP untuk mengkonfirmasi pendaftaran"
@@ -2439,6 +2518,9 @@ msgstr ""
 "Jauhkan password cadangan ini di tempat aman, jika kau kehilangan kredensial "
 "OTP."
 
+msgid "Unable to remove 2FA right now."
+msgstr "Tidak dapat menghapus 2FA sekarang."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Backup Complete, Ready for Download."
 
@@ -2447,6 +2529,9 @@ msgstr "Pengguna pasti punya alamat email."
 
 msgid "Select your Role"
 msgstr "Pilih Role-mu"
+
+msgid "and update its name if needed."
+msgstr "dan perbarui namanya jika diperlukan."
 
 msgid "Role management"
 msgstr "Manajemen Role"
@@ -2460,12 +2545,11 @@ msgstr "Panggil nama"
 msgid "Choose a Role Name"
 msgstr "Pilih nama Role"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"Ini adalah \"Role Name\" yang lain \"atau \"br\" atau \"br\" ini sudah ada!"
-"\" (Center/Center)"
+msgid "You must set another Role Name"
+msgstr "Anda harus menetapkan Nama Peran lain"
+
+msgid "this Role Name already exist !!!"
+msgstr "Nama Peran ini sudah ada !!!"
 
 msgid "You've to check at least one user."
 msgstr "Kau harus memeriksa setidaknya satu pengguna."
@@ -2501,6 +2585,9 @@ msgstr "Konfirmasi Aksi"
 msgid "Please confirm reset failed login count"
 msgstr "Tolong konfirmasi ulang reset masuk hitungan login"
 
+msgid "Reset"
+msgstr "Atur ulang"
+
 msgid "Reset failed login count for"
 msgstr "Reset gagal masuk hitungan"
 
@@ -2510,14 +2597,14 @@ msgstr "selesai."
 msgid "Please confirm the password reset of this user"
 msgstr "Tolong konfirmasi ulang password pengguna ini"
 
+msgid "Reset & Send"
+msgstr "Atur Ulang & Kirim"
+
 msgid "Password reset for"
 msgstr "Password reset untuk"
 
 msgid "Mail connection failure"
 msgstr "Kegagalan koneksi email"
-
-msgid "Two factors authentications"
-msgstr "Dua faktor otentikasi"
 
 msgid "to remove two-factor authentication"
 msgstr ""
@@ -2539,9 +2626,8 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "Pengguna memiliki 60 detik untuk menggunakan kode pemulihannya."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Pilih Peluang Relawan"
+msgstr "Menambahkan Peluang Relawan Baru"
 
 msgid "Activ"
 msgstr "Activ"
@@ -2552,29 +2638,57 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Masukkan nama peluang sukarelawan"
+
+msgid "Enter a brief description"
+msgstr "Masukkan deskripsi singkat"
+
 msgid "Add to volunteer opportunities"
-msgstr "Pilih Peluang Relawan"
+msgstr "Menambah kesempatan menjadi sukarelawan"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Pilih Peluang Relawan"
+msgstr "Pindah ke kesempatan menjadi sukarelawan"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Konfirmasi peluang sukarelawan"
+msgstr "Konfirmasikan Hapus Peluang Ini"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Tolong konfirmasi menghapus catatan kelompok ini"
+msgstr "Harap konfirmasi penghapusan catatan ini"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr ""
-"Semua keanggotaan kelompok dan properti akan hancur. Anggota kelompok "
-"sendiri tidak akan diubah."
+"Semua keanggotaan akan dihancurkan.  Anggota itu sendiri tidak akan diubah."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Generate Deposit Slip untuk terpilih"
+
+#~ msgid "Rows"
+#~ msgstr "Dayung"
+
+#~ msgid "Add buyer"
+#~ msgstr "Tambahkan pembeli"
+
+#~ msgid "Select"
+#~ msgstr "Pilih"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Semua anggota kelompok ini berada di kereta"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Tidak semua anggota kelompok ini berada di kereta"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Regenerasi 2 Factor Rahasia"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "Ini adalah \"Role Name\" yang lain \"atau \"br\" atau \"br\" ini sudah "
+#~ "ada!\" (Center/Center)"
 
 #~ msgid "Done !"
 #~ msgstr "Selesai!"

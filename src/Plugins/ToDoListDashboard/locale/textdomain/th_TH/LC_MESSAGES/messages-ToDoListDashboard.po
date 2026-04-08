@@ -23,17 +23,17 @@ msgid "To Do List"
 msgstr ""
 
 #: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:73
-msgid "Edit Name of Current To Do List"
-msgstr ""
-
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:77
-msgid "Remove Current To Do List"
-msgstr ""
-
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:81
 msgid "Add a To Do List"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:130
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:78
+msgid "Edit Name of Current To Do List"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:83
+msgid "Remove Current To Do List"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:135
 msgid "Add item"
 msgstr ""

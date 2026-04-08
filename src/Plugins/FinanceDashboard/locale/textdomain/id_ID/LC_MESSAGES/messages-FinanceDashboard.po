@@ -1,3 +1,11 @@
-#: ../src/Plugins/FinanceDashboard/v2/templates/View.php:34
+#: ../src/Plugins/FinanceDashboard/v2/templates/View.php:33
 msgid "Deposit Tracking"
+msgstr ""
+
+#: ../src/Plugins/FinanceDashboard/v2/templates/View.php:34
+msgid "Last 90 days"
+msgstr ""
+
+#: ../src/Plugins/FinanceDashboard/v2/templates/View.php:55
+msgid "Interactive chart showing deposit trends over the past 90 days."
 msgstr ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1376,6 +1376,15 @@ msgstr "Er du sikker på at du vil stoppe deling for utvalgte brukere?"
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Er du sikker på at du vil stoppe all deling?"
 
+msgid "Selected Rows"
+msgstr "Utvalgte rader"
+
+msgid "Pledge"
+msgstr "Løfte"
+
+msgid "Payment"
+msgstr "Betaling"
+
 msgid "Confirm Delete"
 msgstr "Bekreft Slett"
 
@@ -1390,15 +1399,6 @@ msgstr "Denne handlingen KAN IKKE omgjøres, og kan ha juridiske konsekvenser!"
 
 msgid "Please ensure this what you want to do."
 msgstr "Forsikre deg om at dette er det du vil gjøre."
-
-msgid "Pledge"
-msgstr "Løfte"
-
-msgid "Selected Rows"
-msgstr "Utvalgte rader"
-
-msgid "Payment"
-msgstr "Betaling"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1448,6 +1448,21 @@ msgstr "Metode"
 msgid "Check Number"
 msgstr "Kontrollnummer"
 
+msgid "Tracking"
+msgstr "Sporing"
+
+msgid "Filter by Family"
+msgstr "Filtrer etter familie"
+
+msgid "Filter by Fund"
+msgstr "Filtrer etter fond"
+
+msgid "Export"
+msgstr "Eksport"
+
+msgid "Slip PDF"
+msgstr "Slip PDF"
+
 msgid "Deposit ID"
 msgstr "Innskudds-ID"
 
@@ -1466,17 +1481,24 @@ msgstr "Avsluttet"
 msgid "Deposit Type"
 msgstr "Type innskudd"
 
-msgid "Export"
-msgstr "Eksport"
+msgid "Please enter at least one winner."
+msgstr "Vennligst skriv inn minst én vinner."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Generer innskuddsbevis for valgt"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Ufullstendige oppføringer funnet. Vennligst fyll ut alle feltene (Vare, "
+"Vinner, Pris) for hver rad du ønsker å lagre."
 
-msgid "Rows"
-msgstr "Rader"
+msgid "Please enter a number greater than 0."
+msgstr "Vennligst skriv inn et tall som er større enn 0."
 
 msgid "Number"
 msgstr "Antall"
+
+msgid "You're about to delete the item !!!"
+msgstr "Du er i ferd med å slette varen!!!"
 
 msgid "Item"
 msgstr "Gjenstand"
@@ -1505,8 +1527,11 @@ msgstr "Materiell verdi"
 msgid "Minimum Price"
 msgstr "Minstepris"
 
-msgid "Add buyer"
-msgstr "Legg til kjøper"
+msgid "You're about to delete the buyer !!!"
+msgstr "Du er i ferd med å slette kjøperen !!!"
+
+msgid "Unassigned"
+msgstr "Ikke tildelt"
 
 msgid "Buyer Number"
 msgstr "Kjøpernummer"
@@ -1520,8 +1545,8 @@ msgstr "Generere uttalelse"
 msgid "Buyer Number Editor"
 msgstr "Innkjøpernummer Redaktør"
 
-msgid "Select"
-msgstr "Velg"
+msgid "Please select at least one buyer."
+msgstr "Vennligst velg minst én kjøper."
 
 msgid "Your operation completed successfully."
 msgstr "Operasjonen din er fullført."
@@ -1579,6 +1604,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Deaktiver gruppespesifikke egenskaper"
 
+msgid "Role"
+msgstr "Rolle"
+
+msgid "Please enter a role name."
+msgstr "Vennligst skriv inn et rollenavn."
+
 msgid "Confirm Delete Role"
 msgstr "Bekreft sletting av rolle"
 
@@ -1604,26 +1635,50 @@ msgstr "Standard"
 msgid "Sequence"
 msgstr "Rekkefølge"
 
+msgid "Move Up"
+msgstr "Flytt opp"
+
+msgid "Move Down"
+msgstr "Flytt ned"
+
+msgid "Add New Group"
+msgstr "Legg til ny gruppe"
+
+msgid "Enter group name"
+msgstr "Skriv inn gruppenavn"
+
+msgid "Please enter a group name."
+msgstr "Vennligst skriv inn et gruppenavn."
+
+msgid "Group actions"
+msgstr "Gruppehandlinger"
+
+msgid "View"
+msgstr "Utsikt"
+
 msgid "Members"
 msgstr "Medlemmer"
-
-msgid "Group Cart Status"
-msgstr "Status for gruppekurv"
-
-msgid "All members of this group are in the cart"
-msgstr "Alle medlemmer av denne gruppen er i handlekurven"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Ikke alle medlemmer av denne gruppen er i handlekurven."
-
-msgid "Cart isn't showable"
-msgstr "Handlekurven kan ikke vises"
 
 msgid "Group Type"
 msgstr "Gruppetype"
 
-msgid "Unassigned"
-msgstr "Ikke tildelt"
+msgid "Group Cart Status"
+msgstr "Status for gruppekurv"
+
+msgid "In cart"
+msgstr "I handlevogn"
+
+msgid "Remove from cart"
+msgstr "Fjern fra handlekurven"
+
+msgid "Not in cart"
+msgstr "Ikke i handlekurven"
+
+msgid "Add to cart"
+msgstr "Legg i handlekurven"
+
+msgid "Cart isn't showable"
+msgstr "Handlekurven kan ikke vises"
 
 msgid "Value"
 msgstr "Verdi"
@@ -1726,8 +1781,8 @@ msgstr "Er du sikker på at du vil slette alle lederne?"
 msgid "Appointment"
 msgstr "Utnevnelse"
 
-msgid "Tracking"
-msgstr "Sporing"
+msgid "Never contacted"
+msgstr "Aldri kontaktet"
 
 msgid "Visits/calls"
 msgstr "Besøk/samtaler"
@@ -1981,6 +2036,15 @@ msgstr "Deaktiver"
 msgid "Activate"
 msgstr "Aktiver"
 
+msgid "Property actions"
+msgstr "Eiendomshandlinger"
+
+msgid "Assigning..."
+msgstr "Tildeling av..."
+
+msgid "Assign"
+msgstr "Tildel"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Er du sikker på at du vil fjerne denne personens medlemskap fra"
 
@@ -1998,6 +2062,9 @@ msgstr "Endre klassifisering"
 
 msgid "Change role"
 msgstr "Endre rolle"
+
+msgid "Volunteer actions"
+msgstr "Frivillige tiltak"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Bekreft Slett frivillig mulighet"
@@ -2105,8 +2172,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Validere"
 
+msgid "Enter menu link name"
+msgstr "Skriv inn navnet på menylinken"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Skriv inn URL som begynner med http:// eller https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Denne lenken skal begynne med: http://.... eller https://...."
@@ -2406,14 +2479,20 @@ msgstr "Identifisere"
 msgid "Accept"
 msgstr "Godta"
 
-msgid "2 Factor Authentication Secret"
-msgstr "2-faktor autentiseringshemmelighet"
+msgid "Two factors authentications"
+msgstr "Autentisering med to faktorer"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Regenerere 2-faktor autentiseringshemmelighet"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Fjern 2-faktor autentiseringshemmelighet"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2-faktor autentiseringshemmelighet"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Angi TOTP-kode for å bekrefte påmelding"
@@ -2425,6 +2504,9 @@ msgstr ""
 "Oppbevar disse reservepassordene på et trygt sted i tilfelle du mister OTP-"
 "legitimasjonen."
 
+msgid "Unable to remove 2FA right now."
+msgstr "Det er ikke mulig å fjerne 2FA akkurat nå."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Sikkerhetskopiering fullført, klar for nedlasting."
 
@@ -2433,6 +2515,9 @@ msgstr "Brukeren må ha en e-postadresse."
 
 msgid "Select your Role"
 msgstr "Velg din rolle"
+
+msgid "and update its name if needed."
+msgstr "og oppdater navnet om nødvendig."
 
 msgid "Role management"
 msgstr "Rolleforvaltning"
@@ -2446,12 +2531,11 @@ msgstr "Endre navn"
 msgid "Choose a Role Name"
 msgstr "Velg et rollenavn"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>Du må angi et annet rollenavn <br>-- eller --<br> dette rollenavnet "
-"finnes allerede !!!</center> </center"
+msgid "You must set another Role Name"
+msgstr "Du må angi et annet Role Name"
+
+msgid "this Role Name already exist !!!"
+msgstr "dette rollenavnet eksisterer allerede!!!!"
 
 msgid "You've to check at least one user."
 msgstr "Du må sjekke minst én bruker."
@@ -2487,6 +2571,9 @@ msgstr "Handlingsbekreftelse"
 msgid "Please confirm reset failed login count"
 msgstr "Vennligst bekreft tilbakestill antall mislykkede pålogginger"
 
+msgid "Reset"
+msgstr "Tilbakestill"
+
 msgid "Reset failed login count for"
 msgstr "Tilbakestill antall mislykkede pålogginger for"
 
@@ -2496,14 +2583,14 @@ msgstr "ferdig."
 msgid "Please confirm the password reset of this user"
 msgstr "Vennligst bekreft tilbakestillingen av passordet til denne brukeren"
 
+msgid "Reset & Send"
+msgstr "Tilbakestill og send"
+
 msgid "Password reset for"
 msgstr "Tilbakestill passord for"
 
 msgid "Mail connection failure"
 msgstr "Feil i e-postforbindelsen"
-
-msgid "Two factors authentications"
-msgstr "Autentisering med to faktorer"
 
 msgid "to remove two-factor authentication"
 msgstr "for å fjerne tofaktorautentisering"
@@ -2523,9 +2610,8 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "Brukeren har 60 sekunder på seg til å bruke sine gjenopprettingskoder."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Velg frivillighetsmulighet"
+msgstr "Legg til ny mulighet for frivillig arbeid"
 
 msgid "Activ"
 msgstr "Aktiv"
@@ -2536,29 +2622,56 @@ msgstr "Overordnet (hierarki)"
 msgid "Color"
 msgstr "Farge"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Skriv inn navnet på den frivillige muligheten"
+
+msgid "Enter a brief description"
+msgstr "Skriv inn en kort beskrivelse"
+
 msgid "Add to volunteer opportunities"
-msgstr "Velg frivillighetsmulighet"
+msgstr "Legg til muligheter for frivillig arbeid"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Velg frivillighetsmulighet"
+msgstr "Gå til muligheter for frivillig arbeid"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Bekreft Slett frivillig mulighet"
+msgstr "Bekreft Slett denne muligheten"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Vennligst bekreft sletting av denne gruppeoppføringen"
+msgstr "Vennligst bekreft sletting av denne posten"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
-msgstr ""
-"Alle gruppemedlemskap og egenskaper vil bli ødelagt.  Gruppemedlemmene selv "
-"vil ikke bli endret."
+msgstr "Alle medlemskap vil bli ødelagt.  Medlemmene selv vil ikke bli endret."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Generer innskuddsbevis for valgt"
+
+#~ msgid "Rows"
+#~ msgstr "Rader"
+
+#~ msgid "Add buyer"
+#~ msgstr "Legg til kjøper"
+
+#~ msgid "Select"
+#~ msgstr "Velg"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Alle medlemmer av denne gruppen er i handlekurven"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Ikke alle medlemmer av denne gruppen er i handlekurven."
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Regenerere 2-faktor autentiseringshemmelighet"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>Du må angi et annet rollenavn <br>-- eller --<br> dette "
+#~ "rollenavnet finnes allerede !!!</center> </center"
 
 #~ msgid "Done !"
 #~ msgstr "Ferdig!"

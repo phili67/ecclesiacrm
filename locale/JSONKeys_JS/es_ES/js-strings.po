@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1387,6 +1387,15 @@ msgstr ""
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "¿Estás seguro de que quieres dejar de compartir?"
 
+msgid "Selected Rows"
+msgstr "Filas seleccionadas"
+
+msgid "Pledge"
+msgstr "Compromiso"
+
+msgid "Payment"
+msgstr "Pago"
+
 msgid "Confirm Delete"
 msgstr "Confirmar la eliminación"
 
@@ -1401,15 +1410,6 @@ msgstr "Esta acción NO puede deshacerse y puede tener implicaciones legales."
 
 msgid "Please ensure this what you want to do."
 msgstr "Por favor, asegúrese de que esto es lo que quiere hacer."
-
-msgid "Pledge"
-msgstr "Compromiso"
-
-msgid "Selected Rows"
-msgstr "Filas seleccionadas"
-
-msgid "Payment"
-msgstr "Pago"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1459,6 +1459,21 @@ msgstr "Método"
 msgid "Check Number"
 msgstr "Número de cheque"
 
+msgid "Tracking"
+msgstr "Seguimiento de"
+
+msgid "Filter by Family"
+msgstr "Filtrar por familia"
+
+msgid "Filter by Fund"
+msgstr "Filtrar por fondo"
+
+msgid "Export"
+msgstr "Exportar"
+
+msgid "Slip PDF"
+msgstr "Deslizar PDF"
+
 msgid "Deposit ID"
 msgstr "Identificación del depósito"
 
@@ -1477,17 +1492,24 @@ msgstr "Cerrado"
 msgid "Deposit Type"
 msgstr "Tipo de depósito"
 
-msgid "Export"
-msgstr "Exportar"
+msgid "Please enter at least one winner."
+msgstr "Por favor, inscriba al menos un ganador."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Generación de comprobantes de depósito para los seleccionados"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Se han encontrado entradas incompletas. Rellene todos los campos (Artículo, "
+"Ganador, Precio) para cada fila que desee guardar."
 
-msgid "Rows"
-msgstr "Filas"
+msgid "Please enter a number greater than 0."
+msgstr "Por favor, introduzca un número mayor que 0."
 
 msgid "Number"
 msgstr "Número"
+
+msgid "You're about to delete the item !!!"
+msgstr "¡¡¡Estás a punto de borrar el artículo !!!"
 
 msgid "Item"
 msgstr "Artículo"
@@ -1516,8 +1538,11 @@ msgstr "Valor material"
 msgid "Minimum Price"
 msgstr "Precio mínimo"
 
-msgid "Add buyer"
-msgstr "Añadir comprador"
+msgid "You're about to delete the buyer !!!"
+msgstr "¡¡¡Estás a punto de borrar al comprador !!!"
+
+msgid "Unassigned"
+msgstr "No asignado"
 
 msgid "Buyer Number"
 msgstr "Número de comprador"
@@ -1531,8 +1556,8 @@ msgstr "Generar declaración"
 msgid "Buyer Number Editor"
 msgstr "Editor del número de comprador"
 
-msgid "Select"
-msgstr "Seleccione"
+msgid "Please select at least one buyer."
+msgstr "Seleccione al menos un comprador."
 
 msgid "Your operation completed successfully."
 msgstr "Su operación se ha completado con éxito."
@@ -1591,6 +1616,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Desactivar las propiedades específicas del grupo"
 
+msgid "Role"
+msgstr "Papel"
+
+msgid "Please enter a role name."
+msgstr "Por favor, introduzca un nombre de rol."
+
 msgid "Confirm Delete Role"
 msgstr "Confirmar la eliminación de la función"
 
@@ -1616,26 +1647,50 @@ msgstr "Por defecto"
 msgid "Sequence"
 msgstr "Secuencia"
 
+msgid "Move Up"
+msgstr "Ascender"
+
+msgid "Move Down"
+msgstr "Bajar"
+
+msgid "Add New Group"
+msgstr "Añadir nuevo grupo"
+
+msgid "Enter group name"
+msgstr "Introduzca el nombre del grupo"
+
+msgid "Please enter a group name."
+msgstr "Introduzca un nombre de grupo."
+
+msgid "Group actions"
+msgstr "Acciones de grupo"
+
+msgid "View"
+msgstr "Ver"
+
 msgid "Members"
 msgstr "Miembros"
-
-msgid "Group Cart Status"
-msgstr "Estado del carro de grupo"
-
-msgid "All members of this group are in the cart"
-msgstr "Todos los miembros de este grupo están en el carro"
-
-msgid "Not all members of this group are in the cart"
-msgstr "No todos los miembros de este grupo están en el carro"
-
-msgid "Cart isn't showable"
-msgstr "La cesta no se puede mostrar"
 
 msgid "Group Type"
 msgstr "Tipo de grupo"
 
-msgid "Unassigned"
-msgstr "No asignado"
+msgid "Group Cart Status"
+msgstr "Estado del carro de grupo"
+
+msgid "In cart"
+msgstr "En carro"
+
+msgid "Remove from cart"
+msgstr "Eliminar de la cesta"
+
+msgid "Not in cart"
+msgstr "No en la cesta"
+
+msgid "Add to cart"
+msgstr "Añadir a la cesta"
+
+msgid "Cart isn't showable"
+msgstr "La cesta no se puede mostrar"
 
 msgid "Value"
 msgstr "Valor"
@@ -1738,8 +1793,8 @@ msgstr "¿Estás seguro de que quieres borrar todos los gestores?"
 msgid "Appointment"
 msgstr "Cita"
 
-msgid "Tracking"
-msgstr "Seguimiento de"
+msgid "Never contacted"
+msgstr "Nunca contactado"
 
 msgid "Visits/calls"
 msgstr "Visitas/llamadas"
@@ -1997,6 +2052,15 @@ msgstr "Desactivar"
 msgid "Activate"
 msgstr "Activar"
 
+msgid "Property actions"
+msgstr "Acciones inmobiliarias"
+
+msgid "Assigning..."
+msgstr "Asignar..."
+
+msgid "Assign"
+msgstr "Asignar"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "¿Está seguro de que quiere eliminar la afiliación de esta persona de"
 
@@ -2014,6 +2078,9 @@ msgstr "Cambiar la clasificación"
 
 msgid "Change role"
 msgstr "Cambiar de rol"
+
+msgid "Volunteer actions"
+msgstr "Acciones de voluntariado"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Confirmar la supresión de la oportunidad de voluntariado"
@@ -2123,8 +2190,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Validar"
 
+msgid "Enter menu link name"
+msgstr "Introduzca el nombre del enlace del menú"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Introduzca una URL que empiece por http:// o https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Este enlace debe comenzar por: http://.... o https://...."
@@ -2432,14 +2505,20 @@ msgstr "Identificar"
 msgid "Accept"
 msgstr "Aceptar"
 
-msgid "2 Factor Authentication Secret"
-msgstr "Secreto de la autenticación de 2 factores"
+msgid "Two factors authentications"
+msgstr "Autenticaciones de dos factores"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Regenerar el secreto de la autenticación de 2 factores"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Eliminar el secreto de la autenticación de 2 factores"
+
+msgid "2 Factor Authentication Secret"
+msgstr "Secreto de la autenticación de 2 factores"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Introduzca el código TOTP para confirmar la inscripción"
@@ -2451,6 +2530,9 @@ msgstr ""
 "Guarde estas contraseñas de respaldo en un lugar seguro, en caso de que "
 "pierda las credenciales OTP."
 
+msgid "Unable to remove 2FA right now."
+msgstr "No se puede eliminar 2FA en este momento."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Copia de seguridad completa, lista para descargar."
 
@@ -2459,6 +2541,9 @@ msgstr "El usuario debe tener una dirección de correo electrónico."
 
 msgid "Select your Role"
 msgstr "Seleccione su función"
+
+msgid "and update its name if needed."
+msgstr "y actualice su nombre si es necesario."
 
 msgid "Role management"
 msgstr "Gestión de funciones"
@@ -2472,12 +2557,11 @@ msgstr "Cambiar el nombre de"
 msgid "Choose a Role Name"
 msgstr "Elija un nombre de función"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>¡Debes establecer otro Nombre de Rol <br>-- o --<br> este Nombre de "
-"Rol ya existe!!!</center>"
+msgid "You must set another Role Name"
+msgstr "Debe establecer otro Nombre de función"
+
+msgid "this Role Name already exist !!!"
+msgstr "¡¡¡este Nombre de Rol ya existe !!!"
 
 msgid "You've to check at least one user."
 msgstr "Tienes que comprobar al menos un usuario."
@@ -2514,6 +2598,9 @@ msgstr "Confirmación de la acción"
 msgid "Please confirm reset failed login count"
 msgstr "Por favor, confirme el recuento de inicios de sesión fallidos"
 
+msgid "Reset"
+msgstr "Restablecer"
+
 msgid "Reset failed login count for"
 msgstr "Restablecer el recuento de inicios de sesión fallidos para"
 
@@ -2524,14 +2611,14 @@ msgid "Please confirm the password reset of this user"
 msgstr ""
 "Por favor, confirme el restablecimiento de la contraseña de este usuario"
 
+msgid "Reset & Send"
+msgstr "Reiniciar y enviar"
+
 msgid "Password reset for"
 msgstr "Restablecimiento de la contraseña para"
 
 msgid "Mail connection failure"
 msgstr "Fallo de conexión de correo"
-
-msgid "Two factors authentications"
-msgstr "Autenticaciones de dos factores"
 
 msgid "to remove two-factor authentication"
 msgstr "para eliminar la autenticación de dos factores"
@@ -2552,9 +2639,8 @@ msgid "The user has 60 seconds to use his recovery codes."
 msgstr ""
 "El usuario tiene 60 segundos para utilizar sus códigos de recuperación."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Seleccionar oportunidad de voluntariado"
+msgstr "Añadir nueva oportunidad de voluntariado"
 
 msgid "Activ"
 msgstr "Activar"
@@ -2565,29 +2651,58 @@ msgstr "Padre (jerarquía)"
 msgid "Color"
 msgstr "Color"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Introduzca el nombre de la oportunidad de voluntariado"
+
+msgid "Enter a brief description"
+msgstr "Introduzca una breve descripción"
+
 msgid "Add to volunteer opportunities"
-msgstr "Seleccionar oportunidad de voluntariado"
+msgstr "Añadir a las oportunidades de voluntariado"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Seleccionar oportunidad de voluntariado"
+msgstr "Pasar a oportunidades de voluntariado"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Confirmar la supresión de la oportunidad de voluntariado"
+msgstr "Confirmar Eliminar esta oportunidad"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Por favor, confirme la eliminación de este registro de grupo"
+msgstr "Por favor, confirme la eliminación de este registro"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr ""
-"Todos los miembros y propiedades del grupo serán destruidos.  Los propios "
-"miembros del grupo no serán alterados."
+"Todos los miembros serán destruidos.  Los propios miembros no serán "
+"alterados."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Generación de comprobantes de depósito para los seleccionados"
+
+#~ msgid "Rows"
+#~ msgstr "Filas"
+
+#~ msgid "Add buyer"
+#~ msgstr "Añadir comprador"
+
+#~ msgid "Select"
+#~ msgstr "Seleccione"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Todos los miembros de este grupo están en el carro"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "No todos los miembros de este grupo están en el carro"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Regenerar el secreto de la autenticación de 2 factores"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>¡Debes establecer otro Nombre de Rol <br>-- o --<br> este Nombre "
+#~ "de Rol ya existe!!!</center>"
 
 #~ msgid "Done !"
 #~ msgstr "Hecho."

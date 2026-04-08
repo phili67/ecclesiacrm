@@ -1,7 +1,7 @@
-#: ../src/Plugins/PersonDashboardWidget/v2/templates/View.php:26
+#: ../src/Plugins/PersonDashboardWidget/v2/templates/View.php:22
 msgid "People"
 msgstr ""
 
-#: ../src/Plugins/PersonDashboardWidget/v2/templates/View.php:33
+#: ../src/Plugins/PersonDashboardWidget/v2/templates/View.php:31
 msgid "See All People"
 msgstr ""

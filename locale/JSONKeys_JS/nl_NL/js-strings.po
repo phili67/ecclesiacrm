@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1391,6 +1391,15 @@ msgstr ""
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Weet je zeker dat je al het delen wilt stoppen?"
 
+msgid "Selected Rows"
+msgstr "Geselecteerde rijen"
+
+msgid "Pledge"
+msgstr "Pledge"
+
+msgid "Payment"
+msgstr "Betaling"
+
 msgid "Confirm Delete"
 msgstr "Bevestigen Verwijderen"
 
@@ -1407,15 +1416,6 @@ msgstr ""
 
 msgid "Please ensure this what you want to do."
 msgstr "Zorg ervoor dat dit is wat je wilt doen."
-
-msgid "Pledge"
-msgstr "Pledge"
-
-msgid "Selected Rows"
-msgstr "Geselecteerde rijen"
-
-msgid "Payment"
-msgstr "Betaling"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1465,6 +1465,21 @@ msgstr "Methode"
 msgid "Check Number"
 msgstr "Check Nummer"
 
+msgid "Tracking"
+msgstr "Volgen"
+
+msgid "Filter by Family"
+msgstr "Filter op familie"
+
+msgid "Filter by Fund"
+msgstr "Filter op fonds"
+
+msgid "Export"
+msgstr "Exporteren"
+
+msgid "Slip PDF"
+msgstr "Slip PDF"
+
 msgid "Deposit ID"
 msgstr "Deposit ID"
 
@@ -1483,17 +1498,24 @@ msgstr "Gesloten"
 msgid "Deposit Type"
 msgstr "Stortingstype"
 
-msgid "Export"
-msgstr "Exporteren"
+msgid "Please enter at least one winner."
+msgstr "Schrijf ten minste één winnaar in."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Maak Statiegeldbon voor geselecteerde"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Onvolledige items gevonden. Vul alle velden in (Item, Winnaar, Prijs) voor "
+"elke rij die je wilt opslaan."
 
-msgid "Rows"
-msgstr "Rijen"
+msgid "Please enter a number greater than 0."
+msgstr "Voer een getal groter dan 0 in."
 
 msgid "Number"
 msgstr "Nummer"
+
+msgid "You're about to delete the item !!!"
+msgstr "U staat op het punt het item te verwijderen!!!"
 
 msgid "Item"
 msgstr "Item"
@@ -1522,8 +1544,11 @@ msgstr "Materiële Waarde"
 msgid "Minimum Price"
 msgstr "Minimum Prijs"
 
-msgid "Add buyer"
-msgstr "Koper toevoegen"
+msgid "You're about to delete the buyer !!!"
+msgstr "Je staat op het punt de koper te verwijderen!!!"
+
+msgid "Unassigned"
+msgstr "Niet-toegewezen"
 
 msgid "Buyer Number"
 msgstr "Kopersnummer"
@@ -1537,8 +1562,8 @@ msgstr "Verklaring genereren"
 msgid "Buyer Number Editor"
 msgstr "Redacteur kopersnummer"
 
-msgid "Select"
-msgstr "Selecteer"
+msgid "Please select at least one buyer."
+msgstr "Selecteer ten minste één koper."
 
 msgid "Your operation completed successfully."
 msgstr "Uw operatie is succesvol afgerond."
@@ -1596,6 +1621,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Groepsspecifieke eigenschappen uitschakelen"
 
+msgid "Role"
+msgstr "Rol"
+
+msgid "Please enter a role name."
+msgstr "Voer een rolnaam in."
+
 msgid "Confirm Delete Role"
 msgstr "Bevestig verwijderen rol"
 
@@ -1620,26 +1651,50 @@ msgstr "Standaard"
 msgid "Sequence"
 msgstr "Volgorde"
 
+msgid "Move Up"
+msgstr "Omhoog"
+
+msgid "Move Down"
+msgstr "Omlaag"
+
+msgid "Add New Group"
+msgstr "Nieuwe groep toevoegen"
+
+msgid "Enter group name"
+msgstr "Groepsnaam invoeren"
+
+msgid "Please enter a group name."
+msgstr "Voer een groepsnaam in."
+
+msgid "Group actions"
+msgstr "Groepsacties"
+
+msgid "View"
+msgstr "Bekijk"
+
 msgid "Members"
 msgstr "Leden"
-
-msgid "Group Cart Status"
-msgstr "Groep Cart Status"
-
-msgid "All members of this group are in the cart"
-msgstr "Alle leden van deze groep zitten in de kar"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Niet alle leden van deze groep zitten in de kar"
-
-msgid "Cart isn't showable"
-msgstr "Cart is niet toonbaar"
 
 msgid "Group Type"
 msgstr "Groep Type"
 
-msgid "Unassigned"
-msgstr "Niet-toegewezen"
+msgid "Group Cart Status"
+msgstr "Groep Cart Status"
+
+msgid "In cart"
+msgstr "In winkelwagen"
+
+msgid "Remove from cart"
+msgstr "Verwijderen uit winkelwagentje"
+
+msgid "Not in cart"
+msgstr "Niet in winkelwagen"
+
+msgid "Add to cart"
+msgstr "In winkelwagen"
+
+msgid "Cart isn't showable"
+msgstr "Cart is niet toonbaar"
 
 msgid "Value"
 msgstr "Waarde"
@@ -1742,8 +1797,8 @@ msgstr "Weet je zeker dat je alle managers wilt verwijderen?"
 msgid "Appointment"
 msgstr "Afspraak"
 
-msgid "Tracking"
-msgstr "Volgen"
+msgid "Never contacted"
+msgstr "Nooit contact opgenomen"
 
 msgid "Visits/calls"
 msgstr "Bezoeken/oproepen"
@@ -2000,6 +2055,15 @@ msgstr "Deactiveer"
 msgid "Activate"
 msgstr "Activeer"
 
+msgid "Property actions"
+msgstr "Vastgoed acties"
+
+msgid "Assigning..."
+msgstr "Toewijzen..."
+
+msgid "Assign"
+msgstr "toewijzen"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr ""
 "Weet u zeker dat u het lidmaatschap van deze persoon wilt verwijderen van"
@@ -2018,6 +2082,9 @@ msgstr "Wijziging classificatie"
 
 msgid "Change role"
 msgstr "Verander van rol"
+
+msgid "Volunteer actions"
+msgstr "Vrijwilligersacties"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Bevestig Verwijderen Vrijwilligers Opportunity"
@@ -2127,8 +2194,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Valideren"
 
+msgid "Enter menu link name"
+msgstr "Voer de naam van de menulink in"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Voer URL in die begint met http:// of https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Deze link moet beginnen met : http://.... of https://...."
@@ -2433,14 +2506,20 @@ msgstr "Identificeer"
 msgid "Accept"
 msgstr "Accepteren"
 
-msgid "2 Factor Authentication Secret"
-msgstr "2 Factor Authenticatie Geheim"
+msgid "Two factors authentications"
+msgstr "Authenticatie met twee factoren"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Regenereren 2 Factor Authenticatie Geheim"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Verwijder 2 Factor Authenticatie Geheim"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2 Factor Authenticatie Geheim"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Voer de TOTP code in om de inschrijving te bevestigen"
@@ -2452,6 +2531,9 @@ msgstr ""
 "Bewaar deze reservewachtwoorden op een veilige plaats, voor het geval u de "
 "OTP-gegevens verliest."
 
+msgid "Unable to remove 2FA right now."
+msgstr "Kan 2FA nu niet verwijderen."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Back-up compleet, klaar om te downloaden."
 
@@ -2460,6 +2542,9 @@ msgstr "De gebruiker moet een e-mailadres hebben."
 
 msgid "Select your Role"
 msgstr "Selecteer uw rol"
+
+msgid "and update its name if needed."
+msgstr "en werk indien nodig de naam bij."
 
 msgid "Role management"
 msgstr "Rollenbeheer"
@@ -2473,12 +2558,11 @@ msgstr "Hernoemen"
 msgid "Choose a Role Name"
 msgstr "Kies een rolnaam"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>U moet een andere Rolnaam instellen <br>-- of --<br> deze Rolnaam "
-"bestaat al !!!</center>"
+msgid "You must set another Role Name"
+msgstr "U moet een andere rolnaam instellen"
+
+msgid "this Role Name already exist !!!"
+msgstr "deze rolnaam bestaat al !!!"
 
 msgid "You've to check at least one user."
 msgstr "Je moet op zijn minst één gebruiker controleren."
@@ -2515,6 +2599,9 @@ msgstr "Actie Bevestiging"
 msgid "Please confirm reset failed login count"
 msgstr "Gelieve te bevestigen reset mislukte login aantal"
 
+msgid "Reset"
+msgstr "Reset"
+
 msgid "Reset failed login count for"
 msgstr "Reset aantal mislukte aanmeldingen voor"
 
@@ -2524,14 +2611,14 @@ msgstr "gedaan."
 msgid "Please confirm the password reset of this user"
 msgstr "Bevestig de reset van het wachtwoord van deze gebruiker"
 
+msgid "Reset & Send"
+msgstr "Opnieuw instellen en verzenden"
+
 msgid "Password reset for"
 msgstr "Wachtwoord reset voor"
 
 msgid "Mail connection failure"
 msgstr "Storing in mailverbinding"
-
-msgid "Two factors authentications"
-msgstr "Authenticatie met twee factoren"
 
 msgid "to remove two-factor authentication"
 msgstr "om de twee-factor authenticatie te verwijderen"
@@ -2551,9 +2638,8 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "De gebruiker heeft 60 seconden om zijn herstelcodes te gebruiken."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Selecteer Vrijwilligerswerk"
+msgstr "Nieuwe vrijwilligersmogelijkheid toevoegen"
 
 msgid "Activ"
 msgstr "Activ"
@@ -2564,29 +2650,56 @@ msgstr "Ouder (hiërarchie)"
 msgid "Color"
 msgstr "Kleur"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Vul de naam van de vrijwilligerswerkgelegenheid in"
+
+msgid "Enter a brief description"
+msgstr "Voer een korte beschrijving in"
+
 msgid "Add to volunteer opportunities"
-msgstr "Selecteer Vrijwilligerswerk"
+msgstr "Toevoegen aan vrijwilligerswerkmogelijkheden"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Selecteer Vrijwilligerswerk"
+msgstr "Ga naar vrijwilligerswerk"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Bevestig Verwijderen Vrijwilligers Opportunity"
+msgstr "Bevestigen Deze kans verwijderen"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Bevestig de verwijdering van dit groepsrecord"
+msgstr "Bevestig verwijdering van deze record"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
-msgstr ""
-"Alle leden en eigenschappen van de groep worden vernietigd.  De groepsleden "
-"zelf zullen niet worden gewijzigd."
+msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Maak Statiegeldbon voor geselecteerde"
+
+#~ msgid "Rows"
+#~ msgstr "Rijen"
+
+#~ msgid "Add buyer"
+#~ msgstr "Koper toevoegen"
+
+#~ msgid "Select"
+#~ msgstr "Selecteer"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Alle leden van deze groep zitten in de kar"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Niet alle leden van deze groep zitten in de kar"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Regenereren 2 Factor Authenticatie Geheim"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>U moet een andere Rolnaam instellen <br>-- of --<br> deze Rolnaam "
+#~ "bestaat al !!!</center>"
 
 #~ msgid "Done !"
 #~ msgstr "Klaar !"

@@ -1,7 +1,7 @@
-#: ../src/Plugins/SingleDashboardWidget/v2/templates/View.php:26
-msgid "Single Persons"
+#: ../src/Plugins/SingleDashboardWidget/v2/templates/View.php:22
+msgid "Singles"
 msgstr ""
 
-#: ../src/Plugins/SingleDashboardWidget/v2/templates/View.php:34
+#: ../src/Plugins/SingleDashboardWidget/v2/templates/View.php:31
 msgid "View Singles"
 msgstr ""

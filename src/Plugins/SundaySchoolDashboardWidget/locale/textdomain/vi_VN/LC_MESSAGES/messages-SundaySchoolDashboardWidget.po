@@ -1,7 +1,7 @@
-#: ../src/Plugins/SundaySchoolDashboardWidget/v2/templates/View.php:26
-msgid "Sunday School Classes"
+#: ../src/Plugins/SundaySchoolDashboardWidget/v2/templates/View.php:22
+msgid "Sunday School"
 msgstr ""
 
-#: ../src/Plugins/SundaySchoolDashboardWidget/v2/templates/View.php:33
+#: ../src/Plugins/SundaySchoolDashboardWidget/v2/templates/View.php:31
 msgid "More info"
 msgstr ""

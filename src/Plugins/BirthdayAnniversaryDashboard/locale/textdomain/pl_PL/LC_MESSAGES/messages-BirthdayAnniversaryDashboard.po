@@ -2,17 +2,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-13 19:41+0000\n"
+"POT-Creation-Date: 2026-04-08 14:28+0000\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:112
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:42
+msgid "Remove"
+msgstr ""
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:43
+msgid "Collapse"
+msgstr ""
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:70
 msgid "Birthdates of the day"
 msgstr "Daty urodzenia z dnia"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:132
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:84
 msgid "Anniversaries of the day"
 msgstr "Rocznice z dnia"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:108
+msgid "Unclassified birthdates"
+msgstr ""

@@ -2,86 +2,142 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 10:06+0000\n"
+"POT-Creation-Date: 2026-04-08 14:28+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:67
-msgid "Pastoral Care"
-msgstr "Пасторское попечение"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
-msgid "Latest"
-msgstr "Последние"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
-msgid "Individual Pastoral Care"
-msgstr "Индивидуальная пасторская помощь"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:130
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:186
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:34
 msgid "None"
 msgstr "Нет"
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
-msgid "Last"
-msgstr "Последний"
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:67
+msgid "Excellent coverage"
+msgstr ""
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
-msgid "Family Pastoral Care"
-msgstr "Семейная пасторская помощь"
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:68
+#, php-format
+msgid ""
+"More than 60% of members have been visited. Keep up the great pastoral work!"
+msgstr ""
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:160
-msgid "Family"
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:72
+msgid "Good progress"
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:73
+msgid ""
+"Between 30% and 60% of members have been visited. Continue your efforts!"
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:77
+msgid "Attention needed"
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:78
+msgid ""
+"Only 10% to 30% of members have been visited. It is time to intensify "
+"pastoral activities."
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:82
+msgid "Critical situation"
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:83
+#, php-format
+msgid ""
+"Less than 10% of members have been visited. Immediate pastoral action is "
+"required!"
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:92
+msgid "Persons"
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:93
+#, fuzzy
+msgid "Families"
 msgstr "Семья"
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:193
-msgid "Statistics"
-msgstr "Статистика"
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:94
+msgid "Singles"
+msgstr ""
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
-msgid "Period  from"
-msgstr "Период с"
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:95
+msgid "Retired"
+msgstr ""
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
-msgid "to"
-msgstr "на"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:196
-msgid "Members"
-msgstr "Члены"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:199
-msgid "Persons not reached"
-msgstr "Лица, с которыми не удалось связаться"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:203
-msgid "Families not reached"
-msgstr "Не охваченные семьи"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:207
-msgid "Single Persons not reached"
-msgstr "Одинокие люди не охвачены"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:211
-msgid "Retired Persons not reached"
-msgstr "Пенсионеры не охвачены"
-
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:215
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:96
 msgid "Young People"
 msgstr "Молодые люди"
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:218
-msgid "Young People not reached"
-msgstr "Молодые люди не охвачены"
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:102
+msgid "Members"
+msgstr "Члены"
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:224
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:103
+msgid "Progress"
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:104
+msgid "Count"
+msgstr ""
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:132
+msgid "Pastoral Care"
+msgstr "Пасторское попечение"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:133
+#, fuzzy
+msgid "Period from"
+msgstr "Период с"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:133
+msgid "to"
+msgstr "на"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:149
+msgid "Latest"
+msgstr "Последние"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:149
+msgid "Individual Pastoral Care"
+msgstr "Индивидуальная пасторская помощь"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:155
+msgid "Last"
+msgstr "Последний"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:155
+msgid "Family Pastoral Care"
+msgstr "Семейная пасторская помощь"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:162
+msgid "Statistics"
+msgstr "Статистика"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:183
 msgid "Visit/Call your church members"
 msgstr "Посетите/обзвоните членов вашей церкви"
 
-#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:225
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:185
 msgid "Manage Pastoral Care"
 msgstr "Управление пасторским попечением"
+
+#~ msgid "Persons not reached"
+#~ msgstr "Лица, с которыми не удалось связаться"
+
+#~ msgid "Families not reached"
+#~ msgstr "Не охваченные семьи"
+
+#~ msgid "Single Persons not reached"
+#~ msgstr "Одинокие люди не охвачены"
+
+#~ msgid "Retired Persons not reached"
+#~ msgstr "Пенсионеры не охвачены"
+
+#~ msgid "Young People not reached"
+#~ msgstr "Молодые люди не охвачены"

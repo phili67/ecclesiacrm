@@ -1,7 +1,7 @@
-#: ../src/Plugins/VolunteerDashboardWidget/v2/templates/View.php:26
-msgid "Volunteer Opportunities"
+#: ../src/Plugins/VolunteerDashboardWidget/v2/templates/View.php:22
+msgid "Volunteers"
 msgstr ""
 
-#: ../src/Plugins/VolunteerDashboardWidget/v2/templates/View.php:33
+#: ../src/Plugins/VolunteerDashboardWidget/v2/templates/View.php:31
 msgid "More info"
 msgstr ""

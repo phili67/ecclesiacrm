@@ -68,17 +68,17 @@ $defaultList = ToDoListDashboardQuery::create()
                     <?php } ?>
                 </select>
                 <div class="btn-group btn-group-sm" role="group">
-                    <button type="button" class="btn btn-primary" id="Add-To-Do-List-Dashboard"
+                    <button type="button" class="btn btn-outline-primary" id="Add-To-Do-List-Dashboard"
                             data-toggle="tooltip" data-placement="top"
                             title="<?= dgettext("messages-ToDoListDashboard","Add a To Do List") ?>">
                         <i class="fas fa-plus"></i>
                     </button>
-                    <button type="button" class="btn btn-success" id="edit-To-Do-List-Dashboard"
+                    <button type="button" class="btn btn-outline-success" id="edit-To-Do-List-Dashboard"
                             data-toggle="tooltip" data-placement="top"
                             title="<?= dgettext("messages-ToDoListDashboard","Edit Name of Current To Do List") ?>">
                         <i class="fas fa-edit"></i>
                     </button>
-                    <button type="button" class="btn btn-danger" id="remove-To-Do-List-Dashboard"
+                    <button type="button" class="btn btn-outline-danger" id="remove-To-Do-List-Dashboard"
                             data-toggle="tooltip" data-placement="top"
                             title="<?= dgettext("messages-ToDoListDashboard","Remove Current To Do List") ?>">
                         <i class="fas fa-trash"></i>

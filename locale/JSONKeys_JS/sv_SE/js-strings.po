@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1383,6 +1383,15 @@ msgstr "Är du säker på att du vill stoppa delningen för utvalda användare?"
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Är du säker på att du vill stoppa all delning?"
 
+msgid "Selected Rows"
+msgstr "Valda rader"
+
+msgid "Pledge"
+msgstr "Löfte"
+
+msgid "Payment"
+msgstr "Betalning"
+
 msgid "Confirm Delete"
 msgstr "Bekräfta Radera"
 
@@ -1397,15 +1406,6 @@ msgstr "Denna åtgärd kan inte göras ogjord och kan få rättsliga konsekvense
 
 msgid "Please ensure this what you want to do."
 msgstr "Kontrollera att det är detta du vill göra."
-
-msgid "Pledge"
-msgstr "Löfte"
-
-msgid "Selected Rows"
-msgstr "Valda rader"
-
-msgid "Payment"
-msgstr "Betalning"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1455,6 +1455,21 @@ msgstr "Metod"
 msgid "Check Number"
 msgstr "Kontrollnummer"
 
+msgid "Tracking"
+msgstr "Spårning av"
+
+msgid "Filter by Family"
+msgstr "Filtrera efter familj"
+
+msgid "Filter by Fund"
+msgstr "Filtrera efter fond"
+
+msgid "Export"
+msgstr "Exportera"
+
+msgid "Slip PDF"
+msgstr "Slip PDF"
+
 msgid "Deposit ID"
 msgstr "ID för insättning"
 
@@ -1473,17 +1488,24 @@ msgstr "Stängt"
 msgid "Deposit Type"
 msgstr "Typ av insättning"
 
-msgid "Export"
-msgstr "Exportera"
+msgid "Please enter at least one winner."
+msgstr "Vänligen ange minst en vinnare."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Generera inbetalningsunderlag för valda"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Ofullständiga poster hittades. Vänligen fyll i alla fält (Artikel, Vinnare, "
+"Pris) för varje rad som du vill spara."
 
-msgid "Rows"
-msgstr "Rader"
+msgid "Please enter a number greater than 0."
+msgstr "Ange ett tal som är större än 0."
 
 msgid "Number"
 msgstr "Antal"
+
+msgid "You're about to delete the item !!!"
+msgstr "Du är på väg att ta bort objektet !!!"
 
 msgid "Item"
 msgstr "Artikel"
@@ -1512,8 +1534,11 @@ msgstr "Materiellt värde"
 msgid "Minimum Price"
 msgstr "Minimipris"
 
-msgid "Add buyer"
-msgstr "Lägg till köpare"
+msgid "You're about to delete the buyer !!!"
+msgstr "Du är på väg att radera köparen !!!"
+
+msgid "Unassigned"
+msgstr "Ej tilldelad"
 
 msgid "Buyer Number"
 msgstr "Köparens nummer"
@@ -1527,8 +1552,8 @@ msgstr "Generera en redogörelse"
 msgid "Buyer Number Editor"
 msgstr "Köpare Nummer Redaktör"
 
-msgid "Select"
-msgstr "Välj"
+msgid "Please select at least one buyer."
+msgstr "Vänligen välj minst en köpare."
 
 msgid "Your operation completed successfully."
 msgstr "Din operation slutfördes framgångsrikt."
@@ -1586,6 +1611,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Inaktivera gruppspecifika egenskaper"
 
+msgid "Role"
+msgstr "Roll"
+
+msgid "Please enter a role name."
+msgstr "Ange ett namn på rollen."
+
 msgid "Confirm Delete Role"
 msgstr "Bekräfta Radera roll"
 
@@ -1612,26 +1643,50 @@ msgstr "Standard"
 msgid "Sequence"
 msgstr "Sekvens"
 
+msgid "Move Up"
+msgstr "Flytta upp"
+
+msgid "Move Down"
+msgstr "Flytta ner"
+
+msgid "Add New Group"
+msgstr "Lägg till ny grupp"
+
+msgid "Enter group name"
+msgstr "Ange gruppnamn"
+
+msgid "Please enter a group name."
+msgstr "Ange ett gruppnamn."
+
+msgid "Group actions"
+msgstr "Gruppåtgärder"
+
+msgid "View"
+msgstr "Utsikt"
+
 msgid "Members"
 msgstr "Ledamöter"
-
-msgid "Group Cart Status"
-msgstr "Status för gruppkorg"
-
-msgid "All members of this group are in the cart"
-msgstr "Alla medlemmar i denna grupp finns i vagnen"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Alla medlemmar i denna grupp finns inte i vagnen."
-
-msgid "Cart isn't showable"
-msgstr "Varukorgen kan inte visas"
 
 msgid "Group Type"
 msgstr "Typ av grupp"
 
-msgid "Unassigned"
-msgstr "Ej tilldelad"
+msgid "Group Cart Status"
+msgstr "Status för gruppkorg"
+
+msgid "In cart"
+msgstr "I kundvagn"
+
+msgid "Remove from cart"
+msgstr "Ta bort från kundvagnen"
+
+msgid "Not in cart"
+msgstr "Ej i kundvagnen"
+
+msgid "Add to cart"
+msgstr "Lägg till i varukorgen"
+
+msgid "Cart isn't showable"
+msgstr "Varukorgen kan inte visas"
 
 msgid "Value"
 msgstr "Värde"
@@ -1734,8 +1789,8 @@ msgstr "Är du säker på att du vill radera alla chefer?"
 msgid "Appointment"
 msgstr "Utnämning"
 
-msgid "Tracking"
-msgstr "Spårning av"
+msgid "Never contacted"
+msgstr "Aldrig kontaktad"
 
 msgid "Visits/calls"
 msgstr "Besök/samtal"
@@ -1983,6 +2038,15 @@ msgstr "Inaktivera"
 msgid "Activate"
 msgstr "Aktivera"
 
+msgid "Property actions"
+msgstr "Fastighetsåtgärder"
+
+msgid "Assigning..."
+msgstr "Tilldela..."
+
+msgid "Assign"
+msgstr "Tilldela"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Är du säker på att du vill ta bort den här personens medlemskap från"
 
@@ -2000,6 +2064,9 @@ msgstr "Ändra klassificering"
 
 msgid "Change role"
 msgstr "Ändra roll"
+
+msgid "Volunteer actions"
+msgstr "Frivilliga insatser"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Bekräfta Radera frivillig möjlighet"
@@ -2107,8 +2174,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Validera"
 
+msgid "Enter menu link name"
+msgstr "Ange namn på menylänk"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Ange URL som börjar med http:// eller https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Länken ska börja med följande: http://.... eller https://....."
@@ -2410,14 +2483,20 @@ msgstr "Identifiera"
 msgid "Accept"
 msgstr "Acceptera"
 
-msgid "2 Factor Authentication Secret"
-msgstr "Hemlighet för autentisering med 2 faktorer"
+msgid "Two factors authentications"
+msgstr "Autentisering med två faktorer"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Återskapa 2-faktors autentiseringshemlighet"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Ta bort 2-faktors autentiseringshemlighet"
+
+msgid "2 Factor Authentication Secret"
+msgstr "Hemlighet för autentisering med 2 faktorer"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Ange TOTP-kod för att bekräfta registreringen"
@@ -2429,6 +2508,9 @@ msgstr ""
 "Förvara dessa reservlösenord på ett säkert ställe om du skulle förlora OTP-"
 "uppgifter."
 
+msgid "Unable to remove 2FA right now."
+msgstr "Det går inte att ta bort 2FA just nu."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Säkerhetskopiering klar, redo för nedladdning."
 
@@ -2437,6 +2519,9 @@ msgstr "Användaren måste ha en e-postadress."
 
 msgid "Select your Role"
 msgstr "Välj din roll"
+
+msgid "and update its name if needed."
+msgstr "och uppdatera dess namn om det behövs."
 
 msgid "Role management"
 msgstr "Förvaltning av roller"
@@ -2450,12 +2535,11 @@ msgstr "Byt namn på"
 msgid "Choose a Role Name"
 msgstr "Välj ett rollnamn"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>Du måste ange ett annat rollnamn <br>-- eller --<br> detta rollnamn "
-"finns redan!!!</center>"
+msgid "You must set another Role Name"
+msgstr "Du måste ange ett annat Role Name"
+
+msgid "this Role Name already exist !!!"
+msgstr "detta rollnamn finns redan !!!"
 
 msgid "You've to check at least one user."
 msgstr "Du måste kontrollera minst en användare."
@@ -2491,6 +2575,9 @@ msgstr "Åtgärd Bekräftelse"
 msgid "Please confirm reset failed login count"
 msgstr "Bekräfta att du återställer antalet misslyckade inloggningar"
 
+msgid "Reset"
+msgstr "Återställning"
+
 msgid "Reset failed login count for"
 msgstr "Återställ antalet misslyckade inloggningar för"
 
@@ -2500,14 +2587,14 @@ msgstr "gjort."
 msgid "Please confirm the password reset of this user"
 msgstr "Bekräfta återställningen av lösenordet för den här användaren"
 
+msgid "Reset & Send"
+msgstr "Återställ och skicka"
+
 msgid "Password reset for"
 msgstr "Återställning av lösenord för"
 
 msgid "Mail connection failure"
 msgstr "Fel i e-postanslutningen"
-
-msgid "Two factors authentications"
-msgstr "Autentisering med två faktorer"
 
 msgid "to remove two-factor authentication"
 msgstr "ta bort tvåfaktorsautentisering"
@@ -2528,9 +2615,8 @@ msgid "The user has 60 seconds to use his recovery codes."
 msgstr ""
 "Användaren har 60 sekunder på sig att använda sina återställningskoder."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Välj volontärmöjlighet"
+msgstr "Lägg till ny volontärmöjlighet"
 
 msgid "Activ"
 msgstr "Aktivera"
@@ -2541,29 +2627,58 @@ msgstr "Förälder (hierarki)"
 msgid "Color"
 msgstr "Färg"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Ange namn på volontärmöjlighet"
+
+msgid "Enter a brief description"
+msgstr "Ange en kort beskrivning"
+
 msgid "Add to volunteer opportunities"
-msgstr "Välj volontärmöjlighet"
+msgstr "Lägg till möjligheter till volontärarbete"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Välj volontärmöjlighet"
+msgstr "Flytta till möjligheter för volontärarbete"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Bekräfta Radera frivillig möjlighet"
+msgstr "Bekräfta Ta bort denna möjlighet"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Bekräfta att den här gruppregistreringen har raderats."
+msgstr "Vänligen bekräfta radering av denna post"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr ""
-"Alla gruppmedlemskap och egenskaper förstörs.  Gruppmedlemmarna i sig kommer "
-"inte att ändras."
+"Alla medlemskap kommer att förstöras.  Medlemmarna själva kommer inte att "
+"förändras."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Generera inbetalningsunderlag för valda"
+
+#~ msgid "Rows"
+#~ msgstr "Rader"
+
+#~ msgid "Add buyer"
+#~ msgstr "Lägg till köpare"
+
+#~ msgid "Select"
+#~ msgstr "Välj"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Alla medlemmar i denna grupp finns i vagnen"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Alla medlemmar i denna grupp finns inte i vagnen."
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Återskapa 2-faktors autentiseringshemlighet"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>Du måste ange ett annat rollnamn <br>-- eller --<br> detta "
+#~ "rollnamn finns redan!!!</center>"
 
 #~ msgid "Done !"
 #~ msgstr "Klart!"

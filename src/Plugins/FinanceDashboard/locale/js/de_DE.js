@@ -1,1 +1,1 @@
-try {window.CRM.FinanceDashboard_i18keys = {    "Tracking": "Nachverfolgung"};} catch(e) {};
+try {window.CRM.FinanceDashboard_i18keys = {};} catch(e) {};

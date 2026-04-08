@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1395,6 +1395,15 @@ msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "A jeni i sigurt, ju doni të ndaluar ndarjen e dokumentit tuaj?"
 
+msgid "Selected Rows"
+msgstr "Rrugë të zgjedhur"
+
+msgid "Pledge"
+msgstr "- zotim"
+
+msgid "Payment"
+msgstr "pagimi"
+
 msgid "Confirm Delete"
 msgstr "Konfirmo Fshijen"
 
@@ -1410,15 +1419,6 @@ msgstr ""
 
 msgid "Please ensure this what you want to do."
 msgstr "Të lutem sigurohu këtë që do të bësh."
-
-msgid "Pledge"
-msgstr "- zotim"
-
-msgid "Selected Rows"
-msgstr "Rrugë të zgjedhur"
-
-msgid "Payment"
-msgstr "pagimi"
 
 msgid "Depid"
 msgstr "Ndihmë!"
@@ -1468,6 +1468,21 @@ msgstr "metoda"
 msgid "Check Number"
 msgstr "Kontrollo Numberin"
 
+msgid "Tracking"
+msgstr "gjurmimi."
+
+msgid "Filter by Family"
+msgstr ""
+
+msgid "Filter by Fund"
+msgstr ""
+
+msgid "Export"
+msgstr "Eksport."
+
+msgid "Slip PDF"
+msgstr ""
+
 msgid "Deposit ID"
 msgstr "identifikimi i depozitimit"
 
@@ -1486,17 +1501,24 @@ msgstr "Mbyllur."
 msgid "Deposit Type"
 msgstr "depozit tajpe"
 
-msgid "Export"
-msgstr "Eksport."
+#, fuzzy
+msgid "Please enter at least one winner."
+msgstr "Duhet të kontrollosh të paktën një përdorues."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "\"slipi i depozitave së gjeneralit për zgjidhjen\""
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
 
-msgid "Rows"
-msgstr "rreshta."
+msgid "Please enter a number greater than 0."
+msgstr ""
 
 msgid "Number"
 msgstr "Numri"
+
+#, fuzzy
+msgid "You're about to delete the item !!!"
+msgstr "Do ta fshish etiketën!"
 
 msgid "Item"
 msgstr "Item"
@@ -1525,8 +1547,12 @@ msgstr "Vlera materiale"
 msgid "Minimum Price"
 msgstr "minimum çmimi"
 
-msgid "Add buyer"
-msgstr "Shto blerësin"
+#, fuzzy
+msgid "You're about to delete the buyer !!!"
+msgstr "Do ta fshish etiketën!"
+
+msgid "Unassigned"
+msgstr "pa caktuar."
 
 msgid "Buyer Number"
 msgstr "Blerësi numër"
@@ -1540,8 +1566,9 @@ msgstr "Deklarata e Gjeneratorit"
 msgid "Buyer Number Editor"
 msgstr "Blerësit numërësor"
 
-msgid "Select"
-msgstr "Zgjedh."
+#, fuzzy
+msgid "Please select at least one buyer."
+msgstr "Ju lutem zgjidhni objektivin Rolin për anëtarët"
 
 msgid "Your operation completed successfully."
 msgstr "Operacioni juaj përfundoi me sukses."
@@ -1599,6 +1626,13 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "grupi i çaktivizuar pronët specifike"
 
+#, fuzzy
+msgid "Role"
+msgstr "roll emrit"
+
+msgid "Please enter a role name."
+msgstr ""
+
 msgid "Confirm Delete Role"
 msgstr "Konfirmo Delete Role"
 
@@ -1625,26 +1659,59 @@ msgstr "Falja"
 msgid "Sequence"
 msgstr "sekuenca."
 
+#, fuzzy
+msgid "Move Up"
+msgstr "Lëviz."
+
+#, fuzzy
+msgid "Move Down"
+msgstr "Lëviz Eventin"
+
+#, fuzzy
+msgid "Add New Group"
+msgstr "shto karrocën në grup"
+
+#, fuzzy
+msgid "Enter group name"
+msgstr "Emri grupor"
+
+#, fuzzy
+msgid "Please enter a group name."
+msgstr "ju lutemi zgjedhni objektivin për anëtarët"
+
+#, fuzzy
+msgid "Group actions"
+msgstr "Emri grupor"
+
+#, fuzzy
+msgid "View"
+msgstr "shiko të gjitha"
+
 msgid "Members"
 msgstr "Anëtarë"
-
-msgid "Group Cart Status"
-msgstr "Statusi i karrocës së grupit"
-
-msgid "All members of this group are in the cart"
-msgstr "Të gjithë anëtarët e grupit janë në karrocë"
-
-msgid "Not all members of this group are in the cart"
-msgstr "jo të gjithë anëtarët e këtij grupi janë të përfshirë"
-
-msgid "Cart isn't showable"
-msgstr "karroca nuk është e dukshme"
 
 msgid "Group Type"
 msgstr "Lloj grupi"
 
-msgid "Unassigned"
-msgstr "pa caktuar."
+msgid "Group Cart Status"
+msgstr "Statusi i karrocës së grupit"
+
+msgid "In cart"
+msgstr ""
+
+#, fuzzy
+msgid "Remove from cart"
+msgstr "Largoje nga Karti"
+
+msgid "Not in cart"
+msgstr ""
+
+#, fuzzy
+msgid "Add to cart"
+msgstr "Shtoje tek Karti"
+
+msgid "Cart isn't showable"
+msgstr "karroca nuk është e dukshme"
 
 msgid "Value"
 msgstr "Vlerë"
@@ -1752,8 +1819,8 @@ msgstr "Je i sigurt që dëshiron t'i fshish menaxheret?"
 msgid "Appointment"
 msgstr "Takimi."
 
-msgid "Tracking"
-msgstr "gjurmimi."
+msgid "Never contacted"
+msgstr ""
 
 msgid "Visits/calls"
 msgstr "Vizitet dhe telefonatat"
@@ -2010,6 +2077,18 @@ msgstr "Deaktivizohu"
 msgid "Activate"
 msgstr "Aktivizo."
 
+#, fuzzy
+msgid "Property actions"
+msgstr "Emri i pronës"
+
+#, fuzzy
+msgid "Assigning..."
+msgstr "Detyrimi."
+
+#, fuzzy
+msgid "Assign"
+msgstr "Detyrimi."
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Je i sigurt që do të heqësh anëtarësimin e këtij personi"
 
@@ -2028,6 +2107,9 @@ msgstr "Ndrysho klasifikimin"
 
 msgid "Change role"
 msgstr "Ndrysho rolin"
+
+msgid "Volunteer actions"
+msgstr ""
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Konfirmo mundësinë vullnetare"
@@ -2138,8 +2220,15 @@ msgstr "ID."
 msgid "Validate"
 msgstr "Validate"
 
+msgid "Enter menu link name"
+msgstr ""
+
 msgid "URI"
 msgstr "Uri"
+
+#, fuzzy
+msgid "Enter URL starting with http:// or https://"
+msgstr "Kjo lidhje duhet të fillojë me : http:/.... ose https:/...."
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Kjo lidhje duhet të fillojë me : http:/.... ose https:/...."
@@ -2441,14 +2530,20 @@ msgstr "identifikohuni."
 msgid "Accept"
 msgstr "Prano!"
 
-msgid "2 Factor Authentication Secret"
-msgstr "2 faktor autencial sekret"
+msgid "Two factors authentications"
+msgstr "dy faktorë vërtetime"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Rigjenero Sekretin e Autorimit të Autorimit 2"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Largoni 2 Faktor Sekretin"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2 faktor autencial sekret"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Futuni kodin e TOTP për konfirmim regjistrimin"
@@ -2460,6 +2555,10 @@ msgstr ""
 "Mbaji këto fjalëkalime rezervë në një vend të sigurt, në rast se humbet "
 "kredencialet e OTP-së."
 
+#, fuzzy
+msgid "Unable to remove 2FA right now."
+msgstr "Nuk ka ngjarje tani."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Përforcime e plotë, gati për shkarkim."
 
@@ -2468,6 +2567,9 @@ msgstr "përdoruesi duhet të ketë një adresë elektronike."
 
 msgid "Select your Role"
 msgstr "Zgjidh Rolin"
+
+msgid "and update its name if needed."
+msgstr ""
 
 msgid "Role management"
 msgstr "Roli i menaxhimit"
@@ -2481,12 +2583,12 @@ msgstr "Riemri"
 msgid "Choose a Role Name"
 msgstr "Zgjidh një emër roli"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
+#, fuzzy
+msgid "You must set another Role Name"
+msgstr "Zgjidh një emër roli"
+
+msgid "this Role Name already exist !!!"
 msgstr ""
-"0987, duhet të vendosësh një tjetër role emri<br>-- ose -- <br>ky role emri "
-"tashmë ekziston! !</center>"
 
 msgid "You've to check at least one user."
 msgstr "Duhet të kontrollosh të paktën një përdorues."
@@ -2522,6 +2624,9 @@ msgstr "Aksioni u konfirmua"
 msgid "Please confirm reset failed login count"
 msgstr "Ju lutem konfirmoni numërimin e dështuar"
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset failed login count for"
 msgstr "Risët nuk kanë llogaritur logjikën"
 
@@ -2531,14 +2636,14 @@ msgstr "u bë."
 msgid "Please confirm the password reset of this user"
 msgstr "Ju lutem konfirmoni fjalëkalimin e këtij përdoruesi"
 
+msgid "Reset & Send"
+msgstr ""
+
 msgid "Password reset for"
 msgstr "Fjalëkalimi u rivendos"
 
 msgid "Mail connection failure"
 msgstr ""
-
-msgid "Two factors authentications"
-msgstr "dy faktorë vërtetime"
 
 msgid "to remove two-factor authentication"
 msgstr "për të hequr autentikimin dy faktor"
@@ -2572,6 +2677,14 @@ msgid "Color"
 msgstr ""
 
 #, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "shto mundësinë e re të vullnetit"
+
+#, fuzzy
+msgid "Enter a brief description"
+msgstr "përshkrimi i ngjarjes"
+
+#, fuzzy
 msgid "Add to volunteer opportunities"
 msgstr "shto mundësinë e re të vullnetit"
 
@@ -2594,6 +2707,34 @@ msgid ""
 msgstr ""
 "Të gjitha anëtarësimi në grup dhe pronat do të shkatërrohen. vetë anëtarët e "
 "grupit nuk do të ndryshojnë."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "\"slipi i depozitave së gjeneralit për zgjidhjen\""
+
+#~ msgid "Rows"
+#~ msgstr "rreshta."
+
+#~ msgid "Add buyer"
+#~ msgstr "Shto blerësin"
+
+#~ msgid "Select"
+#~ msgstr "Zgjedh."
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Të gjithë anëtarët e grupit janë në karrocë"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "jo të gjithë anëtarët e këtij grupi janë të përfshirë"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Rigjenero Sekretin e Autorimit të Autorimit 2"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "0987, duhet të vendosësh një tjetër role emri<br>-- ose -- <br>ky role "
+#~ "emri tashmë ekziston! !</center>"
 
 #~ msgid "Done !"
 #~ msgstr "U bë !"

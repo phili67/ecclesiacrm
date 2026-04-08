@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1386,6 +1386,15 @@ msgstr ""
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Biztos vagy benne, hogy le akarsz állítani minden megosztást?"
 
+msgid "Selected Rows"
+msgstr "Kijelölt sorok"
+
+msgid "Pledge"
+msgstr "Pledge"
+
+msgid "Payment"
+msgstr "Fizetés"
+
 msgid "Confirm Delete"
 msgstr "Törlés megerősítése"
 
@@ -1401,15 +1410,6 @@ msgstr ""
 
 msgid "Please ensure this what you want to do."
 msgstr "Kérjük, győződjön meg róla, hogy ezt szeretné tenni."
-
-msgid "Pledge"
-msgstr "Pledge"
-
-msgid "Selected Rows"
-msgstr "Kijelölt sorok"
-
-msgid "Payment"
-msgstr "Fizetés"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1459,6 +1459,21 @@ msgstr "Módszer"
 msgid "Check Number"
 msgstr "Ellenőrizze a számot"
 
+msgid "Tracking"
+msgstr "Nyomon követés"
+
+msgid "Filter by Family"
+msgstr "Szűrés család szerint"
+
+msgid "Filter by Fund"
+msgstr "Szűrés alap szerint"
+
+msgid "Export"
+msgstr "Exportálás"
+
+msgid "Slip PDF"
+msgstr "Slip PDF"
+
 msgid "Deposit ID"
 msgstr "Letéti azonosító"
 
@@ -1477,17 +1492,24 @@ msgstr "Zárt"
 msgid "Deposit Type"
 msgstr "Betét típusa"
 
-msgid "Export"
-msgstr "Exportálás"
+msgid "Please enter at least one winner."
+msgstr "Kérjük, legalább egy nyertest nevezzen be."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Befizetési bizonylat generálása a kiválasztott"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Hiányos bejegyzéseket találtunk. Kérjük, töltse ki az összes mezőt (Tétel, "
+"Győztes, Ár) minden egyes sorhoz, amelyet el szeretne menteni."
 
-msgid "Rows"
-msgstr "Sorok"
+msgid "Please enter a number greater than 0."
+msgstr "Kérjük, adjon meg egy 0-nál nagyobb számot."
 
 msgid "Number"
 msgstr "Szám"
+
+msgid "You're about to delete the item !!!"
+msgstr "A tétel törlésére készülsz !!!"
 
 msgid "Item"
 msgstr "Tétel"
@@ -1516,8 +1538,11 @@ msgstr "Anyagi érték"
 msgid "Minimum Price"
 msgstr "Minimális ár"
 
-msgid "Add buyer"
-msgstr "Vevő hozzáadása"
+msgid "You're about to delete the buyer !!!"
+msgstr "Mindjárt törlöd a vevőt !!!"
+
+msgid "Unassigned"
+msgstr "Nem kijelölt"
 
 msgid "Buyer Number"
 msgstr "Vevő száma"
@@ -1531,8 +1556,8 @@ msgstr "Nyilatkozat létrehozása"
 msgid "Buyer Number Editor"
 msgstr "Vevőszám szerkesztő"
 
-msgid "Select"
-msgstr "Válassza ki a  címet."
+msgid "Please select at least one buyer."
+msgstr "Kérjük, válasszon legalább egy vevőt."
 
 msgid "Your operation completed successfully."
 msgstr "A művelet sikeresen befejeződött."
@@ -1590,6 +1615,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Csoport-specifikus tulajdonságok letiltása"
 
+msgid "Role"
+msgstr "Szerepvállalás"
+
+msgid "Please enter a role name."
+msgstr "Kérjük, adja meg a szerepkör nevét."
+
 msgid "Confirm Delete Role"
 msgstr "Szerepkör törlése megerősítése"
 
@@ -1614,26 +1645,50 @@ msgstr "Alapértelmezett"
 msgid "Sequence"
 msgstr "Sorozat"
 
+msgid "Move Up"
+msgstr "Mozogj feljebb"
+
+msgid "Move Down"
+msgstr "Mozgás lefelé"
+
+msgid "Add New Group"
+msgstr "Új csoport hozzáadása"
+
+msgid "Enter group name"
+msgstr "Adja meg a csoport nevét"
+
+msgid "Please enter a group name."
+msgstr "Kérjük, adjon meg egy csoportnevet."
+
+msgid "Group actions"
+msgstr "Csoportos fellépések"
+
+msgid "View"
+msgstr "A  megtekintése"
+
 msgid "Members"
 msgstr "Tagok"
-
-msgid "Group Cart Status"
-msgstr "Csoportos kosár állapota"
-
-msgid "All members of this group are in the cart"
-msgstr "Ennek a csoportnak minden tagja a kosárban van"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Nem minden tagja ennek a csoportnak van a kosárban."
-
-msgid "Cart isn't showable"
-msgstr "A kosár nem jeleníthető meg"
 
 msgid "Group Type"
 msgstr "Csoport típusa"
 
-msgid "Unassigned"
-msgstr "Nem kijelölt"
+msgid "Group Cart Status"
+msgstr "Csoportos kosár állapota"
+
+msgid "In cart"
+msgstr "A kosárban"
+
+msgid "Remove from cart"
+msgstr "Vegye ki a kosárból"
+
+msgid "Not in cart"
+msgstr "Nincs a kosárban"
+
+msgid "Add to cart"
+msgstr "Hozzáadás a kosárhoz"
+
+msgid "Cart isn't showable"
+msgstr "A kosár nem jeleníthető meg"
 
 msgid "Value"
 msgstr "Érték"
@@ -1736,8 +1791,8 @@ msgstr "Biztos, hogy az összes menedzsert törölni akarja?"
 msgid "Appointment"
 msgstr "Időpontkérés"
 
-msgid "Tracking"
-msgstr "Nyomon követés"
+msgid "Never contacted"
+msgstr "Soha nem lépett kapcsolatba"
 
 msgid "Visits/calls"
 msgstr "Látogatások/hívások"
@@ -1991,6 +2046,15 @@ msgstr "A  deaktiválása"
 msgid "Activate"
 msgstr "Aktiválja a  címet."
 
+msgid "Property actions"
+msgstr "Tulajdonosi intézkedések"
+
+msgid "Assigning..."
+msgstr "Hozzárendelés..."
+
+msgid "Assign"
+msgstr "Hozzárendelés"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr ""
 "Biztos vagy benne, hogy el akarod távolítani ennek a személynek a tagságát a"
@@ -2009,6 +2073,9 @@ msgstr "Változás az osztályozásban"
 
 msgid "Change role"
 msgstr "Szerepváltás"
+
+msgid "Volunteer actions"
+msgstr "Önkéntes tevékenységek"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Önkéntes lehetőség törlése"
@@ -2117,8 +2184,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Érvényesítse a  címet."
 
+msgid "Enter menu link name"
+msgstr "Adja meg a menü link nevét"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Adja meg a http:// vagy https:// kezdetű URL-címet"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr ""
@@ -2426,14 +2499,20 @@ msgstr "Azonosítsa a  címet."
 msgid "Accept"
 msgstr "Elfogadom"
 
-msgid "2 Factor Authentication Secret"
-msgstr "2 faktoros hitelesítés titka"
+msgid "Two factors authentications"
+msgstr "Kétfaktoros hitelesítések"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "2 faktoros hitelesítési titok újragenerálása"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "2 faktoros hitelesítési titok eltávolítása"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2 faktoros hitelesítés titka"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Írja be a TOTP kódot a beiratkozás megerősítéséhez"
@@ -2445,6 +2524,9 @@ msgstr ""
 "Tartsa ezeket a biztonsági jelszavakat biztonságos helyen, arra az esetre, "
 "ha elveszítené az OTP hitelesítő adatokat."
 
+msgid "Unable to remove 2FA right now."
+msgstr "Jelenleg nem tudom eltávolítani a 2FA-t."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Biztonsági mentés kész, letöltésre kész."
 
@@ -2453,6 +2535,9 @@ msgstr "A felhasználónak rendelkeznie kell e-mail címmel."
 
 msgid "Select your Role"
 msgstr "Válassza ki szerepét"
+
+msgid "and update its name if needed."
+msgstr "és szükség esetén frissítse a nevét."
 
 msgid "Role management"
 msgstr "Szerepkör-menedzsment"
@@ -2466,12 +2551,11 @@ msgstr "Átnevezés"
 msgid "Choose a Role Name"
 msgstr "Válasszon egy szerepkör nevet"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>Egy másik Role Name <br>-- vagy --<br> ez a Role Name már létezik !!!"
-"</center>"
+msgid "You must set another Role Name"
+msgstr "Be kell állítania egy másik szerepkör nevét"
+
+msgid "this Role Name already exist !!!"
+msgstr "ez a Role Name már létezik !!!"
 
 msgid "You've to check at least one user."
 msgstr "Legalább egy felhasználót ellenőrizni kell."
@@ -2508,6 +2592,9 @@ msgid "Please confirm reset failed login count"
 msgstr ""
 "Kérjük, erősítse meg a sikertelen bejelentkezések számának visszaállítását"
 
+msgid "Reset"
+msgstr "Reset"
+
 msgid "Reset failed login count for"
 msgstr "Sikertelen bejelentkezések számának visszaállítása"
 
@@ -2517,14 +2604,14 @@ msgstr "megtörtént."
 msgid "Please confirm the password reset of this user"
 msgstr "Kérjük, erősítse meg a felhasználó jelszavának visszaállítását"
 
+msgid "Reset & Send"
+msgstr "Visszaállítás és küldés"
+
 msgid "Password reset for"
 msgstr "Jelszó visszaállítása a"
 
 msgid "Mail connection failure"
 msgstr "Mail kapcsolat meghibásodása"
-
-msgid "Two factors authentications"
-msgstr "Kétfaktoros hitelesítések"
 
 msgid "to remove two-factor authentication"
 msgstr "a kétfaktoros hitelesítés eltávolítása"
@@ -2545,9 +2632,8 @@ msgid "The user has 60 seconds to use his recovery codes."
 msgstr ""
 "A felhasználónak 60 másodperce van a helyreállítási kódok használatára."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Önkéntes lehetőség kiválasztása"
+msgstr "Új önkéntes lehetőség hozzáadása"
 
 msgid "Activ"
 msgstr "Activ"
@@ -2558,29 +2644,56 @@ msgstr "Szülő (hierarchia)"
 msgid "Color"
 msgstr "Színes"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Adja meg az önkéntes lehetőség nevét"
+
+msgid "Enter a brief description"
+msgstr "Rövid leírás megadása"
+
 msgid "Add to volunteer opportunities"
-msgstr "Önkéntes lehetőség kiválasztása"
+msgstr "Hozzáadás az önkéntes lehetőségekhez"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Önkéntes lehetőség kiválasztása"
+msgstr "Mozgás az önkéntes lehetőségekhez"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Önkéntes lehetőség törlése"
+msgstr "Megerősítés A lehetőség törlése"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Kérjük, erősítse meg a csoportrekord törlését"
+msgstr "Kérjük, erősítse meg a rekord törlését"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
-msgstr ""
-"Minden csoporttagság és tulajdonság megsemmisül.  Maguk a csoporttagok nem "
-"változnak."
+msgstr "Minden tagság megsemmisül.  Maguk a tagok nem fognak megváltozni."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Befizetési bizonylat generálása a kiválasztott"
+
+#~ msgid "Rows"
+#~ msgstr "Sorok"
+
+#~ msgid "Add buyer"
+#~ msgstr "Vevő hozzáadása"
+
+#~ msgid "Select"
+#~ msgstr "Válassza ki a  címet."
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Ennek a csoportnak minden tagja a kosárban van"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Nem minden tagja ennek a csoportnak van a kosárban."
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "2 faktoros hitelesítési titok újragenerálása"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>Egy másik Role Name <br>-- vagy --<br> ez a Role Name már "
+#~ "létezik !!!</center>"
 
 #~ msgid "Done !"
 #~ msgstr "Kész!"

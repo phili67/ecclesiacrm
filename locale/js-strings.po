@@ -7,24 +7,24 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-02-04T18:03:41.252Z\n"
-"PO-Revision-Date: 2026-02-04T18:03:41.253Z\n"
+"POT-Creation-Date: 2026-04-08T20:27:10.335Z\n"
+"PO-Revision-Date: 2026-04-08T20:27:10.338Z\n"
 "#-#-#-#-#  js-strings2.pot (i18next-conv)  #-#-#-#-#\n"
 "Project-Id-Version: i18next-conv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-02-04T18:03:41.362Z\n"
-"PO-Revision-Date: 2026-02-04T18:03:41.362Z\n"
+"POT-Creation-Date: 2026-04-08T20:27:10.455Z\n"
+"PO-Revision-Date: 2026-04-08T20:27:10.455Z\n"
 "#-#-#-#-#  js-strings3.pot (i18next-conv)  #-#-#-#-#\n"
 "Project-Id-Version: i18next-conv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-02-04T18:03:41.463Z\n"
-"PO-Revision-Date: 2026-02-04T18:03:41.464Z\n"
+"POT-Creation-Date: 2026-04-08T20:27:10.559Z\n"
+"PO-Revision-Date: 2026-04-08T20:27:10.559Z\n"
 
 msgid "Backup Downloaded, Copy on server removed"
 msgstr ""
@@ -1355,6 +1355,15 @@ msgstr ""
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr ""
 
+msgid "Selected Rows"
+msgstr ""
+
+msgid "Pledge"
+msgstr ""
+
+msgid "Payment"
+msgstr ""
+
 msgid "Confirm Delete"
 msgstr ""
 
@@ -1368,15 +1377,6 @@ msgid "This action CANNOT be undone, and may have legal implications!"
 msgstr ""
 
 msgid "Please ensure this what you want to do."
-msgstr ""
-
-msgid "Pledge"
-msgstr ""
-
-msgid "Selected Rows"
-msgstr ""
-
-msgid "Payment"
 msgstr ""
 
 msgid "Depid"
@@ -1427,6 +1427,21 @@ msgstr ""
 msgid "Check Number"
 msgstr ""
 
+msgid "Tracking"
+msgstr ""
+
+msgid "Filter by Family"
+msgstr ""
+
+msgid "Filter by Fund"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Slip PDF"
+msgstr ""
+
 msgid "Deposit ID"
 msgstr ""
 
@@ -1445,16 +1460,21 @@ msgstr ""
 msgid "Deposit Type"
 msgstr ""
 
-msgid "Export"
+msgid "Please enter at least one winner."
 msgstr ""
 
-msgid "Generate Deposit Slip for Selected"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
 msgstr ""
 
-msgid "Rows"
+msgid "Please enter a number greater than 0."
 msgstr ""
 
 msgid "Number"
+msgstr ""
+
+msgid "You're about to delete the item !!!"
 msgstr ""
 
 msgid "Item"
@@ -1484,7 +1504,10 @@ msgstr ""
 msgid "Minimum Price"
 msgstr ""
 
-msgid "Add buyer"
+msgid "You're about to delete the buyer !!!"
+msgstr ""
+
+msgid "Unassigned"
 msgstr ""
 
 msgid "Buyer Number"
@@ -1499,7 +1522,7 @@ msgstr ""
 msgid "Buyer Number Editor"
 msgstr ""
 
-msgid "Select"
+msgid "Please select at least one buyer."
 msgstr ""
 
 msgid "Your operation completed successfully."
@@ -1551,6 +1574,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr ""
 
+msgid "Role"
+msgstr ""
+
+msgid "Please enter a role name."
+msgstr ""
+
 msgid "Confirm Delete Role"
 msgstr ""
 
@@ -1575,25 +1604,49 @@ msgstr ""
 msgid "Sequence"
 msgstr ""
 
+msgid "Move Up"
+msgstr ""
+
+msgid "Move Down"
+msgstr ""
+
+msgid "Add New Group"
+msgstr ""
+
+msgid "Enter group name"
+msgstr ""
+
+msgid "Please enter a group name."
+msgstr ""
+
+msgid "Group actions"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
 msgid "Members"
-msgstr ""
-
-msgid "Group Cart Status"
-msgstr ""
-
-msgid "All members of this group are in the cart"
-msgstr ""
-
-msgid "Not all members of this group are in the cart"
-msgstr ""
-
-msgid "Cart isn't showable"
 msgstr ""
 
 msgid "Group Type"
 msgstr ""
 
-msgid "Unassigned"
+msgid "Group Cart Status"
+msgstr ""
+
+msgid "In cart"
+msgstr ""
+
+msgid "Remove from cart"
+msgstr ""
+
+msgid "Not in cart"
+msgstr ""
+
+msgid "Add to cart"
+msgstr ""
+
+msgid "Cart isn't showable"
 msgstr ""
 
 msgid "Value"
@@ -1693,7 +1746,7 @@ msgstr ""
 msgid "Appointment"
 msgstr ""
 
-msgid "Tracking"
+msgid "Never contacted"
 msgstr ""
 
 msgid "Visits/calls"
@@ -1928,6 +1981,15 @@ msgstr ""
 msgid "Activate"
 msgstr ""
 
+msgid "Property actions"
+msgstr ""
+
+msgid "Assigning..."
+msgstr ""
+
+msgid "Assign"
+msgstr ""
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr ""
 
@@ -1944,6 +2006,9 @@ msgid "Change classification"
 msgstr ""
 
 msgid "Change role"
+msgstr ""
+
+msgid "Volunteer actions"
 msgstr ""
 
 msgid "Confirm Delete volunteer Opportunity"
@@ -2046,7 +2111,13 @@ msgstr ""
 msgid "Validate"
 msgstr ""
 
+msgid "Enter menu link name"
+msgstr ""
+
 msgid "URI"
+msgstr ""
+
+msgid "Enter URL starting with http:// or https://"
 msgstr ""
 
 msgid "This link should begin with : http://.... or https://...."
@@ -2330,13 +2401,19 @@ msgstr ""
 msgid "Accept"
 msgstr ""
 
-msgid "2 Factor Authentication Secret"
+msgid "Two factors authentications"
 msgstr ""
 
-msgid "Regenerate 2 Factor Authentication Secret"
+msgid "2FA is already enabled on your account."
+msgstr ""
+
+msgid "If needed, you can remove it and enroll again."
 msgstr ""
 
 msgid "Remove 2 Factor Authentication Secret"
+msgstr ""
+
+msgid "2 Factor Authentication Secret"
 msgstr ""
 
 msgid "Enter TOTP code to confirm enrollment"
@@ -2347,6 +2424,9 @@ msgid ""
 "credentials."
 msgstr ""
 
+msgid "Unable to remove 2FA right now."
+msgstr ""
+
 msgid "Backup Complete, Ready for Download."
 msgstr ""
 
@@ -2354,6 +2434,9 @@ msgid "The user must have an email address."
 msgstr ""
 
 msgid "Select your Role"
+msgstr ""
+
+msgid "and update its name if needed."
 msgstr ""
 
 msgid "Role management"
@@ -2368,9 +2451,10 @@ msgstr ""
 msgid "Choose a Role Name"
 msgstr ""
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
+msgid "You must set another Role Name"
+msgstr ""
+
+msgid "this Role Name already exist !!!"
 msgstr ""
 
 msgid "You've to check at least one user."
@@ -2405,6 +2489,9 @@ msgstr ""
 msgid "Please confirm reset failed login count"
 msgstr ""
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset failed login count for"
 msgstr ""
 
@@ -2414,13 +2501,13 @@ msgstr ""
 msgid "Please confirm the password reset of this user"
 msgstr ""
 
+msgid "Reset & Send"
+msgstr ""
+
 msgid "Password reset for"
 msgstr ""
 
 msgid "Mail connection failure"
-msgstr ""
-
-msgid "Two factors authentications"
 msgstr ""
 
 msgid "to remove two-factor authentication"
@@ -2448,6 +2535,12 @@ msgid "Parent (hierarchy)"
 msgstr ""
 
 msgid "Color"
+msgstr ""
+
+msgid "Enter volunteer opportunity name"
+msgstr ""
+
+msgid "Enter a brief description"
 msgstr ""
 
 msgid "Add to volunteer opportunities"

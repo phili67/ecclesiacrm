@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1375,6 +1375,15 @@ msgstr "Oletko varma, että haluat lopettaa jakamisen valituille käyttäjille?"
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Oletko varma, että haluat lopettaa kaiken jakamisen?"
 
+msgid "Selected Rows"
+msgstr "Valitut rivit"
+
+msgid "Pledge"
+msgstr "Lupaus"
+
+msgid "Payment"
+msgstr "Maksu"
+
 msgid "Confirm Delete"
 msgstr "Vahvista Poista"
 
@@ -1390,15 +1399,6 @@ msgstr ""
 
 msgid "Please ensure this what you want to do."
 msgstr "Varmista, että haluat tehdä tämän."
-
-msgid "Pledge"
-msgstr "Lupaus"
-
-msgid "Selected Rows"
-msgstr "Valitut rivit"
-
-msgid "Payment"
-msgstr "Maksu"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1448,6 +1448,21 @@ msgstr "Menetelmä"
 msgid "Check Number"
 msgstr "Tarkistusnumero"
 
+msgid "Tracking"
+msgstr "Seuranta"
+
+msgid "Filter by Family"
+msgstr "Suodata perheen mukaan"
+
+msgid "Filter by Fund"
+msgstr "Suodata rahaston mukaan"
+
+msgid "Export"
+msgstr "Vie"
+
+msgid "Slip PDF"
+msgstr "Slip PDF"
+
 msgid "Deposit ID"
 msgstr "Talletuksen tunnus"
 
@@ -1466,17 +1481,24 @@ msgstr "Suljettu"
 msgid "Deposit Type"
 msgstr "Talletuksen tyyppi"
 
-msgid "Export"
-msgstr "Vie"
+msgid "Please enter at least one winner."
+msgstr "Ilmoita vähintään yksi voittaja."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Luo talletuskuitti valitulle"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Puutteellisia merkintöjä löytyi. Täytä kaikki kentät (tuote, voittaja, "
+"hinta) jokaiselle riville, jonka haluat tallentaa."
 
-msgid "Rows"
-msgstr "Rivit"
+msgid "Please enter a number greater than 0."
+msgstr "Kirjoita numero, joka on suurempi kuin 0."
 
 msgid "Number"
 msgstr "Numero"
+
+msgid "You're about to delete the item !!!"
+msgstr "Olet poistamassa kohdetta !!!!"
 
 msgid "Item"
 msgstr "Kohde"
@@ -1505,8 +1527,11 @@ msgstr "Aineellinen arvo"
 msgid "Minimum Price"
 msgstr "Vähimmäishinta"
 
-msgid "Add buyer"
-msgstr "Lisää ostaja"
+msgid "You're about to delete the buyer !!!"
+msgstr "Olet poistamassa ostajaa !!!!"
+
+msgid "Unassigned"
+msgstr "Käyttämätön"
 
 msgid "Buyer Number"
 msgstr "Ostajan numero"
@@ -1520,8 +1545,8 @@ msgstr "Luo lausunto"
 msgid "Buyer Number Editor"
 msgstr "Ostaja Numero Editor"
 
-msgid "Select"
-msgstr "Valitse"
+msgid "Please select at least one buyer."
+msgstr "Valitse vähintään yksi ostaja."
 
 msgid "Your operation completed successfully."
 msgstr "Operaatio suoritettiin onnistuneesti."
@@ -1579,6 +1604,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Ryhmäkohtaisten ominaisuuksien poistaminen käytöstä"
 
+msgid "Role"
+msgstr "Rooli"
+
+msgid "Please enter a role name."
+msgstr "Anna roolin nimi."
+
 msgid "Confirm Delete Role"
 msgstr "Vahvista Poista rooli"
 
@@ -1604,26 +1635,50 @@ msgstr "Oletus"
 msgid "Sequence"
 msgstr "Jakso"
 
+msgid "Move Up"
+msgstr "Siirry ylöspäin"
+
+msgid "Move Down"
+msgstr "Siirry alaspäin"
+
+msgid "Add New Group"
+msgstr "Lisää uusi ryhmä"
+
+msgid "Enter group name"
+msgstr "Kirjoita ryhmän nimi"
+
+msgid "Please enter a group name."
+msgstr "Anna ryhmän nimi."
+
+msgid "Group actions"
+msgstr "Ryhmätoimet"
+
+msgid "View"
+msgstr "Näytä"
+
 msgid "Members"
 msgstr "Jäsenet"
-
-msgid "Group Cart Status"
-msgstr "Ryhmän ostoskorin tila"
-
-msgid "All members of this group are in the cart"
-msgstr "Kaikki tämän ryhmän jäsenet ovat ostoskorissa"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Kaikki tämän ryhmän jäsenet eivät ole ostoskorissa."
-
-msgid "Cart isn't showable"
-msgstr "Ostoskoria ei voi näyttää"
 
 msgid "Group Type"
 msgstr "Ryhmän tyyppi"
 
-msgid "Unassigned"
-msgstr "Käyttämätön"
+msgid "Group Cart Status"
+msgstr "Ryhmän ostoskorin tila"
+
+msgid "In cart"
+msgstr "Ostoskorissa"
+
+msgid "Remove from cart"
+msgstr "Poista ostoskorista"
+
+msgid "Not in cart"
+msgstr "Ei ostoskorissa"
+
+msgid "Add to cart"
+msgstr "Lisää ostoskoriin"
+
+msgid "Cart isn't showable"
+msgstr "Ostoskoria ei voi näyttää"
 
 msgid "Value"
 msgstr "Arvo"
@@ -1726,8 +1781,8 @@ msgstr "Oletko varma, että haluat poistaa kaikki managerit?"
 msgid "Appointment"
 msgstr "Nimitys"
 
-msgid "Tracking"
-msgstr "Seuranta"
+msgid "Never contacted"
+msgstr "Ei koskaan otettu yhteyttä"
 
 msgid "Visits/calls"
 msgstr "Vierailut/puhelut"
@@ -1978,6 +2033,15 @@ msgstr "Deaktivoi"
 msgid "Activate"
 msgstr "Aktivoi"
 
+msgid "Property actions"
+msgstr "Kiinteistötoimet"
+
+msgid "Assigning..."
+msgstr "Määrittäminen..."
+
+msgid "Assign"
+msgstr "Määritä"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Haluatko varmasti poistaa tämän henkilön jäsenyyden osoitteesta"
 
@@ -1995,6 +2059,9 @@ msgstr "Luokituksen muuttaminen"
 
 msgid "Change role"
 msgstr "Vaihda roolia"
+
+msgid "Volunteer actions"
+msgstr "Vapaaehtoistoiminta"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Vahvista Poista vapaaehtoistyömahdollisuus"
@@ -2103,8 +2170,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Validoi"
 
+msgid "Enter menu link name"
+msgstr "Syötä valikkolinkin nimi"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Kirjoita URL-osoite, joka alkaa kirjaimella http:// tai https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Tämän linkin on alettava seuraavasti: http://.... tai https://....."
@@ -2408,14 +2481,20 @@ msgstr "Tunnista"
 msgid "Accept"
 msgstr "Hyväksy"
 
-msgid "2 Factor Authentication Secret"
-msgstr "2-tekijätodennuksen salaisuus"
+msgid "Two factors authentications"
+msgstr "Kahden tekijän todennukset"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Luo 2-tekijätodennuksen salaisuus uudelleen"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Poista 2-tekijätodennuksen salaisuus"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2-tekijätodennuksen salaisuus"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Vahvista ilmoittautuminen syöttämällä TOTP-koodi"
@@ -2427,6 +2506,9 @@ msgstr ""
 "Säilytä nämä varmuuskopiosalasanat turvallisessa paikassa, jos kadotat OTP-"
 "tunnukset."
 
+msgid "Unable to remove 2FA right now."
+msgstr "En pysty poistamaan 2FA:ta juuri nyt."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Varmuuskopiointi valmis, valmis ladattavaksi."
 
@@ -2435,6 +2517,9 @@ msgstr "Käyttäjällä on oltava sähköpostiosoite."
 
 msgid "Select your Role"
 msgstr "Valitse rooli"
+
+msgid "and update its name if needed."
+msgstr "ja päivitä sen nimi tarvittaessa."
 
 msgid "Role management"
 msgstr "Roolien hallinta"
@@ -2448,12 +2533,11 @@ msgstr "Nimeä uudelleen"
 msgid "Choose a Role Name"
 msgstr "Valitse roolin nimi"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>Sinun täytyy asettaa toinen roolin nimi <br>--- tai --<br> tämä "
-"roolin nimi on jo olemassa !!!</center>"
+msgid "You must set another Role Name"
+msgstr "Sinun on määritettävä toinen Role Name"
+
+msgid "this Role Name already exist !!!"
+msgstr "tämä roolin nimi on jo olemassa !!!"
 
 msgid "You've to check at least one user."
 msgstr "Sinun on tarkistettava ainakin yksi käyttäjä."
@@ -2490,6 +2574,9 @@ msgstr "Toiminnan vahvistus"
 msgid "Please confirm reset failed login count"
 msgstr "Vahvista nollaa epäonnistunut kirjautuminen"
 
+msgid "Reset"
+msgstr "Nollaa"
+
 msgid "Reset failed login count for"
 msgstr "Nollaa epäonnistuneiden kirjautumisten määrä"
 
@@ -2499,14 +2586,14 @@ msgstr "tehty."
 msgid "Please confirm the password reset of this user"
 msgstr "Vahvista tämän käyttäjän salasanan palautus"
 
+msgid "Reset & Send"
+msgstr "Nollaa & lähetä"
+
 msgid "Password reset for"
 msgstr "Salasanan palautus"
 
 msgid "Mail connection failure"
 msgstr "Sähköpostiyhteyden katkeaminen"
-
-msgid "Two factors authentications"
-msgstr "Kahden tekijän todennukset"
 
 msgid "to remove two-factor authentication"
 msgstr "poistaa kaksitekijätodennuksen"
@@ -2526,9 +2613,8 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "Käyttäjällä on 60 sekuntia aikaa käyttää palautuskoodejaan."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Valitse vapaaehtoistyömahdollisuus"
+msgstr "Lisää uusi vapaaehtoistyömahdollisuus"
 
 msgid "Activ"
 msgstr "Activ"
@@ -2539,29 +2625,56 @@ msgstr "Vanhempi (hierarkia)"
 msgid "Color"
 msgstr "Väri"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Kirjoita vapaaehtoistoimintamahdollisuuden nimi"
+
+msgid "Enter a brief description"
+msgstr "Kirjoita lyhyt kuvaus"
+
 msgid "Add to volunteer opportunities"
-msgstr "Valitse vapaaehtoistyömahdollisuus"
+msgstr "Lisää vapaaehtoistyömahdollisuuksiin"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Valitse vapaaehtoistyömahdollisuus"
+msgstr "Siirry vapaaehtoistyömahdollisuuksiin"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Vahvista Poista vapaaehtoistyömahdollisuus"
+msgstr "Vahvista Poista tämä tilaisuus"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Vahvista tämän ryhmätietueen poistaminen"
+msgstr "Vahvista tämän tietueen poistaminen"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
-msgstr ""
-"Kaikki ryhmän jäsenyys ja ominaisuudet tuhoutuvat.  Ryhmän jäseniä ei "
-"muuteta."
+msgstr "Kaikki jäsenyys tuhotaan.  Jäseniä itseään ei muuteta."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Luo talletuskuitti valitulle"
+
+#~ msgid "Rows"
+#~ msgstr "Rivit"
+
+#~ msgid "Add buyer"
+#~ msgstr "Lisää ostaja"
+
+#~ msgid "Select"
+#~ msgstr "Valitse"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Kaikki tämän ryhmän jäsenet ovat ostoskorissa"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Kaikki tämän ryhmän jäsenet eivät ole ostoskorissa."
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Luo 2-tekijätodennuksen salaisuus uudelleen"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>Sinun täytyy asettaa toinen roolin nimi <br>--- tai --<br> tämä "
+#~ "roolin nimi on jo olemassa !!!</center>"
 
 #~ msgid "Done !"
 #~ msgstr "Valmis!"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-04 18:06+0000\n"
+"POT-Creation-Date: 2026-04-08 20:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,17 +42,17 @@ msgid "To Do List"
 msgstr ""
 
 #: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:73
-msgid "Edit Name of Current To Do List"
-msgstr ""
-
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:77
-msgid "Remove Current To Do List"
-msgstr ""
-
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:81
 msgid "Add a To Do List"
 msgstr ""
 
-#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:130
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:78
+msgid "Edit Name of Current To Do List"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:83
+msgid "Remove Current To Do List"
+msgstr ""
+
+#: ../src/Plugins/ToDoListDashboard/v2/templates/View.php:135
 msgid "Add item"
 msgstr ""

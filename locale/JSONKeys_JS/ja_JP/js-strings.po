@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1366,6 +1366,15 @@ msgstr "選択したユーザーの共有を停止してもよろしいですか
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "本当にすべての共有を止めたいのですか？"
 
+msgid "Selected Rows"
+msgstr "選択された行"
+
+msgid "Pledge"
+msgstr "誓約書"
+
+msgid "Payment"
+msgstr "支払い"
+
 msgid "Confirm Delete"
 msgstr "確認 削除"
 
@@ -1380,15 +1389,6 @@ msgstr "この操作は元に戻すことができず、法的にも問題があ
 
 msgid "Please ensure this what you want to do."
 msgstr "あなたがやりたいことを確認してください。"
-
-msgid "Pledge"
-msgstr "誓約書"
-
-msgid "Selected Rows"
-msgstr "選択された行"
-
-msgid "Payment"
-msgstr "支払い"
 
 msgid "Depid"
 msgstr "デビット"
@@ -1438,6 +1438,21 @@ msgstr "方法"
 msgid "Check Number"
 msgstr "チェックナンバー"
 
+msgid "Tracking"
+msgstr "トラッキング"
+
+msgid "Filter by Family"
+msgstr "家族で絞り込む"
+
+msgid "Filter by Fund"
+msgstr "ファンドで絞り込む"
+
+msgid "Export"
+msgstr "エクスポート"
+
+msgid "Slip PDF"
+msgstr "スリップ PDF"
+
 msgid "Deposit ID"
 msgstr "デポジットID"
 
@@ -1456,17 +1471,24 @@ msgstr "閉鎖"
 msgid "Deposit Type"
 msgstr "預金タイプ"
 
-msgid "Export"
-msgstr "エクスポート"
+msgid "Please enter at least one winner."
+msgstr "少なくとも1人の当選者をエントリーしてください。"
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "選択されたDeposit Slipの生成"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"不完全な入力が見つかりました。保存したい各行のすべてのフィールド（アイテム、"
+"勝者、価格）を入力してください。"
 
-msgid "Rows"
-msgstr "ロー"
+msgid "Please enter a number greater than 0."
+msgstr "0以上の数字を入力してください。"
 
 msgid "Number"
 msgstr "番号"
+
+msgid "You're about to delete the item !!!"
+msgstr "アイテムを削除しようとしている!"
 
 msgid "Item"
 msgstr "アイテム"
@@ -1495,8 +1517,11 @@ msgstr "素材の価値"
 msgid "Minimum Price"
 msgstr "最低価格"
 
-msgid "Add buyer"
-msgstr "バイヤーの追加"
+msgid "You're about to delete the buyer !!!"
+msgstr "バイヤーを削除しようとしている!"
+
+msgid "Unassigned"
+msgstr "未分類"
 
 msgid "Buyer Number"
 msgstr "バイヤー番号"
@@ -1510,8 +1535,8 @@ msgstr "声明の作成"
 msgid "Buyer Number Editor"
 msgstr "バイヤーナンバー編集部"
 
-msgid "Select"
-msgstr "セレクト"
+msgid "Please select at least one buyer."
+msgstr "少なくとも1つのバイヤーを選択してください。"
 
 msgid "Your operation completed successfully."
 msgstr "あなたの操作は正常に完了しました。"
@@ -1569,6 +1594,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "グループ固有のプロパティの無効化"
 
+msgid "Role"
+msgstr "役割"
+
+msgid "Please enter a role name."
+msgstr "ロール名を入力してください。"
+
 msgid "Confirm Delete Role"
 msgstr "確認 ロールの削除"
 
@@ -1594,26 +1625,50 @@ msgstr "デフォルト"
 msgid "Sequence"
 msgstr "シーケンス"
 
+msgid "Move Up"
+msgstr "繰り上げ"
+
+msgid "Move Down"
+msgstr "下に移動"
+
+msgid "Add New Group"
+msgstr "新しいグループの追加"
+
+msgid "Enter group name"
+msgstr "グループ名を入力"
+
+msgid "Please enter a group name."
+msgstr "グループ名を入力してください。"
+
+msgid "Group actions"
+msgstr "グループ行動"
+
+msgid "View"
+msgstr "表示"
+
 msgid "Members"
 msgstr "メンバー"
-
-msgid "Group Cart Status"
-msgstr "グループカートの状態"
-
-msgid "All members of this group are in the cart"
-msgstr "このグループのメンバー全員がカートに"
-
-msgid "Not all members of this group are in the cart"
-msgstr "このグループのすべてのメンバーがカートに入っているわけではありません"
-
-msgid "Cart isn't showable"
-msgstr "カートが表示されない"
 
 msgid "Group Type"
 msgstr "グループタイプ"
 
-msgid "Unassigned"
-msgstr "未分類"
+msgid "Group Cart Status"
+msgstr "グループカートの状態"
+
+msgid "In cart"
+msgstr "カート"
+
+msgid "Remove from cart"
+msgstr "カートから取り出す"
+
+msgid "Not in cart"
+msgstr "カートに入っていない"
+
+msgid "Add to cart"
+msgstr "カートに入れる"
+
+msgid "Cart isn't showable"
+msgstr "カートが表示されない"
 
 msgid "Value"
 msgstr "価値"
@@ -1716,8 +1771,8 @@ msgstr "本当にすべてのマネージャーを削除するのですか？"
 msgid "Appointment"
 msgstr "アポイントメント"
 
-msgid "Tracking"
-msgstr "トラッキング"
+msgid "Never contacted"
+msgstr "連絡なし"
 
 msgid "Visits/calls"
 msgstr "訪問/コール"
@@ -1967,6 +2022,15 @@ msgstr "ディアクティベート"
 msgid "Activate"
 msgstr "アクティベート"
 
+msgid "Property actions"
+msgstr "財産上の措置"
+
+msgid "Assigning..."
+msgstr "割り当て..."
+
+msgid "Assign"
+msgstr "アサイン"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "この人のメンバーシップを削除してもよろしいですか？"
 
@@ -1984,6 +2048,9 @@ msgstr "分類の変更"
 
 msgid "Change role"
 msgstr "役割の変更"
+
+msgid "Volunteer actions"
+msgstr "ボランティア活動"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "ボランティア機会の確認と削除"
@@ -2089,8 +2156,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "検証"
 
+msgid "Enter menu link name"
+msgstr "メニューリンク名を入力"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "http:// または https:// で始まるURLを入力"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr ""
@@ -2392,14 +2465,20 @@ msgstr "識別"
 msgid "Accept"
 msgstr "受け入れ"
 
-msgid "2 Factor Authentication Secret"
-msgstr "2ファクター認証の秘密"
+msgid "Two factors authentications"
+msgstr "二要素認証"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "2要素認証シークレットの再生成"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "2要素認証シークレットの削除"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2ファクター認証の秘密"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "TOTPコードを入力して登録を確認する"
@@ -2411,6 +2490,9 @@ msgstr ""
 "OTP認証情報を紛失した場合に備えて、これらのバックアップパスワードを安全な場所"
 "に保管してください。"
 
+msgid "Unable to remove 2FA right now."
+msgstr "今すぐ2FAを解除することはできません。"
+
 msgid "Backup Complete, Ready for Download."
 msgstr "バックアップが完了し、ダウンロードできるようになりました。"
 
@@ -2419,6 +2501,9 @@ msgstr "ユーザーはメールアドレスを持っている必要がありま
 
 msgid "Select your Role"
 msgstr "役割の選択"
+
+msgid "and update its name if needed."
+msgstr "必要であれば、その名前を更新する。"
 
 msgid "Role management"
 msgstr "役割分担"
@@ -2432,12 +2517,11 @@ msgstr "名前の変更"
 msgid "Choose a Role Name"
 msgstr "役割名の選択"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>別のロールネームを設定する必要があります。<br>または、<br>このロール"
-"ネームはすでに存在しています!!!</center>。"
+msgid "You must set another Role Name"
+msgstr "別の役割名を設定する必要があります。"
+
+msgid "this Role Name already exist !!!"
+msgstr "このロール名はすでに存在する!"
 
 msgid "You've to check at least one user."
 msgstr "最低でも1人のユーザーを確認する必要があります。"
@@ -2473,6 +2557,9 @@ msgstr "アクションの確認"
 msgid "Please confirm reset failed login count"
 msgstr "Please confirm reset failed login count"
 
+msgid "Reset"
+msgstr "リセット"
+
 msgid "Reset failed login count for"
 msgstr "ログイン失敗回数のリセット"
 
@@ -2482,14 +2569,14 @@ msgstr "を行いました。"
 msgid "Please confirm the password reset of this user"
 msgstr "このユーザーのパスワードリセットを確認してください"
 
+msgid "Reset & Send"
+msgstr "リセットして送信"
+
 msgid "Password reset for"
 msgstr "のパスワードリセット"
 
 msgid "Mail connection failure"
 msgstr "メール接続障害"
-
-msgid "Two factors authentications"
-msgstr "二要素認証"
 
 msgid "to remove two-factor authentication"
 msgstr "をクリックして、2ファクタ認証を解除する"
@@ -2509,9 +2596,8 @@ msgstr ""
 msgid "The user has 60 seconds to use his recovery codes."
 msgstr "ユーザーは60秒以内に自分のリカバリーコードを使用することができます。"
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "ボランティアの機会を選択"
+msgstr "新しいボランティアの機会を追加する"
 
 msgid "Activ"
 msgstr "アクティヴ"
@@ -2522,29 +2608,57 @@ msgstr "親（階層）"
 msgid "Color"
 msgstr "カラー"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "ボランティアの機会名を入力してください"
+
+msgid "Enter a brief description"
+msgstr "簡単な説明を入力"
+
 msgid "Add to volunteer opportunities"
-msgstr "ボランティアの機会を選択"
+msgstr "ボランティア募集に追加する"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "ボランティアの機会を選択"
+msgstr "ボランティアの機会へ移動"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "ボランティア機会の確認と削除"
+msgstr "この機会の削除を確認する"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "このグループの記録を削除することを確認してください。"
+msgstr "このレコードの削除を確認してください。"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
-msgstr ""
-"グループのメンバーシップとプロパティはすべて破棄されます。  グループのメン"
-"バー自体は変更されません。"
+msgstr "すべての会員権は破棄される。  メンバーそのものが変更されることはない。"
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "選択されたDeposit Slipの生成"
+
+#~ msgid "Rows"
+#~ msgstr "ロー"
+
+#~ msgid "Add buyer"
+#~ msgstr "バイヤーの追加"
+
+#~ msgid "Select"
+#~ msgstr "セレクト"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "このグループのメンバー全員がカートに"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr ""
+#~ "このグループのすべてのメンバーがカートに入っているわけではありません"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "2要素認証シークレットの再生成"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>別のロールネームを設定する必要があります。<br>または、<br>このロー"
+#~ "ルネームはすでに存在しています!!!</center>。"
 
 #~ msgid "Done !"
 #~ msgstr "Done!"

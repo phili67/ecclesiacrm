@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1388,6 +1388,15 @@ msgstr ""
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Sunteți sigur că doriți să opriți toate partajele?"
 
+msgid "Selected Rows"
+msgstr "Rânduri selectate"
+
+msgid "Pledge"
+msgstr "Angajament"
+
+msgid "Payment"
+msgstr "Plata"
+
 msgid "Confirm Delete"
 msgstr "Confirmați Ștergerea"
 
@@ -1402,15 +1411,6 @@ msgstr "Această acțiune NU poate fi anulată și poate avea implicații juridi
 
 msgid "Please ensure this what you want to do."
 msgstr "Vă rugăm să vă asigurați că este ceea ce doriți să faceți."
-
-msgid "Pledge"
-msgstr "Angajament"
-
-msgid "Selected Rows"
-msgstr "Rânduri selectate"
-
-msgid "Payment"
-msgstr "Plata"
 
 msgid "Depid"
 msgstr "Depid"
@@ -1460,6 +1460,21 @@ msgstr "Metoda"
 msgid "Check Number"
 msgstr "Număr de cec"
 
+msgid "Tracking"
+msgstr "Urmărire"
+
+msgid "Filter by Family"
+msgstr "Filtrați după familie"
+
+msgid "Filter by Fund"
+msgstr "Filtrați în funcție de fond"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Slip PDF"
+msgstr "Slip PDF"
+
 msgid "Deposit ID"
 msgstr "ID-ul depozitului"
 
@@ -1478,17 +1493,24 @@ msgstr "Închis"
 msgid "Deposit Type"
 msgstr "Tipul de depozit"
 
-msgid "Export"
-msgstr "Export"
+msgid "Please enter at least one winner."
+msgstr "Vă rugăm să înscrieți cel puțin un câștigător."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Generarea bonului de depunere pentru selectat"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
+"Intrări incomplete găsite. Vă rugăm să completați toate câmpurile (articol, "
+"câștigător, preț) pentru fiecare rând pe care doriți să îl salvați."
 
-msgid "Rows"
-msgstr "Rânduri"
+msgid "Please enter a number greater than 0."
+msgstr "Vă rugăm să introduceți un număr mai mare decât 0."
 
 msgid "Number"
 msgstr "Număr"
+
+msgid "You're about to delete the item !!!"
+msgstr "Sunteți pe cale să ștergeți articolul!!!"
 
 msgid "Item"
 msgstr "Articolul"
@@ -1517,8 +1539,11 @@ msgstr "Valoare materială"
 msgid "Minimum Price"
 msgstr "Preț minim"
 
-msgid "Add buyer"
-msgstr "Adăugați cumpărător"
+msgid "You're about to delete the buyer !!!"
+msgstr "Sunteți pe cale să ștergeți cumpărătorul!!!"
+
+msgid "Unassigned"
+msgstr "Neatribuite"
 
 msgid "Buyer Number"
 msgstr "Numărul cumpărătorului"
@@ -1532,8 +1557,8 @@ msgstr "Generarea declarației"
 msgid "Buyer Number Editor"
 msgstr "Numărul cumpărătorului Editor"
 
-msgid "Select"
-msgstr "Selectați"
+msgid "Please select at least one buyer."
+msgstr "Vă rugăm să selectați cel puțin un cumpărător."
 
 msgid "Your operation completed successfully."
 msgstr "Operațiunea dumneavoastră s-a încheiat cu succes."
@@ -1592,6 +1617,12 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Dezactivarea proprietăților specifice grupului"
 
+msgid "Role"
+msgstr "Rol"
+
+msgid "Please enter a role name."
+msgstr "Vă rugăm să introduceți un nume de rol."
+
 msgid "Confirm Delete Role"
 msgstr "Confirmare Ștergere rol"
 
@@ -1617,26 +1648,50 @@ msgstr "Implicit"
 msgid "Sequence"
 msgstr "Secvență"
 
+msgid "Move Up"
+msgstr "Mișcați-vă în sus"
+
+msgid "Move Down"
+msgstr "Mutare în jos"
+
+msgid "Add New Group"
+msgstr "Adăugați un grup nou"
+
+msgid "Enter group name"
+msgstr "Introduceți numele grupului"
+
+msgid "Please enter a group name."
+msgstr "Vă rugăm să introduceți un nume de grup."
+
+msgid "Group actions"
+msgstr "Acțiuni de grup"
+
+msgid "View"
+msgstr "Vizualizare"
+
 msgid "Members"
 msgstr "Membri"
-
-msgid "Group Cart Status"
-msgstr "Starea coșului de grup"
-
-msgid "All members of this group are in the cart"
-msgstr "Toți membrii acestui grup sunt în coș"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Nu toți membrii acestui grup se află în cărucior"
-
-msgid "Cart isn't showable"
-msgstr "Coșul nu poate fi afișat"
 
 msgid "Group Type"
 msgstr "Tip de grup"
 
-msgid "Unassigned"
-msgstr "Neatribuite"
+msgid "Group Cart Status"
+msgstr "Starea coșului de grup"
+
+msgid "In cart"
+msgstr "În coș"
+
+msgid "Remove from cart"
+msgstr "Îndepărtați din coș"
+
+msgid "Not in cart"
+msgstr "Nu în coș"
+
+msgid "Add to cart"
+msgstr "Adăugați în coș"
+
+msgid "Cart isn't showable"
+msgstr "Coșul nu poate fi afișat"
 
 msgid "Value"
 msgstr "Valoare"
@@ -1740,8 +1795,8 @@ msgstr "Sunteți sigur că doriți să ștergeți toți managerii?"
 msgid "Appointment"
 msgstr "Programare"
 
-msgid "Tracking"
-msgstr "Urmărire"
+msgid "Never contacted"
+msgstr "Niciodată contactat"
 
 msgid "Visits/calls"
 msgstr "Vizite/apeluri"
@@ -1999,6 +2054,15 @@ msgstr "Dezactivați"
 msgid "Activate"
 msgstr "Activați"
 
+msgid "Property actions"
+msgstr "Acțiuni de proprietate"
+
+msgid "Assigning..."
+msgstr "Atribuirea..."
+
+msgid "Assign"
+msgstr "Atribuiți"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr ""
 "Sunteți sigur că doriți să eliminați calitatea de membru a acestei persoane "
@@ -2018,6 +2082,9 @@ msgstr "Modificarea clasificării"
 
 msgid "Change role"
 msgstr "Schimbarea rolului"
+
+msgid "Volunteer actions"
+msgstr "Acțiuni de voluntariat"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Confirmare Ștergeți voluntarul Oportunitate"
@@ -2127,8 +2194,14 @@ msgstr "ID"
 msgid "Validate"
 msgstr "Validați"
 
+msgid "Enter menu link name"
+msgstr "Introduceți numele linkului de meniu"
+
 msgid "URI"
 msgstr "URI"
+
+msgid "Enter URL starting with http:// or https://"
+msgstr "Introduceți URL-ul care începe cu http:// sau https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Acest link trebuie să înceapă cu : http://.... sau https://...."
@@ -2438,14 +2511,20 @@ msgstr "Identificați"
 msgid "Accept"
 msgstr "Acceptă"
 
-msgid "2 Factor Authentication Secret"
-msgstr "Secret de autentificare cu 2 factori"
+msgid "Two factors authentications"
+msgstr "Autentificări cu doi factori"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Regenerarea secretului de autentificare cu 2 factori"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Eliminați secretul de autentificare cu 2 factori"
+
+msgid "2 Factor Authentication Secret"
+msgstr "Secret de autentificare cu 2 factori"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Introduceți codul TOTP pentru a confirma înscrierea"
@@ -2457,6 +2536,9 @@ msgstr ""
 "Păstrați aceste parole de rezervă într-un loc sigur, în cazul în care "
 "pierdeți acreditările OTP."
 
+msgid "Unable to remove 2FA right now."
+msgstr "Imposibilitatea de a elimina 2FA chiar acum."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Copie de rezervă completă, gata de descărcare."
 
@@ -2465,6 +2547,9 @@ msgstr "Utilizatorul trebuie să aibă o adresă de e-mail."
 
 msgid "Select your Role"
 msgstr "Selectați rolul dvs."
+
+msgid "and update its name if needed."
+msgstr "și actualizați numele acestuia, dacă este necesar."
 
 msgid "Role management"
 msgstr "Managementul rolului"
@@ -2478,12 +2563,11 @@ msgstr "Redenumiți"
 msgid "Choose a Role Name"
 msgstr "Alegeți un nume de rol"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
-msgstr ""
-"<center>Trebuie să setați un alt nume de rol <br>-- sau --<br> acest nume de "
-"rol există deja !!!</center>"
+msgid "You must set another Role Name"
+msgstr "Trebuie să setați un alt nume de rol"
+
+msgid "this Role Name already exist !!!"
+msgstr "acest nume de rol există deja!!!"
 
 msgid "You've to check at least one user."
 msgstr "Trebuie să verificați cel puțin un utilizator."
@@ -2520,6 +2604,9 @@ msgstr "Confirmarea acțiunii"
 msgid "Please confirm reset failed login count"
 msgstr "Vă rugăm să confirmați resetarea numărului de autentificări eșuate"
 
+msgid "Reset"
+msgstr "Resetare"
+
 msgid "Reset failed login count for"
 msgstr "Resetarea numărului de autentificări eșuate pentru"
 
@@ -2529,14 +2616,14 @@ msgstr "făcut."
 msgid "Please confirm the password reset of this user"
 msgstr "Vă rugăm să confirmați resetarea parolei acestui utilizator"
 
+msgid "Reset & Send"
+msgstr "Resetare și trimitere"
+
 msgid "Password reset for"
 msgstr "Resetarea parolei pentru"
 
 msgid "Mail connection failure"
 msgstr "Eșecul conexiunii poștale"
-
-msgid "Two factors authentications"
-msgstr "Autentificări cu doi factori"
 
 msgid "to remove two-factor authentication"
 msgstr "pentru a elimina autentificarea cu doi factori"
@@ -2558,9 +2645,8 @@ msgstr ""
 "Utilizatorul are la dispoziție 60 de secunde pentru a utiliza codurile de "
 "recuperare."
 
-#, fuzzy
 msgid "Add New Volunteer Opportunity"
-msgstr "Selectați oportunitatea de voluntariat"
+msgstr "Adăugați o nouă oportunitate de voluntariat"
 
 msgid "Activ"
 msgstr "Activ"
@@ -2571,29 +2657,56 @@ msgstr "Părinte (ierarhie)"
 msgid "Color"
 msgstr "Culoare"
 
-#, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Introduceți numele oportunității de voluntariat"
+
+msgid "Enter a brief description"
+msgstr "Introduceți o scurtă descriere"
+
 msgid "Add to volunteer opportunities"
-msgstr "Selectați oportunitatea de voluntariat"
+msgstr "Adăugați la oportunitățile de voluntariat"
 
-#, fuzzy
 msgid "Move to volunteer opportunities"
-msgstr "Selectați oportunitatea de voluntariat"
+msgstr "Treceți la oportunități de voluntariat"
 
-#, fuzzy
 msgid "Confirm Delete This Opportunity"
-msgstr "Confirmare Ștergeți voluntarul Oportunitate"
+msgstr "Confirmați Ștergeți această oportunitate"
 
-#, fuzzy
 msgid "Please confirm deletion of this record"
-msgstr "Vă rugăm să confirmați ștergerea acestei înregistrări de grup"
+msgstr "Vă rugăm să confirmați ștergerea acestei înregistrări"
 
-#, fuzzy
 msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
-msgstr ""
-"Toți membrii și proprietățile grupului vor fi distruși.  Membrii grupului în "
-"sine nu vor fi modificați."
+msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Generarea bonului de depunere pentru selectat"
+
+#~ msgid "Rows"
+#~ msgstr "Rânduri"
+
+#~ msgid "Add buyer"
+#~ msgstr "Adăugați cumpărător"
+
+#~ msgid "Select"
+#~ msgstr "Selectați"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Toți membrii acestui grup sunt în coș"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Nu toți membrii acestui grup se află în cărucior"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Regenerarea secretului de autentificare cu 2 factori"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>Trebuie să setați un alt nume de rol <br>-- sau --<br> acest nume "
+#~ "de rol există deja !!!</center>"
 
 #~ msgid "Done !"
 #~ msgstr "Gata!"

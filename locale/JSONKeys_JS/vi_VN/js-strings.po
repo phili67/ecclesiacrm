@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-01-21T14:58:31.393Z\n"
+"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1390,6 +1390,15 @@ msgstr "Anh có chắc là anh muốn ngừng chia sẻ tài liệu không?"
 msgid "Are you sure, you want to stop all sharing ?"
 msgstr "Anh có chắc là anh muốn ngừng chia sẻ tài liệu không?"
 
+msgid "Selected Rows"
+msgstr "Chọn đường"
+
+msgid "Pledge"
+msgstr "Pledge"
+
+msgid "Payment"
+msgstr "Tiền công."
+
 msgid "Confirm Delete"
 msgstr ""
 "Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận"
@@ -1405,15 +1414,6 @@ msgstr "Hành động này không thể bị hủy, và có thể có liên quan
 
 msgid "Please ensure this what you want to do."
 msgstr "Xin hãy đảm bảo điều anh muốn làm."
-
-msgid "Pledge"
-msgstr "Pledge"
-
-msgid "Selected Rows"
-msgstr "Chọn đường"
-
-msgid "Payment"
-msgstr "Tiền công."
 
 msgid "Depid"
 msgstr "Hiểu rồi."
@@ -1463,6 +1463,21 @@ msgstr "Phương pháp"
 msgid "Check Number"
 msgstr "Kiểm tra số"
 
+msgid "Tracking"
+msgstr "Đang truy tìm"
+
+msgid "Filter by Family"
+msgstr ""
+
+msgid "Filter by Fund"
+msgstr ""
+
+msgid "Export"
+msgstr "Xuất nhập"
+
+msgid "Slip PDF"
+msgstr ""
+
 msgid "Deposit ID"
 msgstr "Chứng minh thư"
 
@@ -1481,17 +1496,24 @@ msgstr "Đóng cửa"
 msgid "Deposit Type"
 msgstr "Gài mã"
 
-msgid "Export"
-msgstr "Xuất nhập"
+#, fuzzy
+msgid "Please enter at least one winner."
+msgstr "Anh phải kiểm tra ít nhất một người dùng."
 
-msgid "Generate Deposit Slip for Selected"
-msgstr "Chọn lựa Generate Deposit Slip cho chọn"
+msgid ""
+"Incomplete entries found. Please fill in all fields (Item, Winner, Price) "
+"for each row you want to save."
+msgstr ""
 
-msgid "Rows"
-msgstr "Chèo"
+msgid "Please enter a number greater than 0."
+msgstr ""
 
 msgid "Number"
 msgstr "Số"
+
+#, fuzzy
+msgid "You're about to delete the item !!!"
+msgstr "Anh sắp xóa một cái thẻ!"
 
 msgid "Item"
 msgstr "TRUNG"
@@ -1520,8 +1542,12 @@ msgstr "Giá trị của Matterial"
 msgid "Minimum Price"
 msgstr "Giá tối thiểu"
 
-msgid "Add buyer"
-msgstr "Người mua thêm"
+#, fuzzy
+msgid "You're about to delete the buyer !!!"
+msgstr "Anh sắp xóa một cái thẻ!"
+
+msgid "Unassigned"
+msgstr "Không được phân công"
 
 msgid "Buyer Number"
 msgstr "Số người mua"
@@ -1535,8 +1561,9 @@ msgstr "Lời khai Generate"
 msgid "Buyer Number Editor"
 msgstr "Biên tập viên số khách hàng"
 
-msgid "Select"
-msgstr "Chọn đi"
+#, fuzzy
+msgid "Please select at least one buyer."
+msgstr "Xin hãy chọn Role cho các thành viên"
 
 msgid "Your operation completed successfully."
 msgstr "Chiến dịch của anh đã thành công."
@@ -1594,6 +1621,13 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Tổ chức đặc biệt tài sản"
 
+#, fuzzy
+msgid "Role"
+msgstr "Tên Role"
+
+msgid "Please enter a role name."
+msgstr ""
+
 msgid "Confirm Delete Role"
 msgstr "Xác nhận là Xác nhận Xác nhận Role"
 
@@ -1620,26 +1654,59 @@ msgstr "Default"
 msgid "Sequence"
 msgstr "Chuỗi tự động."
 
+#, fuzzy
+msgid "Move Up"
+msgstr "Đi"
+
+#, fuzzy
+msgid "Move Down"
+msgstr "Di chuyển Event"
+
+#, fuzzy
+msgid "Add New Group"
+msgstr "Thêm Cart vào nhóm"
+
+#, fuzzy
+msgid "Enter group name"
+msgstr "Tên nhóm"
+
+#, fuzzy
+msgid "Please enter a group name."
+msgstr "Hãy chọn nhóm mục tiêu cho các thành viên"
+
+#, fuzzy
+msgid "Group actions"
+msgstr "Tên nhóm"
+
+#, fuzzy
+msgid "View"
+msgstr "Nhìn tất cả"
+
 msgid "Members"
 msgstr "Các thành viên."
-
-msgid "Group Cart Status"
-msgstr "Tình trạng tập thể"
-
-msgid "All members of this group are in the cart"
-msgstr "Tất cả các thành viên trong nhóm đều ở trong xe"
-
-msgid "Not all members of this group are in the cart"
-msgstr "Không phải tất cả thành viên trong nhóm này đều nằm trong xe"
-
-msgid "Cart isn't showable"
-msgstr "Cái xe không được cho thấy"
 
 msgid "Group Type"
 msgstr "Nhóm Type"
 
-msgid "Unassigned"
-msgstr "Không được phân công"
+msgid "Group Cart Status"
+msgstr "Tình trạng tập thể"
+
+msgid "In cart"
+msgstr ""
+
+#, fuzzy
+msgid "Remove from cart"
+msgstr "Rời khỏi Cart"
+
+msgid "Not in cart"
+msgstr ""
+
+#, fuzzy
+msgid "Add to cart"
+msgstr "Thêm vào Cart"
+
+msgid "Cart isn't showable"
+msgstr "Cái xe không được cho thấy"
 
 msgid "Value"
 msgstr "Trị giá"
@@ -1747,8 +1814,8 @@ msgstr "Anh có chắc là anh muốn xóa hết các quản lý không?"
 msgid "Appointment"
 msgstr "Đặt biển"
 
-msgid "Tracking"
-msgstr "Đang truy tìm"
+msgid "Never contacted"
+msgstr ""
 
 msgid "Visits/calls"
 msgstr "Đến thăm"
@@ -2005,6 +2072,18 @@ msgstr "Vô hiệu hóa"
 msgid "Activate"
 msgstr "Kích hoạt"
 
+#, fuzzy
+msgid "Property actions"
+msgstr "Tên tài sản"
+
+#, fuzzy
+msgid "Assigning..."
+msgstr "Phân công"
+
+#, fuzzy
+msgid "Assign"
+msgstr "Phân công"
+
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Anh có chắc là muốn loại bỏ thành viên của người này không?"
 
@@ -2023,6 +2102,9 @@ msgstr "Thay đổi phân loại"
 
 msgid "Change role"
 msgstr "Thay đổi vai trò"
+
+msgid "Volunteer actions"
+msgstr ""
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr ""
@@ -2135,8 +2217,15 @@ msgstr "Chứng minh thư"
 msgid "Validate"
 msgstr "Xử lý"
 
+msgid "Enter menu link name"
+msgstr ""
+
 msgid "URI"
 msgstr "URI"
+
+#, fuzzy
+msgid "Enter URL starting with http:// or https://"
+msgstr "Kết nối này sẽ bắt đầu với : Http:// hoặc là Https://"
 
 msgid "This link should begin with : http://.... or https://...."
 msgstr "Kết nối này sẽ bắt đầu với : Http:// hoặc là Https://"
@@ -2438,14 +2527,20 @@ msgstr "Xác định"
 msgid "Accept"
 msgstr "Chấp nhận"
 
-msgid "2 Factor Authentication Secret"
-msgstr "2 máy bay tự động bí mật"
+msgid "Two factors authentications"
+msgstr "Hai yếu tố xác thực"
 
-msgid "Regenerate 2 Factor Authentication Secret"
-msgstr "Tái tạo 2 máy nghiền bí mật của máy nông"
+msgid "2FA is already enabled on your account."
+msgstr "2FA is already enabled on your account."
+
+msgid "If needed, you can remove it and enroll again."
+msgstr "If needed, you can remove it and enroll again."
 
 msgid "Remove 2 Factor Authentication Secret"
 msgstr "Loại bỏ 2 máy bay tự động bí mật của Factor"
+
+msgid "2 Factor Authentication Secret"
+msgstr "2 máy bay tự động bí mật"
 
 msgid "Enter TOTP code to confirm enrollment"
 msgstr "Nhập mã TTP để xác nhận đăng ký"
@@ -2456,6 +2551,10 @@ msgid ""
 msgstr ""
 "Giữ mật khẩu dự phòng ở một nơi an toàn, phòng khi anh mất giấy tờ OTP."
 
+#, fuzzy
+msgid "Unable to remove 2FA right now."
+msgstr "Không có sự kiện gì lúc này."
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Hỗ trợ hoàn toàn, sẵn sàng tải xuống."
 
@@ -2464,6 +2563,9 @@ msgstr "Người dùng phải có địa chỉ email."
 
 msgid "Select your Role"
 msgstr "Chọn Role đi"
+
+msgid "and update its name if needed."
+msgstr ""
 
 msgid "Role management"
 msgstr "Quản lý Role"
@@ -2477,12 +2579,12 @@ msgstr "Xin chào."
 msgid "Choose a Role Name"
 msgstr "Chọn một người Role tên"
 
-msgid ""
-"<center>You must set another Role Name <br>-- or --<br> this Role Name "
-"already exist !!!</center>"
+#, fuzzy
+msgid "You must set another Role Name"
+msgstr "Chọn một người Role tên"
+
+msgid "this Role Name already exist !!!"
 msgstr ""
-"<center>Bạn phải thiết lập một Role Name<br>-- hoặc --<br>cái tên Role Name "
-"này đã tồn tại rồi!! !</center>"
 
 msgid "You've to check at least one user."
 msgstr "Anh phải kiểm tra ít nhất một người dùng."
@@ -2519,6 +2621,9 @@ msgstr "Xác nhận hành động"
 msgid "Please confirm reset failed login count"
 msgstr "Xin xác nhận lại lượng login đã hỏng"
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset failed login count for"
 msgstr "Đã chỉnh lại số lượng login không hoạt động"
 
@@ -2528,14 +2633,14 @@ msgstr "xong."
 msgid "Please confirm the password reset of this user"
 msgstr "Xin xác nhận lại mật khẩu của người dùng này"
 
+msgid "Reset & Send"
+msgstr ""
+
 msgid "Password reset for"
 msgstr "Đặt lại mật khẩu"
 
 msgid "Mail connection failure"
 msgstr ""
-
-msgid "Two factors authentications"
-msgstr "Hai yếu tố xác thực"
 
 msgid "to remove two-factor authentication"
 msgstr "để loại bỏ hai yếu tố xác thực"
@@ -2568,6 +2673,14 @@ msgid "Color"
 msgstr ""
 
 #, fuzzy
+msgid "Enter volunteer opportunity name"
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
+#, fuzzy
+msgid "Enter a brief description"
+msgstr "Mô tả rõ ràng"
+
+#, fuzzy
 msgid "Add to volunteer opportunities"
 msgstr "Thêm vào cơ hội tình nguyện mới"
 
@@ -2592,6 +2705,34 @@ msgid ""
 msgstr ""
 "Tất cả các thành viên và tài sản của nhóm sẽ bị tiêu diệt. Các thành viên "
 "nhóm sẽ không bị thay đổi."
+
+#~ msgid "Generate Deposit Slip for Selected"
+#~ msgstr "Chọn lựa Generate Deposit Slip cho chọn"
+
+#~ msgid "Rows"
+#~ msgstr "Chèo"
+
+#~ msgid "Add buyer"
+#~ msgstr "Người mua thêm"
+
+#~ msgid "Select"
+#~ msgstr "Chọn đi"
+
+#~ msgid "All members of this group are in the cart"
+#~ msgstr "Tất cả các thành viên trong nhóm đều ở trong xe"
+
+#~ msgid "Not all members of this group are in the cart"
+#~ msgstr "Không phải tất cả thành viên trong nhóm này đều nằm trong xe"
+
+#~ msgid "Regenerate 2 Factor Authentication Secret"
+#~ msgstr "Tái tạo 2 máy nghiền bí mật của máy nông"
+
+#~ msgid ""
+#~ "<center>You must set another Role Name <br>-- or --<br> this Role Name "
+#~ "already exist !!!</center>"
+#~ msgstr ""
+#~ "<center>Bạn phải thiết lập một Role Name<br>-- hoặc --<br>cái tên Role "
+#~ "Name này đã tồn tại rồi!! !</center>"
 
 #~ msgid "Done !"
 #~ msgstr "Xong!"
