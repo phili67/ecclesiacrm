@@ -1,6 +1,12 @@
 $(function() {
 
-  $("#DeleleAllAttendees").on("click",function(e) {
+  $(document).on("click", "#DeleleAllAttendees", function (e) {
+    e.preventDefault();
+
+    if ($(this).hasClass('disabled')) {
+      return;
+    }
+
     var eventID = $(this).data("eventid");
 
     bootbox.confirm({
@@ -9,7 +15,7 @@ $(function() {
      buttons: {
         'cancel': {
             label: i18next.t('Cancel'),
-            className: 'btn-default'
+            className: 'btn-outline-secondary'
         },
         'confirm': {
             label: i18next.t('OK'),
@@ -30,11 +36,12 @@ $(function() {
     });
   });
 
-  $(".DeleleAttendees").on("click",function(e) {
+  $(document).on("click", ".DeleleAttendees", function (e) {
+    e.preventDefault();
+
     var eventID = $(this).data("eventid");
     var personID = $(this).data("personid");
     var row = window.CRM.DataTableEventView.row( $(this).parents('tr') );
-    var rowNode = row.node();
 
     bootbox.confirm({
      title: i18next.t("Attention"),
@@ -42,7 +49,7 @@ $(function() {
      buttons: {
         'cancel': {
             label: i18next.t('Cancel'),
-            className: 'btn-default'
+            className: 'btn-outline-secondary'
         },
         'confirm': {
             label: i18next.t('OK'),

@@ -10,7 +10,7 @@ function addRolesToMainDropdown()
         var len = data.length;
 
         for (i=0; i<len; ++i) {
-          $("#AllRoles").append('<a href="#" class="dropdown-item changeRole" data-id="'+data[i].Id+'"><i class="fas fa-arrow-circle-down"></i>'+data[i].Name+'</a>');
+          $("#AllRoles").append('<a href="#" class="dropdown-item changeRole" data-id="'+data[i].Id+'"><i class="fas fa-tag mr-1"></i>'+data[i].Name+'</a>');
           if (i == 0) {
             $("#mainbuttonRole").data("id",data[i].Id);
           }
@@ -79,23 +79,20 @@ function addRolesToMainDropdown()
           responsive: true
         });
 
-        function BootboxContent(){          
-          var frm_str = '<div>'
-                  +'<div class="row">'
-                    +'<div class="col-md-4">'
-                    + '<span style="color: red">*</span>' + i18next.t("Select your Role") + ":"
-                    +'</div>'
-                    +'<div class="col-md-8">'
-                    +'<select size="6" style="width:100%" id="select-userrole" class="form-control">'
-                    +'</select>'
-                   +'</div>'
+        function BootboxContent(){
+          var frm_str = '<div class="container-fluid px-0">'
+                  +'<div class="alert alert-light border mb-3">'
+                    +'<i class="fas fa-user-tag text-primary mr-2"></i>'
+                    + i18next.t("Select your Role") + ' ' + i18next.t("and update its name if needed.")
                   +'</div>'
-                  +'</br>'
-                  +'<div class="row div-title">'
-                    +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Role Name") + ":</div>"
-                    +'<div class="col-md-8">'
-                      +"<input type='text' id='RoleName' placeholder='" + i18next.t("Role Name") + "' size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
-                    +'</div>'
+                  +'<div class="form-group mb-3">'
+                    +'<label for="select-userrole" class="text-muted small font-weight-bold text-uppercase mb-2"><span class="text-danger">*</span> ' + i18next.t("Select your Role") + '</label>'
+                    +'<select size="6" id="select-userrole" class="form-control">'
+                    +'</select>'
+                  +'</div>'
+                  +'<div class="form-group mb-0 div-title">'
+                    +'<label for="RoleName" class="text-muted small font-weight-bold text-uppercase mb-2"><span class="text-danger">*</span> ' + i18next.t("Role Name") + '</label>'
+                    +"<input type='text' id='RoleName' placeholder='" + i18next.t("Role Name") + "' size='30' maxlength='100' class='form-control form-control-sm' required>"
                   +'</div>'
                 +'</div>';
 
@@ -118,30 +115,44 @@ function addRolesToMainDropdown()
 
         $("#manageRole").on('click',function() {
           var modal = bootbox.dialog({
-             title:i18next.t("Role management"),
+             title: '<i class="fas fa-user-shield mr-2"></i>' + i18next.t("Role management"),
              message: BootboxContent(),
              buttons: [
               {
                label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
-               className: "btn btn-success",
+               className: "btn btn-sm btn-outline-secondary",
                callback: function() {
                }
               },
               {
-               label: '<i class="fas fa-pencil-alt"></i> ' + i18next.t("Delete"),
-               className: "btn btn-danger",
+               label: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Delete"),
+               className: "btn btn-sm btn-danger",
                callback: function() {
                   var roleID = $('#select-userrole').val();
 
-                  bootbox.confirm(i18next.t("Are you sure? You're about to delete this Role."), function(result){
-                    if (result) {
-                      window.CRM.APIRequest({
-                         method: 'POST',
-                         path: 'userrole/delete',
-                         data: JSON.stringify({"roleID": roleID})
-                      },function(data) {
-                        addRoles();
-                      });
+                  bootbox.confirm({
+                    title: '<i class="fas fa-exclamation-triangle text-danger mr-2"></i>' + i18next.t("Delete"),
+                    message: '<div class="alert alert-danger mb-0">' + i18next.t("Are you sure? You're about to delete this Role.") + '</div>',
+                    buttons: {
+                      cancel: {
+                        label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
+                        className: 'btn btn-sm btn-outline-secondary'
+                      },
+                      confirm: {
+                        label: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Delete"),
+                        className: 'btn btn-sm btn-danger'
+                      }
+                    },
+                    callback: function(result){
+                      if (result) {
+                        window.CRM.APIRequest({
+                           method: 'POST',
+                           path: 'userrole/delete',
+                           data: JSON.stringify({"roleID": roleID})
+                        },function(data) {
+                          addRoles();
+                        });
+                      }
                     }
                   });
                   return false;
@@ -149,7 +160,7 @@ function addRolesToMainDropdown()
               },
               {
                label: '<i class="fas fa-pencil-alt"></i> ' + i18next.t("Rename"),
-               className: "btn btn-primary",
+               className: "btn btn-sm btn-primary",
                callback: function() {
                   var roleID = $('#select-userrole').val();
                   var name = $('#RoleName').val();
@@ -280,7 +291,20 @@ function addRolesToMainDropdown()
            user_perm = user_perm.slice(0, -1);
            user_value = user_value.slice(0, -1);
 
-           bootbox.prompt(i18next.t("Choose a Role Name"), function(result){
+           bootbox.prompt({
+             title: '<i class="fas fa-user-plus mr-2"></i>' + i18next.t("Choose a Role Name"),
+             inputType: 'text',
+             buttons: {
+               cancel: {
+                 label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
+                 className: 'btn btn-sm btn-outline-secondary'
+               },
+               confirm: {
+                 label: '<i class="fas fa-save"></i> ' + i18next.t("Save"),
+                 className: 'btn btn-sm btn-primary'
+               }
+             },
+             callback: function(result){
              if (result) {
                 window.CRM.APIRequest({
                   method: 'POST',
@@ -291,13 +315,13 @@ function addRolesToMainDropdown()
                       addRolesToMainDropdown();
                     } else if (data && data.status=="error") {
                       bootbox.alert({
-                          title:i18next.t("Error"),
-                          message: i18next.t("<center>You must set another Role Name <br>-- or --<br> this Role Name already exist !!!</center>"),
+                          title: '<i class="fas fa-exclamation-circle text-danger mr-2"></i>' + i18next.t("Error"),
+                          message: '<div class="alert alert-danger mb-0 text-center">' + i18next.t("You must set another Role Name") + '<br>-- ' + i18next.t("or") + ' --<br>' + i18next.t("this Role Name already exist !!!") + '</div>',
                           size: "small"
                       });
                     }
                 });
              }
-           });
+           }});
         });
     });

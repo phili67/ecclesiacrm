@@ -138,125 +138,131 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
 {
    //Run the SQL
     $rsQueryResults = MiscUtils::RunQuery($qry_SQL); ?>
-    <div class="card card-primary">
-        <br>
-        <div id="cart-buttons" style="display: none;margin-left:12px">
-            <button type="button" id="addResultsToCart"
-                    class="btn btn-success btn-sm"> <i class="fas fa-cart-plus"></i> <?= _('Add To Cart') ?></button>
-            <button type="button" id="intersectResultsToCart"
-                    class="btn btn-warning btn-sm"> <i class="fas fa-cart-shopping"></i><i class="fa-solid fa-cart-flatbed"></i> <?= _('Intersect With Cart') ?></button>
-            <button type="button" id="removeResultsFromCart"
-                    class="btn btn-danger btn-sm"> <i class="fas fa-times"></i> <?= _('Remove From Cart') ?></button>                
+    <div class="card card-primary card-outline">
+        <div class="card-header border-1 d-flex flex-wrap align-items-center justify-content-between">
+            <h3 class="card-title mb-0"><i class="fas fa-table mr-1"></i><?= _($qry_Name) ?></h3>
+            <div id="cart-buttons" style="display: none;" class="d-flex flex-wrap">
+                <button type="button" id="addResultsToCart" class="btn btn-success btn-sm mr-2 mb-2">
+                    <i class="fas fa-cart-plus mr-1"></i><?= _('Add To Cart') ?>
+                </button>
+                <button type="button" id="intersectResultsToCart" class="btn btn-warning btn-sm mr-2 mb-2">
+                    <i class="fas fa-cart-shopping mr-1"></i><?= _('Intersect With Cart') ?>
+                </button>
+                <button type="button" id="removeResultsFromCart" class="btn btn-danger btn-sm mb-2">
+                    <i class="fas fa-times mr-1"></i><?= _('Remove From Cart') ?>
+                </button>
+            </div>
         </div>    
         <div class="card-body">
-            <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="query-table"
-                   style="width:100%">
-                <thead>
-                <?php
-                //Loop through the fields and write the header row
-                for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
-                    //If this field is called "AddToCart", provision a headerless column to hold the cart action buttons
-                    $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
-                    if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {?>
-                        <th><?= _($fieldInfo->name) ?></th>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="query-table"
+                       style="width:100%">
+                    <thead>
                     <?php
-                    } elseif ($fieldInfo->name == 'AddToCart') {
-                        ?>
-                        <th>
-                            <?= _("Add to Cart") ?>
-                        </th>
-                        <?php
-                    }
-                }
-                ?>
-                </thead>
-                <tbody>
-                <?php
-                $aAddToCartIDs = [];
-
-                $qry_real_Count = 0;
-
-                while ($aRow = mysqli_fetch_array($rsQueryResults)) {
-                    if (!is_null($aRow['GDPR']) && SystemConfig::getBooleanValue('bGDPR')) continue;
-
-                    $qry_real_Count++;
-
-                    //Alternate the background color of the row
-                    ?>
-                    <tr>
-                    <?php
-
-                    //Loop through the fields and write each one
+                    //Loop through the fields and write the header row
                     for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
-                        // If this field is called "AddToCart", add a cart button to the form
+                        //If this field is called "AddToCart", provision a headerless column to hold the cart action buttons
                         $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
-
-                        if ($fieldInfo->name == 'AddToCart') {
-                            if (!Cart::PersonInCart($aRow[$iCount])) {
-                                ?>
-                                <td>
-                                    <a class="AddToPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
-                                         <span class="fa-stack">
-                                         <i class="fas fa-square fa-stack-2x"></i>
-                                         <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
-                                         </span>
-                                    </a>
-                                </td>
-                                <?php
-                            } else {
-                                ?>
-                                <td>
-                                    <a class="RemoveFromPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
-                         <span class="fa-stack">
-                         <i class="fas fa-square fa-stack-2x"></i>
-                         <i class="fas fa-times fa-stack-1x fa-inverse"></i>
-                         </span>
-                                    </a>
-                                </td>
-                                <?php
-                            }
-                            $aAddToCartIDs[] = $aRow[$iCount];
-                        } //...otherwise just render the field
-                        else if ($fieldInfo->name != 'GDPR') {
-                            //Write the actual value of this row
-                            if ( mb_strpos($aRow[$iCount],"<a href=") !== false) {
-                                $res = str_replace("<a href=", "<a href=".$sRootPath."/", $aRow[$iCount]);
-                                ?>
-                                <td><?= $res ?></td>
-                            <?php
-                            } else {
+                        if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {?>
+                            <th><?= _($fieldInfo->name) ?></th>
+                        <?php
+                        } elseif ($fieldInfo->name == 'AddToCart') {
                             ?>
-                                <td><?= $aRow[$iCount] ?></td>
+                            <th>
+                                <?= _("Add to Cart") ?>
+                            </th>
                             <?php
-                            }
-                            
                         }
                     }
                     ?>
-                    </tr>
-                <?php
-                } ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $aAddToCartIDs = [];
+
+                    $qry_real_Count = 0;
+
+                    while ($aRow = mysqli_fetch_array($rsQueryResults)) {
+                        if (!is_null($aRow['GDPR']) && SystemConfig::getBooleanValue('bGDPR')) continue;
+
+                        $qry_real_Count++;
+
+                        //Alternate the background color of the row
+                        ?>
+                        <tr>
+                        <?php
+
+                        //Loop through the fields and write each one
+                        for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
+                            // If this field is called "AddToCart", add a cart button to the form
+                            $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
+
+                            if ($fieldInfo->name == 'AddToCart') {
+                                if (!Cart::PersonInCart($aRow[$iCount])) {
+                                    ?>
+                                    <td>
+                                        <a class="AddToPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
+                                             <span class="fa-stack">
+                                             <i class="fas fa-square fa-stack-2x"></i>
+                                             <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
+                                             </span>
+                                        </a>
+                                    </td>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <td>
+                                        <a class="RemoveFromPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
+                             <span class="fa-stack">
+                             <i class="fas fa-square fa-stack-2x"></i>
+                             <i class="fas fa-times fa-stack-1x fa-inverse"></i>
+                             </span>
+                                        </a>
+                                    </td>
+                                    <?php
+                                }
+                                $aAddToCartIDs[] = $aRow[$iCount];
+                            } //...otherwise just render the field
+                            else if ($fieldInfo->name != 'GDPR') {
+                                //Write the actual value of this row
+                                if ( mb_strpos($aRow[$iCount],"<a href=") !== false) {
+                                    $res = str_replace("<a href=", "<a href=".$sRootPath."/", $aRow[$iCount]);
+                                    ?>
+                                    <td><?= $res ?></td>
+                                <?php
+                                } else {
+                                ?>
+                                    <td><?= $aRow[$iCount] ?></td>
+                                <?php
+                                }
+
+                            }
+                        }
+                        ?>
+                        </tr>
+                    <?php
+                    } ?>
+                    </tbody>
+                </table>
+            </div>
 
             <p class="text-right">
                 <?= $qry_Count ? $qry_real_Count . _(' record(s) returned') : ''; ?>
             </p>
         </div>
 
-        <div class="card-footer">                    
+        <div class="card-footer">
             <div class="text-right">
-                <?= '<a class="btn btn-default " href="' . $sRootPath . '/v2/query/view/' . $iQueryID . '"><i class="fa-solid fa-database"></i> ' . _('Run Query Again') . '</a>'; ?>
-            </p>
+                <?= '<a class="btn btn-outline-secondary" href="' . $sRootPath . '/v2/query/view/' . $iQueryID . '"><i class="fa-solid fa-database mr-1"></i> ' . _('Run Query Again') . '</a>'; ?>
+            </div>
         </div>
 
     </div>
-    </div>
 
     <?php if (SessionUser::getUser()->isAdmin()) { ?>
-    <div class="card card-info">
+    <div class="card card-info card-outline">
         <div class="card-header border-1">
-            <div class="card-title">Query</div>
+            <div class="card-title"><i class="fas fa-code mr-1"></i>Query</div>
         </div>
         <div class="card-body">
             <code>
@@ -380,10 +386,12 @@ function DoQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $qry_SQL, $iQueryI
 function DisplayQueryInfo($qry_Name, $qry_Description)
 {
 ?>
-    <div class="card card-info">
+    <div class="card card-info card-outline">
+        <div class="card-header border-1">
+            <h3 class="card-title"><i class="fas fa-circle-info mr-1"></i><?= _($qry_Name); ?></h3>
+        </div>
         <div class="card-body">
-            <p><strong><?= _($qry_Name); ?></strong></p>
-            <p><?= _($qry_Description); ?></p>
+            <p class="text-muted mb-0"><?= _($qry_Description); ?></p>
         </div>
     </div>
     <?php
@@ -454,8 +462,11 @@ function getQueryFormInput($queryParameters)
 function DisplayParameterForm($rsParameters, $iQueryID, $sRootPath)
 { ?>
     <div class="row">
-        <div class="col-md-8">
-            <div class="card card-primary">
+        <div class="col-lg-8 col-xl-7">
+            <div class="card card-primary card-outline">
+                <div class="card-header border-1">
+                    <h3 class="card-title"><i class="fas fa-sliders-h mr-1"></i><?= _("Query Parameters") ?></h3>
+                </div>
                 <div class="card-body">
                     <form method="post" action="<?= $sRootPath ?>/v2/query/view/<?= $iQueryID ?>">
                         <?php
@@ -470,9 +481,9 @@ function DisplayParameterForm($rsParameters, $iQueryID, $sRootPath)
                         <?php                            
                         } ?>
 
-                        <div class="form-group text-right">
-                            <button class="btn btn-success btn-lg shadow-sm font-weight-bold py-2 px-4" type="submit" name="Submit">
-                                <i class="fas fa-play mr-2"></i> <?= _("Execute Query") ?>
+                        <div class="form-group text-right mb-0">
+                            <button class="btn btn-success" type="submit" name="Submit">
+                                <i class="fas fa-play mr-1"></i> <?= _("Execute Query") ?>
                             </button>
                         </div>
                     </form>
@@ -488,6 +499,14 @@ function DisplayParameterForm($rsParameters, $iQueryID, $sRootPath)
 }
 
 require $sRootDocument . '/Include/Header.php';
+
+?>
+<div class="d-flex justify-content-end mb-2">
+    <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/query/list">
+        <i class="fas fa-arrow-left mr-1"></i><?= _('Back to Query List') ?>
+    </a>
+</div>
+<?php
 
 //Get the query information
 $sSQL = 'SELECT * FROM query_qry WHERE qry_ID = ' . $iQueryID;

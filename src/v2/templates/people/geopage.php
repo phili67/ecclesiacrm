@@ -21,9 +21,7 @@ require $sRootDocument . '/Include/Header.php';
 <form class="form-horizontal" method="POST" action="<?= $sRootPath ?>/v2/people/geopage" name="GeoPage">
     <div class="card card-primary">
         <div class="card-header  border-1">
-            <div class="card-title">
-                <h4><?= _("Set your elements") ?></h4>
-            </div>
+            <h3 class="card-title mb-0"><i class="fas fa-globe mr-1"></i><?= _("Set your elements") ?></h3>
         </div>
         <div class="card-body">
             <div class="form-group">
@@ -84,8 +82,9 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="form-group">
                 <div class="col-xs-offset-2 col-xs-8">
-                    <input type="submit" class="btn btn-primary" name="FindNeighbors"
-                           value="<?= _('Show Neighbors') ?>">
+                    <button type="submit" class="btn btn-success" name="FindNeighbors">
+                        <i class="fas fa-search mr-1"></i><?= _('Show Neighbors') ?>
+                    </button>
                 </div>
             </div>
         </div>
@@ -103,7 +102,7 @@ require $sRootDocument . '/Include/Header.php';
         <!--Datafile section -->
         <div class="card card-secondary collapsed-card">
             <div class="card-header border-1">
-                <h3 class="card-title"><?= _('Make Data File') ?></h3>
+                <h3 class="card-title"><i class="fas fa-file-export mr-1"></i><?= _('Make Data File') ?></h3>
                 <div class="card-tools pull-right">
                     <button class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
                 </div><!-- /.box-tools -->
@@ -150,8 +149,9 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <div class="form-group">
                     <div class="col-xs-offset-2 col-xs-8">
-                        <input type="submit" class="btn btn-primary" name="DataFile"
-                               value="<?= _('Make Data File') ?>">
+                        <button type="submit" class="btn btn-warning" name="DataFile">
+                            <i class="fas fa-file-export mr-1"></i><?= _('Make Data File') ?>
+                        </button>
                     </div>
                 </div>
             </div><!-- /.box-body -->
@@ -171,11 +171,11 @@ require $sRootDocument . '/Include/Header.php';
             <!-- Column Headings -->
             <div class="car card-success">
                 <div class="card-header  border-1">
-                    <div class="card-title">
-                        <h4><?= _("Results") ?></h4>
-                    </div>
+                    <h3 class="card-title">
+                        <i class="fas fa-map-marker-alt mr-1"></i> <?= _("Results") ?>
+                    </h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="padding: 0px;">
                     <table id="neighbours" class="table table-striped table-bordered data-table dataTable no-footer"
                            cellspacing="0" role="grid">
                         <!--table class="table table-striped"-->
@@ -239,18 +239,16 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="card-footer">
                     <input type="hidden" name="PersonIDList" value="<?= $sPersonIDList ?>">
 
-                    <div class="row">
-                        <div class="col-4">
-                            <a id="AddAllToCart" class="btn btn-primary"><?= _('Add All to Cart') ?></a>
-                        </div>
-                        <div class="col-4">
-                            <input name="IntersectCart" type="submit" class="btn btn-primary"
-                                   value="<?= _('Intersect with Cart') ?>">
-                        </div>
-                        <div class="col-4">
-                            <a id="RemoveAllFromCart" class="btn btn-danger"><?= _('Remove All from Cart') ?></a>
-                        </div>
-
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                        <button type="button" id="AddAllToCart" class="btn btn-sm btn-success">
+                            <i class="fas fa-shopping-cart mr-1"></i><?= _('Add All to Cart') ?>
+                        </button>
+                        <button type="submit" name="IntersectCart" class="btn btn-sm btn-info">
+                            <i class="fas fa-filter mr-1"></i><?= _('Intersect with Cart') ?>
+                        </button>
+                        <button type="button" id="RemoveAllFromCart" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash-alt mr-1"></i><?= _('Remove All from Cart') ?>
+                        </button>
                     </div>
                 </div>
             </div>

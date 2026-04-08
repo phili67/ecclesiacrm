@@ -19,50 +19,29 @@ use EcclesiaCRM\SessionUser;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card card-warning">
-    <div class="card-header border-1">
-        <h3 class="card-title"><i class="fas fa-users"></i> <?= _('Groups') ?></h3>
-        <div class="card-tools">
-            <div style="text-align: center;">
-                <div class="row align-items-center">                    
-                    <div class="col-md-4">
-                        <select id="table-filter" class="form-control form-control-sm">
-                            <option value=""><?= _("All") ?></option>
-                            <option><?= _("Unassigned") ?></option>
-                            <?php
-                            foreach ($rsGroupTypes as $groupType) {
-                            ?>
-                                <option><?= $groupType->getOptionName() ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="col-md-3 text-right">
-                        <small>
-                        <label>
-                            <?= _("Nombre:") ?>
-                        </label>
-                        <span id="numberOfGroups"></span>
-                        </small>
-                    </div>
-                    <?php
-                        if (SessionUser::getUser()->isManageGroupsEnabled()) {
-                    ?>
-                    <div class="col-md-5">
-                        <button type="button" class="btn btn-success btn-sm" id="addNewGroup">
-                            <i class="fas fa-plus"></i> <?= _('Add New') ?>
-                        </button>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>
+<div class="card card-outline card-warning shadow-sm">
+    <div class="card-header border-0">
+        <h3 class="card-title"><i class="fas fa-users mr-2"></i><?= _('Groups') ?></h3>
+        <div class="card-tools d-flex align-items-center gap-2">
+            <select id="table-filter" class="form-control form-control-sm" style="width:160px;">
+                <option value=""><?= _("All") ?></option>
+                <option><?= _("Unassigned") ?></option>
+                <?php foreach ($rsGroupTypes as $groupType): ?>
+                    <option><?= $groupType->getOptionName() ?></option>
+                <?php endforeach; ?>
+            </select>
+            <small class="text-muted text-nowrap ml-2">
+                <?= _("Count:") ?> <span id="numberOfGroups" class="font-weight-bold"></span>
+            </small>
+            <?php if (SessionUser::getUser()->isManageGroupsEnabled()): ?>
+            <button type="button" class="btn btn-success btn-sm ml-2" id="addNewGroup">
+                <i class="fas fa-plus mr-1"></i><?= _('Add New') ?>
+            </button>
+            <?php endif; ?>
         </div>
     </div>
-    <div class="card-body">
-        <table class="table table-striped table-bordered data-table" id="groupsTable" style="width:100%">
+    <div class="card-body p-0">
+        <table class="table table-hover table-sm data-table" id="groupsTable" style="width:100%">
         </table>
     </div>
 </div>

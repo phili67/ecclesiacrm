@@ -17,26 +17,30 @@ use EcclesiaCRM\SessionUser;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card card-primary card-body">
-    <div class="margin">
-        <label><?= _("Classification") ?></label>
-        <div class="btn-group">
-            <a class="btn btn-app changeType" data-typeid="<?= $aMemberTypes[0]['OptionName'] ?>>" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Filter by member types") ?>"><i
-                    class="fas fa-sticky-note"></i><?= $aMemberTypes[0]['OptionName'] ?></a>
-            <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only">Menu déroulant</span>
-            </button>
-            <div class="dropdown-menu" role="menu">
-                <?php foreach ($aMemberTypes as $aMemberType) {
-                    ?>
-                    <a class="dropdown-item changeType" data-typeid="<?= $aMemberType['OptionName'] ?>"><?= $aMemberType['OptionName'] ?></a>
-                    <?php
-                }
-                ?>
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-filter mr-1"></i><?= _("Classification") ?></h3>
+    </div>
+    <div class="card-body py-3">
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-sm btn-primary changeType" data-typeid="<?= $aMemberTypes[0]['OptionName'] ?>" data-toggle="tooltip" data-placement="bottom" title="<?= _("Filter by member types") ?>">
+                    <i class="fas fa-list-check mr-1"></i><?= $aMemberTypes[0]['OptionName'] ?>
+                </button>
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Menu déroulant</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-left">
+                    <?php foreach ($aMemberTypes as $aMemberType) { ?>
+                        <a class="dropdown-item changeType" href="#" data-typeid="<?= $aMemberType['OptionName'] ?>">
+                            <i class="fas fa-tag mr-2"></i><?= $aMemberType['OptionName'] ?>
+                        </a>
+                    <?php } ?>
+                </div>
             </div>
-            &nbsp;
-            <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
+            <button type="button" class="btn btn-sm btn-warning" id="add-event" data-toggle="tooltip" data-placement="bottom" title="<?= _("Create an appointment") ?>">
+                <i class="far fa-calendar-plus mr-1"></i><?= _("Appointment") ?>
+            </button>
         </div>
     </div>
 </div>
@@ -45,19 +49,25 @@ require $sRootDocument . '/Include/Header.php';
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header  border-1">
-                    <div class="card-title">
-                        <div class="row">
-                            <span style="color: red">*</span><?= _("For") ?> &nbsp;&nbsp;
-                            <input type="radio" name="type" value="1" checked="" class="typeSort"> <?= _("All persons") ?> &nbsp;&nbsp;
-                            <input type="radio" name="type" value="2" class="typeSort"> <?= _("Only the visited/called persons") ?> &nbsp;&nbsp;
+            <div class="card card-outline card-info shadow-sm">
+                <div class="card-header py-2">
+                    <h3 class="card-title mb-0"><i class="fas fa-database mr-1"></i><?= _("Members List") ?></h3>
+                </div>
+                <div class="card-body py-3">
+                    <div class="mb-3 pb-3 border-bottom">
+                        <label class="font-weight-semibold mb-2 d-block"><span class="text-danger">*</span><?= _("Display options") ?></label>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="typeAll" name="type" value="1" checked class="custom-control-input typeSort">
+                            <label class="custom-control-label" for="typeAll"><?= _("All persons") ?></label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="typeVisited" name="type" value="2" class="custom-control-input typeSort">
+                            <label class="custom-control-label" for="typeVisited"><?= _("Only visited/called persons") ?></label>
                         </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <table class=" dataTable table table-striped table-condensed" id="pastoralCareMembersList"
-                           width="100%"></table>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-sm dataTable" id="pastoralCareMembersList" width="100%"></table>
+                    </div>
                 </div>
             </div>
         </div>

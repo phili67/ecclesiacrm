@@ -18,52 +18,52 @@ require $sRootDocument . '/Include/Header.php';
 
 <!-- GROUP SPECIFIC PROPERTIES MODAL-->
 <div class="modal fade" id="groupSpecificPropertiesModal" tabindex="-1" role="dialog" aria-labelledby="deleteGroup" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header border-0 bg-light">
         <h4 class="modal-title" id="gsproperties-label"></h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <span style="color: red"></span>
+        <span class="text-danger"></span>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times"></i> <?= _('Close')?></button>
-        <button name="setgroupSpecificProperties" id="setgroupSpecificProperties" type="button" class="btn btn-danger"></button>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal"><i class="fas fa-times mr-1"></i><?= _('Close') ?></button>
+        <button name="setgroupSpecificProperties" id="setgroupSpecificProperties" type="button" class="btn btn-danger btn-sm"></button>
       </div>
     </div>
   </div>
 </div>
 <!-- END GROUP SPECIFIC PROPERTIES MODAL-->
 
-<div class="card">
-  <div class="card-header  border-1">
-    <h3 class="card-title"><?= (($theCurrentGroup->isSundaySchool())?_("Special Group Settings : Sunday School Type"):_('Group Settings')) ?></h3>
+<div class="card card-outline card-primary shadow-sm mb-3">
+  <div class="card-header border-0">
+    <h3 class="card-title"><i class="fas fa-cog mr-2"></i><?= (($theCurrentGroup->isSundaySchool()) ? _("Special Group Settings : Sunday School Type") : _('Group Settings')) ?></h3>
   </div>
   <div class="card-body">
     <form name="groupEditForm" id="groupEditForm">
-      <div class="form-group">
+      <div class="form-group mb-0">
         <div class="row">
           <div class="col-sm-6">
             <div class="row">
               <div class="col-sm-12">
                 <label for="Name"><?= _('Name') ?>:</label>
-                <input class= "form-control form-control-sm" type="text" Name="Name" value="<?= htmlentities(stripslashes($theCurrentGroup->getName()), ENT_NOQUOTES, 'UTF-8') ?>">
+                <input class="form-control form-control-sm" type="text" Name="Name" value="<?= htmlentities(stripslashes($theCurrentGroup->getName()), ENT_NOQUOTES, 'UTF-8') ?>">
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <label for="Description"><?= _('Description') ?>:</label>
-                <textarea  class= "form-control form-control-sm" name="Description" cols="40" rows="5"><?= htmlentities(stripslashes($theCurrentGroup->getDescription()), ENT_NOQUOTES, 'UTF-8') ?></textarea></td>
+                <textarea class="form-control form-control-sm" name="Description" cols="40" rows="5"><?= htmlentities(stripslashes($theCurrentGroup->getDescription()), ENT_NOQUOTES, 'UTF-8') ?></textarea>
               </div>
             </div>
-            <br>
+            <div class="mb-3"></div>
           </div>
           <div class="col-sm-6">
             <div class="row">
               <div class="col-sm-12">
                 <label for="GroupType"><?= _('Type of Group and Menu Category') ?>:</label>
-                <select class="form-control form-control-small" name="GroupType"
+                <select class="form-control form-control-sm" name="GroupType"
                         data-toggle="tooltip"  data-placement="bottom" title="<?= _("This will include the group in a menu item in the left sidebar") ?>">
                   <option value="0"><?= _('Unassigned') ?></option>
                   <option value="0">-----------------------</option>
@@ -83,14 +83,16 @@ require $sRootDocument . '/Include/Header.php';
                 // Show Role Clone fields only when adding new group
                 if (strlen($iGroupID) < 1) {
                     ?>
-                  <b><?= _('Group Member Roles') ?>:</b>
+                  <div class="mt-3 p-2 border rounded bg-light">
+                    <b><?= _('Group Member Roles') ?>:</b><br>
 
-                  <?= _('Clone roles') ?>:
-                  <input type="checkbox" name="cloneGroupRole" id="cloneGroupRole" value="1">
+                    <?= _('Clone roles') ?>:
+                    <input type="checkbox" name="cloneGroupRole" id="cloneGroupRole" value="1">
+                  </div>
                 </div>
                 <div class="col-sm-3" id="selectGroupIDDiv">
-                  <?= _('from group') ?>:
-                  <select class="form-control form-control-small" name="seedGroupID" id="seedGroupID" >
+                  <label class="mt-3" for="seedGroupID"><?= _('from group') ?>:</label>
+                  <select class="form-control form-control-sm" name="seedGroupID" id="seedGroupID">
                     <option value="0"><?php _('Select a group'); ?></option>
 
                   <?php
@@ -116,55 +118,66 @@ require $sRootDocument . '/Include/Header.php';
             <?php
             if ($theCurrentGroup->getHasSpecialProps()) {
             ?>
-                <?= _('Enabled') ?><br/>
+                <span class="badge badge-success mb-2"><?= _('Enabled') ?></span>
                 <div class="row">
-                  <div class="col-sm-4">
-                    <button type="button" id="disableGroupProps" class="btn btn-danger groupSpecificProperties"
+                  <div class="col-sm-5 mb-2">
+                    <button type="button" id="disableGroupProps" class="btn btn-sm btn-outline-danger groupSpecificProperties"
                             data-toggle="tooltip"  data-placement="bottom" title="<?= _("Group-specific properties are useful to classify your groups or to make a sort of Doodle") ?>">
-                        <?= _('Disable Group Specific Properties') ?></button><br/>
+                        <i class="fas fa-ban mr-1"></i><?= _('Disable Group Specific Properties') ?></button>
                   </div>
-                  <div class="col-sm-4">
-                    <a  class="btn btn-success" href="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $iGroupID?>"
-                        data-toggle="tooltip"  data-placement="bottom" title="<?= _("Group-specific properties are useful to make a sort of doodle") ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
+                  <div class="col-sm-7 mb-2">
+                    <a class="btn btn-sm btn-success" href="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $iGroupID ?>"
+                        data-toggle="tooltip" data-placement="bottom" title="<?= _("Group-specific properties are useful to make a sort of doodle") ?>"><i class="fas fa-edit mr-1"></i><?= _('Edit Group-Specific Properties Form') ?></a>
                   </div>
                 </div>
           <?php
             } else {
           ?>
-                <?= _('Disabled') ?><br/>
-                <button type="button" id="enableGroupProps" class="btn btn-danger groupSpecificProperties"
-                        data-toggle="tooltip"  data-placement="bottom" title="<?= _("Group-specific properties are useful to classify your groups or to make a sort of Doodle") ?>"><?= _('Enable Group Specific Properties') ?></button>&nbsp;
+                <span class="badge badge-secondary mb-2"><?= _('Disabled') ?></span><br>
+                <button type="button" id="enableGroupProps" class="btn btn-sm btn-outline-danger groupSpecificProperties"
+                        data-toggle="tooltip" data-placement="bottom" title="<?= _("Group-specific properties are useful to classify your groups or to make a sort of Doodle") ?>"><i class="fas fa-plus-circle mr-1"></i><?= _('Enable Group Specific Properties') ?></button>
           <?php
             }
           ?>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-3">
-            <br>
-            <input type="submit" id="saveGroup" class="btn btn-primary" value="<?= _('Save') ?>" Name="GroupSubmit">
+          <div class="col-sm-12 mt-3">
+            <button type="submit" id="saveGroup" class="btn btn-primary btn-sm" name="GroupSubmit">
+              <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+            </button>
           </div>
         </div>
       </div>
     </form>
   </div>
 </div>
-<div class="card">
-  <div class="card-header  border-1">
-    <h3 class="card-title"><?= _('Group Roles') ?>:</h3>
+<div class="card card-outline card-info shadow-sm">
+  <div class="card-header border-0">
+    <h3 class="card-title"><i class="fas fa-users-cog mr-2"></i><?= _('Group Roles') ?></h3>
   </div>
   <div class="card-body">
-    <div class="alert alert-info alert-dismissable">
+    <div class="alert alert-info alert-dismissible">
       <i class="fas fa-info"></i>
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
       <strong><?= _('Group role name changes are saved as soon as the box loses focus')?></strong>
     </div>
       <div class="table-responsive">
-        <table class="table" class="table" id="groupRoleTable"></table>
+        <table class="table table-sm table-hover" id="groupRoleTable"></table>
       </div>
-    <label for="newRole"><?= _('New Role')?>: </label><input type="text" class= "form-control form-control-sm" id="newRole" name="newRole">
-    <br>
-    <button type="button" id="addNewRole" class="btn btn-primary"><?= _('Add New Role')?></button>
+    <div class="mt-3 p-3 border rounded bg-light">
+      <div class="d-flex flex-wrap align-items-end">
+        <div class="form-group mb-2 mr-2" style="min-width:260px;flex:1;">
+          <label for="newRole" class="mb-1 font-weight-bold text-muted"><?= _('New Role') ?>:</label>
+          <input type="text" class="form-control form-control-sm" id="newRole" name="newRole" placeholder="<?= _('Enter a role name') ?>">
+        </div>
+        <div class="mb-2">
+          <button type="button" id="addNewRole" class="btn btn-sm btn-primary">
+            <i class="fas fa-plus mr-1"></i><?= _('Add New Role') ?>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

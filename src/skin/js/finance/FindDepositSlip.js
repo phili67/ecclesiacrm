@@ -1,6 +1,22 @@
 var dataT = 0;
 
 $(function() {
+    const updateSelectionActions = function () {
+        var selectedRows = dataT.rows('.selected').data().length;
+
+        $("#deleteSelectedRows").prop('disabled', !(selectedRows));
+        $("#deleteSelectedRows").html('<i class="fas fa-trash-alt mr-1"></i>' + i18next.t("Delete") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
+
+        $("#exportSelectedRows").prop('disabled', !(selectedRows));
+        $("#exportSelectedRows").html('<i class="fas fa-download mr-1"></i>' + i18next.t("Export") + " (" + selectedRows + ") OFX");
+
+        $("#exportSelectedRowsCSV").prop('disabled', !(selectedRows));
+        $("#exportSelectedRowsCSV").html('<i class="fas fa-download mr-1"></i>' + i18next.t("Export") + " (" + selectedRows + ") CSV");
+
+        $("#generateDepositSlip").prop('disabled', !(selectedRows));
+        $("#generateDepositSlip").html('<i class="fas fa-file-pdf mr-1"></i>' + i18next.t("Slip PDF") + " (" + selectedRows + ")");
+    };
+
     $("#depositDate").datepicker({
         format: window.CRM.datePickerformat,
         language: window.CRM.lang
@@ -28,13 +44,16 @@ $(function() {
             $(".deposit-current-deposit-item").show();
 
             dataT.ajax.reload();
+            updateSelectionActions();
         });
     });
 
-    dataTableConfig = {
+    var dataTableConfig = {
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
+        pageLength: 10,
+        autoWidth: false,
         responsive: true,
         ajax: {
             url: window.CRM.root + "/api/deposits",
@@ -52,7 +71,7 @@ $(function() {
                 data: 'Id',
                 render: function (data, type, full, meta) {
                     if (type === 'display') {
-                        return '<a href=\'' + window.CRM.root + '/v2/deposit/slipeditor/' + full.Id + '\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas fa-search-plus fa-stack-1x fa-inverse"></i></span></a>' + full.Id;
+                        return '<a href=\'' + window.CRM.root + '/v2/deposit/slipeditor/' + full.Id + '\' class="mr-1"><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas fa-search-plus fa-stack-1x fa-inverse"></i></span></a>' + full.Id;
                     } else {
                         return parseInt(full.Id);
                     }
@@ -88,7 +107,6 @@ $(function() {
                 searchable: false,
                 render: function (data, type, full, meta) {
                     return Number(data).toLocaleString(window.CRM.lang, {maximumSignificantDigits: 21});
-                    ;
                 }
             },
             {
@@ -101,7 +119,9 @@ $(function() {
                 data: 'Closed',
                 searchable: true,
                 render: function (data, type, full, meta) {
-                    return data == 1 ? '<div style="color:red;text-align:center">' + i18next.t('Yes') + '</div>' : '<div style="color:green;text-align:center">' + i18next.t('No') + '</div>';
+                    return data == 1
+                        ? '<span class="badge badge-danger">' + i18next.t('Yes') + '</span>'
+                        : '<span class="badge badge-success">' + i18next.t('No') + '</span>';
                 }
             },
             {
@@ -122,23 +142,21 @@ $(function() {
 
     $("#depositsTable tbody").on('click', 'tr', function () {
         $(this).toggleClass('selected');
-        var selectedRows = dataT.rows('.selected').data().length;
-        $("#deleteSelectedRows").prop('disabled', !(selectedRows));
-        $("#deleteSelectedRows").text(i18next.t("Delete") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
-        $("#exportSelectedRows").prop('disabled', !(selectedRows));
-        $("#exportSelectedRows").html("<i class=\"fas fa-download\"></i> " + i18next.t("Export") + " (" + selectedRows + ") " + i18next.t("Selected Rows") + " (OFX)");
-        $("#exportSelectedRowsCSV").prop('disabled', !(selectedRows));
-        $("#exportSelectedRowsCSV").html("<i class=\"fas fa-download\"></i> " + i18next.t("Export") + " (" + selectedRows + ") " + i18next.t("Selected Rows") + " (CSV)");
-        $("#generateDepositSlip").prop('disabled', !(selectedRows));
-        $("#generateDepositSlip").html("<i class=\"fas fa-download\"></i> " + i18next.t("Generate Deposit Slip for Selected") + " (" + selectedRows + ") " + i18next.t("Rows") + " (PDF)");
+        updateSelectionActions();
+    });
+
+    dataT.on('draw', function () {
+        updateSelectionActions();
     });
 
     $('.exportButton').on('click',function (sender) {
-        var selectedRows = dataT.rows('.selected').data()
+        var selectedRows = dataT.rows('.selected').data();
         var type = this.getAttribute("data-exportType");
         $.each(selectedRows, function (index, value) {
             window.CRM.VerifyThenLoadAPIContent(window.CRM.root + '/api/deposits/' + value.Id + '/' + type);
         });
     });
+
+    updateSelectionActions();
 
 });

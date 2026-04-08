@@ -29,7 +29,6 @@ $(function() {
 // end of mailchimp management
 
   $("#activateDeactivate").on('click', function () {
-    console.log("click activateDeactivate");
     popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t("Confirm Activation") );
     if (window.CRM.currentActive == true) {
       popupMessage = i18next.t("Please confirm deactivation of family") + ': ' + window.CRM.fam_Name;
@@ -125,7 +124,7 @@ $(function() {
           data:'ProId',
           render: function(data, type, full, meta) {
             if (full.ProPrompt != '') {
-              return '<a href="#" class="edit-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fas fa-pencil-alt" aria-hidden="true"></a>';
+              return '<button type="button" class="edit-property-btn btn btn-sm btn-outline-primary" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></button>';
             }
 
             return "";
@@ -136,7 +135,7 @@ $(function() {
           title:i18next.t('Value'),
           data:'R2pValue',
           render: function(data, type, full, meta) {
-            return data;
+            return (data == null || data === '') ? '<span class="text-muted">-</span>' : data;
           }
         },
         {
@@ -144,7 +143,7 @@ $(function() {
           title:i18next.t('Action'),
           data:'ProId',
           render: function(data, type, full, meta) {
-            return '<a href="#" class="remove-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></a>';
+            return '<button type="button" class="remove-property-btn btn btn-sm btn-outline-danger" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>';
           }
         },
         {
@@ -173,7 +172,7 @@ $(function() {
           promptBox
             .addClass('form-group')
             .append(
-              $('<label style="color:white"></label>').html(pro_prompt)
+              $('<label class="font-weight-bold text-muted small"></label>').html(pro_prompt)
             )
             .append(
               $('<textarea rows="3" class="form-control property-value" name="PropertyValue"></textarea>').val(pro_value)
@@ -181,8 +180,8 @@ $(function() {
         }
     });
 
-    $('body').on('click','.remove-property-btn',function(){
-        event.preventDefault();
+    $('body').on('click','.remove-property-btn',function(e){
+        e.preventDefault();
         var thisLink = $(this);
         var family_id = thisLink.data('family_id');
         var property_id = thisLink.data('property_id');
@@ -190,12 +189,12 @@ $(function() {
         bootbox.confirm({
           buttons: {
             confirm: {
-              label: i18next.t('OK'),
-              className: 'btn btn-default'
+              label: '<i class="fas fa-trash-alt mr-1"></i>' + i18next.t('Remove'),
+              className: 'btn-danger'
             },
             cancel: {
               label: i18next.t('Cancel'),
-              className: 'btn btn-primary'
+              className: 'btn-outline-secondary'
             }
           },
           title: i18next.t('Are you sure you want to unassign this property?'),
@@ -216,8 +215,8 @@ $(function() {
        });
     });
 
-    $('body').on('click','.edit-property-btn',function(){
-      event.preventDefault();
+    $('body').on('click','.edit-property-btn',function(e){
+      e.preventDefault();
       var thisLink = $(this);
       var family_id = thisLink.data('family_id');
       var property_id = thisLink.data('property_id');
@@ -226,12 +225,12 @@ $(function() {
       bootbox.prompt({
         buttons: {
           confirm: {
-            label: i18next.t('OK'),
-            className: 'btn btn-primary'
+            label: '<i class="fas fa-check mr-1"></i>' + i18next.t('Save'),
+            className: 'btn-primary'
           },
           cancel: {
             label: i18next.t('Cancel'),
-            className: 'btn btn-default'
+            className: 'btn-outline-secondary'
           }
         },
         title: i18next.t('Are you sure you want to change this property?'),
@@ -291,14 +290,25 @@ $(function() {
            .responsive.recalc();
   });
 
+    function setCartButtonIcon(button, inCart) {
+      var $button = $(button);
+      var $icon = $button.find('i.fas').first();
+
+      if ($icon.length === 0) {
+        return;
+      }
+
+      $icon.removeClass('fa-cart-plus fa-times');
+      $icon.addClass(inCart ? 'fa-times' : 'fa-cart-plus');
+    }
+
     $(document).on("click",".AddToFamilyCart", function(){
       clickedButton = $(this);
       window.CRM.cart.addFamily(clickedButton.data("cartfamilyid"),function()
       {
         $(clickedButton).addClass("RemoveFromFamilyCart");
         $(clickedButton).removeClass("AddToFamilyCart");
-        $('i',clickedButton).addClass("fa-times");
-        $('i',clickedButton).removeClass("fa-cart-plus");
+        setCartButtonIcon(clickedButton, true);
         text = $(clickedButton).find("span.cartActionDescription");
         if(text){
           $(text).text(i18next.t("Remove from Cart"));
@@ -312,8 +322,7 @@ $(function() {
       {
         $(clickedButton).addClass("AddToFamilyCart");
         $(clickedButton).removeClass("RemoveFromFamilyCart");
-        $('i',clickedButton).removeClass("fa-times");
-        $('i',clickedButton).addClass("fa-cart-plus");
+        setCartButtonIcon(clickedButton, false);
         text = $(clickedButton).find("span.cartActionDescription");
         if(text){
           $(text).text(i18next.t("Add to Cart"));
@@ -327,8 +336,7 @@ $(function() {
       {
         $(clickedButton).addClass("AddToPeopleCart");
         $(clickedButton).removeClass("RemoveFromPeopleCart");
-        $('span i:nth-child(2)',clickedButton).removeClass("fa-times");
-        $('span i:nth-child(2)',clickedButton).addClass("fa-cart-plus");
+        setCartButtonIcon(clickedButton, false);
       });
     });
 
@@ -338,8 +346,7 @@ $(function() {
       {
         $(clickedButton).addClass("RemoveFromPeopleCart");
         $(clickedButton).removeClass("AddToPeopleCart");
-        $('span i:nth-child(2)',clickedButton).addClass("fa-times");
-        $('span i:nth-child(2)',clickedButton).removeClass("fa-cart-plus");
+        setCartButtonIcon(clickedButton, true);
       });
     });
 
@@ -356,9 +363,7 @@ $(function() {
             personPresent = true;
             $(personButton).addClass("RemoveFromPeopleCart");
             $(personButton).removeClass("AddToPeopleCart");
-            fa = $(personButton).find("i.fas.fa-inverse");
-            $(fa).addClass("fa-times");
-            $(fa).removeClass("fa-cart-plus");
+            setCartButtonIcon(personButton, true);
             text = $(personButton).find("span.cartActionDescription")
             if(text){
               $(text).text(i18next.t("Remove from Cart"));
@@ -366,10 +371,7 @@ $(function() {
           } else {
             $(personButton).addClass("AddToPeopleCart");
             $(personButton).removeClass("RemoveFromPeopleCart");
-            fa = $(personButton).find("i.fas.fa-inverse");
-
-            $(fa).removeClass("fa-times");
-            $(fa).addClass("fa-cart-plus");
+            setCartButtonIcon(personButton, false);
             text = $(personButton).find("span.cartActionDescription")
             if(text){
               $(text).text(i18next.t("Add to Cart"));
@@ -380,8 +382,7 @@ $(function() {
         if (cartPeople.length == 0) {
             $("#AddToFamilyCart").addClass("AddToFamilyCart");
             $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
-            $('i',"#AddToFamilyCart").removeClass("fa-times");
-            $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
+          setCartButtonIcon("#AddToFamilyCart", false);
             text = $("#AddToFamilyCart").find("span.cartActionDescription")
             if(text){
                 $(text).text(i18next.t("Add to Cart"));
@@ -399,8 +400,7 @@ $(function() {
             if (peopleInCart) {
                 $("#AddToFamilyCart").addClass("RemoveFromFamilyCart");
                 $("#AddToFamilyCart").removeClass("AddToFamilyCart");
-                $('i',"#AddToFamilyCart").removeClass("fa-cart-plus");
-                $('i',"#AddToFamilyCart").addClass("fa-times");
+              setCartButtonIcon("#AddToFamilyCart", true);
                 text = $("#AddToFamilyCart").find("span.cartActionDescription")
                 if(text){
                     $(text).text(i18next.t("Remove from Cart"));
@@ -408,8 +408,7 @@ $(function() {
             } else {
                 $("#AddToFamilyCart").addClass("AddToFamilyCart");
                 $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
-                $('i',"#AddToFamilyCart").removeClass("fa-times");
-                $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
+              setCartButtonIcon("#AddToFamilyCart", false);
                 text = $("#AddToFamilyCart").find("span.cartActionDescription")
                 if(text){
                     $(text).text(i18next.t("Add to Cart"));
@@ -490,8 +489,8 @@ $(function() {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="" href="' + window.CRM.root + '/v2/deposit/autopayment/editor/'+data+'/'+full.Familyid+'/v2-people-family-view-'+full.Familyid+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
-                +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
+          return '<a class="btn btn-sm btn-outline-primary mr-1" href="' + window.CRM.root + '/v2/deposit/autopayment/editor/'+data+'/'+full.Familyid+'/v2-people-family-view-'+full.Familyid+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
+                + '<button type="button" class="delete-payment btn btn-sm btn-outline-danger" data-id="'+data+'"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>';
         }
       },
       {
@@ -526,19 +525,34 @@ $(function() {
   });
 
 
-  $(document).on("click",".delete-payment", function(){
-     clickedButton = $(this);
+  $(document).on("click", ".delete-payment", function (e) {
+     e.preventDefault();
+     var clickedButton = $(this);
      var autoPaymentId = clickedButton.data("id");
 
-     bootbox.confirm(i18next.t("Confirm Delete Automatic payment"), function(confirmed) {
-        if (confirmed) {
-          window.CRM.APIRequest({
-            method: 'POST',
-            path: 'payments/delete',
-            data: JSON.stringify({"famId": window.CRM.currentFamily,"paymentId" : autoPaymentId})
-          },function(data) {
-            automaticPaymentsTable.ajax.reload();
-          });
+     bootbox.confirm({
+        title: '<i class="fas fa-exclamation-triangle text-danger mr-2"></i>' + i18next.t("Confirm Delete Automatic payment"),
+        message: '<div class="alert alert-danger mb-0">' + i18next.t("This action can never be undone !!!!") + '</div>',
+        buttons: {
+          cancel: {
+            label: i18next.t('Cancel'),
+            className: 'btn-outline-secondary'
+          },
+          confirm: {
+            label: '<i class="fas fa-trash-alt mr-1"></i>' + i18next.t('Delete'),
+            className: 'btn-danger'
+          }
+        },
+        callback: function (confirmed) {
+          if (confirmed) {
+            window.CRM.APIRequest({
+              method: 'POST',
+              path: 'payments/delete',
+              data: JSON.stringify({"famId": window.CRM.currentFamily,"paymentId" : autoPaymentId})
+            }, function (data) {
+              automaticPaymentsTable.ajax.reload();
+            });
+          }
         }
      });
   });

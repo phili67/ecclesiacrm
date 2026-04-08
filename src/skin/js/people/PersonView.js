@@ -168,14 +168,14 @@ $(function () {
         title: i18next.t('Actions'),
         data: 'ProId',
         render: function (data, type, full, meta) {
-          var ret = '';
+          let ret = '<div class="btn-group btn-group-sm" role="group" aria-label="' + i18next.t('Property actions') + '">';
+
           if (full.ProPrompt != '') {
-            ret += '<a href="" class="edit-property-btn" data-person_id="' + window.CRM.currentPersonID + '" data-property_id="' + data + '" data-property_Name="' + full.R2pValue + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
-          } else {
-            ret += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+            ret += '<button type="button" class="btn btn-outline-primary edit-property-btn" title="' + i18next.t('Edit') + '" data-toggle="tooltip" data-person_id="' + window.CRM.currentPersonID + '" data-property_id="' + data + '" data-property_name="' + full.R2pValue + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></button>';
           }
 
-          ret += '<a href="" class="remove-property-btn" data-person_id="' + window.CRM.currentPersonID + '" data-property_id="' + data + '" data-property_Name="' + full.R2pValue + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></a>';
+          ret += '<button type="button" class="btn btn-outline-danger remove-property-btn" title="' + i18next.t('Delete') + '" data-toggle="tooltip" data-person_id="' + window.CRM.currentPersonID + '" data-property_id="' + data + '" data-property_name="' + full.R2pValue + '"><i class="far fa-trash-alt" aria-hidden="true"></i></button>';
+          ret += '</div>';
 
           return ret;
         }
@@ -203,9 +203,18 @@ $(function () {
     }
   });
 
-  $('body').on('click', '.assign-property-btn', function () {
-    var property_id = $('.input-person-properties').val();
-    var property_pro_value = $('.property-value').val();
+  $('body').on('click', '.assign-property-btn', function (event) {
+    event.preventDefault();
+    const assignButton = $(this);
+    const property_id = $('.input-person-properties').val();
+    const property_pro_value = $('.property-value').val();
+
+    if (!property_id) {
+      return;
+    }
+
+    assignButton.prop('disabled', true);
+    assignButton.html('<i class="fas fa-spinner fa-spin mr-1"></i>' + (assignButton.data('loading-text') || i18next.t('Assigning...')));
 
     window.CRM.APIRequest({
       method: 'POST',
@@ -214,13 +223,16 @@ $(function () {
     }, function (data) {
       if (data && data.success) {
         window.CRM.dataPropertiesTable.ajax.reload();
-        promptBox.removeClass('form-group').html('');
+        $('#prompt-box').removeClass('form-group').html('');
+        $('#input-person-properties').val('').trigger('change');
 
         if (data.count > 0) {
           $("#properties-warning").hide();
           $("#properties-table").show();
         }
       }
+      assignButton.prop('disabled', false);
+      assignButton.html('<i class="fas fa-plus-circle mr-1"></i>' + (assignButton.data('default-text') || i18next.t('Assign')));
     });
   });
 
@@ -690,22 +702,26 @@ $(function () {
   // end of note management
 
   $("#input-person-properties").on("select2:select", function (event) {
-    promptBox = $("#prompt-box");
+    const promptBox = $("#prompt-box");
     promptBox.removeClass('form-group').html('');
-    selected = $("#input-person-properties :selected");
-    pro_prompt = selected.data('pro_prompt');
-    pro_value = selected.data('pro_value');
+    const selected = $("#input-person-properties :selected");
+    const pro_prompt = selected.data('pro_prompt');
+    const pro_value = selected.data('pro_value');
     if (pro_prompt) {
       promptBox
         .addClass('form-group')
         .append(
-          $('<label style="color:white"></label>').html(pro_prompt)
+          $('<label class="small text-muted mb-1"></label>').html(pro_prompt)
         )
         .append(
           $('<textarea rows="3" class="form-control property-value" name="PropertyValue"></textarea>').val(pro_value)
         );
     }
 
+  });
+
+  $("#input-person-properties").on("select2:clear", function () {
+    $("#prompt-box").removeClass('form-group').html('');
   });
 
   $('body').on('click', '.remove-property-btn', function (event) {
@@ -962,8 +978,13 @@ $(function () {
         width: 'auto',
         title: i18next.t('Actions'),
         data: 'Id',
+        className: 'text-center',
         render: function (data, type, full, meta) {
-          return '<a href="#" class="delete-volunteerOpportunityId" data-volunteerOpportunityId="' + full.Id + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></a>';
+          return '<div class="btn-group btn-group-sm" role="group" aria-label="' + i18next.t('Volunteer actions') + '">' +
+            '<button type="button" class="btn btn-outline-danger delete-volunteerOpportunityId" title="' + i18next.t('Delete') + '" data-toggle="tooltip" data-volunteerOpportunityId="' + full.Id + '">' +
+            '<i class="far fa-trash-alt" aria-hidden="true"></i>' +
+            '</button>' +
+            '</div>';
         }
       },
       {
@@ -1013,29 +1034,45 @@ $(function () {
     });
   });
 
-  $(document).on("click", ".VolunteerOpportunityAssign", function () {
-    $('#input-volunteer-opportunities').each(function (i, sel) {
-      var volIDs = $(sel).val();
+  $(document).on("click", ".VolunteerOpportunityAssign", function (event) {
+    event.preventDefault();
+    const assignButton = $(this);
+    const volIDs = $('#input-volunteer-opportunities').val();
 
-      if (volIDs != null) {
-        volIDs.forEach(function (volID) {
-          window.CRM.APIRequest({
-            method: 'POST',
-            path: 'persons/volunteers/add',
-            data: JSON.stringify({ "personId": window.CRM.currentPersonID, "volID": volID })
-          }, function (data) {
-            assignedVolunteerTable.ajax.reload();
+    if (!volIDs || volIDs.length === 0) {
+      return;
+    }
 
-            if (data && data.success) {
-              $("#input-volunteer-opportunities").val('').trigger('change')
-              if (data.count > 0) {
-                $("#volunter-warning").hide();
-                $("#volunter-table").show();
-              }
-            }
-          });
+    assignButton.prop('disabled', true);
+    assignButton.html('<i class="fas fa-spinner fa-spin mr-1"></i>' + (assignButton.data('loading-text') || i18next.t('Assigning...')));
+
+    const requests = volIDs.map(function (volID) {
+      return new Promise(function (resolve) {
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'persons/volunteers/add',
+          data: JSON.stringify({ "personId": window.CRM.currentPersonID, "volID": volID })
+        }, function (data) {
+          resolve(data);
         });
+      });
+    });
+
+    Promise.all(requests).then(function (results) {
+      assignedVolunteerTable.ajax.reload();
+
+      const hasSuccess = results.some(function (data) {
+        return data && data.success;
+      });
+
+      if (hasSuccess) {
+        $("#input-volunteer-opportunities").val('').trigger('change');
+        $("#volunter-warning").hide();
+        $("#volunter-table").show();
       }
+    }).finally(function () {
+      assignButton.prop('disabled', false);
+      assignButton.html('<i class="fas fa-plus-circle mr-1"></i>' + (assignButton.data('default-text') || i18next.t('Assign')));
     });
   });
 

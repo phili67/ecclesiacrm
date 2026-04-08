@@ -16,84 +16,90 @@ use EcclesiaCRM\Utils\OutputUtils;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card card-primary">
-    <div class="card">
-        <div class="card-header  border-1">
-            <div class="card-title"><label><?= _("Infos") ?></label></div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-2 col-xs-6">
-                    <div class="form-group">
-                        <label><?= _('Item') ?>:</label>
-                        <input type="text" name="Item" id="Item" value="<?= $sItem ?>" class= "form-control form-control-sm">
-                    </div>
+<div class="card card-outline card-primary shadow-sm">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-tag mr-1"></i><?= _('Donated Item') ?></h3>
+        <span class="badge badge-light border"><?= $iDonatedItemID > 0 ? _('Edit') : _('New') ?></span>
+    </div>
+    <div class="card-body py-3">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <h5 class="font-weight-semibold mb-3 border-bottom pb-2"><i class="fas fa-info-circle mr-1"></i><?= _('Basic Information') ?></h5>
 
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="Multibuy" name="Multibuy"
-                                   value="1" <?= $bMultibuy ? 'checked' : ''; ?>>
-                            <?= _('Sell to everyone'); ?> (<?= _('Multiple items'); ?>)
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label><?= _('Donor'); ?>:</label>
-                        <select name="Donor" id="Donor" class="form-control select2">
-                            <option value="0" selected><?= _('Unassigned') ?></option>
-                            <?php
-                            foreach ($ormPeople as $per) {
-                                echo '<option value="' . $per->getId() . '"';
-                                if ($iDonor == $per->getId()) {
-                                    echo ' selected';
-                                }
-                                echo '>' . $per->getLastName() . ', ' . $per->getFirstName();
-                                if (!is_null($per->getFamily())) {
-                                    echo ' ' . MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState());
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label><?= _('Title') ?>:</label>
-                        <input type="text" name="Title" id="Title" value="<?= htmlentities($sTitle) ?>"
-                               class= "form-control form-control-sm"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label><?= _('Estimated Price') ?>:</label>
-                        <input type="text" name="EstPrice" id="EstPrice"
-                               value="<?= OutputUtils::number_localized($nEstPrice) ?>" class= "form-control form-control-sm">
-                    </div>
-
-                    <div class="form-group">
-                        <label><?= _('Material Value') ?>:</label>
-                        <input type="text" name="MaterialValue" id="MaterialValue"
-                               value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class= "form-control form-control-sm">
-                    </div>
-
-                    <div class="form-group">
-                        <label><?= _('Minimum Price') ?>:</label>
-                        <input type="text" name="MinimumPrice" id="MinimumPrice"
-                               value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class= "form-control form-control-sm">
-                    </div>
-
+                <div class="form-group mb-3">
+                    <label class="font-weight-semibold" for="Item"><?= _('Item') ?></label>
+                    <input type="text" name="Item" id="Item" value="<?= $sItem ?>" class="form-control form-control-sm">
                 </div>
 
-                <div class="col-md-4 col-xs-6">
-                    <div class="alert alert-info">
-                      <i class="fas fa-info-circle"></i> <?= _("To add some buyers use the side bar and the menu Item") ?> : "<?= _("Edit Last Fundraiser") ?>"
-                    </div>
+                <div class="form-group mb-3">
+                    <label class="font-weight-semibold" for="Title"><?= _('Title') ?></label>
+                    <input type="text" name="Title" id="Title" value="<?= htmlentities($sTitle) ?>"
+                           class="form-control form-control-sm"/>
+                </div>
 
-                    <div class="form-group">
-                        <label><?= _('Buyer') ?>:</label>
-                        <?php if ($bMultibuy) {
-                            echo _('Multiple');
-                        } else {
+                <div class="form-group mb-3">
+                    <label class="font-weight-semibold" for="Donor"><?= _('Donor') ?></label>
+                    <select name="Donor" id="Donor" class="form-control form-control-sm select2">
+                        <option value="0" selected><?= _('Unassigned') ?></option>
+                        <?php
+                        foreach ($ormPeople as $per) {
+                            echo '<option value="' . $per->getId() . '"';
+                            if ($iDonor == $per->getId()) {
+                                echo ' selected';
+                            }
+                            echo '>' . $per->getLastName() . ', ' . $per->getFirstName();
+                            if (!is_null($per->getFamily())) {
+                                echo ' ' . MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState());
+                            }
+                        }
                         ?>
-                        <select name="Buyer" id="Buyer" class= "form-control form-control-sm">
+                    </select>
+                </div>
+
+                <div class="form-group mb-0">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Multibuy" name="Multibuy"
+                               value="1" <?= $bMultibuy ? 'checked' : ''; ?>>
+                        <label class="custom-control-label" for="Multibuy">
+                            <?= _('Sell to everyone') ?> <span class="small text-muted">(<?= _('Multiple items') ?>)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mt-4 mt-lg-0">
+                <h5 class="font-weight-semibold mb-3 border-bottom pb-2"><i class="fas fa-dollar-sign mr-1"></i><?= _('Pricing & Buyer') ?></h5>
+
+                <div class="form-group mb-3">
+                    <label class="font-weight-semibold" for="EstPrice"><?= _('Estimated Price') ?></label>
+                    <input type="text" name="EstPrice" id="EstPrice"
+                           value="<?= OutputUtils::number_localized($nEstPrice) ?>" class="form-control form-control-sm">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="font-weight-semibold" for="MaterialValue"><?= _('Material Value') ?></label>
+                    <input type="text" name="MaterialValue" id="MaterialValue"
+                           value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class="form-control form-control-sm">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="font-weight-semibold" for="MinimumPrice"><?= _('Minimum Price') ?></label>
+                    <input type="text" name="MinimumPrice" id="MinimumPrice"
+                           value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class="form-control form-control-sm">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="font-weight-semibold" for="SellPrice"><?= _('Final Price') ?></label>
+                    <input type="text" name="SellPrice" id="SellPrice"
+                           value="<?= OutputUtils::number_localized($nSellPrice) ?>" class="form-control form-control-sm">
+                </div>
+
+                <div class="form-group mb-0">
+                    <label class="font-weight-semibold" for="Buyer"><?= _('Buyer') ?></label>
+                    <?php if ($bMultibuy) { ?>
+                        <span class="badge badge-info"><?= _('Multiple') ?></span>
+                    <?php } else { ?>
+                        <select name="Buyer" id="Buyer" class="form-control form-control-sm select2">
                             <option value="0" selected><?= _('Unassigned') ?></option>
                             <?php
                             foreach ($ormPaddleNum as $buyer) {
@@ -103,82 +109,83 @@ require $sRootDocument . '/Include/Header.php';
                                 }
                                 echo '>' . $buyer->getNum() . ': ' . $buyer->getBuyerFirstName() . ' ' . $buyer->getBuyerLastName();
                             }
-                            }
                             ?>
                         </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label><?= _('Final Price') ?>:</label>
-                        <input type="text" name="SellPrice" id="SellPrice"
-                               value="<?= OutputUtils::number_localized($nSellPrice) ?>" class= "form-control form-control-sm">
-                    </div>
-
-                    <div class="form-group">
-                        <label><?= _('Replicate item') ?></label>
-                        <div class="input-group mb-3">
-                            <!-- /btn-group -->
-                            <input type="text" name="NumberCopies" id="NumberCopies" value="0" class= "form-control form-control-sm"
-                                   data-toggle="tooltip" data-placement="bottom" title="<?= _("Replicate this item as many times you want") ?>">
-                            <div class="input-group-append">
-                                <input type="button" class="btn btn-primary" id="donatedItemGo" value="<?= _('Go') ?>"
-                                       name="DonatedItemReplicate" data-donateditemid="<?= $iDonatedItemID ?>"
-                                       data-toggle="tooltip" data-placement="bottom" title="<?= _("Replicate it") ?>">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-8 col-md-offset-2 col-xs-12">
-                    <div class="form-group">
-                        <label><?= _('Description') ?>:</label>
-                        <textarea name="Description" id="Description" rows="5" cols="90"
-                                  class= "form-control form-control-sm"
-                                  data-toggle="tooltip" data-placement="bottom" title="<?= _("A small description to help us to sell this item") ?>"><?= htmlentities($sDescription) ?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label><?= _('Picture URL') ?>:</label>
-
-                        <div class="input-group mb-3">
-                            <!-- /btn-group -->
-                            <input type="text" name="PictureURL" id="PictureURL" class= "form-control form-control-sm"
-                                   value="<?= htmlentities($sPictureURL) ?>"
-                                   data-toggle="tooltip" data-placement="top" title="<?= _("Paste an URL") ?>">
-                            <div class="input-group-append">
-                            <span class="btn btn-primary" id="donatedItemPicture"
-                                  data-donateditemid="<?= $iDonatedItemID ?>"
-                                  data-toggle="tooltip" data-placement="top" title="<?= _("Use the EDrive to browse or upload a file") ?>"> <i
-                                    class="fas fa-cloud-download-alt"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group"><img src="<?= (($sPictureURL != '')?htmlentities($sPictureURL):'') ?>" width="100%" id="image"/></div>
-                </div>
-
-            </div> <!-- row -->
-
-        </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-1">
-                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="DonatedItemSubmit"
-                           id="DonatedItemSubmit">
-                </div>
-
-                <?php if (SessionUser::getUser()->isAddRecordsEnabled()): ?>
-                    <div class="col-md-2">
-                        <input type="submit" class="btn btn-success" value="<?= _('Save and Add'); ?>"
-                               name="DonatedItemSubmitAndAdd" id="DonatedItemSubmitAndAdd">
-                    </div>
-                <?php endif; ?>
-                <div class="col-md-3">
-                    <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="DonatedItemCancel"
-                           id="DonatedItemCancel">
+                    <?php } ?>
                 </div>
             </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="row">
+            <div class="col-12">
+                <h5 class="font-weight-semibold mb-3 border-bottom pb-2"><i class="fas fa-file-alt mr-1"></i><?= _('Description & Picture') ?></h5>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="form-group mb-3">
+                    <label class="font-weight-semibold" for="Description"><?= _('Description') ?></label>
+                    <textarea name="Description" id="Description" rows="4"
+                              class="form-control form-control-sm"
+                              data-toggle="tooltip" data-placement="bottom" title="<?= _("A small description to help us to sell this item") ?>"><?= htmlentities($sDescription) ?></textarea>
+                </div>
+
+                <div class="form-group mb-0">
+                    <label class="font-weight-semibold" for="PictureURL"><?= _('Picture URL') ?></label>
+                    <div class="input-group input-group-sm">
+                        <input type="text" name="PictureURL" id="PictureURL" class="form-control"
+                               value="<?= htmlentities($sPictureURL) ?>"
+                               data-toggle="tooltip" data-placement="top" title="<?= _("Paste an URL or upload via EDrive") ?>">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-primary" id="donatedItemPicture"
+                                  data-donateditemid="<?= $iDonatedItemID ?>"
+                                  data-toggle="tooltip" data-placement="top" title="<?= _("Use EDrive to browse or upload") ?>">
+                                <i class="fas fa-cloud-upload-alt mr-1"></i><?= _('Browse') ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12 mt-4 mt-lg-0">
+                <div class="form-group">
+                    <label class="font-weight-semibold"><?= _('Preview') ?></label>
+                    <div class="border rounded p-2 bg-light text-center" style="min-height: 200px;">
+                        <img src="<?= (($sPictureURL != '')?htmlentities($sPictureURL):'') ?>" id="image" style="max-width: 100%; max-height: 200px; object-fit: contain;"/>
+                    </div>
+                </div>
+
+                <div class="form-group mb-0">
+                    <label class="font-weight-semibold d-block mb-2"><?= _('Replicate Item') ?></label>
+                    <div class="input-group input-group-sm">
+                        <input type="number" name="NumberCopies" id="NumberCopies" value="0" min="0" class="form-control"
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("How many times to replicate") ?>">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-success" id="donatedItemGo" name="DonatedItemReplicate"
+                                   data-donateditemid="<?= $iDonatedItemID ?>"
+                                   data-toggle="tooltip" data-placement="bottom" title="<?= _("Replicate this item") ?>">
+                                <i class="fas fa-copy mr-1"></i><?= _('Replicate') ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer py-2 border-top">
+        <div class="d-flex flex-wrap align-items-center">
+            <button type="button" class="btn btn-sm btn-primary mr-2 mb-1" name="DonatedItemSubmit" id="DonatedItemSubmit">
+                <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+            </button>
+            <?php if (SessionUser::getUser()->isAddRecordsEnabled()): ?>
+                <button type="button" class="btn btn-sm btn-success mr-2 mb-1" name="DonatedItemSubmitAndAdd" id="DonatedItemSubmitAndAdd">
+                    <i class="fas fa-plus mr-1"></i><?= _('Save and Add') ?>
+                </button>
+            <?php endif; ?>
+            <button type="button" class="btn btn-sm btn-secondary mb-1" name="DonatedItemCancel" id="DonatedItemCancel">
+                <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+            </button>
         </div>
     </div>
 </div>

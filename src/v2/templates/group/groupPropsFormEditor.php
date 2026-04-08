@@ -277,34 +277,15 @@ if (isset($_POST['SaveChanges'])) {
 ?>
 
 <form method="post" action="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $iGroupID ?>" name="GroupPropFormEditor">
-  <div class="card card-primary">
-    <div class="card-header border-1">
-      <h3 class="card-title"><?= _("Add Group-Specific Properties") ?></h3>
+  <div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header border-0">
+      <h3 class="card-title"><i class="fas fa-plus-circle mr-2"></i><?= _("Add Group-Specific Properties") ?></h3>
     </div>
-    <table width="100%" style="border:white">
-      <tr>
-        <td colspan="7"></td>
-      </tr>
-      <tr>
-        <td colspan="7">
-          <table width="100%" style="border-spacing : 10px;border-collapse : separate;">
-            <tr>
-              <td></td>
-              <td>
-                <div><?= _('Type') ?>:</div>
-              </td>
-              <td>
-                <div><?= _('Name') ?>:</div>
-              </td>
-              <td>
-                <div><?= _('Description') ?>:</div>
-              </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td width="15%"></td>
-              <td valign="top">
-                <select name="newFieldType" class="form-control form-control-sm">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-3">
+          <label class="font-weight-bold text-muted mb-1"><?= _('Type') ?>:</label>
+          <select name="newFieldType" class="form-control form-control-sm">
                   <?php
                   for ($iOptionID = 1; $iOptionID <= MiscUtils::ProTypeCount(); $iOptionID++) {
                   ?>
@@ -312,57 +293,51 @@ if (isset($_POST['SaveChanges'])) {
                     <?php
                   }
                     ?>
-                </select>
-                <BR>
-                <a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a>
-              </td>
-              <td valign="top">
-                <input type="text" name="newFieldName" size="25" maxlength="40" class="form-control form-control-sm">
-                <?php
-                if ($bNewNameError) {
-                ?>
-                  <div><span class="text-red"><BR><?= _('You must enter a name') ?></span></div>
-                <?php
-                }
-                if ($bDuplicateNameError) {
-                ?>
-                  <div><span class="text-red"><BR><?= _('That field name already exists.') ?></span></div>
-                <?php
-                }
-                ?>
-                &nbsp;
-              </td>
-              <td valign="top">
-                <input type="text" name="newFieldDesc" size="30" maxlength="60" class="form-control form-control-sm">
-                &nbsp;
-              </td>
-              <td valign="top">
-                <input type="submit" class="btn btn-success" value="+ <?= _('Add New Field') ?>" Name="AddField">
-              </td>
-              <td width="15%"></td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-    </table>
+          </select>
+          <small class="d-block mt-2"><a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a></small>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+          <label class="font-weight-bold text-muted mb-1"><?= _('Name') ?>:</label>
+          <input type="text" name="newFieldName" maxlength="40" class="form-control form-control-sm">
+          <?php if ($bNewNameError): ?>
+            <div class="text-danger small mt-1"><?= _('You must enter a name') ?></div>
+          <?php endif; ?>
+          <?php if ($bDuplicateNameError): ?>
+            <div class="text-danger small mt-1"><?= _('That field name already exists.') ?></div>
+          <?php endif; ?>
+        </div>
+        <div class="col-lg-4 col-md-8 mb-3">
+          <label class="font-weight-bold text-muted mb-1"><?= _('Description') ?>:</label>
+          <input type="text" name="newFieldDesc" maxlength="60" class="form-control form-control-sm">
+        </div>
+        <div class="col-lg-2 col-md-4 mb-3 d-flex align-items-end">
+          <button type="submit" class="btn btn-sm btn-success w-100" name="AddField">
+            <i class="fas fa-plus mr-1"></i><?= _('Add New Field') ?>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <i class="fas fa-exclamation-triangle mr-1"></i>
+    <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  </div>
 
-  <div class="card">
-    <div class="card-header border-1">
-      <h3 class="card-title"><?= _('Group-Specific Properties') ?></h3>
+  <div class="card card-outline card-info shadow-sm">
+    <div class="card-header border-0">
+      <h3 class="card-title"><i class="fas fa-list mr-2"></i> <?= _('Group-Specific Properties') ?></h3>
     </div>
     <div class="card-body">
       <?php
         if ($bErrorFlag) {
         ?>
-          <p class="alert alert-danger"><span class="fas fa-exclamation-triangle"> <?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
+          <p class="alert alert-danger"><span class="fas fa-exclamation-triangle mr-1"></span><?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></p>
         <?php
         }
         ?>
-      <table class="table table-hover dt-responsive dataTable no-footer dtr-inline" id="custom-fields-table" width="100%">        
+      <table class="table table-sm table-hover dt-responsive dataTable no-footer dtr-inline" id="custom-fields-table" width="100%">        
           <thead>
             <tr>
               <th><?= _("Place") ?></th>
@@ -382,22 +357,28 @@ if (isset($_POST['SaveChanges'])) {
             ?>
               <tr>
                 <td>
-                  <?= $row ?>
+                  <span class="badge badge-secondary mr-1" style="min-width: 24px; padding: 4px 0px;"><?= $row ?></span>
                 </td>
                 <td>
                   <?php
                   if ($row != 1) {
                   ?>
-                    <i class="fa-solid fa-arrow-up up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
+                    <button type="button" class="up-action btn btn-sm btn-outline-secondary" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+                      <i class="fas fa-arrow-up"></i>
+                    </button>
                   <?php
                   }
                   if ($row < $numRows) {
                   ?>
-                    <i class="fa-solid fa-arrow-down down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
+                    <button type="button" class="down-action btn btn-sm btn-outline-secondary" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+                      <i class="fas fa-arrow-down"></i>
+                    </button>
                   <?php
                   }
                   ?>
-                  <i class="fa fa-trash-can text-red delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
+                  <button type="button" class="delete-field btn btn-sm btn-outline-danger" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
                 </td>
                 <td>
                   <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
@@ -407,7 +388,7 @@ if (isset($_POST['SaveChanges'])) {
                   <?php
                   if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
                   ?>
-                    <span class="text-red"><BR><?= _('You must enter a name') ?> </span>
+                    <span class="text-danger d-block mt-1"><?= _('You must enter a name') ?></span>
                   <?php
                   }
                   ?>
@@ -438,14 +419,14 @@ if (isset($_POST['SaveChanges'])) {
 
                     <?php
 
-                    if ($aSpecialErrors[$row]) {
+                    if (!empty($aSpecialErrors[$row])) {
                     ?>
-                      <span class="text-red"><BR><?= _('You must select a group.') ?></span>
+                      <span class="text-danger d-block mt-1"><?= _('You must select a group.') ?></span>
                     <?php
                     }
                   } elseif ($aTypeFields[$row] == 12) {
                     ?>
-                    <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/v2/system/option/manager/groupcustom/<?= $aSpecialFields[$row] ?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _("Edit List Options") ?></a>
+                    <a class="btn btn-sm btn-outline-success" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/v2/system/option/manager/groupcustom/<?= $aSpecialFields[$row] ?>','Newwin','toolbar=no,status=no,width=400,height=500')"><i class="fas fa-edit mr-1"></i><?= _("Edit List Options") ?></a>
                   <?php
                   } else {
                   ?>
@@ -462,15 +443,10 @@ if (isset($_POST['SaveChanges'])) {
           </tbody>
       </table>
     </div>
-    <div class="card-footer">
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
-          <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-default"><i class="fa-solid fa-backward"></i> <?= _("Return to Group") ?></a>
-        </div>
-        <div class="col-md-2">
-          <input type="submit" class="btn btn-primary" value="&check; <?= _('Save Changes') ?>" Name="SaveChanges">
-        </div>
+    <div class="card-footer bg-white border-0">
+      <div class="d-flex flex-wrap">
+        <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-sm btn-outline-secondary mr-2 mb-2"><i class="fas fa-arrow-left mr-1"></i> <?= _("Return to Group") ?></a>
+        <button type="submit" class="btn btn-sm btn-primary mb-2" name="SaveChanges"><i class="fas fa-save mr-1"></i><?= _('Save Changes') ?></button>
       </div>
     </div>
   </div>

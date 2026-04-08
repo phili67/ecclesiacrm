@@ -1,8 +1,5 @@
 $(function() {
-
-  $(function() {
-    $("[data-mask]").inputmask();
-  });
+  $("[data-mask]").inputmask();
 
   // we hide by default the familyAddress
   if (!window.CRM.bShowAddress) {
@@ -57,7 +54,7 @@ $(function() {
         $('#optionFamily').attr('size', '8');
         $("#familyAddress").fadeIn(1000);
         $("#personAddress").fadeOut(50);
-      }  else {
+      } else {
         $('#optionFamily').attr('size', '2');
         $("#familyAddress").fadeOut(50);
         $("#personAddress").fadeIn(1000);

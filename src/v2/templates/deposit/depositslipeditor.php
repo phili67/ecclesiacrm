@@ -11,7 +11,6 @@
  ******************************************************************************/
 
 // Include the function library
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
 
@@ -22,43 +21,50 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
     <div class="col-lg-7">
-        <div class="card">
-            <div class="card-header border-1">
-                <h3 class="card-title"><?= _('Deposit Details: ') ?></h3>
+        <div class="card card-primary card-outline">
+            <div class="card-header py-2">
+                <h3 class="card-title"><i class="fas fa-receipt mr-2"></i><?= _('Deposit Details') ?></h3>
             </div>
-            <div class="card-body">
+            <div class="card-body p-3">
                 <form method="post" action="#" name="DepositSlipEditor" id="DepositSlipEditor">
-                    <div class="row">
+                    <div class="form-row">
                         <div class="col-lg-4">
-                            <label for="Date"><?= _('Date'); ?>:</label>
+                            <label class="small mb-1" for="Date"><?= _('Date'); ?></label>
                             <input type="text" class=" form-control  form-control-sm date-picker" name="Date"
                                    value="<?= $thisDeposit->getDate(SystemConfig::getValue('sDatePickerFormat')); ?>"
                                    id="DepositDate">
                         </div>
                         <div class="col-lg-4">
-                            <label for="Comment"><?= _('Comment:') ?></label>
+                            <label class="small mb-1" for="Comment"><?= _('Comment') ?></label>
                             <input type="text" class= "form-control form-control-sm" name="Comment" id="Comment"
                                    value="<?= $thisDeposit->getComment() ?>"/>
                         </div>
-                        <div class="col-lg-4">
-                            <label for="Closed"><?= _('Closed:') ?></label>
-                            <input type="checkbox" name="Closed" id="Closed"
-                                   value="1" <?= ($thisDeposit->getClosed()) ? ' checked' : '' ?>/>
-                            <?= _('Close deposit slip (remember to press Save)') ?>
+                        <div class="col-lg-4 d-flex align-items-end">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" name="Closed" id="Closed"
+                                       value="1" <?= ($thisDeposit->getClosed()) ? ' checked' : '' ?>/>
+                                <label class="custom-control-label" for="Closed"><?= _('Close deposit slip') ?></label>
+                                <div class="small text-muted"><?= _('Remember to press Save') ?></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row p-2">
-                        <div class="col-lg-5 m-2" style="text-align:center">
-                            <input type="submit" class="btn btn-primary" id="DepositSlipSubmit" value="<?= _('Save') ?>"
-                                   name="DepositSlipSubmit">
-                        </div>
-                        <div class="col-lg-5 m-2" style="text-align:center">
+                    <div class="row mt-3">
+                        <div class="col-lg-12 d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-sm btn-success mr-2 mb-2" id="DepositSlipSubmit"
+                                    name="DepositSlipSubmit">
+                                <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+                            </button>
+
+                            <a href="<?= $sRootPath ?>/v2/deposit/find" class="btn btn-sm btn-secondary mr-2 mb-2">
+                                <i class="fas fa-chevron-left mr-1"></i><?= _('Return to Deposit Listing') ?>
+                            </a>
+
                             <?php
                             if (count($funds)) {
                                 ?>
                                 <a href="<?= $sRootPath ?>/api/deposits/<?= $thisDeposit->getId() ?>/pdf"
-                                   class="btn btn-default" name="DepositSlipGeneratePDF">
-                                    <?= _('Deposit Slip Report') ?>
+                                   class="btn btn-sm btn-outline-primary mb-2" name="DepositSlipGeneratePDF">
+                                    <i class="fas fa-file-pdf mr-1"></i><?= _('Deposit Slip Report') ?>
                                 </a>
                                 <?php
                             }
@@ -68,9 +74,11 @@ require $sRootDocument . '/Include/Header.php';
                     <?php
                     if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
                         ?>
-                        <div class="row">
+                        <div class="row mt-2">
                             <div class="col-md-12">
-                                <p><?= _('Important note: failed transactions will be deleted permanantly when the deposit slip is closed.') ?></p>
+                                <div class="alert alert-warning py-2 mb-0">
+                                    <i class="fas fa-exclamation-triangle mr-1"></i><?= _('Important note: failed transactions will be deleted permanantly when the deposit slip is closed.') ?>
+                                </div>
                             </div>
                         </div>
                         <?php
@@ -81,15 +89,17 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <div class="col-lg-5">
-        <div class="card">
-            <div class="card-header border-1">
-                <h3 class="card-title"><?= _('Deposit Summary: ') ?></h3>
+        <div class="card card-info card-outline h-100">
+            <div class="card-header py-2">
+                <h3 class="card-title"><i class="fas fa-chart-pie mr-2"></i><?= _('Deposit Summary') ?></h3>
             </div>
-            <div class="card-body">
+            <div class="card-body p-2">
                 <div class="row">
                     <div class="col-lg-6">
-                        <canvas id="fund-donut" style="height:250px"></canvas>
-                        <ul style="margin:0px; border:0px; padding:0px;" id="mainFundTotals">
+                        <div class="bg-light rounded p-2 mb-2 d-flex align-items-center justify-content-center" style="height:160px;">
+                            <canvas id="fund-donut" style="max-height:140px; max-width:140px;"></canvas>
+                        </div>
+                        <ul class="list-unstyled small mb-0 px-1" id="mainFundTotals">
                             <?php
                             foreach ($thisDeposit->getFundTotals() as $fund) {
                                 ?>
@@ -102,8 +112,10 @@ require $sRootDocument . '/Include/Header.php';
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <canvas id="type-donut" style="height:250px"></canvas>
-                        <ul style="margin:0px; border:0px; padding:0px;" id="GlobalTotal">
+                        <div class="bg-light rounded p-2 mb-2 d-flex align-items-center justify-content-center" style="height:160px;">
+                            <canvas id="type-donut" style="max-height:140px; max-width:140px;"></canvas>
+                        </div>
+                        <ul class="list-unstyled small mb-0 px-1" id="GlobalTotal">
                         </ul>
                     </div>
                 </div>
@@ -111,36 +123,43 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
 </div>
-<div class="card">
-    <div class="card-header border-1">
-        <h3 class="card-title"><?= _('Payments on this deposit slip:') ?></h3>
-        <div class="pull-right">
-            <div class="row">
+<br>
+<div class="card card-secondary card-outline">
+    <div class="card-header py-2 d-flex align-items-center justify-content-between">
+        <h3 class="card-title mb-0"><i class="fas fa-list mr-2"></i><?= _('Payments on this deposit slip') ?></h3>
+        <div>
+            <div class="d-flex flex-wrap justify-content-end">
             <?php
             if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
                 if ($thisDeposit->getType() == 'eGive') {
                     ?>
-                    <div class="col-md-3">
-                    <input type=button class="btn btn-default" value="<?= _('Import eGive') ?>" name=ImporteGive
-                           onclick="javascript:document.location='<?= $sRootPath ?>/v2/deposit/egive/<?= $iDepositSlipID ?>';">
+                    <div class="mr-2 mb-1">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" name="ImporteGive"
+                           onclick="document.location='<?= $sRootPath ?>/v2/deposit/egive/<?= $iDepositSlipID ?>'">
+                        <i class="fas fa-file-import mr-1"></i><?= _('Import eGive') ?>
+                    </button>
                     </div>
                     <?php
                 } else {
                     ?>
-                    <div class="col-md-3">
-                    <input type=button class="btn btn-success" value="<?= _('Add Payment') ?> " name=AddPayment
-                           onclick="javascript:document.location='<?= $sRootPath ?>/v2/deposit/pledge/editor/CurrentDeposit/<?= $iDepositSlipID ?>/Payment/v2-deposit-slipeditor-<?= $iDepositSlipID ?>';">
+                    <div class="mr-2 mb-1">
+                    <button type="button" class="btn btn-sm btn-success" name="AddPayment"
+                           onclick="document.location='<?= $sRootPath ?>/v2/deposit/pledge/editor/CurrentDeposit/<?= $iDepositSlipID ?>/Payment/v2-deposit-slipeditor-<?= $iDepositSlipID ?>'">
+                        <i class="fas fa-plus mr-1"></i><?= _('Add Payment') ?>
+                    </button>
                     </div>
                     <?php
                 }
                 if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
                     ?>
-                    <div class="col-md-9">
+                    <div class="mb-1">
                     <form method="post" action="<?= $sRootPath ?>/v2/deposit/slipeditor/<?= $iDepositSlipID ?>" name="DepositSlipEditor">
-                        <input type="submit" class="btn btn-primary"
-                            value="<?php echo _('Load Authorized Transactions'); ?>" name="DepositSlipLoadAuthorized">
-                        <input type="submit" class="btn btn-warning" value="<?php echo _('Run Transactions'); ?>"
-                            name="DepositSlipRunTransactions">
+                        <button type="submit" class="btn btn-sm btn-primary mr-1" name="DepositSlipLoadAuthorized">
+                            <i class="fas fa-cloud-download-alt mr-1"></i><?php echo _('Load Authorized Transactions'); ?>
+                        </button>
+                        <button type="submit" class="btn btn-sm btn-warning" name="DepositSlipRunTransactions">
+                            <i class="fas fa-play mr-1"></i><?php echo _('Run Transactions'); ?>
+                        </button>
                     </form>
                     </div>
                     <?php
@@ -150,18 +169,16 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="card-body">
-        <table class="table" id="paymentsTable" width="100%"></table>
-        <div class="container-fluid">
-            <div id="depositsTable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"></div>
-            <div class="row">
-                <div class="col-md-4">
+    <div class="card-body p-2">
+        <table class="table table-sm table-striped table-hover" id="paymentsTable" width="100%"></table>
+        <div class="row mt-2">
+                <div class="col-md-6 mb-2">
                     <?php
                     if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
                         //if ($thisDeposit->getType() == 'Bank') {
                         ?>
-                        <label><?= _("Action") ?> : </label>
-                        <button type="button" id="deleteSelectedRows" class="btn btn-danger"
+                        <span class="small text-muted mr-2"><?= _("Action") ?>:</span>
+                        <button type="button" id="deleteSelectedRows" class="btn btn-sm btn-danger"
                                 disabled><?= _("Delete Selected Rows") ?></button>
                         <?php
                         //}
@@ -169,28 +186,21 @@ require $sRootDocument . '/Include/Header.php';
                     ?>
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-6 mb-2 text-md-right">
                     <?php
                     if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
                         ?>
-                        <label><?= _("Statut") ?> : </label>
-                        <button type="button" id="validateSelectedRows" class="btn btn-success exportButton"
+                        <span class="small text-muted mr-2"><?= _("Statut") ?>:</span>
+                        <button type="button" id="validateSelectedRows" class="btn btn-sm btn-success exportButton"
                                 disabled><?= _("Payment") ?> (0) <?= _("Selected Rows") ?></button>
-                        <button type="button" id="invalidateSelectedRows" class="btn btn-info"
+                        <button type="button" id="invalidateSelectedRows" class="btn btn-sm btn-info"
                                 disabled><?= _("Pledge") ?> (0) <?= _("Selected Rows") ?></button>
                         <?php
                     }
                     ?>
                 </div>
             </div>
-        </div>
     </div>
-</div>
-
-<div>
-    <a href="<?= $sRootPath ?>/v2/deposit/find" class="btn btn-default">
-        <i class="fas fa-chevron-left"></i>
-        <?= _('Return to Deposit Listing') ?></a>
 </div>
 
 <script src="<?= $sRootPath ?>/skin/js/finance/DepositSlipEditor.js"></script>

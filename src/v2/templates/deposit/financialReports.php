@@ -24,22 +24,44 @@
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card card-body">
-<br>
+<style nonce="<?= $CSPNonce ?>">
+  .financial-section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #495057;
+  }
+
+  .financial-separator-row td {
+    padding: 0.25rem 0 0.5rem 0;
+  }
+
+  .financial-separator {
+    border: 0;
+    border-top: 1px solid #dee2e6;
+    margin: 0;
+  }
+</style>
+
+<div class="card card-primary card-outline">
+<div class="card-header py-2">
+  <h3 class="card-title mb-0"><i class="fas fa-file-invoice-dollar mr-2"></i><?= _('Financial Reports') ?></h3>
+</div>
+<div class="card-body p-3">
 <?php
 
 // No Records Message if previous report returned no records.
 if ($ReturnMessage == 'NoRows') {
 ?>
-    <h3 style="color:red"><?= _("No records were returned from the previous report.")?></h3>
+  <div class="alert alert-warning py-2"><i class="fas fa-exclamation-triangle mr-1"></i><?= _("No records were returned from the previous report.")?></div>
 <?php
 }
 
 if ($sReportType == '') {
     // First Pass - Choose report type
 ?>
-<form method=post action='<?= $sRootPath?>/v2/deposit/financial/reports'>
-  <table cellpadding=3>
+<form method="post" action="<?= $sRootPath?>/v2/deposit/financial/reports">
+  <table class="table table-sm table-borderless mb-0">
     <tr>
       <td class=LabelColumn><?= _("Report Type:") ?>&nbsp;&nbsp;</td>
       <td class=TextColumn>
@@ -61,9 +83,9 @@ if ($sReportType == '') {
 ?>
     <tr>
       <td>&nbsp;</td>
-      <td><br><input type=button class='btn btn-default' name=Cancel value='<?= _("Cancel")?>'
-        onclick="javascript:document.location='<?= $sRootPath ?>/v2/system/report/list';">
-        <input type=submit class='btn btn-primary' name=Submit1 value='<?= _("Next") ?>'>
+      <td><br><button type="button" class="btn btn-sm btn-secondary" name="Cancel"
+        onclick="javascript:document.location='<?= $sRootPath ?>/v2/system/report/list';"><i class="fas fa-times mr-1"></i><?= _("Cancel")?></button>
+        <button type="submit" class="btn btn-sm btn-primary" name="Submit1"><i class="fas fa-arrow-right mr-1"></i><?= _("Next") ?></button>
       </td>
     </tr>
   </table>
@@ -105,12 +127,12 @@ if ($sReportType == '') {
         break;
     }
 ?>
-<form method=post action="<?= $action ?>">
-  <input type=hidden name=ReportType value='<?= $sReportType?>'>
-  <table cellpadding=3>
+<form method="post" action="<?= $action ?>">
+  <input type="hidden" name="ReportType" value="<?= $sReportType?>">
+  <table class="table table-sm table-borderless mb-0">
     <tr>
       <td>
-        <h3><?= _("Filters")?></h3>
+        <h5 class="financial-section-title"><i class="fas fa-filter mr-1"></i><?= _("Filters")?></h5>
       </td>
     </tr>
 <?php
@@ -144,8 +166,8 @@ if ($sReportType == '') {
       <td></td>
       <td>
         <br/>
-        <button type="button" id="addAllClasses" class="btn btn-success"><?= _("Add All Classes") ?></button>
-        <button type="button" id="clearAllClasses" class="btn btn-danger"><?= _("Clear All Classes") ?></button><br/><br/>
+        <button type="button" id="addAllClasses" class="btn btn-success"><i class="fas fa-layer-group mr-1"></i><?= _("Add All Classes") ?></button>
+        <button type="button" id="clearAllClasses" class="btn btn-danger"><i class="fas fa-broom mr-1"></i><?= _("Clear All Classes") ?></button><br/><br/>
       </td>
     </tr>
         <?php
@@ -207,8 +229,8 @@ if ($sReportType == '') {
       <td></td>
       <td>
         <br/>
-        <button type="button" id="addAllFamilies" class="btn btn-success"><?= _("Add All Families") ?></button>
-        <button type="button" id="clearAllFamilies" class="btn btn-danger"><?= _("Clear All Families") ?></button><br/><br/>
+        <button type="button" id="addAllFamilies" class="btn btn-success"><i class="fas fa-users mr-1"></i><?= _("Add All Families") ?></button>
+        <button type="button" id="clearAllFamilies" class="btn btn-danger"><i class="fas fa-user-slash mr-1"></i><?= _("Clear All Families") ?></button><br/><br/>
       </td>
     </tr>
   <?php
@@ -324,8 +346,8 @@ if ($sReportType == '') {
       <td></td>
       <td>
         <br/>
-        <button type="button" id="addAllFunds" class="btn btn-success"><?= _("Add All Funds") ?></button>
-        <button type="button" id="clearAllFunds" class="btn btn-danger"><?= _("Clear All Funds") ?></button>
+        <button type="button" id="addAllFunds" class="btn btn-success"><i class="fas fa-coins mr-1"></i><?= _("Add All Funds") ?></button>
+        <button type="button" id="clearAllFunds" class="btn btn-danger"><i class="fas fa-eraser mr-1"></i><?= _("Clear All Funds") ?></button>
         <br/><br/>
       </td>
     </tr>
@@ -368,9 +390,10 @@ if ($sReportType == '') {
     }
     // Other Settings
   ?>
+    <tr class="financial-separator-row"><td colspan="2"><hr class="financial-separator"></td></tr>
     <tr>
       <td>
-        <h3><?= _("Other Settings") ?></h3>
+        <h5 class="financial-section-title"><i class="fas fa-sliders-h mr-1"></i><?= _("Other Settings") ?></h5>
       </td>
     </tr>
   <?php
@@ -452,6 +475,7 @@ if ($sReportType == '') {
           || $sReportType == 'Zero Givers'
         )) {
   ?>
+    <tr class="financial-separator-row"><td colspan="2"><hr class="financial-separator"></td></tr>
     <tr>
       <td class=LabelColumn><?= _('Output Method:') ?></td>
       <td class=TextColumnWithBottomBorder>
@@ -469,9 +493,9 @@ if ($sReportType == '') {
   ?>
     <tr>
       <td>&nbsp;</td>
-      <td><input type=button class='btn btn-default' name=Cancel value='<?= _("Back") ?>'
-        onclick="javascript:document.location='<?= $sRootPath?>/v2/deposit/financial/reports';">
-        <input type=submit class='btn btn-primary' name=Submit2 value='<?= _("Create Report") ?>'>
+      <td><button type="button" class="btn btn-sm btn-secondary" name="Cancel"
+        onclick="javascript:document.location='<?= $sRootPath?>/v2/deposit/financial/reports';"><i class="fas fa-arrow-left mr-1"></i><?= _("Back") ?></button>
+        <button type="submit" class="btn btn-sm btn-primary" name="Submit2"><i class="fas fa-file-export mr-1"></i><?= _("Create Report") ?></button>
       </td>
     </tr>
   </table>

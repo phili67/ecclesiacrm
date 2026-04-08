@@ -20,55 +20,59 @@ use EcclesiaCRM\dto\ChurchMetaData;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="row">
-    <div class="col-md-7">
-        <a class="btn btn-app" id="add-event"><i class="fas fa-ticket-alt"></i><?= _('Add New Event') ?></a>
-        <?php if (!is_null($searchEventInActivEvent)) {
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-clipboard-check mr-1"></i><?= _('Check-in Management') ?></h3>
+        <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-sm btn-success" id="add-event">
+                <i class="fas fa-plus mr-1"></i><?= _('Add Event') ?>
+            </button>
+            <?php if (!is_null($searchEventInActivEvent)) {
+                ?>
+                <a class="btn btn-sm btn-info" id="qrcode-call">
+                    <i class="fas fa-qrcode mr-1"></i><?= _("QR Code") ?>
+                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/kioskmanager">
+                    <i class="fas fa-plug mr-1"></i><?= _("Kiosk") ?>
+                </a>
+                <?php
+            }
+            if ($bSundaySchool) {
+                ?>
+                <a class="btn btn-sm btn-warning" href="<?= $sRootPath ?>/v2/calendar/events/Attendees/Edit">
+                    <i class="fas fa-edit mr-1"></i><?= _("Attendees") ?>
+                </a>
+                <?php
+            }
             ?>
-            <a class="btn btn-app" id="qrcode-call"><i class="fas fa-qrcode"></i><?= _("QR Code Call") ?></a>
-            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/kioskmanager"><i
-                    class="fas fa-plug"></i><?= _("Kiosk Manager") ?></a>
-            <?php
-        }
-        if ($bSundaySchool) {
-            ?>
-            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/calendar/events/Attendees/Edit"><i
-                    class="fas fa-pencil-alt"></i><?= _("Edit Attendees") ?></a>
-            <?php
-        }
-        ?>
+        </div>
     </div>
-    <div class="col-md-1">
-        <label class="control-label"><?= _('Select Event'); ?></label>
-    </div>
-    <div class="col-md-4">
-        <form name="selectEvent" action="<?= $sRootPath ?>/v2/calendar/events/checkin" method="POST">
-            <div class="form-group">
-                <div class="inputGroupContainer">
-                    <div class="input-group">
-                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                    class="fas fa-calendar-check"></i></span></div>
-                        <select name="EventID" class= "form-control form-control-sm" onchange="this.form.submit()">
-                            <option value="<?= $EventID; ?>"
-                                    disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
+    <div class="card-body py-3">
+        <div class="row">
+            <div class="col-md-3">
+                <label class="control-label mb-2"><strong><?= _('Select Event') ?></strong></label>
+            </div>
+            <div class="col-md-9">
+                <form name="selectEvent" action="<?= $sRootPath ?>/v2/calendar/events/checkin" method="POST">
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                        <select name="EventID" class="form-control form-control-sm" onchange="this.form.submit()">
+                            <option value="<?= $EventID; ?>" disabled <?= ($EventID == 0) ? " selected" : "" ?>>><?= _('Select event') ?></option>
                             <?php foreach ($activeEvents as $event) {
                                 $dateStart = $event->getStart()->format(SystemConfig::getValue('sDatePickerFormat'));
                                 ?>
-                                <option
-                                    value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
+                                <option value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " selected" : "" ?>>
                                     <?= $dateStart . " : " . $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
                                 <?php
                             }
                             ?>
                         </select>
                     </div>
-                </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </div>
-
-<br>
 
 <div id="errorcallout" class="alert alert-danger" hidden></div>
 
@@ -78,62 +82,48 @@ require $sRootDocument . '/Include/Header.php';
         //Populate data table
         if ($EventID > 0) {
             ?>
-            <div class="card card-success">
-                <div class="card-header  border-1">
-                    <h3 class="card-title">
-                        <?= _('Listing') ?> :</h3>
+            <div class="card card-outline card-success shadow-sm">
+                <div class="card-header py-2">
+                    <h3 class="card-title mb-0"><i class="fas fa-list-check mr-1"></i><?= _('Attendance List') ?></h3>
                 </div>
-                <div class="card-body table-responsive">
-
-                <div class="row" style="margin:5px">
-                        <div class="col-md-1">
-                            <label><?= _("Checkin") ?></label>
-                        </div>
-                        <div class="col-sm-3" style="text-align:center">
-                            <div class="btn-group">
-                                <button class="btn btn-primary" type="submit" name="checkAllCheckin" id="checkAllCheckin"
-                                       data-id="<?= $EventID ?>" value="">
-                                    <i class="far fa-check-square"></i>  <?= _('Check all') ?>
-                                </button>
-                                <button class="btn btn-default" type="submit" name="uncheckAllCheckin" id="uncheckAllCheckin"
-                                       data-id="<?= $EventID ?>" value="">
-                                    <i class="far fa-square"></i> <?= _('Uncheck all') ?>
+                <div class="card-body p-1">
+                    <div class="py-3 px-3 border-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <label class="mb-0"><strong><?= _("Check-in") ?></strong></label>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-sm btn-success w-100" type="button" id="toggleAllCheckin"
+                                        data-id="<?= $EventID ?>"
+                                        data-type="1"
+                                        data-checked="0"
+                                        data-label-all="<?= _('All') ?>"
+                                        data-label-none="<?= _('None') ?>">
+                                    <i class="fas fa-check-square mr-1 toggle-icon"></i>
+                                    <span class="toggle-label"><?= _('All') ?></span>
                                 </button>
                             </div>
-                        </div>
-                        <div class="col-md-1">
-                            <label><?= _("Checkout") ?></label>
-                        </div>
-                        <div class="col-sm-3" style="text-align:center">
-                            <div class="btn-group">
-                                <button class="btn btn-success" type="submit" name="checkAllCheckout" id="checkAllCheckout"
-                                    data-id="<?= $EventID ?>" >
-                                    <i class="far fa-check-square"></i> <?= _('Check all') ?>
-                                </button>
-                                <button class="btn btn-default" type="submit" name="uncheckAllCheckout"
-                                       id="uncheckAllCheckout"
-                                       data-id="<?= $EventID ?>" >
-                                    <i class="far fa-square"></i> <?= _('Uncheck all') ?>
+                            <div class="col-md-3">
+                                <label class="mb-0"><strong><?= _("Check-out") ?></strong></label>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-sm btn-info w-100" type="button" id="toggleAllCheckout"
+                                        data-id="<?= $EventID ?>"
+                                        data-type="2"
+                                        data-checked="0"
+                                        data-label-all="<?= _('All') ?>"
+                                        data-label-none="<?= _('None') ?>">
+                                    <i class="fas fa-check-square mr-1 toggle-icon"></i>
+                                    <span class="toggle-label"><?= _('All') ?></span>
                                 </button>
                             </div>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="page-length-select"><?= _("Number of rows") ?></label>
-                        </div>
-                        <div class="col-md-2">
-                            <select name="pets" id="page-length-select" class= "form-control form-control-sm">
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50" selected>50</option>
-                                <option value="100">100</option>
-                                <option value="200">200</option>
-                            </select>
-                        </div>
+                        </div>                        
                     </div>
-                    <br/>
-                    <table id="checkedinTable" class="table table-striped table-bordered data-table"
-                           width="100%"></table>            
+                    <br>
+                    <div class="table-responsive">
+                        <table id="checkedinTable" class="table table-striped table-hover table-sm"
+                               width="100%"></table>
+                    </div>
                 </div>
             </div>
             <?php
@@ -328,26 +318,22 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             
 
-            <div class="row" style="margin:5px">
-                <div class="col-md-12" style="text-align:left">
-                    <label><?= _("Add some notes") ?></label>
+            <div class="card card-warning shadow-sm mt-3">
+                <div class="card-header py-2 border-0">
+                    <h3 class="card-title mb-0">
+                        <i class="fas fa-sticky-note mr-1"></i><?= _("Notes") ?>
+                    </h3>
                 </div>
-            </div>                
-
-            <div class="row" style="margin:-7px">
-                <div class="col-md-12">
-                    <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;"
-                            rows="40"><?= $sNoteText ?></textarea>
-                </div>                
-                <div class="row" style="margin:5px">
-                    <div class="col-md-12" style="text-align:center">
-                        <br>
-
-                        <input id="validateAttendees" class="btn btn-primary" name="Validate"
-                            value="<?= _("Validate Attendance") ?>">
-                    </div>
-                    <br>
+                <div class="card-body bg-warning text-dark p-1">
+                    <small><label for="NoteText" class="mb-2 text-white"><i class="fa fa-info-circle" style="font-size:0.6rem;"></i> <?= _("Add some notes") ?></label></small>
+                    <textarea id="NoteText" name="NoteText" class="form-control" style="min-height: 300px; background-color: #fff9db; border-color: #e0c97f;"
+                              rows="12"><?= $sNoteText ?></textarea>
                 </div>
+            </div>
+            <div class="mt-2 d-flex justify-content-end">
+                <button id="validateAttendees" class="btn btn-sm btn-primary" name="Validate" type="button">
+                    <i class="fas fa-check-circle mr-1"></i><?= _("Validate Attendance") ?>
+                </button>
             </div>
 
             <?php
@@ -356,18 +342,12 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<br>
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-11">
-        <a href="<?= $sRootPath ?>/v2/calendar/events/list" class='btn btn-default'>
-            <i class='fas fa-chevron-left'></i>
-            <?= _('Return to Events') ?>
-        </a>
-    </div>
-</div>
 
-<br>
+<div class="mt-4 pt-3 border-top">
+    <a href="<?= $sRootPath ?>/v2/calendar/events/list" class="btn btn-outline-secondary">
+        <i class="fas fa-arrow-left mr-1"></i><?= _('Return to Events') ?>
+    </a>
+</div>
 
 <script nonce="<?= $CSPNonce ?>">
     window.CRM.isModifiable = true;

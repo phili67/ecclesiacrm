@@ -15,42 +15,38 @@ use EcclesiaCRM\SessionUser;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card card-mailchimp">
-            <div class="card-header border-1">
-                <h3 class="card-title"><i class="fas fa-list"></i> <?= _('Manage Email List') ?></h3>
-                <div style="float:right">
-                    <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
-                            class="logo-mailchimp"  src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
-                </div>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+    <div>
+        <h3 class="h4 mb-1"><i class="fas fa-list mr-2 text-success"></i><?= _('Manage Email List') ?></h3>
+        <p class="text-muted mb-0"><?= _('Manage subscribers and campaigns for this audience.') ?></p>
+    </div>
+    <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
+        <img class="logo-mailchimp" src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled() ? 'Mailchimp_Logo-Horizontal_White.png' : 'Mailchimp_Logo-Horizontal_Black.png' ?>" height="25"/>
+    </a>
+</div>
+
+<div class="card card-outline card-success shadow-sm mb-3">
+    <div class="card-body py-3 d-flex flex-wrap align-items-center justify-content-between">
+        <div class="mb-2 mb-md-0 text-muted"><i class="fas fa-rocket mr-1"></i><?= _('Quick actions') ?></div>
+        <div class="d-flex flex-wrap">
+            <div class="btn-group mr-2 mb-2 mb-md-0">
+                <button class="btn btn-success CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>" data-id="-1" data-name="">
+                    <i class="fas fa-envelope-open-text mr-1"></i><?= _('Create a Campaign') ?>
+                </button>
+                <button type="button" id="addCreateCampaignTagDrop" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu" role="menu" id="allCampaignTags"></div>
             </div>
-            <div class="card-body">
-                <div class="btn-group">
-                    <button class="btn btn-app btn-app-mailchimp CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>"
-                            data-id="-1" data-name="">
-                        <i class="fas fa-envelope-open-text"></i><?= _("Create a Campaign") ?>
-                    </button>
-                    <button type="button" id="addCreateCampaignTagDrop" class="btn btn-app btn-app-mailchimp dropdown-toggle"
-                            data-toggle="dropdown" aria-expanded="false">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu" role="menu" id="allCampaignTags"></div>
-                </div>
-                <button id="deleteAllSubScribers" class="btn btn-app btn-app-mailchimp" data-listid="<?= $listId ?>">
-                    <i class="far fa-trash-alt"></i><?= _("Delete All Subscribers") ?>
-                </button>
-                <button id="deleteList" class="btn btn-app btn-app-mailchimp align-right" data-listid="<?= $listId ?>">
-                    <i class="fas fa-trash-alt"></i><?= _("Delete") ?>
-                </button>
-                <button class="btn btn-app btn-app-mailchimp align-right" id="modifyList" data-name="<?= $list['name'] ?>"
-                        data-subject="<?= $list['campaign_defaults']['subject'] ?>"
-                        data-permissionreminder="<?= $list['permission_reminder'] ?>">
-                    <i class="fas fa-pencil-alt"></i>
-                    <?= _('Modify Properties') ?>
-                </button>
-            </div>
+            <button id="deleteAllSubScribers" class="btn btn-outline-warning mr-2 mb-2 mb-md-0" data-listid="<?= $listId ?>">
+                <i class="far fa-trash-alt mr-1"></i><?= _('Delete All Subscribers') ?>
+            </button>
+            <button class="btn btn-outline-primary mr-2 mb-2 mb-md-0" id="modifyList" data-name="<?= $list['name'] ?>" data-subject="<?= $list['campaign_defaults']['subject'] ?>" data-permissionreminder="<?= $list['permission_reminder'] ?>">
+                <i class="fas fa-pencil-alt mr-1"></i><?= _('Modify Properties') ?>
+            </button>
+            <button id="deleteList" class="btn btn-outline-danger mb-2 mb-md-0" data-listid="<?= $listId ?>">
+                <i class="fas fa-trash-alt mr-1"></i><?= _('Delete') ?>
+            </button>
         </div>
     </div>
 </div>
@@ -60,43 +56,36 @@ if ($isMailchimpActiv) {
     ?>
     <div class="row">
         <div class="col-lg-9">
-            <div class="card card-mailchimp">
-                <div class="card-header border-1">
-                    <h3 class="card-title"><i class="fas fa-users"></i> <?= _('Subscribers') ?></h3>
+            <div class="card card-outline card-primary shadow-sm">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-users mr-1"></i><?= _('Subscribers') ?></h3>
                 </div>
                 <div class="card-body">
-                    <div class="alert alert-warning alert-managelist"><i class="fas fa-info" aria-hidden="true"></i>
+                    <div class="alert alert-info mb-3"><i class="fas fa-info-circle mr-1"></i>
                         <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-1">
-                            <label for="check_all"><?= _("Add") ?></label>
+                    <div class="row align-items-center mb-3">
+                        <div class="col-md-2">
+                            <label class="mb-0 font-weight-bold"><?= _('Add') ?></label>
                         </div>
-                        <div class="col-md-5">
-                            <select name="person-group-Id-Share" class="person-group-Id-Share"
-                                    class="form-control select2" style="width:100%"
-                                    data-listid="<?= $list['id'] ?>"></select>
+                        <div class="col-md-6">
+                            <select name="person-group-Id-Share" class="person-group-Id-Share form-control select2" style="width:100%" data-listid="<?= $list['id'] ?>"></select>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4" style="color:orange;font-size: 12px">
-                            <?= _("Keywords") ?> : *, <?= _("Persons") ?>, <?= _("Families") ?>, newsletter, etc...<br>
+                        <div class="col-md-4">
+                            <small class="text-warning"><i class="fas fa-tag mr-1"></i><?= _('Keywords') ?> : *, <?= _('Persons') ?>, <?= _('Families') ?>, newsletter...</small>
                         </div>
                     </div>
-                    <br>
 
-                    <table class="table table-striped table-bordered" id="memberListTable" cellpadding="5"
-                           cellspacing="0" width="100%"></table>
-
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-sm" id="memberListTable" cellpadding="5" cellspacing="0" width="100%"></table>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="sticky-top">
-                <div class="card shadow-mailchimp" id="container"></div>
+                <div class="card card-outline card-secondary shadow-sm" id="container"></div>
             </div>
         </div>
 
@@ -105,16 +94,15 @@ if ($isMailchimpActiv) {
     <?php
 } else {
     ?>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card box-body">
-                <div class="alert alert-danger alert-dismissible">
-                    <h4><i class="fas fa-ban"></i> MailChimp <?= _('is not configured') ?></h4>
-                    <?= _('Please update the') ?> MailChimp <?= _('API key in Setting->') ?><a
-                        href="<?= $sRootPath ?>/v2/systemsettings/Integration"><?= _('Edit General Settings') ?></a>,
-                    <?= _('then update') ?> sMailChimpApiKey. <?= _('For more info see our ') ?><a
-                        href="<?= $getSupportURL ?>"> MailChimp <?= _('support docs.') ?></a>
-                </div>
+    <div class="card card-outline card-danger shadow-sm">
+        <div class="card-body">
+            <div class="alert alert-danger mb-0">
+                <h5><i class="fas fa-ban mr-1"></i>MailChimp <?= _('is not configured') ?></h5>
+                <?= _('Please update the') ?> MailChimp <?= _('API key in Setting->') ?>
+                <a href="<?= $sRootPath ?>/v2/systemsettings/Integration"><?= _('Edit General Settings') ?></a>,
+                <?= _('then update') ?> sMailChimpApiKey.
+                <?= _('For more info see our ') ?>
+                <a href="<?= $getSupportURL ?>" target="_blank">MailChimp <?= _('support docs.') ?></a>
             </div>
         </div>
     </div>

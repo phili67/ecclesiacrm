@@ -18,7 +18,9 @@ use Slim\Http\ServerRequest;
 use EcclesiaCRM\Group;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 use Propel\Runtime\Propel;
 
@@ -532,5 +534,140 @@ class CartController
             'status' => "success",
             'message' => $iCount.' '._('records(s) successfully deleted from the selected volunteers.')
         ]);        
+    }
+
+    public function renderBadgePreview (ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isCreateDirectoryEnabled() || SessionUser::getUser()->isShowCartEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $values = (object)$request->getParsedBody();
+
+        if (!isset($values->mainTitle) || !isset($values->secondTitle) || !isset($values->thirdTitle)
+            || !isset($values->title) || !isset($values->back) || !isset($values->labeltype)
+            || !isset($values->labelfont) || !isset($values->labelfontsize)
+            || !isset($values->imageName) || !isset($values->imagePosition)) {
+            return $response->withJson(['success' => false]);
+        }
+
+        $people = Cart::PeopleInCart();
+        if (count($people) == 0) {
+            return $response->withJson(['success' => false, 'message' => _('Your cart is empty')]);
+        }
+
+        $person = PersonQuery::create()->findOneById($people[0]);
+        if (is_null($person)) {
+            return $response->withJson(['success' => false, 'message' => _('No person found for preview')]);
+        }
+
+        $mainTitle = htmlspecialchars(InputUtils::FilterString($values->mainTitle), ENT_QUOTES, 'UTF-8');
+        $secondTitle = htmlspecialchars(InputUtils::FilterString($values->secondTitle), ENT_QUOTES, 'UTF-8');
+        $thirdTitle = htmlspecialchars(InputUtils::FilterString($values->thirdTitle), ENT_QUOTES, 'UTF-8');
+        $lastName = htmlspecialchars($person->getLastName(), ENT_QUOTES, 'UTF-8');
+        $firstName = htmlspecialchars($person->getFirstName(), ENT_QUOTES, 'UTF-8');
+
+        $titleColor = InputUtils::LegacyFilterInput($values->title, 'char', 16);
+        $backColor = InputUtils::LegacyFilterInput($values->back, 'char', 16);
+        $labelType = InputUtils::LegacyFilterInput($values->labeltype, 'char', 20);
+        $imageName = InputUtils::LegacyFilterInput($values->imageName, 'char', 255);
+        $imagePosition = InputUtils::LegacyFilterInput($values->imagePosition, 'char', 20);
+
+        $labelTypeSizes = [
+            'Tractor' => ['width' => 120.0, 'height' => 26.5],
+            'Badge' => ['width' => 70.0, 'height' => 40.0],
+            'Badge2' => ['width' => 77.0, 'height' => 48.0],
+            '3670' => ['width' => 64.0, 'height' => 34.0],
+            '5160' => ['width' => 66.675, 'height' => 25.4],
+            '5161' => ['width' => 101.6, 'height' => 25.4],
+            '5162' => ['width' => 100.807, 'height' => 34.0],
+            '5163' => ['width' => 101.6, 'height' => 50.8],
+            '5164' => ['width' => 4.0, 'height' => 3.33],
+            '8600' => ['width' => 66.6, 'height' => 25.4],
+            '74536' => ['width' => 102.0, 'height' => 76.0],
+            'L7163' => ['width' => 99.1, 'height' => 38.1],
+            'C32019' => ['width' => 85.0, 'height' => 54.0],
+        ];
+
+        $baseWidth = 420;
+        $baseHeight = 260;
+        $sizeDef = $labelTypeSizes[$labelType] ?? $labelTypeSizes['Tractor'];
+        $ratio = $sizeDef['width'] / $sizeDef['height'];
+
+        $renderWidth = $baseWidth;
+        $renderHeight = (int)round($renderWidth / $ratio);
+        if ($renderHeight > $baseHeight) {
+            $renderHeight = $baseHeight;
+            $renderWidth = (int)round($renderHeight * $ratio);
+        }
+
+        $sx = function ($v) use ($renderWidth, $baseWidth) {
+            return (int)round(($v * $renderWidth) / $baseWidth);
+        };
+        $sy = function ($v) use ($renderHeight, $baseHeight) {
+            return (int)round(($v * $renderHeight) / $baseHeight);
+        };
+
+        $imgHref = '';
+        if (!empty($imageName)) {
+            $safeImageName = basename($imageName);
+            $imagePath = SystemURLs::getDocumentRoot() . '/Images/background/' . $safeImageName;
+
+            if (file_exists($imagePath) && is_file($imagePath)) {
+                $ext = strtolower(pathinfo($safeImageName, PATHINFO_EXTENSION));
+                $mime = ($ext === 'png') ? 'image/png' : 'image/jpeg';
+                $imgBlob = @file_get_contents($imagePath);
+                if ($imgBlob !== false) {
+                    $imgHref = 'data:' . $mime . ';base64,' . base64_encode($imgBlob);
+                }
+            }
+        }
+
+        $imageMarkup = '';
+        if (!empty($imgHref)) {
+            if ($imagePosition === 'Cover') {
+                $imageMarkup = '<image href="' . $imgHref . '" x="0" y="0" width="' . $renderWidth . '" height="' . $renderHeight . '" preserveAspectRatio="xMidYMid slice" />';
+            } else {
+                $xPos = $sx(14);
+                $yPos = $sy(24);
+                $imgWidth = $sx(130);
+                $imgHeight = $sy(90);
+                $imageRatio = 'xMidYMid meet';
+                $stripeWidth = max(1, (int)round($renderWidth * (14 / $sizeDef['width'])));
+
+                if ($imagePosition === 'Left') {
+                    $xPos = 0;
+                    $yPos = 0;
+                    $imgWidth = $stripeWidth;
+                    $imgHeight = $renderHeight;
+                    $imageRatio = 'none';
+                } elseif ($imagePosition === 'Right') {
+                    $xPos = max(0, $renderWidth - $stripeWidth);
+                    $yPos = 0;
+                    $imgWidth = $stripeWidth;
+                    $imgHeight = $renderHeight;
+                    $imageRatio = 'none';
+                }
+                if ($imagePosition === 'Center') {
+                    $xPos = max(0, (int)round(($renderWidth - $imgWidth) / 2));
+                }
+                $imageMarkup = '<image href="' . $imgHref . '" x="' . $xPos . '" y="' . $yPos . '" width="' . $imgWidth . '" height="' . $imgHeight . '" preserveAspectRatio="' . $imageRatio . '" />';
+            }
+        }
+
+        $radius = max(2, (int)round(18 * min($renderWidth / $baseWidth, $renderHeight / $baseHeight)));
+        $cx = (int)round($renderWidth / 2);
+
+        $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' . $renderWidth . '" height="' . $renderHeight . '" viewBox="0 0 ' . $renderWidth . ' ' . $renderHeight . '">'
+            . '<rect x="0" y="0" width="' . $renderWidth . '" height="' . $renderHeight . '" rx="' . $radius . '" ry="' . $radius . '" fill="' . $backColor . '" />'
+            . $imageMarkup
+            . '<text x="' . $cx . '" y="' . $sy(52) . '" text-anchor="middle" font-size="' . max(9, $sy(22)) . '" font-weight="700" fill="' . $titleColor . '" font-family="Arial, sans-serif">' . $mainTitle . '</text>'
+            . '<text x="' . $cx . '" y="' . $sy(82) . '" text-anchor="middle" font-size="' . max(8, $sy(18)) . '" fill="' . $titleColor . '" font-family="Arial, sans-serif">' . $secondTitle . '</text>'
+            . '<text x="' . $cx . '" y="' . $sy(108) . '" text-anchor="middle" font-size="' . max(8, $sy(16)) . '" fill="' . $titleColor . '" font-family="Arial, sans-serif">' . $thirdTitle . '</text>'
+            . '<text x="' . $cx . '" y="' . $sy(180) . '" text-anchor="middle" font-size="' . max(10, $sy(28)) . '" font-weight="700" fill="' . $titleColor . '" font-family="Arial, sans-serif">' . $lastName . '</text>'
+            . '<text x="' . $cx . '" y="' . $sy(214) . '" text-anchor="middle" font-size="' . max(9, $sy(24)) . '" fill="' . $titleColor . '" font-family="Arial, sans-serif">' . $firstName . '</text>'
+            . '</svg>';
+
+        return $response->withJson(['success' => true, 'imgData' => 'data:image/svg+xml;charset=UTF-8,' . rawurlencode($svg)]);
     }
 }

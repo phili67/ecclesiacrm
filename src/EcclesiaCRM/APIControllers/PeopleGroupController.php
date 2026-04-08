@@ -36,8 +36,8 @@ use EcclesiaCRM\GroupType;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Reports\PDF_Badge;
+use EcclesiaCRM\Utils\MiscUtils;
 
 
 use EcclesiaCRM\MyPDO\CardDavPDO;

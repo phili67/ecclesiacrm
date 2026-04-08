@@ -64,10 +64,10 @@ $(function() {
                 render: function (data, type, full, meta) {
                     var ret = '';
                     if (full.ProPrompt != '') {
-                        ret += '<a class="edit-property-btn" data-group_id="' + window.CRM.currentGroup + '" data-property_id="' + data + '" data-property_Name="' + full.R2pValue + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
+                        ret += '<button class="edit-property-btn btn btn-sm btn-outline-secondary mr-1" data-group_id="' + window.CRM.currentGroup + '" data-property_id="' + data + '" data-property_Name="' + full.R2pValue + '"><i class="fas fa-pencil-alt"></i></button>';
                     }
 
-                    return ret + '<a class="remove-property-btn" data-group_id="' + window.CRM.currentGroup + '" data-property_id="' + data + '" data-property_Name="' + full.R2pValue + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
+                    return ret + '<button class="remove-property-btn btn btn-sm btn-outline-danger" data-group_id="' + window.CRM.currentGroup + '" data-property_id="' + data + '" data-property_Name="' + full.R2pValue + '"><i class="fas fa-trash-alt"></i></button>';
                 }
             }
         ],
@@ -81,18 +81,17 @@ $(function() {
     $('#isGroupEmailExport').prop('checked', window.CRM.isIncludeInEmailExport).on('change');
 
     $("#deleteGroupButton").on('click', function () {
-        console.log("click");
-        bootbox.setDefaults({
-            locale: window.CRM.shortLocale
-        }),
-            bootbox.confirm({
-                title: i18next.t("Confirm Delete Group"),
-                message: '<p style="color: red">' +
-                    i18next.t("Please confirm deletion of this group record") + window.CRM.groupName + "</p>" +
-                    "<p>" +
-                    i18next.t("This will also delete all Roles and Group-Specific Property data associated with this Group record.") +
-                    "</p><p>" +
-                    i18next.t("All group membership and properties will be destroyed.  The group members themselves will not be altered.") + "</p>",
+        bootbox.setDefaults({locale: window.CRM.shortLocale});
+        bootbox.confirm({
+                title: '<i class="fas fa-trash-alt mr-2 text-danger"></i>' + i18next.t("Confirm Delete Group"),
+                message: '<div class="alert alert-danger mb-2"><strong>' + window.CRM.groupName + '</strong> — '
+                    + i18next.t("Please confirm deletion of this group record") + '</div>'
+                    + '<p>' + i18next.t("This will also delete all Roles and Group-Specific Property data associated with this Group record.") + '</p>'
+                    + '<p class="text-danger mb-0">' + i18next.t("All group membership and properties will be destroyed.  The group members themselves will not be altered.") + '</p>',
+                buttons: {
+                    cancel: { label: i18next.t('Cancel'), className: 'btn-outline-secondary' },
+                    confirm: { label: '<i class="fas fa-trash-alt mr-1"></i>' + i18next.t('Delete'), className: 'btn-danger' }
+                },
                 callback: function (result) {
                     if (result) {
                         window.CRM.APIRequest({
@@ -142,11 +141,12 @@ $(function() {
             buttons: {
                 cancel: {
                     label: i18next.t('Cancel'),
-                    className: 'btn btn-primary'
+                    className: 'btn-outline-secondary'
                 },
                 confirm: {
                     label: i18next.t('OK'),
-                    className: 'btn btn-danger'
+                    label: '<i class="fas fa-trash-alt mr-1"></i>' + i18next.t('Remove'),
+                    className: 'btn-danger'
                 }
             },
             title: i18next.t('Are you sure you want to unassign this property?'),
@@ -178,11 +178,12 @@ $(function() {
             buttons: {
                 confirm: {
                     label: i18next.t('OK'),
-                    className: 'btn btn-primary'
+                    label: '<i class="fas fa-check mr-1"></i>' + i18next.t('Save'),
+                    className: 'btn-primary'
                 },
                 cancel: {
                     label: i18next.t('Cancel'),
-                    className: 'btn btn-default'
+                    className: 'btn-outline-secondary'
                 }
             },
             title: i18next.t('Are you sure you want to change this property?'),
@@ -213,7 +214,7 @@ $(function() {
             promptBox
                 .addClass('form-group')
                 .append(
-                    $('<label style="color:white"></label>').html(pro_prompt)
+                    $('<label class="font-weight-bold text-muted small"></label>').html(pro_prompt)
                 )
                 .append(
                     $('<textarea rows="3" class="form-control property-value" name="PropertyValue"></textarea>').val(pro_value)
@@ -353,7 +354,9 @@ function initDataTable() {
                 title: i18next.t('Name'),
                 data: 'PersonId',
                 render: function (data, type, full, meta) {
-                    return full.Person.img + ' &nbsp <a href="' + window.CRM.root + '/v2/people/person/view/"' + full.PersonId + '"><a target="_top" href="' + window.CRM.root + '/v2/people/person/view/' + full.PersonId + '">' + full.Person.FirstName + " " + full.Person.LastName + '</a>';
+                    return '<div class="d-flex align-items-center">' + full.Person.img
+                        + '&nbsp;<a href="' + window.CRM.root + '/v2/people/person/view/' + full.PersonId + '">'
+                        + full.Person.FirstName + ' ' + full.Person.LastName + '</a></div>';
                 }
             },
             {
@@ -361,17 +364,17 @@ function initDataTable() {
                 title: i18next.t('Group Role'),
                 data: 'RoleId',
                 render: function (data, type, full, meta) {
-                    thisRole = $(window.CRM.groupRoles).filter(function (index, item) {
-                        return item.OptionId == data
+                    var thisRole = $(window.CRM.groupRoles).filter(function (index, item) {
+                        return item.OptionId == data;
                     })[0];
 
                     if (isShowable) {
-                        return  ' <a href="#" class="changeMembership btn btn-default btn-xs" data-personid=' + full.PersonId + '>'
-                            +'<span class="fa-stack fa-stack-custom">'
-                            +'<i class="fas fa-stack-1x fa-inverse fa-pencil-alt fas-blue"></i></a> ' + ((thisRole != undefined) ? i18next.t(thisRole.OptionName) : '');
-                            +'</span>'
+                        return '<a href="#" class="changeMembership btn btn-sm btn-outline-secondary" data-personid="' + full.PersonId + '">'
+                            + '<i class="fas fa-pencil-alt mr-1"></i>'
+                            + ((thisRole !== undefined) ? i18next.t(thisRole.OptionName) : '')
+                            + '</a>';
                     } else {
-                        return i18next.t("Private Data");
+                        return '<span class="text-muted small"><i class="fas fa-lock mr-1"></i>' + i18next.t("Private Data") + '</span>';
                     }
                 }
             },
@@ -732,7 +735,7 @@ function initDataTable() {
                 var optionValues = '';
 
                 for (i = 0; i < len; ++i) {
-                    optionValues += '<button class="delete-person-manager btn btn-danger btn-xs" data-personid="' + data[i].personID + '" data-groupid="' + groupID + '"> <i sclass="icon far fa-trash-alt"></i> </button> '+ data[i].name + '<br/> ';
+                    optionValues += '<button class="delete-person-manager btn btn-sm btn-outline-danger mr-1" data-personid="' + data[i].personID + '" data-groupid="' + groupID + '"><i class="fas fa-trash-alt"></i></button> ' + data[i].name + '<br>';
                 }
 
                 if (optionValues != '') {
@@ -794,7 +797,7 @@ function initDataTable() {
                 option.text = data[i].name;
                 option.value = data[i].personID;
 
-                optionValues += '<button class="delete-person-manager btn btn-danger btn-xs" data-personid="' + data[i].personID + '" data-groupid="' + groupID + '"> <i class="icon far fa-trash-alt"></i> </button> ' + data[i].name + '<br/> ';
+                optionValues += '<button class="delete-person-manager btn btn-sm btn-outline-danger mr-1" data-personid="' + data[i].personID + '" data-groupid="' + groupID + '"><i class="fas fa-trash-alt"></i></button> ' + data[i].name + '<br>';
 
                 elt.appendChild(option);
             }
@@ -813,8 +816,8 @@ function initDataTable() {
             message: BootboxContentManager(),
             buttons: [
                 {
-                    label: i18next.t("Delete"),
-                    className: "btn btn-warning",
+                    label: '<i class="fas fa-user-minus mr-1"></i>' + i18next.t("Delete"),
+                    className: "btn btn-outline-warning",
                     callback: function () {
                         bootbox.confirm(i18next.t("Are you sure, you want to delete this Manager ?"), function (result) {
                             if (result) {
@@ -829,7 +832,7 @@ function initDataTable() {
                                         $("#select-manager-persons option[value='" + personID + "']").remove();
 
                                         var opts = $('#select-manager-persons > option').map(function () {
-                                            return '<button class="delete-person-manager btn btn-danger btn-xs" data-personid"' + this.value + '" data-groupid"' + groupID + '"> <i class="icon far fa-trash-alt"></i> </button> ' + this.text;
+                                            return '<button class="delete-person-manager btn btn-sm btn-outline-danger mr-1" data-personid="' + this.value + '" data-groupid="' + groupID + '"><i class="fas fa-trash-alt"></i></button> ' + this.text;
                                         }).get();
 
                                         if (opts.length) {
@@ -845,8 +848,8 @@ function initDataTable() {
                     }
                 },
                 {
-                    label: i18next.t("Delete Managers"),
-                    className: "btn btn-danger",
+                    label: '<i class="fas fa-users mr-1"></i>' + i18next.t("Delete Managers"),
+                    className: "btn btn-outline-danger",
                     callback: function () {
                         bootbox.confirm(i18next.t("Are you sure, you want to delete all the managers ?"), function (result) {
                             if (result) {
@@ -864,7 +867,7 @@ function initDataTable() {
                     }
                 },
                 {
-                    label: i18next.t("Ok"),
+                    label: '<i class="fas fa-check mr-1"></i>' + i18next.t("Ok"),
                     className: "btn btn-primary",
                     callback: function () {
                         modal.modal("hide");

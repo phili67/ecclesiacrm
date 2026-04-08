@@ -1,6 +1,6 @@
 $(function () {
 
-    $(".check_all").on('click', function () {
+    $('#user-listing-table').on('click', '.check_all', function () {
         var state = this.checked;
         $(".checkbox_users").each(function () {
             $(this)[0].checked = state;
@@ -14,7 +14,7 @@ $(function () {
     });
 
 
-    $('#user-listing-table').on('click', 'tr', function () {
+    $('#user-listing-table').on('click', 'tbody tr', function () {
         $(this).toggleClass('selected');
 
         var table = $('#user-listing-table').DataTable();
@@ -100,14 +100,14 @@ $(function () {
         }, function (data) {
             if (data.success == true) {
                 if (lock == false) {
-                    content.removeClass('fa-unlock');
-                    content.addClass('fa-lock');
-                    button.css('color', 'red');
+                    content.removeClass('fa-unlock text-success');
+                    content.addClass('fa-lock text-danger');
+                    button.css('color', '');
                     window.CRM.showGlobalMessage(i18next.t("User") + ' ' + userName + ' ' + i18next.t("is now locked"), "warning");
                 } else {
-                    content.removeClass('fa-lock');
-                    content.addClass('fa-unlock');
-                    button.css('color', 'green');
+                    content.removeClass('fa-lock text-danger');
+                    content.addClass('fa-unlock text-success');
+                    button.css('color', '');
                     window.CRM.showGlobalMessage(i18next.t("User") + ' ' + userName + ' ' + i18next.t("is now unlocked"), "success");
                 }
             }
@@ -136,11 +136,22 @@ $(function () {
         var userName = $(this).data('name');
 
         bootbox.confirm({
-            title: i18next.t("User Delete Confirmation"),
-            message: '<p style="color: red">' +
-                i18next.t("Please confirm removal of user status from:") + '<b>' + userName + '</b><br><br>' +
-                i18next.t("Be carefull, You are about to lose the home folder and the associated files, the Calendars, the Share calendars and all the events too, for") + ':<b> ' + userName + '</b><br><br>' +
-                i18next.t("This can't be undone") + '</p>',
+            title: '<i class="fas fa-user-times text-danger mr-1"></i>' + i18next.t("User Delete Confirmation"),
+            message: '<div class="alert alert-danger">' +
+                i18next.t("Please confirm removal of user status from:") + ' <strong>' + userName + '</strong><br><br>' +
+                i18next.t("Be carefull, You are about to lose the home folder and the associated files, the Calendars, the Share calendars and all the events too, for") + ': <strong>' + userName + '</strong><br><br>' +
+                '<em>' + i18next.t("This can't be undone") + '</em>' +
+                '</div>',
+            buttons: {
+                cancel: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
+                    className: 'btn btn-sm btn-outline-secondary'
+                },
+                confirm: {
+                    label: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Delete"),
+                    className: 'btn btn-sm btn-danger'
+                }
+            },
             callback: function (result) {
                 if (result) {
                     window.CRM.APIRequest({
@@ -161,9 +172,20 @@ $(function () {
         var parentTd = $(this).parent();
 
         bootbox.confirm({
-            title: i18next.t("Action Confirmation"),
-            message: '<p style="color: red">' +
-                i18next.t("Please confirm reset failed login count") + ": <b>" + userName + "</b></p>",
+            title: '<i class="fas fa-eraser text-warning mr-1"></i>' + i18next.t("Action Confirmation"),
+            message: '<div class="alert alert-warning">' +
+                i18next.t("Please confirm reset failed login count") + ': <strong>' + userName + '</strong>' +
+                '</div>',
+            buttons: {
+                cancel: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
+                    className: 'btn btn-sm btn-outline-secondary'
+                },
+                confirm: {
+                    label: '<i class="fas fa-eraser"></i> ' + i18next.t("Reset"),
+                    className: 'btn btn-sm btn-warning'
+                }
+            },
             callback: function (result) {
                 if (result) {
                     window.CRM.APIRequest({
@@ -184,9 +206,20 @@ $(function () {
         var userName = $(this).data('name');
 
         bootbox.confirm({
-            title: i18next.t("Action Confirmation"),
-            message: '<p style="color: red">' +
-                i18next.t("Please confirm the password reset of this user") + ": <b>" + userName + "</b></p>",
+            title: '<i class="fas fa-key text-info mr-1"></i>' + i18next.t("Action Confirmation"),
+            message: '<div class="alert alert-info">' +
+                i18next.t("Please confirm the password reset of this user") + ': <strong>' + userName + '</strong>' +
+                '</div>',
+            buttons: {
+                cancel: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
+                    className: 'btn btn-sm btn-outline-secondary'
+                },
+                confirm: {
+                    label: '<i class="far fa-paper-plane"></i> ' + i18next.t("Reset & Send"),
+                    className: 'btn btn-sm btn-info'
+                }
+            },
             callback: function (result) {
                 if (result) {
                     window.CRM.APIRequest({
@@ -221,26 +254,21 @@ $(function () {
         var userID = $(this).data('userid');
 
         var modal = bootbox.dialog({
-            title: i18next.t("Two factors authentications"),
-            message: '<p><ul>' +
-                '<li>' +
-                i18next.t("Delete") + " : " + i18next.t("to remove two-factor authentication") +
-                '</li>' +
-                '<li>' +
-                i18next.t("Pending") + " : " + i18next.t("Gives the user 60 seconds to log in with their recovery codes. The user will then have to delete or simply rescan the QR-code in the OTP Management application.") +
-                '</li>' +
-                '</ul>' +
-                '</p>',
+            title: '<i class="fas fa-shield-alt mr-1"></i>' + i18next.t("Two factors authentications"),
+            message: '<ul class="list-unstyled mb-0">' +
+                '<li class="mb-1"><i class="fas fa-trash-alt text-danger mr-1"></i><strong>' + i18next.t("Delete") + '</strong> : ' + i18next.t("to remove two-factor authentication") + '</li>' +
+                '<li><i class="fas fa-clock text-primary mr-1"></i><strong>' + i18next.t("Pending") + '</strong> : ' + i18next.t("Gives the user 60 seconds to log in with their recovery codes. The user will then have to delete or simply rescan the QR-code in the OTP Management application.") + '</li>' +
+                '</ul>',
             buttons: [
                 {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
-                    className: "btn btn-secondary",
+                    className: "btn btn-sm btn-outline-secondary",
                     callback: function () {
                     }
                 },
                 {
                     label: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Delete"),
-                    className: "btn btn-danger",
+                    className: "btn btn-sm btn-danger",
                     callback: function () {
                         window.CRM.APIRequest({
                             method: 'POST',
@@ -253,7 +281,7 @@ $(function () {
                 },
                 {
                     label: '<i class="fas fa-clock"></i> ' + i18next.t("Pending"),
-                    className: "btn btn-primary",
+                    className: "btn btn-sm btn-primary",
                     callback: function () {
                         window.CRM.APIRequest({
                             method: 'POST',

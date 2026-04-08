@@ -13,37 +13,36 @@ use EcclesiaCRM\ListOptionQuery;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card card-primary card-body">
-  <div class="row ">
-      <div class="col-sm-2" style="vertical-align: middle;">
-         <a class="btn btn-app" href="<?= $sRootPath ?>/Reports/GDPR/GDPRDataStructureExport.php"><i class="fas fa-print"></i> <?= _("Printable Page") ?></a>
-      </div>
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-shield-alt mr-1"></i><?= _('GDPR Data Structure') ?></h3>
+        <a class="btn btn-sm btn-info" href="<?= $sRootPath ?>/Reports/GDPR/GDPRDataStructureExport.php">
+            <i class="fas fa-file-export mr-1"></i><?= _("Export") ?>
+        </a>
+    </div>
+    <div class="card-body py-2">
+        <div class="alert alert-info mb-0">
+            <i class="fas fa-lightbulb mr-2"></i>
+            <?= _("To validate each text fields, use the tab or enter key !!!") ?>
+        </div>
     </div>
 </div>
 
-  <div class="alert alert-info">
-    <i class="fas fa-info-circle"></i>
-    <?= _("To validate each text fields, use the tab or enter key !!!") ?>
-  </div>
-
-
-<div class="card box-primary">
-  <div class="card-header border-1">
-    <h3 class="card-title">
-      <label><?= _("Informations about the Data Structure for Persons, Families and Pastoral Cares") ?></label>
-    </h3>
-  </div>
-  <div class="card-body">
-    <table class="table table-hover dt-responsive" id="gdpr-data-structure-table" style="width:100%;">
-      <thead>
-        <tr>
-            <th><b><?= _('Informations') ?></b></th>
-            <th><b><?= _('For') ?></b></th>
-            <th><b><?= _('Type') ?></b></th>
-            <th><b><?= _('Comment') ?></b></th>
-        </tr>
-      </thead>
-      <tbody>
+<div class="card card-outline card-info shadow-sm">
+    <div class="card-header py-2">
+        <h3 class="card-title mb-0"><i class="fas fa-list mr-1"></i><?= _("Data Structure Information") ?></h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover table-striped table-sm dt-responsive" id="gdpr-data-structure-table" style="width:100%;">
+            <thead class="thead-light">
+                <tr>
+                    <th><b><?= _('Informations') ?></b></th>
+                    <th><b><?= _('For') ?></b></th>
+                    <th><b><?= _('Type') ?></b></th>
+                    <th><b><?= _('Comment') ?></b></th>
+                </tr>
+            </thead>
+            <tbody>
       <?php
 
         foreach ($personInfos as $personInfo) {
@@ -145,9 +144,9 @@ require $sRootDocument . '/Include/Header.php';
       <?php
         }
       ?>
-        </tbody>
-    </table>
-  </div>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <script src="<?= $sRootPath ?>/skin/js/gdpr/GDPRDataStructure.js"></script>

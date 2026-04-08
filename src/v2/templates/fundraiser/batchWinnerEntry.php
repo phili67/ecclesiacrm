@@ -62,79 +62,82 @@ $ormPaddles = PaddleNumQuery::create()
     ->findByFrId($iCurrentFundraiser);
 
 require $sRootDocument . '/Include/Header.php';
-
-echo $ormDonatedItems->count();
 ?>
 
-<form method="post"
-      action="<?= $sRootPath ?>/v2/fundraiser/batch/winner/entry/<?= $iCurrentFundraiser ?>/<?= $origLinkBack ?>"
-      name="BatchWinnerEntry">
-<div class="card">
-    <div class="card-header  border-1">
-        <div class="card-title"><?= _("Articles") ?></div>
+<div class="card card-outline card-primary shadow-sm">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-layer-group mr-1"></i><?= _('Batch Winner Entry') ?></h3>
+        <span class="badge badge-light border"><?= $ormDonatedItems->count() ?> <?= _('items') ?></span>
     </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-4"><label><?= _('Item') ?></label></div>
-            <div class="col-md-4"><label><?= _('Winner') ?></label></div>
-            <div class="col-md-4"><label><?= _('Price') ?></label></div>
-        </div>
-        <?php
-        for ($row = 0; $row < 10; $row += 1) {
-            ?>
-            <div class="row">
-                <div class="col-md-4">
-                    <select name="Item<?= $row ?>" class="form-control form-control-sm">
-                        <option value="0" selected><?= _('Unassigned') ?></option>
+    <div class="card-body py-2">
+        <form id="batchWinnerForm" method="post"
+              action="<?= $sRootPath ?>/v2/fundraiser/batch/winner/entry/<?= $iCurrentFundraiser ?>/<?= $origLinkBack ?>"
+              name="BatchWinnerEntry">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-sm mb-0">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="align-middle" style="width: 35%;"><?= _('Item') ?></th>
+                            <th class="align-middle" style="width: 35%;"><?= _('Winner') ?></th>
+                            <th class="align-middle text-right" style="width: 30%;"><?= _('Price') ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <?php
-                        foreach ($ormDonatedItems as $ormDonatedItem) {
+                        for ($row = 0; $row < 10; $row += 1) {
                             ?>
-                            <option
-                                value="<?= $ormDonatedItem->getId() ?>"><?= $ormDonatedItem->getItem() ?> <?= $ormDonatedItem->getTitle() ?></option>
+                            <tr>
+                                <td class="align-middle">
+                                    <select name="Item<?= $row ?>" class="form-control form-control-sm item-select">
+                                        <option value="0" selected><?= _('Unassigned') ?></option>
+                                        <?php
+                                        foreach ($ormDonatedItems as $ormDonatedItem) {
+                                            ?>
+                                            <option value="<?= $ormDonatedItem->getId() ?>"><?= $ormDonatedItem->getItem() ?> - <?= $ormDonatedItem->getTitle() ?></option>
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
+                                <td class="align-middle">
+                                    <select name="Paddle<?= $row ?>" class="form-control form-control-sm paddle-select">
+                                        <option value="0" selected><?= _('Unassigned') ?></option>
+                                        <?php
+                                        foreach ($ormPaddles as $paddle) {
+                                            ?>
+                                            <option value="<?= $paddle->getPerId() ?>"><?= $paddle->getNum() ?>: <?= $paddle->getFirstName() ?> <?= $paddle->getLastName() ?></option>
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
+                                <td class="align-middle">
+                                    <input type="text" name="SellPrice<?= $row ?>" class="form-control form-control-sm price-input text-right" value="" inputmode="decimal" placeholder="0.00">
+                                </td>
+                            </tr>
                             <?php
                         }
-
                         ?>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <select name="Paddle<?= $row ?>" class="form-control form-control-sm">
-                        <option value="0" selected><?= _('Unassigned') ?></option>
-
-                        <?php
-                        foreach ($ormPaddles as $paddle) {
-                            ?>
-                            <option
-                                value="<?= $paddle->getPerId() ?>"><?= $paddle->getNum() ?> <?= $paddle->getFirstName() ?> <?= $paddle->getLastName() ?></option>
-                            <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-
-                <div class="col-md-4"><input type="text" name="SellPrice<?= $row ?>" id="SellPrice" value=""
-                                             class= "form-control form-control-sm"></div>
+                    </tbody>
+                </table>
             </div>
-            <br/>
-            <?php
-        }
-        ?>
+        </form>
     </div>
-    <div class="card-footer">
-        <div class="row">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-2">
-                <input type="submit" class="btn btn-primary" value="&check; <?= _('Enter Winners') ?>" name="EnterWinners">
-            </div>
-            <div class="col-md-2">
-                <input type="button" class="btn btn-default" value="x <?= _('Cancel') ?>" name="Cancel"
-                       onclick="javascript:document.location='<?= $sRootPath ?>/<?= (strlen($linkBack) > 0)?$linkBack:'v2/dashboard' ?>';">
-            </div>
+
+    <div class="card-footer py-2 border-top">
+        <div class="d-flex flex-wrap align-items-center">
+            <button type="submit" form="batchWinnerForm" class="btn btn-sm btn-primary mr-2 mb-1" name="EnterWinners">
+                <i class="fas fa-check mr-1"></i><?= _('Enter Winners') ?>
+            </button>
+            <button type="button" class="btn btn-sm btn-secondary mb-1" name="Cancel"
+                    onclick="javascript:document.location='<?= $sRootPath ?>/<?= (strlen($linkBack) > 0)?$linkBack:'v2/dashboard' ?>';">
+                <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+            </button>
         </div>
     </div>
 </div>
-</form>
+
+<script src="<?= $sRootPath ?>/skin/js/fundraiser/batchWinnerEntry.js"></script>
 
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

@@ -1,14 +1,27 @@
 $(function() {
     $("[data-mask]").inputmask();
     
-    $(document).on("click", ".delete-field", function () {
+    $(document).on("click", ".delete-field", function (e) {
+        e.preventDefault();
         var GroupID = $(this).data("groupid");
         var PropID = $(this).data("propid");
         var Field = $(this).data("field");
 
         bootbox.confirm({
-            title: i18next.t("Attention"),
-            message: i18next.t("Warning: By deleting this field, you will irrevocably lose all group data assigned for this field!"),
+            title: '<i class="fas fa-exclamation-triangle text-danger mr-2"></i>' + i18next.t("Attention"),
+            message: '<div class="alert alert-danger mb-0">'
+                + i18next.t("Warning: By deleting this field, you will irrevocably lose all group data assigned for this field!")
+                + '</div>',
+            buttons: {
+                cancel: {
+                    label: i18next.t('Cancel'),
+                    className: 'btn-outline-secondary'
+                },
+                confirm: {
+                    label: '<i class="fas fa-trash-alt mr-1"></i>' + i18next.t('Delete'),
+                    className: 'btn-danger'
+                }
+            },
             callback: function (result) {
                 if (result) {
                     window.CRM.APIRequest({

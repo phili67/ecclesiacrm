@@ -59,6 +59,33 @@ function renderCareList($cares, $type) {
     echo '</ul>';
 }
 
+// Alert config based on PastoralcareAlertTypeButton
+function getPastoralAlertConfig($alertTypeButton) {
+    $config = [
+        'success' => [
+            'icon'    => 'fas fa-check-circle',
+            'title'   => dgettext("messages-PastoralCareDashboard", "Excellent coverage"),
+            'message' => dgettext("messages-PastoralCareDashboard", "More than 60% of members have been visited. Keep up the great pastoral work!"),
+        ],
+        'primary' => [
+            'icon'    => 'fas fa-info-circle',
+            'title'   => dgettext("messages-PastoralCareDashboard", "Good progress"),
+            'message' => dgettext("messages-PastoralCareDashboard", "Between 30% and 60% of members have been visited. Continue your efforts!"),
+        ],
+        'warning' => [
+            'icon'    => 'fas fa-exclamation-triangle',
+            'title'   => dgettext("messages-PastoralCareDashboard", "Attention needed"),
+            'message' => dgettext("messages-PastoralCareDashboard", "Only 10% to 30% of members have been visited. It is time to intensify pastoral activities."),
+        ],
+        'danger' => [
+            'icon'    => 'fas fa-times-circle',
+            'title'   => dgettext("messages-PastoralCareDashboard", "Critical situation"),
+            'message' => dgettext("messages-PastoralCareDashboard", "Less than 10% of members have been visited. Immediate pastoral action is required!"),
+        ],
+    ];
+    return $config[$alertTypeButton] ?? $config['primary'];
+}
+
 // Function to render stats table
 function renderStatsTable($Stats) {
     $statsData = [
@@ -99,8 +126,8 @@ function renderStatsTable($Stats) {
 
 <!-- Pastoral care -->
 <?php if (SessionUser::getUser()->isPastoralCareEnabled() && $pastoralServiceStats): ?>
-    <div class="card border-0 shadow-sm <?= $Card_collapsed ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
-        <div class="card-header <?= $pastoralServiceStats['PastoralcareAlertType'] ?> border-0 ui-sortable-handle">
+    <div class="card card-outline card-<?= $pastoralServiceStats['PastoralcareAlertTypeButton'] ?> <?= $Card_collapsed ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
+        <div class="card-header border-0 ui-sortable-handle">
             <h5 class="card-title mb-0">
                 <i class="fas fa-heartbeat"></i> <?= dgettext("messages-PastoralCareDashboard", "Pastoral Care") ?>
                 (<?= dgettext("messages-PastoralCareDashboard", "Period from") ?> <?= $pastoralServiceStats['startPeriod'] ?> <?= dgettext("messages-PastoralCareDashboard", "to") ?> <?= $pastoralServiceStats['endPeriod'] ?>)
@@ -134,8 +161,17 @@ function renderStatsTable($Stats) {
                         <h6 class="text-black mb-3">
                             <i class="fas fa-chart-bar"></i> <?= dgettext("messages-PastoralCareDashboard", "Statistics") ?>
                         </h6>
-                        <div class="alert alert-info shadow-sm" role="alert">
-                            <i class="fa fa-warning"></i> <?= _("Statistics about persons, families ... who remain to be contacted.") ?>
+                        <?php
+                            $alertCfg = getPastoralAlertConfig($pastoralServiceStats['PastoralcareAlertTypeButton']);
+                        ?>
+                        <div class="alert alert-<?= $pastoralServiceStats['PastoralcareAlertTypeButton'] ?> shadow-sm border-0 mb-3"
+                             role="alert"
+                             style="border-left: 5px solid <?= $pastoralServiceStats['PastoralcareAlertTypeHR'] ?> !important; border-radius: 6px;">
+                            <div class="d-flex align-items-center mb-1">
+                                <i class="<?= $alertCfg['icon'] ?> me-2 fs-5"></i>
+                                <strong><?= $alertCfg['title'] ?></strong>
+                            </div>
+                            <div class="small"><?= $alertCfg['message'] ?></div>
                         </div>
                         <?php renderStatsTable($Stats); ?>
                     </div>

@@ -16,59 +16,73 @@ use EcclesiaCRM\dto\ChurchMetaData;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card bg-gray-dark card-body">
-    <div class="margin">
-        <label><?= dgettext("messages-MeetingJitsi","Room names") ?></label>
-        <div class="btn-group">
-            <a class="btn btn-app" id="newRoom" data-toggle="tooltip" data-placement="bottom" title="<?= dgettext("messages-MeetingJitsi","Create first a room and manage theme with the arrow button") ?>"><i
-                    class="fas fa-sticky-note"></i><?= dgettext("messages-MeetingJitsi","Create Room") ?></a>
-            <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only">Menu déroulant</span>
-            </button>
-            <div class="dropdown-menu" role="menu">
-                <?php foreach ($allRooms as $room) { ?>
-                    <a class="dropdown-item selectRoom" data-roomid="<?= $room['Id'] ?>">
-                        (<?= (new DateTime($room['CreationDate']))->format(SystemConfig::getValue('sDateFormatLong')) ?>)
-                        <?= $room['Code'] ?>
-                        </a>
-                <?php } ?>
-            </div>
-            &nbsp;
-            <a class="btn btn-app bg-danger" id="delete-all-rooms" data-toggle="tooltip"  data-placement="bottom" title="<?= dgettext("messages-MeetingJitsi","This action will delete all your rooms") ?>">
-                <i class="fas fa-times-circle"></i><?= dgettext("messages-MeetingJitsi","Delete all Rooms") ?>
-            </a>
-            &nbsp;
-            <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= dgettext("messages-MeetingJitsi","Appointment") ?>
-            </a>
-        </div>
-    </div>
-</div>
+<section class="content pt-3">
+    <div class="container-fluid">
 
-<div class="row" style="height: 100%">
-    <div class="col-md-12">
-        <div class="card card-gray-dark">
-            <div class="card-header  border-1">
-                <div
-                    class="card-title"><?= dgettext("messages-MeetingJitsi","Room Name") ?> : <?= $roomName ?>
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div>
+                    <h3 class="mb-0">
+                        <i class="fas fa-video mr-2 text-info"></i><?= dgettext("messages-MeetingJitsi", "Jitsi Meeting") ?>
+                    </h3>
+                    <small class="text-muted"><?= dgettext("messages-MeetingJitsi", "Create, select and launch your rooms") ?></small>
                 </div>
-                <div style="float:right"><a href="https://jitsi.org/" target="_blank">
-                        <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="25/"></a>
-                </div>
+                <a href="https://jitsi.org/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="28" alt="Jitsi">
+                </a>
             </div>
-            <div class="card-body" style="padding: 0px">
-                <div id="meetingIframe" style="width:100%;height:600px">
-                    <?php if ($roomName == '') { ?>
-                        <div class="text-center">
-                            <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="85/"><br/>
-                            <label> <?= dgettext("messages-MeetingJitsi","First create a Jitsi room with the button above !") ?></label>
+
+            <div class="card card-outline card-info shadow-sm">
+                <div class="card-body d-flex flex-wrap align-items-center">
+                    <span class="font-weight-bold mr-3"><?= dgettext("messages-MeetingJitsi", "Room names") ?></span>
+
+                    <div class="btn-group mr-2 mb-2" role="group">
+                        <a class="btn btn-info" id="newRoom" data-toggle="tooltip" data-placement="bottom" title="<?= dgettext("messages-MeetingJitsi", "Create first a room and manage theme with the arrow button") ?>">
+                            <i class="fas fa-plus-circle mr-1"></i><?= dgettext("messages-MeetingJitsi", "Create Room") ?>
+                        </a>
+                        <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="sr-only">Menu déroulant</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                            <?php foreach ($allRooms as $room) { ?>
+                                <a class="dropdown-item selectRoom" data-roomid="<?= $room['Id'] ?>">
+                                    (<?= (new DateTime($room['CreationDate']))->format(SystemConfig::getValue('sDateFormatLong')) ?>) <?= $room['Code'] ?>
+                                </a>
+                            <?php } ?>
                         </div>
-                    <?php } ?>
+                    </div>
+
+                    <a class="btn btn-outline-danger mr-2 mb-2" id="delete-all-rooms" data-toggle="tooltip" data-placement="bottom" title="<?= dgettext("messages-MeetingJitsi", "This action will delete all your rooms") ?>">
+                        <i class="fas fa-trash-alt mr-1"></i><?= dgettext("messages-MeetingJitsi", "Delete all Rooms") ?>
+                    </a>
+
+                    <a class="btn btn-outline-warning mb-2" id="add-event">
+                        <i class="far fa-calendar-plus mr-1"></i><?= dgettext("messages-MeetingJitsi", "Appointment") ?>
+                    </a>
                 </div>
             </div>
-        </div>
+
+            <div class="card card-outline card-secondary shadow-sm">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3 class="card-title mb-0">
+                        <?= dgettext("messages-MeetingJitsi", "Room Name") ?> :
+                        <span class="text-info"><?= $roomName == '' ? dgettext("messages-MeetingJitsi", "No room selected") : $roomName ?></span>
+                    </h3>
+                </div>
+                <div class="card-body p-0" style="background:#f4f6f9;">
+                    <div id="meetingIframe" style="width:100%;height:600px;background:#f4f6f9;">
+                        <?php if ($roomName == '') { ?>
+                            <div class="h-100 d-flex flex-column justify-content-center align-items-center text-center" style="min-height:600px;">
+                                <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="90" alt="Jitsi" class="mb-3"/>
+                                <p class="mb-1"><?= dgettext("messages-MeetingJitsi", "First create a Jitsi room with the button above !") ?></p>
+                                <small class="text-muted"><?= dgettext("messages-MeetingJitsi", "Then choose a room from the dropdown to launch the meeting") ?></small>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+
     </div>
-</div>
+</section>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 

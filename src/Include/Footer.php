@@ -45,6 +45,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 <i class="fas fa-tasks"></i>
             </a>
         </li>
+        <?php if (SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isMenuOptionsEnabled()): ?>
         <li class="nav-item">
             <a href="#control-sidebar-settings-tab" data-toggle="tab" aria-expanded="false" class="nav-link" role="tab">
                 <i class="fas fa-wrench"></i>
@@ -56,7 +57,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 <i class="fas fa-sliders-h"></i>
             </a>
         </li>
-
+        <?php endif; ?>
     </ul>
     <div
         class="tab-content p-3 control-sidebar-content os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-overflow os-host-overflow-y os-host-transition">

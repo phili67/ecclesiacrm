@@ -8,7 +8,7 @@ $(function() {
             buttons: {
                 cancel: {
                     label: i18next.t('No'),
-                    className: 'btn-success'
+                    className: 'btn-outline-secondary'
                 },
                 confirm: {
                     label: i18next.t('Yes'),

@@ -63,10 +63,10 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             . '</div>';
     };
 
-    echo '<div class="card border-primary shadow-sm '. $plugin->getName() .' '. $Card_collapsed .'" id="Menu_Banner1" data-name="'. $plugin->getName() .'">';
+    echo '<div class="card card-outline card-primary shadow-sm '. $plugin->getName() .' '. $Card_collapsed .'" id="Menu_Banner1" data-name="'. $plugin->getName() .'">';
 
     if (count($birthdays) > 0) {
-        echo '<div class="card-header d-flex justify-content-between '. $plugin->getPlgnColor() . '">';
+        echo '<div class="card-header d-flex justify-content-between">';
         echo '<h5 class="card-title mb-0"><i class="fa-solid fa-calendar-day"></i> '. dgettext("messages-BirthdayAnniversaryDashboard","Birthdates of the day") . '</h5>';
         echo $renderCardTools();
         echo '</div>';

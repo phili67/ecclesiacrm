@@ -117,9 +117,9 @@ class PDF_Badge extends PDF_Label
 
         if ($image != "../Images/" && file_exists($image)) {
           if ($sImagePosition == 'Left') {
-            $this->Image($image,$_PosX, $_PosY,7,$this->_Height);
+                                                $this->Image($image,$_PosX, $_PosY,14,$this->_Height);
           } else if ($sImagePosition == 'Right') {
-            $this->Image($image,$_PosX+$this->_Width-7, $_PosY,7,$this->_Height);
+                                                $this->Image($image,$_PosX+$this->_Width-14, $_PosY,14,$this->_Height);
           } else {
             $this->Image($image,$_PosX, $_PosY,$this->_Width,$this->_Height);
           }
@@ -275,9 +275,9 @@ class PDF_Badge extends PDF_Label
 
         if ($image != "../Images/" && file_exists($image)) {
           if ($sImagePosition == 'Left') {
-            $this->Image($image,$_PosX, $_PosY,7,$this->_Height);
+                                                $this->Image($image,$_PosX, $_PosY,14,$this->_Height);
           } else if ($sImagePosition == 'Right') {
-            $this->Image($image,$_PosX+$this->_Width-7, $_PosY,7,$this->_Height);
+                                                $this->Image($image,$_PosX+$this->_Width-14, $_PosY,14,$this->_Height);
           } else {
             $this->Image($image,$_PosX, $_PosY,$this->_Width,$this->_Height);
           }

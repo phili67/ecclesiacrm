@@ -35,7 +35,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="row">
         <div class="col-md-3">
             <div class="sticky-top">
-                <div class="card card-primary card-outline">
+                <div class="card card-outline card-primary shadow-sm">
                     <div class="card-body box-profile">
                         <div class="text-center">
                             <img
@@ -164,8 +164,8 @@ require $sRootDocument . '/Include/Header.php';
                         }
                         if ($bOkToEdit) {
                             ?>
-                            <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $PersonInfos['person']->getId() ?>"
-                               class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
+                                     <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $PersonInfos['person']->getId() ?>"
+                                         class="btn btn-sm btn-outline-primary btn-block"><i class="fas fa-pen mr-1"></i><?php echo _('Edit'); ?></a>
                             <?php
                         }
                         ?>
@@ -176,8 +176,8 @@ require $sRootDocument . '/Include/Header.php';
                 <?php
                 $can_see_privatedata = ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() or SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
                 ?>
-                <div class="card">
-                    <div class="card-header border-1">
+                <div class="card card-outline card-info shadow-sm">
+                    <div class="card-header border-0">
                         <h3 class="card-title text-center"><i
                                 class="fas fa-info-circle"></i> <?php echo _('Informations'); ?></h3>
                         <div class="card-tools pull-right">
@@ -392,43 +392,50 @@ require $sRootDocument . '/Include/Header.php';
                         </ul>
                     </div>
                 </div>
-                <div class="alert alert-info alert-dismissable">
-                    <i class="fas  fa-tree"></i> <?php echo _('indicates items inherited from the associated family record.'); ?>
+                <div class="alert alert-info small mt-2 mb-0">
+                    <i class="fas fa-tree mr-1"></i><?php echo _('indicates items inherited from the associated family record.'); ?>
                 </div>
             </div>
         </div>
         <div class="col-md-9">
-            <div class="card special-card">
-                <div class="card-body special-card-body">
+            <div class="card card-outline card-secondary shadow-sm mb-3">
+                <div class="card-body py-2">
+                    <div class="d-flex flex-wrap align-items-center" style="gap:.5rem;">
                     <?php
                     $buttons = 0;
 
                     if (Cart::PersonInCart($PersonInfos['iPersonID']) and SessionUser::getUser()->isShowCartEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart"
+                        <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-sm btn-outline-info RemoveOneFromPeopleCart" id="AddPersonToCart"
                            data-onecartpersonid="<?= $PersonInfos['iPersonID'] ?>"> <i class="fas fa-times"></i> <span
                                 class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
+                        </div>
                         <?php
                     } else if (SessionUser::getUser()->isShowCartEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart"
+                        <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-sm btn-outline-info AddOneToPeopleCart" id="AddPersonToCart"
                            data-onecartpersonid="<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="fas fa-cart-plus"></i><span
                                 class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
+                        </div>
                         <?php
                     }
 
                     if (SessionUser::getUser()->isEmailEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app"
+                        <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-sm btn-outline-success"
                            href="mailto:<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $PersonInfos['sEmail'])) ?>"  target="_blank"><i
                                 class="far fa-paper-plane"></i><?= _('Email') ?></a>
-                        <a class="btn btn-app"
+                                <a class="btn btn-sm btn-outline-info"
                            href="mailto:?bcc=<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $PersonInfos['sEmail'])) ?>"  target="_blank"><i
                                 class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
+                        </div>
                         <?php
                     }
 
@@ -437,64 +444,78 @@ require $sRootDocument . '/Include/Header.php';
 
                             $buttons++;
                             ?>
-                            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/users/settings"><i
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/users/settings"><i
                                     class="fas fa-cog"></i> <?= _("Change Settings") ?></a>
-                            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/users/change/password/<?= $PersonInfos['iPersonID'] ?>"><i
+                                <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/users/change/password/<?= $PersonInfos['iPersonID'] ?>"><i
                                     class="fas fa-key"></i> <?= _("Change Password") ?></a>
+                            </div>
                             <?php
                         }
                         ?>
-                        <a class="btn btn-app"
+                        <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-sm btn-outline-primary"
                            href="<?= $sRootPath ?>/v2/people/person/print/<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="fas fa-print"></i> <?= _("Printable Page") ?></a>
+                        </div>
                         <?php
                     }
 
                     if (SessionUser::getUser()->isAdmin()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-gradient-info" href="#" data-toggle="modal" data-target="#confirm-verify"><i
-                                class="fas fa-check-square"></i> <?= _("Verify Info") ?></a>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#confirm-verify"><i
+                                    class="fas fa-check-square"></i> <?= _("Verify Info") ?></a>
+                        </div>
                         <?php
                     }
 
                     if (SessionUser::getUser()->isPastoralCareEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-gradient-purple"
+                        <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-sm btn-outline-secondary"
                            href="<?= $sRootPath ?>/v2/pastoralcare/person/<?= $PersonInfos['iPersonID'] ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Add a pastoral care note") ?>"><i
                                 class="far fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
+                        </div>
                         <?php
                     }
 
                     if (SessionUser::getUser()->isNotesEnabled() or (SessionUser::getUser()->isEditSelfEnabled() and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-gradient-green" href="#" id="createDocument" data-toggle="tooltip"
+                        <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-sm btn-success" href="#" id="createDocument" data-toggle="tooltip"
                            data-placement="bottom"
                            title="<?= _("Create a document") ?>"><i
                                 class="fas fa-file"></i><?= _("Create a document") ?></a>
+                        </div>
                         <?php
                     }
                     if ( SessionUser::getUser()->isManageGroups() ) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app addGroup" data-personid="<?= $PersonInfos['iPersonID'] ?>"
-                           data-toggle="tooltip" data-placement="bottom" title="<?= _("Assign this user to a group") ?>"><i
-                                class="fas fa-users">
-                            </i> <?= _("Assign New Group") ?></a>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a class="btn btn-sm btn-outline-secondary addGroup" data-personid="<?= $PersonInfos['iPersonID'] ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Assign this user to a group") ?>"><i
+                                    class="fas fa-users">
+                                </i> <?= _("Assign New Group") ?></a>
+                        </div>
                         <?php
                     }
 
                     if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                          $buttons++;
                         ?>
-                        <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($PersonInfos['person']->getAddress1()) == 0 or !is_null($PersonInfos['person']->getFamily()) and mb_strlen($PersonInfos['person']->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
-                           data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
-                           href="<?= $sRootPath ?>/api/persons/addressbook/extract/<?= $PersonInfos['iPersonID'] ?>"><i
-                                class="far fa-id-card">
-                            </i> <?= _("vCard") ?></a>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a class="btn btn-sm btn-outline-warning <?= (mb_strlen($PersonInfos['person']->getAddress1()) == 0 or !is_null($PersonInfos['person']->getFamily()) and mb_strlen($PersonInfos['person']->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
+                               href="<?= $sRootPath ?>/api/persons/addressbook/extract/<?= $PersonInfos['iPersonID'] ?>"><i
+                                    class="far fa-id-card">
+                                </i> <?= _("vCard") ?></a>
+                        </div>
                         <?php
                     }
 
@@ -502,17 +523,21 @@ require $sRootDocument . '/Include/Header.php';
                         if (!$PersonInfos['person']->isUser()) {
                             $buttons++;
                             ?>
-                            <a class="btn btn-app"
+                            <div class="btn-group btn-group-sm" role="group">
+                                     <a class="btn btn-sm btn-outline-dark"
                                href="<?= $sRootPath ?>/v2/users/editor/new/<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Create a CRM user") ?>"><i
                                     class="fas fa-user-secret"></i> <?= _('Make User') ?></a>
+                            </div>
                             <?php
                         } else {
                             ?>
-                            <a class="btn btn-app"
+                            <div class="btn-group btn-group-sm" role="group">
+                                     <a class="btn btn-sm btn-outline-dark"
                                href="<?= $sRootPath ?>/v2/users/editor/<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Add rights to this user") ?>"><i
                                     class="fas fa-user-secret"></i> <?= _('Edit User') ?></a>
+                            </div>
                             <?php
                         }
                     }
@@ -520,9 +545,11 @@ require $sRootDocument . '/Include/Header.php';
                     if ($bOkToEdit and SessionUser::getUser()->isDeleteRecordsEnabled() and $PersonInfos['iPersonID'] != 1) {// the super user can't be deactivated
                         $buttons++;
                         ?>
-                        <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
-                            <i class="fa <?= (empty($PersonInfos['person']->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($PersonInfos['person']->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
-                        </button>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button class="btn btn-sm btn-warning" id="activateDeactivate">
+                                <i class="fa <?= (empty($PersonInfos['person']->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($PersonInfos['person']->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
+                            </button>
+                        </div>
                         <?php
                     }
 
@@ -531,21 +558,26 @@ require $sRootDocument . '/Include/Header.php';
 
                         if (count($PersonInfos['person']->getOtherFamilyMembers()) > 0 or is_null($PersonInfos['person']->getFamily())) {
                             ?>
-                            <a class="btn btn-app bg-gradient-maroon delete-person"
+                            <div class="btn-group btn-group-sm" role="group">
+                                     <a class="btn btn-sm btn-danger delete-person"
                                data-person_name="<?= $PersonInfos['person']->getFullName() ?>"
                                data-person_id="<?= $PersonInfos['iPersonID'] ?>"><i
                                     class="far fa-trash-alt"></i> <?= _("Delete this Record") ?>
                             </a>
+                            </div>
                             <?php
                         } else {
                             ?>
-                            <a class="btn btn-app bg-maroon"
+                            <div class="btn-group btn-group-sm" role="group">
+                                     <a class="btn btn-sm btn-danger"
                                href="<?= $sRootPath ?>/v2/people/family/delete/<?= $PersonInfos['person']->getFamily()->getId() ?>"><i
                                     class="far fa-trash-alt"></i><?= _("Delete this Record") ?></a>
+                            </div>
                             <?php
                         }
                     }
                     ?>
+                    </div>
                 </div>
             </div>
 
@@ -556,8 +588,8 @@ require $sRootDocument . '/Include/Header.php';
                     or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() 
                     or SessionUser::getUser()->isSeePrivacyDataEnabled())) {
             ?>
-            <div class="card">
-                <div class="card-header  border-1 card-header-custom">
+            <div class="card card-outline card-secondary shadow-sm">
+                <div class="card-header border-0 card-header-custom">
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills">
                         <?php
@@ -568,8 +600,8 @@ require $sRootDocument . '/Include/Header.php';
                             $activeTab = "timeline";
                             ?>
                             <li class="nav-item">
-                                <a class="nav-link <?= (!$bDocuments and !$bGroup) ? "active" : "" ?>"
-                                   href=" #timeline" aria-controls="timeline" role="tab"
+                                          <a class="nav-link <?= (!$bDocuments and !$bGroup) ? "active" : "" ?>"
+                                              href="#timeline" aria-controls="timeline" role="tab"
                                    data-toggle="tab"><i class="fas fa-clock"></i> <?= _('Timeline') ?></a></li>
                             <?php
                         }
@@ -689,52 +721,49 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                             ?>
-                            <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'timeline') ? "active" : "" ?>"
-                                 id="timeline">
-                                <div class="row filter-note-type card">
-                                    <div class="col-md-1" style="line-height:27px">
-                                        <table width=400px>
-                                            <tr>
-                                                <td>
-                                                  <span class="time-line-head-red">
-                                                    <?php
-                                                    $now = new DateTime('');
-                                                    echo $now->format(SystemConfig::getValue('sDateFormatLong'))
-                                                    ?>
-                                                  </span>
-                                                </td>
-                                                <td style="vertical-align: middle;">
-                                                </td>
-                                                <td>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
+                            <div role="tabpanel" class="tab-pane fade <?= ($activeTab == 'timeline') ? "show active" : "" ?>" id="timeline">
                                 <div class="timeline time-line-main">
-                                    <!-- timeline time label -->
-                                    <!--<li class="time-label">
-                    <span class="bg-red">
-                      <?php $now = new DateTime('');
-                                    echo $now->format(SystemConfig::getValue('sDateFormatLong')) ?>
-                    </span>
-            </li>-->
-                                    <div class="time-label">
-                                    </div>
-                                    <!-- /.timeline-label -->
-
-                                    <!-- timeline item -->
                                     <?php
-                                    
+                                    $countMainTimeLine = 0;
+                                    $maxMainTimeLineItems = 20;
+                                    $curYear = date('Y');
+
+                                    if (!empty($timelineServiceItems) && isset($timelineServiceItems[0]['year'])) {
+                                        $curYear = $timelineServiceItems[0]['year'];
+                                    }
+                                    ?>
+
+                                    <div class="time-label">
+                                        <span class="bg-primary px-3 py-1 rounded-pill">
+                                            <?= $curYear ?>
+                                        </span>
+                                    </div>
+
+                                    <?php
                                     foreach ($timelineServiceItems as $item) {
+                                        $countMainTimeLine++;
+
+                                        if ($countMainTimeLine > $maxMainTimeLineItems) {
+                                            break;
+                                        }
+
+                                        if (isset($item['year']) && $curYear != $item['year']) {
+                                            $curYear = $item['year'];
+                                            ?>
+                                            <div class="time-label">
+                                                <span class="bg-secondary px-3 py-1 rounded-pill">
+                                                    <?= $curYear ?>
+                                                </span>
+                                            </div>
+                                            <?php
+                                        }
                                         ?>
                                         <div>
-                                            <!-- timeline icon -->
                                             <i class="fa <?= $item['style'] ?>"></i>
 
-                                            <div class="timeline-item">
-                                                <span class="time">
-                                                    <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
+                                            <div class="timeline-item shadow-sm border-0">
+                                                <span class="time text-muted small">
+                                                    <i class="fas fa-clock mr-1"></i><?= $item['datetime'] ?>
                                                 </span>
                                                 <?php
                                                 if (isset($item['style2'])) {
@@ -744,9 +773,9 @@ require $sRootDocument . '/Include/Header.php';
                                                 }
                                                 ?>
 
-                                                <h3 class="timeline-header">
+                                                <h3 class="timeline-header border-0 font-weight-bold">
                                                     <?php
-                                                    if (array_key_exists('headerlink', $item) and $item['type'] != 'file') {
+                                                    if (array_key_exists('headerlink', $item) && $item['type'] != 'file') {
                                                         ?>
                                                         <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                                                         <?php
@@ -758,18 +787,15 @@ require $sRootDocument . '/Include/Header.php';
                                                     ?>
                                                 </h3>
 
-
                                                 <div class="timeline-body">
                                                     <?php
                                                     if ($item['type'] != 'file') {
                                                         ?>
-                                                        <span
-                                                            style="line-height: 1.2;"><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . $item['text'] ?></span>
+                                                        <span><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . $item['text'] ?></span>
                                                         <?php
                                                     } else {
                                                         ?>
-                                                        <span
-                                                            style="line-height: 1.2;"><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . '<a href="' . $sRootPath . '/api/filemanager/getFile/' . $item['perID'] . "/" . $item['text'] . '"><i class="fa ' . $item['style2'] . 'share-type-2"></i> "' . _("click to download") . '"</a>' ?></span>
+                                                        <span><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . '<a href="' . $sRootPath . '/api/filemanager/getFile/' . $item['perID'] . "/" . $item['text'] . '"><i class="fa ' . $item['style2'] . ' share-type-2"></i> "' . _("click to download") . '"</a>' ?></span>
                                                         <?php
                                                     }
                                                     ?>
@@ -779,25 +805,24 @@ require $sRootDocument . '/Include/Header.php';
                                         <?php
                                     }
                                     ?>
-                                    <!-- END timeline item -->
                                 </div>
                             </div>
                             <?php
                         }
                         ?>
-                        <div role="tab-pane fade <?= ($activeTab == 'family') ? "active" : "" ?>" class="tab-pane"
+                        <div role="tabpanel" class="tab-pane fade <?= ($activeTab == 'family') ? "show active" : "" ?>"
                              id="family">
                             <?php
                             if ($PersonInfos['person']->getFamId() != '') {
                                 ?>
-                                <table class="table user-list table-hover">
+                                <table class="table table-sm table-hover table-borderless" width="100%">
                                     <thead>
-                                    <tr>
-                                        <th><span><?= _('Family Members') ?></span></th>
-                                        <th class="text-center"><span><?= _('Role') ?></span></th>
-                                        <th><span><?= _('Birthday') ?></span></th>
-                                        <th><span><?= _('Email') ?></span></th>
-                                        <th>&nbsp;</th>
+                                    <tr class="border-bottom">
+                                        <th class="text-muted small font-weight-bold"><i class="fas fa-users mr-2 text-info"></i><?= _('Family Members') ?></th>
+                                        <th class="text-center text-muted small font-weight-bold"><i class="fas fa-tag mr-1"></i><?= _('Role') ?></th>
+                                        <th class="text-muted small font-weight-bold"><i class="fas fa-birthday-cake mr-1"></i><?= _('Birthday') ?></th>
+                                        <th class="text-muted small font-weight-bold"><i class="far fa-envelope mr-1"></i><?= _('Email') ?></th>
+                                        <th class="text-center text-muted small font-weight-bold"><?= _('Actions') ?></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -805,55 +830,70 @@ require $sRootDocument . '/Include/Header.php';
                                     foreach ($PersonInfos['person']->getOtherFamilyMembers() as $familyMember) {
                                         $tmpPersonId = $familyMember->getId();
                                         ?>
-                                        <tr>
-                                            <td>
-                                                <?= $familyMember->getJPGPhotoDatas() ?>
-                                                <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $tmpPersonId ?>"
-                                                   class="user-link"><?= $familyMember->getFullName() ?> </a>
+                                        <tr class="align-middle border-bottom">
+                                            <td class="py-2">
+                                                <div class="d-flex align-items-center">
+                                                    <?= $familyMember->getJPGPhotoDatas() ?>
+                                                    <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $tmpPersonId ?>"
+                                                       class="user-link font-weight-500 ml-2"><?= $familyMember->getFullName() ?></a>
+                                                </div>
                                             </td>
-                                            <td class="text-center">
-                                                <?= $familyMember->getFamilyRoleName() ?>
+                                            <td class="text-center py-2">
+                                                <?php
+                                                $famRole = $familyMember->getFamilyRoleName();
+                                                $badgeClass = 'badge badge-secondary';
+                                                $badgeIcon = 'fa-user';
+                                                if ($famRole == _('Head of Household')) {
+                                                    $badgeClass = 'badge badge-primary';
+                                                    $badgeIcon = 'fa-crown';
+                                                } elseif ($famRole == _('Spouse')) {
+                                                    $badgeClass = 'badge badge-info';
+                                                    $badgeIcon = 'fa-heart';
+                                                } elseif ($famRole == _('Child')) {
+                                                    $badgeClass = 'badge badge-warning';
+                                                    $badgeIcon = 'fa-child';
+                                                }
+                                                ?>
+                                                <span class='<?= $badgeClass ?>' title="<?= $famRole ?>">
+                                                    <i class="fas <?= $badgeIcon ?> mr-1"></i><?= $famRole ?>
+                                                </span>
                                             </td>
-                                            <td>
+                                            <td class="py-2 text-muted small">
                                                 <?= OutputUtils::FormatBirthDate($familyMember->getBirthYear(), $familyMember->getBirthMonth(), $familyMember->getBirthDay(), '-', $familyMember->getFlags()); ?>
                                             </td>
-                                            <td>
+                                            <td class="py-2">
                                                 <?php
                                                 $tmpEmail = $familyMember->getEmail();
 
                                                 if ($tmpEmail != '') {
                                                     ?>
-                                                    <a href="mailto:<?= $tmpEmail ?>"  target="_blank"><?= $tmpEmail ?></a>
+                                                    <a href="mailto:<?= $tmpEmail ?>" class="text-primary small" title="<?= $tmpEmail ?>" target="_blank"><?= $tmpEmail ?></a>
                                                     <?php
+                                                } else {
+                                                    echo '<span class="text-muted small">-</span>';
                                                 }
                                                 ?>
                                             </td>
-                                            <td style="width: 20%;">
-                                                <div class="btn-group">
+                                            <td class="py-2 text-center" style="width: 20%;">
+                                                <div class="btn-group btn-group-sm" role="group">
                                                 <?php
                                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                                     ?>
-                                                    <a class="AddToPeopleCart btn btn-default btn-xs" data-cartpersonid="<?= $tmpPersonId ?>">
-                                                        <span class="fa-stack">
-                                                            <i class="fas fa-cart-plus fa-stack-1x fa-inverse fas-blue"></i>
-                                                        </span>
+                                                    <a class="AddToPeopleCart btn btn-outline-secondary" data-cartpersonid="<?= $tmpPersonId ?>" title="<?= _('Add to Cart') ?>" data-toggle="tooltip">
+                                                        <i class="fas fa-cart-plus"></i>
                                                     </a>
                                                     <?php
                                                 }
 
                                                 if ($bOkToEdit) {
                                                     ?>
-                                                    <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $tmpPersonId ?>" class="btn btn-default btn-xs">
-                                                        <span class="fa-stack">
-                                                            <i class="fas fa-pencil-alt fa-stack-1x fa-inverse fas-green"></i>
-                                                        </span>
+                                                    <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $tmpPersonId ?>" class="btn btn-outline-primary" title="<?= _('Edit') ?>" data-toggle="tooltip">
+                                                        <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <a class="delete-person btn btn-default btn-xs"
+                                                    <a class="delete-person btn btn-outline-danger"
                                                        data-person_name="<?= $familyMember->getFullName() ?>"
-                                                       data-person_id="<?= $tmpPersonId ?>" data-view="family">
-                                                            <span class="fa-stack">
-                                                                <i class="far fa-trash-alt fa-stack-1x fa-inverse fas-red"></i>
-                                                            </span>
+                                                       data-person_id="<?= $tmpPersonId ?>" data-view="family" title="<?= _('Delete') ?>" data-toggle="tooltip">
+                                                        <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                     <?php
                                                 }
@@ -903,57 +943,54 @@ require $sRootDocument . '/Include/Header.php';
                                             ?>
                                             <div class="col-md-6">
                                                 <!-- Info box -->
-                                                <div class="card">
-                                                    <div class="card-header bg-gradient-secondary">
+                                                <div class="card card-outline card-secondary shadow-sm h-100 mb-0">
+                                                    <div class="card-header border-0">
                                                         <h3 class="card-title" style="font-size:tiny">
-                                                        <a class="btn btn-default btn-sm" href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"><?= $ormAssignedGroup->getGroupName() ?></a> (<?= _($ormAssignedGroup->getRoleName()) ?>)
+                                                            <a class="btn btn-outline-secondary btn-xs px-2"
+                                                               href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view">
+                                                                <i class="fas fa-users mr-1"></i><?= $ormAssignedGroup->getGroupName() ?>
+                                                            </a>
+                                                            <span class="badge badge-light border ml-1"><?= _($ormAssignedGroup->getRoleName()) ?></span>
                                                         </h3>
 
-                                                        <div class="pull-right">
-                                                            <div class="label bg-aqua">
-                                                                <code>
-                                                                    <a href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"
-                                                                       class="btn btn-success btn-xs" role="button"><i class="fas fa-list"></i>
+                                                        <div class="float-right">
+                                                            <div class="btn-group btn-group-sm" role="group" aria-label="<?= _('Group actions') ?>">
+                                                                <a href="<?= $sRootPath ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"
+                                                                   class="btn btn-outline-secondary" role="button"
+                                                                   data-toggle="tooltip" title="<?= _('View') ?>">
+                                                                    <i class="fas fa-list"></i>
+                                                                </a>
+                                                                <button type="button"
+                                                                        class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                                        title="<?= _('Action') ?>">
+                                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                                    <a class="dropdown-item changeRole"
+                                                                       data-groupid="<?= $ormAssignedGroup->getGroupID() ?>">
+                                                                        <i class="fas fa-user-edit mr-2"></i><?= _('Change Role') ?>
                                                                     </a>
-                                                                    <div class="btn-group">
-                                                                        <button type="button"
-                                                                                class="btn btn-default btn-xs"><?= _('Action') ?></button>
-                                                                        <button type="button"
-                                                                                class="btn btn-default dropdown-toggle btn-xs"
-                                                                                data-toggle="dropdown">
-                                                                            <span class="caret"></span>
-                                                                            <span class="sr-only">Toggle Dropdown</span>
-                                                                        </button>
-                                                                        <div class="dropdown-menu" role="menu">
-                                                                            <a class="dropdown-item changeRole"
-                                                                               data-groupid="<?= $ormAssignedGroup->getGroupID() ?>">
-                                                                                <?= _('Change Role') ?>
-                                                                            </a>
-                                                                            <?php
-                                                                            if ($ormAssignedGroup->getHasSpecialProps()) {
-                                                                                ?>
-                                                                                <a class="dropdown-item"
-                                                                                   href="<?= $sRootPath ?>/v2/group/props/editor/<?= $ormAssignedGroup->getGroupID() ?>/<?= $PersonInfos['iPersonID'] ?>">
-                                                                                    <?= _('Update Properties') ?>
-                                                                                </a>
-                                                                                <?php
-                                                                            }
-                                                                            ?>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="btn-group">
-                                                                        <button
-                                                                            data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"
-                                                                            data-groupname="<?= $ormAssignedGroup->getGroupName() ?>"
-                                                                            type="button"
-                                                                            class="btn btn-danger groupRemove btn-xs"
-                                                                            data-toggle="dropdown"><i
-                                                                                class="far fa-trash-alt"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </code>
+                                                                    <?php
+                                                                    if ($ormAssignedGroup->getHasSpecialProps()) {
+                                                                        ?>
+                                                                        <a class="dropdown-item"
+                                                                           href="<?= $sRootPath ?>/v2/group/props/editor/<?= $ormAssignedGroup->getGroupID() ?>/<?= $PersonInfos['iPersonID'] ?>">
+                                                                            <i class="fas fa-sliders-h mr-2"></i><?= _('Update Properties') ?>
+                                                                        </a>
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                                <button
+                                                                    data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"
+                                                                    data-groupname="<?= $ormAssignedGroup->getGroupName() ?>"
+                                                                    type="button"
+                                                                    class="btn btn-outline-danger groupRemove"
+                                                                    data-toggle="tooltip" title="<?= _('Delete') ?>">
+                                                                    <i class="far fa-trash-alt"></i>
+                                                                </button>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                     <div class="card-body">
@@ -969,14 +1006,13 @@ require $sRootDocument . '/Include/Header.php';
                                                             $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('false')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
                                                             ?>
 
-                                                            <small>
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <h5><?= _("Group Informations") ?></h5>
+                                                            <div class="row small">
+                                                                    <div class="col-md-6 mb-3 mb-md-0">
+                                                                        <h6 class="text-uppercase text-muted mb-2"><?= _("Group Informations") ?></h6>
                                                                         <?php
                                                                             if ($ormPropLists->count() > 0) {
                                                                             ?>
-                                                                        <ul>
+                                                                        <ul class="list-group list-group-flush mb-0">
                                                                             <?php
                                                                             foreach ($ormPropLists as $ormPropList) {
                                                                                 $prop_Special = $ormPropList->getSpecial();
@@ -984,8 +1020,9 @@ require $sRootDocument . '/Include/Header.php';
                                                                                     $prop_Special = $sPhoneCountry;
                                                                                 }
                                                                                 ?>
-                                                                                <li>
-                                                                                    <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $prop_Special) ?>
+                                                                                <li class="list-group-item px-0 py-1 border-0 d-flex justify-content-between align-items-start">
+                                                                                    <span class="text-muted mr-2"><?= $ormPropList->getName() ?></span>
+                                                                                    <span class="text-right"><?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $prop_Special) ?></span>
                                                                                 </li>
                                                                                 <?php
                                                                             }
@@ -994,7 +1031,7 @@ require $sRootDocument . '/Include/Header.php';
                                                                         <?php
                                                                             } else {
                                                                         ?>
-                                                                            <?= _("None") ?>
+                                                                            <span class="text-muted"><?= _("None") ?></span>
                                                                         <?php
                                                                             }
                                                                         ?>
@@ -1013,8 +1050,8 @@ require $sRootDocument . '/Include/Header.php';
 
                                                                     if ($ormPropLists->count() > 0) {
                                                                         ?>
-                                                                        <h5><?= _("Person Informations") ?></h5>
-                                                                        <ul>
+                                                                        <h6 class="text-uppercase text-muted mb-2"><?= _("Person Informations") ?></h6>
+                                                                        <ul class="list-group list-group-flush mb-2">
                                                                             <?php
                                                                             foreach ($ormPropLists as $ormPropList) {
                                                                                 $currentData = trim($aPersonProps[$ormPropList->getField()]);
@@ -1024,8 +1061,9 @@ require $sRootDocument . '/Include/Header.php';
                                                                                         $prop_Special = $sPhoneCountry;
                                                                                     }
                                                                                     ?>
-                                                                                    <li>
-                                                                                        <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special) ?>
+                                                                                    <li class="d-flex justify-content-between align-items-start py-1 border-bottom">
+                                                                                        <span class="text-muted mr-2"><?= $ormPropList->getName() ?></span>
+                                                                                        <span class="text-right"><?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special) ?></span>
                                                                                     </li>
                                                                                     <?php
                                                                                 }
@@ -1035,18 +1073,19 @@ require $sRootDocument . '/Include/Header.php';
                                                                         </ul>
                                                                         <div class="text-center">
                                                                             <a href="<?= $sRootPath ?>/v2/group/props/editor/<?= $ormAssignedGroup->getGroupId() ?>/<?= $PersonInfos['iPersonID'] ?>"
-                                                                            class="btn btn-primary"><?= _("Modify Specific Properties") ?></a>
+                                                                            class="btn btn-sm btn-outline-primary px-3">
+                                                                                <i class="fas fa-sliders-h mr-1"></i><?= _("Modify Specific Properties") ?>
+                                                                            </a>
                                                                         </div>
                                                                         <?php
                                                                     }
                                                                     ?>
                                                                     </div>
                                                                 </div>
-                                                            </small>
                                                             <?php
                                                         } else {
                                                             ?>
-                                                                <?= _("No specific group properties defined !") ?>
+                                                                <div class="small text-muted"><?= _("No specific group properties defined !") ?></div>
                                                             <?php
                                                         }
                                                         ?>
@@ -1061,7 +1100,7 @@ require $sRootDocument . '/Include/Header.php';
                                             if ($i % 3 == 0) {
                                                 $i=1;
                                                 ?>
-                                                </div>
+                                                </div><br>
                                                 <?php
                                             }
                                         }
@@ -1081,9 +1120,9 @@ require $sRootDocument . '/Include/Header.php';
                          id="properties">
                         <div class="main-box clearfix">
                             <div class="main-box-body clearfix">
-                                <div class="alert alert-warning"
+                                <div class="alert alert-warning d-flex align-items-center mb-3"
                                      id="properties-warning" <?= ($ormAssignedProperties->count() > 0) ? 'style="display: none;"' : '' ?>>
-                                    <i class="far fa-question-circle  fa-lg"></i>
+                                    <i class="far fa-question-circle fa-lg mr-2"></i>
                                     <span><?= _('No property assignments.') ?></span>
                                 </div>
                                 <?php
@@ -1092,23 +1131,23 @@ require $sRootDocument . '/Include/Header.php';
 
                                 <div
                                     id="properties-table" <?= ($ormAssignedProperties->count() == 0) ? 'style="display: none;"' : '' ?>>
-                                    <table class="table table-condensed dt-responsive"
+                                    <table class="table table-sm table-hover dt-responsive"
                                            id="assigned-properties-table"
                                            width="100%"></table>
                                 </div>
 
                                 <?php if (SessionUser::getUser()->isEditRecordsEnabled() and $bOkToEdit and $ormProperties->count() != 0): ?>
-                                    <div class="alert alert-secondary">
-                                        <div>
-                                            <h4><strong><?= _('Assign a New Property') ?>:</strong></h4>
-                                            <div class="row">
-                                                <div class="form-group col-xs-12 col-md-7">
+                                    <div class="card border-0 bg-light mt-3">
+                                        <div class="card-body py-3">
+                                            <h6 class="text-uppercase text-muted mb-3"><?= _('Assign a New Property') ?></h6>
+                                            <div class="row align-items-end">
+                                                <div class="form-group col-12 col-md-6 mb-2 mb-md-0">
                                                     <select name="PropertyId" id="input-person-properties"
-                                                            class="form-control input-person-properties select2"
+                                                            class="form-control form-control-sm input-person-properties select2"
                                                             style="width:100%"
                                                             data-placeholder="<?= _("Select") ?> ..."
                                                             data-personID="<?= $PersonInfos['iPersonID'] ?>">
-                                                        <option disabled selected> -- <?= _('select an option') ?>--
+                                                        <option value="" selected>-- <?= _('select an option') ?> --
                                                         </option>
                                                         <?php
                                                         foreach ($ormProperties as $ormProperty) {
@@ -1123,13 +1162,16 @@ require $sRootDocument . '/Include/Header.php';
                                                         } ?>
                                                     </select>
                                                 </div>
-                                                <div id="prompt-box" class="col-xs-12 col-md-7">
+                                                <div id="prompt-box" class="col-12 col-md-4 mb-2 mb-md-0">
 
                                                 </div>
-                                                <div class="form-group col-xs-12 col-md-7">
-                                                    <input id="assign-property-btn" type="submit"
-                                                           class="btn btn-primary  assign-property-btn"
-                                                           value="<?= _('Assign') ?>">
+                                                <div class="form-group col-12 col-md-2 text-md-right mb-0">
+                                                    <button id="assign-property-btn" type="button"
+                                                            class="btn btn-sm btn-primary assign-property-btn px-3"
+                                                            data-default-text="<?= _('Assign') ?>"
+                                                            data-loading-text="<?= _('Assigning...') ?>">
+                                                        <i class="fas fa-plus-circle mr-1"></i><?= _('Assign') ?>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1151,15 +1193,15 @@ require $sRootDocument . '/Include/Header.php';
 
                                 //Was anything returned?
                                 ?>
-                                <div class="alert alert-warning"
+                                <div class="alert alert-warning d-flex align-items-center mb-3"
                                      id="volunter-warning" <?= ($ormAssignedVolunteerOpps->count() > 0) ? 'style="display: none;"' : '' ?>>
-                                    <i class="far fa-question-circle  fa-lg"></i>
+                                    <i class="far fa-question-circle fa-lg mr-2"></i>
                                     <span><?= _('No volunteer opportunity assignments.') ?></span>
                                 </div>
 
                                 <div
                                     id="volunter-table" <?= ($ormAssignedVolunteerOpps->count() == 0) ? 'style="display: none;"' : '' ?>>
-                                    <table class="table table-condensed dt-responsive"
+                                    <table class="table table-sm table-hover dt-responsive"
                                            id="assigned-volunteer-opps-table"
                                            width="100%"></table>
                                 </div>
@@ -1167,16 +1209,15 @@ require $sRootDocument . '/Include/Header.php';
                                 <?php
                                 if (SessionUser::getUser()->isEditRecordsEnabled() and $ormVolunteerOpps->count()) {
                                     ?>
-                                    <div class="alert alert-secondary">
-                                        <div>
-                                            <h4><strong><?= _('Assign a New Volunteer Opportunity') ?>:</strong>
-                                            </h4>
+                                    <div class="card border-0 bg-light mt-3">
+                                        <div class="card-body py-3">
+                                            <h6 class="text-uppercase text-muted mb-3"><?= _('Assign a New Volunteer Opportunity') ?></h6>
 
-                                            <div class="row">
-                                                <div class="form-group col-xs-12 col-md-7">
+                                            <div class="row align-items-end">
+                                                <div class="form-group col-12 col-md-9 mb-2 mb-md-0">
                                                     <select id="input-volunteer-opportunities"
                                                             name="VolunteerOpportunityIDs[]" multiple
-                                                            class="form-control select2" style="width:100%"
+                                                            class="form-control form-control-sm select2" style="width:100%"
                                                             data-placeholder="<?= _("Select") ?>...">
                                                         <?php
                                                         foreach ($ormVolunteerOpps as $ormVolunteerOpp) {
@@ -1191,10 +1232,14 @@ require $sRootDocument . '/Include/Header.php';
                                                         ?>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-xs-12 col-md-7">
-                                                    <input type="submit" value="<?= _('Assign') ?>"
-                                                           name="VolunteerOpportunityAssign"
-                                                           class="btn btn-primary VolunteerOpportunityAssign">
+                                                <div class="form-group col-12 col-md-3 text-md-right mb-0">
+                                                    <button type="button"
+                                                            name="VolunteerOpportunityAssign"
+                                                            class="btn btn-sm btn-primary VolunteerOpportunityAssign px-3"
+                                                            data-default-text="<?= _('Assign') ?>"
+                                                            data-loading-text="<?= _('Assigning...') ?>">
+                                                        <i class="fas fa-plus-circle mr-1"></i><?= _('Assign') ?>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1222,7 +1267,7 @@ require $sRootDocument . '/Include/Header.php';
                                         }
                                         ?>
                                         <p class="text-center">
-                                            <a class="btn btn-primary"
+                                                          <a class="btn btn-sm btn-outline-primary"
                                                href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $PersonInfos['person']->getFamily()->getId() ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new automatic payment") ?></a>
                                         </p>
                                         <?php
@@ -1272,9 +1317,9 @@ require $sRootDocument . '/Include/Header.php';
                                         <table id="pledgePaymentTable" class="table table-striped table-bordered"
                                                cellspacing="0" width="100%"></table>
                                         <p class="text-center">
-                                            <a class="btn btn-primary"
+                                                          <a class="btn btn-sm btn-outline-primary"
                                                href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Pledge/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new pledge") ?></a>
-                                            <a class="btn btn-default"
+                                                          <a class="btn btn-sm btn-outline-secondary"
                                                href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Payment/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new payment") ?></a>
                                         </p>
                                         <?php
@@ -1290,7 +1335,7 @@ require $sRootDocument . '/Include/Header.php';
                                     if (SessionUser::getUser()->isCanvasserEnabled() and !is_null($PersonInfos['person']->getFamily())) {
                                         ?>
                                         <p class="text-center">
-                                            <a class="btn btn-default"
+                                                          <a class="btn btn-sm btn-outline-secondary"
                                                href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $PersonInfos['person']->getFamily()->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-eye"></i> <?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                         </p>
                                         <?php
@@ -1351,7 +1396,7 @@ require $sRootDocument . '/Include/Header.php';
                                             <span class="time">
                                                 <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
                                                 &nbsp;
-                                                <div class="btn-group">
+                                                <div class="btn-group btn-group-sm" role="group">
                                                     <?php
                                                     if ($item['slim'] and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
                                                         if ($item['editLink'] != '' or (isset($item['sharePersonID']) and $item['shareRights'] == 2)) {
@@ -1438,7 +1483,7 @@ require $sRootDocument . '/Include/Header.php';
                                             if ((SessionUser::getUser()->isNotesEnabled()) and ($item['editLink'] != '' or $item['deleteLink'] != '')) {
                                                 ?>
                                                 <div class="timeline-footer">
-                                                    <div class="btn-group">
+                                                    <div class="btn-group btn-group-sm" role="group">
                                                         <?php
                                                         if (!$item['slim']) {
                                                             if ($item['editLink'] != '') {
@@ -1529,8 +1574,8 @@ require $sRootDocument . '/Include/Header.php';
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><?= _("Cancel") ?></button>
-                <button class="btn btn-danger danger" id="deletePhoto"><?= _("Delete") ?></button>
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal"><?= _("Cancel") ?></button>
+                <button class="btn btn-sm btn-danger danger" id="deletePhoto"><?= _("Delete") ?></button>
             </div>
         </div>
     </div>
@@ -1555,22 +1600,22 @@ require $sRootDocument . '/Include/Header.php';
                 <?php
                 if (count($familyInfos['sFamilyEmails']) > 0 and !empty(SystemConfig::getValue('sSMTPHost'))) {
                     ?>
-                    <button type="button" id="onlineVerify" class="btn btn-warning warning">
+                    <button type="button" id="onlineVerify" class="btn btn-sm btn-warning warning">
                         <i class="far fa-envelope"></i>
                         <?= _("Online Verification") ?>
                     </button>
-                    <button type="button" id="onlineVerifyPDF" class="btn btn-danger danger">
+                    <button type="button" id="onlineVerifyPDF" class="btn btn-sm btn-danger danger">
                         <i class="far fa-envelope"></i> <i class="fas fa-file-pdf"></i>
                         <?= _("Online Verification") ?>
                     </button>
                     <?php
                 }
                 ?>
-                <button type="button" id="verifyDownloadPDF" class="btn btn-info">
+                <button type="button" id="verifyDownloadPDF" class="btn btn-sm btn-info">
                     <i class="fas fa-download"></i>
                     <?= _("PDF Report") ?>
                 </button>
-                <button type="button" id="verifyNow" class="btn btn-success">
+                <button type="button" id="verifyNow" class="btn btn-sm btn-success">
                     <i class="fas fa-check"></i>
                     <?= _("Verified In Person") ?>
                 </button>

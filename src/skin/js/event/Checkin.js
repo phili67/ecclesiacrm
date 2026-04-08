@@ -110,63 +110,38 @@ $(function() {
         });
     });
 
-    $(document).on("click", "#uncheckAllCheckin", function () {
-        var eventID = $(this).data("id");
+    const setToggleButtonState = function ($button, isChecked) {
+        const labelAll = $button.data('label-all');
+        const labelNone = $button.data('label-none');
+
+        $button.data('checked', isChecked ? 1 : 0);
+        $button.attr('data-checked', isChecked ? '1' : '0');
+
+        const $icon = $button.find('.toggle-icon');
+        const $label = $button.find('.toggle-label');
+
+        if (isChecked) {
+            $icon.removeClass('fa-check-square').addClass('fa-square');
+            $label.text(labelNone);
+        } else {
+            $icon.removeClass('fa-square').addClass('fa-check-square');
+            $label.text(labelAll);
+        }
+    };
+
+    $(document).on("click", "#toggleAllCheckin, #toggleAllCheckout", function () {
+        const $button = $(this);
+        const eventID = $button.data("id");
+        const type = parseInt($button.data("type"), 10);
+        const isChecked = parseInt($button.data("checked"), 10) === 1;
 
         window.CRM.APIRequest({
             method: 'POST',
-            path: 'attendees/uncheckAll',
-            data: JSON.stringify({"eventID": eventID, "type": 1})
+            path: isChecked ? 'attendees/uncheckAll' : 'attendees/checkAll',
+            data: JSON.stringify({"eventID": eventID, "type": type})
         },function (data) {
+            setToggleButtonState($button, !isChecked);
             window.CRM.dataT.ajax.reload(null, false);
-        });
-    });
-
-    $(document).on("click", "#checkAllCheckin", function () {
-        var eventID = $(this).data("id");
-
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'attendees/checkAll',
-            data: JSON.stringify({"eventID": eventID, "type": 1})
-        },function (data) {
-            window.CRM.dataT.ajax.reload(null, false);
-        });
-    });
-
-    $(document).on("click", "#uncheckAllCheckout", function () {
-        var eventID = $(this).data("id");
-
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'attendees/uncheckAll',
-            data: JSON.stringify({"eventID": eventID, "type": 2})
-        },function (data) {
-            window.CRM.dataT.ajax.reload();
-        });
-    });
-
-    $(document).on("click", "#checkAllCheckout", function () {
-        var eventID = $(this).data("id");
-
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'attendees/checkAll',
-            data: JSON.stringify({"eventID": eventID, "type": 2})
-        },function (data) {
-            window.CRM.dataT.ajax.reload();
-        });
-    });
-
-    $(document).on("click", "#checkAllCheckout", function () {
-        var eventID = $(this).data("id");
-
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'attendees/checkAll',
-            data: JSON.stringify({"eventID": eventID, "type": 2})
-        },function (data) {
-            window.CRM.dataT.ajax.reload();
         });
     });
 

@@ -16,62 +16,64 @@ use EcclesiaCRM\dto\SystemConfig;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card card-default">
-    <div class="card-header border-1">
-        <h3 class="card-title">
-            <?= _("Members")." / "._("Families") ?>
-        </h3>
-        <div class="card-tools pull-right">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-        </div>
+<div class="card card-outline card-primary shadow-sm">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-list mr-1"></i><?= _("Members")." / "._("Families") ?></h3>
     </div>
-    <div class="card-body">
-        <table id="MemberTable" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" width="100%">
-            <thead>
-                <tr>
-                    <th><span><?= _("Members") ?></span></th>
-                    <th><span><?= _("Pastoral Care")." : "._("Date") ?></span></th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-            foreach ($members as $member) {
-                $person = PersonQuery::create()->findOneById($member['FollowedPersonPerId']);
-                if (is_null($person)) continue;
-                ?>
-                <tr>
-                    <td>
-                        <?php if ($member['FollowedPersonPerId'] != NULL) { ?>
-                            <?= $person->getJPGPhotoDatas() ?>
-                            <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $member['FollowedPersonPerId'] ?>"
-                               class="user-link"><?= _("Person") ?> : <?= $member['FollowedPersonFirstName']." ".$member['FollowedPersonLastName'] ?> </a>
-                        <?php } else { ?>
-                            <?= $person->getJPGPhotoDatas() ?>
-                            <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $member['FollowedFamID'] ?>"
-                               class="user-link"><?= _("Family") ?> : <?= $member['FollowedFamName'] ?> </a>
-                        <?php } ?>
-                    </td>
-                    <td>
-                        <?= (new DateTime($member['Date']))->format(SystemConfig::getValue('sDateFormatLong').' H:i:s') ?>
-                    </td>
-                </tr>
-
+    <div class="card-body py-3">
+        <div class="table-responsive">
+            <table id="MemberTable" class="table table-striped table-hover table-sm dataTable" width="100%">
+                <thead class="thead-light">
+                    <tr>
+                        <th><span><?= _("Members") ?></span></th>
+                        <th><span><?= _("Pastoral Care")." : "._("Date") ?></span></th>
+                    </tr>
+                </thead>
+                <tbody>
                 <?php
-            }
-            ?>
-            </tbody>
-        </table>
+                foreach ($members as $member) {
+                    $person = PersonQuery::create()->findOneById($member['FollowedPersonPerId']);
+                    if (is_null($person)) continue;
+                    ?>
+                    <tr>
+                        <td>
+                            <?php if ($member['FollowedPersonPerId'] != NULL) { ?>
+                                <?= $person->getJPGPhotoDatas() ?>
+                                <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $member['FollowedPersonPerId'] ?>"
+                                   class="user-link">
+                                    <i class="fas fa-user mr-1"></i><?= _("Person") ?> : <?= $member['FollowedPersonFirstName']." ".$member['FollowedPersonLastName'] ?>
+                                </a>
+                            <?php } else { ?>
+                                <?= $person->getJPGPhotoDatas() ?>
+                                <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $member['FollowedFamID'] ?>"
+                                   class="user-link">
+                                    <i class="fas fa-home mr-1"></i><?= _("Family") ?> : <?= $member['FollowedFamName'] ?>
+                                </a>
+                            <?php } ?>
+                        </td>
+                        <td class="text-nowrap">
+                            <i class="fas fa-calendar-alt mr-1"></i><?= (new DateTime($member['Date']))->format(SystemConfig::getValue('sDateFormatLong').' H:i:s') ?>
+                        </td>
+                    </tr>
+
+                    <?php
+                }
+                ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
 
 
-<div class="text-center">
-    <input type="button" class="btn btn-success" value="<?= _('Return To PastoralCare Dashboard') ?>" name="Cancel"
-           onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/dashboard';">
-
-    <input type="button" class="btn btn-primary" value="<?= _('Return To PastoralCare Members List') ?>" name="Cancel"
-           onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/membersList';">
+<div class="text-center mt-4 pt-3 border-top">
+    <a class="btn btn-success" href="<?= $sRootPath ?>/v2/pastoralcare/dashboard">
+        <i class="fas fa-home mr-1"></i><?= _('Dashboard') ?>
+    </a>
+    <a class="btn btn-outline-secondary" href="<?= $sRootPath ?>/v2/pastoralcare/membersList">
+        <i class="fas fa-list mr-1"></i><?= _('Members List') ?>
+    </a>
 </div>
 
 <script nonce="<?= $sCSPNonce ?>">

@@ -24,12 +24,19 @@ use Propel\Runtime\Propel;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
-
-<div class="card">
-<div class="card-header border-1">
-    <h3 class="card-title"><?= _('Group-Person-Specific Properties') ?></h3>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <i class="fas fa-exclamation-triangle mr-1"></i>
+  <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
+
+<div class="card card-outline card-primary shadow-sm">
+<div class="card-header border-0">
+    <h3 class="card-title"><i class="fas fa-list-check mr-2"></i><?= _('Group-Person-Specific Properties') ?></h3>
+</div>
+<div class="card-body p-0">
 
 <?php
 $bErrorFlag = false;
@@ -192,31 +199,37 @@ if (isset($_POST['SaveChanges'])) {
 
 <form method="post" action="<?= $sRootPath ?>/v2/group/props/editor/<?= $iGroupID ?>/<?= $iPersonID ?>" name="GroupPersonPropsFormEditor">
 
-<center>
 <div class="table-responsive">
-<table class="table" >
+<table class="table table-sm table-hover mb-0">
 
 <?php
 if ($numRows == 0) {
     ?>
-  <center><h2><?= _('No properties have been added yet') ?></h2>
-      <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
-  </center>
+  <tr>
+    <td class="text-center py-4">
+      <h5 class="mb-3"><?= _('No properties have been added yet') ?></h5>
+      <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>" class="btn btn-sm btn-outline-secondary">
+        <i class="fas fa-arrow-left mr-1"></i><?= _("Return to Person") ?>
+      </a>
+    </td>
+  </tr>
 <?php
 } else {
         ?>
 
-  <tr><td colspan="7" align="center">
+  <tr>
+    <td colspan="7" class="text-center">
   <?php
     if ($bErrorFlag) {
   ?>
-     <p class="alert alert-danger"><span class="fas fa-exclamation-triangle"> <?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
+     <p class="alert alert-danger mb-2"><span class="fas fa-exclamation-triangle mr-1"></span><?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></p>
   <?php
     }
   ?>
-  </td></tr>
+    </td>
+  </tr>
 
-    <tr>
+    <tr class="thead-light">
       <th></th>
       <th></th>
       <th><?= _('Name') ?></th>
@@ -229,7 +242,7 @@ if ($numRows == 0) {
     for ($row = 1; $row <= $numRows; $row++) {
         ?>
     <tr>
-      <td class="LabelColumn"><b><?= $row ?></b></td>
+        <td class="LabelColumn"><span class="badge badge-light"><?= $row ?></span></td>
       <td class="TextColumn" width="5%" nowrap></td>
       <td class="TextColumn">
           <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
@@ -259,8 +272,8 @@ if ($numRows == 0) {
 
                 echo '</select>';
 
-                if ($aSpecialErrors[$row]) {
-                    echo '<span style="color: red;"><BR>'._('You must select a group.').'</span>';
+                if (!empty($aSpecialErrors[$row])) {
+                  echo '<span class="text-danger d-block mt-1">'._('You must select a group.').'</span>';
                 }
             } elseif ($aTypeFields[$row] == 12) {
           ?>
@@ -278,16 +291,13 @@ if ($numRows == 0) {
 ?>
    </table>
 </div>
-</center>
-<div class="card-footer">
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-2">
-      <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>/Group" class="btn btn-default"><i class="fa-solid fa-backward"></i> <?= _("Return to Person") ?></a>
-    </div>
-    <div class="col-md-2">
-      <input type="submit" class="btn btn-primary" value="✓ <?= _('Save Changes') ?>" Name="SaveChanges">
-    </div>
+ </div>
+<div class="card-footer bg-white border-0">
+  <div class="d-flex flex-wrap gap-2">
+    <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>/Group" class="btn btn-sm btn-outline-secondary mr-2 mb-2">
+      <i class="fas fa-arrow-left mr-1"></i><?= _("Return to Person") ?>
+    </a>
+    <input type="submit" class="btn btn-sm btn-primary mb-2" value="<?= _('Save Changes') ?>" Name="SaveChanges">
   </div>
 </div>
 </div>

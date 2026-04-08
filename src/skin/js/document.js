@@ -115,7 +115,8 @@ $(function() {
         });
     });
 
-    $(document).on("click", ".deleteDocument", function () {
+    $(document).on("click", ".deleteDocument", function (e) {
+        e.preventDefault();
         var docID = $(this).data('id');
         var perID = $(this).data('perid');
         var famID = $(this).data('famid');
@@ -135,12 +136,16 @@ $(function() {
                         "famID": window.CRM.currentFamily
                     })
                 },function (data) {
-                    message = '<div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>' + i18next.t('Please confirm deletion of this document') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
+                    var message = '<div class="alert alert-danger mb-0"><i class="fas fa-exclamation-triangle text-danger mr-2"></i>' + i18next.t('Please confirm deletion of this document') + ' : <strong>' + data.note.Title + '</strong></div>';
 
                     bootbox.confirm({
-                        title: i18next.t("Document Delete Confirmation"),
+                        title: '<i class="fas fa-trash-alt text-danger mr-2"></i>' + i18next.t("Document Delete Confirmation"),
                         message: message,
                         size: 'large',
+                        buttons: {
+                          cancel: {label: i18next.t('Cancel'), className: 'btn-outline-secondary'},
+                          confirm: {label: '<i class="fas fa-trash-alt mr-1"></i>' + i18next.t('Delete'), className: 'btn-danger'}
+                        },
                         callback: function (result) {
                             if (result) {
                                 window.CRM.APIRequest({

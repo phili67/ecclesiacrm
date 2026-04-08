@@ -1,13 +1,13 @@
 $(function() {
     $(document).on("click",".AddAllStudentsToCart", function(){
-        clickedButton = $(this);
+        const clickedButton = $(this);
         window.CRM.cart.addAllStudents(function()
         {
             $(clickedButton).addClass("RemoveAllStudentsFromCart");
             $(clickedButton).removeClass("AddAllStudentsToCart");
             $('i',clickedButton).addClass("fa-times");
             $('i',clickedButton).removeClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription")
+            const text = $(clickedButton).find("span.cartActionDescription")
             if(text){
                 $(text).text(i18next.t("Remove Students from Cart"));
             }
@@ -15,14 +15,14 @@ $(function() {
     });
 
     $(document).on("click",".RemoveAllStudentsFromCart", function(){
-        clickedButton = $(this);
+        const clickedButton = $(this);
         window.CRM.cart.removeAllStudents(function()
         {
             $(clickedButton).addClass("AddAllStudentsToCart");
             $(clickedButton).removeClass("RemoveAllStudentsFromCart");
             $('i',clickedButton).removeClass("fa-times");
             $('i',clickedButton).addClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription")
+            const text = $(clickedButton).find("span.cartActionDescription")
             if(text){
                 $(text).text(i18next.t("Add Students to Cart"));
             }
@@ -30,14 +30,14 @@ $(function() {
     });
 
     $(document).on("click",".AddAllTeachersToCart", function(){
-        clickedButton = $(this);
+        const clickedButton = $(this);
         window.CRM.cart.addAllTeachers(function()
         {
             $(clickedButton).addClass("RemoveAllTeachersFromCart");
             $(clickedButton).removeClass("AddAllTeachersToCart");
             $('i',clickedButton).addClass("fa-times");
             $('i',clickedButton).removeClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription")
+            const text = $(clickedButton).find("span.cartActionDescription")
             if(text){
                 $(text).text(i18next.t("Remove Teachers from Cart"));
             }
@@ -46,14 +46,14 @@ $(function() {
 
 
     $(document).on("click",".RemoveAllTeachersFromCart", function(){
-        clickedButton = $(this);
+        const clickedButton = $(this);
         window.CRM.cart.removeAllTeachers(function()
         {
             $(clickedButton).addClass("AddAllTeachersToCart");
             $(clickedButton).removeClass("RemoveAllTeachersFromCart");
             $('i',clickedButton).removeClass("fa-times");
             $('i',clickedButton).addClass("fa-cart-plus");
-            text = $(clickedButton).find("span.cartActionDescription")
+            const text = $(clickedButton).find("span.cartActionDescription")
             if(text){
                 $(text).text(i18next.t("Add Teachers to Cart"));
             }
@@ -70,7 +70,7 @@ $(function() {
             $("#AddAllTeachersToCart").removeClass("RemoveAllTeachersFromCart");
             $('i',"#AddAllTeachersToCart").removeClass("fa-times");
             $('i',"#AddAllTeachersToCart").addClass("fa-cart-plus");
-            text = $("#AddAllTeachersToCart").find("span.cartActionDescription")
+            const text = $("#AddAllTeachersToCart").find("span.cartActionDescription")
             if(text){
                 $(text).text(i18next.t("Add Teachers to Cart"));
             }
@@ -79,9 +79,9 @@ $(function() {
             $("#AddAllStudentsToCart").removeClass("RemoveAllStudentsFromCart");
             $('i',"#AddAllStudentsToCart").removeClass("fa-times");
             $('i',"#AddAllStudentsToCart").addClass("fa-cart-plus");
-            text = $("#AddAllStudentsToCart").find("span.cartActionDescription")
-            if(text){
-                $(text).text(i18next.t("Add Students to Cart"));
+            const textStudents = $("#AddAllStudentsToCart").find("span.cartActionDescription")
+            if(textStudents){
+                $(textStudents).text(i18next.t("Add Students to Cart"));
             }
         }
     }
@@ -164,6 +164,10 @@ $(function() {
     }
 
     $(document).on("click", ".callRegister", function () {
+        if ($(this).hasClass('disabled')) {
+            return;
+        }
+
         var start = moment().format('YYYY-MM-DD');
 
         var modal = bootbox.dialog({
@@ -173,9 +177,8 @@ $(function() {
             buttons: [
                 {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
-                    className: "btn btn-default",
+                    className: "btn btn-outline-secondary",
                     callback: function () {
-                        console.log("just do something on close");
                     }
                 },
                 {

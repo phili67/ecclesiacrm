@@ -14,51 +14,44 @@ use EcclesiaCRM\dto\SystemURLs;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<form method="post"
-      action="<?= $sRootPath ?>/Reports/FundRaiserStatement.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=v2/fundraiser/editor/<?= $iFundRaiserID ?>\">
-    <div class="card card-body">
-        <div class="row">
-
-            <?php
-            if ($iFundRaiserID > 0) {
-                ?>
-                <div class="col-md-2">
-                    <input type="checkbox" id="SelectAll" name="scales">
-                    <label for="SelectAll"><?= _('Select all') ?></label>
-                </div>
-                <?php
-            }
-            ?>
-            <div class="col-md-2">
-            <input type=button class="btn btn-success btn-sm" value="<?= _('Add Buyer') ?> " name=AddBuyer
-                   id="AddBuyer">
-            </div>
-            <div class="col-md-3">
-            <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Donors to Buyer List') ?> "
-                   name=AddDonnor id="AddDonnor">
-            </div>
-            <div class="col-md-3">
-            <input type=submit class="btn btn-info btn-sm" value="<?= _('Generate Statements for Selected') ?>"
-                   name=GenerateStatements>
-            </div>
-        </div>
+<div class="card card-outline card-primary shadow-sm">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-users mr-1"></i><?= _('Buyers') ?></h3>
+        <span class="badge badge-light border" id="buyerCountBadge">0</span>
     </div>
-    <div class="card">
-        <div class="card-header  border-1">
-            <h3 class="card-title"><?= _("Buyers") ?></h3>
+    <div class="card-body py-3">
+        <div class="d-flex flex-wrap align-items-center mb-3 pb-2 border-bottom">
+            <?php if ($iFundRaiserID > 0) { ?>
+                <div class="custom-control custom-checkbox mr-3">
+                    <input type="checkbox" class="custom-control-input" id="SelectAll" name="SelectAll">
+                    <label class="custom-control-label" for="SelectAll"><?= _('Select all') ?></label>
+                </div>
+            <?php } ?>
+            <button type="button" class="btn btn-sm btn-success mr-2 mb-1" id="AddBuyer" name="AddBuyer">
+                <i class="fas fa-user-plus mr-1"></i><?= _('Add Buyer') ?>
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-info mr-2 mb-1" id="AddDonnor" name="AddDonnor">
+                <i class="fas fa-user-check mr-1"></i><?= _('Add Donors to Buyer List') ?>
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-primary mb-1" id="GenerateStatements" name="GenerateStatements">
+                <i class="fas fa-file-export mr-1"></i><?= _('Generate Statements for Selected') ?>
+            </button>
         </div>
-        <div class="card-body">
-            <table cellpadding="5" cellspacing="5"
-                   class="table table-striped table-bordered dataTable no-footer dtr-inline"
+
+        <div class="table-responsive">
+            <table cellpadding="5" cellspacing="0"
+                   class="table table-striped table-hover table-sm mb-0 dataTable no-footer dtr-inline"
                    id="buyer-listing-table"
                    width="100%"></table>
         </div>
     </div>
-</form>
+</div>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    window.CRM.fundraiserID = <?= $iFundRaiserID ?>;
-    window.CRM.checkAll = false;
+    $(function() {
+        window.CRM.fundraiserID = <?= $iFundRaiserID ?>;
+        window.CRM.checkAll = false;
+    });
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/fundraiser/paddleNumList.js"></script>

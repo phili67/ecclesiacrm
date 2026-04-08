@@ -1,120 +1,126 @@
-$(function() {
+$(function () {
+    var $form = {
+        Item: $('#Item'),
+        Multibuy: $('#Multibuy'),
+        Donor: $('#Donor'),
+        Title: $('#Title'),
+        EstPrice: $('#EstPrice'),
+        MaterialValue: $('#MaterialValue'),
+        MinimumPrice: $('#MinimumPrice'),
+        Buyer: $('#Buyer'),
+        SellPrice: $('#SellPrice'),
+        Description: $('#Description'),
+        PictureURL: $('#PictureURL'),
+        NumberCopies: $('#NumberCopies'),
+        Image: $('#image')
+    };
 
-    $("#Donor").select2();
-    $("#Buyer").select2();
+    // Initialize Select2 for dropdowns
+    $form.Donor.select2();
+    $form.Buyer.select2();
 
-    $("#donatedItemPicture").on('click', function () {
-        var donatedItem = $(this).data('donateditemid');
-
-        window.open(window.CRM.root + '/browser/browse.php?type=publicDocuments&DonatedItemID=' + donatedItem);
+    // Update image preview when URL changes
+    $form.PictureURL.on('change paste keyup', function () {
+        $form.Image.attr('src', $(this).val());
     });
 
-    $("#PictureURL").on("change paste keyup",function () {
-        $("#image").attr("src",$(this).val());
+    // Browse button for EDrive
+    $('#donatedItemPicture').on('click', function () {
+        var donatedItemId = $(this).data('donateditemid');
+        window.open(window.CRM.root + '/browser/browse.php?type=publicDocuments&DonatedItemID=' + donatedItemId);
     });
 
+    // Monitor window focus to check for picture updates from EDrive
     $(window).on('focus', function () {
         window.CRM.APIRequest({
-            method: "POST",
-            path: "fundraiser/donateditem/currentpicture",
-            data: JSON.stringify({"DonatedItemID": window.CRM.currentDonatedItemID})
-        },function (data) {
-            if (data.status == "success" && window.CRM.currentPicture != data.picture) {
-                $("#image").attr("src",data.picture);
-                $("#PictureURL").val(data.picture);
+            method: 'POST',
+            path: 'fundraiser/donateditem/currentpicture',
+            data: JSON.stringify({ DonatedItemID: window.CRM.currentDonatedItemID })
+        }, function (data) {
+            if (data.status === 'success' && window.CRM.currentPicture !== data.picture) {
+                $form.Image.attr('src', data.picture);
+                $form.PictureURL.val(data.picture);
                 window.CRM.currentPicture = data.picture;
-                //location.reload();
             } else {
-                $("#image").attr("src",window.CRM.currentPicture);
+                $form.Image.attr('src', window.CRM.currentPicture);
             }
         });
     });
 
-    $("#donatedItemGo").on('click', function () {
-        var donatedItem = $(this).data('donateditemid');
-        var count = $("#NumberCopies").val();
+    // Replicate item handler
+    $('#donatedItemGo').on('click', function () {
+        var donatedItemId = $(this).data('donateditemid');
+        var count = parseInt($form.NumberCopies.val(), 10) || 0;
 
-        // TODO : test if count = 0 and if donatedItem exist
-
-        window.CRM.APIRequest({
-            method: "POST",
-            path: "fundraiser/replicate",
-            data: JSON.stringify({"DonatedItemID": donatedItem, "count": count})
-        },function (data) {
-            if (data.status == "success") {
-                window.location.href = window.CRM.root + "/v2/fundraiser/editor/" + window.CRM.currentFundraiser;
-            }
-        });
-
-    })
-
-    $("#DonatedItemSubmit").on('click', function () {
-        var Item = $("#Item").val();
-        var Multibuy = $("#Multibuy").is(':checked');
-        var Donor = $("#Donor").val();
-        var Title = $("#Title").val();
-        var EstPrice = $("#EstPrice").val();
-        var MaterialValue = $("#MaterialValue").val();
-        var MinimumPrice = $("#MinimumPrice").val();
-        var Buyer = $("#Buyer").val();
-        var SellPrice = $("#SellPrice").val();
-        var Description = $("#Description").val();
-        var PictureURL = $("#PictureURL").val();
-
+        if (count <= 0) {
+            bootbox.alert(i18next.t('Please enter a number greater than 0.'));
+            return;
+        }
 
         window.CRM.APIRequest({
-            method: "POST",
-            path: "fundraiser/donatedItemSubmit",
-            data: JSON.stringify({
-                "currentFundraiser": window.CRM.currentFundraiser, "currentDonatedItemID": window.CRM.currentDonatedItemID,
-                "Item": Item, "Multibuy": Multibuy,
-                "Donor": Donor, "Title": Title,
-                "EstPrice": EstPrice, "MaterialValue": MaterialValue,
-                "MinimumPrice": MinimumPrice, "Buyer": Buyer,
-                "SellPrice": SellPrice, "Description": Description,
-                "PictureURL": PictureURL
-            })
-        },function (data) {
-            if (data.status == "success") {
-                window.location.href = window.CRM.root + "/v2/fundraiser/editor/" + window.CRM.currentFundraiser;
+            method: 'POST',
+            path: 'fundraiser/replicate',
+            data: JSON.stringify({ DonatedItemID: donatedItemId, count: count })
+        }, function (data) {
+            if (data.status === 'success') {
+                window.location.href = window.CRM.root + '/v2/fundraiser/editor/' + window.CRM.currentFundraiser;
             }
         });
     });
 
-    $("#DonatedItemSubmitAndAdd").on('click', function () {
-        var Item = $("#Item").val();
-        var Multibuy = $("#Multibuy").is(':checked');
-        var Donor = $("#Donor").val();
-        var Title = $("#Title").val();
-        var EstPrice = $("#EstPrice").val();
-        var MaterialValue = $("#MaterialValue").val();
-        var MinimumPrice = $("#MinimumPrice").val();
-        var Buyer = $("#Buyer").val();
-        var SellPrice = $("#SellPrice").val();
-        var Description = $("#Description").val();
-        var PictureURL = $("#PictureURL").val();
+    // Gather form data helper
+    function gatherFormData() {
+        return {
+            currentFundraiser: window.CRM.currentFundraiser,
+            currentDonatedItemID: window.CRM.currentDonatedItemID,
+            Item: $form.Item.val(),
+            Multibuy: $form.Multibuy.is(':checked'),
+            Donor: $form.Donor.val(),
+            Title: $form.Title.val(),
+            EstPrice: $form.EstPrice.val(),
+            MaterialValue: $form.MaterialValue.val(),
+            MinimumPrice: $form.MinimumPrice.val(),
+            Buyer: $form.Buyer.val(),
+            SellPrice: $form.SellPrice.val(),
+            Description: $form.Description.val(),
+            PictureURL: $form.PictureURL.val()
+        };
+    }
 
+    // Submit handler (consolidated for both Save and Save & Add)
+    function submitForm(andAdd) {
+        var formData = gatherFormData();
 
         window.CRM.APIRequest({
-            method: "POST",
-            path: "fundraiser/donatedItemSubmit",
-            data: JSON.stringify({
-                "currentFundraiser": window.CRM.currentFundraiser, "currentDonatedItemID": window.CRM.currentDonatedItemID,
-                "Item": Item, "Multibuy": Multibuy,
-                "Donor": Donor, "Title": Title,
-                "EstPrice": EstPrice, "MaterialValue": MaterialValue,
-                "MinimumPrice": MinimumPrice, "Buyer": Buyer,
-                "SellPrice": SellPrice, "Description": Description,
-                "PictureURL": PictureURL
-            })
-        },function (data) {
-            if (data.status == "success") {
-                window.location.href = window.CRM.root + "/v2/fundraiser/donatedItemEditor/0/" + window.CRM.currentFundraiser;
+            method: 'POST',
+            path: 'fundraiser/donatedItemSubmit',
+            data: JSON.stringify(formData)
+        }, function (data) {
+            if (data.status === 'success') {
+                if (andAdd) {
+                    window.location.href = window.CRM.root + '/v2/fundraiser/donatedItemEditor/0/' + window.CRM.currentFundraiser;
+                } else {
+                    window.location.href = window.CRM.root + '/v2/fundraiser/editor/' + window.CRM.currentFundraiser;
+                }
             }
         });
+    }
+
+    // Save button
+    $('#DonatedItemSubmit').on('click', function (event) {
+        event.preventDefault();
+        submitForm(false);
     });
 
-    $("#DonatedItemCancel").on('click', function () {
-        window.location.href = window.CRM.root + "/v2/fundraiser/editor/" + window.CRM.currentFundraiser;
-    })
+    // Save and Add button
+    $('#DonatedItemSubmitAndAdd').on('click', function (event) {
+        event.preventDefault();
+        submitForm(true);
+    });
+
+    // Cancel button
+    $('#DonatedItemCancel').on('click', function (event) {
+        event.preventDefault();
+        window.location.href = window.CRM.root + '/v2/fundraiser/editor/' + window.CRM.currentFundraiser;
+    });
 });

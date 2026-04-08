@@ -43,9 +43,17 @@ use Propel\Runtime\Propel;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card import-users" style="display:block;">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+  <div>
+    <h3 class="h4 mb-1"><i class="fas fa-file-import mr-2 text-primary"></i><?= _('Import Data') ?></h3>
+    <p class="text-muted mb-0"><?= _('Import people and families from a CSV file using guided mapping.') ?></p>
+  </div>
+  <span class="badge badge-light border px-3 py-2"><?= _('CSV Wizard') ?></span>
+</div>
+
+<div class="card import-users card-outline card-primary" style="display:block;">
 <div class="card-header border-1">
-   <h3 class="card-title"><?= _('Import Data')?></h3>
+   <h3 class="card-title"><i class="fas fa-upload mr-1"></i><?= _('Import Data')?></h3>
 </div>
 <div class="card-body">
 
@@ -97,9 +105,12 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           <input type="hidden" name="sSeperator" value="<?= $generalCSVSeparator ?>">
           <input type="hidden" name="iSelectedValues" value="0" id="selectedValues">
 
-        <label><?= _('Total number of rows in the CSV file:') ?></label> <b><?= $iNumRows ?></b>
-        <BR>
-        <table class="table horizontal-scroll" id="importTable" border=1 rules="all">
+        <div class="alert alert-light border d-flex align-items-center justify-content-between mb-3">
+          <span><i class="fas fa-table mr-1"></i><?= _('Total number of rows in the CSV file:') ?></span>
+          <span class="badge badge-primary"><?= $iNumRows ?></span>
+        </div>
+        <div class="table-responsive">
+        <table class="table table-sm table-bordered" id="importTable">
       <?php
         // grab and display up to the first 8 lines of data in the CSV in a table
         $iRow = 0;
@@ -151,10 +162,18 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
 
         // add select boxes for import destination mapping
+        ?>
+        <tr class="table-light">
+          <td colspan="<?= $numCol ?>" class="small text-muted">
+            <i class="fas fa-hand-point-down mr-1"></i><?= _('Now map each CSV column to the destination field below.') ?>
+          </td>
+        </tr>
+        <tr>
+        <?php
         for ($col = 0; $col < $numCol; $col++) {
             ?>
             <td>
-            <select name="<?= 'col'.$col ?>" class="columns" class= "form-control form-control-sm" id="col<?= $col ?>"  data-col="<?= $col ?>" data-numcol="<?= $numCol ?>">
+            <select name="<?= 'col'.$col ?>" class="columns form-control form-control-sm" id="col<?= $col ?>"  data-col="<?= $col ?>" data-numcol="<?= $numCol ?>">
                 <option value="0"><?= _('Ignore this Field') ?></option>
                 <option value="1"><?= _('Title') ?></option>
                 <option value="2"><?= _('First Name') ?></option>
@@ -183,7 +202,9 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           <?php
             }
           ?>
+        </tr>
         </table>
+        </div>
         <?php
           if (isset($_POST['iSelectedValues']) && $iSelectedValues < 3) {
         ?>
@@ -195,37 +216,49 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         <?php
           }
         ?>
-        <div class="row" style="margin-top:-10px">
+        <div class="row mt-2">
           <div class="col-lg-12">
-            <span style="color:blue;float:right"><?= _("Scroll right to see the other columns") ?></span>
-            <span style="color:red;float:left">• <?= _("Check the right <b>Date format</b> and to chose it below !!!!!") ?></span><br>
-            <span style="color:red;float:left">• <?= _("<b>IMPORTANT !</b> Associate the <b>gender</b> to a column.") ?></span>
+            <span class="text-primary float-right"><?= _("Scroll right to see the other columns") ?></span>
+            <span class="text-danger float-left">• <?= _("Check the right <b>Date format</b> and to chose it below !!!!!") ?></span><br>
+            <span class="text-danger float-left">• <?= _("<b>IMPORTANT !</b> Associate the <b>gender</b> to a column.") ?></span>
           </div>
         </div>
         
         <hr/>
-        <div class="row">
-          <div class="col-lg-10">
-            <label><?= _("Important Options") ?></label>
-          </div>
+        <div class="alert alert-info py-2">
+          <i class="fas fa-info-circle mr-1"></i><?= _('Tip: map at least First Name, Last Name, Gender and Date format before starting import.') ?>
         </div>
-        <br>
-        <div class="row">
-          <div class="col-lg-10" style="color:green">
-            <input type="checkbox" value="1" name="IgnoreFirstRow" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= _('Ignore first CSV row (to exclude a header)') ?>
+
+        <div class="row mt-3">
+          <div class="col-lg-10">
+            <h5 class="mb-0"><i class="fas fa-exclamation-circle mr-1 text-warning"></i><?= _("Important Options") ?></h5>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-10">
-            <input type="checkbox" value="1" name="PutInCart" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= _('Put all the persons in the cart, to import them in a group, sundayschool group, etc....') ?>
+            <div class="custom-control custom-switch mt-2">
+              <input type="checkbox" class="custom-control-input" id="ignore-first-row" value="1" name="IgnoreFirstRow" checked>
+              <label class="custom-control-label text-success" for="ignore-first-row"><?= _('Ignore first CSV row (to exclude a header)') ?></label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="custom-control custom-switch mt-2">
+              <input type="checkbox" class="custom-control-input" id="put-in-cart" value="1" name="PutInCart" checked>
+              <label class="custom-control-label" for="put-in-cart"><?= _('Put all the persons in the cart, to import them in a group, sundayschool group, etc....') ?></label>
+            </div>
           </div>
         </div>
 
         <hr>
 
-        <div class="row">
+        <div class="row mt-2">
           <div class="col-lg-1" style="width:10px">
-             <input type="checkbox" value="1" name="MakeFamilyRecords" checked=true>
+             <div class="custom-control custom-switch mt-1">
+               <input type="checkbox" class="custom-control-input" id="make-family-records" value="1" name="MakeFamilyRecords" checked=true>
+               <label class="custom-control-label" for="make-family-records"></label>
+             </div>
           </div>
           <div class="col-lg-3">
             <select name="MakeFamilyRecordsMode" class="form-control form-control-sm">
@@ -264,7 +297,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
         <div class="row">
           <div class="col-lg-10">
-            <h3  class="card-title"><?= _("Not usefull options") ?></h3>
+            <h5 class="mb-0 text-muted"><i class="fas fa-sliders-h mr-1"></i><?= _("Advanced options") ?></h5>
           </div>
         </div>
 
@@ -327,7 +360,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           </div>
         </div>
         <BR><BR>
-        <input type="submit" class="btn btn-primary" value="<?= _('Perform Import') ?>" name="DoImport">
+        <button type="submit" class="btn btn-primary px-4" name="DoImport"><i class="fas fa-play mr-1"></i><?= _('Perform Import') ?></button>
       </form>
 
   <?php
@@ -900,7 +933,7 @@ if ($iStage == 1) {
       <form method="post" action="<?= $sRootPath ?>/v2/system/csv/import" enctype="multipart/form-data">
         <div class="row">
           <div class="col-lg-12">
-            <h2><?= _("Steps to import users") ?></h2>
+            <h4 class="mb-0"><i class="fas fa-list-ol mr-1"></i><?= _("Steps to import users") ?></h4>
             <ul>
               <li>
                  <?= _("Your CSV file must have a header row, as follows") ?> : <br>
@@ -917,21 +950,23 @@ if ($iStage == 1) {
                  <?= _("Prepare your CRM and add enough custom Person Fields, to do this click") ?> : <b><a href="<?= $sRootPath ?>/v2/people/person/customfield/editor"><?= _("here") ?></a></b><br>
               </li>
               <li>
-                 <p style="color: red"><?= _("All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or 7/1/2018") ?></p>
+                 <p class="text-danger"><?= _("All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or 7/1/2018") ?></p>
               </li>
             </ul>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <h3><?= _("The next step should be, if not select the other CSV seperator") ?></h3>
+            <h5><?= _("The next step should be, if not select the other CSV seperator") ?></h5>
             <img src="<?= $sRootPath ?>/Images/csvimport.png" class="image-max-width" width=100%>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <h3><?= _("Upload CSV File") ?></h3>
-            <p style="color: red"> <?= $csvError ?></p>
+            <h5><i class="fas fa-file-upload mr-1"></i><?= _("Upload CSV File") ?></h5>
+            <?php if (!empty($csvError)) { ?>
+              <div class="alert alert-danger mb-2"><?= $csvError ?></div>
+            <?php } ?>
           </div>
         </div>
         <div class="row">
@@ -963,18 +998,18 @@ if ($iStage == 1) {
         </div>
         <div class="row">
           <div class="col-lg-3">
-            <input class="icTinyButton btn" type="file" name="CSVfile"><br/>
+            <input class="form-control-file" type="file" name="CSVfile"><br/>
           </div>
           <div class="col-lg-3">
-            <input type="submit" class="btn btn-primary" value="<?= _('Upload CSV File') ?> " name="UploadCSV">
+            <button type="submit" class="btn btn-primary" name="UploadCSV"><i class="fas fa-upload mr-1"></i><?= _('Upload CSV File') ?></button>
           </div>
         </div>
       </form>
    </div>
 </div>
-<div class="card">
+<div class="card card-outline card-danger">
   <div class="card-header  border-1">
-    <h3 class="card-title"><?= _('Clear Data')?></h3>
+    <h3 class="card-title"><i class="fas fa-trash-alt mr-1"></i><?= _('Clear Data')?></h3>
   </div>
   <div class="card-body">
     <button type="button" class="btn btn-danger" id="clear-people"><i class="fa fa-trash-can"></i> <?= _('Clear Persons and Families') ?></button>
@@ -984,7 +1019,7 @@ if ($iStage == 1) {
 
 if ($iStage == 3) {
 ?>
-    <p class="MediumLargeText"><?= _('Data import successful.').' '.$importCount.' '._('persons were imported') ?></p>
+  <div class="alert alert-success"><i class="fas fa-check-circle mr-1"></i><?= _('Data import successful.').' '.$importCount.' '._('persons were imported') ?></div>
 <?php
 }
 
