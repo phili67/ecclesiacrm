@@ -15,51 +15,54 @@ use EcclesiaCRM\SessionUser;
 require $sRootDocument . '/Include/Header.php';
 ?>
 <!-- Default box -->
-<div class="card">
-    <div class="card-header  border-1">
-        <a href="<?= $sRootPath ?>/v2/users/editor/new" class="btn btn-app"><i class="fas fa-user-plus"></i><?= _('New User') ?></a>
-
-      <div class="btn-group pull-right">
-        <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fas fa-arrow-circle-down"></i><?= _("Add Role to Selected User(s)") ?></a>
-        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-          <span class="caret"></span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu" role="menu" id="AllRoles">
-            <?php
-               foreach ($userRoles as $userRole) {
-            ?>
-               <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fas fa-arrow-circle-down"> </i><?= $userRole->getName() ?></a>
-            <?php
-               }
-            ?>
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header border-0">
+        <div class="d-flex flex-wrap align-items-center justify-content-between" style="gap:.5rem;">
+            <a href="<?= $sRootPath ?>/v2/users/editor/new" class="btn btn-sm btn-primary">
+                <i class="fas fa-user-plus mr-1"></i><?= _('New User') ?>
+            </a>
+            <div class="d-flex align-items-center" style="gap:.5rem;">
+                <span class="text-muted small font-weight-bold"><?= _("Apply Roles") ?> :</span>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>">
+                        <i class="fas fa-tags mr-1"></i><?= _("Add Role to Selected User(s)") ?>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu" id="AllRoles">
+                        <?php foreach ($userRoles as $userRole) { ?>
+                            <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>">
+                                <i class="fas fa-tag mr-1"></i><?= $userRole->getName() ?>
+                            </a>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="pull-right" style="margin-right:15px;margin-top:10px">
-        <h4><?= _("Apply Roles") ?></h4>
-      </div>
     </div>
 </div>
-<div class="card">
-    <div class="card-body">
-        <table class="table table-hover dt-responsive" id="user-listing-table" style="width:100%;">
+<div class="card card-outline card-secondary shadow-sm">
+    <div class="card-body py-2">
+        <table class="table table-sm table-hover dt-responsive" id="user-listing-table" style="width:100%;">
             <thead>
-            <tr>
-                <th align="center" style="width:60px">
-                    <input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Check all boxes") ?>">
-                <th><?= _('Actions') ?></th>
-                <th><?= _('Name') ?></th>
-                <th><?= _('First Name') ?></th>
-                <th align="center"><?= _('User Role') ?></th>
-                <th align="center"><?= _('Last Login') ?></th>
-                <th align="center"><?= _('Total Logins') ?></th>
-                <th align="center"><?= _('Failed Logins') ?></th>
-                <th align="center"><?= _('Password') ?></th>
+            <tr class="border-bottom">
+                <th style="width:40px" class="text-center">
+                    <input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="<?= _("Check all boxes") ?>">
+                </th>
+                <th class="text-muted small font-weight-bold" style="min-width:120px"><?= _('Actions') ?></th>
+                <th class="text-muted small font-weight-bold"><?= _('Name') ?></th>
+                <th class="text-muted small font-weight-bold"><?= _('First Name') ?></th>
+                <th class="text-center text-muted small font-weight-bold"><?= _('User Role') ?></th>
+                <th class="text-center text-muted small font-weight-bold"><?= _('Last Login') ?></th>
+                <th class="text-center text-muted small font-weight-bold"><?= _('Total Logins') ?></th>
+                <th class="text-center text-muted small font-weight-bold"><?= _('Failed Logins') ?></th>
+                <th class="text-center text-muted small font-weight-bold" style="min-width:70px"><?= _('Password') ?></th>
                 <?php if (SessionUser::isAdmin()) { ?>
-                <th align="center"><?= _("Take control") ?></th>
+                <th class="text-center text-muted small font-weight-bold"><?= _("Take control") ?></th>
                 <?php } ?>
-                <th align="center"><?= _('2FA authentication') ?></th>
-                <th align="center"><?= _('Status') ?></th>
+                <th class="text-center text-muted small font-weight-bold"><?= _('2FA authentication') ?></th>
+                <th class="text-center text-muted small font-weight-bold"><?= _('Status') ?></th>
             </tr>
             </thead>
             <tbody>
@@ -132,65 +135,68 @@ require $sRootDocument . '/Include/Header.php';
                     </td>
                     <td align="center"><?= $user->getLastLogin($dateFormatLong) ?></td>
                     <td align="center"><?= $user->getLoginCount() ?></td>
-                    <td align="center">
+                    <td class="text-center">
                       <?php
                         if ($user->isLocked()) {
                       ?>
-                            <span class="text-red"><?= $user->getFailedLogins() ?></span>
+                            <span class="text-danger font-weight-bold"><?= $user->getFailedLogins() ?></span>
                       <?php
                         } else {
                             echo $user->getFailedLogins();
                         }
                         if ($user->getFailedLogins() > 0) {
                       ?>
-                            <a href="#" class="resetUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
-                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Reset failed login") ?>"><i
-                                        class="fas fa-eraser" aria-hidden="true"></i></a>
+                            <a href="#" class="btn btn-sm btn-outline-warning ml-1 resetUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Reset failed login") ?>">
+                                <i class="fas fa-eraser"></i>
+                            </a>
                       <?php
                         }
                       ?>
                     </td>
-                    <td>
+                    <td class="text-center">
                         <a href="<?= $sRootPath ?>/v2/users/change/password/<?= $user->getId() ?>/FromUserList"
-                           data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Change user account password") ?>"><i
-                                    class="fas fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                           class="btn btn-sm btn-outline-secondary"
+                           data-toggle="tooltip" data-placement="bottom" title="<?= _("Change user account password") ?>">
+                            <i class="fas fa-wrench"></i>
+                        </a>
                         <?php
                           if ($user->getId() != $sessionUserId && !empty($user->getEmail())) {
                         ?>
-                            <a href="#" class="resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
-                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Reset and send new user password") ?>"><i
-                                class="far fa-paper-plane" aria-hidden="true"></i></a>
+                            <a href="#" class="btn btn-sm btn-outline-info resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Reset and send new user password") ?>">
+                                <i class="far fa-paper-plane"></i>
+                            </a>
                         <?php
                           }
                         ?>
                     </td>
-                    <td>
-
+                    <td class="text-center">
                         <?php if (SessionUser::isAdmin() and $user->getId() != $sessionUserId) { ?>
-                            <a href="#" class="control-account" data-userid="<?= $user->getId()?>"
-                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Take control of the account") ?>">
-                                <i class="fa fa-gamepad"></i>
+                            <a href="#" class="btn btn-sm btn-outline-warning control-account" data-userid="<?= $user->getId()?>"
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Take control of the account") ?>">
+                                <i class="fas fa-gamepad"></i>
                             </a>
                         <?php } ?>
                     </td>
-                    <td>
+                    <td class="text-center">
                         <?php if ($user->getTwoFaSecretConfirm()) { ?>
-                            <a href="#" class="two-fa-manage btn btn-secondary" data-userid="<?= $user->getId()?>"
+                            <a href="#" class="two-fa-manage btn btn-sm btn-outline-secondary" data-userid="<?= $user->getId()?>"
                                data-userName="<?= $user->getPerson()->getFullName() ?>" data-userid="<?= $user->getId()?>"
-                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Manage 2 factor secret") ?>">
-                                <i class="fas fa-key" aria-hidden="true"></i> <?= _("Management") ?>
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Manage 2 factor secret") ?>">
+                                <i class="fas fa-key mr-1"></i><?= _("Management") ?>
                             </a>
                         <?php } else { ?>
-                            <?= _("No") ?>
+                            <span class="badge badge-secondary"><?= _("No") ?></span>
                         <?php } ?>
                     </td>
-                    <td  align="center">
+                    <td class="text-center">
                       <?php
                         if ( $user->getPersonId() != 1 && $user->getId() != $sessionUserId) {
                       ?>
-                          <a href="#" class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName = "<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>"
-                             data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Lock/unlock user account") ?>">
-                             <i class="fa <?= ($user->getIsDeactivated() == false)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
+                          <a href="#" class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName="<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>"
+                             data-toggle="tooltip" data-placement="bottom" title="<?= _("Lock/unlock user account") ?>">
+                             <i class="fas <?= ($user->getIsDeactivated() == false) ? 'fa-unlock text-success' : 'fa-lock text-danger' ?>"></i>
                           </a>
                       <?php
                         }
@@ -203,9 +209,7 @@ require $sRootDocument . '/Include/Header.php';
             </tbody>
         </table>
     </div>
-    <!-- /.box-body -->
 </div>
-<!-- /.box -->
 
 
 <script src="<?= $sRootPath ?>/skin/js/user/UserList.js" ></script>
