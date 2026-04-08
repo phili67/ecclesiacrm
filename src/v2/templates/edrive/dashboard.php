@@ -20,46 +20,61 @@ use EcclesiaCRM\Utils\MiscUtils;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title"><?= _('Edrive : File manager') ?></h3>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+    <div>
+        <h3 class="h4 mb-1"><i class="fas fa-folder-open mr-2 text-primary"></i><?= _('Edrive : File manager') ?></h3>
+        <p class="text-muted mb-0"><?= _('Manage your files, previews and internal sharing from one place.') ?></p>
     </div>
+    <div class="text-muted small">
+        <i class="fas fa-cloud mr-1"></i><?= _('EDrive workspace') ?>
+    </div>
+</div>
+
+<div class="card shadow-sm">
     <div class="card-body">
         <?php if ($user->isEDriveEnabled()) { ?>
             <form action="#" method="post" id="formId" enctype="multipart/form-data">
-                <div class="card card-primary collapsed-card">
+                <div class="card card-outline card-info collapsed-card mb-4">
                     <div class="card-header">
-                        <h3 class="card-title"><i class="fa-solid fa-download"></i> <?= _("Download files") ?></h3>
+                        <h3 class="card-title"><i class="fas fa-file-upload mr-1"></i> <?= _("Download files") ?></h3>
 
                         <div class="card-tools pull-right">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
                         </div>
                     </div>
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label for="noteInputFile"><?= _("Files input") ?></label>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="file" class="btn btn-primary" id="noteInputFile" name="noteInputFile[]" multiple>
+                    <div class="card-body" id="edrive-upload-dropzone">
+                        <div class="border rounded p-3 bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <label for="noteInputFile" class="mb-0"><?= _("Files input") ?></label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="file" class="form-control" id="noteInputFile" name="noteInputFile[]" multiple>
+                                    <small class="text-muted d-block mt-2"><i class="fas fa-hand-paper mr-1"></i><?= _("You can also drag and drop files into this area.") ?></small>
+                                </div>
                             </div>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-2 download-zone" style="display: none"><label><?= _("Download status") ?></label></div>
-                            <div class="col-md-6 download-zone" style="display: none">
-                                <progress id="progress-bar" value="0" max="100"></progress> <label id="progress-bar-label" for="progress-bar">0%</label>
+
+                        <div class="row mt-3 download-zone" style="display: none">
+                            <div class="col-md-3">
+                                <label class="mb-0"><?= _("Download status") ?></label>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="d-flex align-items-center">
+                                    <progress id="progress-bar" value="0" max="100" class="mr-2" style="width:100%"></progress>
+                                    <label id="progress-bar-label" for="progress-bar" class="mb-0">0%</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <label><?= _('Upload your files') ?></label>
+                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                            <div class="text-muted mb-2 mb-md-0">
+                                <i class="fas fa-cloud-upload-alt mr-1"></i><?= _('Upload your files') ?>
                             </div>
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-success" name="Submit"><i class="fas fa-cloud-upload-alt"></i> <?= _("Upload") ?></button><br />
+                            <div>
+                                <button type="submit" class="btn btn-success" name="Submit"><i class="fas fa-cloud-upload-alt mr-1"></i> <?= _("Upload") ?></button>
                             </div>
                         </div>
                     </div>
@@ -69,23 +84,32 @@ require $sRootDocument . '/Include/Header.php';
         <?php } ?>
         <div class="row">
             <div class="col filmanager-left">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $personId ?>"
-                        data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
-                        <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-                        &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
-                    </button>
-                </div>
-                <table class="table dataTable table-hover no-footer" id="edrive-table" width="100%"></table>
-                <hr />
-                <div class="row">
-                    <div class="col-md-12">
-                        <span class="float-left" id="currentPath">
-                            <?= !is_null($user) ? MiscUtils::pathToPathWithIcons($user->getCurrentpath()) : "" ?>
-                        </span>
+                <div class="card card-outline card-secondary mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-folder-tree mr-1"></i> <?= _("Files") ?>
+
+                            </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $personId ?>"
+                                data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
+                                <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+                                &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
+                            </button>
+                        </div>
+                        <table class="table dataTable table-hover no-footer" id="edrive-table" width="100%"></table>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="float-left" id="currentPath">
+                                    <?= !is_null($user) ? MiscUtils::pathToPathWithIcons($user->getCurrentpath()) : "" ?>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
             <div class="col filmanager-right" style="display: none;">
                 <div class="sticky-top">
