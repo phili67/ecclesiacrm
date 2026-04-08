@@ -9,28 +9,30 @@ $(function() {
         window.CRM.groupsInCart = data.groupsInCart;
     });
 
-    $("#addNewGroup").on('click',function (e) {
+    $("#addNewGroup").on('click', function () {
         bootbox.dialog({
-            title: i18next.t("Add New Group"),
-            message: `<div class="form-group">
-                        <label for="bootboxGroupName"><i class="fas fa-users"></i> ${i18next.t("Group Name")}</label>
-                        <input id="bootboxGroupName" type="text" class="form-control" placeholder="${i18next.t("Enter group name")}" />
+            title: '<i class="fas fa-users mr-2"></i>' + i18next.t("Add New Group"),
+            message: `<div class="form-group mb-0">
+                        <label for="bootboxGroupName" class="font-weight-bold">
+                            <i class="fas fa-tag mr-1 text-muted"></i>${i18next.t("Group Name")}
+                        </label>
+                        <input id="bootboxGroupName" type="text" class="form-control"
+                               placeholder="${i18next.t("Enter group name")}" autofocus />
                       </div>`,
             buttons: {
                 cancel: {
-                    label: i18next.t("Cancel"),
-                    className: 'btn-default'
+                    label: '<i class="fas fa-times mr-1"></i>' + i18next.t("Cancel"),
+                    className: 'btn-outline-secondary'
                 },
                 confirm: {
-                    label: i18next.t("Save"),
-                    className: 'btn-primary',
+                    label: '<i class="fas fa-check mr-1"></i>' + i18next.t("Save"),
+                    className: 'btn-success',
                     callback: function () {
                         var groupName = document.getElementById('bootboxGroupName').value.trim();
                         if (!groupName) {
                             bootbox.alert(i18next.t('Please enter a group name.'));
-                            return false; // keep modal open
+                            return false;
                         }
-
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'groups/',
@@ -48,6 +50,8 @@ $(function() {
 
     window.CRM.dataTableList = $("#groupsTable").DataTable({
         "initComplete": function (settings, json) {
+            var info = window.CRM.dataTableList.page.info();
+            $('#numberOfGroups').html(info.recordsDisplay);
             if (window.groupSelect != null) {
                 window.CRM.dataTableList.search(window.groupSelect).draw();
             }
@@ -61,9 +65,7 @@ $(function() {
             type: 'GET',
             dataSrc: "Groups",
             "beforeSend": function (xhr) {
-                xhr.setRequestHeader('Authorization',
-                    "Bearer " +  window.CRM.jwtToken
-                );
+                xhr.setRequestHeader('Authorization', "Bearer " + window.CRM.jwtToken);
             }
         },
         columns: [
@@ -71,48 +73,28 @@ $(function() {
                 width: 'auto',
                 title: i18next.t('Group Name'),
                 data: 'Name',
-                render: function (data, type, full, meta) {
-                    return  '<div class="btn-group" role="group" aria-label="Buttons">'
-                        + '<a href="' + window.CRM.root + '/v2/group/' + full.Id + '/view" class="btn btn-default btn-xs">'
-                        + '<span class="fa-stack fa-stack-custom">'
-                        +    '<i class="fas fa-stack-1x fa-inverse fa-search-plus fas-blue"></i>'
-                        + '</span>'
-                        + '</a>'
-                        + '<a href="' + window.CRM.root + '/v2/group/editor/' + full.Id + '"  class="btn btn-default btn-xs">'
-                        +    '<span class="fa-stack fa-stack-custom">'
-                        +       '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse fas-blue"></i>'
-                        +    '</span>'
-                        +  '</a> ' + data
-                        +  '</div>';
+                render: function (data, type, full) {
+                    return '<div class="d-flex align-items-center">'
+                        + '<div class="btn-group btn-group-sm mr-2" role="group" aria-label="' + i18next.t('Group actions') + '">'
+                        +   '<a href="' + window.CRM.root + '/v2/group/' + full.Id + '/view" class="btn btn-outline-primary" title="' + i18next.t('View') + '">'
+                        +     '<i class="fas fa-search"></i>'
+                        +   '</a>'
+                        +   '<a href="' + window.CRM.root + '/v2/group/editor/' + full.Id + '" class="btn btn-outline-secondary" title="' + i18next.t('Edit') + '">'
+                        +     '<i class="fas fa-pencil-alt"></i>'
+                        +   '</a>'
+                        + '</div>'
+                        + '<span class="font-weight-bold">' + data + '</span>'
+                        + '</div>';
                 }
             },
             {
-                width: 'auto',
+                width: '90px',
                 title: i18next.t('Members'),
                 data: 'memberCount',
                 searchable: false,
-                defaultContent: "0"
-            },
-            {
-                width: 'auto',
-                title: i18next.t('Group Cart Status'),
-                searchable: false,
-                data: 'Id',
-                render: function (data, type, full, meta) {
-                    // we add the memberCount, so we could disable the button Add All
-
-                    var activLink = '';
-                    if (full.memberCount == 0) {
-                        activLink = ' disabled'; // PL : We disable the button Add All when there isn't any member in the group
-                    }
-
-                    if ($.inArray(full.Id, window.CRM.groupsInCart) > -1) {
-                        return '<span id="groupspanid-' + full.Id + '">' + i18next.t("All members of this group are in the cart") + '</span>&nbsp;<a class="btn btn-xs btn-default" id="removeGroupFromCart" data-groupid="' + full.Id + '"><span class="fa-stack"><i class="fas fa-stack-1x fa-inverse fa-times fas-red" ></i></span></a>';
-                    } else if (window.CRM.showCart) {
-                        return '<span id="groupspanid-' + full.Id + '">' + i18next.t("Not all members of this group are in the cart") + '</span>&nbsp;<a id="AddGroupToCart" class="btn btn-xs btn-default ' + activLink + '" data-groupid="' + full.Id + '"><span class="fa-stack"><i class="fas fa-stack-1x fa-inverse fa-cart-plus fas-blue" ></i></span></a>';
-                    } else {
-                        return i18next.t("Cart isn't showable");
-                    }
+                defaultContent: "0",
+                render: function (data) {
+                    return '<span class="badge badge-pill badge-light border">' + (data || 0) + '</span>';
                 }
             },
             {
@@ -121,11 +103,34 @@ $(function() {
                 data: 'groupType',
                 defaultContent: "",
                 searchable: true,
-                render: function (data, type, full, meta) {
+                render: function (data) {
                     if (data) {
-                        return data;
+                        return '<span class="badge badge-pill badge-secondary">' + data + '</span>';
+                    }
+                    return '<span class="text-muted small">' + i18next.t('Unassigned') + '</span>';
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Group Cart Status'),
+                searchable: false,
+                data: 'Id',
+                render: function (data, type, full) {
+                    var disabled = full.memberCount == 0 ? ' disabled' : '';
+                    if ($.inArray(full.Id, window.CRM.groupsInCart) > -1) {
+                        return '<div class="d-flex align-items-center gap-1" id="groupspanid-' + full.Id + '">'
+                            + '<span class="badge badge-success"><i class="fas fa-check mr-1"></i>' + i18next.t("In cart") + '</span>'
+                            + '&nbsp;<button class="btn btn-sm btn-outline-danger" id="removeGroupFromCart" data-groupid="' + full.Id + '" title="' + i18next.t('Remove from cart') + '">'
+                            +   '<i class="fas fa-times"></i>'
+                            + '</button></div>';
+                    } else if (window.CRM.showCart) {
+                        return '<div class="d-flex align-items-center gap-1" id="groupspanid-' + full.Id + '">'
+                            + '<span class="badge badge-light border text-muted"><i class="fas fa-shopping-cart mr-1"></i>' + i18next.t("Not in cart") + '</span>'
+                            + '&nbsp;<button class="btn btn-sm btn-outline-primary' + disabled + '" id="AddGroupToCart" data-groupid="' + full.Id + '" title="' + i18next.t('Add to cart') + '">'
+                            +   '<i class="fas fa-cart-plus"></i>'
+                            + '</button></div>';
                     } else {
-                        return i18next.t('Unassigned');
+                        return '<span class="text-muted small"><i class="fas fa-ban mr-1"></i>' + i18next.t("Cart isn't showable") + '</span>';
                     }
                 }
             }
@@ -140,32 +145,35 @@ $(function() {
     $('#table-filter').on('change', function () {
         window.CRM.dataTableList.search(this.value).draw();
         localStorage.setItem("groupSelect", this.selectedIndex);
-
         var info = window.CRM.dataTableList.page.info();
         $('#numberOfGroups').html(info.recordsDisplay);
     });
 
-    $(document).on("click", "#AddGroupToCart", function (link) {
+    $(document).on("click", "#AddGroupToCart", function () {
         var groupid = $(this).data("groupid");
-        var parentText = $("#groupspanid-"+groupid);
-        var parentLink = $(this);
-        var linkSpan = $(this).find("i");
-        window.CRM.cart.addGroup(groupid, function (data) {
-            parentLink.attr("id", "removeGroupFromCart");
-            linkSpan.removeClass('fa-cart-plus fas-blue').addClass('fa-times fas-red');
-            parentText.text(i18next.t("All members of this group are in the cart"));
+        var $row = $("#groupspanid-" + groupid);
+        var $btn = $(this);
+        window.CRM.cart.addGroup(groupid, function () {
+            $btn.attr("id", "removeGroupFromCart")
+                .removeClass("btn-outline-primary").addClass("btn-outline-danger")
+                .attr("title", i18next.t("Remove from cart"))
+                .find("i").removeClass("fa-cart-plus").addClass("fa-times");
+            $row.find(".badge").removeClass("badge-light border text-muted").addClass("badge-success")
+                .html('<i class="fas fa-check mr-1"></i>' + i18next.t("In cart"));
         });
     });
 
-    $(document).on("click", "#removeGroupFromCart", function (link) {
+    $(document).on("click", "#removeGroupFromCart", function () {
         var groupid = $(this).data("groupid");
-        var parentText = $("#groupspanid-"+groupid);
-        var parentLink = $(this);
-        var linkSpan = $(this).find("i");
-        window.CRM.cart.removeGroup(groupid, function (data) {
-            parentLink.attr("id", "AddGroupToCart");
-            linkSpan.removeClass('fa-times fas-red').addClass('fa-cart-plus fas-blue');
-            parentText.text(i18next.t("Not all members of this group are in the cart"));
+        var $row = $("#groupspanid-" + groupid);
+        var $btn = $(this);
+        window.CRM.cart.removeGroup(groupid, function () {
+            $btn.attr("id", "AddGroupToCart")
+                .removeClass("btn-outline-danger").addClass("btn-outline-primary")
+                .attr("title", i18next.t("Add to cart"))
+                .find("i").removeClass("fa-times").addClass("fa-cart-plus");
+            $row.find(".badge").removeClass("badge-success").addClass("badge-light border text-muted")
+                .html('<i class="fas fa-shopping-cart mr-1"></i>' + i18next.t("Not in cart"));
         });
     });
 });
