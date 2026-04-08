@@ -119,7 +119,33 @@ $(function() {
         'sidebar-light-gray-dark',
         'sidebar-light-gray',
         'sidebar-light-light'
-    ]
+    ];
+
+    var $skinCol = $('#usersettings-skin-col');
+    var $skinRow = $('#usersettings-skin-row');
+    var validPanes = {
+        '#usersettings-pane-profile': true,
+        '#usersettings-pane-skin': true,
+        '#usersettings-pane-specific': true,
+        '#usersettings-pane-2fa': true
+    };
+
+    if ($skinCol.length && $skinRow.length) {
+        $skinCol.removeClass('col-md-6').addClass('col-md-12');
+        $skinRow.append($skinCol);
+    }
+
+    if (window.location.hash && validPanes[window.location.hash]) {
+        $('#usersettings-tabs a[href="' + window.location.hash + '"]').tab('show');
+    }
+
+    $('#usersettings-tabs a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+        var targetPane = $(e.target).attr('href');
+
+        if (validPanes[targetPane] && window.history && window.history.replaceState) {
+            window.history.replaceState(null, '', targetPane);
+        }
+    });
 
     $(".data-table").DataTable({
         "language": {
@@ -224,34 +250,36 @@ $(function() {
             method: 'POST',
             path: 'settingsindividual/get2FA'
         },function (data) {
-            var res = '<div class="row">' +
-                '           <div class="col-md-12">';
-            res += '            <label>' + i18next.t("2 Factor Authentication Secret") + "</label>";
-            res += '        </div>';
-            res += '    </div>';
-            res += '    <div class="row text-center">';
-            res += '        <div class="col-md-6">';
-            res += '            <img src="' + data.img + '"><br>';
-            res += '        </div>';
-            res += '        <div class="col-md-3">';
-            //res += '            <br/><button class="btn btn-warning">' + i18next.t("Regenerate 2 Factor Authentication Secret") + '</button><br/><br/>';
-            res += '            <br/><br/><button class="btn btn-danger remove-2fa">' + i18next.t("Remove 2 Factor Authentication Secret") + '</button>';
-            res += '        </div>';
-            res += '    </div>' +
-                '<br/>' +
-                '<br/>';
-
-            res += '<div class="row">' +
-            '   <div class="col-md-6">' +
-            '       <label>' + i18next.t("Enter TOTP code to confirm enrollment") + ' : <input value="" id="inputCode"> <span id="verifyCode"></span> </label>' +
-            '   </div>' +
-            '</div>'
-
-            res += '<br/><div class="row">' +
-                '   <div class="col-md-12">' +
-                '       <label id="rescuepasswords"></label>'
-            '   </div>' +
-            '</div>';
+        var res = `<div class="row mb-3">
+                            <div class="col-md-12 d-flex align-items-center">
+                                <span class="badge badge-primary mr-2 px-2 py-1">1</span>
+                                <label class="mb-0 font-weight-bold">${i18next.t("2 Factor Authentication Secret")}</label>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-12">
+                                <img src="${data.img}" class="img-thumbnail mb-3"><br>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <button class="btn btn-sm btn-outline-danger remove-2fa">
+                                    <i class="fas fa-times mr-1"></i>${i18next.t("Remove 2 Factor Authentication Secret")}
+                                </button>
+                            </div>
+                        </div>
+                <hr/>
+                <div class="row mb-3">
+                    <div class="col-md-12 d-flex align-items-center">
+                        <span class="badge badge-primary mr-2 px-2 py-1">2</span>
+                        <label class="mb-0 font-weight-bold">${i18next.t("Enter TOTP code to confirm enrollment")} :
+                        <input value="" id="inputCode" class="form-control form-control-sm d-inline-block ml-2" style="width:120px" placeholder="000000" />
+                        <span id="verifyCode" class="ml-2"></span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label id="rescuepasswords"></label>
+                    </div>
+                </div>`;
 
             $("#TwoFAEnrollmentSteps").html(res);
         });
@@ -266,24 +294,24 @@ $(function() {
             data: JSON.stringify({"code": code})
         },function (data) {
             if (data.status == 'yes') {
-                $("#verifyCode").html('<i class="fas fa-check" style="font-size: 20px;color: green"></i>');
+                $("#verifyCode").html('<i class="fas fa-check text-success" style="font-size:18px"></i>');
 
-                message = '<div  class="row">';
-                message += '<div class="col-md-12">';
-                message += '<div class="card card-success">';
-                message += '<div class="card-header  border-1">';
-                message += '<h1 class="card-title">' + i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.") + '</h1>';
-                message += '</div>';
-                message += '<div class="card-body">';
-                message += '<p>' + data.rescue_passwords + '</p>';
-                message += '</div>';
-                message += '</div>';
-                message += '</div>';
-                message += '</div>';
-
+                message = `<div class="row">
+                                <div class="col-md-12">
+                                    <div class="card card-outline card-success shadow-sm">
+                                        <div class="card-header border-0">
+                                            <h5 class="card-title"><i class="fas fa-key mr-2"></i>${i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.")}</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="text-monospace">${data.rescue_passwords}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>`;
+                
                 $("#two-factor-results").html(message);
             } else {
-                $("#verifyCode").html('<i class="fas fa-ban" style="font-size: 20px;color: red"></i>');
+                $("#verifyCode").html('<i class="fas fa-ban text-danger" style="font-size:18px"></i>');
                 $("#two-factor-results").html("");
             }
 
