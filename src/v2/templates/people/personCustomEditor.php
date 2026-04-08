@@ -381,7 +381,7 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
 
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title"><?= _("Custom fields") ?></h3>
+      <h3 class="card-title"><i class="fa fa-list"></i> <?= _("Custom fields") ?></h3>
     </div>
     <div class="card-body">
       <div class="text-center">
@@ -397,7 +397,7 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
         <thead>
           <tr>
             <th><?= _("Place") ?></th>
-            <th><?= _("Actions") ?></th>
+            <th style="min-width:120px;"><?= _("Actions") ?></th>
             <th><?= _('Type') ?></th>
             <th><?= _('Name') ?></th>
             <th><?= _('Special option') ?></th>
@@ -412,20 +412,22 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
           for ($row = 1; $row <= $numRows; $row++) {
           ?>
             <tr>
-              <td><b><?= $row ?></b></td>
+              <td>
+                <span class="badge badge-secondary mr-1" style="min-width: 24px; padding: 4px 0px;"><?= $row ?></span>
+              </td>
               <td>
                 <?php
                 if ($row != 1) {
                 ?>
-                  <i class="fa-solid fa-arrow-up up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
+                  <i class="fa-solid fa-arrow-up up-action btn btn-default" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
                 <?php
                 }
                 if ($row < $numRows) {
                 ?>
-                  <i class="fa-solid fa-arrow-down down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
+                  <i class="fa-solid fa-arrow-down down-action btn btn-default" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
                 <?php
                 } ?>
-                <i class="fa fa-trash-can text-red delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
+                <i class="fa fa-trash-can text-red delete-field btn btn-default" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"></i>
               </td>
               <td>
                 <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
