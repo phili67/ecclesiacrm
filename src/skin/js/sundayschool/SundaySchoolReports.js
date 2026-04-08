@@ -3,8 +3,7 @@ function setGroupsIdsAttendees(selectControl)
   var res = '';
 
   $('#GroupID :selected').each(function(){
-     //selected[$(this).val()]=$(this).text();
-     res = $(selectControl).val()+',';
+    res = $(selectControl).val()+',';
   });
 
   res = res.slice(0, -1);
@@ -77,7 +76,7 @@ $( "#GroupID" ).on('change',function() {
             +'     <label for="pdf">PDF</label>'
             +'  </div>'
             +'  <div class="col-md-6">'
-            +'     <input type="radio" id="huey" name="exporttype" value="csv">'
+            +'     <input type="radio" id="csv" name="exporttype" value="csv">'
             +'     <label for="csv">CSV</label>'
             +'  </div>'
             +'</div>'
@@ -105,9 +104,8 @@ $( "#GroupID" ).on('change',function() {
                     buttons: [
                         {
                             label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
-                            className: "btn btn-default",
+                          className: "btn btn-outline-secondary",
                             callback: function() {
-                                console.log("just do something on close");
                             }
                         },
                         {
