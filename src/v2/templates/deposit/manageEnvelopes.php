@@ -86,7 +86,12 @@ foreach ($ormClassifications as $ormClassification) {
 
 ?>
 
-<div class="card card-body">
+<div class="card card-primary card-outline">
+<div class="card-header py-2 d-flex align-items-center justify-content-between">
+    <h3 class="card-title mb-0"><i class="fas fa-envelope-open-text mr-2"></i><?= _('Manage Envelopes') ?></h3>
+    <small class="text-muted"><?= _('Assign, sort and validate family envelope numbers') ?></small>
+</div>
+<div class="card-body p-3">
 <form method="post" action="<?= $sRootPath ?>/v2/deposit/manage/envelopes" name="ManageEnvelopes">
 <?php
 
@@ -109,10 +114,14 @@ if (isset($_POST['PrintReport'])) {
 
 ?>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateEnvelopesModal"><?= _('Update Family Records') ?></button>
-<button type="submit" class="btn btn-success" name="PrintReport"><i class="fas fa-print"></i></button>
-
-<br><br>
+<div class="d-flex flex-wrap mb-3">
+    <button type="button" class="btn btn-sm btn-primary mr-2 mb-2" data-toggle="modal" data-target="#updateEnvelopesModal">
+        <i class="fas fa-save mr-1"></i><?= _('Update Family Records') ?>
+    </button>
+    <button type="submit" class="btn btn-sm btn-outline-success mb-2" name="PrintReport">
+        <i class="fas fa-print mr-1"></i><?= _('Print Report') ?>
+    </button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="updateEnvelopesModal" tabindex="-1" role="dialog" aria-labelledby="updateEnvelopesModal" aria-hidden="true">
@@ -133,11 +142,11 @@ if (isset($_POST['PrintReport'])) {
   </div>
 </div>
 
-<div class="row">
-   <div class="col-md-1">
-      <b><?= _('Family Select')?></b> <?= _('with at least one:'); ?>
-   </div>
-   <div class="col-md-2">
+<div class="card card-light card-outline mb-3">
+<div class="card-body py-2">
+<div class="form-row align-items-end">
+    <div class="col-md-2 mb-2">
+        <label class="small mb-1"><?= _('Family Select') ?> <?= _('with at least one:'); ?></label>
         <select class= "form-control form-control-sm" name="Classification">
           <option value="0"><?= _('All') ?></option>
         <?php
@@ -149,23 +158,31 @@ if (isset($_POST['PrintReport'])) {
         ?>
         </select>
    </div>
-   <div class="col-md-3">
-        <input type="submit" class="btn btn-default" value="<?= _('Sort by') ?>" name="Sort">
-        <input type="radio" Name="SortBy" value="name"
-        <?php if ($sSortBy == 'name') {
-            echo ' checked';
-        } ?>><?= _('Last Name') ?>
-        <input type="radio" Name="SortBy" value="envelope"
-        <?php if ($sSortBy == 'envelope') {
-            echo ' checked';
-        } ?>><?= _('Envelope Number') ?>
+   <div class="col-md-3 mb-2">
+        <label class="small mb-1 d-block"><?= _('Sort by') ?></label>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input class="custom-control-input" type="radio" id="sortByName" name="SortBy" value="name"
+            <?php if ($sSortBy == 'name') {
+                echo ' checked';
+            } ?>>
+            <label class="custom-control-label" for="sortByName"><?= _('Last Name') ?></label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input class="custom-control-input" type="radio" id="sortByEnvelope" name="SortBy" value="envelope"
+            <?php if ($sSortBy == 'envelope') {
+                echo ' checked';
+            } ?>>
+            <label class="custom-control-label" for="sortByEnvelope"><?= _('Envelope Number') ?></label>
+        </div>
     </div>
-   <div class="col-md-2">
-        <b>Envelope</b>
-        <input type="submit" class="btn  btn-default" value="<?= _('Zero') ?>"
-                 name="ZeroAll">
+   <div class="col-md-2 mb-2">
+        <label class="small mb-1 d-block"><?= _('Envelope') ?></label>
+        <button type="submit" class="btn btn-sm btn-outline-danger" name="ZeroAll">
+            <i class="fas fa-eraser mr-1"></i><?= _('Zero') ?>
+        </button>
    </div>
-   <div class="col-md-1">
+   <div class="col-md-2 mb-2">
+        <label class="small mb-1 d-block"><?= _('Classification Family') ?></label>
         <select class= "form-control form-control-sm" name="ClassificationFamily">
           <option value="0"><?= _('All') ?></option>
         <?php
@@ -177,15 +194,36 @@ if (isset($_POST['PrintReport'])) {
         ?>
         </select>
    </div>
-   <div class="col-md-2">
-        <input type="submit" class="btn btn-default" value="<?= _('Assign starting at #') ?>"
-                 name="AssignAllFamilies">
+   <div class="col-md-2 mb-2">
+        <label class="small mb-1 d-block"><?= _('Assign starting at #') ?></label>
+        <button type="submit" class="btn btn-sm btn-outline-primary" name="AssignAllFamilies">
+            <i class="fas fa-random mr-1"></i><?= _('Assign') ?>
+        </button>
    </div>
-   <div class="col-md-1">
+   <div class="col-md-1 mb-2">
+        <label class="small mb-1 d-block"><?= _('#') ?></label>
         <input type="text" class= "form-control form-control-sm" name="AssignStartNum" value="<?= $iAssignStartNum ?>">
     </div>
+   <div class="col-md-12 mb-2">
+        <button type="submit" class="btn btn-sm btn-secondary" name="Sort">
+            <i class="fas fa-sort mr-1"></i><?= _('Apply') ?>
+        </button>
+   </div>
 </div>
-<hr/>
+</div>
+</div>
+
+<div class="form-group mb-2">
+    <label class="small mb-1" for="envelopeSearch"><?= _('Quick search') ?></label>
+    <input type="text" id="envelopeSearch" class="form-control form-control-sm" placeholder="<?= _('Filter by family name...') ?>">
+</div>
+
+<div class="card card-light">
+<div class="card-body p-2">
+<div class="row font-weight-bold small text-muted mb-2">
+    <div class="col-md-8"><?= _('Family') ?></div>
+    <div class="col-md-4"><?= _('Envelope Number') ?></div>
+</div>
 <?php
 if ($sSortBy == 'envelope') {
     asort($envelopesByFamID);
@@ -203,11 +241,11 @@ foreach ($arrayToLoop as $fam_ID => $value) {
         $envelope = $envelopesByFamID[$fam_ID];
     }
 ?>
-<div class="row">
-   <div class="col-md-6"><?= $fam_Data ?>&nbsp;</div>
+<div class="row align-items-center envelope-row py-1 border-top" data-family="<?= htmlspecialchars(mb_strtolower($fam_Data), ENT_QUOTES, 'UTF-8') ?>">
+   <div class="col-md-8"><?= $fam_Data ?>&nbsp;</div>
 <?php
     if ($envelope and $duplicateEnvelopeHash and array_key_exists($envelope, $duplicateEnvelopeHash)) {
-        $tdTag = '<div class="col-md-4" style="color:red">';
+        $tdTag = '<div class="col-md-4 text-danger">';
     } else {
         $duplicateEnvelopeHash[$envelope] = $fam_ID;
         $tdTag = '<div class="col-md-4">';
@@ -217,13 +255,26 @@ foreach ($arrayToLoop as $fam_ID => $value) {
     <input class= "form-control form-control-sm" type="text" name="EnvelopeID_<?= $fam_ID ?>" value="<?= $envelope ?>" maxlength="10">
   </div>
 </div>
-<br>
     <?php
 }
 ?>
-<br>
+</div>
+</div>
 </form>
 </div>
+</div>
+
+<script nonce="<?= $CSPNonce ?>">
+    $(function () {
+        $('#envelopeSearch').on('input', function () {
+            var term = $(this).val().toLowerCase();
+            $('.envelope-row').each(function () {
+                var family = $(this).data('family');
+                $(this).toggle(family.indexOf(term) !== -1);
+            });
+        });
+    });
+</script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
