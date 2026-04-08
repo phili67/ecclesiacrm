@@ -28,9 +28,9 @@ require $sRootDocument . '/Include/Header.php';
       name="PledgeEditor">
     <div class="row">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header border-1">
-                    <h3 class="card-title"><i class="fa-solid fa-money-bill"></i>  <?= _("Payment Details") ?></h3>
+            <div class="card card-primary card-outline">
+                <div class="card-header py-2">
+                    <h3 class="card-title"><i class="fa-solid fa-money-bill mr-2"></i><?= _("Payment Details") ?></h3>
                 </div>
                 <div class="card-body">
                     <input type="hidden" name="FamilyID" id="FamilyID" value="<?= $iFamily ?>">
@@ -63,8 +63,9 @@ require $sRootDocument . '/Include/Header.php';
                                        value="<?= $iEnvelope ?>">
                                 <?php if (!$dep_Closed) {
                                     ?>
-                                    <input class= "form-control form-control-sm" type="submit" class="btn btn-default" value="<?= _('Find family->') ?>"
-                                           name="MatchEnvelope">
+                                    <button type="submit" class="btn btn-sm btn-secondary" name="MatchEnvelope">
+                                        <?= _('Find family') ?> &rarr;
+                                    </button>
                                     <?php
                                 } ?>
 
@@ -169,12 +170,8 @@ require $sRootDocument . '/Include/Header.php';
                     if ($dep_Type == 'CreditCard' || $dep_Type == 'BankDraft') {
                         ?>
                         <div class="col-md-6">
-
-                            <tr>
-                                <td class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>">
-                                    <label><?= _('Choose online payment method') ?></label></td>
-                                <td class="TextColumnWithBottomBorder">
-                                    <select name="AutoPay" class= "form-control form-control-sm">
+                            <label class="small mb-1"><?= _('Choose online payment method') ?></label>
+                                    <select name="AutoPay" class="form-control form-control-sm">
                                         <?php
                                         echo '<option value=0';
                                         if ($iAutID == 'CreditCard') {
@@ -204,9 +201,6 @@ require $sRootDocument . '/Include/Header.php';
                                         }
                                         ?>
                                     </select>
-                                </td>
-                            </tr>
-
                         </div>
                         <?php
                     } ?>
@@ -216,9 +210,8 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="col-md-6">
                             <?php if (SystemConfig::getValue('bUseScannedChecks') && ($dep_Type == 'Bank' || $PledgeOrPayment == 'Pledge')) {
                                 ?>
-                                <td align="center"
-                                    class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Scan check') ?>
-                                    <textarea name="ScanInput" rows="2" cols="70"><?= $tScanString ?></textarea></td>
+                                <label class="small mb-1"><?= _('Scan check') ?></label>
+                                <textarea name="ScanInput" rows="2" cols="70" class="form-control form-control-sm"><?= $tScanString ?></textarea>
                                 <?php
                             } ?>
                         </div>
@@ -226,11 +219,12 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="col-md-6">
                             <?php if (SystemConfig::getValue('bUseScannedChecks') && $dep_Type == 'Bank') {
                                 ?>
-                                <input type="submit" class="btn btn-default" value="<?= _('find family from check account #') ?>"
-                                       name="MatchFamily">
-                                <input type="submit" class="btn btn-default"
-                                       value="<?= _('Set default check account number for family') ?>"
-                                       name="SetDefaultCheck">
+                                <button type="submit" class="btn btn-sm btn-secondary" name="MatchFamily">
+                                    <?= _('find family from check account #') ?>
+                                </button>
+                                <button type="submit" class="btn btn-sm btn-secondary" name="SetDefaultCheck">
+                                    <?= _('Set default check account number for family') ?>
+                                </button>
                                 <?php
                             } ?>
                         </div>
@@ -239,22 +233,23 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-lg-12">
-                            <br>
-                            <?php if (!$dep_Closed) {
-                                ?>
-                                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PledgeSubmit">
+                            <?php if (!$dep_Closed) { ?>
+                                <button type="submit" class="btn btn-sm btn-success" name="PledgeSubmit">
+                                    <i class="fas fa-check mr-1"></i><?= _('Save') ?>
+                                </button>
                                 <?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
-                                    echo '<input type="submit" class="btn btn-info" value="&check; ' . _('Save and Add') . '" name="PledgeSubmitAndAdd">';
+                                    echo '<button type="submit" class="btn btn-sm btn-info" name="PledgeSubmitAndAdd"><i class="fas fa-check mr-1"></i>' . _('Save and Add') . '</button>';
                                 } ?>
-                                <?php
-                            } ?>
+                            <?php } ?>
                             <?php if (!$dep_Closed) {
                                 $cancelText = _('Cancel');
                             } else {
                                 $cancelText = _('Return');
                             } ?>
-                            <input type="button" class="btn btn-default" value="X <?= _($cancelText) ?>" name="PledgeCancel"
-                                onclick="javascript:document.location='<?= $sRootPath ?>/<?= $linkBack ? $linkBack : 'v2/dashboard' ?>';">
+                            <button type="button" class="btn btn-sm btn-secondary" name="PledgeCancel"
+                                onclick="document.location='<?= $sRootPath ?>/<?= $linkBack ? $linkBack : 'v2/dashboard' ?>'">
+                                <i class="fas fa-times mr-1"></i><?= _($cancelText) ?>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -262,24 +257,20 @@ require $sRootDocument . '/Include/Header.php';
         </div>
 
         <div class="col-md-6">
-            <div class="card card-info">
-                <div class="card-header border-1">
-                    <h3 class="card-title"><i class="fa-solid fa-bank"></i> <i class="fa-solid fa-info-circle"></i> <?= _("Fund Split") ?></h3>
+            <div class="card card-info card-outline">
+                <div class="card-header py-2">
+                    <h3 class="card-title"><i class="fa-solid fa-piggy-bank mr-1"></i><i class="fa-solid fa-info-circle mr-2"></i><?= _("Fund Split") ?></h3>
                 </div>
                 <div class="card-body">
-                    <table id="FundTable" style="border-spacing: 10px;border-collapse: separate;">
+                    <table id="FundTable" class="table table-sm table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Fund Name') ?><br></th>
-                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Amount') ?><br></th>
-
-                            <?php if ($bEnableNonDeductible) {
-                                ?>
-                                <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Non-deductible amount') ?><br></th>
-                                <?php
-                            } ?>
-
-                            <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Comment') ?><br></th>
+                            <th><?= _('Fund Name') ?></th>
+                            <th><?= _('Amount') ?></th>
+                            <?php if ($bEnableNonDeductible) { ?>
+                                <th><?= _('Non-deductible amount') ?></th>
+                            <?php } ?>
+                            <th><?= _('Comment') ?></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -287,34 +278,31 @@ require $sRootDocument . '/Include/Header.php';
                         foreach ($fundId2Name as $fun_id => $fun_name) {
                             ?>
                             <tr>
-                                <td class="TextColumn"><label><?= _($fun_name) ?></label><br></td>
-                                <td class="TextColumn">
+                                <td><label class="mb-0"><?= _($fun_name) ?></label></td>
+                                <td>
                                     <input class="form-control form-control-sm FundAmount" type="number" step="any"
                                            name="<?= $fun_id ?>_Amount" id="<?= $fun_id ?>_Amount"
                                            value="<?= $nAmount[$fun_id] ?>">
-                                    <br>
                                     <?php if ($sAmountError[$fun_id]) { ?>
-                                        <span style="color:red"><?= $sAmountError[$fun_id] ?></span>
+                                        <span class="text-danger small"><?= $sAmountError[$fun_id] ?></span>
                                     <?php } ?>
                                 </td>
                                 <?php
                                 if ($bEnableNonDeductible) {
                                     ?>
-                                    <td class="TextColumn">
-                                        <input class= "form-control form-control-sm" type="number" step="any"
+                                    <td>
+                                        <input class="form-control form-control-sm" type="number" step="any"
                                                name="<?= $fun_id ?>_NonDeductible" id="<?= $fun_id ?>_NonDeductible"
                                                value="<?= $nNonDeductible[$fun_id] ?>"/>
-                                        <br>
                                         <?php if ($sNonDeductibleError[$fun_id]) { ?>
-                                            <span style="color:red"><?= $sNonDeductibleError[$fun_id] ?></span>
+                                            <span class="text-danger small"><?= $sNonDeductibleError[$fun_id] ?></span>
                                         <?php } ?>
                                     </td>
                                     <?php
                                 } ?>
-                                <td class="TextColumn">
-                                    <input class= "form-control form-control-sm" type="text" size=40 name="<?= $fun_id ?>_Comment"
+                                <td>
+                                    <input class="form-control form-control-sm" type="text" name="<?= $fun_id ?>_Comment"
                                            id="<?= $fun_id ?>_Comment" value="<?= $sComment[$fun_id] ?>">
-                                           <br>
                                 </td>
                             </tr>
                             <?php
