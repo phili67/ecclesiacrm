@@ -20,129 +20,144 @@ use EcclesiaCRM\PersonVolunteerOpportunityQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
 $hier = VolunteerService::getHirearchicalView($volID, $volID);
+
+$currentUser = SessionUser::getUser();
+$canShowCart = $currentUser->isShowCartEnabled();
+$canManageVolunteers = $currentUser->isManageVolunteersEnabled($volID);
+$canManageAppointments = $currentUser->isDeleteRecordsEnabled() || $currentUser->isAddRecordsEnabled() || $currentUser->isMenuOptionsEnabled();
+$canEmail = $currentUser->isEmailEnabled();
+$isAdmin = $currentUser->isAdmin();
+$isEmailExportEnabled = $thisVolOpp->isIncludeInEmailExport();
+$emailExportStateClass = $isEmailExportEnabled ? '' : 'disabled';
 ?>
 
-<?php
-if (SessionUser::getUser()->isShowCartEnabled()) {
-?>
-    <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartVolunterId="<?= $volID ?>"> <i class="fas fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
-<?php
-}
+<div class="card card-outline card-warning mb-3">
+    <div class="card-header border-0">
+        <h3 class="card-title"><i class="fas fa-users mr-2"></i><?= _("Actions") ?></h3>
+    </div>
+    
+    <div class="card-body">
+        <div class="d-flex flex-wrap gap-2 align-items-center" style="gap: 0.5rem;">
+            <?php if ($canShowCart) { ?>
+                    <a class="btn btn-sm btn-outline-primary AddToGroupCart" id="AddToGroupCart" data-cartVolunterId="<?= $volID ?>">
+                        <i class="fas fa-cart-plus mr-1"></i>
+                        <span class="cartActionDescription"><?= _("Add to Cart") ?></span>
+                    </a>
+                
+            <?php } ?>
 
-if (SessionUser::getUser()->isManageVolunteersEnabled($volID)) {
-?>
+            <?php if ($canManageVolunteers) { ?>
+                    <a class="btn btn-sm btn-outline-secondary" id="modify-name" data-id="<?= $volID ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("To modify the name of the volunteer opportunity") ?>">
+                        <i class="fas fa-pencil-alt mr-1"></i><?= _("Modify Name") ?>
+                    </a>
+                    <?php if ($isAdmin) { ?>
+                        <button class="btn btn-sm btn-outline-danger" id="deleteVolunteerOpportunityButton">
+                            <i class="fas fa-trash-alt mr-1"></i><?= _("Remove Volunteer Opportunities") ?>
+                        </button>
+                    <?php } ?>
+                
+            <?php } ?>
 
-    <a class="btn btn-app" id="modify-name" data-id="<?= $volID ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("To modify the name fo the volunteer opportunity") ?>"><i class="fas fa-pencil-alt"></i><?= _("Modify Name") ?></a>
+            <?php if ($canManageAppointments) { ?>
+                    <a class="btn btn-sm btn-outline-warning" id="add-event"><i class="far fa-calendar-plus mr-1"></i><?= _("Appointment") ?></a>
+                
+            <?php } ?>
 
-    <?php if (SessionUser::getUser()->isAdmin()) { ?>
-        <button class="btn btn-app bg-maroon" id="deleteVolunteerOpportunityButton"><i class="fas fa-trash-alt"></i><?= _("Remove Volunteer Opportunities") ?></button>
-    <?php
-    }
-}
+            <?php if ($canEmail) { ?>
+                    <a class="btn btn-sm btn-outline-info export-vcard-button <?= $emailExportStateClass ?>" data-toggle="tooltip" data-placement="bottom" title="" href="/api/volunteeropportunity/addressbook/extract/<?= $volID ?>" data-original-title="<?= _('Click to create a group address book') ?>">
+                        <i class="far fa-id-card mr-1"></i><?= _("Contacts") ?>
+                    </a>                
+            <?php } ?>
 
-if (
-    SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
-    || SessionUser::getUser()->isMenuOptionsEnabled()
-) {
-?>
-    <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
-<?php
-}
 
-if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
-    ?>
-<a class="btn btn-app bg-yellow-gradient  export-vcard-button <?= $thisVolOpp->isIncludeInEmailExport() ? '' : 'disabled' ?> " data-toggle="tooltip" data-placement="bottom" title="" href="/api/volunteeropportunity/addressbook/extract/<?= $volID ?>" data-original-title="Cliquer pour créer un carnet d'adresse du groupe"><i class="far fa-id-card">
-    </i><?= _("Contacts") ?></a>
+            <?php
+            $persons = PersonVolunteerOpportunityQuery::create()
+                ->usePersonQuery()
+                ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
+                ->addAsColumn('CellPhone', PersonTableMap::COL_PER_CELLPHONE)
+                ->addAsColumn('Email', PersonTableMap::COL_PER_EMAIL)
+                ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
+                ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)
+                ->useFamilyQuery()
+                ->addAsColumn('FamCellPhone', FamilyTableMap::COL_FAM_CELLPHONE)
+                ->addAsColumn('FamEmail', FamilyTableMap::COL_FAM_EMAIL)
+                ->endUse()
+                ->filterByDateDeactivated(NULL)
+                ->endUse()
+                ->addAscendingOrderByColumn('person_per.per_LastName')
+                ->addAscendingOrderByColumn('person_per.per_FirstName')
+                ->findByVolunteerOpportunityId($volID);
 
-<?php
-}
+            // Email Group link
 
-$persons = PersonVolunteerOpportunityQuery::create()
-    ->usePersonQuery()
-    ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
-    ->addAsColumn('CellPhone', PersonTableMap::COL_PER_CELLPHONE)
-    ->addAsColumn('Email', PersonTableMap::COL_PER_EMAIL)
-    ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
-    ->addAsColumn('PersonId', PersonTableMap::COL_PER_ID)
-    ->useFamilyQuery()
-    ->addAsColumn('FamCellPhone', FamilyTableMap::COL_FAM_CELLPHONE)
-    ->addAsColumn('FamEmail', FamilyTableMap::COL_FAM_EMAIL)
-    ->endUse()
-    ->filterByDateDeactivated(NULL)
-    ->endUse()
-    ->addAscendingOrderByColumn('person_per.per_LastName')
-    ->addAscendingOrderByColumn('person_per.per_FirstName')
-    ->findByVolunteerOpportunityId($volID);
+            $sEmailLink = '';
+            $sPhoneLink = '';
+            $sCommaDelimiter = ', ';
 
-// Email Group link
+            foreach ($persons as $person) {
+                $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $person->getFamEmail(), false);
+                if ($sEmail) {
+                    $sEmailLink .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
+                }
 
-$sEmailLink = '';
-$sPhoneLink = '';
-$sCommaDelimiter = ', ';
+                $sPhone = MiscUtils::SelectWhichInfo($person->getCellPhone(), $person->getFamCellPhone(), false);
+                if ($sPhone) {
+                    if (!stristr($sPhoneLink, $sPhone)) {
+                        $sPhoneLink .= $sPhone .= $sCommaDelimiter;
+                    }
+                }
+            }
 
-foreach ($persons as $person) {
-    $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $person->getFamEmail(), false);
-    if ($sEmail) {
-        $sEmailLink .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
-    }
+            if ($sEmailLink) {
+                // Add default email if default email has been set and is not already in string
+                if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
+                    $sEmailLink .= SessionUser::getUser()->MailtoDelimiter() . SystemConfig::getValue('sToEmailAddress');
+                }
+                $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
-    $sPhone = MiscUtils::SelectWhichInfo($person->getCellPhone(), $person->getFamCellPhone(), false);
-    if ($sPhone) {
-        if (!stristr($sPhoneLink, $sPhone)) {
-            $sPhoneLink .= $sPhone .= $sCommaDelimiter;
-        }
-    }
-}
+                if ($canEmail) { // Does user have permission to email groups
+                    // Display link
+            ?>
+                        <a class="btn btn-sm btn-outline-primary <?= $emailExportStateClass ?> email-button" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="far fa-paper-plane mr-1"></i><?= _("Email Group") ?></a>
+                        <a class="btn btn-sm btn-outline-secondary <?= $emailExportStateClass ?> email-cci-button" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="fas fa-paper-plane mr-1"></i><?= _("Email (BCC)") ?></a>                    
 
-if ($sEmailLink) {
-    // Add default email if default email has been set and is not already in string
-    if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
-        $sEmailLink .= SessionUser::getUser()->MailtoDelimiter() . SystemConfig::getValue('sToEmailAddress');
-    }
-    $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
+                <?php
+                }
+            }
 
-    if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
-        // Display link
-?>
-        <div class="btn-group">
-            <a class="btn btn-app <?= $thisVolOpp->isIncludeInEmailExport() ? '' : 'disabled' ?> email-button" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="far fa-paper-plane"></i><?= _("Email Group") ?></a>
+
+            if ($sPhoneLink) {
+                if ($canEmail) { // Does user have permission to email groups
+                    // Display link
+                ?>
+                        <a class="btn btn-sm btn-outline-success <?= $emailExportStateClass ?> sms-button" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fas fa-mobile-alt mr-1"></i><?= _('Text Group') ?></a>
+                    <script nonce="<?= $CSPNonce ?>">
+                        function allPhonesCommaD() {
+                            prompt("<?= _("Press CTRL + C to copy all group members\' phone numbers") ?>", "<?= mb_substr($sPhoneLink, 0, -2) ?>")
+                        };
+                    </script>
+            <?php
+                }
+            }
+            ?>
+
+            <?php if ($isVolunteerOpportunityEnabled) { // only an admin can modify the options
+            ?>
+                <button class="btn btn-sm btn-primary btn-sm" id="add-new-volunteer-opportunity">
+                    <i class="fas fa-plus-circle mr-1"></i><?= _("Add Volunteer Opportunity") ?>
+                </button>
+            <?php
+            }
+            ?>
         </div>
+    </div>
+</div>
 
-        <div class="btn-group">
-            <a class="btn btn-app <?= $thisVolOpp->isIncludeInEmailExport() ? '' : 'disabled' ?> email-cci-button" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="fas fa-paper-plane"></i><?= _("Email (BCC)") ?></a>
-        </div>
-
-    <?php
-    }
-}
-
-
-if ($sPhoneLink) {
-    if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
-        // Display link
-    ?>
-        <a class="btn btn-app <?= $thisVolOpp->isIncludeInEmailExport() ? '' : 'disabled' ?> sms-button" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fas fa-mobile"></i><?= _('Text Group') ?></a>
-        <script nonce="<?= $CSPNonce ?>">
-            function allPhonesCommaD() {
-                prompt("<?= _("Press CTRL + C to copy all group members\' phone numbers") ?>", "<?= mb_substr($sPhoneLink, 0, -2) ?>")
-            };
-        </script>
-<?php
-    }
-}
-?>
-
-<?php if ($isVolunteerOpportunityEnabled) { // only an admin can modify the options
-?>
-    <p align="center"><button class="btn btn-primary" id="add-new-volunteer-opportunity"><?= _("Add Volunteer Opportunity") ?></button></p>
-<?php
-} else {
-?>
-    <div class="alert alert-warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> <?= _('Only an admin can modify or delete this records.') ?></div>
-<?php
-}
-?>
-
+<?php if (!$isVolunteerOpportunityEnabled) { ?>
+    <div class="alert alert-info">
+        <?= _("Volunteer opportunities are currently disabled. Please contact your administrator.") ?>
+    </div>
+<?php } ?>
 
 <div class="group_Side_bar_container">
     <div class="group_Side_bar">
@@ -151,12 +166,12 @@ if ($sPhoneLink) {
                 <div class="card group_accordion">
                     <div class="card-header border-1 group_header_accordion" id="headingHierarchy">
                         <h3 class="card-title">
-                            <i class="fas fa-users"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseHierachy" aria-expanded="true" aria-controls="collapseHierachy">
+                            <i class="fas fa-users"></i> <button class="btn btn-sm btn-link" data-toggle="collapse" data-target="#collapseHierachy" aria-expanded="true" aria-controls="collapseHierachy">
                                 <?= _("Hierarchy") ?>
                             </button>
                         </h3>
                         <div class="card-tools pull-right">
-                            <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseHierachy" aria-expanded="true" aria-controls="collapseHierachy"><i class="fas fa-plus"></i></button>
+                            <button type="button" class="btn btn-sm btn-tool" data-toggle="collapse" data-target="#collapseHierachy" aria-expanded="true" aria-controls="collapseHierachy"><i class="fas fa-plus"></i></button>
                         </div>
                     </div>
                     <div id="collapseHierachy" class="collapse show" aria-labelledby="headingHierarchy" data-parent="#accordion" style="">
@@ -175,12 +190,12 @@ if ($sPhoneLink) {
                     <div class="card group_accordion">
                         <div class="card-header border-1 group_header_accordion" id="headingQuickSettings">
                             <h3 class="card-title">
-                                <i class="fas fa-sliders fa-fw"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseQuickSettings" aria-expanded="true" aria-controls="collapseQuickSettings">
+                                <i class="fas fa-sliders fa-fw"></i> <button class="btn btn-sm btn-link" data-toggle="collapse" data-target="#collapseQuickSettings" aria-expanded="true" aria-controls="collapseQuickSettings">
                                     <?= _('Quick Settings') ?>
                                 </button>
                             </h3>
                             <div class="card-tools pull-right">
-                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseQuickSettings" aria-expanded="true" aria-controls="collapseQuickSettings"><i class="fas fa-plus"></i></button>
+                                <button type="button" class="btn btn-sm btn-tool" data-toggle="collapse" data-target="#collapseQuickSettings" aria-expanded="true" aria-controls="collapseQuickSettings"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
                         <div id="collapseQuickSettings" class="collapse" aria-labelledby="headingQuickSettings" data-parent="#accordion" style="">
@@ -188,14 +203,14 @@ if ($sPhoneLink) {
                                 <div class="row">
                                     <div class="col-md-7"><label><?= _("Volunteers opportunity is") ?></label> : </div>
                                     <div class="col-md-5">
-                                        <input data-width="100" class="btn btn-primary btn-sm" id="isVolunteersActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Active') ?>" data-off="<?= _('Disabled') ?>" <?= ($thisVolOpp->getActive() == "true") ? 'checked' : '' ?>>
+                                        <input data-width="100" class="btn btn-sm btn-primary btn-sm" id="isVolunteersActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Active') ?>" data-off="<?= _('Disabled') ?>" <?= ($thisVolOpp->getActive() == "true") ? 'checked' : '' ?>>
                                     </div>
                                 </div>
                                 <?php if (SessionUser::getUser()->isEmailEnabled()) { ?>
                                     <div class="row">
                                         <div class="col-md-7"><label><?= _("The emails are") ?></label> : </div>
                                         <div class="col-md-5">
-                                            <input data-width="100" class="btn btn-primary btn-sm" id="isVolunteersEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>" <?= $thisVolOpp->isIncludeInEmailExport() ? 'checked' : '' ?>>
+                                            <input data-width="100" class="btn btn-sm btn-primary btn-sm" id="isVolunteersEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>" <?= $thisVolOpp->isIncludeInEmailExport() ? 'checked' : '' ?>>
                                         </div>
                                     </div>
                                 <?php } ?>
@@ -206,12 +221,12 @@ if ($sPhoneLink) {
                         <div class="card group_accordion">
                             <div class="card-header border-1 group_header_accordion" id="headingGroupManager">
                                 <h3 class="card-title">
-                                    <i class="fas fa-users"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager">
+                                    <i class="fas fa-users"></i> <button class="btn btn-sm btn-link" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager">
                                         <?= _("Volunteers Managers") ?>
                                     </button>
                                 </h3>
                                 <div class="card-tools pull-right">
-                                    <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager"><i class="fas fa-plus"></i></button>
+                                    <button type="button" class="btn btn-sm btn-tool" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager"><i class="fas fa-plus"></i></button>
                                 </div>
                             </div>
                             <div id="collapseGroupManager" class="collapse" aria-labelledby="headingGroupManager" data-parent="#accordion" style="">
@@ -219,7 +234,7 @@ if ($sPhoneLink) {
                                     <div class="row">
                                         <div class="col-md-4"></div>
                                         <div class="col-md-4">
-                                            <input data-width="100" class="btn btn-primary btn-sm" id="isManagersActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Yes') ?>" data-off="<?= _('No') ?>" <?= ($thisVolOpp->isManagers() == "true") ? 'checked' : '' ?>>
+                                            <input data-width="100" class="btn btn-sm btn-primary btn-sm" id="isManagersActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Yes') ?>" data-off="<?= _('No') ?>" <?= ($thisVolOpp->isManagers() == "true") ? 'checked' : '' ?>>
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +256,7 @@ if ($sPhoneLink) {
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
                 <div class="card-tools pull-right">
-                    <button class="btn btn-primary" type="button">
+                    <button class="btn btn-sm btn-primary" type="button">
                         <?= _('Total Members') ?> <span class="badge  bg-white" id="iTotalMembers"></span>
                     </button>
                 </div>
@@ -282,7 +297,7 @@ if ($sPhoneLink) {
 
 <script nonce="<?= $CSPNonce ?>">
     window.CRM.volID = <?= $volID ?>;
-    window.CRM.volName = "<?=  $thisVolOpp->getName() ?>";
+    window.CRM.volName = "<?= $thisVolOpp->getName() ?>";
     var isShowable = true;
     var sPageTitle = "<?= $sPageTitle ?>";
 

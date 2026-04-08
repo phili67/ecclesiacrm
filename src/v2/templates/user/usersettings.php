@@ -541,7 +541,7 @@ require_once $sRootDocument . '/Include/Header.php';
                                     </ul>
 
                                     <div class="mt-4">
-                                        <button class="btn btn-success btn-sm Twofa-activation">
+                                        <button type="button" class="btn btn-success btn-sm Twofa-activation">
                                             <i class="fas fa-lock-open mr-2"></i><?= _("Begin Two Factor Authentication Enrollment") ?>
                                         </button>
                                     </div>

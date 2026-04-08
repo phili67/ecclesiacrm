@@ -49,12 +49,22 @@ class SystemSettingsIndividualController
         $this->container = $container;
     }
 
+    public function get2FAStatus (ServerRequest $request, Response $response, array $args): Response
+    {
+        $user = SessionUser::getUser();
+
+        return $response->withJson([
+            'isEnrolled' => (bool)$user->getTwoFaSecretConfirm()
+        ]);
+    }
+
     public function get2FA (ServerRequest $request, Response $response, array $args): Response
     {
         // substitute your company or app name here
         $tfa = new TwoFactorAuth('EcclesiaCRM');
 
         $user = SessionUser::getUser();
+        $isEnrolled = (bool)$user->getTwoFaSecretConfirm();
         $secret = $user->getTwoFaSecret();
 
         if ( is_null($secret) ) {
@@ -65,7 +75,7 @@ class SystemSettingsIndividualController
 
         $img = $tfa->getQRCodeImageAsDataUri($user->getPerson()->getFullName()." : EcclesiaCRM", $secret);
 
-        return $response->withJson(['img' => $img]);
+        return $response->withJson(['img' => $img, 'isEnrolled' => $isEnrolled]);
     }
 
     public function verify2FA (ServerRequest $request, Response $response, array $args): Response

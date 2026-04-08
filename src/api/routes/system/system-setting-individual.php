@@ -14,6 +14,11 @@ use EcclesiaCRM\APIControllers\SystemSettingsIndividualController;
 $app->group('/settingsindividual', function (RouteCollectorProxy $group) {
 
     /*
+     * @! Get 2FA enrollment status for session user
+     */
+    $group->post('/get2FAStatus', SystemSettingsIndividualController::class . ':get2FAStatus' );
+
+    /*
      * @! Get 2FA key
      */
     $group->post('/get2FA', SystemSettingsIndividualController::class . ':get2FA' );
