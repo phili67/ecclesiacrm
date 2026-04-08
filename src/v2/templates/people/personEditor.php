@@ -853,7 +853,7 @@ require $sRootDocument . '/Include/Header.php';
 
 ?>
 <form method="post" action="<?= $sRootPath ?>/v2/people/person/editor<?= ($iPersonID != -1)?("/".$iPersonID):"" ?>" name="PersonEditor">
-    <div class="alert alert-info alert-dismissable">
+    <div class="alert alert-info alert-dismissible">
         <i class="fas fa-info"></i>
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong><span
@@ -861,18 +861,18 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <?php if ($bErrorFlag) {
         ?>
-        <div class="alert alert-danger alert-dismissable">
+        <div class="alert alert-danger alert-dismissible">
             <i class="fas fa-ban"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?>
         </div>
         <?php
     } ?>
-    <div class="card card-info clearfix">
-        <div class="card-header border-1">
+    <div class="card card-outline card-info shadow-sm clearfix">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Personal Info') ?></h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="&check;  <?= _('Save') ?>" name="PersonSubmit">
+            <div class="card-tools">
+                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -946,11 +946,11 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="card card-info clearfix">
-        <div class="card-header with-border">
+    <div class="card card-outline card-info shadow-sm clearfix">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _("Person or Family Info") ?></h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
+            <div class="card-tools">
+                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -998,8 +998,8 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card-header with-border">
-                                <h3 class="card-title"><?= _('Person or Family Address') ?></h3>
+                            <div class="border-bottom mb-3 pb-2">
+                                <h3 class="h5 mb-0"><i class="fas fa-map-marker-alt mr-2"></i><?= _('Person or Family Address') ?></h3>
                             </div>
                         </div><!-- /.box-header -->
                     </div>
@@ -1132,11 +1132,11 @@ require $sRootDocument . '/Include/Header.php';
             <!-- canvasser -->
         </div>
     </div>
-    <div class="card card-info clearfix">
-        <div class="card-header with-border">
+    <div class="card card-outline card-info shadow-sm clearfix">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Contact Info') ?></h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
+            <div class="card-tools">
+                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1552,11 +1552,11 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="card card-info clearfix">
-        <div class="card-header with-border">
+    <div class="card card-outline card-info shadow-sm clearfix">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Membership Info') ?></h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
+            <div class="card-tools">
+                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1632,11 +1632,11 @@ require $sRootDocument . '/Include/Header.php';
     <?php
     if ($numCustomFields > 0) {
         ?>
-        <div class="card card-info clearfix">
-            <div class="card-header with-border">
+        <div class="card card-outline card-info shadow-sm clearfix">
+            <div class="card-header border-0">
                 <h3 class="card-title"><?= _('Custom Fields') ?></h3>
-                <div class="pull-right">
-                    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
+                <div class="card-tools">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
                 </div>
             </div><!-- /.box-header -->
             <div class="card-body">
@@ -1724,16 +1724,28 @@ require $sRootDocument . '/Include/Header.php';
         <?php
     }
     ?>
-    <input type="submit" class="btn btn-primary" value="&check; <?= _('Save') ?>" name="PersonSubmit">
-    <?php
-    if (SessionUser::getUser()->isAddRecordsEnabled()) {
-        ?>
-        <input type="submit" class="btn btn-success" value="+ <?= _('Save and Add') ?>" name="PersonSubmitAndAdd">
-        <?php
-    }
-    ?>
-    <input type="button" class="btn btn-default" value="x <?= _('Cancel') ?>" name="PersonCancel"
-           onclick="javascript:document.location='<?= $sRootPath ?>/v2/people/list/person';">
+    <div class="card card-outline card-secondary shadow-sm mt-3 mb-3">
+        <div class="card-body py-2 px-3">
+            <div class="d-flex flex-wrap justify-content-end align-items-center">
+                <button type="button" class="btn btn-sm btn-outline-secondary mr-2 mb-1" name="PersonCancel"
+                        onclick="javascript:document.location='<?= $sRootPath ?>/v2/people/list/person';">
+                    <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+                </button>
+                <?php
+                if (SessionUser::getUser()->isAddRecordsEnabled()) {
+                    ?>
+                    <button type="submit" class="btn btn-sm btn-success mr-2 mb-1" name="PersonSubmitAndAdd">
+                        <i class="fas fa-user-plus mr-1"></i><?= _('Save and Add') ?>
+                    </button>
+                    <?php
+                }
+                ?>
+                <button type="submit" class="btn btn-sm btn-primary mb-1" name="PersonSubmit">
+                    <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+                </button>
+            </div>
+        </div>
+    </div>
 </form>
 <br/>
 
