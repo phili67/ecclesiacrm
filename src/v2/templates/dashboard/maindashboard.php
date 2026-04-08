@@ -12,7 +12,6 @@
  ******************************************************************************/
 
 // Include the function library
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 
@@ -26,13 +25,11 @@ require $sRootDocument . '/Include/Header.php';
 if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
     if ($numPersons + $numFamilies > 0) {
 ?>
-        <div class="alert bg-gradient-gray-dark alert-dismissible " id="Menu_GDRP">
+        <div class="alert alert-warning alert-dismissible" id="Menu_GDRP">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4 class="alert-heading"><i class="fa fa-exclamation-triangle"></i> <?= _("GDPR") ?> (<?= _("message for the DPO") ?>)</h4>
+            <h4 class="alert-heading mb-2"><i class="fas fa-exclamation-triangle mr-1"></i> <?= _("GDPR") ?> (<?= _("message for the DPO") ?>)</h4>
             <div class="row">
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-5">
+                <div class="col-sm-6 mb-2 mb-sm-0">
                     <?php
                     if ($numPersons) {
                     ?>
@@ -57,7 +54,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
                     }
                     ?>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <?php
                     if ($numFamilies) {
                     ?>
@@ -82,8 +79,6 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
                     }
                     ?>
                 </div>
-                <div class="col-sm-1">
-                </div>
             </div>
         </div>
 <?php
@@ -96,41 +91,37 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
     <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: red">
             <i class="fas fa-wrench"></i> <?= _("Customize Page") ?></button>
-        <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
+        <div class="dropdown-menu dropdown-menu-right" role="menu">
             <!--
                 TODO : plugins remote manage
                 <a href="#" class="dropdown-item">Ajouter un nouveau plugin</a>
                 <a class="dropdown-divider" style="color: #0c0c0c"></a>
                 -->
-            <a href="<?= $sRootPath ?>/v2/users/settings" class="dropdown-item" id="add-plugin"><?= _("Settings") ?></a>
+            <a href="<?= $sRootPath ?>/v2/users/settings#usersettings-pane-specific" class="dropdown-item" id="add-plugin"><?= _("Settings") ?></a>
         </div>
     </div>
 </div>
 
 <hr />
 
-<br>
-<br>
+<div class="mb-3 mt-2">
+    <h3 class="h5 mb-1"><i class="fas fa-tachometer-alt mr-2"></i><?= _("Dashboard") ?></h3>
+    <p class="text-muted small mb-0"><i class="fas fa-info-circle mr-1"></i><?= _("Quick access to your widgets and plugin insights") ?></p>
+</div>
 
 <!-- widgets -->
 <div class="row">
+    <div class="col-12 mb-2">
+        <h4 class="h6 text-muted mb-2"><i class="fas fa-th mr-1"></i><?= _("Quick Widgets") ?></h4>
+    </div>
     <?php
-    $widgetCount = $widgetPlugins->count();
-
-    $i = 0;
+    $visibleWidgetCount = 0;
     foreach ($widgetPlugins as $plugin) {
         $security = $plugin->getSecurities();
 
         if (!(SessionUser::getUser() != null and SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
             continue;
-
-        if ($i % 6 == 0 and $i > 0) {
-    ?>
-            </row>
-            <row>
-        <?php
-        }
-        $i++;
+        $visibleWidgetCount++;
 
         echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php", [
             'sRootPath'     => $sRootPath,
@@ -139,16 +130,23 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
             'PluginId'      => $plugin->getId()
         ]);
     }
+
+    if ($visibleWidgetCount === 0) {
+        ?>
+        <div class="col-12">
+            <div class="alert alert-light border mb-0">
+                <i class="fas fa-info-circle mr-1"></i><?= _("No widgets are currently available for your profile.") ?>
+            </div>
+        </div>
+    <?php
+    }
         ?>
 </div><!-- /.row -->
 <!-- /.widgets -->
 
-<div class="row">
-    <div class="col-md-12"><br></div>
-</div>
-<br />
-<div class="row">
+<div class="row mt-3">
     <section class="col-lg-12 connectedSortable ui-sortable top-plugins" data-name="center">
+        <h4 class="h6 text-muted mb-2"><i class="fas fa-arrow-up mr-1"></i><?= _("Top Plugins") ?></h4>
         <?php
         foreach ($topPlugins as $plugin) {
             $security = $plugin->getSecurities();
@@ -173,8 +171,9 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 </div>
 
 <!-- we add the left right plugins -->
-<div class="row">
+<div class="row mt-2">
     <section class="col-lg-4 connectedSortable ui-sortable left-plugins" data-name="left">
+        <h4 class="h6 text-muted mb-2"><i class="fas fa-columns mr-1"></i><?= _("Left Column") ?></h4>
         <?php
         foreach ($leftPlugins as $plugin) {
             $security = $plugin->getSecurities();
@@ -199,6 +198,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
     <!-- the center dashboard plugins -->
     <section class="col-lg-4 connectedSortable ui-sortable center-plugins" data-name="right">
+        <h4 class="h6 text-muted mb-2"><i class="fas fa-columns mr-1"></i><?= _("Center Column") ?></h4>
         <?php
         foreach ($centerPlugins as $plugin) {
             $security = $plugin->getSecurities();
@@ -225,6 +225,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
     <!-- the right dashboard plugins -->
     <section class="col-lg-4 connectedSortable ui-sortable right-plugins" data-name="right">
+        <h4 class="h6 text-muted mb-2"><i class="fas fa-columns mr-1"></i><?= _("Right Column") ?></h4>
 
         <?php
         foreach ($rightPlugins as $plugin) {
@@ -254,7 +255,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
 
 <!-- this page specific inline scripts -->
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= \EcclesiaCRM\dto\SystemURLs::getCSPNonce() ?>">
     window.CRM.attendeesPresences = false;
     window.CRM.timeOut = <?= SystemConfig::getValue("iEventsOnDashboardPresenceTimeOut") * 1000 ?>;
 </script>
