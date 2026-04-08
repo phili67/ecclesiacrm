@@ -11,7 +11,6 @@
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\Utils\MiscUtils;
 
 require $sRootDocument . '/Include/Header.php';
 
@@ -26,23 +25,35 @@ if (isset($_POST['Submit'])) {
 
 ?>
 
-<div class="card card-body">
-  <form class="form-horizontal" method="post" action="<?= $sRootPath ?>/Reports/ReminderReport.php">
-      <div class="form-group">
-          <label class="control-label col-sm-2" for="FYID"><?= _('Fiscal Year') ?>:</label>
-          <div class="col-sm-2">
-              <?php MiscUtils::PrintFYIDSelect($iFYID, 'FYID') ?>
-          </div>
+<div class="card card-outline card-primary">
+  <div class="card-header">
+    <h3 class="card-title"><i class="fas fa-bell mr-1"></i><?= _('Reminder Report') ?></h3>
+  </div>
+  <div class="card-body">
+    <p class="text-muted mb-3"><?= _('Select a fiscal year to generate a reminder report.') ?></p>
+    <form method="post" action="<?= $sRootPath ?>/Reports/ReminderReport.php">
+      <div class="form-group row align-items-center">
+        <label class="col-sm-3 col-form-label col-form-label-sm font-weight-bold" for="FYID\"><?= _('Fiscal Year') ?></label>
+        <div class="col-sm-4">
+            <?php \EcclesiaCRM\Utils\MiscUtils::PrintFYIDSelect($iFYID, 'FYID') ?>
+        </div>
       </div>
 
-      <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-8">
-              <button type="submit" class="btn btn-primary" name="Submit"><?= _('Create Report') ?></button>
-              <button type="button" class="btn btn-default" name="Cancel"
-                      onclick="javascript:document.location='<?= $sRootPath ?>/v2/dashboard';"><?= _('Cancel') ?></button>
+      <div class="form-group row mb-0">
+        <div class="col-sm-7 offset-sm-3">
+          <div class="btn-group" role="group" aria-label="Reminder report actions">
+            <button type="submit" class="btn btn-primary" name="Submit">
+              <i class="fas fa-file-alt mr-1"></i><?= _('Create Report') ?>
+            </button>
+            <button type="button" class="btn btn-outline-secondary" name="Cancel"
+                onclick="javascript:document.location='<?= $sRootPath ?>/v2/people/dashboard';">
+              <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+            </button>
           </div>
+        </div>
       </div>
-  </form>
+    </form>
+  </div>
 </div>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
