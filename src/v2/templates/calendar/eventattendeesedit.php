@@ -27,40 +27,34 @@ require $sRootDocument . '/Include/Header.php';
 
 ?>
 
-<div class="card card-info">
-    <div class='card-header'>
-        <h3 class='card-title'>(<?= _('Event ID:') . ' ' . $EventID ?>)</h3>
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class='card-header py-2'>
+        <h3 class='card-title mb-0'><i class="fas fa-calendar-day mr-1"></i><?= _('Event') ?> #<?= $EventID ?></h3>
     </div>
     <div class="card-body">
-        <p style="margin-left:10px">
+        <p class="mb-0">
             <strong><?= _('Date') ?>:</strong> <?= $EvtDate ?><br/>
             <strong><?= _('Description') ?>:</strong> <?= $EvtDesc ?><br/>
         </p>
     </div>
 </div>
 
-<div class='card card-gray'>
-    <div class="card-header  border-1">
-        <div class="card-title">
-            <?= _("Attendees") ?>
-        </div>
+<div class='card card-outline card-info shadow-sm'>
+    <div class="card-header py-2">
+        <h3 class="card-title mb-0"><i class="fas fa-users mr-1"></i><?= _("Attendees") ?></h3>
     </div>
-    <div class='card-body'>
+    <div class='card-body p-1'>
 
         <input type="hidden" name="EID" value="<?= $EventID ?>">
 
-        <table class="table table-striped table-bordered data-table  dataTable no-footer dtr-inline"
+        <table class="table table-striped table-hover table-sm mb-0 data-table dataTable no-footer dtr-inline"
                id="eventsTable" style="width:100%">
-            <thead>
+            <thead class="thead-light">
             <tr class="TableHeader">
-                <th width="35%"><strong><?= _('Name') ?></strong>
-                </td>
-                <th width="25%"><strong><?= _('Email') ?></strong>
-                </td>
-                <th width="25%"><strong><?= _('Home Phone') ?></strong>
-                </td>
-                <th width="15%" nowrap><strong><?= _('Action') ?></strong>
-                </td>
+                <th width="35%"><strong><?= _('Name') ?></strong></th>
+                <th width="25%"><strong><?= _('Email') ?></strong></th>
+                <th width="25%"><strong><?= _('Home Phone') ?></strong></th>
+                <th width="15%" nowrap><strong><?= _('Action') ?></strong></th>
             </tr>
             </thead>
             <tbody>
@@ -91,14 +85,15 @@ require $sRootDocument . '/Include/Header.php';
 
                     $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), (!empty($fam)) ? $fam->getCountry() : "", false);
                     $sHomePhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber((!empty($fam)) ? $fam->getHomePhone() : "", (!empty($fam)) ? $fam->getCountry() : "", $dummy), true);
-                    $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), (!empty($fam)) ? $fam->getEmail() : "", false); ?>
+                    $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), (!empty($fam)) ? $fam->getEmail() : "", false);
+                    ?>
                     <tr>
                         <td class="TextColumn"><?= OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) ?></td>
                         <td class="TextColumn"><?= $sEmail ? '<a href="mailto:' . $sEmail . '" title="Send Email" target="_blank">' . $sEmail . '</a>' : _('Not Available') ?></td>
                         <td class="TextColumn"><?= $sHomePhone ? '<a href="tel:' . $sHomePhone . '" title="Phone to">' . $sHomePhone . '</a>' : _('Not Available') ?></td>
-                        <td colspan="1" align="center">
-                            <a class="btn btn-danger btn-sm DeleleAttendees" data-personid="<?= $person->getId() ?>"
-                               data-eventid="<?= $EventID ?>"><i class="fas fa-times"></i> <?= _("Delete") ?></a>
+                        <td align="center">
+                            <a class="btn btn-sm btn-danger DeleleAttendees" data-personid="<?= $person->getId() ?>"
+                               data-eventid="<?= $EventID ?>"><i class="fas fa-trash-alt mr-1"></i><?= _("Delete") ?></a>
                         </td>
                     </tr>
                     <?php
@@ -110,57 +105,46 @@ require $sRootDocument . '/Include/Header.php';
                 </tr>
                 <?php
             }
-
             ?>
-            <tbody>
+            </tbody>
         </table>
 
     </div>
     <div class="card-footer">
-        <div class="row">
-            <div class="col-sm-6">
-                <form action="#" method="get" class="sidebar-form">
-                    <label for="addPersonMember"><?= _('Add Event Member') ?> :</label>
-                    <select class="form-control personGroupSearch" id="personGroupSearch" name="addPersonGroupSearch" style="width:100%">
-                    </select>
-                </form>
-            </div>
+        <div class="pb-3 mb-3 border-bottom">
+            <form action="#" method="get" class="mb-0">
+                <label for="personGroupSearch" class="mb-2"><strong><?= _('Add Event Member') ?></strong></label>
+                <select class="form-control form-control-sm personGroupSearch" id="personGroupSearch" name="addPersonGroupSearch" style="width:100%">
+                </select>
+            </form>
         </div>
-        <br/>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-3">
-                <a id="DeleleAllAttendees" class="btn btn-danger <?= ($numAttRows == 0) ? "disabled" : "" ?>"
-                   data-eventid="<?= $EventID ?>"><i class="fas fa-times"></i> <?= _("Delele All Attendees") ?></a>
+
+        <div class="d-flex flex-wrap align-items-center" style="gap:.5rem;">
+            <div>
+                <a id="DeleleAllAttendees" class="btn btn-sm btn-danger <?= ($numAttRows == 0) ? "disabled" : "" ?>"
+                   data-eventid="<?= $EventID ?>"><i class="fas fa-trash mr-1"></i><?= _("Delele All Attendees") ?></a>
             </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-3">
-                <?php if ($numAttRows - $countCheckout > 0) { ?>
-                <form action="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/checkin" method="POST">
+            <div>
+                <form action="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/checkin" method="POST" class="mb-0">
                     <input type="hidden" name="EventID" value="<?= $EventID ?>">
-                    <?php } ?>
                     <button type="submit" name="Action" title="<?= _('Make Check-out') ?>"
                             data-tooltip <?= ($numAttRows - $countCheckout > 0) ? 'value="' . _('Make Check-out') . '"' : "" ?>
-                            class="btn btn-<?= ($numAttRows - $countCheckout == 0) ? "default disabled" : "success" ?>">
-                        <i class='fas fa-check-circle'></i>
+                            class="btn btn-sm btn-<?= ($numAttRows - $countCheckout == 0) ? "outline-secondary disabled" : "success" ?>">
+                        <i class='fas fa-check-circle mr-1'></i>
                         <?= _('Make Check-out') ?>
                     </button>
-                    <?php if ($numAttRows - $countCheckout > 0) { ?>
                 </form>
-            <?php } ?>
             </div>
         </div>
     </div>
 </div>
 
-<div>
-    <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/list" class='btn btn-default'>
-        <i class='fas fa-chevron-left'></i>
+<div class="mt-4 pt-3 border-top">
+    <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/list" class='btn btn-outline-secondary btn-sm'>
+        <i class='fas fa-arrow-left mr-1'></i>
         <?= _('Return to Events') ?>
     </a>
 </div>
-
-<br/>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     //Added by @saulowulhynek to translation of datatable nav terms
