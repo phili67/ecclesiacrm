@@ -42,150 +42,206 @@ $numFamCustomFields = $famCustomFields->count();
 $sPageTitle = _('CSV Export');
 require $sRootDocument . '/Include/Header.php';
 ?>
-<form method="post" action="<?= $sRootPath ?>/Reports/CSVCreateFile.php">
-    <div class="card">
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+    <div>
+        <h3 class="h4 mb-1"><i class="fas fa-file-csv mr-2 text-primary"></i><?= _('CSV Export') ?></h3>
+        <p class="text-muted mb-0"><?= _('Choose fields, apply filters, and generate your export file.') ?></p>
+    </div>
+    <span class="badge badge-light border px-3 py-2"><?= _('System Export Tool') ?></span>
+</div>
+
+<style>
+    .csv-export-modern .custom-control-label {
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .csv-export-modern .custom-switch .custom-control-label::before {
+        top: .15rem;
+    }
+
+    .csv-export-modern .custom-switch .custom-control-label::after {
+        top: calc(.15rem + 2px);
+    }
+</style>
+
+<form method="post" action="<?= $sRootPath ?>/Reports/CSVCreateFile.php" class="csv-export-modern">
+    <div class="card card-outline card-primary">
         <div class="card-header border-1">
-            <h3 class="card-title"><?= _('Field Selection') ?></h3>
+            <h3 class="card-title"><i class="fas fa-list-check mr-1"></i><?= _('Field Selection') ?></h3>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <label><?= _('Id') ?>:</label>
-                    <input type="checkbox" name="Id" value="1">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-id" name="Id" value="1">
+                        <label class="custom-control-label" for="csv-id"><?= _('Id') ?></label>
+                    </div>
                 </div>
-            </div>        
-            <div class="row">
                 <div class="col-md-4">
-                    <label><?= _('Last Name') ?>:</label>
-                    <?= _('Required') ?>
+                    <div class="d-flex align-items-center mb-4 pt-1">
+                        <span class="mr-2 font-weight-bold"><?= _('Last Name') ?></span>
+                        <span class="badge badge-danger"><?= _('Required') ?></span>
+                    </div>
                 </div>
-
                 <div class="col-md-4">
-                    <label><?= _('Title') ?>:</label>
-                    <input type="checkbox" name="Title" value="1">
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('First Name') ?>:</label>
-                    <input type="checkbox" name="FirstName" value="1" checked>
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-title" name="Title" value="1">
+                        <label class="custom-control-label" for="csv-title"><?= _('Title') ?></label>
+                    </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-4">
-                    <label><?= _('Middle Name') ?>:</label>
-                    <input type="checkbox" name="MiddleName" value="1">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-firstname" name="FirstName" value="1" checked>
+                        <label class="custom-control-label" for="csv-firstname"><?= _('First Name') ?></label>
+                    </div>
                 </div>
-
                 <div class="col-md-4">
-                    <label><?= _('Suffix') ?>:</label>
-                    <input type="checkbox" name="Suffix" value="1">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-middlename" name="MiddleName" value="1">
+                        <label class="custom-control-label" for="csv-middlename"><?= _('Middle Name') ?></label>
+                    </div>
                 </div>
-
                 <div class="col-md-4">
-                    <label><?= _('Address') ?> 1:</label>
-                    <input type="checkbox" name="Address1" value="1" checked>
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-suffix" name="Suffix" value="1">
+                        <label class="custom-control-label" for="csv-suffix"><?= _('Suffix') ?></label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label><?= _('Address') ?> 2:</label>
-                    <input type="checkbox" name="Address2" value="1" checked>
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('City') ?>:</label>
-                    <input type="checkbox" name="City" value="1" checked>
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('State') ?>:</label>
-                    <input type="checkbox" name="State" value="1" checked>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-md-4">
-                    <label><?= _('Zip') ?>:</label>
-                    <input type="checkbox" name="Zip" value="1" checked>
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('Envelope') ?>:</label>
-                    <input type="checkbox" name="Envelope" value="1">
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('Country') ?>:</label>
-                    <input type="checkbox" name="Country" value="1" checked>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-md-4">
-                    <label><?= _('Home Phone') ?>:</label>
-                    <input type="checkbox" name="HomePhone" value="1">
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('Work Phone') ?>:</label>
-                    <input type="checkbox" name="WorkPhone" value="1">
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('Mobile Phone') ?>:</label>
-                    <input type="checkbox" name="CellPhone" value="1">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <label><?= _('Email') ?>:</label>
-                    <input type="checkbox" name="Email" value="1">
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('Work/Other Email') ?>:</label>
-                    <input type="checkbox" name="WorkEmail" value="1">
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('Membership Date') ?>:</label>
-                    <input type="checkbox" name="MembershipDate" value="1">
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-md-4">
-                    <label>* <?= _('Birth / Anniversary Date') ?>:</label>
-                    <input type="checkbox" name="BirthdayDate" value="1">
-                </div>
-
-                <div class="col-md-4">
-                    <label>* <?= _('Age / Years Married') ?>:</label>
-                    <input type="checkbox" name="Age" value="1">
-                </div>
-
-                <div class="col-md-4">
-                    <label><?= _('Classification') ?>:</label>
-                    <input type="checkbox" name="PrintMembershipStatus" value="1">
-                </div>                
             </div>
 
             <div class="row">
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-address1" name="Address1" value="1" checked>
+                        <label class="custom-control-label" for="csv-address1"><?= _('Address') ?> 1</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-address2" name="Address2" value="1" checked>
+                        <label class="custom-control-label" for="csv-address2"><?= _('Address') ?> 2</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-city" name="City" value="1" checked>
+                        <label class="custom-control-label" for="csv-city"><?= _('City') ?></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-state" name="State" value="1" checked>
+                        <label class="custom-control-label" for="csv-state"><?= _('State') ?></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-zip" name="Zip" value="1" checked>
+                        <label class="custom-control-label" for="csv-zip"><?= _('Zip') ?></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-envelope" name="Envelope" value="1">
+                        <label class="custom-control-label" for="csv-envelope"><?= _('Envelope') ?></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-country" name="Country" value="1" checked>
+                        <label class="custom-control-label" for="csv-country"><?= _('Country') ?></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-homephone" name="HomePhone" value="1">
+                        <label class="custom-control-label" for="csv-homephone"><?= _('Home Phone') ?></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-workphone" name="WorkPhone" value="1">
+                        <label class="custom-control-label" for="csv-workphone"><?= _('Work Phone') ?></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-cellphone" name="CellPhone" value="1">
+                        <label class="custom-control-label" for="csv-cellphone"><?= _('Mobile Phone') ?></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-email" name="Email" value="1">
+                        <label class="custom-control-label" for="csv-email"><?= _('Email') ?></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-workemail" name="WorkEmail" value="1">
+                        <label class="custom-control-label" for="csv-workemail"><?= _('Work/Other Email') ?></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-membershipdate" name="MembershipDate" value="1">
+                        <label class="custom-control-label" for="csv-membershipdate"><?= _('Membership Date') ?></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-birthdaydate" name="BirthdayDate" value="1">
+                        <label class="custom-control-label" for="csv-birthdaydate">* <?= _('Birth / Anniversary Date') ?></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-age" name="Age" value="1">
+                        <label class="custom-control-label" for="csv-age">* <?= _('Age / Years Married') ?></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-classification" name="PrintMembershipStatus" value="1">
+                        <label class="custom-control-label" for="csv-classification"><?= _('Classification') ?></label>
+                    </div>
+                </div>
                 <div class="col-md-8">
-                    <label><?= _('Family Role') ?>:</label>
-                    <input type="checkbox" name="PrintFamilyRole" value="1">
-                    <br>                        
-                    <span class="text-red"> <?= _('Depends whether using person or family output method') ?></span>
-                </div>                    
+                    <div class="custom-control custom-switch mb-2">
+                        <input type="checkbox" class="custom-control-input" id="csv-familyrole" name="PrintFamilyRole" value="1">
+                        <label class="custom-control-label" for="csv-familyrole"><?= _('Family Role') ?></label>
+                    </div>
+                    <span class="text-danger small"> <?= _('Depends whether using person or family output method') ?></span>
+                </div>
             </div>
         </div>
     </div>
     <?php
     if ($numCustomFields > 0 || $numFamCustomFields > 0) {
         ?>
-        <div class="card">
+        <div class="card card-outline card-secondary">
             <div class="card-header border-1">
-                <h3 class="card-title"><?= _('Custom Field Selection') ?></h3>
+                <h3 class="card-title"><i class="fas fa-sliders-h mr-1"></i><?= _('Custom Field Selection') ?></h3>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -193,8 +249,8 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($numCustomFields > 0) {
                             ?>
-                            <h3><?= _('Custom Person Fields') ?></h3>
-                            <table cellpadding="4" align="left">
+                            <h5 class="mb-2"><?= _('Custom Person Fields') ?></h5>
+                            <table class="table table-sm table-borderless" cellpadding="4" align="left">
                                 <?php
                                 // Display the custom fields
                                 foreach ($customFields as $customField) {
@@ -202,9 +258,15 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                         <tr>
                                             <td class="LabelColumn"><?= $customField->getCustomName() ?></td>
-                                            <td class="TextColumn"><input type="checkbox"
-                                                                          name="<?= $customField->getCustomField() ?>"
-                                                                          value="1"></td>
+                                            <td class="TextColumn">
+                                                <div class="custom-control custom-switch mb-2">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                           id="person-<?= $customField->getCustomField() ?>"
+                                                           name="<?= $customField->getCustomField() ?>"
+                                                           value="1">
+                                                    <label class="custom-control-label" for="person-<?= $customField->getCustomField() ?>"></label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <?php
                                     }
@@ -218,8 +280,8 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                         if ($numFamCustomFields > 0) {
                             ?>
-                            <h3><?= _('Custom Family Fields') ?></h3>
-                            <table cellpadding="4" align="left">
+                            <h5 class="mb-2"><?= _('Custom Family Fields') ?></h5>
+                            <table class="table table-sm table-borderless" cellpadding="4" align="left">
                                 <?php
                                 // Display the family custom fields
                                 foreach ($famCustomFields as $famCustomField) {
@@ -227,9 +289,15 @@ require $sRootDocument . '/Include/Header.php';
                                         ?>
                                         <tr>
                                             <td class="LabelColumn"><?= $famCustomField->getCustomName() ?></td>
-                                            <td class="TextColumn"><input type="checkbox"
-                                                                          name="<?= $famCustomField->getCustomField() ?>"
-                                                                          value="1"></td>
+                                            <td class="TextColumn">
+                                                <div class="custom-control custom-switch mb-2">
+                                                    <input type="checkbox" class="custom-control-input"
+                                                           id="family-<?= $famCustomField->getCustomField() ?>"
+                                                           name="<?= $famCustomField->getCustomField() ?>"
+                                                           value="1">
+                                                    <label class="custom-control-label" for="family-<?= $famCustomField->getCustomField() ?>"></label>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <?php
                                     }
@@ -247,9 +315,9 @@ require $sRootDocument . '/Include/Header.php';
     }
     ?>
 
-    <div class="card card-warning">
+    <div class="card card-outline card-warning">
         <div class="card-header border-1">
-            <h3 class="card-title"><?= _('Filters') . ' (' . _('Ignored if you come from the CartView') . ')' ?></h3>
+            <h3 class="card-title"><i class="fas fa-filter mr-1"></i><?= _('Filters') . ' (' . _('Ignored if you come from the CartView') . ')' ?></h3>
             <div class="card-tools pull-right">
                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#OtherFilters"
                         aria-expanded="false" aria-controls="OtherFilters">
@@ -527,28 +595,28 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
 
-    <div class="card card-success">
+    <div class="card card-outline card-success">
         <div class="card-header border-1">
-            <h3 class="card-title"><?= _('Output Method:') ?></h3>
+            <h3 class="card-title"><i class="fas fa-file-export mr-1"></i><?= _('Output Method:') ?></h3>
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="col-lg-3">
-                    <select name="Format" class="form-control form-control-sm">
+            <div class="row align-items-end">
+                <div class="col-lg-4 mb-2 mb-lg-0">
+                    <label class="text-muted small text-uppercase mb-1 d-block"><?= _('Export type') ?></label>
+                    <select name="Format" class="form-control">
                         <option value="Default"><?= _('CSV Individual Records') ?></option>
                         <option value="Rollup"><?= _('CSV Combine Families') ?></option>
                         <option value="AddToCart"><?= _('Add Individuals to Cart') ?></option>
                     </select>
                 </div>
-                <div class="col-lg-4">
-                    <label><?= _('Skip records with incomplete mail address') ?></label><input
-                        type="checkbox"
-                        name="SkipIncompleteAddr"
-                        value="1">
+                <div class="col-lg-4 mb-2 mb-lg-0">
+                    <div class="custom-control custom-switch mb-4">
+                        <input type="checkbox" class="custom-control-input" id="csv-skip-incomplete-addr" name="SkipIncompleteAddr" value="1">
+                        <label class="custom-control-label" for="csv-skip-incomplete-addr"><?= _('Skip records with incomplete mail address') ?></label>
+                    </div>
                 </div>
-                <div class="col-lg-5">
-                    <input type="submit" class="btn btn-primary"
-                           value=<?= '"' . _('Create File') . '"' ?> name="Submit">
+                <div class="col-lg-4 text-lg-right">
+                    <button type="submit" class="btn btn-primary px-4" name="Submit"><i class="fas fa-download mr-1"></i><?= _('Create File') ?></button>
                 </div>
             </div>
         </div>
