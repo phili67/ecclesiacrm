@@ -2001,8 +2001,12 @@ window.CRM.darkMode = function (mode, save = false) {
   if(mode == 'dark') {// we're on dark mode            
       $('.control-sidebar').removeClass('control-sidebar-light');
       $('.control-sidebar').addClass('control-sidebar-dark');
+      $('.sidebar-mini').removeClass('light-mode');
       $('.sidebar-mini').addClass('dark-mode');
-      $('.table-dropdown-menu').addClass('dark-mode');
+      $('.table-dropdown-menu').removeClass('light-mode');
+      $('.table-dropdown-menu').addClass('dark-mode');      
+      $('.dropdown-menu').removeClass('navbar-light');
+      $('.dropdown-menu').addClass('navbar-dark');
       
       $('.main-header').removeClass('navbar-light');
       $('.main-header').addClass('navbar-dark');
@@ -2014,7 +2018,11 @@ window.CRM.darkMode = function (mode, save = false) {
       $('.control-sidebar').removeClass('control-sidebar-dark');
       $('.control-sidebar').addClass('control-sidebar-light');
       $('.sidebar-mini').removeClass('dark-mode');
+      $('.sidebar-mini').addClass('light-mode');
       $('.table-dropdown-menu').removeClass('dark-mode');
+      $('.table-dropdown-menu').addClass('light-mode');
+      $('.dropdown-menu').removeClass('navbar-dark');
+      $('.dropdown-menu').addClass('navbar-light');
       
       $('.main-header').removeClass('navbar-dark');
       $('.main-header').addClass('navbar-light');
