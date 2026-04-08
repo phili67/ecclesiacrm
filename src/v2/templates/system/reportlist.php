@@ -19,34 +19,39 @@ use EcclesiaCRM\dto\SystemConfig;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 require $sRootDocument . '/Include/Header.php';
+
+$hasAnyReport = false;
 ?>
 
-  <!-- ./col -->
-  <?php
-    if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
-?>
 <div class="row">
+    <?php
+    if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
+        $hasAnyReport = true;
+    ?>
     <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header border-1">
-          <h3 class="card-title"><?= _('Financial Reports') ?></h3>
+      <div class="card card-primary card-outline">
+        <div class="card-header border-1 d-flex align-items-center justify-content-between">
+          <h3 class="card-title mb-0"><i class="fas fa-file-invoice-dollar mr-1"></i><?= _('Financial Reports') ?></h3>
         </div>
         <div class="card-body">
-          <p>
-            <a class="MediumText" href="<?= $sRootPath ?>/v2/deposit/financial/reports">
-          </p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item pl-0">
+              <a class="font-weight-bold" href="<?= $sRootPath ?>/v2/deposit/financial/reports"><?= _('Deposit Reports') ?></a>
+              <div class="small text-muted mt-1"><?= _('Access all financial reporting tools.') ?></div>
+            </li>
           <?php
           if (SessionUser::getUser()->isAdmin()) {
             ?>
-              <p>
-              <a class="MediumText" href="<?= $sRootPath ?>/v2/people/canvass/automation">
-              <?= _('Canvass Automation') ?></a><br>
-              <?= _('Automated support for conducting an every-member canvass.') ?>
+            <li class="list-group-item pl-0">
+              <a class="font-weight-bold" href="<?= $sRootPath ?>/v2/people/canvass/automation"><?= _('Canvass Automation') ?></a>
+              <div class="small text-muted mt-1"><?= _('Automated support for conducting an every-member canvass.') ?></div>
+            </li>
               <?php
           } ?>
+          </ul>
         </div>
       </div>
-    </div><!-- ./col -->
+    </div>
     <?php
 }
 
@@ -59,26 +64,45 @@ if ( SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
                   ->find();
 
   if (!empty($ormOpps) && $ormOpps->count() > 0) {
+      $hasAnyReport = true;
       ?>
     <div class="col-lg-12">
-      <div class="card">
+      <div class="card card-info card-outline">
         <div class="card-header border-1">
-          <h3 class="card-title"><?= _('Event Attendance Reports') ?></h3>
+          <h3 class="card-title mb-0"><i class="fas fa-calendar-check mr-1"></i><?= _('Event Attendance Reports') ?></h3>
         </div>
         <div class="card-body">
+          <ul class="list-group list-group-flush">
           <?php
           // List all events
           foreach ($ormOpps as $ormOpp) {
             ?>
-              &nbsp;&nbsp;&nbsp;<a href="<?= $sRootPath ?>/v2/system/event/attendance/List/<?=$ormOpp->getId()?>/<?= $ormOpp->getName() ?>" title="List All <?=
-            $ormOpp->getName() ?> Events"><strong><?= $ormOpp->getName()?></strong></a><br>
+              <li class="list-group-item pl-0">
+                <a class="font-weight-bold" href="<?= $sRootPath ?>/v2/system/event/attendance/List/<?= $ormOpp->getId() ?>/<?= $ormOpp->getName() ?>" title="List All <?= $ormOpp->getName() ?> Events"><?= $ormOpp->getName() ?></a>
+                <div class="small text-muted mt-1"><?= _('Open attendance reports for this event type.') ?></div>
+              </li>
             <?php
           } ?>
+          </ul>
         </div>
       </div>
     </div>
     <?php
   }
+}
+
+if (!$hasAnyReport) {
+    ?>
+    <div class="col-lg-12">
+      <div class="alert alert-info mb-0 d-flex align-items-start">
+        <i class="fas fa-circle-info mt-1 mr-2"></i>
+        <div>
+          <strong><?= _('No reports available') ?></strong><br>
+          <span><?= _('No report category is currently enabled for your account.') ?></span>
+        </div>
+      </div>
+    </div>
+    <?php
 }
   ?>
 </div>
