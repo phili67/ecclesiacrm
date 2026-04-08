@@ -26,64 +26,60 @@ use EcclesiaCRM\dto\ChurchMetaData;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<?php
-if (SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($iGroupID)) {
-?>
-    <a class="btn btn-app" href="<?= $sRootPath ?>/v2/map/<?= $thisGroup->getId() ?>"><i class="fas fa-map-marker-alt"></i><?= _('Map this group') ?></a>
-<?php
-}
-?>
-
-<?php
-if (Cart::GroupInCart($iGroupID) && SessionUser::getUser()->isShowCartEnabled()) {
-?>
-    <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fas fa-times"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
-<?php
-} else if (SessionUser::getUser()->isShowCartEnabled()) {
-?>
-    <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fas fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
-<?php
-}
-?>
-<?php
-if (SessionUser::getUser()->isManageGroupsEnabled()) {
-?>
-    <a class="btn btn-app" href="<?= $sRootPath ?>/v2/group/editor/<?= $thisGroup->getId() ?>"
-        data-toggle="tooltip" data-placement="bottom" title="<?= _("To add special Group roles or to modify the role by default or to enable Group-specific properties") ?>"><i class="fas fa-pencil-alt"></i><?= _("Edit this Group") ?></a>
-    <button class="btn btn-app bg-maroon" id="deleteGroupButton"><i class="fas fa-trash-alt"></i><?= _("Delete this Group") ?></button>
-<?php
-}
-?>
-
-<?php
-if (
-    SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
-    || SessionUser::getUser()->isMenuOptionsEnabled()
-) {
-?>
-    <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
-<?php
-}
-?>
-
-<?php
-if (SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']) { // use session variable for an current group manager
-?>
-    <form method="POST" action="<?= $sRootPath ?>/v2/group/reports" style="display:inline">
-        <input type="hidden" id="GroupID" name="GroupID" value="<?= $iGroupID ?>">
-        <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fas fa-file-pdf"></i><?= _("Group reports") ?></button>
-    </form>
-
-    <a class="btn btn-app bg-purple" id="groupbadge" data-groupid="<?= $iGroupID ?>" data-toggle="tooltip"
-        data-placement="bottom" title="<?= _("Create here your badges or QR-Code to call the register with them") ?>"> <i
-            class="fas fa-id-badge"></i> <span
-            class="cartActionDescription"><?= _("Group Badges") ?></span></a>
-
-    <a class="btn btn-app bg-yellow-gradient <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> export-vcard-button" data-toggle="tooltip" data-placement="bottom" title="" href="<?= $sRootPath ?>/api/groups/addressbook/extract/<?= $iGroupID ?>" data-original-title="<?= _("Click to create an addressbook of the Group") ?>"><i class="far fa-id-card">
-        </i> <?= _('Address Book') ?></a>
-<?php
-}
-?>
+<div class="card card-outline card-secondary shadow-sm mb-3">
+    <div class="card-header border-0">
+        <h3 class="card-title"><i class="fas fa-users mr-2"></i><?= _("Actions") ?></h3>
+    </div>
+    <div class="card-body py-2">
+        <div class="d-flex flex-wrap gap-2 align-items-center" style="gap: 0.5rem;">
+<?php if (SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($iGroupID)): ?>
+            <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/map/<?= $thisGroup->getId() ?>">
+                <i class="fas fa-map-marker-alt mr-1"></i><?= _('Map this group') ?>
+            </a>
+<?php endif; ?>
+<?php if (Cart::GroupInCart($iGroupID) && SessionUser::getUser()->isShowCartEnabled()): ?>
+            <a class="btn btn-sm btn-outline-info AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>">
+                <i class="fas fa-times mr-1"></i><span class="cartActionDescription"><?= _("Remove from Cart") ?></span>
+            </a>
+<?php elseif (SessionUser::getUser()->isShowCartEnabled()): ?>
+            <a class="btn btn-sm btn-outline-info AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>">
+                <i class="fas fa-cart-plus mr-1"></i><span class="cartActionDescription"><?= _("Add to Cart") ?></span>
+            </a>
+<?php endif; ?>
+<?php if (SessionUser::getUser()->isManageGroupsEnabled()): ?>
+            <a class="btn btn-sm btn-outline-primary" href="<?= $sRootPath ?>/v2/group/editor/<?= $thisGroup->getId() ?>"
+                data-toggle="tooltip" data-placement="bottom"
+                title="<?= _("To add special Group roles or to modify the role by default or to enable Group-specific properties") ?>">
+                <i class="fas fa-pencil-alt mr-1"></i><?= _("Edit this Group") ?>
+            </a>
+            <button class="btn btn-sm btn-danger" id="deleteGroupButton">
+                <i class="fas fa-trash-alt mr-1"></i><?= _("Delete this Group") ?>
+            </button>
+<?php endif; ?>
+<?php if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->isMenuOptionsEnabled()): ?>
+            <a class="btn btn-sm btn-warning" id="add-event">
+                <i class="far fa-calendar-plus mr-1"></i><?= _("Appointment") ?>
+            </a>
+<?php endif; ?>
+<?php if (SessionUser::getUser()->isManageGroupsEnabled() || $_SESSION['bManageGroups']): ?>
+            <form method="POST" action="<?= $sRootPath ?>/v2/group/reports" style="display:inline">
+                <input type="hidden" id="GroupID" name="GroupID" value="<?= $iGroupID ?>">
+                <button type="submit" class="btn btn-sm btn-success exportCheckOutCSV">
+                    <i class="fas fa-file-pdf mr-1"></i><?= _("Group reports") ?>
+                </button>
+            </form>
+            <a class="btn btn-sm btn-outline-secondary" id="groupbadge" data-groupid="<?= $iGroupID ?>"
+                data-toggle="tooltip" data-placement="bottom"
+                title="<?= _("Create here your badges or QR-Code to call the register with them") ?>">
+                <i class="fas fa-id-badge mr-1"></i><?= _("Group Badges") ?>
+            </a>
+            <a class="btn btn-sm btn-outline-warning <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> export-vcard-button"
+                href="<?= $sRootPath ?>/api/groups/addressbook/extract/<?= $iGroupID ?>"
+                data-toggle="tooltip" data-placement="bottom"
+                title="<?= _("Click to create an addressbook of the Group") ?>">
+                <i class="far fa-id-card mr-1"></i><?= _('Address Book') ?>
+            </a>
+<?php endif; ?>
 
 <?php
 
@@ -133,23 +129,28 @@ if ($sEmailLink) {
         // Display link
 ?>
         <div class="btn-group">
-            <a class="btn btn-app <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> email-button" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="far fa-paper-plane"></i><?= _("Email Group") ?></a>
-            <button type="button" class="btn btn-app dropdown-toggle email-button-dropdown" data-toggle="dropdown" <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?>>
-                <span class="caret"></span>
+            <a class="btn btn-sm btn-success <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> email-button"
+                href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank">
+                <i class="far fa-envelope mr-1"></i><?= _("Email Group") ?>
+            </a>
+            <button type="button" class="btn btn-sm btn-success dropdown-toggle dropdown-toggle-split email-button-dropdown"
+                data-toggle="dropdown" <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?>>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
-            <div class="dropdown-menu" role="menu">
+            <div class="dropdown-menu">
                 <?= MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
             </div>
         </div>
-
         <div class="btn-group">
-            <a class="btn btn-app <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> email-cci-button" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="fas fa-paper-plane"></i><?= _("Email (BCC)") ?></a>
-            <button type="button" class="btn btn-app dropdown-toggle email-cci-button-dropdown" data-toggle="dropdown" <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?>>
-                <span class="caret"></span>
+            <a class="btn btn-sm btn-info <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> email-cci-button"
+                href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank">
+                <i class="fas fa-envelope mr-1"></i><?= _("Email (BCC)") ?>
+            </a>
+            <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split email-cci-button-dropdown"
+                data-toggle="dropdown" <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?>>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
-            <div class="dropdown-menu" role="menu">
+            <div class="dropdown-menu">
                 <?= MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
             </div>
         </div>
@@ -192,19 +193,23 @@ if ($sPhoneLink) {
     if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
         // Display link
     ?>
-        <a class="btn btn-app <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> sms-button" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fas fa-mobile"></i><?= _('Text Group') ?></a>
-        <script nonce="<?= $CSPNonce ?>">
-            function allPhonesCommaD() {
-                prompt("<?= _("Press CTRL + C to copy all group members\' phone numbers") ?>", "<?= mb_substr($sPhoneLink, 0, -2) ?>")
-            };
-        </script>
+            <a class="btn btn-sm btn-outline-info <?= $thisGroup->isIncludeInEmailExport()?'':'disabled' ?> sms-button"
+                href="javascript:void(0)" onclick="allPhonesCommaD()">
+                <i class="fas fa-mobile-alt mr-1"></i><?= _('Text Group') ?>
+            </a>
+            <script nonce="<?= $CSPNonce ?>">
+                function allPhonesCommaD() {
+                    prompt("<?= _("Press CTRL + C to copy all group members' phone numbers") ?>", "<?= mb_substr($sPhoneLink, 0, -2) ?>")
+                };
+            </script>
 <?php
     }
 }
 ?>
 
-<br><br>
-
+            </div>
+        </div>
+    </div>
 <div class="group_Side_bar_container">
     <?php
     if ($_SESSION['bManageGroups'] or SessionUser::getUser()->isManageGroupsEnabled()) {
@@ -217,27 +222,26 @@ if ($sPhoneLink) {
             if (SessionUser::getUser()->isManageGroupsEnabled()) {
                 ?>
                     <div class="card group_accordion">
-                        <div class="card-header border-1 group_header_accordion" id="headingQuickSettings">
-                            <h3 class="card-title">
-                                <i class="fas fa-sliders fa-fw"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseQuickSettings" aria-expanded="true" aria-controls="collapseQuickSettings">
-                                    <?= _('Quick Settings') ?>
-                                </button>
-                            </h3>
-                            <div class="card-tools pull-right">
-                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseQuickSettings" aria-expanded="true" aria-controls="collapseQuickSettings"><i class="fas fa-plus"></i></button>
+                        <div class="card-header" id="headingQuickSettings">
+                                <h3 class="card-title">
+                                    <i class="fas fa-sliders-h mr-2"></i>
+                                    <a data-toggle="collapse" href="#collapseQuickSettings"><?= _('Quick Settings') ?></a>
+                                </h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseQuickSettings"><i class="fas fa-minus collapse-toggle-icon"></i></button>
+                                </div>
                             </div>
-                        </div>
-                        <div id="collapseQuickSettings" class="collapse show" aria-labelledby="headingQuickSettings" data-parent="#accordion" style="">
+                        <div id="collapseQuickSettings" class="collapse show" aria-labelledby="headingQuickSettings" data-parent="#accordion">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-5"><label><?= _("Group is") ?></label> : </div>
-                                    <div class="col-md-7">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-md-5"><label class="mb-0"><?= _("Group is") ?></label></div>
+                                    <div class="col-md-7 text-md-right">
                                         <input data-width="100" class="btn btn-primary btn-sm" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Active') ?>" data-off="<?= _('Disabled') ?>">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-5"><label><?= _("The emails are") ?></label> : </div>
-                                    <div class="col-md-7">
+                                <div class="row align-items-center">
+                                    <div class="col-md-5"><label class="mb-0"><?= _("The emails are") ?></label></div>
+                                    <div class="col-md-7 text-md-right">
                                         <input data-width="100" class="btn btn-primary btn-sm" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>">
                                     </div>
                                 </div>
@@ -246,19 +250,20 @@ if ($sPhoneLink) {
                     </div>
 
                     <div class="card group_accordion">
-                        <div class="card-header border-1 group_header_accordion" id="headingGroupManager">
+                        <div class="card-header" id="headingGroupManager">
                             <h3 class="card-title">
-                                <i class="fas fa-users"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager">
-                                    <?= _("Group Managers") ?>
-                                </button>
+                                <i class="fas fa-users mr-2"></i>
+                                <a data-toggle="collapse" href="#collapseGroupManager"><?= _("Group Managers") ?></a>
                             </h3>
-                            <div class="card-tools pull-right">
-                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseGroupManager" aria-expanded="true" aria-controls="collapseGroupManager"><i class="fas fa-plus"></i></button>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseGroupManager"><i class="fas fa-minus collapse-toggle-icon"></i></button>
                             </div>
                         </div>
-                        <div id="collapseGroupManager" class="collapse" aria-labelledby="headingGroupManager" data-parent="#accordion" style="">
+                        <div id="collapseGroupManager" class="collapse" aria-labelledby="headingGroupManager" data-parent="#accordion">
                             <div class="card-body">
-                                <b><?= _("Assigned Managers") ?>:</b>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <b class="mb-0"><?= _("Assigned Managers") ?>:</b>
+                                </div>
                                 <div id="Manager-list">
                                     <?php
                                     $managers = GroupManagerPersonQuery::Create()->findByGroupId($iGroupID);
@@ -272,20 +277,23 @@ if ($sPhoneLink) {
                                             }
                                             if (!$manager->getPerson()->isDeactivated()) {
                                     ?>
-                                                <button class="delete-person-manager btn btn-danger btn-xs" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i class="icon far fa-trash-alt"></i></button> <?= $manager->getPerson()->getFullName() ?> <br />
+                                                <div class="d-flex align-items-center justify-content-between border rounded px-2 py-1 mb-1">
+                                                    <span class="text-truncate pr-2"><?= $manager->getPerson()->getFullName() ?></span>
+                                                    <button class="delete-person-manager btn btn-sm btn-outline-danger" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i class="fas fa-trash-alt"></i></button>
+                                                </div>
                                         <?php
                                             }
                                         }
                                     } else {
                                         ?>
-                                        <p><?= _("No assigned Manager") ?>.</p>
+                                        <p class="text-muted mb-0"><?= _("No assigned Manager") ?>.</p>
                                     <?php
                                     }
                                     ?>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-primary" id="add-manager"
+                                <a class="btn btn-primary btn-sm" id="add-manager"
                                     data-toggle="tooltip" data-placement="bottom" title="<?= _("Add a specific manager only for this group") ?>"><?= _("Add Manager") ?></a>
                             </div>
                         </div>
@@ -300,61 +308,61 @@ if ($sPhoneLink) {
                 if ($_SESSION['bManageGroups']) {
                 ?>
                     <div class="card group_accordion">
-                        <div class="card-header border-1 group_header_accordion" id="headingProperties">
+                        <div class="card-header" id="headingProperties">
                             <h3 class="card-title">
-                                <i class="fas fa-gear"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseProperties" aria-expanded="true" aria-controls="collapseProperties">
-                                    <?= _('Group Properties') ?>
-                                </button>
+                                <i class="fas fa-cog mr-2"></i>
+                                <a data-toggle="collapse" href="#collapseProperties"><?= _('Group Properties') ?></a>
                             </h3>
-                            <div class="card-tools pull-right">
-                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseProperties" aria-expanded="true" aria-controls="collapseProperties"><i class="fas fa-plus"></i></button>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseProperties"><i class="fas fa-minus collapse-toggle-icon"></i></button>
                             </div>
                         </div>
-                        <div id="collapseProperties" class="collapse" aria-labelledby="headingProperties" data-parent="#accordion" style="">
-                            <div class="card-body">
-                                <b><?= _('Assigned Properties') ?>:</b>
+                        <div id="collapseProperties" class="collapse" aria-labelledby="headingProperties" data-parent="#accordion">
+                            <div class="card-body p-1">
+                                <b class="d-block mb-2"><?= _('Assigned Properties') ?>:</b>
                                 <?php
                                 $sAssignedProperties = ',';
                                 ?>
-                                <table width="100%" cellpadding="2" class="table table-condensed dt-responsive dataTable no-footer dtr-inline" id="AssignedPropertiesTable"></table>
+                                <table width="100%" cellpadding="2" class="table table-sm dt-responsive dataTable no-footer dtr-inline" id="AssignedPropertiesTable"></table>
 
                                 <?php
                                 //}
 
                                 if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) {
                                 ?>
-                                    <div class="alert alert-info">
-                                        <div>
-                                            <h4><strong><?= _('Assign a New Property') ?>:</strong></h4>
+                                    <div class="border rounded bg-light mt-3 p-2">
+                                        <h4 class="h6 mb-2 d-flex align-items-center">
+                                            <i class="fas fa-plus-circle mr-1 text-primary"></i><strong><?= _('Assign a New Property') ?></strong>
+                                        </h4>
+                                        <p class="small mb-2"><?= _('Choose a property, fill the value if requested, then assign.') ?></p>
 
-                                            <div class="row">
-                                                <div class="form-group col-xs-12 col-md-12">
-                                                    <select name="PropertyId" id="input-group-properties" class="input-group-properties form-control select2" style="width:100%" data-groupID="<?= $iGroupID ?>">
-                                                        <option disabled selected> -- <?= _('select an option') ?> -- </option>
-                                                        <?php
-                                                        foreach ($ormProperties as $ormProperty) {
-                                                            //If the property doesn't already exist for this Person, write the <OPTION> tag
-                                                            if (strlen(strstr($sAssignedProperties, ',' . $ormProperty->getProId() . ',')) == 0) {
-                                                        ?>
-                                                                <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>
-                                                        <?php
-                                                            }
-                                                        }
-                                                        ?>
+                                        <div class="form-group mb-2">
+                                            <label for="input-group-properties" class="small mb-1"><?= _('Property') ?></label>
+                                            <select name="PropertyId" id="input-group-properties" class="input-group-properties form-control select2" style="width:100%" data-groupID="<?= $iGroupID ?>">
+                                                <option disabled selected> -- <?= _('select an option') ?> -- </option>
+                                                <?php
+                                                foreach ($ormProperties as $ormProperty) {
+                                                    //If the property doesn't already exist for this Person, write the <OPTION> tag
+                                                    if (strlen(strstr($sAssignedProperties, ',' . $ormProperty->getProId() . ',')) == 0) {
+                                                ?>
+                                                        <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
 
-                                                    </select>
-                                                </div>
-                                                <div id="prompt-box" class="col-xs-12 col-md-12"></div>
-                                                <div class="form-group col-xs-12 col-md-12">
-                                                    <input type="submit" class="btn btn-primary assign-property-btn" value="<?= _('Assign') ?>">
-                                                </div>
-                                            </div>
+                                        <div id="prompt-box" class="mb-2"></div>
+
+                                        <div class="d-flex justify-content-end">
+                                            <input type="submit" class="btn btn-primary btn-sm px-3 assign-property-btn" value="<?= _('Assign') ?>">
                                         </div>
                                     </div>
                                 <?php
                                 } else {
                                 ?>
-                                    <br><br><br>
+                                    <p class="text-muted small mt-3 mb-0"><?= _('No property assignment action available for your role.') ?></p>
                                 <?php
                                 }
                                 ?>
@@ -362,19 +370,18 @@ if ($sPhoneLink) {
                         </div>
                     </div>
                     <div class="card group_accordion">
-                        <div class="card-header border-1 group_header_accordion" id="headingSpecificProperties">
+                        <div class="card-header" id="headingSpecificProperties">
                             <h3 class="card-title">
-                                <i class="fas fa-gears"></i> <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSpecificProperties" aria-expanded="true" aria-controls="collapseSpecificProperties">
-                                    <?= _('Group-Specific Properties') ?>
-                                </button>
+                                <i class="fas fa-cogs mr-2"></i>
+                                <a data-toggle="collapse" href="#collapseSpecificProperties"><?= _('Group-Specific Properties') ?></a>
                             </h3>
-                            <div class="card-tools pull-right">
-                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseSpecificProperties" aria-expanded="true" aria-controls="collapseSpecificProperties"><i class="fas fa-plus"></i></button>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-toggle="collapse" data-target="#collapseSpecificProperties"><i class="fas fa-minus collapse-toggle-icon"></i></button>
                             </div>
                         </div>
-                        <div id="collapseSpecificProperties" class="collapse" aria-labelledby="headingSpecificProperties" data-parent="#accordion" style="">
-                            <div class="card-body">
-                                <b><?= _('Assigned Properties') ?>:</b>
+                        <div id="collapseSpecificProperties" class="collapse" aria-labelledby="headingSpecificProperties" data-parent="#accordion">
+                            <div class="card-body p-1">
+                                <b class="d-block mb-2"><?= _('Assigned Properties') ?>:</b>
                                 <?php
                                 if ($thisGroup->getHasSpecialProps()) {
                                     // Create arrays of the properties.
@@ -382,16 +389,18 @@ if ($sPhoneLink) {
                                     // Construct the table
                                     if ($ormPropList->count() == 0) {
                                 ?>
-                                        <p><?= _("No member properties have been created") ?></p>
+                                        <p class="text-muted mb-0"><?= _("No member properties have been created") ?></p>
                                     <?php
                                     } else {
                                     ?>
 
-                                        <table width="100%" cellpadding="2" cellspacing="0" class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
-                                            <tr class="TableHeader">
-                                                <td><b><?= _('Name') ?></b></td>
-                                                <td><b><?= _('Description') ?></b></td>
-                                            </tr>
+                                        <table width="100%" class="table table-sm">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th><?= _('Name') ?></th>
+                                                    <th><?= _('Description') ?></th>
+                                                </tr>
+                                            </thead>
                                             <?php
                                             $sRowClass = 'RowColorA';
 
@@ -421,7 +430,7 @@ if ($sPhoneLink) {
                                 <?php
                                 if ($thisGroup->getHasSpecialProps() && (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true)) {
                                 ?>
-                                    <a class="btn btn-primary" href="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $thisGroup->getId() ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
+                                    <a class="btn btn-outline-primary btn-sm" href="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $thisGroup->getId() ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
                                 <?php
                                 }
                                 ?>
@@ -441,25 +450,15 @@ if ($sPhoneLink) {
     ?>
 
     <div class="group_Side_bar_right">
-        <div class="card card-warning">
-            <div class="card-header border-1">
-                <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
-                <div class="card-tools pull-right">
-                    <button class="btn btn-success" type="button">
-                        <?= _('Type of Group') ?> <span class="badge bg-white"> <?= $sGroupType ?> </span>
-                    </button>
-                    <button class="btn btn-info" type="button">
-                        <?php
-                        if (!empty($defaultRole)) {
-                        ?>
-                            <?= _('Default Role') ?> <span class="badge  bg-white"><?= _($defaultRole->getOptionName()) ?></span>
-                        <?php
-                        }
-                        ?>
-                    </button>
-                    <button class="btn btn-primary" type="button">
-                        <?= _('Total Members') ?> <span class="badge  bg-white" id="iTotalMembers"></span>
-                    </button>
+        <div class="card card-outline card-warning shadow-sm">
+            <div class="card-header border-0">
+                <h3 class="card-title"><i class="fas fa-users mr-2"></i><?= _("Manage Group Members") ?></h3>
+                <div class="card-tools">
+                    <span class="badge badge-success mr-1"><?= $sGroupType ?></span>
+                    <?php if (!empty($defaultRole)): ?>
+                        <span class="badge badge-info mr-1"><?= _($defaultRole->getOptionName()) ?></span>
+                    <?php endif; ?>
+                    <span class="badge badge-primary"><?= _('Members:') ?> <span id="iTotalMembers">0</span></span>
                 </div>
             </div>
             <div class="card-body">
@@ -467,15 +466,12 @@ if ($sPhoneLink) {
                 if (SessionUser::getUser()->isManageGroups() || $is_group_manager == true) {
                 ?>
 
-                    <div class="row">
-                        <div class="col-md-1">
-                            <?= _("Add") ?>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-control personSearch  select2" name="addGroupMember" style="width:100%"></select>
-                        </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <label class="mb-0 mr-2 text-nowrap font-weight-bold">
+                            <i class="fas fa-user-plus mr-1 text-success"></i><?= _("Add member") ?>
+                        </label>
+                        <select class="form-control form-control-sm personSearch select2" name="addGroupMember" style="width:250px;max-width:100%"></select>
                     </div>
-                    <br>
                 <?php
                 }
                 ?>
@@ -489,6 +485,30 @@ if ($sPhoneLink) {
     </div>
 </div>
 <script nonce="<?= $CSPNonce ?>">
+    $(function () {
+        function syncAccordionIcons() {
+            $('#accordion .collapse').each(function () {
+                var targetId = '#' + this.id;
+                var icon = $('#accordion button[data-target="' + targetId + '"] i.collapse-toggle-icon');
+                if (!icon.length) {
+                    return;
+                }
+
+                if ($(this).hasClass('show')) {
+                    icon.removeClass('fa-plus').addClass('fa-minus');
+                } else {
+                    icon.removeClass('fa-minus').addClass('fa-plus');
+                }
+            });
+        }
+
+        $('#accordion .collapse').on('shown.bs.collapse hidden.bs.collapse', function () {
+            syncAccordionIcons();
+        });
+
+        syncAccordionIcons();
+    });
+
     window.CRM.currentGroup = <?= $iGroupID ?>;
     window.CRM.calendarID = <?= json_encode($calendarID) ?>;
     window.CRM.groupName = "<?= $thisGroup->getName() ?>";
