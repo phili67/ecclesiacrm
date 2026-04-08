@@ -1,4 +1,5 @@
 <?php
+
 /*******************************************************************************
  *
  *  website     : http://www.ecclesiacrm.com
@@ -13,25 +14,43 @@ require '../Include/Functions.php';
 $sPageTitle = gettext('Self Verify');
 require '../Include/Header.php';
 
-use EcclesiaCRM\dto\SystemURLs;
-
 ?>
 
 <div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header  border-1">
-                <h3 class="card-title"><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i> <?= _("Families") ?></h3>
+    <div class="col-12">
+
+
+        <div class="alert alert-light border mb-3">
+            <i class="fas fa-info-circle mr-1 text-primary"></i>
+            <?= _("Review family-submitted updates and open records to approve or complete changes.") ?>
+        </div>
+
+        <div class="card card-outline card-primary shadow-sm">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                    <h2 class="h4 mb-2 mb-md-0">
+                        <i class="fas fa-user-check mr-2 text-primary"></i><?= _("Self Verify") ?>
+                    </h2>
+                    <div class="d-flex align-items-center">
+                        <span class="badge badge-info px-3 py-2 mr-2"><?= _("Pending updates") ?></span>
+                        <a class="btn btn-sm btn-outline-secondary" href="#"
+                           onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href='<?= $sRootPath ?>/v2/dashboard'; } return false;">
+                            <i class="fas fa-arrow-left mr-1"></i><?= _("Back") ?>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
-                <table id="families" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline">
-                    <tbody></tbody>
-                </table>
+                <div class="table-responsive">
+                    <table id="families" class="table table-sm table-hover table-bordered data-table dataTable no-footer dtr-inline mb-0">
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/self-verify-updates.js"></script>
+<script src="<?= \EcclesiaCRM\dto\SystemURLs::getRootPath() ?>/skin/js/people/self-verify-updates.js"></script>
 
 <?php require '../Include/Footer.php'; ?>
