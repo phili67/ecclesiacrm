@@ -6,7 +6,6 @@
 //  Updated     : 2023/05/15
 //
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\FamilyQuery;
@@ -20,9 +19,15 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
 ?>
 
 <?php if ($empty_families->count()) { ?>
-<div class="alert alert-info">
-    <a href="<?= $sRootPath ?>/v2/people/UpdateAllLatLon" class="btn bg-green-active"><i class="fas fa-map-marker-alt"></i> </a>
-    <?= _('Missing Families?').'<a href="'.$sRootPath.'/v2/people/UpdateAllLatLon" >'.' '._('Update Family Latitude or Longitude now.'). ' : ' . $empty_families->count() ?></a>
+<div class="alert alert-info d-flex align-items-center justify-content-between flex-wrap mb-3">
+  <div>
+    <i class="fas fa-location-crosshairs mr-1"></i>
+    <?= _('Missing Families?') ?>
+    <strong><?= $empty_families->count() ?></strong>
+  </div>
+  <a href="<?= $sRootPath ?>/v2/people/UpdateAllLatLon" class="btn btn-sm btn-info mt-2 mt-sm-0">
+    <i class="fas fa-map-marker-alt mr-1"></i><?= _('Update Coordinates') ?>
+  </a>
 </div>
 <?php } ?>
 
@@ -59,13 +64,27 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
     $arrPlotItemsSeperate["-1"] = array();
 ?>
 
+coucou
+    <div class="card card-primary card-outline">
+      <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+        <h3 class="card-title mb-0"><i class="fas fa-map-marked-alt mr-1"></i><?= _('Map Explorer') ?></h3>
+        <div class="mt-2 mt-sm-0">
+          <button type="button" id="resetMapView" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-crosshairs mr-1"></i><?= _('Center on Church') ?>
+          </button>
+        </div>
+      </div>
 
-    <div class="card">
+      <div class="card-body p-0">
         <!-- Google map div -->
         <div id="mapid" class="map-div"></div>
+      </div>
+
+      <div class="card-footer p-2">
 
         <!-- map Desktop legend-->
-        <div class="map-legend-view maplegend-bing<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'-dark':'' ?>"><h4><?= _('Legend') ?></h4>
+      <div class="map-legend-view maplegend-bing<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'-dark':'' ?>">
+        <h4 class="mb-2"><?= _('Legend') ?></h4>
             <div class="row legendbox">
                 <div class="legenditem">
                     <img src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
@@ -108,7 +127,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
         <!-- map Mobile legend-->
         <div class="map-legend-view maplegend-mobile box visible-xs-block">
             <div class="row legendbox">
-                <div class="btn bg-primary col-xs-12"><?= _('Legend') ?></div>
+            <div class="btn btn-primary col-xs-12"><?= _('Legend') ?></div>
             </div>
             <div class="row legendbox">
                 <div class="col-xs-6 legenditem">
@@ -148,6 +167,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                 } ?>
             </div>
         </div>
+            </div>
     </div> <!--Box-->
 
 
@@ -157,7 +177,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
 ?>
 
 
- <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+ <script nonce="<?= \EcclesiaCRM\dto\SystemURLs::getCSPNonce() ?>">
   var churchloc = {
       lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
       lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
@@ -206,6 +226,13 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
             center: new Microsoft.Maps.Location(churchloc.lat, churchloc.lng),
             zoom: <?= SystemConfig::getValue("iMapZoom")?>
       });
+
+        $('#resetMapView').off('click').on('click', function () {
+          map.setView({
+            center: new Microsoft.Maps.Location(churchloc.lat, churchloc.lng),
+            zoom: <?= SystemConfig::getValue("iMapZoom")?>
+          });
+        });
 
       <?php
         $arr = array();
