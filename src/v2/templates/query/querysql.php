@@ -10,7 +10,6 @@
  ******************************************************************************/
 
  use EcclesiaCRM\dto\SystemConfig;
- use EcclesiaCRM\dto\SystemURLs;
  use EcclesiaCRM\Utils\MiscUtils;
  use EcclesiaCRM\SessionUser;
 
@@ -81,32 +80,33 @@ function RunFreeQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $sSQL, $iQuer
     if (mysqli_error($cnInfoCentral) != '') {
         echo _('An error occured: ').mysqli_errno($cnInfoCentral).'--'.mysqli_error($cnInfoCentral);
     } else {
-        $sRowClass = 'RowColorA';
-
         $aHiddenFormField = [];
 
-        echo '<table align="center" cellpadding="5" cellspacing="0" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline">';
-
-        echo '<tr class="'.$sRowClass.'">';
+        echo '<div class="card card-outline card-info mt-3">';
+        echo '  <div class="card-header py-2 d-flex justify-content-between align-items-center">';
+        echo '    <h3 class="card-title mb-0"><i class="fas fa-table mr-1"></i>' . _('Query Results') . '</h3>';
+        echo '    <span class="badge badge-secondary">' . mysqli_num_rows($rsQueryResults) . ' ' . _('record(s) returned') . '</span>';
+        echo '  </div>';
+        echo '  <div class="card-body p-2">';
+        echo '    <div class="table-responsive">';
+        echo '      <table id="query-table" class="table table-sm table-hover table-bordered mb-0">';
+        echo '        <thead><tr>';
 
         //Loop through the fields and write the header row
         for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
             //If this field is called "AddToCart", don't display this field...
             $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
             if ($fieldInfo->name != 'AddToCart') {
-                echo '  <td align="center">
-							<b>'.$fieldInfo->name.'</b>
-							</td>';
+                echo '<th class="text-center">' . $fieldInfo->name . '</th>';
             }
         }
 
-        echo '</tr>';
+        echo '        </tr></thead>';
+        echo '        <tbody>';
 
         //Loop through the recordsert
         while ($aRow = mysqli_fetch_array($rsQueryResults)) {
-            $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
-
-            echo '<tr class="'.$sRowClass.'">';
+            echo '<tr>';
 
             //Loop through the fields and write each one
             for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
@@ -118,28 +118,42 @@ function RunFreeQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $sSQL, $iQuer
                 //...otherwise just render the field
                 else {
                     //Write the actual value of this row
-                    echo '<td align="center">'.$aRow[$iCount].'</td>';
+                    echo '<td class="text-center">'.$aRow[$iCount].'</td>';
                 }
             }
             echo '</tr>';
         }
 
-        echo '</table>';
-        echo '<p align="center">';
+        echo '        </tbody>';
+        echo '      </table>';
+        echo '    </div>';
+        echo '  </div>';
+
+        echo '  <div class="card-footer py-2">';
 
         if (count($aHiddenFormField) > 0) {
             ?>
-			<form method="post" action="<?= SystemURLs::getRootPath() ?>/v2/cart/view"><p align="center">
+            <form method="post" action="<?= \EcclesiaCRM\dto\SystemURLs::getRootPath() ?>/v2/cart/view" class="mb-2">
 				<input type="hidden" value="<?= implode(',', $aHiddenFormField) ?>" name="BulkAddToCart">
-				<input type="submit" class="btn btn-default" name="AddToCartSubmit" value="<?php echo _('Add Results To Cart'); ?>">&nbsp;
-				<input type="submit" class="btn btn-default" name="AndToCartSubmit" value="<?php echo _('Intersect Results With Cart'); ?>">&nbsp;
-				<input type="submit" class="btn btn-default" name="NotToCartSubmit" value="<?php echo _('Remove Results From Cart'); ?>">
-			</p></form>
+				<div class="btn-group btn-group-sm" role="group">
+					<button type="submit" class="btn btn-outline-secondary" name="AddToCartSubmit"><?php echo _('Add Results To Cart'); ?></button>
+					<button type="submit" class="btn btn-outline-secondary" name="AndToCartSubmit"><?php echo _('Intersect Results With Cart'); ?></button>
+					<button type="submit" class="btn btn-outline-secondary" name="NotToCartSubmit"><?php echo _('Remove Results From Cart'); ?></button>
+				</div>
+			</form>
 			<?php
         }
         ?>
-            <p align="center"><a href="<?= SystemURLs::getRootPath() ?>/v2/query/list"><?= _('Return to Query Menu') ?></a></p>
-            <br><p class="ShadedBox" style="border-style: solid; margin-left: 50px; margin-right: 50px; border-width: 1px;"><span class="SmallText"><?= str_replace(chr(13),'<br>', htmlspecialchars($sSQL)) ?></span></p>
+            <a class="btn btn-link btn-sm p-0" href="<?= \EcclesiaCRM\dto\SystemURLs::getRootPath() ?>/v2/query/list"><?= _('Return to Query Menu') ?></a>
+        </div>
+        </div>
+
+        <div class="card card-light mt-2 mb-3">
+            <div class="card-header py-1"><strong><?= _('Executed SQL') ?></strong></div>
+            <div class="card-body py-2">
+                <pre class="mb-0 small"><?= htmlspecialchars($sSQL) ?></pre>
+            </div>
+        </div>
         <?php
     }
 }
@@ -160,21 +174,32 @@ $rsQueryResults = false;
 
 ?>
 
-<form method="post">
+<div class="card card-primary card-outline">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-database mr-1"></i><?= _('SQL Query Runner') ?></h3>
+        <span class="badge badge-secondary"><?= _('Advanced') ?></span>
+    </div>
+    <form method="post">
+        <div class="card-body">
+            <div class="alert alert-info py-2 mb-3">
+                <i class="fas fa-circle-info mr-1"></i><?= _('Run SELECT queries and optionally export results to CSV.') ?>
+            </div>
 
-    <center><table><tr>
-        <td class="LabelColumn"> <?= _('Export Results to CSV file') ?> </td>
-        <td class="TextColumn"><input name="CSV" type="checkbox" id="CSV" value="1"></td>
-    </tr></table></center>
+            <div class="form-group form-check mb-2">
+                <input name="CSV" type="checkbox" id="CSV" value="1" class="form-check-input">
+                <label class="form-check-label" for="CSV"><?= _('Export Results to CSV file') ?></label>
+            </div>
 
-    <p align="center">
-        <textarea style="font-family:courier,fixed; font-size:9pt; padding:1px;" cols="60" rows="20" name="SQL" class="form-control"><?= $sSQL ?></textarea>
-    </p>
-    <p align="center">
-        <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Execute SQL') ?>">
-    </p>
-
+            <div class="form-group mb-0">
+                <label for="SQL"><?= _('SQL Statement') ?></label>
+                <textarea id="SQL" style="font-family:courier,fixed;" cols="60" rows="14" name="SQL" class="form-control"><?= $sSQL ?></textarea>
+            </div>
+        </div>
+        <div class="card-footer py-2 d-flex justify-content-end">
+            <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Execute SQL') ?>">
+        </div>
     </form>
+</div>
 <?php
 
 
@@ -184,17 +209,13 @@ if (isset($_POST['SQL'])) {
     }
 }
 
-//Display the count of the recordset
-echo '<p align="center">';
-if ($rsQueryResults != false) {
-    echo mysqli_num_rows($rsQueryResults) . _(' record(s) returned');
-}
-echo '</p>';
 ?>
 
 <script nonce="<?= $CSPNonce ?>">
     $(function() {
-        window.CRM.queryTable = $("#query-table").DataTable(window.CRM.plugin.dataTable);
+        if ($("#query-table").length) {
+            window.CRM.queryTable = $("#query-table").DataTable(window.CRM.plugin.dataTable);
+        }
     });
 </script>
 
