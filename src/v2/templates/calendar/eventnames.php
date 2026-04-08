@@ -156,78 +156,33 @@ print_r($cCountName);*/
 
 if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
     ?>
-    <div class='card card-primary'>
-        <div class='card-body'>
-            <form name="UpdateEventNames" action="<?= $sRootPath ?>/v2/calendar/events/names" method="POST" class='form-horizontal'>
-                <input type="hidden" name="theID" value="<?= $aTypeID[$row] ?>">
-                <div class='row form-group'>
+    <div class='card card-outline card-primary shadow-sm'>
+        <div class='card-header py-2'>
+            <h3 class='card-title mb-0'><i class='fas fa-calendar-plus mr-1'></i><?= _('New Event Type') ?></h3>
+        </div>
+        <form name="UpdateEventNames" action="<?= $sRootPath ?>/v2/calendar/events/names" method="POST" class='form-horizontal'>
+            <input type="hidden" name="theID" value="<?= $aTypeID[$row] ?>">
+
+            <!-- Event Type Name Section -->
+            <div class='card-body py-3 border-bottom'>
+                <div class='row form-group mb-0'>
                     <div class='col-sm-4 control-label text-bold'>
-                        <?= _('EVENT TYPE NAME') ?>
+                        <?= _('Event Type Name') ?>
                     </div>
-                    <div class='col-sm-6'>
+                    <div class='col-sm-8'>
                         <input class="form-control form-control-sm" type="text" name="newEvtName"
                                value="<?= $aTypeName[$row] ?>" size="30" maxlength="35" autofocus>
                     </div>
                 </div>
-                <!--<div class='row form-group'>
-          <div class='col-sm-4 control-label text-bold'>
-            <?= _('Recurrence Pattern') ?>
-          </div>
-          <div class='col-sm-6 event-recurrance-patterns'>
-            <div class='row form-radio-list'>
-              <div class='col-xs-12'>
-                <input type="radio" name="newEvtTypeRecur" value="none" checked/> <?= _('None'); ?>
-              </div>
             </div>
-            <div class='row form-radio-list'>
-              <div class='col-xs-5'>
-                <input type="radio" name="newEvtTypeRecur" value="weekly"/> <?= _('Weekly') ?>
-              </div>
-              <div class='col-xs-7'>
-                <select name="newEvtRecurDOW" size="1" class='form-control pull-left' disabled>
-                  <option value=1><?= _('Sundays') ?></option>
-                  <option value=2><?= _('Mondays') ?></option>
-                  <option value=3><?= _('Tuesdays') ?></option>
-                  <option value=4><?= _('Wednesdays') ?></option>
-                  <option value=5><?= _('Thursdays') ?></option>
-                  <option value=6><?= _('Fridays') ?></option>
-                  <option value=7><?= _('Saturdays') ?></option>
-                </select>
-              </div>
-            </div>
-            <div class='row form-radio-list'>
-              <div class='col-xs-5'>
-                <input type="radio" name="newEvtTypeRecur" value="monthly"/> <?= _('Monthly') ?>
-              </div>
-              <div class='col-xs-7'>
-                <select name="newEvtRecurDOM" size="1" class='form-control pull-left' disabled>
-                  <?php
-                for ($kk = 1; $kk <= 31; $kk++) {
-                    $DOM = date((SystemConfig::getBooleanValue("bTimeEnglish")) ? 'dS' : 'd', mktime(0, 0, 0, 1, $kk, 2000)); ?>
-                      <option class="SmallText" value=<?= $kk ?>><?= $DOM ?></option>
-                      <?php
-                } ?>
-                 </select>
-               </div>
-            </div>
-            <div class='row form-radio-list'>
-              <div class='col-xs-5'>
-                <input type="radio" name="newEvtTypeRecur" value="yearly"/> <?= _('Yearly') ?>
-              </div>
-              <div class='col-xs-7'>
-                <input type="text" disabled class=" form-control  form-control-sm date-picker" name="newEvtRecurDOY"
-                               value="<?= OutputUtils::change_date_for_place_holder($dMembershipDate) ?>" maxlength="10" id="sel1" size="11"
-                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
 
-              </div>
-            </div>
-          </div>
-        </div>-->
-                <div class='row form-group'>
+            <!-- Default Color Section -->
+            <div class='card-body py-3 border-bottom'>
+                <div class='row form-group mb-0'>
                     <div class='col-sm-4 control-label text-bold'>
-                        <?= _('DEFAULT COLOR') ?>
+                        <?= _('Default Color') ?>
                     </div>
-                    <div class='col-sm-6'>
+                    <div class='col-sm-8'>
                         <div class="input-group my-colorpicker-event colorpicker-element">
                             <input id="checkBox" type="hidden" name="newEvtColor" class="check-calendar" checked=""
                                    value="#000000">&nbsp;
@@ -238,55 +193,78 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                         </div>
                     </div>
                 </div>
-                <div class='row form-group'>
+            </div>
+
+            <!-- Default Start Time Section -->
+            <div class='card-body py-3 border-bottom'>
+                <div class='row form-group mb-0'>
                     <div class='col-sm-4 control-label text-bold'>
-                        <?= _('DEFAULT START TIME') ?>
+                        <?= _('Default Start Time') ?>
                     </div>
-                    <div class='col-sm-6'>
+                    <div class='col-sm-8'>
                         <select class="form-control form-control-sm" name="newEvtStartTime">
                             <?php OutputUtils::createTimeDropdown(7, 22, 15, '', ''); ?>
                         </select>
                     </div>
                 </div>
-                <div class='row form-group'>
+            </div>
+
+            <!-- Attendance Counts Section -->
+            <div class='card-body py-3 border-bottom'>
+                <div class='row form-group mb-0'>
                     <div class='col-sm-4 control-label text-bold'>
-                        <?= _('ATTENDANCE COUNTS') ?>
+                        <?= _('Attendance Counts') ?>
                     </div>
-                    <div class='col-sm-6'>
+                    <div class='col-sm-8'>
                         <input class="form-control form-control-sm" type="Text" name="newEvtTypeCntLst"
                                value="<?= $cCountList[$row] ?>" Maxlength="50" id="nETCL" size="30"
                                placeholder="<?= _('Optional') ?>">
-                        <div
-                            class='text-sm'><?= _('Enter a list of the attendance counts you want to include with this event.') ?></div>
-                        <div
-                            class='text-sm'><?= _('Separate each count_name with a comma. e.g. Members, Visitors, Campus, Children'); ?></div>
-                        <div
-                            class='text-sm'><?= _('Every event type includes a Total count, you do not need to include it.') ?></div>
+                        <div class='text-sm mt-2'><?= _('Enter a list of the attendance counts you want to include with this event.') ?></div>
+                        <div class='text-sm'><?= _('Separate each count_name with a comma. e.g. Members, Visitors, Campus, Children'); ?></div>
+                        <div class='text-sm'><?= _('Every event type includes a Total count, you do not need to include it.') ?></div>
                     </div>
                 </div>
-                <div class='row form-group'>
+            </div>
+
+            <!-- Action Buttons Section -->
+            <div class='card-body py-3'>
+                <div class='row form-group mb-0'>
                     <div class='col-sm-8 col-sm-offset-4'>
-                        <a href="<?= $sRootPath ?>/v2/calendar/events/names" class='btn btn-default'>
-                            <?= _('Cancel') ?>
+                        <a href="<?= $sRootPath ?>/v2/calendar/events/names" class='btn btn-sm btn-outline-secondary mr-2'>
+                            <i class='fas fa-times mr-1'></i><?= _('Cancel') ?>
                         </a>
-                        <button type="submit" Name="Action" value="CREATE" class="btn btn-primary">
-                            <?= _('Save Changes') ?>
+                        <button type="submit" Name="Action" value="CREATE" class="btn btn-sm btn-success">
+                            <i class='fas fa-save mr-1'></i><?= _('Save Changes') ?>
                         </button>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
     <?php
 }
 
 // Construct the form
 ?>
-<div class="card">
-    <div class="card-header  border-1">
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-calendar mr-1"></i><?= _('Event Types Management') ?></h3>
+        <form name="AddEventNames" action="<?= $sRootPath ?>/v2/calendar/events/names" method="POST" class="m-0">
+            <button type="submit" Name="Action" value="NEW" class="btn btn-sm btn-success">
+                <i class="fas fa-plus mr-1"></i><?= _('Add Event Type') ?>
+            </button>
+        </form>
+    </div>
+    <div class="card-body py-3">
+        <p class="text-muted mb-0"><?= _('Manage your event types and their configurations') ?></p>
+    </div>
+</div>
+
+<div class="card card-outline card-info shadow-sm">
+    <div class="card-header py-2">
         <?php if ($numRows > 0) {
             ?>
-            <h3 class="card-title"><?= ($numRows == 1 ? _('There currently is') : _('There currently are')) . ' ' . $numRows . ' ' . ($numRows == 1 ? _('custom event type') : _('custom event types')) ?></h3>
+            <h3 class="card-title mb-0"><i class="fas fa-list mr-1"></i><?= ($numRows == 1 ? _('There currently is') : _('There currently are')) . ' ' . $numRows . ' ' . ($numRows == 1 ? _('custom event type') : _('custom event types')) ?></h3>
             <?php
         } ?>
     </div>
@@ -295,7 +273,7 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
         <?php
         if ($numRows > 0) {
             ?>
-            <table id="eventNames" class="table table-striped table-bordered data-table" width="100%">
+            <table id="eventNames" class="table table-striped table-hover table-bordered table-sm data-table" width="100%">
                 <thead>
                 <tr>
                     <!--<th><?= _('Event Type') ?></th>-->
@@ -315,7 +293,10 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                         <td>
                             <table class='table-simple-padding outer'>
                                     <tr class="no-background-theme">
-                                        <td><div style="background-color:<?= $aDefColorType[$row] ?>;width:20px;height:20px;border: 1px solid black;"></div></td>
+                                        <td>
+                                            <span title="<?= _('Event Color') ?>"
+                                                  style="display:inline-block;background-color:<?= $aDefColorType[$row] ?>;width:18px;height:18px;border-radius:6px;border:1px solid rgba(0,0,0,.2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.15);vertical-align:middle;"></span>
+                                        </td>
                                         <td><?= $aTypeName[$row] ?></td>
                                     </tr>
                             </table>
@@ -324,33 +305,26 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
                         <td><?= $aDefStartTime[$row] ?></td>
                         <td><?= $cCountList[$row] ?></td>
                         <td>
-                            <table class='table-simple-padding outer'>
-                                <tr class="no-background-theme">
-                                    <td>
-                                        <button value="<?= _('Create Event') ?>"
-                                                class="btn btn-primary btn-sm add-event"
-                                                data-typeid="<?= $aTypeID[$row] ?>">
-                                            <i class="fas fa-ticket-alt"></i> <?= _('Create Event') ?>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <form name="ProcessEventType" action="<?= $sRootPath ?>/v2/calendar/events/types/edit" method="POST"
-                                              class="pull-left">
-                                            <input type="hidden" name="EN_tyid" value="<?= $aTypeID[$row] ?>">
-                                            <button type="submit" class="btn btn-success btn-sm" name="Action"
-                                                    title="<?= _('Edit') ?>" data-tooltip value="<?= _('Edit') ?>">
-                                                <i class='fas fa-pencil-alt'></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger btn-sm delete-event" title="<?= _('Delete') ?>"
-                                                data-tooltip name="Action" data-typeid="<?= $aTypeID[$row] ?>">
-                                            <i class='fas fa-trash-alt'></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </table>
+                            <form name="ProcessEventType<?= $aTypeID[$row] ?>" action="<?= $sRootPath ?>/v2/calendar/events/types/edit" method="POST" style="display:none;">
+                                <input type="hidden" name="EN_tyid" value="<?= $aTypeID[$row] ?>">
+                                <input type="hidden" name="Action" value="edit">
+                            </form>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <button type="button" class="btn btn-outline-primary add-event"
+                                        data-typeid="<?= $aTypeID[$row] ?>">
+                                    <i class="fas fa-plus mr-1"></i><?= _('Create') ?>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary"
+                                        title="<?= _('Edit') ?>" data-toggle="tooltip"
+                                        onclick="document.forms['ProcessEventType<?= $aTypeID[$row] ?>'].submit();">
+                                    <i class='fas fa-edit mr-1'></i><?= _('Edit') ?>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger delete-event" title="<?= _('Delete') ?>"
+                                        data-toggle="tooltip"
+                                        data-typeid="<?= $aTypeID[$row] ?>">
+                                    <i class='fas fa-trash-alt mr-1'></i><?= _('Delete') ?>
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     <?php
@@ -361,14 +335,6 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
         }
         ?>
     </div>
-</div>
-
-<div class="text-center">
-    <form name="AddEventNames" action="<?= $sRootPath ?>/v2/calendar/events/names" method="POST">
-        <button type="submit" Name="Action" value="NEW" class="btn btn-primary">
-            <?= _('Add Event Type') ?>
-        </button>
-    </form>
 </div>
 
 <script
