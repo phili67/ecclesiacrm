@@ -8,6 +8,61 @@ $(function() {
 
     window.CRM.neverDate = moment('1900-01-01 00:00').format( window.CRM.fmt );
 
+    function toPhoneLink(value) {
+        if (value === null || value === undefined) {
+            return '';
+        }
+
+        var display = String(value).trim();
+        if (display === '') {
+            return '';
+        }
+
+        var telValue = display.replace(/\s+/g, '');
+        return '<a href="tel:' + telValue + '"><i class="fas fa-phone-alt mr-1 text-success"></i>' + display + '</a>';
+    }
+
+    function getBestPhone(full) {
+        return full.CellPhone || full.cellPhone || full.HomePhone || full.homePhone || full.WorkPhone || full.workPhone || '';
+    }
+
+    function buildAddress(full) {
+        var explicit = full.Address || full.address || '';
+        if (explicit && String(explicit).trim() !== '') {
+            return String(explicit).trim();
+        }
+
+        var parts = [
+            full.Address1 || full.address1 || '',
+            full.Address2 || full.address2 || '',
+            full.City || full.city || '',
+            full.State || full.state || '',
+            full.Zip || full.zip || '',
+            full.Country || full.country || ''
+        ];
+
+        return parts.join(' ').replace(/\s+/g, ' ').trim();
+    }
+
+    function toAddressLink(full) {
+        var address = buildAddress(full);
+        if (address === '') {
+            return '';
+        }
+        return '<i class="fas fa-map-marker-alt mr-1 text-danger"></i>' + window.CRM.tools.getLinkMapFromAddress(address);
+    }
+
+    function formatCareDate(data) {
+        if (data === null || data === undefined) {
+            return '<span class="text-muted"><i class="fas fa-ban mr-1"></i>' + i18next.t("Never contacted") + '</span>';
+        }
+        var date = moment(data).format(fmt);
+        if (date === window.CRM.neverDate) {
+            return '<span class="text-muted"><i class="fas fa-ban mr-1"></i>' + i18next.t("Never contacted") + '</span>';
+        }
+        return '<i class="far fa-calendar-check mr-1 text-success"></i>' + date;
+    }
+
     columnsPastoralCareMembers = [
         {
             width: 'auto',
@@ -16,9 +71,9 @@ $(function() {
             render: function(data, type, full, meta) {
                 let res = '';
                 if (window.CRM.bThumbnailIconPresence) {
-                    res += '<img src="' + window.CRM.root + '/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    res += '<img src="' + window.CRM.root + '/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
                 } else {
-                    res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
+                    res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
                 }
                 return res + '<a href="' + window.CRM.root + "/v2/people/person/view/" + full.PersonID + '">'+ data + '</a>';
             }
@@ -60,6 +115,7 @@ $(function() {
         },
         bSort : true,
         pageLength: 4,
+        dom: 'rtip',
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
@@ -83,6 +139,8 @@ $(function() {
             }
         },
         bSort : true,
+        pageLength: 5,
+        dom: 'rtip',
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
@@ -94,9 +152,9 @@ $(function() {
                 render: function(data, type, full, meta) {
                     let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + ' /api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
                     } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
+                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
                     }
                     return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
@@ -111,15 +169,26 @@ $(function() {
             },
             {
                 width: 'auto',
+                title:i18next.t("Phone"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toPhoneLink(getBestPhone(full));
+                }
+            },
+            {
+                width: 'auto',
+                title:i18next.t("Address"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toAddressLink(full);
+                }
+            },
+            {
+                width: 'auto',
                 title: i18next.t("Last visit/call"),
                 data: 'PastoralCareLastDate',
                 render: function (data, type, full, meta) {
-                    if (data != null) {
-                        var date = moment(data).format(fmt);
-                        return date;
-                    } else {
-                        return window.CRM.neverDate;
-                    }
+                    return formatCareDate(data);
                 }
             }
         ],
@@ -142,6 +211,8 @@ $(function() {
             }
         },
         bSort : true,
+        pageLength: 5,
+        dom: 'rtip',
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
@@ -153,11 +224,27 @@ $(function() {
                 render: function(data, type, full, meta) {
                     let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + '/api/families/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                        res += '<img src="' + window.CRM.root + '/api/families/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
                     } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Family.png" class="initials-image direct-chat-img " width="50" height="50"> ';
+                        res += '<img src="' + window.CRM.root + '/Images/Family.png" class="initials-image direct-chat-img-24"> ';
                     }
                     return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.Id + '">'+ data + "</a>";
+                }
+            },
+            {
+                width: 'auto',
+                title:i18next.t("Phone"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toPhoneLink(getBestPhone(full));
+                }
+            },
+            {
+                width: 'auto',
+                title:i18next.t("Address"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toAddressLink(full);
                 }
             },
             {
@@ -165,12 +252,7 @@ $(function() {
                 title: i18next.t("Last visit/call"),
                 data: 'PastoralCareLastDate',
                 render: function (data, type, full, meta) {
-                    if (data != null) {
-                        var date = moment(data).format(fmt);
-                        return date;
-                    } else {
-                        return window.CRM.neverDate;
-                    }
+                    return formatCareDate(data);
                 }
             }
         ],
@@ -193,6 +275,8 @@ $(function() {
             }
         },
         bSort : true,
+        pageLength: 5,
+        dom: 'rtip',
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
@@ -204,9 +288,9 @@ $(function() {
                 render: function(data, type, full, meta) {
                     let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
                     } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
+                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
                     }
                     return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.PersonID + '">'+ data + "</a>";
                 }
@@ -221,15 +305,26 @@ $(function() {
             },
             {
                 width: 'auto',
+                title:i18next.t("Phone"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toPhoneLink(getBestPhone(full));
+                }
+            },
+            {
+                width: 'auto',
+                title:i18next.t("Address"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toAddressLink(full);
+                }
+            },
+            {
+                width: 'auto',
                 title: i18next.t("Last visit/call"),
                 data: 'PastoralCareLastDate',
                 render: function (data, type, full, meta) {
-                    if (data != null) {
-                        var date = moment(data).format(fmt);
-                        return date;
-                    } else {
-                        return window.CRM.neverDate;
-                    }
+                    return formatCareDate(data);
                 }
             }
         ],
@@ -252,6 +347,8 @@ $(function() {
             }
         },
         bSort : true,
+        pageLength: 5,
+        dom: 'rtip',
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
@@ -263,9 +360,9 @@ $(function() {
                 render: function(data, type, full, meta) {
                     let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
                     } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
+                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
                     }
                     return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
@@ -280,15 +377,26 @@ $(function() {
             },
             {
                 width: 'auto',
+                title:i18next.t("Phone"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toPhoneLink(getBestPhone(full));
+                }
+            },
+            {
+                width: 'auto',
+                title:i18next.t("Address"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toAddressLink(full);
+                }
+            },
+            {
+                width: 'auto',
                 title: i18next.t("Last visit/call"),
                 data: 'PastoralCareLastDate',
                 render: function (data, type, full, meta) {
-                    if (data != null) {
-                        var date = moment(data).format(fmt);
-                        return date;
-                    } else {
-                        return window.CRM.neverDate;
-                    }
+                    return formatCareDate(data);
                 }
             }
         ],
@@ -311,6 +419,8 @@ $(function() {
             }
         },
         bSort : true,
+        pageLength: 5,
+        dom: 'rtip',
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
@@ -322,9 +432,9 @@ $(function() {
                 render: function(data, type, full, meta) {
                     res = '';
                     if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
                     } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
+                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
                     }
                     return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
@@ -339,15 +449,26 @@ $(function() {
             },
             {
                 width: 'auto',
+                title:i18next.t("Phone"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toPhoneLink(getBestPhone(full));
+                }
+            },
+            {
+                width: 'auto',
+                title:i18next.t("Address"),
+                data:null,
+                render: function(data, type, full, meta) {
+                    return toAddressLink(full);
+                }
+            },
+            {
+                width: 'auto',
                 title: i18next.t("Last visit/call"),
                 data: 'PastoralCareLastDate',
                 render: function (data, type, full, meta) {
-                    if (data != null) {
-                        var date = moment(data).format(fmt);
-                        return date;
-                    } else {
-                        return window.CRM.neverDate;
-                    }
+                    return formatCareDate(data);
                 }
             }
         ],
