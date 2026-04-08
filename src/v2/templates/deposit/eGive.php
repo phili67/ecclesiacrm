@@ -205,25 +205,44 @@ if (isset($_POST['ApiGet'])) {
     eGiveClass::importDoneFixOrContinue($importCreated, $importNoChange, $importError, $iDepositSlipID, $missingEgiveIDCount, $egiveID2NameWithUnderscores, $familySelectHtml);
 } else {
     ?>
-	<table cellpadding="3" align="left">
-	<tr><td>
-		<form method="post" action="<?= $sRootPath ?>/v2/deposit/egive/<?= $iDepositSlipID ?>" enctype="multipart/form-data">
-		<class="LabelColumn"><b><?= _('Start Date: ') ?></b>
-			<class="TextColumn">
-                <input type="text" name="StartDate" value="<?= OutputUtils::change_date_for_place_holder($lwDate) ?>" maxlength="10" id="StartDate" size="11" 
-                    class="form-control form-control-sm date-picker"
-                    placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"><span color="red"><?=  $sDateError ?></span><br>
-			<class="LabelColumn"><b><?= _('End Date: ') ?></b>
-			<class="TextColumn">
-                <input type="text" name="EndDate" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>" maxlength="10" id="EndDate" size="11" 
-                    class="form-control form-control-sm date-picker"
-                    placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"><span color="red"><?=  $sDateError ?></span><br><br>
-		                <input type="submit" class="btn btn-default" value="<?= _('Import eGive') ?>" name="ApiGet">
-		<br><br><br>
-		</form>
-		</td>
-	</tr>
-    </table>
+    <div class="card card-primary card-outline">
+        <div class="card-header py-2">
+            <h3 class="card-title"><?= _('Import eGive') ?></h3>
+        </div>
+        <div class="card-body">
+            <form method="post" action="<?= $sRootPath ?>/v2/deposit/egive/<?= $iDepositSlipID ?>" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="StartDate"><strong><?= _('Start Date: ') ?></strong></label>
+                        <input type="text" name="StartDate" value="<?= OutputUtils::change_date_for_place_holder($lwDate) ?>" maxlength="10" id="StartDate" size="11"
+                            class="form-control form-control-sm date-picker"
+                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                        <span class="text-danger"><?= $sDateError ?></span>
+                    </div>
+                </div>
+
+                <hr class="my-3">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="EndDate"><strong><?= _('End Date: ') ?></strong></label>
+                        <input type="text" name="EndDate" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>" maxlength="10" id="EndDate" size="11"
+                            class="form-control form-control-sm date-picker"
+                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                        <span class="text-danger"><?= $sDateError ?></span>
+                    </div>
+                </div>
+
+                <hr class="my-3">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-default" value="<?= _('Import eGive') ?>" name="ApiGet">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 <?php
 }
 ?>
