@@ -108,6 +108,11 @@ $app->group('/cart', function (RouteCollectorProxy $group) {
      */
     $group->post('/removeVolunteers', CartController::class . ':removeVolunteers' );
 
+    /*
+     * @! Render badge preview from cart data
+     */
+    $group->post('/render/badge', CartController::class . ':renderBadgePreview' );
+
 });
 
 
