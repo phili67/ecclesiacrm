@@ -1,7 +1,6 @@
 $(function() {
 
     $("#deleteClassButton").on('click', function () {
-        console.log("click");
         bootbox.setDefaults({
             locale: window.CRM.shortLocale
         }),
@@ -53,25 +52,25 @@ $(function() {
                 }
                 res += '<div class="col-md-2">' +
                     '        <!-- Begin user profile -->' +
-                    '        <div class="card text-center user-profile-2">' +
-                    '            <div class="card-header border-1">' +
+                    '        <div class="card card-outline card-primary shadow-sm text-center user-profile-2 mb-3">' +
+                    '            <div class="card-header py-2 border-1">' +
                     '               <h4 class="card-title-sundayschool-view" style="float:center !important">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
                     '            </div>' +
                     '            <div class="card-body">';
 
-                res += data.teachers[i].img.replace('"50"', '"100"');
+                res += data.teachers[i].img.replace('"25"', '75"');
 
                 if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
                     res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
                 } else {
                     res += '<p></p>';
                 }
-                res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn primary btn-sm btn-block"><i' +
-                    '      class="far fa-envelope" target="_blank"></i> ' + i18next.t('Send Message') + '</a>' +
+                res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn btn-outline-primary btn-sm btn-block"><i' +
+                    '      class="far fa-envelope mr-1" target="_blank"></i> ' + i18next.t('Send Message') + '</a>' +
                     '        <a href="' + window.CRM.root + '/v2/people/person/view/' + data.teachers[i]['per_ID'] + '" ' +
-                    '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fas fa-user"></i> ' + i18next.t('View Profile') + '</a>' +
+                    '      class="btn btn-outline-secondary btn-sm btn-block"><i class="fas fa-user mr-1"></i> ' + i18next.t('View Profile') + '</a>' +
                     '        <a href="#" data-id="' + data.teachers[i]['per_ID'] + '" data-person_name="' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '" ' +
-                    '      class="btn btn-primary btn-danger btn-sm btn-block deleteTeacher"><i class="fas fa-trash-alt"></i> ' + i18next.t('Delete') + '</a>' +
+                    '      class="btn btn-outline-danger btn-sm btn-block deleteTeacher"><i class="fas fa-trash-alt mr-1"></i> ' + i18next.t('Delete') + '</a>' +
                     '    </div>' +
                     ' </div>' +
                     '</div>';
@@ -270,7 +269,7 @@ $(function() {
             message: i18next.t("Do you want to delete this teacher? This cannot be undone.") + " <b>" + person_name + '</b>',
             buttons: {
                 cancel: {
-                    className: 'btn-primary',
+                    className: 'btn-outline-secondary',
                     label: '<i class="fas fa-times"></i>' + i18next.t("Cancel")
                 },
                 confirm: {
@@ -292,9 +291,9 @@ $(function() {
     });
 
 
-    $('body').on('click', '.delete-person', function () {
+    $('body').on('click', '.delete-person', function (e) {
         //edition_mode ();
-        event.preventDefault();
+        e.preventDefault();
         var thisLink = $(this);
 
         bootbox.confirm({
@@ -302,7 +301,7 @@ $(function() {
             message: i18next.t("Do you want to delete this person? This cannot be undone.") + " <b>" + thisLink.data('person_name') + '</b>',
             buttons: {
                 cancel: {
-                    className: 'btn-primary',
+                    className: 'btn-outline-secondary',
                     label: '<i class="fas fa-times"></i>' + i18next.t("Cancel")
                 },
                 confirm: {
@@ -344,7 +343,6 @@ $(function() {
 
         // Add sorting method - use an integer for the sorting
         types.order['moment-' + format + '-pre'] = function (d) {
-            console.log("d");
             return moment(d, format, locale, true).unix();
         };
     };
@@ -410,13 +408,13 @@ $(function() {
                     res += '<div class="btn-group" role="group" aria-label="Basic example" >';
 
                     if (full.inCart == 0) {
-                        res += '<a ' + (window.CRM.showCart ? 'class="AddOneStudentToCart btn btn-default btn-xs"' : ' class="btn btn-xs btn-default"') + ' data-cartpersonid="' + data + '">'
+                        res += '<a ' + (window.CRM.showCart ? 'class="AddOneStudentToCart btn btn-outline-secondary btn-sm"' : ' class="btn btn-sm btn-outline-secondary"') + ' data-cartpersonid="' + data + '">' 
                             + '<span class="fa-stack fa-stack-custom">'
                             + '  <i class="fas fas-blue fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-cart-plus' : 'fa-question') + '"></i>'
                             + '</span>'
                             + '</a>';
                     } else {
-                        res += '<a ' + (window.CRM.showCart ? 'class="RemoveOneStudentFromCart btn btn-default btn-xs"' : ' class="btn  btn-xs"') + ' data-cartpersonid="' + data + '" style="color:blue">'
+                        res += '<a ' + (window.CRM.showCart ? 'class="RemoveOneStudentFromCart btn btn-outline-secondary btn-sm"' : ' class="btn btn-sm btn-outline-secondary"') + ' data-cartpersonid="' + data + '" style="color:blue">'
                             + '<span class="fa-stack fa-stack-custom">'                            
                             + '  <i class="fas fas-blue  fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-times' : 'fa-question') + '"></i>'
                             + '</span>'
@@ -424,7 +422,7 @@ $(function() {
                     }
 
                     if (canDeleteMembers) {
-                        res += '<a class="delete-person btn btn-default btn-xs" data-person_name="' + full.firstName + ' ' + full.LastName + '" data-person_id="' + data + '" data-view="family">'
+                        res += '<a class="delete-person btn btn-outline-danger btn-sm" data-person_name="' + full.firstName + ' ' + full.LastName + '" data-person_id="' + data + '" data-view="family">'
                             + '  <span class="fa-stack fa-stack-custom">'                            
                             + '    <i class="far fas-red fa-stack-1x fa-inverse fa-trash-alt"></i>'
                             + '  </span>'
@@ -696,9 +694,18 @@ $(function() {
      * ---------
      */
     function draw_Chart(birthDayMonthChart) {
+        const chartPalette = [
+            "#2f7ed8",
+            "#20a39e",
+            "#f4a259",
+            "#d96c6c",
+            "#6c7a89",
+            "#9b59b6"
+        ];
+
         window.CRM.bar_data = {
             data: birthDayMonthChart,
-            color: "#3c8dbc"
+            color: chartPalette[0]
         };
 
         var ticks = [];
@@ -709,26 +716,35 @@ $(function() {
 
         window.CRM.plot = $.plot("#bar-chart", [window.CRM.bar_data], {
             grid: {
-                borderWidth: 1,
-                borderColor: "#f3f3f3",
-                tickColor: "#f3f3f3",
+                borderWidth: 0,
+                borderColor: "#e6e9ef",
+                tickColor: "#eef1f5",
+                backgroundColor: {
+                    colors: ["#ffffff", "#fbfcfe"]
+                },
                 hoverable: true,
                 clickable: true
             },
             series: {
                 bars: {
                     show: true,
-                    barWidth: 0.5,
-                    align: "center"
+                    barWidth: 0.55,
+                    align: "center",
+                    lineWidth: 0,
+                    fill: 0.92
                 }
             },
             xaxis: {
                 mode: "categories",
                 tickLength: 0,
-                ticks: ticks
+                ticks: ticks,
+                color: "#b7c1cc"
             },
             yaxis: {
-                tickSize: 1
+                tickSize: 1,
+                min: 0,
+                tickDecimals: 0,
+                color: "#d9dee5"
             }
         });
     }
@@ -755,15 +771,28 @@ $(function() {
     };
 
     function drawDonut(donutData) {
-        $.plot("#donut-chart", donutData, {
+        const donutPalette = ["#2f7ed8", "#f4a259", "#20a39e", "#d96c6c", "#6c7a89"];
+        const normalizedDonutData = donutData.map(function (item, idx) {
+            return $.extend({}, item, { color: item.color || donutPalette[idx % donutPalette.length] });
+        });
+
+        $.plot("#donut-chart", normalizedDonutData, {
             series: {
                 pie: {
                     show: true,
                     radius: 1,
-                    innerRadius: 0.5,
+                    innerRadius: 0.62,
+                    stroke: {
+                        color: "#ffffff",
+                        width: 2
+                    },
+                    combine: {
+                        threshold: 0.03,
+                        color: "#c8d0da"
+                    },
                     label: {
                         show: true,
-                        radius: 2 / 3,
+                        radius: 0.78,
                         formatter: labelFormatter,
                         threshold: 0.1
                     }
@@ -800,10 +829,6 @@ $(function() {
             return;
         }
 
-        percent = parseFloat(obj.series.percent).toFixed(2);
-
-        //alert(""  + obj.series.label + ": cpicpi" + percent + "%");
-
         var gender = obj.series.label;
 
         var searchGender = gender.substr(0, gender.length - 1);
@@ -827,7 +852,7 @@ $(function() {
      * ----------------------
      */
     function labelFormatter(label, series) {
-        return "<div style='font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;'>"
+        return "<div style='font-size:12px; text-align:center; line-height:1.2; padding:4px 6px; color:#1f2933; background:rgba(255,255,255,.75); border-radius:10px; font-weight:600;'>"
             + label
             + "<br/>"
             + Math.round(series.percent) + "%</div>";
@@ -1131,9 +1156,8 @@ $(function() {
             buttons: [
                 {
                     label: i18next.t("Cancel"),
-                    className: "btn btn-default",
+                    className: "btn btn-outline-secondary",
                     callback: function () {
-                        console.log("just do something on close");
                     }
                 },
                 {
@@ -1231,9 +1255,8 @@ $(function() {
             buttons: [
                 {
                     label: i18next.t("Cancel"),
-                    className: "btn btn-default",
+                    className: "btn btn-outline-secondary",
                     callback: function () {
-                        console.log("just do something on close");
                     }
                 },
                 {
