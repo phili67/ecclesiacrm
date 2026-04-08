@@ -7,39 +7,32 @@
 //
 
 $(function() {
-  $("#family").select2();
-  $("#addAllFamilies").on('click', function () {
-  var all = [];
-      $("#family > option").each(function () {
-          all.push(this.value);
-      });
-       $("#family").val(all).trigger("change");
-  });
-  $("#clearAllFamilies").on('click', function () {
-        $("#family").val(null).trigger("change");
-  });
+    const initMultiSelect = function (selectId, addAllId, clearAllId, placeholder) {
+        const $select = $("#" + selectId);
+        if ($select.length === 0) {
+            return;
+        }
 
-  $("#classList").select2();
-  $("#addAllClasses").on('click', function () {
-  var all = [];
-      $("#classList > option").each(function () {
-          all.push(this.value);
-      });
-       $("#classList").val(all).trigger("change");
-  });
-  $("#clearAllClasses").on('click', function () {
-        $("#classList").val(null).trigger("change");
-  });
+        $select.select2({
+            width: '100%',
+            placeholder: placeholder,
+            closeOnSelect: false
+        });
 
-  $("#fundsList").select2();
-  $("#addAllFunds").on('click', function () {
-  var all = [];
-      $("#fundsList > option").each(function () {
-          all.push(this.value);
-      });
-       $("#fundsList").val(all).trigger("change");
-  });
-  $("#clearAllFunds").on('click', function () {
-        $("#fundsList").val(null).trigger("change");
-  });
+        $("#" + addAllId).on('click', function () {
+            const all = [];
+            $select.find("option").each(function () {
+                all.push(this.value);
+            });
+            $select.val(all).trigger("change");
+        });
+
+        $("#" + clearAllId).on('click', function () {
+            $select.val(null).trigger("change");
+        });
+    };
+
+    initMultiSelect('family', 'addAllFamilies', 'clearAllFamilies', i18next.t('Filter by Family'));
+    initMultiSelect('classList', 'addAllClasses', 'clearAllClasses', i18next.t('Classification'));
+    initMultiSelect('fundsList', 'addAllFunds', 'clearAllFunds', i18next.t('Filter by Fund'));
 });
