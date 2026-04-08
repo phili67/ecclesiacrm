@@ -729,84 +729,128 @@ $(function () {
     });
 
     const uploadEvent = () => {
-        window.CRM.ElementListener('#formId', 'submit', function (event) {
-            var progress = document.getElementById('progress-bar');
-            var progress_label = document.getElementById('progress-bar-label');
-            
-            event.preventDefault();
+        const fileInput = document.getElementById('noteInputFile');
+        const dropZone = document.getElementById('edrive-upload-dropzone');
+        const progress = document.getElementById('progress-bar');
+        const progressLabel = document.getElementById('progress-bar-label');
 
-            var fileInput = document.getElementById('noteInputFile');
+        const setInputFiles = (files) => {
+            if (!fileInput || !files || !files.length) {
+                return;
+            }
 
-            var totalFilesToUpload = fileInput.files.length;
+            if (typeof DataTransfer !== 'undefined') {
+                const transfer = new DataTransfer();
+                for (const file of files) {
+                    transfer.items.add(file);
+                }
+                fileInput.files = transfer.files;
+            }
+        };
 
-            //nothing was selected 
+        const uploadFiles = (files) => {
+            const filesToUpload = Array.from(files || []);
+            const totalFilesToUpload = filesToUpload.length;
+
             if (totalFilesToUpload === 0) {
                 alert('Please select one or more files.');
                 return;
             }
-        
-            window.CRM.css (".download-zone", "display:block");
 
-            var allRequests = totalFilesToUpload;
+            window.CRM.css(".download-zone", "display:block");
+            progress.setAttribute('value', 0);
+            progressLabel.innerText = "0%";
+
+            let allRequests = totalFilesToUpload;
 
             window.CRM.dialogLoadingFunction('Upload in progress', function() {
-                for (var f = 0; f < totalFilesToUpload; f++) {
-                    // Select user file from file list (always position 0 for 1 files)
-                    const file = fileInput.files[f];
-
-                    // Embed file to FormData object, which will automatically set request headers
+                filesToUpload.forEach((file, index) => {
                     const formData = new FormData();
                     formData.append('noteInputFile', file);
 
-                    /* A POST request using XML object */
-                    const req = new XMLHttpRequest(); // Initialize request
-                    req.open('POST', window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID); // Specify request type and endpoint
+                    const req = new XMLHttpRequest();
+                    req.open('POST', window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID);
                     req.setRequestHeader('Authorization', 'Bearer ' + window.CRM.jwtToken);
-                    req.ecrmPlace = f;
+                    req.ecrmPlace = index;
 
-                    // Add event listener to upload listening for progress. Function fires
-                    // regularly, with progress contained in "e" object
                     req.upload.addEventListener('progress', (event) => {
-                        // Every time progress occurs
-                        const percentComplete = (event.loaded / event.total)*100; // Calculate percentage complete via "e" object
-                        progress.setAttribute('value', percentComplete); // Update value of progress HTML element
-                        progress_label.innerText = Math.round(percentComplete)+"%"; // Prints progress in progress element label as well                        
+                        if (!event.lengthComputable) {
+                            return;
+                        }
+                        const percentComplete = (event.loaded / event.total) * 100;
+                        progress.setAttribute('value', percentComplete);
+                        progressLabel.innerText = Math.round(percentComplete) + "%";
                     });
-                    
-                    // Fires when upload is complete
-                    req.onloadend = (event) => {
-                        // after we reload page
-                        window.CRM.reloadEDriveTable();                        
 
-                        allRequests--;
-                        if (allRequests == 0) window.CRM.closeDialogLoadingFunction();
-                        window.CRM.css (".download-zone", "display:none");                        
-                    }
-
-                    req.onload = (event) => {
-                        if (req.status != 200) { // analyze HTTP status of the response
-                            alert(`Error ${req.status}: ${req.statusText}`); // e.g. 404: Not Found
+                    req.onload = () => {
+                        if (req.status != 200) {
+                            window.CRM.DisplayAlert(i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
                         } else if (typeof req.response === "string") {
                             let response = JSON.parse(req.response);
                             if (response.status == "failed") {
-                                //alert(`Done, got ${req.response.length} bytes ${req.ecrmPlace}`); // response is the server response
-                                window.CRM.DisplayAlert (i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
-                            }                                                      
+                                window.CRM.DisplayAlert(i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
+                            }
                         }
                     };
 
-                    // Fires when upload is complete
-                    req.onerror = (event) => {
-                        // after we reload page
-                        allRequests--;
-                        window.CRM.DisplayAlert (i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
-                        window.CRM.css (".download-zone", "display:none");
-                    }
+                    req.onerror = () => {
+                        window.CRM.DisplayAlert(i18next.t("Download Error"), `Error ${req.status}: ${req.statusText}`);
+                    };
 
-                    req.send(formData); // Sends request
-                }
-            });            
+                    req.onloadend = () => {
+                        allRequests--;
+
+                        if (allRequests === 0) {
+                            window.CRM.reloadEDriveTable();
+                            window.CRM.closeDialogLoadingFunction();
+                            window.CRM.css(".download-zone", "display:none");
+                        }
+                    };
+
+                    req.send(formData);
+                });
+            });
+        };
+
+        window.CRM.ElementListener('#formId', 'submit', function (event) {
+            event.preventDefault();
+            uploadFiles(fileInput.files);
         });
+
+        if (dropZone) {
+            const preventDefaults = (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+            };
+
+            ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+
+            ["dragenter", "dragover"].forEach((eventName) => {
+                dropZone.addEventListener(eventName, () => {
+                    dropZone.classList.add('border-primary');
+                    dropZone.classList.add('shadow-sm');
+                }, false);
+            });
+
+            ["dragleave", "drop"].forEach((eventName) => {
+                dropZone.addEventListener(eventName, () => {
+                    dropZone.classList.remove('border-primary');
+                    dropZone.classList.remove('shadow-sm');
+                }, false);
+            });
+
+            dropZone.addEventListener('drop', (event) => {
+                const droppedFiles = event.dataTransfer ? event.dataTransfer.files : null;
+                if (!droppedFiles || !droppedFiles.length) {
+                    return;
+                }
+
+                setInputFiles(droppedFiles);
+                uploadFiles(droppedFiles);
+            }, false);
+        }
     }
 
     // Share Files management
