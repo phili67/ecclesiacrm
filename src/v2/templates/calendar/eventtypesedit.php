@@ -184,35 +184,39 @@ require $sRootDocument . '/Include/Header.php';
 
 // Construct the form
 ?>
-<div class='card'>
-    <div class='card-header'>
-        <h3 class='card-title'><?= _('Edit Event Type') ?></h3>
+<div class='card card-outline card-primary shadow-sm mb-3'>
+    <div class='card-header py-2'>
+        <h3 class='card-title mb-0'><i class='fas fa-calendar mr-1'></i><?= _('Edit Event Type') ?></h3>
     </div>
 
     <form method="POST" action="<?= $sRootPath ?>/v2/calendar/events/types/edit" name="EventTypeEditForm">
         <input type="hidden" name="EN_tyid" value="<?= $aTypeID ?>">
         <input type="hidden" name="EN_ctid" value="<?= $cCountID[$c] ?>">
 
-        <table class='table'>
-            <tr>
-                <td class="LabelColumn" width="15%">
-                    <strong><?= _('Event Type') . ':' . $aTypeID ?></strong>
-                </td>
-                <td class="TextColumn" width="35%">
+        <!-- Event Name Section -->
+        <div class='card-body py-3 border-bottom'>
+            <div class='row form-group mb-0'>
+                <div class='col-sm-4 control-label text-bold'>
+                    <strong><?= _('Event Type Name') ?></strong>
+                </div>
+                <div class='col-sm-6'>
                     <input type="text" class="form-control form-control-sm" name="newEvtName" value="<?= $aTypeName ?>"
                            size="30" maxlength="35" autofocus/>
-                </td>
-                <td class="TextColumn" width="50%">
+                </div>
+                <div class='col-sm-2'>
                     <button type="submit" Name="Action" value="NAME"
-                            class="btn btn-primary"><i class="fas fa-save"></i> <?= _('Save Name') ?></button>
-                </td>
-            </tr>
+                            class="btn btn-sm btn-primary"><i class="fas fa-save mr-1"></i><?= _('Save') ?></button>
+                </div>
+            </div>
+        </div>
 
-            <tr>
-                <td class="LabelColumn" width="15%">
+        <!-- Event Color Section -->
+        <div class='card-body py-3 border-bottom'>
+            <div class='row form-group mb-0'>
+                <div class='col-sm-4 control-label text-bold'>
                     <strong><?= _('Event Type Color') ?></strong>
-                </td>
-                <td class="TextColumn" width="35%">
+                </div>
+                <div class='col-sm-6'>
                     <div class="input-group my-colorpicker-event colorpicker-element">
                         <input id="checkBox" type="hidden" name="newEvtColor" class="check-calendar"
                                checked="" value="<?= $aTypeColor ?>">&nbsp;
@@ -221,64 +225,74 @@ require $sRootDocument . '/Include/Header.php';
                             <i style="background-color: rgb(26, 43, 94);"></i>
                         </div>
                     </div>
-                </td>
-                <td class="TextColumn" width="50%">
+                </div>
+                <div class='col-sm-2'>
                     <button type="submit" Name="Action" value="COLOR"
-                            class="btn btn-primary"><i class="fas fa-save"></i>  <?= _('Save Color') ?></button>
-                </td>
-            </tr>
+                            class="btn btn-sm btn-primary"><i class="fas fa-save mr-1"></i><?= _('Save') ?></button>
+                </div>
+            </div>
+        </div>
 
-            <tr>
-                <td class="LabelColumn" width="15%">
-                    <strong><?= _('Recurrence Pattern') ?></strong>
-                </td>
-                <td class="TextColumn" width="35%">
-                    <?= $recur ?>
-                </td>
-                <td class="TextColumn" width="50%">
+        <!-- Start Time Section -->
+        <div class='card-body py-3 border-bottom'>
+            <div class='row form-group mb-0'>
+                <div class='col-sm-4 control-label text-bold'>
+                    <strong><?= _('Default Start Time') ?></strong>
+                </div>
+                <div class='col-sm-6'>
                     <select class="form-control form-control-sm" name="newEvtStartTime" size="1"
-                            onchange="javascript:$('#newEvtStartTimeSubmit').on('click')">
+                            onchange="javascript:$('#newEvtStartTimeSubmit').click()">
                         <?php OutputUtils::createTimeDropdown(7, 18, 15, $aEventStartHour, $aEventStartMins); ?>
                     </select>
-                    <button class='hidden' type="submit" name="Action" value="TIME" id="newEvtStartTimeSubmit"></button>
-                </td>
-            </tr>
+                    <button class='d-none' type="submit" name="Action" value="TIME" id="newEvtStartTimeSubmit"></button>
+                </div>
+            </div>
+        </div>
 
-            <tr>
-                <td class="LabelColumn" width="15%" rowspan="<?= $nr ?>" colspan="1">
-                    <strong><?= _('Attendance Counts') ?></strong>
-                </td>
-            </tr>
+        <!-- Attendance Counts Section -->
+        <div class='card-body py-3'>
+            <h5 class='mb-3'><i class='fas fa-users mr-1'></i><?= _('Attendance Counts') ?></h5>
             <?php
-            for ($c = 0; $c < $numCounts; $c++) {
+            if ($numCounts > 0) {
                 ?>
-                <tr>
-                    <td class="TextColumn" width="35%"><?= $cCountName[$c] ?></td>
-                    <td class="TextColumn" width="50%">
-                        <button type="submit" name="Action" value="DELETE_<?= $cCountID[$c] ?>"
-                                class="btn btn-danger"><i class="fas fa-trash-alt"></i>  <?= _('Remove') ?></button>
-                    </td>
-                </tr>
+                <div class='mb-3'>
+                    <?php
+                    for ($c = 0; $c < $numCounts; $c++) {
+                        ?>
+                        <div class='row form-group align-items-center mb-2'>
+                            <div class='col-sm-6'>
+                                <span><?= $cCountName[$c] ?></span>
+                            </div>
+                            <div class='col-sm-6'>
+                                <button type="submit" name="Action" value="DELETE_<?= $cCountID[$c] ?>"
+                                        class="btn btn-sm btn-danger"><i class="fas fa-trash-alt mr-1"></i><?= _('Remove') ?></button>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <hr/>
                 <?php
             }
             ?>
-            <tr>
-                <td class="TextColumn" width="35%">
+            <div class='row form-group'>
+                <div class='col-sm-6'>
                     <input class="form-control form-control-sm" type="text" name="newCountName" length="20"
                            placeholder="<?= _("New Attendance Count") ?>"/>
-                </td>
-                <td class="TextColumn" width="50%">
+                </div>
+                <div class='col-sm-6'>
                     <button type="submit" name="Action" value="ADD"
-                            class="btn btn-success"><i class="fas fa-plus"></i>  <?= _('Add counter') ?></button>
-                </td>
-            </tr>
-        </table>
+                            class="btn btn-sm btn-success"><i class="fas fa-plus mr-1"></i><?= _('Add Counter') ?></button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 
-<div>
-    <a href="<?= $sRootPath ?>/v2/calendar/events/names" class='btn btn-default'>
-        <i class='fas fa-chevron-left'></i>
+<div class="mt-4 pt-3 border-top">
+    <a href="<?= $sRootPath ?>/v2/calendar/events/names" class='btn btn-outline-secondary'>
+        <i class='fas fa-arrow-left mr-1'></i>
         <?= _('Return to Event Types') ?>
     </a>
 </div>
