@@ -24,104 +24,81 @@ require $sRootDocument . '/Include/Header.php';
 <?php
 if ($iNumPersons > 0) {
     ?>
-    <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fas fa-eraser"></i><?= _('Empty Cart') ?>
-    </a>
-    <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
-        ?>
-        <a id="emptyCartToGroup" class="btn btn-app"><i
-                class="fas fa-tag"></i><?= _('Empty Cart to Group') ?></a>
-        <?php
-    }
-    if (SessionUser::getUser()->isAddRecordsEnabled()) {
-        ?>
-        <a href="<?= $sRootPath ?>/v2/cart/to/family" class="btn btn-app"><i
-                class="fas fa-users"></i><?= _('Empty Cart to Family') ?></a>
-        <?php
-    } ?>
-    <a href="#" id="emptyCartToEvent" class="btn btn-app"><i
-            class="fas fa-ticket-alt"></i><?= _('Empty Cart to Event') ?></a>
+    <div class="card card-outline card-secondary mb-3">
+        <div class="card-header py-2">
+            <h3 class="card-title"><i class="fas fa-shopping-cart mr-1"></i><?= _('Cart Actions') ?></h3>
+        </div>
+        <div class="card-body py-2">
+            <div class="d-flex flex-wrap">
+                <a href="#" id="emptyCart" class="btn btn-sm btn-outline-danger emptyCart mr-2 mb-2"><i class="fas fa-eraser mr-1"></i><?= _('Empty Cart') ?></a>
 
-    <?php
-    if (SessionUser::getUser()->isShowMapEnabled()) {
-        ?>
-        <a href="<?= $sRootPath ?>/v2/map/0" class="btn btn-app"><i
-                class="fas fa-map-marker-alt"></i><?= _('Map Cart') ?></a>
-        <?php
-    }
-    ?>
-    <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
-    ?>
-    <a class="btn btn-app bg-yellow-gradient"
-        data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
-        href="<?= $sRootPath ?>/api/cart/addressbook/extract"><i
-            class="far fa-id-card">
-        </i> <?= _("vCard") ?></a>
-    <?php
-            }
-            ?>
-    <?php if (SessionUser::getUser()->isCSVExportEnabled()) {
-        ?>
-        <a href="<?= $sRootPath ?>/v2/system/csv/export/cart" class="btn btn-app bg-gradient-green"><i
-                class="fas fa-file-excel"></i><?= _('CSV Export') ?></a>
-        <?php
-    } ?>
-    <a href="<?= $sRootPath ?>/Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36"
-        class="btn btn-app bg-gradient-blue"><i
-            class="fas fa-file-pdf"></i><?= _('Name Tags') ?></a>
-    <a class="btn btn-app bg-gradient-purple" href="<?= $sRootPath ?>/v2/cart/to/badge"> <i
-            class="fas fa-id-badge"></i> <span class="cartActionDescription"><?= _("Badges") ?></span></a>
-    <?php
+                <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
+                    <a id="emptyCartToGroup" class="btn btn-sm btn-outline-primary mr-2 mb-2"><i class="fas fa-tag mr-1"></i><?= _('Empty Cart to Group') ?></a>
+                <?php }
 
-    if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
-        // Display link
-        ?>
-        <a href="mailto:<?= $sEmailLink ?>" class="btn btn-app" id="emailLink" target="_blank"><i
-                class='far fa-paper-plane'></i><?= _('Email Cart') ?></a>
-        <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-app" id="emailCCIlink" target="_blank"><i
-                class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
-        <?php
-    }
+                if (SessionUser::getUser()->isAddRecordsEnabled()) { ?>
+                    <a href="<?= $sRootPath ?>/v2/cart/to/family" class="btn btn-sm btn-outline-primary mr-2 mb-2"><i class="fas fa-users mr-1"></i><?= _('Empty Cart to Family') ?></a>
+                <?php } ?>
 
-    if ($sPhoneLink) {
-        if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
-            ?>
-            &nbsp;
-            <div class="btn-group" id="globalSMSLink">
-                <a class="btn btn-app allPhonesCommaD" href="#" ><i
-                        class="fas fa-mobile"></i> <?= _("Text Cart") ?></a>
-                <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu" role="menu">
-                    <a href="#" class="dropdown-item allPhonesCommaD"><i
-                                class="fas fa-mobile"></i> <?= _("Copy Paste the Texts") ?></a>
-                    <a href="sms:<?= str_replace(' ', '', mb_substr($sPhoneLinkSMS, 0, -2)) ?>" id="sPhoneLinkSMS"
-                            class="dropdown-item"><i class="fas fa-mobile"></i> <?= _("Text Cart") ?></a>
-                </div>
+                <a href="#" id="emptyCartToEvent" class="btn btn-sm btn-outline-primary mr-2 mb-2"><i class="fas fa-ticket-alt mr-1"></i><?= _('Empty Cart to Event') ?></a>
+
+                <?php if (SessionUser::getUser()->isShowMapEnabled()) { ?>
+                    <a href="<?= $sRootPath ?>/v2/map/0" class="btn btn-sm btn-outline-secondary mr-2 mb-2"><i class="fas fa-map-marker-alt mr-1"></i><?= _('Map Cart') ?></a>
+                <?php } ?>
+
+                <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
+                    <a class="btn btn-sm btn-outline-warning mr-2 mb-2"
+                        data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
+                        href="<?= $sRootPath ?>/api/cart/addressbook/extract"><i class="far fa-id-card mr-1"></i><?= _("vCard") ?></a>
+                <?php } ?>
+
+                <?php if (SessionUser::getUser()->isCSVExportEnabled()) { ?>
+                    <a href="<?= $sRootPath ?>/v2/system/csv/export/cart" class="btn btn-sm btn-outline-success mr-2 mb-2"><i class="fas fa-file-excel mr-1"></i><?= _('CSV Export') ?></a>
+                <?php } ?>
+
+                <a href="<?= $sRootPath ?>/Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36" class="btn btn-sm btn-outline-info mr-2 mb-2"><i class="fas fa-file-pdf mr-1"></i><?= _('Name Tags') ?></a>
+                <a class="btn btn-sm btn-outline-info mr-2 mb-2" href="<?= $sRootPath ?>/v2/cart/to/badge"><i class="fas fa-id-badge mr-1"></i><span class="cartActionDescription"><?= _("Badges") ?></span></a>
+
+                <?php
+                if (SessionUser::getUser()->isEmailEnabled()) {
+                ?>
+                    <a href="mailto:<?= $sEmailLink ?>" class="btn btn-sm btn-outline-secondary mr-2 mb-2" id="emailLink" target="_blank"><i class="far fa-paper-plane mr-1"></i><?= _('Email Cart') ?></a>
+                    <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-sm btn-outline-secondary mr-2 mb-2" id="emailCCIlink" target="_blank"><i class="fas fa-paper-plane mr-1"></i><?= _('Email (BCC)') ?></a>
+                <?php
+                }
+
+                if ($sPhoneLink) {
+                    if (SessionUser::getUser()->isEmailEnabled()) {
+                ?>
+                    <div class="btn-group mr-2 mb-2" id="globalSMSLink">
+                        <a class="btn btn-sm btn-outline-secondary allPhonesCommaD" href="#"><i class="fas fa-mobile mr-1"></i><?= _("Text Cart") ?></a>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="#" class="dropdown-item allPhonesCommaD"><i class="fas fa-mobile mr-1"></i><?= _("Copy Paste the Texts") ?></a>
+                            <a href="sms:<?= str_replace(' ', '', mb_substr($sPhoneLinkSMS, 0, -2)) ?>" id="sPhoneLinkSMS" class="dropdown-item"><i class="fas fa-mobile mr-1"></i><?= _("Text Cart") ?></a>
+                        </div>
+                    </div>
+                <?php
+                    }
+                }
+                ?>
+
+                <a href="<?= $sRootPath ?>/v2/people/directory/report/Cart+Directory" class="btn btn-sm btn-outline-secondary mr-2 mb-2"><i class="fas fa-book mr-1"></i><?= _('Create Directory From Cart') ?></a>
+
+                <?php if (SessionUser::getUser()->isAddRecordsEnabled()) { ?>
+                    <a href="#" id="deleteCart" class="btn btn-sm btn-outline-danger mr-2 mb-2"><i class="fas fa-trash-alt mr-1"></i><?= _('Delete Persons From CRM') ?></a>
+                    <a href="#" id="deactivateCart" class="btn btn-sm btn-outline-warning mr-2 mb-2"><i class="fas fa-user-slash mr-1"></i><?= _('Deactivate Persons From Cart') ?></a>
+                <?php } ?>
             </div>
-            <?php
-        }
-    } ?>
-    <a href="<?= $sRootPath ?>/v2/people/directory/report/Cart+Directory"
-        class="btn btn-app"><i
-            class="fas fa-book"></i><?= _('Create Directory From Cart') ?></a>
+        </div>
+    </div>
 
-    <?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
-        ?>
-        <a href="#" id="deleteCart" class="btn btn-app bg-gradient-red"><i
-                class="fas fa-trash-alt"></i><?= _('Delete Persons From CRM') ?></a>
-
-        <a href="#" id="deactivateCart" class="btn btn-app bg-gradient-orange"><i
-                class="fas fa-trash-alt"></i><?= _('Deactivate Persons From Cart') ?></a>
-        <?php
-    } ?>
-
-    
     <!-- Default card -->
      <form method="get" action="<?= $sRootPath ?>/Reports/PDFLabel.php" name="labelform">
-     <div class="card card-secondary collapsed-card">
-        <div class="card-header border-1">
+      <div class="card card-secondary collapsed-card">
+          <div class="card-header">
             <h3 class="card-title"><?= _('Generate Labels') ?></h3>
 
             <div class="card-tools pull-right">
@@ -180,14 +157,14 @@ if ($iNumPersons > 0) {
 
 <!-- BEGIN CART LISTING -->
 <?php if (isset($iNumPersons) && $iNumPersons > 0): ?>
-    <div class="card card-primary">
-        <div class="card-header border-1">
+    <div class="card card-outline card-primary">
+        <div class="card-header">
             <h3 class="card-title">
                 <?= _('Your cart contains') . ' ' . $iNumPersons . ' ' . _('persons from') . ' ' . $iNumFamilies . ' ' . _('families') ?>
                 .</h3>
         </div>
         <div class="card-body">
-            <table class="table table-hover dt-responsive" id="cart-listing-table" style="width:100%;">
+            <table class="table table-sm table-hover dt-responsive" id="cart-listing-table" style="width:100%;">
 
             </table>
         </div>
