@@ -407,7 +407,7 @@ if ($mode == 'classes') {
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title"><?= _("Fields") ?></h3>
+        <h3 class="card-title"><i class="fa fa-list"></i> <?= _("Fields") ?></h3>
     </div>
     <div class="card-body">
         <?php
@@ -452,7 +452,6 @@ if ($mode == 'classes') {
                         ?>
                         <tr>
                             <td>
-                                <b>
                                     <?php
                                     if ($mode == 'grproles' && $aIDs[$row] == $iDefaultRole) {//dead code
                                         ?>
@@ -461,43 +460,45 @@ if ($mode == 'classes') {
                                     }
                                     ?>
 
-                                    <?= $row ?>
-                                </b>
+                                    
+                                    <span class="badge badge-secondary mr-1" style="min-width: 24px; padding: 4px 0px;"><?= $row ?></span>
+                                
                             </td>
 
                             <td>
 
                                 <?php
-                                if ($row != 1) {
-                                    ?>
-                                    <i class="fa-solid fa-arrow-up row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
-                                        data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up"></i>
-                                    <?php
-                                }
-                                if ($row < $numRows) {
-                                    ?>
-                                    <i class="fa-solid fa-arrow-down row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
-                                        data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down"></i>
-                                    <?php
-                                }
                                 if ($numRows > 1) {
                                     ?>
                                     <?php
                                     if ($embedded) {
                                         ?>
-                                        <i class="fa fa-trash-can row-action text-red" data-mode="<?= $mode ?>"
+                                        <i class="fa fa-trash-can row-action text-red btn-default" data-mode="<?= $mode ?>"
                                             data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
                                             data-id="<?= $aIDs[$row] ?>" data-action="delete" aria-hidden="true"></i>
                                         <?php
                                     } else {
                                         ?>
-                                        <i class="fa fa-trash-can RemoveClassification text-red" data-mode="<?= $mode ?>"
+                                        <i class="fa fa-trash-can RemoveClassification text-red btn btn-default" data-mode="<?= $mode ?>"
                                             data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
                                             data-id="<?= $aIDs[$row] ?>"
                                             data-name="<?= htmlentities(stripslashes($aNameFields[$row])) ?>" aria-hidden="true"></i>
                                         <?php
                                     }
                                 }
+                                if ($row != 1) {
+                                    ?>
+                                    <i class="fa-solid fa-arrow-up row-action btn btn-default" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
+                                        data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up"></i>
+                                    <?php
+                                }
+                                if ($row < $numRows) {
+                                    ?>
+                                    <i class="fa-solid fa-arrow-down row-action btn btn-default" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
+                                        data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down"></i>
+                                    <?php
+                                }
+                                
                                 ?>
                             </td>
                             <td>
