@@ -16,6 +16,45 @@ use EcclesiaCRM\SessionUser;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
+
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-heart mr-1"></i><?= _("Visit/Call randomly") ?></h3>
+    </div>
+    <div class="card-body py-3">
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-sm btn-primary newPastorCare" data-typeid="2" data-toggle="tooltip" data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>">
+                    <i class="fas fa-sticky-note mr-1"></i><?= _("Family") ?>
+                </button>
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Menu déroulant</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-left">
+                    <a class="dropdown-item newPastorCare" href="#" data-typeid="1"><i class="fas fa-user mr-2"></i><?= _("Person") ?></a>
+                    <a class="dropdown-item newPastorCare" href="#" data-typeid="2"><i class="fas fa-users mr-2"></i><?= _("Family") ?></a>
+                    <a class="dropdown-item newPastorCare" href="#" data-typeid="3"><i class="fas fa-user-tie mr-2"></i><?= _("Retired") ?></a>
+                    <a class="dropdown-item newPastorCare" href="#" data-typeid="4"><i class="fas fa-graduation-cap mr-2"></i><?= _("Young") ?></a>
+                    <a class="dropdown-item newPastorCare" href="#" data-typeid="5"><i class="fas fa-user-circle mr-2"></i><?= _("Single") ?></a>
+                </div>
+            </div>
+            <button type="button" class="btn btn-sm btn-warning" id="add-event" data-toggle="tooltip" data-placement="bottom" title="<?= _("Create an appointment") ?>">
+                <i class="far fa-calendar-plus mr-1"></i><?= _("Appointment") ?>
+            </button>
+            <?php if ( !(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) && SessionUser::getId() == $currentPastorId) { ?>
+                <a href="<?= $sRootPath ?>/v2/pastoralcare/listforuser/<?= $currentPastorId ?>" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>">
+                    <i class="fas fa-list mr-1"></i><?= _("Lists") ?>
+                </a>
+            <?php } ?>
+            <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
+                <a href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" class="btn btn-sm btn-outline-secondary ml-auto" data-toggle="tooltip" data-placement="bottom" title="<?= _("Pastoral care Settings.") ?>">
+                    <i class="fas fa-cog mr-1"></i><?= _("Settings") ?>
+                </a>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-2 col-sm-6 col-xs-12">
         <div class="info-box bg-gradient-<?= $Stats['personGradientColor'] ?>">
@@ -77,138 +116,80 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<div class="margin">
-    <label><?= _("Visit/Call randomly") ?></label>
-    <div class="btn-group">
-        <a class="btn btn-app newPastorCare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>"><i
-                class="fas fa-sticky-note"></i><?= _("Family") ?></a>
-        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-            <span class="sr-only">Menu déroulant</span>
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item newPastorCare" data-typeid="1"><?= _("Person") ?></a>
-            <a class="dropdown-item newPastorCare" data-typeid="2"><?= _("Family") ?></a>
-            <a class="dropdown-item newPastorCare" data-typeid="3"><?= _("Retired") ?></a>
-            <a class="dropdown-item newPastorCare" data-typeid="4"><?= _("Young") ?></a>
-            <a class="dropdown-item newPastorCare" data-typeid="5"><?= _("Single") ?></a>
-        </div>
-        &nbsp;
-        &nbsp;
-        <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
-        &nbsp;
-        &nbsp;
-        <?php if ( !(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) && SessionUser::getId() == $currentPastorId) { ?>
-            <a href="<?= $sRootPath ?>/v2/pastoralcare/listforuser/<?= $currentPastorId ?>"
-                class="btn btn-app bg-success"
-                data-toggle="tooltip" data-placement="bottom"
-                title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>"><i class="fas fa-list"></i><?= _("Lists") ?></a>
-        <?php } ?>
-    </div>
-    <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
-        <div class="btn-group pull-right">
-            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care Settings.") ?>"><i
-                class="fas fa-gear"></i><?= _("Settings") ?></a>
-        </div>            
-        <?php } ?>
-</div>
 
 <div class="row">
     <div class="col-md-6">
-        <div class="card card-primary">
-            <div class="card-header  border-1">
-                <div class="card-title"><i class="fa-solid fa-clock"></i> <?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
+        <div class="card card-primary card-outline h-100">
+            <div class="card-header border-1 py-2">
+                <div class="card-title small"><i class="fa-solid fa-clock"></i> <?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
             </div>
-            <div class="card-body">
-                <div class="alert alert-default-info"><?= _("• Statistics about persons, families ... who remain to be contacted.") ?></div>
-                <table class="table table-condensed">
-                    <tr>
-                        <th><?= _('Members') ?></th>
-                        <th>% <?= _('of members').' '._('to contact') ?></th>
-                        <th style="width: 40px"><?= _('Count') ?></th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fas fa-user"></i> <?= _("Persons") ?>
-                        </td>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['personColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentNotViewPersons']) ?>%;" aria-valuenow="<?= $Stats['PercentNotViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentNotViewPersons'] ?>%</div>
-                            </div>
-                        </td>
-                        <td><span
-                                class="badge bg-<?= $Stats['personColor'] ?>"><?= $Stats['CountNotViewPersons'] ?></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small> <?= _("Families") ?>
-                        </td>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['familyColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentViewFamilies']) ?>%;" aria-valuenow="<?= $Stats['PercentViewFamilies'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentViewFamilies'] ?>%</div>
-                            </div>
-                        </td>
-                        <td><span
-                                class="badge bg-<?= $Stats['familyColor'] ?>"><?= $Stats['CountNotViewFamilies'] ?></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fas fa-user"></i> <?= _("Singles") ?>
-                        </td>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['singleColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentPersonSingle']) ?>%;" aria-valuenow="<?= $Stats['PercentPersonSingle'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentPersonSingle'] ?>%</div>
-                            </div>
-                        </td>
-                        <td><span
-                                class="badge bg-<?= $Stats['singleColor'] ?>"><?= $Stats['CountPersonSingle'] ?></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fas fa-user"></i> <?= _("Retired") ?>
-                        </td>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['retiredColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentRetiredViewPersons']) ?>%;" aria-valuenow="<?= $Stats['PercentRetiredViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentRetiredViewPersons'] ?>%</div>
-                            </div>
-                        </td>
-                        <td><span
-                                class="badge bg-<?= $Stats['retiredColor'] ?>"><?= $Stats['CountNotViewRetired'] ?></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fas fa-child"></i> <?= _("Young People") ?>
-                        </td>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['youngColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentViewYoung']) ?>%;" aria-valuenow="<?= $Stats['PercentViewYoung'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentViewYoung'] ?>%</div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-<?= $Stats['youngColor'] ?>"><?= $Stats['CountNotViewYoung'] ?></span>
-                        </td>
-                    </tr>
-                </table>
+            <div class="card-body p-2">
+                <p class="text-info small mb-2"><i class="fas fa-info-circle"></i> <?= _("• Statistics about persons, families ... who remain to be contacted.") ?></p>
+                <div class="d-flex align-items-center mb-1">
+                    <div class="small text-nowrap" style="width:120px"><i class="fas fa-user fa-fw"></i> <?= _("Persons") ?></div>
+                    <div class="flex-grow-1 mx-2">
+                        <div class="progress" style="height:20px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['personColor'] ?>" role="progressbar" style="width:<?= round($Stats['PercentNotViewPersons']) ?>%;" aria-valuenow="<?= $Stats['PercentNotViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= round($Stats['PercentNotViewPersons']) ?>%</div>
+                        </div>
+                    </div>
+                    <span class="badge bg-<?= $Stats['personColor'] ?>" style="min-width:28px"><?= $Stats['CountNotViewPersons'] ?></span>
+                </div>
+                <br>
+                <div class="d-flex align-items-center mb-1">
+                    <div class="small text-nowrap" style="width:120px"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small> <?= _("Families") ?></div>
+                    <div class="flex-grow-1 mx-2">
+                        <div class="progress" style="height:20px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['familyColor'] ?>" role="progressbar" style="width:<?= round($Stats['PercentViewFamilies']) ?>%;" aria-valuenow="<?= $Stats['PercentViewFamilies'] ?>" aria-valuemin="0" aria-valuemax="100"><?= round($Stats['PercentViewFamilies']) ?>%</div>
+                        </div>
+                    </div>
+                    <span class="badge bg-<?= $Stats['familyColor'] ?>" style="min-width:28px"><?= $Stats['CountNotViewFamilies'] ?></span>
+                </div>
+                <br>
+                <div class="d-flex align-items-center mb-1">
+                    <div class="small text-nowrap" style="width:120px"><i class="fas fa-user fa-fw"></i> <?= _("Singles") ?></div>
+                    <div class="flex-grow-1 mx-2">
+                        <div class="progress" style="height:20px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['singleColor'] ?>" role="progressbar" style="width:<?= round($Stats['PercentPersonSingle']) ?>%;" aria-valuenow="<?= $Stats['PercentPersonSingle'] ?>" aria-valuemin="0" aria-valuemax="100"><?= round($Stats['PercentPersonSingle']) ?>%</div>
+                        </div>
+                    </div>
+                    <span class="badge bg-<?= $Stats['singleColor'] ?>" style="min-width:28px"><?= $Stats['CountPersonSingle'] ?></span>
+                </div>
+                <br>
+                <div class="d-flex align-items-center mb-1">
+                    <div class="small text-nowrap" style="width:120px"><i class="fas fa-user fa-fw"></i> <?= _("Retired") ?></div>
+                    <div class="flex-grow-1 mx-2">
+                        <div class="progress" style="height:20px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['retiredColor'] ?>" role="progressbar" style="width:<?= round($Stats['PercentRetiredViewPersons']) ?>%;" aria-valuenow="<?= $Stats['PercentRetiredViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= round($Stats['PercentRetiredViewPersons']) ?>%</div>
+                        </div>
+                    </div>
+                    <span class="badge bg-<?= $Stats['retiredColor'] ?>" style="min-width:28px"><?= $Stats['CountNotViewRetired'] ?></span>
+                </div>
+                <br>
+                <div class="d-flex align-items-center mb-0">
+                    <div class="small text-nowrap" style="width:120px"><i class="fas fa-child fa-fw"></i> <?= _("Young People") ?></div>
+                    <div class="flex-grow-1 mx-2">
+                        <div class="progress" style="height:20px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['youngColor'] ?>" role="progressbar" style="width:<?= round($Stats['PercentViewYoung']) ?>%;" aria-valuenow="<?= $Stats['PercentViewYoung'] ?>" aria-valuemin="0" aria-valuemax="100"><?= round($Stats['PercentViewYoung']) ?>%</div>
+                        </div>
+                    </div>
+                    <span class="badge bg-<?= $Stats['youngColor'] ?>" style="min-width:28px"><?= $Stats['CountNotViewYoung'] ?></span>
+                </div>
             </div>
         </div>
     </div>
     <?php if (SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) { ?>
         <div class="col-md-6">
-            <div class="card card-primary">
-                <div class="card-header  border-1">
-                    <div class="card-title">
+            <div class="card card-primary card-outline h-100 d-flex flex-column">
+                <div class="card-header border-1 py-2">
+                    <div class="card-title small">
                         <i class="fa-solid fa-people-group"></i> <?= _("Pastoral Care Members") ?>
                         <?php if (SystemConfig::getBooleanValue("bPastoralcareStats")) { ?>
-                            (<?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?>)
+                            <span class="text-muted">(<?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?>)</span>
                         <?php } ?>
                     </div>
                 </div>
-                <div class="card-body">
-                    <table class=" dataTable table table-striped table-condensed" id="pastoralcareMembers"
-                           width="100%"></table>
+                <div class="card-body p-2 flex-grow-1" style="overflow-y:auto;">
+                    <table class="dataTable table table-striped table-condensed" id="pastoralcareMembers" width="100%"></table>
                 </div>
             </div>
         </div>
@@ -217,74 +198,63 @@ require $sRootDocument . '/Include/Header.php';
 
 <?php if (SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) { ?>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card card-warning">
-                <div class="card-header  border-1">
-                    <div class="card-title">
-                        <i class="fas fa-user"></i> <?= _("Persons not reached") ?>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <table class=" dataTable table table-striped table-condensed" id="personNeverBeenContacted"
-                           width="100%"></table>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card card-warning">
-                <div class="card-header  border-1">
-                    <div class="card-title">
-                        <small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small> <?= _("Families not reached") ?>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <table class=" dataTable table table-striped table-condensed" id="familyNeverBeenContacted"
-                           width="100%"></table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card card-warning">
-                <div class="card-header  border-1">
-                    <div class="card-title">
-                        <i class="fas fa-user"></i> <?= _("Single Persons not reached") ?>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <table class=" dataTable table table-striped table-condensed" id="singleNeverBeenContacted"
-                           width="100%"></table>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card card-warning">
-                <div class="card-header  border-1">
-                    <div class="card-title">
-                        <i class="fas fa-user"></i> <?= _("Retired not reached") ?>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <table class=" dataTable table table-striped table-condensed" id="retiredNeverBeenContacted"
-                           width="100%"></table>
-                </div>
-            </div>
-        </div>
-    </div>
+<br>
 
     <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header  border-1">
-                    <div class="card-title">
-                        <i class="fas fa-child"></i> <?= _("Young People not reached") ?>
-                    </div>
+        <div class="col-md-12">
+            <div class="card card-warning">
+                <div class="card-header border-1">
+                    <ul class="nav nav-tabs card-header-tabs" id="notReachedTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="tab-persons" data-toggle="tab" href="#pane-persons" role="tab" aria-controls="pane-persons" aria-selected="true">
+                                <i class="fas fa-user"></i> <?= _("Persons") ?>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-families" data-toggle="tab" href="#pane-families" role="tab" aria-controls="pane-families" aria-selected="false">
+                                <small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small> <?= _("Families") ?>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-singles" data-toggle="tab" href="#pane-singles" role="tab" aria-controls="pane-singles" aria-selected="false">
+                                <i class="fas fa-user"></i> <?= _("Singles") ?>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-retired" data-toggle="tab" href="#pane-retired" role="tab" aria-controls="pane-retired" aria-selected="false">
+                                <i class="fas fa-user"></i> <?= _("Retired") ?>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab-young" data-toggle="tab" href="#pane-young" role="tab" aria-controls="pane-young" aria-selected="false">
+                                <i class="fas fa-child"></i> <?= _("Young People") ?>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="card-body">
-                    <table class=" dataTable table table-striped table-condensed" id="youngNeverBeenContacted"
-                           width="100%"></table>
+                    <div class="tab-content" id="notReachedTabsContent">
+                        <div class="tab-pane fade show active" id="pane-persons" role="tabpanel" aria-labelledby="tab-persons">
+                            <h6 class="mt-2 mb-2 text-muted"><?= _("Persons not reached") ?></h6>
+                            <table class="dataTable table table-striped table-condensed" id="personNeverBeenContacted" width="100%"></table>
+                        </div>
+                        <div class="tab-pane fade" id="pane-families" role="tabpanel" aria-labelledby="tab-families">
+                            <h6 class="mt-2 mb-2 text-muted"><?= _("Families not reached") ?></h6>
+                            <table class="dataTable table table-striped table-condensed" id="familyNeverBeenContacted" width="100%"></table>
+                        </div>
+                        <div class="tab-pane fade" id="pane-singles" role="tabpanel" aria-labelledby="tab-singles">
+                            <h6 class="mt-2 mb-2 text-muted"><?= _("Single Persons not reached") ?></h6>
+                            <table class="dataTable table table-striped table-condensed" id="singleNeverBeenContacted" width="100%"></table>
+                        </div>
+                        <div class="tab-pane fade" id="pane-retired" role="tabpanel" aria-labelledby="tab-retired">
+                            <h6 class="mt-2 mb-2 text-muted"><?= _("Retired not reached") ?></h6>
+                            <table class="dataTable table table-striped table-condensed" id="retiredNeverBeenContacted" width="100%"></table>
+                        </div>
+                        <div class="tab-pane fade" id="pane-young" role="tabpanel" aria-labelledby="tab-young">
+                            <h6 class="mt-2 mb-2 text-muted"><?= _("Young People not reached") ?></h6>
+                            <table class="dataTable table table-striped table-condensed" id="youngNeverBeenContacted" width="100%"></table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
