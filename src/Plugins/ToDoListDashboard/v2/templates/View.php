@@ -61,24 +61,29 @@ $defaultList = ToDoListDashboardQuery::create()
                     <li class="page-item"><a href="#" class="page-link">»</a></li>
                 </ul>
             </div>-->
-            <div class="float-right" style="margin-right:20px;margin-top: -5px">
+            <div class="float-right d-flex align-items-center" style="margin-right:5px;gap:6px;">
                 <select class="form-control form-control-sm" id="select-to-do-list-dashboard" <?= ($lists->count() == 0?'hidden':'') ?>>
                     <?php foreach ($lists as $list) { ?>
                         <option value="<?= $list->getId() ?>" <?= ($list->isVisible()?'selected':'') ?>><?= $list->getName() ?></option>
                     <?php } ?>
                 </select>
-            </div>
-            <div class="float-right" style="margin-right:5px;margin-top: -4px">
-                <button type="button" class="btn btn-success btn-sm float-right" id="edit-To-Do-List-Dashboard"
-                        data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Edit Name of Current To Do List") ?>"><i class="fas fa-edit"></i></button>
-            </div>
-            <div class="float-right" style="margin-right:5px;margin-top: -4px">
-                <button type="button" class="btn btn-danger btn-sm float-right" id="remove-To-Do-List-Dashboard"
-                        data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Remove Current To Do List") ?>"><i class="fas fa-trash"></i></button>
-            </div>
-            <div class="float-right" style="margin-right:5px;margin-top: -4px">
-                <button type="button" class="btn btn-primary btn-sm float-right" id="Add-To-Do-List-Dashboard"
-                        data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= dgettext("messages-ToDoListDashboard","Add a To Do List") ?>"><i class="fas fa-plus"></i></button>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button type="button" class="btn btn-primary" id="Add-To-Do-List-Dashboard"
+                            data-toggle="tooltip" data-placement="top"
+                            title="<?= dgettext("messages-ToDoListDashboard","Add a To Do List") ?>">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-success" id="edit-To-Do-List-Dashboard"
+                            data-toggle="tooltip" data-placement="top"
+                            title="<?= dgettext("messages-ToDoListDashboard","Edit Name of Current To Do List") ?>">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger" id="remove-To-Do-List-Dashboard"
+                            data-toggle="tooltip" data-placement="top"
+                            title="<?= dgettext("messages-ToDoListDashboard","Remove Current To Do List") ?>">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
