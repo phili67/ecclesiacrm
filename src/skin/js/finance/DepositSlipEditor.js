@@ -1,4 +1,17 @@
 $(function() {
+    const updateSelectionActions = () => {
+        let selectedRows = dataT.rows('.selected').data().length;
+
+        $("#deleteSelectedRows").prop('disabled', !(selectedRows));
+        $("#deleteSelectedRows").html('<i class="fas fa-trash-alt mr-1"></i>' + i18next.t("Delete") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
+
+        $("#invalidateSelectedRows").prop('disabled', !(selectedRows));
+        $("#invalidateSelectedRows").html('<i class="fas fa-undo mr-1"></i>' + i18next.t("Pledge") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
+
+        $("#validateSelectedRows").prop('disabled', !(selectedRows));
+        $("#validateSelectedRows").html('<i class="fas fa-check mr-1"></i>' + i18next.t("Payment") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
+    };
+
     $('#deleteSelectedRows').on('click', function () {
         let deletedRows = dataT.rows('.selected').data();
         bootbox.confirm({
@@ -29,22 +42,13 @@ $(function() {
                             if (window.CRM.deletesRemaining == 0) {
                                 dataT.ajax.reload();
                                 load_charts();
+                                updateSelectionActions();
                             }
                         });
                     });
                 }
             }
         })
-    });
-
-    $("#paymentsTable tbody").on('click', 'tr', function () {
-        $(this).toggleClass('selected');
-        let selectedRows = dataT.rows('.selected').data().length;
-        $("#invalidateSelectedRows").prop('disabled', !(selectedRows));
-        $("#invalidateSelectedRows").text(i18next.t("Pledge") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
-        $("#validateSelectedRows").prop('disabled', !(selectedRows));
-        $("#validateSelectedRows").text(i18next.t("Payment") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
-        $(this).toggleClass('selected')
     });
 
     $("#invalidateSelectedRows").on('click',function (e) {
@@ -61,6 +65,7 @@ $(function() {
             data: JSON.stringify({"data": newData})
         },function (data) {
             dataT.ajax.reload();
+            updateSelectionActions();
         });
     });
 
@@ -78,6 +83,7 @@ $(function() {
             data: JSON.stringify({"data": newData})
         },function (data) {
             dataT.ajax.reload();
+            updateSelectionActions();
         });
     });
 
@@ -152,23 +158,47 @@ $(function() {
 
             initCharts(fundData, pledgeData);
 
+            const formatMoney = (amount) => {
+                return window.CRM.currency + Number(amount).toLocaleString(window.CRM.lang, {maximumFractionDigits: 2});
+            };
+
             let len = fundData.datasets[0].data.length;
 
             $("#mainFundTotals").empty();
             let globalTotal = 0;
             for (let i = 0; i < len; ++i) {
-                $("#mainFundTotals").append('<li><b>' + fundData.labels[i] + '</b>: ' + window.CRM.currency + Number(fundData.datasets[0].data[i]).toLocaleString(window.CRM.lang) + '</li>');
+                $("#mainFundTotals").append(
+                    '<li class="d-flex justify-content-between border-bottom py-1">' +
+                    '<span>' + fundData.labels[i] + '</span>' +
+                    '<strong>' + formatMoney(fundData.datasets[0].data[i]) + '</strong>' +
+                    '</li>'
+                );
                 globalTotal += Number(fundData.datasets[0].data[i]);
             }
 
             $("#GlobalTotal").empty();
-            $("#GlobalTotal").append('<li><b>' + i18next.t("TOTAL") + "(" + len + "):</b> " + window.CRM.currency + globalTotal.toLocaleString(window.CRM.lang) + '</li>');
+            $("#GlobalTotal").append(
+                '<li class="d-flex justify-content-between border-bottom py-1">' +
+                '<span><strong>' + i18next.t("TOTAL") + ' (' + len + ')</strong></span>' +
+                '<strong>' + formatMoney(globalTotal) + '</strong>' +
+                '</li>'
+            );
 
             if (pledgeDataType[0].value != null) {
-                $("#GlobalTotal").append('<li><b>' + pledgeDataType[0].label + " (" + pledgeDataType[0].countCash + "):</b> " + window.CRM.currency + Number(pledgeDataType[0].value).toLocaleString(window.CRM.lang) + "</b></li>");
+                $("#GlobalTotal").append(
+                    '<li class="d-flex justify-content-between border-bottom py-1">' +
+                    '<span>' + pledgeDataType[0].label + ' (' + pledgeDataType[0].countCash + ')</span>' +
+                    '<strong>' + formatMoney(pledgeDataType[0].value) + '</strong>' +
+                    '</li>'
+                );
             }
             if (pledgeDataType[1].value != null) {
-                $("#GlobalTotal").append('<li><b>' + pledgeDataType[1].label + " (" + pledgeDataType[1].countChecks + "):</b> " + window.CRM.currency + Number(pledgeDataType[1].value).toLocaleString(window.CRM.lang) + "</b></li>");
+                $("#GlobalTotal").append(
+                    '<li class="d-flex justify-content-between border-bottom py-1">' +
+                    '<span>' + pledgeDataType[1].label + ' (' + pledgeDataType[1].countChecks + ')</span>' +
+                    '<strong>' + formatMoney(pledgeDataType[1].value) + '</strong>' +
+                    '</li>'
+                );
             }
         });
     }
@@ -272,12 +302,16 @@ $(function() {
             "language": {
                 "url": window.CRM.plugin.dataTable.language.url
             },
+            pageLength: 8,
+            dom: 'rtip',
+            autoWidth: false,
             columns: colDef,
             responsive: true,
             "createdRow": function (row, data, index) {
                 $(row).addClass("paymentRow");
             }
         });
+        updateSelectionActions();
         dataT.on('xhr', function () {
             var json = dataT.ajax.json();
             //console.log(json);
@@ -348,9 +382,7 @@ $(function() {
         $(document).on('click', ".paymentRow", function (event) {
             if (!($(event.target).hasClass("details-control") || $(event.target).hasClass("fa"))) {
                 $(this).toggleClass('selected');
-                let selectedRows = dataT.rows('.selected').data().length;
-                $("#deleteSelectedRows").prop('disabled', !(selectedRows));
-                $("#deleteSelectedRows").text(i18next.t("Delete") + " (" + selectedRows + ") " + i18next.t("Selected Rows"));
+                updateSelectionActions();
             }
 
 
@@ -359,41 +391,85 @@ $(function() {
     }
 
     const initCharts = (fundChartData, pledgeChartData) => {
-        let pieOptions = {
-            cutoutPercentage: 50,
-            rotation: -1.5707963267948966,
-            circumference: 6.283185307179586,
-            animation: {animateRotate: true, animateScale: false},
+        const palette = [
+            '#1f7a8c', '#bfdbf7', '#f4a259', '#5c946e', '#d1495b',
+            '#3d5a80', '#e0a458', '#7b2cbf', '#2a9d8f', '#e76f51'
+        ];
+
+        const applyDatasetStyle = (chartData) => {
+            if (!chartData || !chartData.datasets || !chartData.datasets[0]) {
+                return;
+            }
+
+            const ds = chartData.datasets[0];
+            if (!ds.backgroundColor || ds.backgroundColor.length === 0) {
+                ds.backgroundColor = palette;
+            }
+
+            ds.borderColor = '#ffffff';
+            ds.borderWidth = 2;
+            ds.hoverBorderWidth = 2;
         };
 
-        //pieOptions = Chart.defaults.doughnut;
+        const formatMoney = (amount) => {
+            return window.CRM.currency + Number(amount).toLocaleString(window.CRM.lang, {maximumFractionDigits: 2});
+        };
+
+        let pieOptions = {
+            cutoutPercentage: 66,
+            rotation: -1.5707963267948966,
+            circumference: 6.283185307179586,
+            maintainAspectRatio: false,
+            legend: {
+                display: false
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, chartData) {
+                        let label = chartData.labels[tooltipItem.index] || '';
+                        let value = chartData.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] || 0;
+                        return label + ': ' + formatMoney(value);
+                    }
+                }
+            },
+            animation: {
+                animateRotate: true,
+                animateScale: true,
+                duration: 700
+            },
+        };
 
         var len = fundChartData.datasets[0].data.length;
         if (len == 0) return;
 
-        var pieChartCanvas = $("#type-donut").get(0).getContext("2d");
-        var pieChart = new Chart(pieChartCanvas, {
+        applyDatasetStyle(fundChartData);
+        applyDatasetStyle(pledgeChartData);
+
+        if (window.CRM.depositTypeChart) {
+            window.CRM.depositTypeChart.destroy();
+        }
+        if (window.CRM.depositFundChart) {
+            window.CRM.depositFundChart.destroy();
+        }
+
+        var typeDonutContext = $("#type-donut").get(0).getContext("2d");
+        window.CRM.depositTypeChart = new Chart(typeDonutContext, {
             type: 'doughnut',
             data: fundChartData,
             options: pieOptions
         });
 
-        /*var legend = pieChart.generateLegend();
-        $('#type-donut-legend').append(legend);*/
-
-        var pieChartCanvas = $("#fund-donut").get(0).getContext("2d");
-        var pieChart = new Chart(pieChartCanvas, {
+        var fundDonutContext = $("#fund-donut").get(0).getContext("2d");
+        window.CRM.depositFundChart = new Chart(fundDonutContext, {
             type: 'doughnut',
             data: pledgeChartData,
             options: pieOptions
         });
-
-        //var legend = pieChart.generateLegend();
-        //$('#fund-donut-legend').append(legend);
 
     }
 
     initPaymentTable(DepositType);
     initDepositSlipEditor();
     load_charts();
+    updateSelectionActions();
 });
