@@ -32,63 +32,60 @@ require $sRootDocument . '/Include/Header.php';
     }
 ?>
     <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-            <div class="card-header border-1">
-                <h3 class="card-title"><?= _('Select the group you would like to report') ?>:</h3>
-            </div>
-            <div class="card-body">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="card card-outline card-primary shadow-sm">
+                <div class="card-header border-0">
+                    <h3 class="card-title"><i class="fas fa-chart-bar mr-2"></i><?= _('Select the group you would like to report') ?></h3>
+                </div>
+                <div class="card-body">
                 <form method="POST" action="<?= $sRootPath ?>/v2/group/reports">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label for="GroupID"><?= _('Select Group') ?>:</label>
-                            <select id="GroupID" class="form-control form-control-sm" name="GroupID" onChange="UpdateRoles();">
-                                // Create the group select drop-down
-                                <option value="-1"><?= _('None') ?></option>
-                              <?php
-                                foreach ($groups as $group) {
-                              ?>
-                                <option value="<?= $group->getId()?>"><?= $group->getName() ?></option>
-                              <?php
-                                }
-                              ?>
-                            </select>
+                    <div class="form-group">
+                        <label for="GroupID" class="font-weight-bold"><i class="fas fa-users mr-1 text-primary"></i><?= _('Select Group') ?></label>
+                        <select id="GroupID" class="form-control form-control-sm" name="GroupID" onChange="UpdateRoles();">
+                            <option value="-1"><?= _('None') ?></option>
+                            <?php foreach ($groups as $group) { ?>
+                                <option value="<?= $group->getId() ?>"><?= $group->getName() ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="GroupRole" class="font-weight-bold"><i class="fas fa-user-tag mr-1 text-primary"></i><?= _('Select Role') ?></label>
+                        <select name="GroupRole" class="form-control form-control-sm" id="GroupRole">
+                            <option><?= _('No Role Selected') ?></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="OnlyCart" name="OnlyCart" value="1">
+                            <label class="custom-control-label font-weight-bold" for="OnlyCart">
+                                <i class="fas fa-shopping-cart mr-1 text-primary"></i><?= _('Only cart persons?') ?>
+                            </label>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label for=""><?= _('Select Role') ?>:</label>
-                            <select name="GroupRole" class="form-control form-control-sm" id="GroupRole">
-                                <option><?= _('No Role Selected') ?></option>
-                            </select>
+                    <div class="form-group">
+                        <label class="font-weight-bold"><i class="fas fa-file-alt mr-1 text-primary"></i><?= _('Report Model') ?></label>
+                        <div class="d-flex flex-column" style="gap:.5rem;">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="ReportModel1" name="ReportModel" value="1" checked>
+                                <label class="custom-control-label" for="ReportModel1"><?= _('Report for group and role selected') ?></label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="ReportModel2" name="ReportModel" value="2">
+                                <label class="custom-control-label" for="ReportModel2"><?= _('Report for any role in group selected') ?></label>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label for="OnlyCart"><?= _('Only cart persons?') ?>:</label>
-                            <input type="checkbox" Name="OnlyCart" value="1">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label for="ReportModel"><?= _('Report Model') ?>:</label>
-                            <input type="radio" Name="ReportModel" value="1" checked><?= _('Report for group and role selected') ?>
-                            <input type="radio" Name="ReportModel" value="2"><?= _('Report for any role in group selected') ?>
-                            <?php
-                            //<input type="radio" Name="ReportModel" value="3"><?= _("Report any group and role")
-                            ?>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Next') ?>">
-                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/system/report/list';">
-                        </div>
+                    <div class="d-flex justify-content-end mt-3 pt-3 border-top" style="gap:.5rem;">
+                        <a href="<?= $sRootPath ?>/v2/system/report/list" class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+                        </a>
+                        <button type="submit" name="Submit" class="btn btn-sm btn-primary">
+                            <i class="fas fa-arrow-right mr-1"></i><?= _('Next') ?>
+                        </button>
                     </div>
                 </form>
+                </div>
             </div>
-        </div>
-
         </div>
     </div>
     <?php
@@ -97,68 +94,81 @@ require $sRootDocument . '/Include/Header.php';
 
     ?>
     <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header border-1">
-                    <h3 class="card-title"><?= _('Select which information you want to include') ?></h3>
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="card card-outline card-primary shadow-sm">
+                <div class="card-header border-0">
+                    <h3 class="card-title"><i class="fas fa-sliders-h mr-2"></i><?= _('Select which information you want to include') ?></h3>
                 </div>
                 <div class="card-body">
-
                     <form method="POST" action="<?= $sRootPath ?>/Reports/GroupReport.php">
-                        <input type="hidden" Name="GroupID" <?= 'value="'.$iGroupID.'"' ?>>
-                        <input type="hidden" Name="GroupRole" <?php
-                        if (array_key_exists('GroupRole', $_POST)) {
-                            echo 'value="'.$_POST['GroupRole'].'"';
-                        } ?>>
-                        <input type="hidden" Name="OnlyCart" <?php
-                        if (array_key_exists('OnlyCart', $_POST)) {
-                            echo 'value="'.$_POST['OnlyCart'].'"';
-                        } ?>>
-                        <input type="hidden" Name="ReportModel" <?= 'value="'.$_POST['ReportModel'].'"' ?>>
+                        <input type="hidden" name="GroupID" value="<?= $iGroupID ?>">
+                        <input type="hidden" name="GroupRole" <?php if (array_key_exists('GroupRole', $_POST)) { echo 'value="'.$_POST['GroupRole'].'"'; } ?>>
+                        <input type="hidden" name="OnlyCart" <?php if (array_key_exists('OnlyCart', $_POST)) { echo 'value="'.$_POST['OnlyCart'].'"'; } ?>>
+                        <input type="hidden" name="ReportModel" value="<?= $_POST['ReportModel'] ?>">
 
-                      <?php
-                        $propFields = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId($iGroupID);
-                      ?>
+                        <?php $propFields = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId($iGroupID); ?>
 
-                        <table align="center">
-                            <tr>
-                                <td class="LabelColumn" valign="top"><?= _('Standard Info') ?></td>
-                                <td valign="top">&nbsp;:&nbsp;</td>
-                                <td class="TextColumn">
-                                    <input type="checkbox" Name="AddressEnable" value="1"> <?= _('Address') ?> <br>
-                                    <input type="checkbox" Name="HomePhoneEnable" value="1"> <?= _('Home Phone') ?> <br>
-                                    <input type="checkbox" Name="WorkPhoneEnable" value="1"> <?= _('Work Phone') ?> <br>
-                                    <input type="checkbox" Name="CellPhoneEnable" value="1"> <?= _('Cell Phone') ?> <br>
-                                    <input type="checkbox" Name="EmailEnable" value="1"> <?= _('Email') ?> <br>
-                                    <input type="checkbox" Name="OtherEmailEnable" value="1"> <?= _('Other Email') ?> <br>
-                                    <input type="checkbox" Name="GroupRoleEnable" value="1"> <?= _('GroupRole') ?> <br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="LabelColumn" valign="top"><?= _('Group-Specific Property Fields') ?></td>
-                                <td valign="top">&nbsp;:&nbsp;</td>
-                                <td class="TextColumn">
-                                    <?php
-                                      if ($propFields->count() > 0) {
-                                        foreach ($propFields as $propField) {
-                                    ?>
-                                            <input type="checkbox" Name="<?= $propField->getField() ?>enable" value="1"><?= $propField->getName() ?><br>
-                                    <?php
-                                        }
-                                    } else {
-                                        echo _('None');
-                                    } ?>
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="card card-outline card-info shadow-sm h-100">
+                                    <div class="card-header border-0 py-2">
+                                        <h6 class="card-title mb-0"><i class="fas fa-info-circle mr-2 text-info"></i><?= _('Standard Info') ?></h6>
+                                    </div>
+                                    <div class="card-body py-2">
+                                        <?php
+                                        $stdFields = [
+                                            'AddressEnable'    => [_('Address'),    'fa-home'],
+                                            'HomePhoneEnable'  => [_('Home Phone'), 'fa-phone'],
+                                            'WorkPhoneEnable'  => [_('Work Phone'), 'fa-building'],
+                                            'CellPhoneEnable'  => [_('Cell Phone'), 'fa-mobile-alt'],
+                                            'EmailEnable'      => [_('Email'),      'fa-envelope'],
+                                            'OtherEmailEnable' => [_('Other Email'),'fa-at'],
+                                            'GroupRoleEnable'  => [_('GroupRole'),  'fa-user-tag'],
+                                        ];
+                                        foreach ($stdFields as $name => [$label, $icon]) {
+                                            ?>
+                                            <div class="custom-control custom-checkbox mb-1">
+                                                <input type="checkbox" class="custom-control-input" id="<?= $name ?>" name="<?= $name ?>" value="1">
+                                                <label class="custom-control-label" for="<?= $name ?>">
+                                                    <i class="fas <?= $icon ?> mr-1 text-muted"></i><?= $label ?>
+                                                </label>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card card-outline card-secondary shadow-sm h-100">
+                                    <div class="card-header border-0 py-2">
+                                        <h6 class="card-title mb-0"><i class="fas fa-cogs mr-2 text-secondary"></i><?= _('Group-Specific Property Fields') ?></h6>
+                                    </div>
+                                    <div class="card-body py-2">
+                                        <?php if ($propFields->count() > 0) {
+                                            foreach ($propFields as $propField) { ?>
+                                                <div class="custom-control custom-checkbox mb-1">
+                                                    <input type="checkbox" class="custom-control-input" id="<?= $propField->getField() ?>enable" name="<?= $propField->getField() ?>enable" value="1">
+                                                    <label class="custom-control-label" for="<?= $propField->getField() ?>enable">
+                                                        <i class="fas fa-tag mr-1 text-muted"></i><?= $propField->getName() ?>
+                                                    </label>
+                                                </div>
+                                            <?php }
+                                        } else { ?>
+                                            <p class="text-muted small mb-0"><i class="fas fa-info-circle mr-1"></i><?= _('None') ?></p>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        <p align="center">
-                            <BR>
-                            <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Create Report') ?>">
-                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view';">
-                        </p>
+                        <div class="d-flex justify-content-end mt-3 pt-3 border-top" style="gap:.5rem;">
+                            <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-sm btn-outline-secondary">
+                                <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
+                            </a>
+                            <button type="submit" name="Submit" class="btn btn-sm btn-success">
+                                <i class="fas fa-file-export mr-1"></i><?= _('Create Report') ?>
+                            </button>
+                        </div>
                     </form>
-
                 </div>
             </div>
         </div>
