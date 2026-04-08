@@ -30,69 +30,82 @@ if ($ormPastoralCares->count() == 0) {
 $sFamilyEmails = [];
 ?>
 
-<br/>
-<div class="margin">
-    <img src="/api/persons/<?= $currentPersonID ?>/photo"
-         class="initials-image profile-user-img img-responsive img-rounded img-circle"
-         style="width:70px; height:70px;display:inline-block">
-    <div class="btn-group">
-        <?php
-        foreach ($ormPastoralTypeCares as $ormPastoralTypeCare) {
-            $type_and_desc = $ormPastoralTypeCare->getTitle() . ((!empty($ormPastoralTypeCare->getDesc())) ? " (" . $ormPastoralTypeCare->getDesc() . ")" : "");
-            ?>
-            <a class="btn btn-app newPastorCare" data-typeid="<?= $ormPastoralTypeCare->getId() ?>"
-               data-visible="<?= ($ormPastoralTypeCare->getVisible()) ? 1 : 0 ?>"
-               data-typeDesc="<?= $type_and_desc ?>"><i
-                    class="fas fa-sticky-note"></i><?= _("Add Pastoral Care Notes") ?></a>
-            <?php
-            break;
-        }
-        ?>
-        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-            <span class="sr-only">Menu déroulant</span>
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <?php
-            foreach ($ormPastoralTypeCares as $ormPastoralTypeCare) {
-                $type_and_desc = $ormPastoralTypeCare->getTitle() . ((!empty($ormPastoralTypeCare->getDesc())) ? " (" . $ormPastoralTypeCare->getDesc() . ")" : "");
-                ?>
-                <a class="dropdown-item newPastorCare" data-typeid="<?= $ormPastoralTypeCare->getId() ?>"
-                   data-visible="<?= ($ormPastoralTypeCare->getVisible()) ? 1 : 0 ?>"
-                   data-typeDesc="<?= $type_and_desc ?>"><?= $type_and_desc ?></a>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-    <a class="btn btn-app" href="<?= $sRootPath ?>/v2/pastoralcare/person/print/<?= $currentPersonID ?>"><i
-            class="fas fa-print"></i> <?= _("Printable Page") ?></a>
-    <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
 
-    <div class="btn-group pull-right">
-        <a class="btn btn-app filterByPastor" data-pastorid="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i
-                class="fas fa-sticky-note"></i><?= SessionUser::getUser()->getPerson()->getFullName() ?></a>
-        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-            <span class="sr-only">Menu déroulant</span>
-        </button>
-        <div class="dropdown-menu" role="menu">
-            <li><a class="dropdown-item filterByPastorAll"><?= _("Everyone") ?></a></li>
-            <?php
-            foreach ($ormPastors as $ormPastor) {
-                ?>
-                <a class="dropdown-item filterByPastor"
-                   data-pastorid="<?= $ormPastor->getPastorId() ?>"><?= $ormPastor->getPastorName() ?></a>
-                <?php
-            }
-            ?>
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-2">
+            <img src="/api/persons/<?= $currentPersonID ?>/photo"
+                 class="initials-image profile-user-img img-responsive img-rounded img-circle"
+                 style="width:50px; height:50px;">
+            <h3 class="card-title mb-0"><i class="fas fa-heart mr-1"></i><?= _("Pastoral Care Notes") ?></h3>
         </div>
     </div>
-    <div class="pull-right" style="margin-right:15px;margin-top:10px">
-        <h4><?= _("Filters") ?></h4>
+    <div class="card-body py-3">
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <div class="btn-group" role="group">
+                <?php
+                foreach ($ormPastoralTypeCares as $ormPastoralTypeCare) {
+                    $type_and_desc = $ormPastoralTypeCare->getTitle() . ((!empty($ormPastoralTypeCare->getDesc())) ? " (" . $ormPastoralTypeCare->getDesc() . ")" : "");
+                    ?>
+                    <button type="button" class="btn btn-sm btn-primary newPastorCare" data-typeid="<?= $ormPastoralTypeCare->getId() ?>"
+                       data-visible="<?= ($ormPastoralTypeCare->getVisible()) ? 1 : 0 ?>"
+                       data-typeDesc="<?= $type_and_desc ?>">
+                        <i class="fas fa-plus mr-1"></i><?= _("Add Notes") ?>
+                    </button>
+                    <?php
+                    break;
+                }
+                ?>
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Menu déroulant</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-left">
+                    <?php
+                    foreach ($ormPastoralTypeCares as $ormPastoralTypeCare) {
+                        $type_and_desc = $ormPastoralTypeCare->getTitle() . ((!empty($ormPastoralTypeCare->getDesc())) ? " (" . $ormPastoralTypeCare->getDesc() . ")" : "");
+                        ?>
+                        <a class="dropdown-item newPastorCare" href="#" data-typeid="<?= $ormPastoralTypeCare->getId() ?>"
+                           data-visible="<?= ($ormPastoralTypeCare->getVisible()) ? 1 : 0 ?>"
+                           data-typeDesc="<?= $type_and_desc ?>">
+                            <i class="fas fa-check mr-2"></i><?= $type_and_desc ?>
+                        </a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/pastoralcare/person/print/<?= $currentPersonID ?>">
+                <i class="fas fa-print mr-1"></i><?= _("Print") ?>
+            </a>
+            <button type="button" class="btn btn-sm btn-warning" id="add-event" data-toggle="tooltip" data-placement="bottom" title="<?= _("Create an appointment") ?>">
+                <i class="far fa-calendar-plus mr-1"></i><?= _("Appointment") ?>
+            </button>
+            <div class="btn-group ml-auto" role="group">
+                <button type="button" class="btn btn-sm btn-outline-secondary filterByPastor" data-pastorid="<?= SessionUser::getUser()->getPerson()->getId() ?>">
+                    <i class="fas fa-user mr-1"></i><?= SessionUser::getUser()->getPerson()->getFullName() ?>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Menu déroulant</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item filterByPastorAll" href="#">
+                        <i class="fas fa-users mr-2"></i><?= _("Everyone") ?>
+                    </a>
+                    <?php
+                    foreach ($ormPastors as $ormPastor) {
+                        ?>
+                        <a class="dropdown-item filterByPastor" href="#"
+                           data-pastorid="<?= $ormPastor->getPastorId() ?>">
+                            <i class="fas fa-user mr-2"></i><?= $ormPastor->getPastorName() ?>
+                        </a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<br/>
 
 <div class="row">
     <div class="col-md-3">
@@ -429,17 +442,23 @@ $sFamilyEmails = [];
                             if ($ormPastoralCare->getPastorId() == $currentPastorId) {
                                 ?>
                                 <div class="timeline-footer">
-                                    <a class="btn btn-primary btn-xs modify-pastoral"
-                                       data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Modify") ?></a>
-                                    <a class="btn btn-danger btn-xs delete-pastoral"
-                                       data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Delete") ?></a>
+                                    <a class="btn btn-sm btn-primary modify-pastoral"
+                                       data-id="<?= $ormPastoralCare->getId() ?>">
+                                        <i class="fas fa-edit mr-1"></i><?= _("Modify") ?>
+                                    </a>
+                                    <a class="btn btn-sm btn-danger delete-pastoral"
+                                       data-id="<?= $ormPastoralCare->getId() ?>">
+                                        <i class="fas fa-trash-alt mr-1"></i><?= _("Delete") ?>
+                                    </a>
                                 </div>
                                 <?php
                             } elseif (SessionUser::isAdmin()) {
                                 ?>
                                 <div class="timeline-footer">
-                                    <a class="btn btn-danger btn-xs delete-pastoral"
-                                       data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Delete") ?></a>
+                                    <a class="btn btn-sm btn-danger delete-pastoral"
+                                       data-id="<?= $ormPastoralCare->getId() ?>">
+                                        <i class="fas fa-trash-alt mr-1"></i><?= _("Delete") ?>
+                                    </a>
                                 </div>
                                 <?php
                             }
@@ -462,17 +481,16 @@ $sFamilyEmails = [];
             <?php
         }
         ?>
-        <div class="text-center">
-            <input type="button" class="btn btn-success" value="<?= _('Return To Person View') ?>" name="Cancel"
-                   onclick="javascript:document.location='<?= $sRootPath . '/v2/people/person/view/' . $currentPersonID ?>';">
-
-            <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Dashboard') ?>"
-                   name="Cancel"
-                   onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/dashboard';">
-
-            <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Members List') ?>"
-                   name="Cancel"
-                   onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/membersList';">
+        <div class="text-center mt-4 pt-3 border-top">
+            <a class="btn btn-success" href="<?= $sRootPath . '/v2/people/person/view/' . $currentPersonID ?>">
+                <i class="fas fa-arrow-left mr-1"></i><?= _('Return to Person View') ?>
+            </a>
+            <a class="btn btn-outline-secondary" href="<?= $sRootPath ?>/v2/pastoralcare/dashboard">
+                <i class="fas fa-home mr-1"></i><?= _('Dashboard') ?>
+            </a>
+            <a class="btn btn-outline-secondary" href="<?= $sRootPath ?>/v2/pastoralcare/membersList">
+                <i class="fas fa-list mr-1"></i><?= _('Members List') ?>
+            </a>
         </div>
         <br/>
     </div>
