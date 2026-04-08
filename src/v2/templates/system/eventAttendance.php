@@ -65,16 +65,12 @@ if ($Action == 'Retrieve' && $Event != -1) {
 
 require $sRootDocument . '/Include/Header.php';
 ?>
-<table cellpadding="4" cellspacing="0" width="100%">
-  <tr>
-    <td>
-        <div class="text-center">
-            <input type="button" class="btn btn-primary" value="&#xab; <?= _('Back to Report Menu') ?>" Name="Exit" onclick="javascript:document.location='/v2/system/report/list';">
-        </div>    
-    </td>
-  </tr>
-</table>
-<br/>
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+        <a class="btn btn-outline-secondary" href="<?= $sRootPath ?>/v2/system/report/list">
+                <i class="fas fa-arrow-left mr-1"></i><?= _('Back to Report Menu') ?>
+        </a>
+    <span class="badge badge-secondary mt-2 mt-sm-0"><?= $sPageTitle ?></span>
+</div>
 <?php
 // Get data for the form as it now exists..
 $statement = $connection->prepare($sSQL);
@@ -109,38 +105,36 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
 ?>
 
 <div class="card card-default">
-    <div class="card-header">
-        <h2 class="card-title"?><?= _("Results") ?></h2>
+    <div class="card-header border-1 d-flex align-items-center justify-content-between">
+        <h3 class="card-title mb-0"><i class="fas fa-list-ul mr-1"></i><?= _("Results") ?></h3>
+        <span class="badge badge-primary"><?= $numRows ?> <?= _("record(s)") ?></span>
     </div>
     <div class="card-body">
-        <table id="tableEventAttendance" cellpadding="4" cellspacing="0" width="60%" class="table table-bordered">
+        <div class="table-responsive">
+        <table id="tableEventAttendance" class="table table-bordered table-striped table-hover mb-0">
 
         <?php
         if ($Action == 'List' && $numRows > 0) {
             ?>
             <caption>
-                    <h3><?= ($numRows == 1 ? _('There is') : _('There are')).' '.$numRows.' '.($numRows == 1 ? _('event') : _('events'))._(' in this category.') ?></h3>
+                    <h5 class="mb-3 text-left"><?= ($numRows == 1 ? _('There is') : _('There are')).' '.$numRows.' '.($numRows == 1 ? _('event') : _('events'))._(' in this category.') ?></h5>
             </caption>
+            <thead>
                 <tr class="print-table-header">
-                    <td width="33%"><strong><?= _('Event Title') ?></strong></td>
-                    <td width="33%"><strong><?= _('Event Date') ?></strong></td>
-                    <td colspan="3" width="34%"><strong><?= _('Generate Report') ?></strong></td>
+                    <th class="align-middle"><strong><?= _('Event Title') ?></strong></th>
+                    <th class="align-middle text-nowrap"><strong><?= _('Event Date') ?></strong></th>
+                    <th colspan="3" class="align-middle text-center"><strong><?= _('Generate Report') ?></strong></th>
                 </tr>
+            </thead>
+            <tbody>
                 <?php
-                //Set the initial row color
-                $sRowClass = 'RowColorA';
-
             for ($row = 1; $row <= $numRows; $row++) {
-
-                //Alternate the row color
-                $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
-
                 //Display the row?>
-                <tr class="<?= $sRowClass ?>">
+                <tr>
                 <td class="TextColumn"><?= $aEventTitle[$row] ?></td>
-                <td class="TextColumn"><?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?></td>
-                <td class="TextColumn">
-                    <form name="Attend" action="<?= $sRootPath ?>/v2/system/event/attendance/Retrieve/<?= $aEventID[$row] ?>/<?= $Type ?>/Attendees" method="POST">
+                <td class="TextColumn text-nowrap"><?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?></td>
+                <td class="TextColumn text-center">
+                    <form class="mb-0" name="Attend" action="<?= $sRootPath ?>/v2/system/event/attendance/Retrieve/<?= $aEventID[$row] ?>/<?= $Type ?>/Attendees" method="POST">
         <?php
         $cSQL = 'SELECT COUNT(per_ID) AS cCount
                 FROM person_per as t1, events_event as t2, event_attend as t3
@@ -159,18 +153,18 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
         $tNumTotal = $tOpps->fetch( \PDO::FETCH_BOTH )['tCount'];
 
         ?>
-                    <input type="submit" name="Type" value="<?= _('Attending Members').' ['.$cNumAttend.']' ?>" class="btn btn-secondary">
+                    <input type="submit" name="Type" value="<?= _('Attending Members').' ['.$cNumAttend.']' ?>" class="btn btn-outline-primary btn-sm btn-block text-wrap">
                     </form>
                 </td>
-                <td class="TextColumn">
-                    <form name="NonAttend" action="<?= $sRootPath ?>/v2/system/event/attendance/Retrieve/<?= $aEventID[$row] ?>/<?= $Type ?>/Nonattendees" method="POST">
+                <td class="TextColumn text-center">
+                    <form class="mb-0" name="NonAttend" action="<?= $sRootPath ?>/v2/system/event/attendance/Retrieve/<?= $aEventID[$row] ?>/<?= $Type ?>/Nonattendees" method="POST">
         <?php
         ?>
-                    <input type="submit" name="Type" value="<?= _('Non-Attending Members').' ['.($tNumTotal - $cNumAttend).']' ?>" class="btn btn-secondary">
+                    <input type="submit" name="Type" value="<?= _('Non-Attending Members').' ['.($tNumTotal - $cNumAttend).']' ?>" class="btn btn-outline-secondary btn-sm btn-block text-wrap">
                     </form>
                 </td>
-                <td class="TextColumn">
-                    <form name="GuestAttend" action="<?= $sRootPath ?>/v2/system/event/attendance/Retrieve/<?= $aEventID[$row] ?>/<?= $Type ?>/Guests" method="POST">
+                <td class="TextColumn text-center">
+                    <form class="mb-0" name="GuestAttend" action="<?= $sRootPath ?>/v2/system/event/attendance/Retrieve/<?= $aEventID[$row] ?>/<?= $Type ?>/Guests" method="POST">
         <?php
         $gSQL = 'SELECT COUNT(per_ID) AS gCount
                 FROM person_per as t1, events_event as t2, event_attend as t3
@@ -179,37 +173,33 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
                 $gOpps = $connection->prepare($gSQL);
                 $gOpps->execute();
                 $gNumGuestAttend = $gOpps->fetch( \PDO::FETCH_BOTH )['gCount']; ?>
-                    <input <?= ($gNumGuestAttend == 0 ? 'type="button"' : 'type="submit"') ?> name="Type" value="<?= _('Guests').' ['.$gNumGuestAttend.']' ?>" class="btn btn-secondary">
+                    <input <?= ($gNumGuestAttend == 0 ? 'type="button"' : 'type="submit"') ?> name="Type" value="<?= _('Guests').' ['.$gNumGuestAttend.']' ?>" class="btn btn-outline-info btn-sm btn-block text-wrap">
                     </form>
                 </td>
                 </tr>
         <?php
             } ?>
-                <tr><td colspan="5">&nbsp;</td></tr>
+                <tr><td colspan="5" class="table-secondary">&nbsp;</td></tr>
         <?php
         } elseif ($Action == 'Retrieve' && $numRows > 0) {
                 ?>
             <caption>
-                <h3><?= _('There '.($numRows == 1 ? 'was '.$numRows.' '.$Choice : 'were '.$numRows.' '.$Choice)).' for this Event' ?></h3>
+                <h5 class="mb-3 text-left"><?= _('There '.($numRows == 1 ? 'was '.$numRows.' '.$Choice : 'were '.$numRows.' '.$Choice)).' for this Event' ?></h5>
             </caption>
+            <thead>
                 <tr class="print-table-header">
-                    <td width="35%"><strong><?= _('Name') ?></strong></td>
-                    <td width="25%"><strong><?= _('Email') ?></strong></td>
-                    <td width="25%"><strong><?= _('Home Phone') ?></strong></td>
-                    <td width="15%" nowrap><strong><?php  _("Cart"); ?>&nbsp;</strong></td>
+                    <th><strong><?= _('Name') ?></strong></th>
+                    <th><strong><?= _('Email') ?></strong></th>
+                    <th><strong><?= _('Home Phone') ?></strong></th>
+                    <th class="text-nowrap"><strong><?= _("Cart") ?>&nbsp;</strong></th>
                 </tr>
+            </thead>
+            <tbody>
         <?php
-                //Set the initial row color
-                $sRowClass = 'RowColorA';
-
                 for ($row = 1; $row <= $numRows; $row++) {
-
-                //Alternate the row color
-                    $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
-
                     //Display the row
                 ?>
-                <tr class="<?= $sRowClass ?>">
+                <tr>
                 <td class="TextColumn"><?= OutputUtils::FormatFullName($aTitle[$row], $aFistName[$row], $aMiddleName[$row], $aLastName[$row], $aSuffix[$row], 3) ?></td>
                 <td class="TextColumn"><?= $aEmail[$row] ? '<a href="mailto:'.$aEmail[$row].'" title="Send Email" target="_blank">'.$aEmail[$row].'</a>' : _('Not Available') ?></td>
                 <td class="TextColumn"><?= $aHomePhone[$row] ? $aHomePhone[$row] : _('Not Available') ?></td>
@@ -218,7 +208,7 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
         ?>
                 <td class="TextColumn">
                     <?php
-                        if (!Cart::PersonInCart($aRow[$iCount])) {
+                        if (!Cart::PersonInCart($aPersonID[$row])) {
                             ?>
                                 <a class="AddToPeopleCart" data-cartpersonid="<?= $aPersonID[$row] ?>">
                                      <span class="fa-stack">
@@ -245,13 +235,15 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
             } else {
                 ?>
             <caption>
-                <h5><?= $_GET ? _('There are no events in this category') : _('There are no Records') ?><br><br></h3>
+                <h5 class="text-left"><?= $_GET ? _('There are no events in this category') : _('There are no Records') ?></h5>
             </caption>
-            <tr><td>&nbsp;</td></tr>
+            <tr><td class="table-secondary">&nbsp;</td></tr>
         <?php
             }
         ?>
-        </table> 
+            </tbody>
+        </table>
+        </div>
     </div>
 </div>
 
