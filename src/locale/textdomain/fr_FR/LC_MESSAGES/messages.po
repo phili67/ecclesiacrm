@@ -12167,11 +12167,11 @@ msgid ""
 "              <br>• and the <b>gender</b> column must be in the form (with 1 "
 "for male gender, 2 for female gender)"
 msgstr ""
-" 4568 N'OUBLIEZ PAS 7899 \n"
-"               1235 - Votre tableau csv doit contenir une ligne  4568 en-"
-"tête 7899  avec des colonnes nommées (Par exemple, pour le titre de "
+" <b> N'OUBLIEZ PAS </b> \n"
+"               <br> - Votre tableau csv doit contenir une ligne  <b> en-"
+"tête </b>  avec des colonnes nommées (Par exemple, pour le titre de "
 "l'étiquette : Monsieur, Madame, Mademoiselle, etc ...),\n"
-"               1235 - et la colonne  4568 genre 7899  doit être de la forme "
+"               <br> - et la colonne  <b> genre </b>  doit être de la forme "
 "(avec 1 pour le sexe masculin, 2 pour le sexe féminin)."
 
 #: v2/templates/system/csvImport.php:944
@@ -12473,7 +12473,7 @@ msgstr ""
 
 #: v2/templates/system/optionManager.php:410
 msgid "Fields"
-msgstr "Domaines"
+msgstr "Chants"
 
 #: v2/templates/system/optionManager.php:420
 msgid "Error: Duplicate"
