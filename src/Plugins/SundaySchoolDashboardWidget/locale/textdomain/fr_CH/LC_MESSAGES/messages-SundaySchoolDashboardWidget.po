@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:27+0000\n"
+"POT-Creation-Date: 2026-04-08 21:25+0000\n"
 "Language: fr_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,9 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: ../src/Plugins/SundaySchoolDashboardWidget/v2/templates/View.php:22
-#, fuzzy
 msgid "Sunday School"
-msgstr "Classes d'école du dimanche"
+msgstr "École du dimanche"
 
 #: ../src/Plugins/SundaySchoolDashboardWidget/v2/templates/View.php:31
 msgid "More info"

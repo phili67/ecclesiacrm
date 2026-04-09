@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 19:16+0000\n"
+"POT-Creation-Date: 2026-04-08 21:24+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -581,7 +581,7 @@ msgstr "Ej tilldelad"
 #: v2/templates/user/userseditor.php:764 v2/templates/user/userseditor.php:832
 #: v2/templates/user/usersettings.php:412
 #: v2/templates/user/usersettings.php:465
-#: v2/templates/volunteer/volunteerview.php:222
+#: v2/templates/volunteer/volunteerview.php:237
 msgid "Yes"
 msgstr "Ja"
 
@@ -601,7 +601,7 @@ msgstr "Ja"
 #: v2/templates/user/userseditor.php:763 v2/templates/user/userseditor.php:831
 #: v2/templates/user/usersettings.php:411
 #: v2/templates/user/usersettings.php:464
-#: v2/templates/volunteer/volunteerview.php:222
+#: v2/templates/volunteer/volunteerview.php:237
 msgid "No"
 msgstr "Ingen"
 
@@ -1500,7 +1500,7 @@ msgstr "Lista grupper"
 #: EcclesiaCRM/MenuBar/MenuBar.php:343
 #: v2/templates/deposit/electronicPaymentList.php:200
 #: v2/templates/group/groupedit.php:136 v2/templates/group/groupview.php:239
-#: v2/templates/volunteer/volunteerview.php:191
+#: v2/templates/volunteer/volunteerview.php:206
 msgid "Disabled"
 msgstr "Inaktiverad"
 
@@ -8076,7 +8076,7 @@ msgstr "E-postkorg"
 #: v2/templates/people/personview.php:437
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
-#: v2/templates/volunteer/volunteerview.php:112
+#: v2/templates/volunteer/volunteerview.php:122
 msgid "Email (BCC)"
 msgstr "E-post (BCC)"
 
@@ -8437,6 +8437,7 @@ msgstr "År"
 #: v2/templates/people/personCustomEditor.php:400
 #: v2/templates/people/personview.php:825
 #: v2/templates/system/optionManager.php:434 v2/templates/user/userlist.php:53
+#: v2/templates/volunteer/volunteerview.php:36
 msgid "Actions"
 msgstr "Åtgärder"
 
@@ -9151,7 +9152,7 @@ msgstr ""
 #: v2/templates/email/mailchimp/managelist.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolview.php:177
-#: v2/templates/volunteer/volunteerview.php:256
+#: v2/templates/volunteer/volunteerview.php:271
 msgid "Add"
 msgstr "Lägg till"
 
@@ -9770,7 +9771,7 @@ msgstr "Ta bort från kundvagnen"
 #: v2/templates/people/familyview.php:406
 #: v2/templates/people/personview.php:423
 #: v2/templates/people/personview.php:882 v2/templates/query/queryview.php:172
-#: v2/templates/volunteer/volunteerview.php:28
+#: v2/templates/volunteer/volunteerview.php:44
 msgid "Add to Cart"
 msgstr "Lägg till i varukorgen"
 
@@ -9795,7 +9796,7 @@ msgstr "Ta bort den här gruppen"
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:42
 #: v2/templates/pastoralcare/pastoralcarefamily.php:80
 #: v2/templates/pastoralcare/pastoralcareperson.php:81
-#: v2/templates/volunteer/volunteerview.php:48
+#: v2/templates/volunteer/volunteerview.php:62
 msgid "Appointment"
 msgstr "Utnämning"
 
@@ -9821,12 +9822,12 @@ msgid "Address Book"
 msgstr "Adressbok"
 
 #: v2/templates/group/groupview.php:134
-#: v2/templates/volunteer/volunteerview.php:108
+#: v2/templates/volunteer/volunteerview.php:121
 msgid "Email Group"
 msgstr "E-postgrupp"
 
 #: v2/templates/group/groupview.php:198
-#: v2/templates/volunteer/volunteerview.php:124
+#: v2/templates/volunteer/volunteerview.php:133
 msgid "Text Group"
 msgstr "Textgrupp"
 
@@ -9835,7 +9836,7 @@ msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr "Tryck på CTRL + C för att kopiera alla gruppmedlemmars telefonnummer"
 
 #: v2/templates/group/groupview.php:228
-#: v2/templates/volunteer/volunteerview.php:179
+#: v2/templates/volunteer/volunteerview.php:194
 msgid "Quick Settings"
 msgstr "Snabbinställningar"
 
@@ -9845,22 +9846,22 @@ msgstr "Gruppen är"
 
 #: v2/templates/group/groupview.php:239
 #: v2/templates/sidebar/kioskmanager.php:29
-#: v2/templates/volunteer/volunteerview.php:191
+#: v2/templates/volunteer/volunteerview.php:206
 msgid "Active"
 msgstr "Aktiv"
 
 #: v2/templates/group/groupview.php:243
-#: v2/templates/volunteer/volunteerview.php:196
+#: v2/templates/volunteer/volunteerview.php:211
 msgid "The emails are"
 msgstr "E-postmeddelandena är"
 
 #: v2/templates/group/groupview.php:245
-#: v2/templates/volunteer/volunteerview.php:198
+#: v2/templates/volunteer/volunteerview.php:213
 msgid "Include"
 msgstr "Inkludera"
 
 #: v2/templates/group/groupview.php:245
-#: v2/templates/volunteer/volunteerview.php:198
+#: v2/templates/volunteer/volunteerview.php:213
 msgid "Exclude"
 msgstr "Exkludera"
 
@@ -9936,7 +9937,7 @@ msgstr ""
 "göra detta trycker du på knappen ovanför: \"Redigera denna grupp\"."
 
 #: v2/templates/group/groupview.php:455
-#: v2/templates/volunteer/volunteerview.php:242
+#: v2/templates/volunteer/volunteerview.php:257
 msgid "Manage Group Members"
 msgstr "Hantera gruppmedlemmar"
 
@@ -13729,48 +13730,62 @@ msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Påbörja registrering av tvåfaktorsautentisering"
 
 #: v2/templates/volunteer/volunteeropportunity.php:24
-#: v2/templates/volunteer/volunteerview.php:141
 msgid "Only an admin can modify or delete this records."
 msgstr "Endast en administratör kan ändra eller ta bort dessa poster."
 
-#: v2/templates/volunteer/volunteerview.php:35
-msgid "To modify the name fo the volunteer opportunity"
+#: v2/templates/volunteer/volunteerview.php:50
+#, fuzzy
+msgid "To modify the name of the volunteer opportunity"
 msgstr "För att ändra namnet på volontärmöjligheten"
 
-#: v2/templates/volunteer/volunteerview.php:35
+#: v2/templates/volunteer/volunteerview.php:51
 msgid "Modify Name"
 msgstr "Ändra namn"
 
-#: v2/templates/volunteer/volunteerview.php:38
+#: v2/templates/volunteer/volunteerview.php:55
 msgid "Remove Volunteer Opportunities"
 msgstr "Ta bort möjligheter till volontärarbete"
 
-#: v2/templates/volunteer/volunteerview.php:55
+#: v2/templates/volunteer/volunteerview.php:67
+#, fuzzy
+msgid "Click to create a group address book"
+msgstr "Klicka för att skapa en adressbok för gruppen"
+
+#: v2/templates/volunteer/volunteerview.php:68
 msgid "Contacts"
 msgstr "Kontaktpersoner"
 
-#: v2/templates/volunteer/volunteerview.php:127
+#: v2/templates/volunteer/volunteerview.php:136
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 "Tryck på CTRL + C för att kopiera alla gruppmedlemmars telefonnummer\\."
 
-#: v2/templates/volunteer/volunteerview.php:137
+#: v2/templates/volunteer/volunteerview.php:147
 msgid "Add Volunteer Opportunity"
 msgstr "Lägg till frivilligarbete"
 
-#: v2/templates/volunteer/volunteerview.php:155
+#: v2/templates/volunteer/volunteerview.php:158
+#, fuzzy
+msgid ""
+"Volunteer opportunities are currently disabled. Please contact your "
+"administrator."
+msgstr ""
+"För många misslyckade inloggningar: ditt konto har låsts.  Kontakta en "
+"administratör."
+
+#: v2/templates/volunteer/volunteerview.php:170
 msgid "Hierarchy"
 msgstr "Hierarki"
 
-#: v2/templates/volunteer/volunteerview.php:189
+#: v2/templates/volunteer/volunteerview.php:204
 msgid "Volunteers opportunity is"
 msgstr "Volontärernas möjlighet är"
 
-#: v2/templates/volunteer/volunteerview.php:210
+#: v2/templates/volunteer/volunteerview.php:225
 msgid "Volunteers Managers"
 msgstr "Chefer för volontärer"
 
-#: v2/templates/volunteer/volunteerview.php:245
+#: v2/templates/volunteer/volunteerview.php:260
 msgid "Total Members"
 msgstr "Totalt antal medlemmar"
 
