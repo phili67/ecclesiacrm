@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 20:27+0000\n"
+"POT-Creation-Date: 2026-04-08 21:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -584,7 +584,7 @@ msgstr ""
 #: v2/templates/user/userseditor.php:764 v2/templates/user/userseditor.php:832
 #: v2/templates/user/usersettings.php:412
 #: v2/templates/user/usersettings.php:465
-#: v2/templates/volunteer/volunteerview.php:222
+#: v2/templates/volunteer/volunteerview.php:237
 msgid "Yes"
 msgstr ""
 
@@ -604,7 +604,7 @@ msgstr ""
 #: v2/templates/user/userseditor.php:763 v2/templates/user/userseditor.php:831
 #: v2/templates/user/usersettings.php:411
 #: v2/templates/user/usersettings.php:464
-#: v2/templates/volunteer/volunteerview.php:222
+#: v2/templates/volunteer/volunteerview.php:237
 msgid "No"
 msgstr ""
 
@@ -1498,7 +1498,7 @@ msgstr ""
 #: EcclesiaCRM/MenuBar/MenuBar.php:343
 #: v2/templates/deposit/electronicPaymentList.php:200
 #: v2/templates/group/groupedit.php:136 v2/templates/group/groupview.php:239
-#: v2/templates/volunteer/volunteerview.php:191
+#: v2/templates/volunteer/volunteerview.php:206
 msgid "Disabled"
 msgstr ""
 
@@ -7926,7 +7926,7 @@ msgstr ""
 #: v2/templates/people/personview.php:437
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
-#: v2/templates/volunteer/volunteerview.php:112
+#: v2/templates/volunteer/volunteerview.php:122
 msgid "Email (BCC)"
 msgstr ""
 
@@ -8283,6 +8283,7 @@ msgstr ""
 #: v2/templates/people/personCustomEditor.php:400
 #: v2/templates/people/personview.php:825
 #: v2/templates/system/optionManager.php:434 v2/templates/user/userlist.php:53
+#: v2/templates/volunteer/volunteerview.php:36
 msgid "Actions"
 msgstr ""
 
@@ -8977,7 +8978,7 @@ msgstr ""
 #: v2/templates/email/mailchimp/managelist.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:327
 #: v2/templates/sundayschool/sundayschoolview.php:177
-#: v2/templates/volunteer/volunteerview.php:256
+#: v2/templates/volunteer/volunteerview.php:271
 msgid "Add"
 msgstr ""
 
@@ -9582,7 +9583,7 @@ msgstr ""
 #: v2/templates/people/familyview.php:406
 #: v2/templates/people/personview.php:423
 #: v2/templates/people/personview.php:882 v2/templates/query/queryview.php:172
-#: v2/templates/volunteer/volunteerview.php:28
+#: v2/templates/volunteer/volunteerview.php:44
 msgid "Add to Cart"
 msgstr ""
 
@@ -9605,7 +9606,7 @@ msgstr ""
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:42
 #: v2/templates/pastoralcare/pastoralcarefamily.php:80
 #: v2/templates/pastoralcare/pastoralcareperson.php:81
-#: v2/templates/volunteer/volunteerview.php:48
+#: v2/templates/volunteer/volunteerview.php:62
 msgid "Appointment"
 msgstr ""
 
@@ -9630,12 +9631,12 @@ msgid "Address Book"
 msgstr ""
 
 #: v2/templates/group/groupview.php:134
-#: v2/templates/volunteer/volunteerview.php:108
+#: v2/templates/volunteer/volunteerview.php:121
 msgid "Email Group"
 msgstr ""
 
 #: v2/templates/group/groupview.php:198
-#: v2/templates/volunteer/volunteerview.php:124
+#: v2/templates/volunteer/volunteerview.php:133
 msgid "Text Group"
 msgstr ""
 
@@ -9644,7 +9645,7 @@ msgid "Press CTRL + C to copy all group members' phone numbers"
 msgstr ""
 
 #: v2/templates/group/groupview.php:228
-#: v2/templates/volunteer/volunteerview.php:179
+#: v2/templates/volunteer/volunteerview.php:194
 msgid "Quick Settings"
 msgstr ""
 
@@ -9654,22 +9655,22 @@ msgstr ""
 
 #: v2/templates/group/groupview.php:239
 #: v2/templates/sidebar/kioskmanager.php:29
-#: v2/templates/volunteer/volunteerview.php:191
+#: v2/templates/volunteer/volunteerview.php:206
 msgid "Active"
 msgstr ""
 
 #: v2/templates/group/groupview.php:243
-#: v2/templates/volunteer/volunteerview.php:196
+#: v2/templates/volunteer/volunteerview.php:211
 msgid "The emails are"
 msgstr ""
 
 #: v2/templates/group/groupview.php:245
-#: v2/templates/volunteer/volunteerview.php:198
+#: v2/templates/volunteer/volunteerview.php:213
 msgid "Include"
 msgstr ""
 
 #: v2/templates/group/groupview.php:245
-#: v2/templates/volunteer/volunteerview.php:198
+#: v2/templates/volunteer/volunteerview.php:213
 msgid "Exclude"
 msgstr ""
 
@@ -9743,7 +9744,7 @@ msgid ""
 msgstr ""
 
 #: v2/templates/group/groupview.php:455
-#: v2/templates/volunteer/volunteerview.php:242
+#: v2/templates/volunteer/volunteerview.php:257
 msgid "Manage Group Members"
 msgstr ""
 
@@ -13376,47 +13377,56 @@ msgid "Begin Two Factor Authentication Enrollment"
 msgstr ""
 
 #: v2/templates/volunteer/volunteeropportunity.php:24
-#: v2/templates/volunteer/volunteerview.php:141
 msgid "Only an admin can modify or delete this records."
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:35
-msgid "To modify the name fo the volunteer opportunity"
+#: v2/templates/volunteer/volunteerview.php:50
+msgid "To modify the name of the volunteer opportunity"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:35
+#: v2/templates/volunteer/volunteerview.php:51
 msgid "Modify Name"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:38
+#: v2/templates/volunteer/volunteerview.php:55
 msgid "Remove Volunteer Opportunities"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:55
+#: v2/templates/volunteer/volunteerview.php:67
+msgid "Click to create a group address book"
+msgstr ""
+
+#: v2/templates/volunteer/volunteerview.php:68
 msgid "Contacts"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:127
+#: v2/templates/volunteer/volunteerview.php:136
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:137
+#: v2/templates/volunteer/volunteerview.php:147
 msgid "Add Volunteer Opportunity"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:155
+#: v2/templates/volunteer/volunteerview.php:158
+msgid ""
+"Volunteer opportunities are currently disabled. Please contact your "
+"administrator."
+msgstr ""
+
+#: v2/templates/volunteer/volunteerview.php:170
 msgid "Hierarchy"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:189
+#: v2/templates/volunteer/volunteerview.php:204
 msgid "Volunteers opportunity is"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:210
+#: v2/templates/volunteer/volunteerview.php:225
 msgid "Volunteers Managers"
 msgstr ""
 
-#: v2/templates/volunteer/volunteerview.php:245
+#: v2/templates/volunteer/volunteerview.php:260
 msgid "Total Members"
 msgstr ""
 
