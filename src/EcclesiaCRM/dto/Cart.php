@@ -422,6 +422,21 @@ class Cart
             Cart::RemovePerson($member->getPersonId());
         }
     }
+
+    public static function VolunteersInCart($volID)
+    {
+        $members = PersonVolunteerOpportunityQuery::create()
+            ->filterByVolunteerOpportunityId($volID)
+            ->find();
+
+        foreach ($members as $member) {
+            if (in_array($member->getPersonId(), $_SESSION['aPeopleCart'])) {
+                return true;
+            }
+        }
+
+        return false;
+    }
     
 
     public static function HasPeople()
