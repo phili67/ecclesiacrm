@@ -20,12 +20,16 @@ use EcclesiaCRM\APIControllers\VolunteerOpportunityController;
 $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
 
     /*
+     * @! get all volunteer opportunities in cart (IDs)
+     */
+    $group->get('/volunteersInCart', VolunteerOpportunityController::class . ':volunteersInCart');    
+    /*
      * @! get all Volunteer Opportunities
      */
     $group->post('/', VolunteerOpportunityController::class . ':getAllVolunteerOpportunities');
     $group->post('/{volID:[0-9]+}/settings/active/{value}', VolunteerOpportunityController::class . ":settingsActiveValue" );
     $group->post('/{volID:[0-9]+}/settings/managers/{value}', VolunteerOpportunityController::class . ":settingsManagersValue" );    
-    $group->post('/{volID:[0-9]+}/settings/email/export/{value}', VolunteerOpportunityController::class . ":settingsEmailExportVvalue" );
+    $group->post('/{volID:[0-9]+}/settings/email/export/{value}', VolunteerOpportunityController::class . ":settingsEmailExportValue" );
     /*
      * @! delete volunteer opportunities by id
      * #! param: ref->int :: id
@@ -122,4 +126,5 @@ $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
       * #! param: id->int :: volID
       */
     $group->get('/addressbook/extract/{volID:[0-9]+}', VolunteerOpportunityController::class . ":addressBook" );
+
 });
