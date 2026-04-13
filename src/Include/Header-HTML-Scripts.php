@@ -79,12 +79,7 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
   <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/external/leaflet/leaflet.css">
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/leaflet/leaflet-src.js"></script>
 <?php
-  } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-?>
-  <!-- Bing Maps -->
-  <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=<?= SystemConfig::getValue('sBingMapKey') ?>' async defer></script>
-<?php
-  }
+  } 
 ?>
 
 

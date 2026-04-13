@@ -21,8 +21,6 @@ class GeoUtils
             return SystemConfig::getValue("sNominatimLink");
         } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
             return SystemConfig::getValue("sGoogleMapKey");
-        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-            return SystemConfig::getValue("sBingMapKey");
         }
     }
 
@@ -52,9 +50,6 @@ class GeoUtils
             switch (SystemConfig::getValue("sMapProvider")) {
                 case "GoogleMaps":
                     $provider = new GoogleMaps($adapter, null, null, true, SystemConfig::getValue("sGoogleMapKey"));
-                    break;
-                case "BingMaps":
-                    $provider = new BingMaps($adapter, SystemConfig::getValue("sBingMapKey"));
                     break;
                 case "OpenStreetMap":
                     $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"), SystemConfig::getValue("sEntityEmail") );
