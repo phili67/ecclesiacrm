@@ -276,182 +276,152 @@ if (isset($_POST['SaveChanges'])) {
 // Construct the form
 ?>
 
+
 <form method="post" action="<?= $sRootPath ?>/v2/group/props/Form/editor/<?= $iGroupID ?>" name="GroupPropFormEditor">
-  <div class="card card-outline card-primary shadow-sm mb-3">
-    <div class="card-header border-0">
-      <h3 class="card-title"><i class="fas fa-plus-circle mr-2"></i><?= _("Add Group-Specific Properties") ?></h3>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 mb-3">
-          <label class="font-weight-bold text-muted mb-1"><?= _('Type') ?>:</label>
-          <select name="newFieldType" class="form-control form-control-sm">
-                  <?php
-                  for ($iOptionID = 1; $iOptionID <= MiscUtils::ProTypeCount(); $iOptionID++) {
-                  ?>
-                    <option value="<?= $iOptionID ?>"> <?= MiscUtils::PropTypes($iOptionID) ?>
-                    <?php
-                  }
-                    ?>
-          </select>
-          <small class="d-block mt-2"><a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a></small>
+  <div class="row">
+    <div class="col-md-12 mb-4">
+      <div class="card card-outline card-primary shadow-sm rounded-4">
+        <div class="card-header bg-white">
+          <h3 class="card-title mb-0"><i class="fas fa-cogs text-primary me-2"></i> <?= _("Fonctions") ?></h3>
         </div>
-        <div class="col-lg-3 col-md-6 mb-3">
-          <label class="font-weight-bold text-muted mb-1"><?= _('Name') ?>:</label>
-          <input type="text" name="newFieldName" maxlength="40" class="form-control form-control-sm">
-          <?php if ($bNewNameError): ?>
-            <div class="text-danger small mt-1"><?= _('You must enter a name') ?></div>
-          <?php endif; ?>
-          <?php if ($bDuplicateNameError): ?>
-            <div class="text-danger small mt-1"><?= _('That field name already exists.') ?></div>
-          <?php endif; ?>
-        </div>
-        <div class="col-lg-4 col-md-8 mb-3">
-          <label class="font-weight-bold text-muted mb-1"><?= _('Description') ?>:</label>
-          <input type="text" name="newFieldDesc" maxlength="60" class="form-control form-control-sm">
-        </div>
-        <div class="col-lg-2 col-md-4 mb-3 d-flex align-items-end">
-          <button type="submit" class="btn btn-sm btn-success w-100" name="AddField">
-            <i class="fas fa-plus mr-1"></i><?= _('Add New Field') ?>
-          </button>
+        <div class="card-body">
+          <div class="row align-items-end g-2">
+            <div class="col-md-2">
+              <label class="fw-bold mb-1" for="newFieldType"><i class="fas fa-list me-1"></i> <?= _('Type') ?></label>
+              <select name="newFieldType" id="newFieldType" class="form-control form-control-sm">
+                <?php for ($iOptionID = 1; $iOptionID <= MiscUtils::ProTypeCount(); $iOptionID++) { ?>
+                  <option value="<?= $iOptionID ?>"> <?= MiscUtils::PropTypes($iOptionID) ?>
+                <?php } ?>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="fw-bold mb-1" for="newFieldName"><i class="fas fa-signature me-1"></i> <?= _('Nom') ?></label>
+              <input class="form-control form-control-sm" type="text" name="newFieldName" id="newFieldName" maxlength="40">
+              <?php if ($bNewNameError): ?>
+                <div class="text-danger small mt-1"><i class="fas fa-exclamation-circle"></i> <?= _('Vous devez entrer un nom') ?></div>
+              <?php endif; ?>
+              <?php if ($bDuplicateNameError): ?>
+                <div class="text-danger small mt-1"><i class="fas fa-exclamation-circle"></i> <?= _('Ce nom de champ existe déjà.') ?></div>
+              <?php endif; ?>
+            </div>
+            <div class="col-md-4">
+              <label class="fw-bold mb-1" for="newFieldDesc"><i class="fas fa-align-left me-1"></i> <?= _('Description') ?></label>
+              <input class="form-control form-control-sm" type="text" name="newFieldDesc" id="newFieldDesc" maxlength="60">
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+              <button type="submit" class="btn btn-success btn-sm w-100" name="AddField">
+                <i class="fas fa-plus-circle me-1"></i> <?= _('Ajouter') ?>
+              </button>
+            </div>
+          </div>
+          <div class="row"><div class="col-md-2"><small class="d-block mt-2"><a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Aide sur les types..') ?></a></small></div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <i class="fas fa-exclamation-triangle mr-1"></i>
-    <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <div class="alert alert-warning d-flex align-items-center mb-3">
+    <span><i class="fa-solid fa-exclamation-triangle fa-2x text-dark"></i></span>
+    <div>
+      <?= _("Attention : Les modifications de champs seront perdues si vous n'enregistrez pas avant d'utiliser les boutons de déplacement, suppression ou ajout !") ?>
+    </div>
   </div>
 
-  <div class="card card-outline card-info shadow-sm">
-    <div class="card-header border-0">
-      <h3 class="card-title"><i class="fas fa-list mr-2"></i> <?= _('Group-Specific Properties') ?></h3>
-    </div>
-    <div class="card-body">
-      <?php
-        if ($bErrorFlag) {
-        ?>
-          <p class="alert alert-danger"><span class="fas fa-exclamation-triangle mr-1"></span><?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></p>
-        <?php
-        }
-        ?>
-      <table class="table table-sm table-hover dt-responsive dataTable no-footer dtr-inline" id="custom-fields-table" width="100%">        
-          <thead>
-            <tr>
-              <th><?= _("Place") ?></th>
-              <th><?= _("Actions") ?></th>
-              <th><?= _('Type') ?></th>
-              <th><?= _('Name') ?></th>
-              <th><?= _('Description') ?></th>
-              <th><?= _('Special option') ?></th>
-              <th><?= _('Show in') ?><br>"<?= _('Person Profile') ?>"</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <?php
-
-            for ($row = 1; $row <= $numRows; $row++) {
-            ?>
-              <tr>
-                <td>
-                  <span class="badge badge-secondary mr-1" style="min-width: 24px; padding: 4px 0px;"><?= $row ?></span>
-                </td>
-                <td>
-                  <?php
-                  if ($row != 1) {
-                  ?>
-                    <button type="button" class="up-action btn btn-sm btn-outline-secondary" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
-                      <i class="fas fa-arrow-up"></i>
-                    </button>
-                  <?php
-                  }
-                  if ($row < $numRows) {
-                  ?>
-                    <button type="button" class="down-action btn btn-sm btn-outline-secondary" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
-                      <i class="fas fa-arrow-down"></i>
-                    </button>
-                  <?php
-                  }
-                  ?>
-                  <button type="button" class="delete-field btn btn-sm btn-outline-danger" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
-                <td>
-                  <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
-                </td>
-                <td>
-                  <input type="text" name="<?= $row ?>name" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="25" maxlength="40" class="form-control form-control-sm">
-                  <?php
-                  if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
-                  ?>
-                    <span class="text-danger d-block mt-1"><?= _('You must enter a name') ?></span>
-                  <?php
-                  }
-                  ?>
-                </td>
-
-                <td>
-                  <?= OutputUtils::formCustomField($aTypeFields[$row], $row . "desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8'), $aSpecialFields[$row]) ?>
-                </td>
-
-                <td>
-                  <?php
-
-                  if ($aTypeFields[$row] == 9) {
-                  ?>
-                    <select name="<?= $row ?>special" class="form-control form-control-sm">
-                      <option value="0" selected><?= _("Select a group") ?></option>
-                      <?php
-                      $groupList = GroupQuery::Create()->orderByName()->find();
-
-                      foreach ($groupList as $group) {
-                      ?>
-                        <option value="<?= $group->getId() ?>" <?= ($aSpecialFields[$row] == $group->getId()) ? ' selected' : '' ?>>
-                          <?= $group->getName() ?>
-                        <?php
-                      }
-                        ?>
-                    </select>
-
-                    <?php
-
-                    if (!empty($aSpecialErrors[$row])) {
-                    ?>
-                      <span class="text-danger d-block mt-1"><?= _('You must select a group.') ?></span>
-                    <?php
-                    }
-                  } elseif ($aTypeFields[$row] == 12) {
-                    ?>
-                    <a class="btn btn-sm btn-outline-success" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/v2/system/option/manager/groupcustom/<?= $aSpecialFields[$row] ?>','Newwin','toolbar=no,status=no,width=400,height=500')"><i class="fas fa-edit mr-1"></i><?= _("Edit List Options") ?></a>
-                  <?php
-                  } else {
-                  ?>
-                    &nbsp;
-                  <?php
-                  } ?>
-                </td>
-                <td>
-                  <input type="checkbox" name="<?= $row ?>show" value="1" <?= ($aPersonDisplayFields[$row]) ? ' checked' : '' ?>>
-                </td>
-              </tr>
-            <?php
-            } ?>
-          </tbody>
-      </table>
-    </div>
-    <div class="card-footer bg-white border-0">
-      <div class="d-flex flex-wrap">
-        <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-sm btn-outline-secondary mr-2 mb-2"><i class="fas fa-arrow-left mr-1"></i> <?= _("Return to Group") ?></a>
-        <button type="submit" class="btn btn-sm btn-primary mb-2" name="SaveChanges"><i class="fas fa-save mr-1"></i><?= _('Save Changes') ?></button>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-outline card-secondary shadow-sm rounded-4">
+        <div class="card-header bg-white">
+          <h3 class="card-title mb-0"><i class="fa fa-list text-primary me-2"></i> <?= _("Propriétés spécifiques au groupe") ?></h3>
+        </div>
+        <div class="card-body">
+          <?php if ($bErrorFlag) { ?>
+            <div class="alert alert-danger d-flex align-items-center mb-3">
+              <i class="fas fa-exclamation-triangle fa-2x text-danger me-3"></i>
+              <div>
+                <span class="fw-bold text-danger-emphasis"><?= _("Champs ou sélections invalides. Modifications non enregistrées ! Veuillez corriger et réessayer !") ?></span>
+              </div>
+            </div>
+          <?php } ?>
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="custom-fields-table" style="width:100%">
+              <thead class="table-light">
+                <tr>
+                  <th><?= _("Place") ?></th>
+                  <th><?= _("Actions") ?></th>
+                  <th><?= _('Type') ?></th>
+                  <th><?= _('Nom') ?></th>
+                  <th><?= _('Description') ?></th>
+                  <th><?= _('Option spéciale') ?></th>
+                  <th><?= _('Afficher dans') ?><br>"<?= _('Profil de la personne') ?>"</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php for ($row = 1; $row <= $numRows; $row++) { ?>
+                  <tr>
+                    <td>
+                      <span class="badge bg-secondary" style="min-width: 24px; padding: 4px 0px;"><?= $row ?></span>
+                    </td>
+                    <td>
+                      <div class="btn-group" role="group">
+                        <?php if ($row != 1) { ?>
+                          <button type="button" class="up-action btn btn-outline-secondary btn-xs" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Monter') ?>"><i class="fa-solid fa-arrow-up"></i></button>
+                        <?php } ?>
+                        <?php if ($row < $numRows) { ?>
+                          <button type="button" class="down-action btn btn-outline-secondary btn-xs" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Descendre') ?>"><i class="fa-solid fa-arrow-down"></i></button>
+                        <?php } ?>
+                        <button type="button" class="delete-field btn btn-outline-danger btn-xs" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Supprimer') ?>"><i class="fa fa-trash-can"></i></button>
+                      </div>
+                    </td>
+                    <td>
+                      <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
+                    </td>
+                    <td>
+                      <input class="form-control form-control-sm" type="text" name="<?= $row ?>name" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="40">
+                      <?php if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) { ?>
+                        <span class="text-danger small"><i class="fas fa-exclamation-circle"></i> <?= _('Vous devez entrer un nom') ?></span>
+                      <?php } ?>
+                    </td>
+                    <td>
+                      <?= OutputUtils::formCustomField($aTypeFields[$row], $row . "desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8'), $aSpecialFields[$row]) ?>
+                    </td>
+                    <td>
+                      <?php if ($aTypeFields[$row] == 9) { ?>
+                        <select name="<?= $row ?>special" class="form-control form-control-sm">
+                          <option value="0" selected><?= _("Sélectionner un groupe") ?></option>
+                          <?php $groupList = GroupQuery::Create()->orderByName()->find();
+                          foreach ($groupList as $group) { ?>
+                            <option value="<?= $group->getId() ?>" <?= ($aSpecialFields[$row] == $group->getId()) ? ' selected' : '' ?>>
+                              <?= $group->getName() ?>
+                            <?php } ?>
+                        </select>
+                        <?php if (!empty($aSpecialErrors[$row])) { ?>
+                          <span class="text-danger small"><i class="fas fa-exclamation-circle"></i> <?= _('Vous devez sélectionner un groupe.') ?></span>
+                        <?php } ?>
+                      <?php } elseif ($aTypeFields[$row] == 12) { ?>
+                        <a class="btn btn-outline-success btn-xs" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/v2/system/option/manager/groupcustom/<?= $aSpecialFields[$row] ?>','Newwin','toolbar=no,status=no,width=400,height=500')"><i class="fas fa-edit me-1"></i><?= _("Modifier les options de la liste") ?></a>
+                      <?php } else { ?>
+                        &nbsp;
+                      <?php } ?>
+                    </td>
+                    <td>
+                      <input type="checkbox" name="<?= $row ?>show" value="1" <?= ($aPersonDisplayFields[$row]) ? ' checked' : '' ?>>
+                    </td>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer text-end">
+          <a href="<?= $sRootPath ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-outline-secondary btn-sm me-2"><i class="fas fa-arrow-left me-1"></i> <?= _("Retour au groupe") ?></a>
+          <button type="submit" class="btn btn-primary btn-sm" name="SaveChanges"><i class="fas fa-check me-1"></i><?= _('Enregistrer les modifications') ?></button>
+        </div>
       </div>
     </div>
   </div>
 </form>
 
 <script src="<?= $sRootPath ?>/skin/js/group/GroupCustomFieldsEditor.js"></script>
+
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
