@@ -1,3 +1,12 @@
+window.CRM.volunteersInCart = [];
+window.CRM.APIRequest({
+    method: "GET",
+    path: "volunteeropportunity/volunteersInCart"
+}, function (data) {
+    // On suppose que l'API retourne un tableau d'IDs des volunteer opportunities dans le panier
+    window.CRM.volunteersInCart = data.volunteersInCart || [];
+});
+
 
 window.CRM.ElementListener('#add-new-volunteer-opportunity', 'click', function (event) {
     var modal = bootbox.dialog({
@@ -216,7 +225,17 @@ window.CRM.VolunteerOpportunityTable = new DataTable("#VolunteerOpportunityTable
             data: 'Id',
             searchable: false,
             render: function (data, type, full, meta) {
-                return '<a class="edit-volunteer-opportunity" data-id="' + data + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-volunteer-opportunity" data-id="' + data + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
+                return `<div class="btn-group btn-group-sm" role="group" aria-label="${i18next.t('Volunteer Opportunity actions')}">
+                            <a href="${window.CRM.root}/v2/volunteeropportunity/${full.Id}/view" class="btn btn-outline-primary" title="${i18next.t('View')}">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a class="btn btn-outline-secondary edit-volunteer-opportunity" data-id="${data}" title="${i18next.t('Edit')}">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a class="btn btn-outline-danger delete-volunteer-opportunity" data-id="${data}" title="${i18next.t('Delete')}">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        </div>`;
             }
         },
         {
@@ -225,6 +244,40 @@ window.CRM.VolunteerOpportunityTable = new DataTable("#VolunteerOpportunityTable
             data: 'Name',
             render: function (data, type, full, meta) {
                 return '<a href="' + window.CRM.root + '/v2/volunteeropportunity/' + full.Id+ '/view">' + data + '</a>';
+            }
+        },
+        {
+                width: '90px',
+                title: i18next.t('Members'),
+                data: 'MemberCount',
+                searchable: false,
+                defaultContent: "0",
+                render: function (data) {
+                    return `<span class="badge badge-pill badge-light border">${data || 0}</span>`;
+                }
+        },
+        {
+            width: 'auto',
+            title: i18next.t('Volunteer Cart Status'),
+            searchable: false,
+            data: 'Id',
+            render: function (data, type, full) {
+                var disabled = full.memberCount == 0 ? ' disabled' : '';
+                if ($.inArray(full.Id, window.CRM.volunteersInCart) > -1) {
+                    return `<div class="d-flex align-items-center gap-1" id="volspanid-${full.Id}">`
+                        + `<span class="badge badge-success"><i class="fas fa-check mr-1"></i>${i18next.t("In cart")}</span>`
+                        + `&nbsp;<button class="btn btn-sm btn-outline-danger" id="removeVolunteerFromCart" data-volid="${full.Id}" title="${i18next.t('Remove from cart')}">`
+                        +   `<i class="fas fa-times"></i>`
+                        + `</button></div>`;
+                } else if (window.CRM.showCart) {
+                    return `<div class="d-flex align-items-center gap-1" id="volspanid-${full.Id}">`
+                        + `<span class="badge badge-light border text-muted"><i class="fas fa-shopping-cart mr-1"></i>${i18next.t("Not in cart")}</span>`
+                        + `&nbsp;<button class="btn btn-sm btn-outline-primary${disabled}" id="AddVolunteerToCart" data-volid="${full.Id}" title="${i18next.t('Add to cart')}">`
+                        +   `<i class="fas fa-cart-plus"></i>`
+                        + `</button></div>`;
+                } else {
+                    return `<span class="text-muted small"><i class="fas fa-ban mr-1"></i>${i18next.t("Cart isn't showable")}</span>`;
+                }
             }
         },
         {
@@ -241,7 +294,7 @@ window.CRM.VolunteerOpportunityTable = new DataTable("#VolunteerOpportunityTable
             data: 'Active',
             searchable: false,
             render: function (data, type, full, meta) {
-                return (data == "true") ? '<span style="color:green"><i class="fa-solid fa-check"></i></span>' : '<span style="color:red"><i class="fas fa-ban"></i></span>';                
+                return (data == "true") ? `<span style="color:green"><i class="fa-solid fa-check"></i></span>` : `<span style="color:red"><i class="fas fa-ban"></i></span>`;                
             }
         },
         {
@@ -273,4 +326,32 @@ window.CRM.VolunteerOpportunityTable = new DataTable("#VolunteerOpportunityTable
         }
     ],
     responsive: true
+});
+
+$(document).on("click", "#AddVolunteerToCart", function () {
+    var volId = $(this).data("volid");
+    var $row = $("#volspanid-" + volId);
+    var $btn = $(this);
+    window.CRM.cart.addVolunteers(volId, function () {
+        $btn.attr("id", "removeVolunteerFromCart")
+            .removeClass("btn-outline-primary").addClass("btn-outline-danger")
+            .attr("title", i18next.t("Remove from cart"))
+            .find("i").removeClass("fa-cart-plus").addClass("fa-times");
+        $row.find(".badge").removeClass("badge-light border text-muted").addClass("badge-success")
+            .html('<i class="fas fa-check mr-1"></i>' + i18next.t("In cart"));
+    });
+});
+
+$(document).on("click", "#removeVolunteerFromCart", function () {
+    var volId = $(this).data("volid");
+    var $row = $("#volspanid-" + volId);
+    var $btn = $(this);
+    window.CRM.cart.removeVolunteers(volId, function () {
+        $btn.attr("id", "AddVolunteerToCart")
+            .removeClass("btn-outline-danger").addClass("btn-outline-primary")
+            .attr("title", i18next.t("Add to cart"))
+            .find("i").removeClass("fa-times").addClass("fa-cart-plus");
+        $row.find(".badge").removeClass("badge-success").addClass("badge-light border text-muted")
+            .html('<i class="fas fa-shopping-cart mr-1"></i>' + i18next.t("Not in cart"));
+    });
 });

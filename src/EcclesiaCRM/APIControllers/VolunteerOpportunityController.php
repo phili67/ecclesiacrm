@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2021 Philippe Logel all right reserved not MIT licence
@@ -29,8 +28,7 @@ use Propel\Runtime\Propel;
 use PDO;
 use Slim\Exception\HttpInternalServerErrorException;
 
-class VolunteerOpportunityController
-{
+class VolunteerOpportunityController {
     private $container;
 
     public function __construct(ContainerInterface $container)
@@ -106,7 +104,7 @@ class VolunteerOpportunityController
         return $response;
     }
 
-    public function settingsEmailExportVvalue(ServerRequest $request, Response $response, array $args): Response {
+    public function settingsEmailExportValue(ServerRequest $request, Response $response, array $args): Response {
         $volID = $args['volID'];
         $flag = $args['value'];
         if ($flag == "true" || $flag == "false") {
@@ -201,7 +199,9 @@ class VolunteerOpportunityController
         $volunteerOpportunities = VolunteerOpportunityQuery::Create()->orderByName(Criteria::ASC)->find();
 
         $volunteerOpportunitiesMenu = VolunteerOpportunityQuery::Create()
-            ->select(['vol_ID', 'vol_Name'])
+            ->leftJoinPersonVolunteerOpportunity()
+            ->withColumn('COUNT(person2volunteeropp_p2vo.p2vo_per_ID)', 'MemberCount')
+            ->groupById()
             ->orderByName(Criteria::ASC)->find();
 
         $menus = $volunteerOpportunitiesMenu->toArray();
@@ -217,7 +217,8 @@ class VolunteerOpportunityController
                 'ParentId' => $volunteerOpportunity->getParentId(),
                 'MenuParents' => $this->selectMenuParents($menus, $volunteerOpportunity->getId(), $volunteerOpportunity->getParentId()),
                 'MenuIcons' => $this->selectMenuIcons( $volunteerOpportunity->getId(), $volunteerOpportunity->getIcon() ),
-                'MenuColors' => $this->selectMenuColors( $volunteerOpportunity->getId(), $volunteerOpportunity->getColor() )
+                'MenuColors' => $this->selectMenuColors( $volunteerOpportunity->getId(), $volunteerOpportunity->getColor() ),
+                'MemberCount' => $volunteerOpportunity->getMemberCount()
             ];
 
             $res[] = $elt;
@@ -524,5 +525,20 @@ class VolunteerOpportunityController
 
             
         return $response->withJson(['success' => true, 'Opportunities' => $vol->toArray()]);
+    }
+
+    /**
+     * Retourne la liste des IDs des volunteer opportunities dans le panier (stockés en session)
+     */
+    public function volunteersInCart(ServerRequest $request, Response $response, array $args): Response
+    {
+        $volunteers = VolunteerOpportunityQuery::create()->find();
+        $volunteersInCart = [];
+        foreach ($volunteers as $volunteer) {
+            if ($volunteer->checkAgainstCart()) {
+                array_push($volunteersInCart, $volunteer->getId());
+            }
+        }
+        return $response->withJson(['volunteersInCart' => $volunteersInCart]);
     }
 }
