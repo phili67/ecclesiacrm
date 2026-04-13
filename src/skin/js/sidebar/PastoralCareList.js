@@ -191,7 +191,16 @@ window.CRM.dataPastoralCareTypeTable = new DataTable("#pastoral-careTable", {
       title: i18next.t('Actions'),
       data: 'Id',
       render: function (data, type, full, meta) {
-        return '<a class="edit-pastoral-care" data-id="' + data + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-pastoral-care" data-id="' + data + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
+        return `
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-primary btn-xs edit-pastoral-care" data-id="${data}" title="${i18next.t('Edit')}">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-xs delete-pastoral-care" data-id="${data}" title="${i18next.t('Delete')}">
+              <i class="fa fa-trash-can"></i>
+            </button>
+          </div>
+        `;
       }
     },
     {
