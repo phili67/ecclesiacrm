@@ -85,7 +85,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                     <label for="Unassigned"><?= _('Unassigned') ?></label>
                 </div>
                 <div class="legenditem">
-                    <img src='<?= $sRootPath ?>/skin/icons/event.png'/>
+                    <img src='<?= $sRootPath ?>/skin/icons/event.png' width="32"/>
                     <input type="checkbox" class="view" data-id="-1" name="feature" id="calendar" value="scales" checked />
                     <label for="calendar"><?= _("Calendar") ?></label>
                 </div>
@@ -100,11 +100,11 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                         <?php
                           if (!empty($icon->getUrl())) {
                         ?>
-                          <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>'/>
+                          <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>' width="32"/>
                         <?php
                           } else {
                         ?>
-                          <img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>'/>
+                          <img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' width="32"/>
                         <?php
                           }
                         ?>
@@ -134,7 +134,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                 <div class="legenditem">
                     <input type="checkbox" class="view" data-id="-1" name="feature"
                value="scales" checked /><img
-                        src='<?= $sRootPath ?>/skin/icons/event.png'/>
+                        src='<?= $sRootPath ?>/skin/icons/event.png' width="32"/>
                     <?= _("Calendar") ?>
                 </div>
                 <?php
@@ -148,11 +148,11 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                         <?php
                           if (!empty($icon->getUrl())) {
                         ?>
-                          <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>'/>
+                          <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>' width="32"/>
                         <?php
                           } else {
                         ?>
-                          <img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>'/>
+                          <img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' width="32"/>
                         <?php
                           }
                         ?>
@@ -343,7 +343,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
 
         var icon = L.icon({
             iconUrl: iconurl,
-            iconSize:     [32, 32], // size of the icon
+            iconSize:     [32, null], // size of the icon
             iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
             popupAnchor:  [0, -32] // point from which the popup should open relative to the iconAnchor
         });
@@ -367,7 +367,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
             //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
             contentString += "<div class='image-container'><a href='" + imghref + "'>";
             if (plot.type == 'event') {
-              contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.bigThumbnail + "'></a>";
+              contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.bigThumbnail + "' width='32'></a>";
 
               if (plot.Text != '') {
                  contentString += "<b>"+i18next.t("Notes")+"</b>";
