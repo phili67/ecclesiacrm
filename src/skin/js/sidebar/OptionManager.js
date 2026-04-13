@@ -1,7 +1,7 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2019 Philippe Logel all right reserved not MIT licence
-//  Updated     : 2019/07/03
+//  Updated     : 2026/04/12
 //
 
   import {ImagePickerWindow} from './IconPicker.js';
@@ -48,12 +48,9 @@
     }),
       bootbox.confirm({
         title: i18next.t("Delete Classification"),
-        message: '<p style="color: red">' +
-          i18next.t("Please confirm deletion of this classification") + " : \"" + name + "\" ?</p>" +
-          "<p style='color: red'><b>" +
-          i18next.t("This will also delete this Classification for all the associated persons.") +
-          "</b><br></p><p style='color: red'><b>" +
-          i18next.t("This can't be undone !!!!") + "</b></p>",
+        message: `<p style="color: red">${i18next.t("Please confirm deletion of this classification")} : "${name}" ?</p>` +
+          `<p style='color: red'><b>${i18next.t("This will also delete this Classification for all the associated persons.")}</b><br></p>` +
+          `<p style='color: red'><b>${i18next.t("This can't be undone !!!!")}</b></p>`,
         callback: function (result) {
           if (result) {
             window.CRM.APIRequest({
@@ -124,7 +121,7 @@
                 buff = '<tr>';
               }
             }
-            buff += '<td><img src="' + directory + data[i] + '" class="imgCollection" data-name="' + data[i] + '" style="border:solid 1px white"></td>';
+            buff += `<td><img src="${directory + data[i]}" class="imgCollection" data-name="${data[i]}" style="border:solid 1px white; width:32px;"></td>`;
           }
 
           if (buff != '') {
