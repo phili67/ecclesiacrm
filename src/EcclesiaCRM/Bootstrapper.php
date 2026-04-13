@@ -14,6 +14,7 @@ namespace EcclesiaCRM
   use EcclesiaCRM\Utils\RedirectUtils;
   use EcclesiaCRM\PluginQuery;
   use Propel\Runtime\ServiceContainer\StandardServiceContainer;
+  use EcclesiaCRM\SessionUser;
 
   class Bootstrapper
   {
@@ -440,6 +441,9 @@ namespace EcclesiaCRM
 
       public static function isDBCurrent()
       {
+          if (is_null(SessionUser::getUser()) or !SessionUser::getUser()->isAdmin()) {
+              return true;
+          }
           $dbVersion = self::getDBVersion();
           if ($dbVersion == SystemService::getInstalledVersion()) {
               self::$bootStrapLogger->debug("Database version matches installed version: " . $dbVersion . " == " .SystemService::getInstalledVersion());
