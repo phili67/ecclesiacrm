@@ -203,10 +203,16 @@ window.CRM.dataPropertyListTable = new DataTable("#property-listing-table-v2", {
         if (window.CRM.menuOptionEnabled == false)
           return '';
 
-        var res = '<a href="#" data-typeid="' + full.ProId + '" class="edit-prop"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
-        res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.ProId + '" class="delete-prop"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
-
-        return res;
+        return `
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-primary btn-xs edit-prop" data-typeid="${full.ProId}" title="${i18next.t('Edit')}">
+              <i class="fas fa-pen"></i>
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-xs delete-prop" data-typeid="${full.ProId}" title="${i18next.t('Delete')}">
+              <i class="fa fa-trash-can"></i>
+            </button>
+          </div>
+        `;
       }
     },
     {

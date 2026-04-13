@@ -1354,7 +1354,7 @@ require $sRootDocument . '/Include/Header.php';
                                 <table width=370px>
                                     <tr>
                                         <td>
-                                            <span class="time-line-head-yellow">
+                                            <span class="time-line-head-yellow rounded-pill px-2 py-0">                                                
                                               <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
                                             </span>
                                         </td>

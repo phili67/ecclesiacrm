@@ -9,6 +9,19 @@ require $sRootDocument . '/Include/HeaderNotLoggedIn.php'; ?>
     <div class="container-fluid px-0">
         <div class="row">
             <div class="col-12">
+                <div class="alert alert-info alert-dismissible fade show mb-4" role="alert">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <?= _('After this update, please reload the page with <kbd>Ctrl</kbd>+<kbd>F5</kbd> to clear your browser cache and benefit from the latest features.') ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-12">
 
                 <div class="card card-outline card-warning shadow-sm">
                     <div class="card-header d-flex align-items-center justify-content-between">

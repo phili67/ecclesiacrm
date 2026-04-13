@@ -88,19 +88,19 @@ $(function () {
                 render: function (data, type, full, meta) {
                     if (!full.dir && !full.link) {
                         var ret = '<div class="btn-group">' +
-                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-xs" data-personid="' + window.CRM.currentPersonID + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
-                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-xs shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share"></i></button>' +
+                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="' + window.CRM.currentPersonID + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>' +
+                            '   <button type="button" class="btn ' + (full.isShared ? 'btn-success' : 'btn-outline-secondary') + ' btn-sm px-2 py-1 shareFile" data-personid="' + window.CRM.currentPersonID + '" data-id="' + data + '" data-shared="' + full.isShared + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>' +
                             '</div>';
                         return ret;
-                    } else if (!full.link) {
+                    } else if (!full.link && full.name != '/public') {
                         var ret = '<div class="btn-group">' +
-                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-xs shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-share"></i></button>' +
+                            '   <button type="button" class="btn ' + (full.isShared ? 'btn-success' : 'btn-outline-secondary') + ' btn-sm px-2 py-1 shareFile" data-personid="' + window.CRM.currentPersonID + '" data-id="' + data + '" data-shared="' + full.isShared + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>' +
                             '</div>';
                         return ret;
                     } else if (full.link) {
                         var ret = '<div class="btn-group">' +
-                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-secondary btn-xs" data-personid="' + window.CRM.currentPersonID + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Télécharger fichier dans EDrive"><i class="fas fa-download"></i></a>' +
-                            '   <button type="button" class="btn btn-' + (full.isShared ? 'success' : 'default') + ' btn-xs shareFile" data-personid="' + window.CRM.currentPersonID + '"  data-id="' + data + '" data-shared="' + full.isShared + '" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier"><i class="fas fa-link"></i></button>' +
+                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="' + window.CRM.currentPersonID + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>' +
+                            '   <button type="button" class="btn ' + (full.isShared ? 'btn-success' : 'btn-outline-secondary') + ' btn-sm px-2 py-1 shareFile" data-personid="' + window.CRM.currentPersonID + '" data-id="' + data + '" data-shared="' + full.isShared + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Lien partagé"><i class="fa-solid fa-link file-action-icon"></i></button>' +
                             '</div>';
                         return ret;
                     }
@@ -1221,8 +1221,19 @@ $(function () {
 
     uploadEvent();
 
-    if (window.CRM.isPublicFolder) {
-        $(".flex-wrap").removeClass('shift-flex-wrapper-right');
-        $(".folder-back-drop").hide();
-    }
+        if (window.CRM.isPublicFolder) {
+                $(".flex-wrap").removeClass('shift-flex-wrapper-right');
+                $(".folder-back-drop").hide();
+        }
+
+        // Style global pour garder les icônes visibles même sur ligne sélectionnée
+        var style = document.createElement('style');
+        style.innerHTML = `
+            .edriveRow.selected .file-action-icon {
+                color: #212529 !important;
+                filter: none !important;
+                opacity: 1 !important;
+            }
+        `;
+        document.head.appendChild(style);
 });

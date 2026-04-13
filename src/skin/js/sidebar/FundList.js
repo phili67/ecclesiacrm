@@ -187,7 +187,10 @@ window.CRM.dataFundTable = new DataTable("#fundTable", {
       title: i18next.t('Actions'),
       data: 'Id',
       render: function (data, type, full, meta) {
-        return '<a class="edit-fund" data-id="' + data + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-fund" data-id="' + data + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
+        return '<div class="btn-group btn-group-sm" role="group">'
+          + '<a class="btn btn-outline-primary edit-fund" data-id="' + data + '" title="Edit"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
+          + '<a class="btn btn-outline-danger delete-fund" data-id="' + data + '" title="Delete"><i class="far fa-trash-alt" aria-hidden="true"></i></a>'
+          + '</div>';
       }
     },
     {

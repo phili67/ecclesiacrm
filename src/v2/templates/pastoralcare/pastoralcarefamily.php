@@ -272,7 +272,7 @@ $sFamilyEmails = [];
             <div class="timeline">
                 <!-- timeline time label -->
                 <div class="time-label">
-        <span class="bg-red">
+        <span class="bg-red rounded-pill">
           <?= (new DateTime(''))->format($sDateFormatLong) ?>
         </span>
                 </div>
@@ -387,15 +387,15 @@ $sFamilyEmails = [];
                             <td class="text-center">
                                 <?php
                                 $famRole = $person->getFamilyRoleName();
-                                $labelColor = 'label-default';
+                                $labelColor = 'secondary';
                                 if ($famRole == _('Head of Household')) {
                                 } elseif ($famRole == _('Spouse')) {
-                                    $labelColor = 'label-info';
+                                    $labelColor = 'info';
                                 } elseif ($famRole == _('Child')) {
-                                    $labelColor = 'label-warning';
+                                    $labelColor = 'warning';
                                 }
                                 ?>
-                                <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
+                                <span class='badge  badge-<?= $labelColor ?>'> <?= $famRole ?></span>
                             </td>
                         </tr>
                         <?php
