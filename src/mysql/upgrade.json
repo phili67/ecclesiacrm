@@ -781,7 +781,7 @@
         ],
         "dbVersion": "7.6.1"
     },
-    "current": {
+    "8.0.0": {
         "versions": [
             "7.6.0",
             "7.6.1"
@@ -812,5 +812,15 @@
             "/mysql/upgrade/8.0.0-post-upgrade.php"
         ],
         "dbVersion": "8.0.0"
+    },
+    "current": {
+        "versions": [
+            "8.0.0",
+            "8.0.1"
+        ],
+        "prescripts": [],
+        "scripts": [],
+        "postscripts": [],
+        "dbVersion": "8.1.0"
     }
 }
