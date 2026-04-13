@@ -169,7 +169,6 @@ function Header_body_scripts()
             sMapKey: "<?= GeoUtils::getKey() ?>",
             sMapExternalProvider:"<?= SessionUser::getUser()->MapExternalProvider() ?>",
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
-            sBingMapKey:"<?= SystemConfig::getValue('sBingMapKey')?>",
             iLittleMapZoom:<?= SystemConfig::getValue('iLittleMapZoom')?>,
             sNominatimLink:"<?= SystemConfig::getValue('sNominatimLink')?>",
             iPersonId:<?= SessionUser::getUser()->getPersonId() ?>,
