@@ -52,7 +52,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
             ?>
             <div class="alert alert-danger">
                 <a href="<?= $sRootPath ?>/v2/system/option/manager/classes" class="btn bg-info-active"><img
-                        src='<?= $sRootPath . "/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
+                        src='<?= $sRootPath . "/skin/icons/markers/../interrogation_point.png" ?>' width="40"/></a>
                 <?= _("Missing Person Map classification icon for") . " : \"" . $icon->getOptionName() . "\". " . _("Clik") . ' <a href="' . $sRootPath . '/v2/system/option/manager/classes">' . _("here") . '</a> ' . _("to solve the problem.") ?>
             </div>
             <?php
@@ -99,7 +99,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                     <label for="Unassigned"><?= _('Unassigned') ?></label>
                 </div>
                 <div class="legenditem">
-                    <img src='<?= $sRootPath ?>/skin/icons/event.png'/>
+                    <img src='<?= $sRootPath ?>/skin/icons/event.png' width="40"/>
                     <input type="checkbox" class="view" data-id="-1" id="calendar" name="feature" value="scales"
                            checked/>
                     <label for="calendar"><?= _("Calendar") ?></label>
@@ -115,11 +115,11 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                         <?php
                         if (!empty($icon->getUrl())) {
                             ?>
-                            <img src='<?= $sRootPath . "/skin/icons/markers/" . $icon->getUrl() ?>'/>
+                            <img src='<?= $sRootPath . "/skin/icons/markers/" . $icon->getUrl() ?>' width="40"/>
                             <?php
                         } else {
                             ?>
-                            <img src='<?= $sRootPath . "/skin/icons/markers/../interrogation_point.png" ?>'/>
+                            <img src='<?= $sRootPath . "/skin/icons/markers/../interrogation_point.png" ?>' width="40"/>
                             <?php
                         }
                         ?>
@@ -148,7 +148,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                 <div class="legenditem">
                     <input type="checkbox" class="view" data-id="-1" name="feature"
                            value="scales" checked/><img
-                        src='<?= $sRootPath ?>/skin/icons/event.png'/>
+                        src='<?= $sRootPath ?>/skin/icons/event.png' width="40"/>
                     <?= _("Calendar") ?>
                 </div>
                 <?php
@@ -163,11 +163,11 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
                         <?php
                         if (!empty($icon->getUrl())) {
                             ?>
-                            <img src='<?= $sRootPath . "/skin/icons/markers/" . $icon->getUrl() ?>'/>
+                            <img src='<?= $sRootPath . "/skin/icons/markers/" . $icon->getUrl() ?>' width="40"/>
                             <?php
                         } else {
                             ?>
-                            <img src='<?= $sRootPath . "/skin/icons/markers/../interrogation_point.png" ?>'/>
+                            <img src='<?= $sRootPath . "/skin/icons/markers/../interrogation_point.png" ?>' width="40"/>
                             <?php
                         }
                         ?>
@@ -222,18 +222,12 @@ require $sRootDocument . '/Include/Footer.php';
     // Initialize and add the map
     let map;
 
-    async function initMap() {
-        // The location of Uluru
-        // Request needed libraries.
-        //@ts-ignore
-        const { Map: GoogleMap } = await google.maps.importLibrary("maps");
-        const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
 
-        // The map, centered at Uluru
-        map = new GoogleMap(document.getElementById("mapid"), {
+    function initMap() {
+        // Initialisation classique de la carte Google Maps
+        map = new google.maps.Map(document.getElementById("mapid"), {
             zoom: <?= SystemConfig::getValue("iMapZoom")?>,
-            center: churchloc,
-            mapId: "<?= SystemConfig::getValue('sGoogleMapKey') ?>",
+            center: churchloc
         });
 
         $('#resetMapView').off('click').on('click', function () {
@@ -378,29 +372,24 @@ require $sRootDocument . '/Include/Footer.php';
     }
 
     const add_marker = (plot) => {
-        //icon image
+        // icon image
         var iconurl = iconBase + plot.iconClassification;
-
         if (plot.type == 'event') {
             iconurl = plot.Thumbnail;
         }
 
-
         var image = {
             url: iconurl,
-            // This marker is 37 pixels wide by 34 pixels high.
-            size: new google.maps.Size(37, 34),
-            // The origin for this image is (0, 0).
+            scaledSize: new google.maps.Size(40, 40), // impose un scale 40x40 px
             origin: new google.maps.Point(0, 0),
-            // The anchor for this image is the base of the flagpole at (0, 32).
             anchor: new google.maps.Point(0, 32)
         };
 
-        //Latlng object
+        // Latlng object
         var latlng = new google.maps.LatLng(plot.Latitude, plot.Longitude);
 
-        //Infowindow Content
-        var imghref, contentString;
+        // Infowindow Content
+        var imghref = '';
         if (plot.type == 'family') {
             imghref = window.CRM.root + "/v2/people/family/view/" + plot.ID;
         } else if (plot.type == 'person') {
@@ -409,25 +398,27 @@ require $sRootDocument . '/Include/Footer.php';
             imghref = window.CRM.root + "/v2/calendar";
         }
 
+        // Initialisation correcte de contentString
+        var contentString = '';
         contentString += "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
-        contentString = '<p>' + window.CRM.tools.getLinkMapFromAddress(plot.Address) + '</p>';
+        contentString += '<p>' + window.CRM.tools.getLinkMapFromAddress(plot.Address) + '</p>';
 
-        if (plot.Thumbnail.length > 0) {
-            //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
+        if (plot.Thumbnail && plot.Thumbnail.length > 0) {
             contentString += "<div class='image-container'><a href='" + imghref + "'>";
             if (plot.type == 'event') {
-                contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.bigThumbnail + "'></a>";
-
-                if (plot.Text != '') {
+                contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.bigThumbnail + "' width='40'></a>";
+                if (plot.Text && plot.Text !== '') {
                     contentString += "<b>" + i18next.t("Notes") + "</b>";
                     contentString += "<br>" + plot.Text + "</div>";
+                } else {
+                    contentString += "</div>";
                 }
             } else {
-                contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.Thumbnail + "'></a>";
+                contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.Thumbnail + "' width='40'></a></div>";
             }
         }
 
-        //Add marker and infowindow
+        // Add marker and infowindow
         plot.mark = addMarkerWithInfowindow(window.CRM.map, latlng, image, plot.Name, contentString);
     }
 
