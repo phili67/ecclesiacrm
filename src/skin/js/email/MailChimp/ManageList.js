@@ -84,16 +84,14 @@ $(function() {
                     + '    <div class="card-body">'
                     + '      <div class="row">'
                     + '        <div class="col-md-12">'
-                    + '          <table width="100%">'
-                    + '            <tr><td><b><i class="far fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
-                    + '            <tr><td>&bullet; ' + i18next.t('Subject') + '</td><td>:</td><td><b>' + list.campaign_defaults.subject + '</b></td></tr>'
-                    + '            <tr><td>&bullet; ' + i18next.t('Members:') + '</td><td>:</td><td><b>' + list.stats.member_count + '</b></td></tr>'
-                    //+'            <tr><td>&bullet; ' + i18next.t('Campaigns:') + '</td><td>:</td><td><b> ' + list.stats.campaign_count + '</b></td></tr>'
-                    + '            <tr><td>&bullet; ' + i18next.t('Unsubscribed count:') + '</td><td>:</td><td><b>' + list.stats.unsubscribe_count + '</b></td></tr>'
-                    + '            <tr><td>&bullet; ' + i18next.t('Unsubscribed count since last send:') + '</td><td>:</td><td><b>' + list.stats.unsubscribe_count_since_send + '</b></td></tr>'
-                    + '            <tr><td>&bullet; ' + i18next.t('Cleaned count:') + '</td><td>:</td><td><b>' + list.stats.cleaned_count + '</b></td></tr>'
-                    + '            <tr><td>&bullet; ' + i18next.t('Cleaned count since last send:') + '</td><td>:</td><td><b>' + list.stats.cleaned_count_since_send + '</b></td></tr>'
-                    + '          </table>'
+                    + '          <div class="d-flex flex-column gap-3 p-2">'
+                    + '            <div class="d-flex align-items-center gap-3 mb-2"><i class="fas fa-heading text-primary"></i><span class="fw-bold"> ' + i18next.t('Subject') + ':</span> <span class="text-primary">' + list.campaign_defaults.subject + '</span></div>'
+                    + '            <div class="d-flex align-items-center gap-3 mb-2"><i class="fas fa-users text-secondary"></i><span class="fw-bold"> ' + i18next.t('Members:') + ':</span> <span class="badge bg-secondary">' + list.stats.member_count + '</span></div>'
+                    + '            <div class="d-flex align-items-center gap-3 mb-2"><i class="fas fa-user-slash text-warning"></i><span class="fw-bold"> ' + i18next.t('Unsubscribed count:') + '</span> : <span class="badge bg-warning text-dark">' + list.stats.unsubscribe_count + '</span></div>'
+                    + '            <div class="d-flex align-items-center gap-3 mb-2"><i class="fas fa-user-minus text-warning"></i><span class="fw-bold"> ' + i18next.t('Unsubscribed count since last send:') + '</span> <span class="badge bg-warning text-dark">' + list.stats.unsubscribe_count_since_send + '</span></div>'
+                    + '            <div class="d-flex align-items-center gap-3 mb-2"><i class="fas fa-broom text-danger"></i><span class="fw-bold"> ' + i18next.t('Cleaned count:') + '</span>  <span class="badge bg-danger">' + list.stats.cleaned_count + '</span></div>'
+                    + '            <div class="d-flex align-items-center gap-3 mb-2"><i class="fas fa-broom text-danger"></i><span class="fw-bold"> ' + i18next.t('Cleaned count since last send:') + '</span> <span class="badge bg-danger">' + list.stats.cleaned_count_since_send + '</span></div>'
+                    + '          </div>'
                     + '        </div>'
                     + '      </div><hr class="hr-mailchimp"/>'
                     + '      <div class="row">'
@@ -112,7 +110,12 @@ $(function() {
                     if (data.membersCount == 0) {
                         listView += '<tr><td>• ' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</td></tr>';
                     } else {
-                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[save_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[save_campaigns][j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[save_campaigns][j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> </a></td></tr>';
+                        var icon = (data.MailChimpCampaign[save_campaigns][j].status == 'sent')
+                            ? '<i class="fas fa-paper-plane text-success me-2"></i>'
+                            : '<i class="fas fa-edit text-secondary me-2"></i>';
+                        var badgeStatus = '<span class="badge ' + (data.MailChimpCampaign[save_campaigns][j].status == 'sent' ? 'bg-success' : 'bg-secondary') + ' ms-2">' + i18next.t(data.MailChimpCampaign[save_campaigns][j].status) + '</span>';
+                        var editBtn = '<a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[save_campaigns][j].id + '" class="btn btn-outline-primary btn-sm rounded-circle ms-2" title="' + i18next.t('Edit') + '"><i class="fas fa-pencil-alt"></i></a>';
+                        listView += '<tr><td colspan="3"><div class="d-flex align-items-center justify-content-between flex-wrap py-1 px-2 mb-1 bg-light rounded shadow-sm">' + icon + '<span class="fw-bold">' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</span>' + badgeStatus + editBtn + '</div></td></tr>';
                     }
                 }
 
@@ -130,7 +133,12 @@ $(function() {
                     if (data.membersCount == 0) {
                         listView += '<tr><td>• ' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</td></tr>';
                     } else {
-                        listView += '<tr><td>&bullet; ' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">(' + i18next.t(data.MailChimpCampaign[send_campaigns][j].status) + ')</span></b>  </td><td><a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[send_campaigns][j].id + '" class="btn btn btn-primary btn-xs""><i class="fas fa-edit"></i> </a></td></tr>';
+                        var icon = (data.MailChimpCampaign[send_campaigns][j].status == 'sent')
+                            ? '<i class="fas fa-paper-plane text-success me-2"></i>'
+                            : '<i class="fas fa-edit text-secondary me-2"></i>';
+                        var badgeStatus = '<span class="badge ' + (data.MailChimpCampaign[send_campaigns][j].status == 'sent' ? 'bg-success' : 'bg-secondary') + ' ms-2">' + i18next.t(data.MailChimpCampaign[send_campaigns][j].status) + '</span>';
+                        var editBtn = '<a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[send_campaigns][j].id + '" class="btn btn-outline-primary btn-sm rounded-circle ms-2" title="' + i18next.t('Edit') + '"><i class="fas fa-pencil-alt"></i></a>';
+                        listView += '<tr><td colspan="3"><div class="d-flex align-items-center justify-content-between flex-wrap py-1 px-2 mb-1 bg-light rounded shadow-sm">' + icon + '<span class="fw-bold">' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</span>' + badgeStatus + editBtn + '</div></td></tr>';
                     }
                 }
 
@@ -156,13 +164,19 @@ $(function() {
                     var tagsButtons = '';
 
                     if (lenTags) {
-                        tagsButtons += '<table width="100%" id="allTagsRightView">';
+                        tagsButtons += '<div class="mt-2">';
                         for (k = 0; k < lenTags; k++) {
-                            tagsButtons += '<tr id="delete-tag-tr-' + tags[k].id + '">';
-                            tagsButtons += '<td>&bullet; ' + tags[k].name + ' </td><td><a class="delete-tag btn btn btn-danger btn-xs" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> </a></td>';
-                            tagsButtons += '</tr>';
+                            tagsButtons +=
+                                '<div class="badge bg-light border text-dark d-flex align-items-center px-2 py-2 mb-2 shadow-sm w-100" style="font-size:1rem; justify-content: start;">'
+                                + '<a class="delete-tag ms-3" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '" title="' + i18next.t('Delete') + '">' 
+                                + '<i class="fas fa-times-circle text-danger ms-2" style="cursor:pointer;font-size:1.1em;"></i>'
+                                + '</a>&nbsp;&nbsp;'
+                                + '<i class="fas fa-tag text-info me-2"></i>&nbsp;'
+                                + '<span class="me-2">' + tags[k].name + '</span>&nbsp;'
+                                + '<span class="badge bg-info text-dark ms-auto">' + tags[k].member_count + '</span>'
+                                + '</div>';
                         }
-                        tagsButtons += '</table>'
+                        tagsButtons += '</div>'
                     }
 
                     listView += tagsButtons;
@@ -199,11 +213,11 @@ $(function() {
                 orderable: false,
                 title: '<small>' + i18next.t("Actions") + ' </small><br/>'
                     + '<div class="btn-group">' +
-                    '       <button type="button" id="deleteMembers" class="btn btn-danger btn-sm"'
+                    '       <button type="button" id="deleteMembers" class="btn btn-outline-danger btn-sm"'
                     + 'disabled><i class="far fa-trash-alt"></i> </button> ' +
-                    '       <button type="button" class="subscribeButton btn btn-primary btn-sm" data-type="subscribed"' +
+                    '       <button type="button" class="subscribeButton btn btn-outline-primary btn-sm" data-type="subscribed"' +
                     '                                        disabled><i class="fas fa-user"></i></button>' +
-                    '                                <button type="button" class="subscribeButtonDrop btn btn-primary dropdown-toggle btn-sm"' +
+                    '                                <button type="button" class="subscribeButtonDrop btn btn-outline-primary dropdown-toggle btn-sm"' +
                     '                                        data-toggle="dropdown" aria-expanded="false" disabled>' +
                     '                                    <span class="caret"></span>' +
                     '                                    <span class="sr-only">Toggle Dropdown</span>' +
@@ -227,9 +241,9 @@ $(function() {
                 className: "text-center",
                 orderable: false,
                 title: '<small>' + i18next.t('Tags') + '</small><br/><div class="btn-group">\n' +
-                    '                                <button type="button" class="addTagButton btn btn-primary btn-sm" data-id="-1" ' +
+                    '                                <button type="button" class="addTagButton btn btn-outline-primary btn-sm" data-id="-1" ' +
                     '                                        disabled><i class="fas fa-tag"></i></button>' +
-                    '                                <button type="button" class="addTagButtonDrop btn btn-primary dropdown-toggle btn-sm"' +
+                    '                                <button type="button" class="addTagButtonDrop btn btn-outline-primary dropdown-toggle btn-sm"' +
                     '                                        data-toggle="dropdown" aria-expanded="false" disabled>' +
                     '                                    <span class="caret"></span>' +
                     '                                    <span class="sr-only">Toggle Dropdown</span>' +
@@ -552,8 +566,7 @@ $(function() {
         });
     }
 
-    // render the main page
-
+    // render the main page with the list details and the campaigns
     $(document).on("click", ".delete-tag", function (event) {
         var tagID = $(this).data("id");
         var listID = $(this).data("listid");
