@@ -47,8 +47,12 @@ class VIEWMailchimpController {
 
         $mailchimp       = new MailChimpService();
         $mailChimpStatus = $mailchimp->getConnectionStatus();
+        
+        $load_Elements = false;
 
-        $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
+        $paramsArguments = [
+            'sRootPath'         => SystemURLs::getRootPath(),
+            'sCSPNonce'         => SystemURLs::getCSPNonce(),
             'sRootDocument'     => SystemURLs::getDocumentRoot(),
             'sPageTitle'        => $sPageTitle,
             'mailchimp'         => $mailchimp,
@@ -57,7 +61,7 @@ class VIEWMailchimpController {
             'isMenuOption'      => SessionUser::getUser()->isMenuOptionsEnabled(),
             'getSupportURL'     => SystemURLs::getSupportURL(),
             'isMailChimpActiv'  => (($mailchimp->isActive())?1:0),
-            'isMailChimpLoaded' => (($mailchimp->isLoaded())?1:0)
+            'isMailChimpLoaded' => (($mailchimp->isLoaded())?1:0)  
         ];
 
         return $paramsArguments;

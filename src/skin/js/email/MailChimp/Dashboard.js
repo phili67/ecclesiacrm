@@ -7,7 +7,7 @@
 //
 
 
-$(function() {
+$(function () {
     function render_container() {
         if (window.CRM.mailchimpIsActive) {
             // we first empty the container
@@ -19,8 +19,20 @@ $(function() {
             }, function (data) {
 
                 if (data.MailChimpLists == null) {
-                    $("#container").html('<h2 class="headline text-primary">' + i18next.t("No list are created with this account ...."));
-
+                    let emptyListHtml = `
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-lg-8">
+                                <div class="card card-outline card-warning shadow-sm rounded-4">
+                                    <div class="card-body text-center py-5">
+                                        <i class="fas fa-list-alt fa-3x text-warning mb-3"></i>
+                                        <h2 class="headline text-warning mb-3">${i18next.t('No list are created with this account ....')}</h2>
+                                        <p class="text-muted mb-0">${i18next.t('You can create a new MailChimp list using the button above.')}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $("#container").html(emptyListHtml);
                     return;
                 }
 
@@ -42,41 +54,57 @@ $(function() {
                 for (i = 0; i < len; i++) {
                     var list = data.MailChimpLists[i];
 
-                    listViews += '<div class="card">'
-                        + '    <div class="card-header   border-1">'
-                        + '      <h3 class="card-title"><i class="fas fa-list"></i> ' + i18next.t('Email List') + ' : ' + list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions) ? i18next.t('GDPR') : '') + ')'
-                        + '    </div>'
-                        + '    <div class="card-body">'
-                        + '      <div class="row" style="100%">'
-                        + '        <div class="col-lg-4 col-lg-mailchimp">'
-                        + '          <table width="350px">'
-                        + '            <tr><td><b><i class="far fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
-                        + '            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
-                        + '            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
-                        //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
-                        + '            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'
-                        + '            <tr><td>' + i18next.t('Unsubscribed count since last send:') + '</td><td>' + list.stats.unsubscribe_count_since_send + '</td></tr>'
-                        + '            <tr><td>' + i18next.t('Cleaned count:') + '</td><td>' + list.stats.cleaned_count + '</td></tr>'
-                        + '            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
-                        + '          </table>'
-                        + '        </div>'
-                        + '        <div class="col-lg-4 col-lg-mailchimp">'
-                        + '           <b><i class="fas fa-envelope-open-text"></i> ' + i18next.t('Campaigns') + '</b><br>';
+                    listViews += `<div class="card card-outline card-primary shadow-sm rounded-4 mb-4">
+                        <div class="card-header bg-white d-flex flex-wrap justify-content-between align-items-center">
+                          <div class="d-flex align-items-center flex-wrap">
+                            <span class="d-flex align-items-center me-3 mb-2 mb-md-0"><i class="fas fa-list-alt text-primary me-2"></i> <span class="fw-bold h5 mb-0">${i18next.t('Email List')} :</span></span>
+                            <span class="fw-bold h5 mb-0">${list.name}</span>
+                          </div>
+                          ${(list.marketing_permissions) ? '<span class="badge bg-info text-dark ms-2">GDPR</span>' : ''}
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-lg-4 col-lg-mailchimp mb-3">
+                             <b><i class="fas fa-info-circle"></i> ${i18next.t('Details')}</b><br>
+                              <table class="table table-sm table-borderless mb-0">
+                                <tr><td><i class="fas fa-heading text-primary me-2"></i> ${i18next.t('Subject')}</td><td><span class="text-primary">"${list.campaign_defaults.subject}"</span></td></tr>
+                                <tr><td><i class="fas fa-users text-secondary me-2"></i> ${i18next.t('Members:')}</td><td><span class="badge bg-secondary">${list.stats.member_count}</span></td></tr>
+                                <tr><td><i class="fas fa-user-slash text-warning me-2"></i> ${i18next.t('Unsubscribed count:')}</td><td><span class="badge bg-warning text-dark">${list.stats.unsubscribe_count}</span></td></tr>
+                                <tr><td><i class="fas fa-user-minus text-warning me-2"></i> ${i18next.t('Unsubscribed count since last send:')}</td><td><span class="badge bg-warning text-dark">${list.stats.unsubscribe_count_since_send}</span></td></tr>
+                                <tr><td><i class="fas fa-broom text-danger me-2"></i> ${i18next.t('Cleaned count:')}</td><td><span class="badge bg-danger">${list.stats.cleaned_count}</span></td></tr>
+                                <tr><td><i class="fas fa-broom text-danger me-2"></i> ${i18next.t('Cleaned count since last send:')}</td><td><span class="badge bg-danger">${list.stats.cleaned_count_since_send}</span></td></tr>
+                              </table>
+                            </div>
+                            <div class="col-lg-4 col-lg-mailchimp">
+                                 <b><i class="fas fa-envelope-open-text"></i> ${i18next.t('Campaigns')}</b><br>`;
 
                     let send_campaigns = 0;
                     var lenCampaigns = data.MailChimpCampaigns[i][send_campaigns].length;
 
-                    listViews += '          <table width="300px">';
+                    listViews += '          <table class="table table-sm table-borderless mb-0">';
 
                     for (j = 0; j < lenCampaigns; j++) {
-                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][send_campaigns][j].id + '">' + data.MailChimpCampaigns[i][send_campaigns][j].settings.title + '</td><td>' + ' <b><span class="badge bg-' + ((data.MailChimpCampaigns[i][send_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">' + i18next.t(data.MailChimpCampaigns[i][send_campaigns][j].status) + '</span></b>  </td></tr>';
+                        let status = data.MailChimpCampaigns[i][send_campaigns][j].status;
+                        let badgeClass = (status === 'sent') ? 'success' : 'secondary';
+                        listViews += `<tr>
+                                                        <td class="align-middle">
+                                                            <i class="fas ${status === 'sent' ? 'fa-paper-plane text-success' : 'fa-edit text-secondary'} me-2"></i>
+                                                            <a href="${window.CRM.root}/v2/mailchimp/campaign/${data.MailChimpCampaigns[i][send_campaigns][j].id}" class="text-decoration-none">${data.MailChimpCampaigns[i][send_campaigns][j].settings.title}</a>
+                                                        </td>
+                            <td class="align-middle"><span class="badge bg-${badgeClass}">${i18next.t(status)}</span></td>
+                            </tr>`;
                     }
 
                     let saved_campaigns = 1;
                     var lenCampaigns = data.MailChimpCampaigns[i][saved_campaigns].length;
 
                     for (j = 0; j < lenCampaigns; j++) {
-                        listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaigns[i][saved_campaigns][j].id + '">' + data.MailChimpCampaigns[i][saved_campaigns][j].settings.title + '</td><td>' + ' <b><span class="badge bg-' + ((data.MailChimpCampaigns[i][saved_campaigns][j].status == 'sent') ? 'green' : 'gray') + '">' + i18next.t(data.MailChimpCampaigns[i][saved_campaigns][j].status) + '</span></b>  </td></tr>';
+                        let status = data.MailChimpCampaigns[i][saved_campaigns][j].status;
+                        let badgeClass = (status === 'sent') ? 'success' : 'secondary';
+                        listViews += `<tr>
+                            <td class="align-middle">• <a href="${window.CRM.root}/v2/mailchimp/campaign/${data.MailChimpCampaigns[i][saved_campaigns][j].id}" class="text-decoration-none">${data.MailChimpCampaigns[i][saved_campaigns][j].settings.title}</a></td>
+                            <td class="align-middle"><span class="badge bg-${badgeClass}">${i18next.t(status)}</span></td>
+                            </tr>`;
                     }
 
                     listViews += '          </table>';
@@ -88,22 +116,28 @@ $(function() {
 
                         if (lenTags) {
 
-                            listViews += '        <div class="col-lg-4 col-lg-mailchimp">'
-                                + '           <b><i class="icon fas fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
+                            listViews += `        <div class="col-lg-4 col-lg-mailchimp">
+                                <b><i class="icon fas fa-tags"></i> ${i18next.t('Tags')}</b><br>`;
 
                             var tags = data.MailChimpLists[i].tags;
 
-                            var tagsButtons = '';
 
                             if (lenTags) {
+                                listViews += '<div class="mt-2">';
                                 for (k = 0; k < lenTags; k++) {
-                                    tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="'
-                                        + data.MailChimpCampaigns[i][send_campaigns].id + '"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a> <b>'
-                                        + data.MailChimpLists[i].tags[k].member_count + '</b> ' + tags[k].name + ' <br>';
+                                    listViews += `
+                                        <div class="badge bg-light border text-dark d-flex align-items-center px-2 py-2 mb-2 shadow-sm w-100" style="font-size:1rem; justify-content: start;">
+                                            <a class="delete-tag ms-3" data-id="${tags[k].id}" data-listid="${data.MailChimpCampaigns[i][send_campaigns].id}" title="${i18next.t('Delete')}">
+                                                <i class="fas fa-times-circle text-danger ms-2" style="cursor:pointer;font-size:1.1em;"></i>
+                                            </a>&nbsp;&nbsp;                                            
+                                            <i class="fas fa-tag text-info me-2"></i>&nbsp;
+                                            <span class="me-2">${tags[k].name}</span>&nbsp;
+                                            <span class="badge bg-info text-dark ms-auto">${data.MailChimpLists[i].tags[k].member_count}</span>
+                                        </div>
+                                    `;
                                 }
+                                listViews += '</div>';
                             }
-
-                            listViews += tagsButtons;
 
                             listViews += '        </div>';
 
@@ -125,17 +159,25 @@ $(function() {
                 real_listMenu.html(listItems);
             });
         } else {
-            var container = '<div class="row">'
-                + '<div class="col-lg-12">'
-                + '  <div class="card card-body">'
-                + '    <div class="alert alert-danger alert-dismissible">'
-                + '      <h4><i class="fas fa-ban"></i> MailChimp ' + i18next.t('is not configured') + '</h4>'
-                + '      ' + i18next.t('Please update the') + ' MailChimp ' + i18next.t('API key in Setting->') + '<a href="' + window.CRM.root + '/v2/systemsettings/integration">' + i18next.t('Edit General Settings') + '</a>,'
-                + '      ' + i18next.t('then update') + ' sMailChimpApiKey. ' + i18next.t('For more info see our ') + '<a href="' + window.CRM.getSupportURL + '"> MailChimp +' + i18next.t('support docs.') + '</a>'
-                + '    </div>'
-                + '  </div>'
-                + '</div>'
-                + '</div>';
+            let container = `
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-10">
+                        <div class="card card-outline card-danger shadow-sm rounded-4">
+                            <div class="card-body">
+                                <div class="alert alert-danger d-flex align-items-center mb-3">
+                                    <i class="fas fa-ban fa-2x me-3"></i>
+                                    <div>
+                                        <h4 class="alert-heading mb-2">MailChimp ${i18next.t('is not configured')}</h4>
+                                        <p class="mb-1">${i18next.t('Please update the')} <b>MailChimp</b> ${i18next.t('API key in Setting->')} <a href="${window.CRM.root}/v2/systemsettings/integration" class="alert-link"><i class="fas fa-cog me-1"></i>${i18next.t('Edit General Settings')}</a>.</p>
+                                        <p class="mb-1">${i18next.t('Then update')} <b>sMailChimpApiKey</b>.</p>
+                                        <p class="mb-0">${i18next.t('For more info see our ')}<a href="${window.CRM.getSupportURL}" class="alert-link" target="_blank"><i class="fab fa-mailchimp me-1"></i>MailChimp ${i18next.t('support docs.')}</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
 
             $("#container").html(container);
         }
@@ -145,48 +187,59 @@ $(function() {
 
     // the List Creator
     function BootboxContent() {
-        var frm_str = '<form id="some-form">'
-            + '<div>'
-            + '<div class="row">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('List Title') + ":</div>"
-            + '<div class="col-md-9">'
-            + "<input type='text' id='ListTitle' placeholder=\"" + i18next.t("Your List Title") + "\" size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
-            + '</div>'
-            + '</div>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Subject') + ":</div>"
-            + '<div class="col-md-9">'
-            + "<input type='text' id='Subject' placeholder=\"" + i18next.t("Your Subject") + "\" size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
-            + '</div>'
-            + '</div>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Permission Reminder') + ":</div>"
-            + '<div class="col-md-9">'
-            + "<textarea id='PermissionReminder' rows='3' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required placeholder=\"" + i18next.t("Permission Reminder") + "\"></textarea>"
-            + '</div>'
-            + '</div>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-5">'
-            + '<div class="checkbox">'
-            + '<label>'
-            + '<input type="checkbox" id="ArchiveBars"> ' + i18next.t('Archive Bars')
-            + '</label>'
-            + '</div>'
-            + '</div>'
-            + '</div>'
-            + '<div class="row  div-title">'
-            + '<div class="status-event-title">'
-            + '<span style="color: red">*</span>' + i18next.t('Status')
-            + '</div>'
-            + '<div class="status-event">'
-            + '<input type="radio" name="Status" value="prv" checked/> ' + i18next.t('Private')
-            + '</div>'
-            + '<div class="status-event">'
-            + '<input type="radio" name="Status" value="pub" /> ' + i18next.t('Public')
-            + '</div>'
-            + '</div>'
-            + '</div>'
-            + '</form>';
+        var frm_str = `
+                    <form id="some-form">
+                        <div class="container-fluid px-0">
+                            <div class="mb-3 row align-items-center">
+                                <label for="ListTitle" class="col-sm-4 col-form-label text-end">
+                                    <span class="text-danger">*</span> <i class="fas fa-heading text-primary me-1"></i> ${i18next.t('List Title')} :
+                                </label>
+                                <div class="col-sm-8 d-flex align-items-center gap-2">
+                                    <input type="text" id="ListTitle" placeholder="${i18next.t('Your List Title')}" maxlength="100" class="form-control form-control-sm" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row align-items-center">
+                                <label for="Subject" class="col-sm-4 col-form-label text-end">
+                                    <span class="text-danger">*</span> <i class="fas fa-envelope text-primary me-1"></i> ${i18next.t('Subject')} :
+                                </label>
+                                <div class="col-sm-8 d-flex align-items-center gap-2">
+                                    <input type="text" id="Subject" placeholder="${i18next.t('Your Subject')}" maxlength="100" class="form-control form-control-sm" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row align-items-center">
+                                <label for="PermissionReminder" class="col-sm-4 col-form-label text-end">
+                                    <span class="text-danger">*</span> <i class="fas fa-info-circle text-primary me-1"></i> ${i18next.t('Permission Reminder')} :
+                                </label>
+                                <div class="col-sm-8 d-flex align-items-center gap-2">
+                                    <textarea id="PermissionReminder" rows="3" maxlength="100" class="form-control form-control-sm" required placeholder="${i18next.t('Permission Reminder')}"></textarea>
+                                </div>
+                            </div>
+                            <div class="mb-3 row align-items-center">
+                                <div class="offset-sm-4 col-sm-8 d-flex align-items-center gap-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="ArchiveBars">
+                                        <label class="form-check-label" for="ArchiveBars"><i class="fas fa-archive text-secondary me-1"></i> ${i18next.t('Archive Bars')}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row align-items-center">
+                                <label class="col-sm-4 col-form-label text-end">
+                                    <span class="text-danger">*</span> <i class="fas fa-user-shield text-primary me-1"></i> ${i18next.t('Status')}
+                                </label>
+                                <div class="col-sm-8 d-flex align-items-center gap-3">
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="radio" name="Status" id="StatusPrv" value="prv" checked>
+                                        <label class="form-check-label" for="StatusPrv"><i class="fas fa-lock me-1"></i> ${i18next.t('Private')}</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="Status" id="StatusPub" value="pub">
+                                        <label class="form-check-label" for="StatusPub"><i class="fas fa-globe me-1"></i> ${i18next.t('Public')}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                `;
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -264,4 +317,42 @@ $(function() {
 
         modal.modal("show");
     });
+
+    // Gestionnaire suppression tag
+    $(document).on("click", ".delete-tag", function (event) {
+        event.preventDefault();
+        var tagID = $(this).data("id");
+        var listID = $(this).data("listid");
+
+        bootbox.confirm({
+            title: i18next.t("You're about to delete a tag!"),
+            message: i18next.t("This will also delete the tag for all the members in this list. Are you sure ?"),
+            buttons: {
+                confirm: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Yes'),
+                    className: 'btn-danger'
+                },
+                cancel: {
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
+                    className: 'btn-primary'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+                    window.CRM.dialogLoadingFunction(i18next.t("Deleting tag"), function() {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'mailchimp/list/removeTag',
+                            data: JSON.stringify({"list_id": listID, "tag_ID": tagID})
+                        }, function (data) {
+                            // On recharge la vue
+                            render_container();
+                            window.CRM.closeDialogLoadingFunction();
+                        });
+                    });
+                }
+            }
+        });
+    });
+
 });

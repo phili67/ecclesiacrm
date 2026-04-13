@@ -8,20 +8,7 @@
  *
  ******************************************************************************/
 
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Service\MailChimpService;
-
 require $sRootDocument . '/Include/Header.php';
-
-$mailchimp = new MailChimpService();
-
-$isActive = $mailchimp->isActive();
-
-if ($isActive == true) {
-    $isLoaded = $mailchimp->isLoaded();
-}
-
-$load_Elements = false;
 
 if ($mailChimpStatus['title'] == 'Forbidden') {
     ?>
@@ -50,7 +37,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     <?php
 } else {
     ?>
-    <div class="mailchimp-message-is-activated" style="display: <?= $isLoaded ? 'block' : 'none' ?>">
+    <div class="mailchimp-message-is-activated" style="display: <?= $isMailChimpLoaded ? 'block' : 'none' ?>">
         <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
             <div>
                 <h3 class="h4 mb-1"><i class="far fa-envelope mr-2 text-success"></i><?= _('MailChimp Management') ?></h3>
@@ -66,12 +53,12 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
         </div>
     </div>
 
-    <div class="mailchimp-dashboard-list-visibility" style="display: <?= $isLoaded ? 'block' : 'none' ?>">
-        <div class="card card-outline card-success shadow-sm mb-3">
+    <div class="mailchimp-dashboard-list-visibility">
+        <div class="card card-outline card-success shadow-sm mb-3">           
             <div class="card-body py-3 d-flex flex-wrap align-items-center justify-content-between">
                 <div class="mb-2 mb-md-0 text-muted"><i class="fas fa-rocket mr-1"></i><?= _('Quick actions') ?></div>
                 <div class="d-flex flex-wrap">
-                    <button class="btn btn-success mr-2 mb-2 mb-md-0" id="CreateList" <?= ($mailchimp->isActive()) ? '' : 'disabled' ?> data-toggle="tooltip" data-placement="bottom" title="<?= _('Create an audience or List') ?>">
+                    <button class="btn btn-success mr-2 mb-2 mb-md-0" id="CreateList" <?= ($isMailChimpActiv) ? '' : 'disabled' ?> data-toggle="tooltip" data-placement="bottom" title="<?= _('Create an audience or List') ?>">
                         <i class="fas fa-list-alt mr-1"></i><?= _('Create list') ?>
                     </button>
                     <a class="btn btn-outline-secondary mr-2 mb-2 mb-md-0" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
@@ -98,6 +85,11 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
         </div>
 
         <div class="card card-outline card-secondary shadow-sm">
+             <div class="card-header border-1 d-flex justify-content-between align-items-center">
+                <h3 class="card-title mb-0">
+                    <i class="fas fa-list-alt text-success me-2"></i> <?= _('All your lists') ?>
+                </h3>
+            </div>
             <div class="card-body">
                 <div id="container"></div>
             </div>
@@ -105,13 +97,15 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     </div>
 
     <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
-    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    
+    <script nonce="<?= $sCSPNonce ?>">
         window.CRM.mailchimpIsActive = <?= $isMailChimpActiv ?>;
         window.CRM.getSupportURL = "<?= $getSupportURL ?>";
         window.CRM.isMailChimpLoaded = <?= $isMailChimpLoaded ?>;
     </script>
 
     <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Dashboard.js"></script>
+    
 
     <?php
     }
