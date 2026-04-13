@@ -86,7 +86,7 @@ $(function() {
                         + '<span class="font-weight-bold">' + data + '</span>'
                         + '</div>';
                 }
-            },
+            },            
             {
                 width: '90px',
                 title: i18next.t('Members'),
@@ -95,19 +95,6 @@ $(function() {
                 defaultContent: "0",
                 render: function (data) {
                     return '<span class="badge badge-pill badge-light border">' + (data || 0) + '</span>';
-                }
-            },
-            {
-                width: 'auto',
-                title: i18next.t('Group Type'),
-                data: 'groupType',
-                defaultContent: "",
-                searchable: true,
-                render: function (data) {
-                    if (data) {
-                        return '<span class="badge badge-pill badge-secondary">' + data + '</span>';
-                    }
-                    return '<span class="text-muted small">' + i18next.t('Unassigned') + '</span>';
                 }
             },
             {
@@ -132,6 +119,19 @@ $(function() {
                     } else {
                         return '<span class="text-muted small"><i class="fas fa-ban mr-1"></i>' + i18next.t("Cart isn't showable") + '</span>';
                     }
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Group Type'),
+                data: 'groupType',
+                defaultContent: "",
+                searchable: true,
+                render: function (data) {
+                    if (data) {
+                        return '<span class="badge badge-pill badge-secondary">' + data + '</span>';
+                    }
+                    return '<span class="text-muted small">' + i18next.t('Unassigned') + '</span>';
                 }
             }
         ]
