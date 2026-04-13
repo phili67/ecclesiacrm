@@ -104,7 +104,18 @@ $(function() {
                     title: i18next.t('Last Heartbeat'),
                     data: 'LastHeartbeat',
                     render: function (data, type, full, meta) {
-                        return moment(full.LastHeartbeat).fromNow();
+                        var last = moment(full.LastHeartbeat);
+                        var now = moment();
+                        var diffMin = now.diff(last, 'minutes');
+                        var icon = '<i class="fas fa-circle text-success me-1" title="Online"></i>';
+                        if (diffMin > 30) {
+                            icon = '<i class="fas fa-circle text-danger me-1" title="Offline"></i>';
+                        } else if (diffMin > 5) {
+                            icon = '<i class="fas fa-circle text-warning me-1" title="Inactive"></i>';
+                        }
+                        var relative = last.fromNow();
+                        var exact = last.format('YYYY-MM-DD HH:mm:ss');
+                        return icon + ' <span title="' + exact + '">' + relative + '</span>';
                     }
                 },
                 {
@@ -127,12 +138,16 @@ $(function() {
                     title: i18next.t('Actions'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        buttons = "<button class='btn btn-secondary btn-xs reload reloadKiosk' data-id='" + full.Id + "' >"+ i18next.t("Reload") +"</button>" +
-                            " <button class='btn btn-secondary btn-xs identify identifyKiosk' data-id='" + full.Id + "' >" + i18next.t("Identify") + "</button>";
+                        buttons = "<button class='btn btn-outline-secondary btn-xs reload reloadKiosk' data-id='" + full.Id + "' >"
+                            + "<i class='fas fa-sync-alt me-1'></i> " + i18next.t("Reload") + "</button>" +
+                            " <button class='btn btn-outline-secondary btn-xs identify identifyKiosk' data-id='" + full.Id + "' >"
+                            + "<i class='fas fa-bullseye me-1'></i> " + i18next.t("Identify") + "</button>";
                         if(!full.Accepted){
-                            buttons += " <button class='btn btn-primary btn-xs accept acceptKiosk' data-id='" + full.Id + "' >" + i18next.t("Accept") + "</button>";
+                            buttons += " <button class='btn btn-outline-primary btn-xs accept acceptKiosk' data-id='" + full.Id + "' >"
+                                + "<i class='fas fa-check-circle me-1'></i>" + i18next.t("Accept") + "</button>";
                         }
-                        buttons += " <button class='btn btn-danger accept btn-xs deleteKiosk' data-id='" + full.Id + "' >" + i18next.t("Delete") + "</button>";
+                        buttons += " <button class='btn btn-outline-danger btn-xs deleteKiosk' data-id='" + full.Id + "' >"
+                            + "<i class='fas fa-trash-alt me-1'></i> " + i18next.t("Delete") + "</button>";
                         return buttons;
                     }
                 }
