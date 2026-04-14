@@ -2689,6 +2689,27 @@ msgstr "您的账户已启用 2FA。"
 msgid "If needed, you can remove it and enroll again."
 msgstr "如果需要，您可以将其删除，然后重新注册。"
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr "您可以使用上面的按钮创建一个新的 MailChimp 列表。"
+
+msgid "Then update"
+msgstr "然后更新"
+
+msgid "Volunteer Opportunity actions"
+msgstr "志愿者机会行动"
+
+msgid "Volunteer Cart Status"
+msgstr "志愿者购物车状态"
+
+msgid "Loading..."
+msgstr "正在加载..."
+
+msgid "Loading data..."
+msgstr "加载数据..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "请稍候，我们将检索您的 MailChimp 列表。"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

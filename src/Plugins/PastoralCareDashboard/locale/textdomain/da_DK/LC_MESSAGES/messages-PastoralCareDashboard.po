@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:27+0000\n"
+"POT-Creation-Date: 2026-04-14 19:46+0000\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,60 +15,65 @@ msgstr "Ingen"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:67
 msgid "Excellent coverage"
-msgstr ""
+msgstr "Fremragende dækning"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:68
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "More than 60% of members have been visited. Keep up the great pastoral work!"
 msgstr ""
+"Mere end 60 % af medlemmerne har fået besøg. Fortsæt det gode pastorale "
+"arbejde!"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:72
 msgid "Good progress"
-msgstr ""
+msgstr "Gode fremskridt"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:73
 msgid ""
 "Between 30% and 60% of members have been visited. Continue your efforts!"
-msgstr ""
+msgstr "Mellem 30 og 60 % af medlemmerne har fået besøg. Fortsæt din indsats!"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:77
 msgid "Attention needed"
-msgstr ""
+msgstr "Der er brug for opmærksomhed"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:78
 msgid ""
 "Only 10% to 30% of members have been visited. It is time to intensify "
 "pastoral activities."
 msgstr ""
+"Kun 10-30 % af medlemmerne er blevet besøgt. Det er på tide at intensivere "
+"de pastorale aktiviteter."
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:82
 msgid "Critical situation"
-msgstr ""
+msgstr "Kritisk situation"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:83
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Less than 10% of members have been visited. Immediate pastoral action is "
 "required!"
 msgstr ""
+"Mindre end 10 % af medlemmerne har fået besøg. Der er brug for øjeblikkelig "
+"pastoral handling!"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:92
 msgid "Persons"
-msgstr ""
+msgstr "Personer"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:93
-#, fuzzy
 msgid "Families"
-msgstr "Familie"
+msgstr "Familier"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:94
 msgid "Singles"
-msgstr ""
+msgstr "Singler"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:95
 msgid "Retired"
-msgstr ""
+msgstr "Pensioneret"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:96
 msgid "Young People"
@@ -80,18 +85,17 @@ msgstr "Medlemmer"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:103
 msgid "Progress"
-msgstr ""
+msgstr "Fremskridt"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:104
 msgid "Count"
-msgstr ""
+msgstr "Tælle"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:132
 msgid "Pastoral Care"
 msgstr "Pastoral Care"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:133
-#, fuzzy
 msgid "Period from"
 msgstr "Periode fra"
 

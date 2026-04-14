@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -950,17 +950,23 @@ msgstr "أنت على وشك إرسال حملتك هل أنت متأكد؟"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "أنت على وشك حذف حملتك هل أنت متأكد؟"
 
-msgid "Loading datas ..."
-msgstr "تحميل مواعيد..."
+msgid "Loading..."
+msgstr "جاري التحميل..."
+
+msgid "Loading data..."
+msgstr "تحميل البيانات..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "يُرجى الانتظار ريثما نسترجع قوائم MailChimp الخاصة بك."
 
 msgid "No list are created with this account ...."
 msgstr "لا توجد قائمة بهذا الحساب"
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr "يمكنك إنشاء قائمة MailChimp جديدة باستخدام الزر أعلاه."
+
 msgid "Email List"
 msgstr "قائمة البريد الإلكتروني"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "التفاصيل"
@@ -970,9 +976,6 @@ msgstr "الساعة"
 
 msgid "Members:"
 msgstr "الأعضاء:"
-
-msgid "Campaigns:"
-msgstr "الحملات:"
 
 msgid "Unsubscribed count:"
 msgstr "العد غير المشمول به:"
@@ -1004,8 +1007,8 @@ msgstr "مفتاح API في Seting--"
 msgid "Edit General Settings"
 msgstr "إديت سيتينغز العامة"
 
-msgid "then update"
-msgstr "ثمّ تحديث"
+msgid "Then update"
+msgstr "ثم قم بالتحديث"
 
 msgid "For more info see our "
 msgstr "لمزيد من المعلومات نرى لدينا"
@@ -1033,6 +1036,17 @@ msgstr "1 - العلن"
 
 msgid "List Creation"
 msgstr "(أ) وضع القائمة"
+
+msgid "You're about to delete a tag!"
+msgstr "أنت على وشك حذف بطاقة!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr "وسيحذف هذا أيضا بطاقة جميع الأعضاء في هذه القائمة. هل أنت متأكد؟"
+
+msgid "Deleting tag"
+msgstr "حذف بطاقة"
 
 msgid "People"
 msgstr "الناس"
@@ -1096,17 +1110,6 @@ msgstr "إزالة العلامات..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "حذف جميع العلامات للأعضاء المختارين في القائمة"
-
-msgid "You're about to delete a tag!"
-msgstr "أنت على وشك حذف بطاقة!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "وسيحذف هذا أيضا بطاقة جميع الأعضاء في هذه القائمة. هل أنت متأكد؟"
-
-msgid "Deleting tag"
-msgstr "حذف بطاقة"
 
 msgid "A person name or Family or Group"
 msgstr "1 - اسم شخص أو أسرة أو مجموعة"
@@ -1646,9 +1649,6 @@ msgstr "عرض"
 msgid "Members"
 msgstr "الأعضاء"
 
-msgid "Group Type"
-msgstr "نوع المجموعة"
-
 msgid "Group Cart Status"
 msgstr "مجموعة عربة العربة"
 
@@ -1666,6 +1666,9 @@ msgstr "إضافة إلى سلة التسوق"
 
 msgid "Cart isn't showable"
 msgstr "العربة غير قابلة للعرض"
+
+msgid "Group Type"
+msgstr "نوع المجموعة"
 
 msgid "Value"
 msgstr "القيمة"
@@ -2598,6 +2601,12 @@ msgstr "المستخدم لديه 60 ثانية لاستخدام رموز الش
 msgid "Add New Volunteer Opportunity"
 msgstr "إضافة فرصة تطوع جديدة"
 
+msgid "Volunteer Opportunity actions"
+msgstr "إجراءات فرصة التطوع"
+
+msgid "Volunteer Cart Status"
+msgstr "حالة عربة المتطوعين"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -2629,6 +2638,12 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "سيتم تدمير جميع الأعضاء.  لن يتم تغيير الأعضاء أنفسهم."
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "الحملات:"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "تولّد الوديع للاختيار"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:28+0000\n"
+"POT-Creation-Date: 2026-04-14 19:48+0000\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,60 +15,61 @@ msgstr "なし"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:67
 msgid "Excellent coverage"
-msgstr ""
+msgstr "優れたカバレッジ"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:68
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "More than 60% of members have been visited. Keep up the great pastoral work!"
 msgstr ""
+"60％以上の会員が訪問を受けた。これからも素晴らしい司牧活動を続けてください！"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:72
 msgid "Good progress"
-msgstr ""
+msgstr "順調な進展"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:73
 msgid ""
 "Between 30% and 60% of members have been visited. Continue your efforts!"
-msgstr ""
+msgstr "会員の30％から60％が訪問している。努力を続けてください！"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:77
 msgid "Attention needed"
-msgstr ""
+msgstr "注意が必要"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:78
 msgid ""
 "Only 10% to 30% of members have been visited. It is time to intensify "
 "pastoral activities."
 msgstr ""
+"まだ10％から30％の会員しか訪問していない。司牧活動を強化すべき時である。"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:82
 msgid "Critical situation"
-msgstr ""
+msgstr "危機的状況"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:83
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Less than 10% of members have been visited. Immediate pastoral action is "
 "required!"
-msgstr ""
+msgstr "訪問を受けた会員は10％未満。早急な司牧的対応が必要！"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:92
 msgid "Persons"
-msgstr ""
+msgstr "人"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:93
-#, fuzzy
 msgid "Families"
-msgstr "ファミリー"
+msgstr "家族"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:94
 msgid "Singles"
-msgstr ""
+msgstr "シングルス"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:95
 msgid "Retired"
-msgstr ""
+msgstr "引退"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:96
 msgid "Young People"
@@ -80,20 +81,19 @@ msgstr "メンバー紹介"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:103
 msgid "Progress"
-msgstr ""
+msgstr "進捗状況"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:104
 msgid "Count"
-msgstr ""
+msgstr "カウント"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:132
 msgid "Pastoral Care"
 msgstr "パストラルケア"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:133
-#, fuzzy
 msgid "Period from"
-msgstr "からの期間"
+msgstr "期間"
 
 #: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:133
 msgid "to"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -943,17 +943,25 @@ msgstr "你即将发送你的活动!你确定吗？"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "你即将删除你的活动!你确定吗？"
 
-msgid "Loading datas ..."
+#, fuzzy
+msgid "Loading..."
+msgstr "正在加载视频..."
+
+#, fuzzy
+msgid "Loading data..."
 msgstr "正在加载数据..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr ""
 
 msgid "No list are created with this account ...."
 msgstr "该账户没有创建清单 ...."
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr ""
+
 msgid "Email List"
 msgstr "电子邮件列表"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "详细内容"
@@ -963,9 +971,6 @@ msgstr "主题"
 
 msgid "Members:"
 msgstr "成员。"
-
-msgid "Campaigns:"
-msgstr "运动。"
 
 msgid "Unsubscribed count:"
 msgstr "未订阅的数量。"
@@ -997,7 +1002,8 @@ msgstr "设置中的API密钥->"
 msgid "Edit General Settings"
 msgstr "编辑一般设置"
 
-msgid "then update"
+#, fuzzy
+msgid "Then update"
 msgstr "然后更新"
 
 msgid "For more info see our "
@@ -1026,6 +1032,17 @@ msgstr "公众"
 
 msgid "List Creation"
 msgstr "列表创建"
+
+msgid "You're about to delete a tag!"
+msgstr "你要删除一个标签!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr "这也将删除该列表中所有成员的标签。你确定吗？"
+
+msgid "Deleting tag"
+msgstr "删除标签"
 
 msgid "People"
 msgstr "人"
@@ -1089,17 +1106,6 @@ msgstr "移除标签..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "删除列表中选定成员的所有标签..."
-
-msgid "You're about to delete a tag!"
-msgstr "你要删除一个标签!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "这也将删除该列表中所有成员的标签。你确定吗？"
-
-msgid "Deleting tag"
-msgstr "删除标签"
 
 msgid "A person name or Family or Group"
 msgstr "一个人的名字或家庭或团体"
@@ -1641,9 +1647,6 @@ msgstr "查看全部"
 msgid "Members"
 msgstr "成员"
 
-msgid "Group Type"
-msgstr "集团类型"
-
 msgid "Group Cart Status"
 msgstr "组车状态"
 
@@ -1663,6 +1666,9 @@ msgstr "添加到购物车"
 
 msgid "Cart isn't showable"
 msgstr "购物车无法显示"
+
+msgid "Group Type"
+msgstr "集团类型"
 
 msgid "Value"
 msgstr "价值"
@@ -2572,6 +2578,14 @@ msgstr "用户有60秒的时间来使用他的恢复密码。"
 msgid "Add New Volunteer Opportunity"
 msgstr "添加新的志愿者机会"
 
+#, fuzzy
+msgid "Volunteer Opportunity actions"
+msgstr "添加新的志愿者机会"
+
+#, fuzzy
+msgid "Volunteer Cart Status"
+msgstr "组车状态"
+
 msgid "Activ"
 msgstr "激活"
 
@@ -2610,6 +2624,12 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "所有组的成员和属性都将被销毁。  组成员本身不会被改变。"
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "运动。"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "生成选定的存款单"

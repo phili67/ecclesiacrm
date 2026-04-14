@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -963,17 +963,23 @@ msgstr "Mindjárt elküldi a kampányát! Biztos vagy benne?"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Hamarosan törölni fogod a kampányodat! Biztos vagy benne?"
 
-msgid "Loading datas ..."
-msgstr "Adatok betöltése ..."
+msgid "Loading..."
+msgstr "Betöltés..."
+
+msgid "Loading data..."
+msgstr "Adatok betöltése..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Kérjük, várjon, amíg lekérdezzük a MailChimp listáit."
 
 msgid "No list are created with this account ...."
 msgstr "Ezzel a fiókkal nem hozunk létre listát ...."
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr "Új MailChimp-listát a fenti gomb segítségével hozhat létre."
+
 msgid "Email List"
 msgstr "Email lista"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "Részletek"
@@ -983,9 +989,6 @@ msgstr "Tárgy:"
 
 msgid "Members:"
 msgstr "Tagok:"
-
-msgid "Campaigns:"
-msgstr "Kampányok:"
 
 msgid "Unsubscribed count:"
 msgstr "Leiratkozottak száma:"
@@ -1017,8 +1020,8 @@ msgstr "API-kulcs a Beállítás->-ban"
 msgid "Edit General Settings"
 msgstr "Általános beállítások szerkesztése"
 
-msgid "then update"
-msgstr "majd frissítse"
+msgid "Then update"
+msgstr "Ezután frissítse"
 
 msgid "For more info see our "
 msgstr "További információért lásd a"
@@ -1046,6 +1049,18 @@ msgstr "Nyilvános"
 
 msgid "List Creation"
 msgstr "Lista létrehozása"
+
+msgid "You're about to delete a tag!"
+msgstr "Éppen törölni készülsz egy címkét!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Ezzel a listában szereplő összes tag címkéje is törlődik. Biztos vagy benne?"
+
+msgid "Deleting tag"
+msgstr "Címke törlése"
 
 msgid "People"
 msgstr "Emberek"
@@ -1109,18 +1124,6 @@ msgstr "Címkék eltávolítása..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "A listában kiválasztott tagok összes címkéjének törlése..."
-
-msgid "You're about to delete a tag!"
-msgstr "Éppen törölni készülsz egy címkét!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Ezzel a listában szereplő összes tag címkéje is törlődik. Biztos vagy benne?"
-
-msgid "Deleting tag"
-msgstr "Címke törlése"
 
 msgid "A person name or Family or Group"
 msgstr "Egy személy neve vagy Család vagy csoport"
@@ -1669,9 +1672,6 @@ msgstr "A  megtekintése"
 msgid "Members"
 msgstr "Tagok"
 
-msgid "Group Type"
-msgstr "Csoport típusa"
-
 msgid "Group Cart Status"
 msgstr "Csoportos kosár állapota"
 
@@ -1689,6 +1689,9 @@ msgstr "Hozzáadás a kosárhoz"
 
 msgid "Cart isn't showable"
 msgstr "A kosár nem jeleníthető meg"
+
+msgid "Group Type"
+msgstr "Csoport típusa"
 
 msgid "Value"
 msgstr "Érték"
@@ -2635,6 +2638,12 @@ msgstr ""
 msgid "Add New Volunteer Opportunity"
 msgstr "Új önkéntes lehetőség hozzáadása"
 
+msgid "Volunteer Opportunity actions"
+msgstr "Önkéntes lehetőség akciók"
+
+msgid "Volunteer Cart Status"
+msgstr "Önkéntes kosár státusz"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -2666,6 +2675,12 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Minden tagság megsemmisül.  Maguk a tagok nem fognak megváltozni."
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "Kampányok:"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "Befizetési bizonylat generálása a kiválasztott"

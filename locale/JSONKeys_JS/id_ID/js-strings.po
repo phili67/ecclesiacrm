@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -963,17 +963,24 @@ msgstr "Kau akan mengirim kampanyemu! Apakah Anda yakin?"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Kau akan menghapus kampanyemu! Apakah Anda yakin?"
 
-msgid "Loading datas ..."
-msgstr "Memiliki data ..."
+msgid "Loading..."
+msgstr "Memuat..."
+
+msgid "Loading data..."
+msgstr "Memuat data..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Mohon tunggu sementara kami mengambil daftar MailChimp Anda."
 
 msgid "No list are created with this account ...."
 msgstr "Tidak ada daftar yang dibuat dengan akun ini ..."
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr ""
+"Anda dapat membuat daftar MailChimp baru dengan menggunakan tombol di atas."
+
 msgid "Email List"
 msgstr "Email List"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "Detail"
@@ -983,9 +990,6 @@ msgstr "Subjek"
 
 msgid "Members:"
 msgstr "Anggota:"
-
-msgid "Campaigns:"
-msgstr "Kampanye:"
 
 msgid "Unsubscribed count:"
 msgstr "Hitungan yang tak bisa dilanggar:"
@@ -1017,8 +1021,8 @@ msgstr "Kunci API di Setting---"
 msgid "Edit General Settings"
 msgstr "Edit Umum Setting"
 
-msgid "then update"
-msgstr "kemudian update"
+msgid "Then update"
+msgstr "Kemudian perbarui"
 
 msgid "For more info see our "
 msgstr "Untuk lebih banyak info melihat kita"
@@ -1046,6 +1050,19 @@ msgstr "Publik"
 
 msgid "List Creation"
 msgstr "Penciptaan daftar"
+
+msgid "You're about to delete a tag!"
+msgstr "Kau akan menghapus tanda!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Ini juga akan menghapus tanda untuk semua anggota dalam daftar ini. Apakah "
+"Anda yakin?"
+
+msgid "Deleting tag"
+msgstr "Menghapus tag"
 
 msgid "People"
 msgstr "Orang-orang"
@@ -1109,19 +1126,6 @@ msgstr "Menghapus tanda..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Menghapus semua tanda untuk anggota yang terpilih dalam daftar..."
-
-msgid "You're about to delete a tag!"
-msgstr "Kau akan menghapus tanda!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Ini juga akan menghapus tanda untuk semua anggota dalam daftar ini. Apakah "
-"Anda yakin?"
-
-msgid "Deleting tag"
-msgstr "Menghapus tag"
 
 msgid "A person name or Family or Group"
 msgstr "Nama orang atau Keluarga atau Grup"
@@ -1667,9 +1671,6 @@ msgstr "Melihat"
 msgid "Members"
 msgstr "Anggota"
 
-msgid "Group Type"
-msgstr "Kelompok tipe"
-
 msgid "Group Cart Status"
 msgstr "Status Grup Cart"
 
@@ -1687,6 +1688,9 @@ msgstr "Tambahkan ke troli"
 
 msgid "Cart isn't showable"
 msgstr "Mobil tidak bisa dipamerkan"
+
+msgid "Group Type"
+msgstr "Kelompok tipe"
 
 msgid "Value"
 msgstr "Value"
@@ -2629,6 +2633,12 @@ msgstr "Pengguna memiliki 60 detik untuk menggunakan kode pemulihannya."
 msgid "Add New Volunteer Opportunity"
 msgstr "Menambahkan Peluang Relawan Baru"
 
+msgid "Volunteer Opportunity actions"
+msgstr "Tindakan Peluang Sukarelawan"
+
+msgid "Volunteer Cart Status"
+msgstr "Status Gerobak Relawan"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -2661,6 +2671,12 @@ msgid ""
 "altered."
 msgstr ""
 "Semua keanggotaan akan dihancurkan.  Anggota itu sendiri tidak akan diubah."
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "Kampanye:"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "Generate Deposit Slip untuk terpilih"
