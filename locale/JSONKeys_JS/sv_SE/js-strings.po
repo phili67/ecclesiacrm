@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -961,17 +961,23 @@ msgstr "Du är på väg att skicka din kampanj! Är du säker?"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Du är på väg att radera din kampanj! Är du säker?"
 
-msgid "Loading datas ..."
-msgstr "Laddar data ..."
+msgid "Loading..."
+msgstr "Laddar..."
+
+msgid "Loading data..."
+msgstr "Laddar data..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Vänligen vänta medan vi hämtar dina MailChimp-listor."
 
 msgid "No list are created with this account ...."
 msgstr "Inga listor skapas med detta konto ...."
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr "Du kan skapa en ny MailChimp-lista med hjälp av knappen ovan."
+
 msgid "Email List"
 msgstr "E-postlista"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "Detaljer"
@@ -981,9 +987,6 @@ msgstr "Ämne"
 
 msgid "Members:"
 msgstr "Ledamöter:"
-
-msgid "Campaigns:"
-msgstr "Kampanjer:"
 
 msgid "Unsubscribed count:"
 msgstr "Antal avregistrerade:"
@@ -1015,8 +1018,8 @@ msgstr "API-nyckel i Inställning->"
 msgid "Edit General Settings"
 msgstr "Redigera allmänna inställningar"
 
-msgid "then update"
-msgstr "uppdatera sedan"
+msgid "Then update"
+msgstr "Uppdatera sedan"
 
 msgid "For more info see our "
 msgstr "För mer information, se vår"
@@ -1044,6 +1047,19 @@ msgstr "Offentlig"
 
 msgid "List Creation"
 msgstr "Skapande av en lista"
+
+msgid "You're about to delete a tag!"
+msgstr "Du är på väg att radera en tagg!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Detta kommer också att radera taggen för alla medlemmar i listan. Är du "
+"säker?"
+
+msgid "Deleting tag"
+msgstr "Radera tagg"
 
 msgid "People"
 msgstr "Människor"
@@ -1107,19 +1123,6 @@ msgstr "Ta bort taggar..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Ta bort alla taggar för de valda medlemmarna i listan..."
-
-msgid "You're about to delete a tag!"
-msgstr "Du är på väg att radera en tagg!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Detta kommer också att radera taggen för alla medlemmar i listan. Är du "
-"säker?"
-
-msgid "Deleting tag"
-msgstr "Radera tagg"
 
 msgid "A person name or Family or Group"
 msgstr "Ett personnamn, en familj eller en grupp"
@@ -1667,9 +1670,6 @@ msgstr "Utsikt"
 msgid "Members"
 msgstr "Ledamöter"
 
-msgid "Group Type"
-msgstr "Typ av grupp"
-
 msgid "Group Cart Status"
 msgstr "Status för gruppkorg"
 
@@ -1687,6 +1687,9 @@ msgstr "Lägg till i varukorgen"
 
 msgid "Cart isn't showable"
 msgstr "Varukorgen kan inte visas"
+
+msgid "Group Type"
+msgstr "Typ av grupp"
 
 msgid "Value"
 msgstr "Värde"
@@ -2618,6 +2621,12 @@ msgstr ""
 msgid "Add New Volunteer Opportunity"
 msgstr "Lägg till ny volontärmöjlighet"
 
+msgid "Volunteer Opportunity actions"
+msgstr "Volontärmöjligheter åtgärder"
+
+msgid "Volunteer Cart Status"
+msgstr "Status för volontärvagn"
+
 msgid "Activ"
 msgstr "Aktivera"
 
@@ -2651,6 +2660,12 @@ msgid ""
 msgstr ""
 "Alla medlemskap kommer att förstöras.  Medlemmarna själva kommer inte att "
 "förändras."
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "Kampanjer:"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "Generera inbetalningsunderlag för valda"

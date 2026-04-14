@@ -7,24 +7,24 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-04-08T21:24:39.385Z\n"
-"PO-Revision-Date: 2026-04-08T21:24:39.386Z\n"
+"POT-Creation-Date: 2026-04-14T19:56:27.947Z\n"
+"PO-Revision-Date: 2026-04-14T19:56:27.947Z\n"
 "#-#-#-#-#  js-strings2.pot (i18next-conv)  #-#-#-#-#\n"
 "Project-Id-Version: i18next-conv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-04-08T21:24:39.501Z\n"
-"PO-Revision-Date: 2026-04-08T21:24:39.501Z\n"
+"POT-Creation-Date: 2026-04-14T19:56:28.064Z\n"
+"PO-Revision-Date: 2026-04-14T19:56:28.064Z\n"
 "#-#-#-#-#  js-strings3.pot (i18next-conv)  #-#-#-#-#\n"
 "Project-Id-Version: i18next-conv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-04-08T21:24:39.612Z\n"
-"PO-Revision-Date: 2026-04-08T21:24:39.612Z\n"
+"POT-Creation-Date: 2026-04-14T19:56:28.188Z\n"
+"PO-Revision-Date: 2026-04-14T19:56:28.189Z\n"
 
 msgid "Backup Downloaded, Copy on server removed"
 msgstr ""
@@ -949,16 +949,22 @@ msgstr ""
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr ""
 
-msgid "Loading datas ..."
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading data..."
+msgstr ""
+
+msgid "Please wait while we retrieve your MailChimp lists."
 msgstr ""
 
 msgid "No list are created with this account ...."
 msgstr ""
 
-msgid "Email List"
+msgid "You can create a new MailChimp list using the button above."
 msgstr ""
 
-msgid "GDPR"
+msgid "Email List"
 msgstr ""
 
 msgid "Details"
@@ -968,9 +974,6 @@ msgid "Subject"
 msgstr ""
 
 msgid "Members:"
-msgstr ""
-
-msgid "Campaigns:"
 msgstr ""
 
 msgid "Unsubscribed count:"
@@ -1003,7 +1006,7 @@ msgstr ""
 msgid "Edit General Settings"
 msgstr ""
 
-msgid "then update"
+msgid "Then update"
 msgstr ""
 
 msgid "For more info see our "
@@ -1031,6 +1034,17 @@ msgid "Public"
 msgstr ""
 
 msgid "List Creation"
+msgstr ""
+
+msgid "You're about to delete a tag!"
+msgstr ""
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+
+msgid "Deleting tag"
 msgstr ""
 
 msgid "People"
@@ -1094,17 +1108,6 @@ msgid "Removing tags..."
 msgstr ""
 
 msgid "Deleting all tags for the selected members in the list..."
-msgstr ""
-
-msgid "You're about to delete a tag!"
-msgstr ""
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-
-msgid "Deleting tag"
 msgstr ""
 
 msgid "A person name or Family or Group"
@@ -1628,9 +1631,6 @@ msgstr ""
 msgid "Members"
 msgstr ""
 
-msgid "Group Type"
-msgstr ""
-
 msgid "Group Cart Status"
 msgstr ""
 
@@ -1647,6 +1647,9 @@ msgid "Add to cart"
 msgstr ""
 
 msgid "Cart isn't showable"
+msgstr ""
+
+msgid "Group Type"
 msgstr ""
 
 msgid "Value"
@@ -2526,6 +2529,12 @@ msgid "The user has 60 seconds to use his recovery codes."
 msgstr ""
 
 msgid "Add New Volunteer Opportunity"
+msgstr ""
+
+msgid "Volunteer Opportunity actions"
+msgstr ""
+
+msgid "Volunteer Cart Status"
 msgstr ""
 
 msgid "Activ"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -961,17 +961,24 @@ msgstr "¡Está a punto de enviar su campaña! ¿Está seguro?"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "¡Estás a punto de borrar tu campaña! ¿Está seguro?"
 
-msgid "Loading datas ..."
-msgstr "Cargando datos ..."
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Loading data..."
+msgstr "Cargando datos..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Espere mientras recuperamos sus listas de MailChimp."
 
 msgid "No list are created with this account ...."
 msgstr "No se crea ninguna lista con esta cuenta ...."
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr ""
+"Puede crear una nueva lista de MailChimp utilizando el botón de arriba."
+
 msgid "Email List"
 msgstr "Lista de correo electrónico"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "Detalles"
@@ -981,9 +988,6 @@ msgstr "Asunto"
 
 msgid "Members:"
 msgstr "Miembros:"
-
-msgid "Campaigns:"
-msgstr "Campañas:"
 
 msgid "Unsubscribed count:"
 msgstr "Recuento de no suscritos:"
@@ -1015,8 +1019,8 @@ msgstr "Clave API en Setting->"
 msgid "Edit General Settings"
 msgstr "Editar la configuración general"
 
-msgid "then update"
-msgstr "a continuación, actualice"
+msgid "Then update"
+msgstr "A continuación, actualice"
 
 msgid "For more info see our "
 msgstr "Para más información, consulte nuestro"
@@ -1044,6 +1048,19 @@ msgstr "Público"
 
 msgid "List Creation"
 msgstr "Creación de listas"
+
+msgid "You're about to delete a tag!"
+msgstr "¡Estás a punto de borrar una etiqueta!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Esto también eliminará la etiqueta de todos los miembros de esta lista. "
+"¿Está seguro?"
+
+msgid "Deleting tag"
+msgstr "Eliminación de la etiqueta"
 
 msgid "People"
 msgstr "Gente"
@@ -1108,19 +1125,6 @@ msgstr "Quitar las etiquetas..."
 msgid "Deleting all tags for the selected members in the list..."
 msgstr ""
 "Eliminar todas las etiquetas de los miembros seleccionados en la lista..."
-
-msgid "You're about to delete a tag!"
-msgstr "¡Estás a punto de borrar una etiqueta!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Esto también eliminará la etiqueta de todos los miembros de esta lista. "
-"¿Está seguro?"
-
-msgid "Deleting tag"
-msgstr "Eliminación de la etiqueta"
 
 msgid "A person name or Family or Group"
 msgstr "Un nombre de persona o Familia o Grupo"
@@ -1671,9 +1675,6 @@ msgstr "Ver"
 msgid "Members"
 msgstr "Miembros"
 
-msgid "Group Type"
-msgstr "Tipo de grupo"
-
 msgid "Group Cart Status"
 msgstr "Estado del carro de grupo"
 
@@ -1691,6 +1692,9 @@ msgstr "Añadir a la cesta"
 
 msgid "Cart isn't showable"
 msgstr "La cesta no se puede mostrar"
+
+msgid "Group Type"
+msgstr "Tipo de grupo"
 
 msgid "Value"
 msgstr "Valor"
@@ -2642,6 +2646,12 @@ msgstr ""
 msgid "Add New Volunteer Opportunity"
 msgstr "Añadir nueva oportunidad de voluntariado"
 
+msgid "Volunteer Opportunity actions"
+msgstr "Acciones de voluntariado"
+
+msgid "Volunteer Cart Status"
+msgstr "Estado del carro de voluntarios"
+
 msgid "Activ"
 msgstr "Activar"
 
@@ -2675,6 +2685,12 @@ msgid ""
 msgstr ""
 "Todos los miembros serán destruidos.  Los propios miembros no serán "
 "alterados."
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "Campañas:"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "Generación de comprobantes de depósito para los seleccionados"

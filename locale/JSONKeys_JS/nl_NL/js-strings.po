@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -970,17 +970,23 @@ msgstr "U staat op het punt om uw campagne te versturen! Ben je zeker ?"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Je staat op het punt om je campagne te verwijderen! Ben je zeker ?"
 
-msgid "Loading datas ..."
-msgstr "Laden van gegevens ..."
+msgid "Loading..."
+msgstr "Aan het laden..."
+
+msgid "Loading data..."
+msgstr "Gegevens laden..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Even geduld terwijl we je MailChimp-lijsten ophalen."
 
 msgid "No list are created with this account ...."
 msgstr "Er worden geen lijsten aangemaakt met deze rekening ...."
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr "Je kunt een nieuwe MailChimp-lijst maken met de knop hierboven."
+
 msgid "Email List"
 msgstr "E-mail lijst"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "Details"
@@ -990,9 +996,6 @@ msgstr "Onderwerp"
 
 msgid "Members:"
 msgstr "Leden:"
-
-msgid "Campaigns:"
-msgstr "Campagnes:"
 
 msgid "Unsubscribed count:"
 msgstr "Aantal uitgeschrevenen:"
@@ -1024,8 +1027,8 @@ msgstr "API sleutel in Instelling->"
 msgid "Edit General Settings"
 msgstr "Algemene instellingen bewerken"
 
-msgid "then update"
-msgstr "update dan"
+msgid "Then update"
+msgstr "Dan bijwerken"
 
 msgid "For more info see our "
 msgstr "Voor meer info zie onze"
@@ -1053,6 +1056,18 @@ msgstr "Publiek"
 
 msgid "List Creation"
 msgstr "Lijst creatie"
+
+msgid "You're about to delete a tag!"
+msgstr "Je staat op het punt om een tag te verwijderen!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Dit zal ook de tag verwijderen voor alle leden in deze lijst. Ben je zeker ?"
+
+msgid "Deleting tag"
+msgstr "Tag verwijderen"
 
 msgid "People"
 msgstr "Mensen"
@@ -1117,18 +1132,6 @@ msgstr "Verwijderen van tags..."
 msgid "Deleting all tags for the selected members in the list..."
 msgstr ""
 "Het verwijderen van alle tags voor de geselecteerde leden in de lijst..."
-
-msgid "You're about to delete a tag!"
-msgstr "Je staat op het punt om een tag te verwijderen!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Dit zal ook de tag verwijderen voor alle leden in deze lijst. Ben je zeker ?"
-
-msgid "Deleting tag"
-msgstr "Tag verwijderen"
 
 msgid "A person name or Family or Group"
 msgstr "Een persoonsnaam of Familie of Groep"
@@ -1675,9 +1678,6 @@ msgstr "Bekijk"
 msgid "Members"
 msgstr "Leden"
 
-msgid "Group Type"
-msgstr "Groep Type"
-
 msgid "Group Cart Status"
 msgstr "Groep Cart Status"
 
@@ -1695,6 +1695,9 @@ msgstr "In winkelwagen"
 
 msgid "Cart isn't showable"
 msgstr "Cart is niet toonbaar"
+
+msgid "Group Type"
+msgstr "Groep Type"
 
 msgid "Value"
 msgstr "Waarde"
@@ -2641,6 +2644,12 @@ msgstr "De gebruiker heeft 60 seconden om zijn herstelcodes te gebruiken."
 msgid "Add New Volunteer Opportunity"
 msgstr "Nieuwe vrijwilligersmogelijkheid toevoegen"
 
+msgid "Volunteer Opportunity actions"
+msgstr "Vrijwilligerswerk gelegenheid acties"
+
+msgid "Volunteer Cart Status"
+msgstr "Status vrijwilligerswagen"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -2672,6 +2681,12 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "Campagnes:"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "Maak Statiegeldbon voor geselecteerde"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -962,17 +962,23 @@ msgstr "Sunteți pe cale să vă trimiteți campania! Sunteți sigur?"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Sunteți pe cale să vă ștergeți campania! Sunteți sigur?"
 
-msgid "Loading datas ..."
-msgstr "Încărcarea datelor ..."
+msgid "Loading..."
+msgstr "Încărcare..."
+
+msgid "Loading data..."
+msgstr "Încărcarea datelor..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Vă rugăm să așteptați în timp ce vă recuperăm listele MailChimp."
 
 msgid "No list are created with this account ...."
 msgstr "Nu se creează liste cu acest cont ...."
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr "Puteți crea o nouă listă MailChimp utilizând butonul de mai sus."
+
 msgid "Email List"
 msgstr "Lista de e-mail"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "Detalii"
@@ -982,9 +988,6 @@ msgstr "Subiect"
 
 msgid "Members:"
 msgstr "Membrii:"
-
-msgid "Campaigns:"
-msgstr "Campanii:"
 
 msgid "Unsubscribed count:"
 msgstr "Număr de neabonați:"
@@ -1016,8 +1019,8 @@ msgstr "Cheia API în Setting->"
 msgid "Edit General Settings"
 msgstr "Editați setările generale"
 
-msgid "then update"
-msgstr "apoi actualizați"
+msgid "Then update"
+msgstr "Apoi actualizați"
 
 msgid "For more info see our "
 msgstr "Pentru mai multe informații, consultați pagina noastră"
@@ -1045,6 +1048,19 @@ msgstr "Public"
 
 msgid "List Creation"
 msgstr "Crearea listei"
+
+msgid "You're about to delete a tag!"
+msgstr "Sunteți pe cale să ștergeți o etichetă!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Acest lucru va șterge, de asemenea, eticheta pentru toți membrii din această "
+"listă. Sunteți sigur?"
+
+msgid "Deleting tag"
+msgstr "Ștergerea etichetei"
 
 msgid "People"
 msgstr "Oameni"
@@ -1108,19 +1124,6 @@ msgstr "Îndepărtarea etichetelor..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Ștergerea tuturor etichetelor pentru membrii selectați în listă..."
-
-msgid "You're about to delete a tag!"
-msgstr "Sunteți pe cale să ștergeți o etichetă!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Acest lucru va șterge, de asemenea, eticheta pentru toți membrii din această "
-"listă. Sunteți sigur?"
-
-msgid "Deleting tag"
-msgstr "Ștergerea etichetei"
 
 msgid "A person name or Family or Group"
 msgstr "Un nume de persoană sau o familie sau un grup"
@@ -1672,9 +1675,6 @@ msgstr "Vizualizare"
 msgid "Members"
 msgstr "Membri"
 
-msgid "Group Type"
-msgstr "Tip de grup"
-
 msgid "Group Cart Status"
 msgstr "Starea coșului de grup"
 
@@ -1692,6 +1692,9 @@ msgstr "Adăugați în coș"
 
 msgid "Cart isn't showable"
 msgstr "Coșul nu poate fi afișat"
+
+msgid "Group Type"
+msgstr "Tip de grup"
 
 msgid "Value"
 msgstr "Valoare"
@@ -2648,6 +2651,12 @@ msgstr ""
 msgid "Add New Volunteer Opportunity"
 msgstr "Adăugați o nouă oportunitate de voluntariat"
 
+msgid "Volunteer Opportunity actions"
+msgstr "Acțiuni de voluntariat"
+
+msgid "Volunteer Cart Status"
+msgstr "Statutul căruciorului pentru voluntari"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -2679,6 +2688,12 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "Campanii:"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "Generarea bonului de depunere pentru selectat"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-08T16:59:57.173Z\n"
+"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -957,17 +957,23 @@ msgstr "Ви збираєтеся відправити свою кампанію
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Ви збираєтеся видалити свою кампанію! Ви впевнені?"
 
-msgid "Loading datas ..."
-msgstr "Завантаження даних ..."
+msgid "Loading..."
+msgstr "Завантаження..."
+
+msgid "Loading data..."
+msgstr "Завантаження даних..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Будь ласка, зачекайте, поки ми отримаємо ваші списки MailChimp."
 
 msgid "No list are created with this account ...."
 msgstr "З цим акаунтом не створюються списки ...."
 
+msgid "You can create a new MailChimp list using the button above."
+msgstr "Ви можете створити новий список MailChimp за допомогою кнопки вище."
+
 msgid "Email List"
 msgstr "Список електронної пошти"
-
-msgid "GDPR"
-msgstr "GDPR"
 
 msgid "Details"
 msgstr "Деталі"
@@ -977,9 +983,6 @@ msgstr "Тема"
 
 msgid "Members:"
 msgstr "Члени:"
-
-msgid "Campaigns:"
-msgstr "Кампанії:"
 
 msgid "Unsubscribed count:"
 msgstr "Невідписані рахуються:"
@@ -1011,8 +1014,8 @@ msgstr "Ключ API у розділі Налаштування->."
 msgid "Edit General Settings"
 msgstr "Редагування загальних налаштувань"
 
-msgid "then update"
-msgstr "потім оновити"
+msgid "Then update"
+msgstr "Потім оновіть"
 
 msgid "For more info see our "
 msgstr "Для отримання додаткової інформації дивіться наш"
@@ -1040,6 +1043,17 @@ msgstr "Громадськість"
 
 msgid "List Creation"
 msgstr "Створення списку"
+
+msgid "You're about to delete a tag!"
+msgstr "Ви збираєтеся видалити тег!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr "Це також видалить тег для всіх учасників у цьому списку. Ви впевнені?"
+
+msgid "Deleting tag"
+msgstr "Видалення тегу"
 
 msgid "People"
 msgstr "Люди"
@@ -1103,17 +1117,6 @@ msgstr "Видалення тегів..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Видалення всіх тегів для вибраних учасників у списку..."
-
-msgid "You're about to delete a tag!"
-msgstr "Ви збираєтеся видалити тег!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "Це також видалить тег для всіх учасників у цьому списку. Ви впевнені?"
-
-msgid "Deleting tag"
-msgstr "Видалення тегу"
 
 msgid "A person name or Family or Group"
 msgstr "Ім'я особи або Сім'я чи Група"
@@ -1660,9 +1663,6 @@ msgstr "Вигляд"
 msgid "Members"
 msgstr "Члени"
 
-msgid "Group Type"
-msgstr "Тип групи"
-
 msgid "Group Cart Status"
 msgstr "Статус групового кошика"
 
@@ -1680,6 +1680,9 @@ msgstr "Додати в кошик"
 
 msgid "Cart isn't showable"
 msgstr "Кошик не відображається"
+
+msgid "Group Type"
+msgstr "Тип групи"
 
 msgid "Value"
 msgstr "Значення"
@@ -2610,6 +2613,12 @@ msgstr "Користувач має 60 секунд, щоб використат
 msgid "Add New Volunteer Opportunity"
 msgstr "Додати нову можливість для волонтерів"
 
+msgid "Volunteer Opportunity actions"
+msgstr "Дії в рамках програми \"Волонтерська можливість"
+
+msgid "Volunteer Cart Status"
+msgstr "Статус волонтерського візка"
+
 msgid "Activ"
 msgstr "Activ"
 
@@ -2641,6 +2650,12 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Все членство буде знищено.  Самі члени не будуть змінені."
+
+#~ msgid "GDPR"
+#~ msgstr "GDPR"
+
+#~ msgid "Campaigns:"
+#~ msgstr "Кампанії:"
 
 #~ msgid "Generate Deposit Slip for Selected"
 #~ msgstr "Згенерувати депозитний чек для обраних"
