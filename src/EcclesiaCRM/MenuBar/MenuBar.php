@@ -855,16 +855,19 @@ class MenuBar extends Menu
 
             //https://dev.ecclesiacrm.com/v2/deposit/egive/
 
-
-
-
-            $menuItem = new Menu (_("Envelope Manager"), "fas fa-envelope", "v2/deposit/manage/envelopes", SessionUser::getUser()->isFinanceEnabled(), $menu);
-            $menuItem = new Menu (_("View All Deposits"), "fas fa-tachometer-alt", "v2/deposit/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
-            $menuItem = new Menu (_("Electronic Payment Listing"), "fas fa-credit-card", "v2/deposit/electronic/payment/list", SessionUser::getUser()->isFinanceEnabled(), $menu);
-            $menuItem = new Menu (_("Deposit Reports"), "fas fa-file-pdf", "v2/deposit/financial/reports", SessionUser::getUser()->isFinanceEnabled(), $menu);
-            $menuItem = new Menu (_("Giving Report (Tax Statements)"), "fas fa-file-pdf", "v2/deposit/tax/report", SessionUser::getUser()->isFinanceEnabled(), $menu);
+            $menuItem = new Menu (_("Dashboard"). " : " . _("View All Deposits") , "fas fa-tachometer-alt", "v2/deposit/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
             $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "fas fa-file-invoice-dollar", "v2/deposit/slipeditor/" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
+            
+            $menuItem = new Menu (_("Reports"), "fas fa-angle-double-right", "#", true, $menu);
+            $menuItemItem = new Menu (_("Deposit Reports"), "fas fa-file-pdf", "v2/deposit/financial/reports", SessionUser::getUser()->isFinanceEnabled(), $menuItem);
+            $menuItemItem = new Menu (_("Giving Report (Tax Statements)"), "fas fa-file-pdf", "v2/deposit/tax/report", SessionUser::getUser()->isFinanceEnabled(), $menuItem);
 
+            $menuItem = new Menu (_("Others"), "fas fa-angle-double-right", "#", true, $menu);
+            $menuItemItem = new Menu (_("Envelope Manager"), "fas fa-envelope", "v2/deposit/manage/envelopes", SessionUser::getUser()->isFinanceEnabled(), $menuItem);
+            $menuItemItem = new Menu (_("Electronic Payment Listing"), "fas fa-credit-card", "v2/deposit/electronic/payment/list", SessionUser::getUser()->isFinanceEnabled(), $menuItem);
+
+
+            
             $menuItem->addLink("v2/deposit/egive/" . $_SESSION['iCurrentDeposit']);
 
             $this->addPluginMenus('Deposit', $menu, 'inside_category_menu');

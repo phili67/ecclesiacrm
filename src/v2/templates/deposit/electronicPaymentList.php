@@ -183,8 +183,8 @@ foreach ($ormAutopayments as $payment) {
     </td>
     <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="<?= _('Actions') ?>">
-        <a class="btn btn-primary" href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/<?= $payment->getId() ?>/<?= $payment->getFamilyid() ?>/v2-deposit-electronic-payment-list" data-typeid="2"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-        <a class="btn btn-danger" href="#" onclick="confirmDeleteAutoPayment(<?= $payment->getId() ?>); return false;"><i class="far fa-trash-alt" aria-hidden="true"></i></a>
+        <a class="btn btn-outline-primary" href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/<?= $payment->getId() ?>/<?= $payment->getFamilyid() ?>/v2-deposit-electronic-payment-list" data-typeid="2"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+        <a class="btn btn-outline-danger" href="#" onclick="confirmDeleteAutoPayment(<?= $payment->getId() ?>); return false;"><i class="far fa-trash-alt" aria-hidden="true"></i></a>
       </div>
     </td>
     <td>

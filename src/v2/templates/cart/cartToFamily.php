@@ -293,7 +293,7 @@ echo $sError;
                 <i class="fas fa-pen mr-1"></i><?= _('If adding a new family, enter data below.') ?>
             </div>
 
-            <div class="card card-light family-class mb-2">
+            <div class="card card-outline card-secondary family-class mb-2">
                 <div class="card-header py-1">
                     <strong><i class="fas fa-id-card mr-1"></i><?= _('Family Information') ?></strong>
                 </div>
@@ -348,7 +348,7 @@ echo $sError;
                 </div>
             </div>
 
-            <div class="card card-light family-class mb-2">
+            <div class="card card-outline card-secondary family-class mb-2">
                 <div class="card-header py-1">
                     <strong><i class="fas fa-location-dot mr-1"></i><?= _('Address') ?></strong>
                 </div>
@@ -413,7 +413,7 @@ echo $sError;
                 </div>
             </div>
 
-            <div class="card card-light family-class mb-0">
+            <div class="card card-outline card-secondary family-class mb-0">
                 <div class="card-header py-1">
                     <strong><i class="fas fa-address-book mr-1"></i><?= _('Contact') ?></strong>
                 </div>

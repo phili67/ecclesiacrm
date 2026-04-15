@@ -138,7 +138,7 @@ require $sRootDocument . '/Include/Header.php';
                 <?= _('Record feedback from canvassing visits, including observations and follow-up information.') ?>
             </div>
 
-            <div class="card card-light mb-3">
+            <div class="card card-outline card-secondary mb-3">
                 <div class="card-header py-2">
                     <h4 class="card-title mb-0"><i class="fas fa-user-check mr-1"></i><?= _('Session Context') ?></h4>
                 </div>
@@ -202,7 +202,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
 
-            <div class="card card-light mb-3">
+            <div class="card card-outline card-secondary mb-3">
                 <div class="card-header py-2">
                     <h4 class="card-title mb-0"><i class="fas fa-pen-nib mr-1"></i><?= _('Observations') ?></h4>
                 </div>
@@ -244,7 +244,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
 
-            <div class="card card-light">
+            <div class="card card-outline card-secondary">
                 <div class="card-header py-2">
                     <h4 class="card-title mb-0"><i class="fas fa-flag mr-1"></i><?= _('Interest Status') ?></h4>
                 </div>

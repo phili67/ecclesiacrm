@@ -556,4 +556,37 @@ a {
     .bg-white.text-black {
         color: #373737 !important;
     }
+    .table-light, .table-light > th, .table-light > td {
+        background-color: #23272b !important;
+        color: #f8f9fa !important;
+        border-color: #343a40 !important;
+    }
+
+    .alert-light {
+        background-color: #23272b !important;
+        color: #f8f9fa !important;
+        border-color: #343a40 !important;
+    }
+    .thead-light th, .thead-light td, tr.thead-light th, tr.thead-light td {
+        background-color: #23272b !important;
+        color: #f8f9fa !important;
+        border-color: #343a40 !important;
+    }
+    .bg-white {
+        background-color: #23272b !important;
+        color: #f8f9fa !important;
+    }
+    .bg-white.text-black, .bg-white .text-black {
+        color: #f8f9fa !important;
+    }
+
+    .dark-mode .card-light:not(.card-outline) {
+        background-color: #3d3e3f !important;
+        color: #dbddde !important;
+    }
+
+    .dark-mode .card-light .card-header {
+        background-color: #3d3e3f !important;
+        border-bottom: 1px solid rgba(0,0,0,.125);
+    }
 }

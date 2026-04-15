@@ -33,7 +33,7 @@ $allColors = [
 // Compte le nombre d'opportunités par type
 foreach ($opportunities as $opportunity) {
   $childs = EcclesiaCRM\VolunteerOpportunityQuery::create()->findByParentId($opportunity->getId());
-  $cnt = $childs->count() == 0 ? _('No sub opportunities') : $childs->count();  
+  $cnt = $childs->count() == 0 ? _('No sub opportunities') : $childs->count() . ' - ' . _('sub-opportunities');  
   $opportunityTypeCounts[$opportunity->getName()] = $cnt;
 }
 

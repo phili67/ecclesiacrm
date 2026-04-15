@@ -281,7 +281,7 @@ if (isset($_POST['SaveChanges'])) {
   <div class="row">
     <div class="col-md-12 mb-4">
       <div class="card card-outline card-primary shadow-sm rounded-4">
-        <div class="card-header bg-white">
+        <div class="card-header bg-body">
           <h3 class="card-title mb-0"><i class="fas fa-cogs text-primary me-2"></i> <?= _("Fonctions") ?></h3>
         </div>
         <div class="card-body">
@@ -330,7 +330,7 @@ if (isset($_POST['SaveChanges'])) {
   <div class="row">
     <div class="col-md-12">
       <div class="card card-outline card-secondary shadow-sm rounded-4">
-        <div class="card-header bg-white">
+        <div class="card-header bg-body">
           <h3 class="card-title mb-0"><i class="fa fa-list text-primary me-2"></i> <?= _("Propriétés spécifiques au groupe") ?></h3>
         </div>
         <div class="card-body">
