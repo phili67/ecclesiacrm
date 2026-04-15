@@ -819,7 +819,9 @@
             "8.0.1"
         ],
         "prescripts": [],
-        "scripts": [],
+        "scripts": [
+            "/mysql/upgrade/8.1.0-upgrade.sql"
+        ],
         "postscripts": [],
         "dbVersion": "8.1.0"
     }
