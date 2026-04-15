@@ -66,7 +66,7 @@ require $sRootDocument . '/Include/Header.php';
 
             ?>
             <?php if (!empty($cartdir)) { ?>
-                <div class="card card-light mb-3">
+                <div class="card card-outline card-secondary mb-3">
                     <div class="card-header py-2">
                         <h3 class="card-title h6 mb-0"><?= _('Cart Filters') ?></h3>
                     </div>
@@ -106,7 +106,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             <?php } ?>
 
-            <div class="card card-light mb-3">
+            <div class="card card-outline card-secondary mb-3">
                 <div class="card-header py-2">
                     <h3 class="card-title h6 mb-0"><?= _('Family Roles') ?></h3>
                 </div>
@@ -147,7 +147,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
 
-            <div class="card card-light mb-3">
+            <div class="card card-outline card-secondary mb-3">
                 <div class="card-header py-2">
                     <h3 class="card-title h6 mb-0"><?= _('Information to Include') ?></h3>
                 </div>
@@ -155,19 +155,58 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-2 small text-uppercase text-muted font-weight-bold"><?= _('Standard Fields') ?></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirAddress" value="1" checked><label class="form-check-label"><?= _('Address') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirWedding" value="1" checked><label class="form-check-label"><?= _('Wedding Date') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirBirthday" value="1" checked><label class="form-check-label"><?= _('Birthday') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirFamilyPhone" value="1" checked><label class="form-check-label"><?= _('Family Home Phone') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirFamilyWork" value="1" checked><label class="form-check-label"><?= _('Family Work Phone') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirFamilyCell" value="1" checked><label class="form-check-label"><?= _('Family Cell Phone') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirFamilyEmail" value="1" checked><label class="form-check-label"><?= _('Family Email') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirPersonalPhone" value="1" checked><label class="form-check-label"><?= _('Personal Home Phone') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirPersonalWork" value="1" checked><label class="form-check-label"><?= _('Personal Work Phone') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirPersonalCell" value="1" checked><label class="form-check-label"><?= _('Personal Cell Phone') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirPersonalEmail" value="1" checked><label class="form-check-label"><?= _('Personal Email') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirPersonalWorkEmail" value="1" checked><label class="form-check-label"><?= _('Personal Work/Other Email') ?></label></div>
-                            <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bDirPhoto" value="1" checked><label class="form-check-label"><?= _('Photos') ?></label></div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-address" name="bDirAddress" value="1" checked>
+                                <label class="custom-control-label" for="csv-address"><?= _('Address') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-wedding" name="bDirWedding" value="1" checked>
+                                <label class="custom-control-label" for="csv-wedding"><?= _('Wedding Date') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-birthday" name="bDirBirthday" value="1" checked>
+                                <label class="custom-control-label" for="csv-birthday"><?= _('Birthday') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-familyphone" name="bDirFamilyPhone" value="1" checked>
+                                <label class="custom-control-label" for="csv-familyphone"><?= _('Family Home Phone') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-familywork" name="bDirFamilyWork" value="1" checked>
+                                <label class="custom-control-label" for="csv-familywork"><?= _('Family Work Phone') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-familycell" name="bDirFamilyCell" value="1" checked>
+                                <label class="custom-control-label" for="csv-familycell"><?= _('Family Cell Phone') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-familyemail" name="bDirFamilyEmail" value="1" checked>
+                                <label class="custom-control-label" for="csv-familyemail"><?= _('Family Email') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-personalphone" name="bDirPersonalPhone" value="1" checked>
+                                <label class="custom-control-label" for="csv-personalphone"><?= _('Personal Home Phone') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-personalwork" name="bDirPersonalWork" value="1" checked>
+                                <label class="custom-control-label" for="csv-personalwork"><?= _('Personal Work Phone') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-personalcell" name="bDirPersonalCell" value="1" checked>
+                                <label class="custom-control-label" for="csv-personalcell"><?= _('Personal Cell Phone') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-personalemail" name="bDirPersonalEmail" value="1" checked>
+                                <label class="custom-control-label" for="csv-personalemail"><?= _('Personal Email') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-personalworkemail" name="bDirPersonalWorkEmail" value="1" checked>
+                                <label class="custom-control-label" for="csv-personalworkemail"><?= _('Personal Work/Other Email') ?></label>
+                            </div>
+                            <div class="custom-control custom-switch mb-4">
+                                <input type="checkbox" class="custom-control-input" id="csv-photo" name="bDirPhoto" value="1" checked>
+                                <label class="custom-control-label" for="csv-photo"><?= _('Photos') ?></label>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-2 small text-uppercase text-muted font-weight-bold"><?= _('Custom Fields') ?></div>
@@ -176,7 +215,10 @@ require $sRootDocument . '/Include/Header.php';
                                 foreach ($ormCustomFields as $ormCustomField) {
                                     if (($aSecurityType[$ormCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormCustomField->getCustomFieldSec()]])) {
                             ?>
-                                        <div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="bCustom<?= $ormCustomField->getCustomOrder() ?>" value="1" checked><label class="form-check-label"><?= $ormCustomField->getCustomName() ?></label></div>
+                                        <div class="custom-control custom-switch mb-4">
+                                            <input type="checkbox" class="custom-control-input" id="csv-custom<?= $ormCustomField->getCustomOrder() ?>" name="bCustom<?= $ormCustomField->getCustomOrder() ?>" value="1" checked>
+                                            <label class="custom-control-label" for="csv-custom<?= $ormCustomField->getCustomOrder() ?>"><?= $ormCustomField->getCustomName() ?></label>
+                                        </div>
                             <?php
                                     }
                                 }
@@ -191,7 +233,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
 
-            <div class="card card-light mb-3">
+            <div class="card card-outline card-secondary mb-3">
                 <div class="card-header py-2">
                     <h3 class="card-title h6 mb-0"><?= _('Layout Options') ?></h3>
                 </div>
@@ -226,7 +268,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
 
-            <div class="card card-light mb-0">
+            <div class="card card-outline card-secondary mb-0">
                 <div class="card-header py-2">
                     <h3 class="card-title h6 mb-0"><?= _('Title page') ?></h3>
                 </div>
