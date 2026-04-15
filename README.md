@@ -1,3 +1,5 @@
+![EcclesiaCRM logo](https://www.ecclesiacrm.com/favicon-32.png)
+
 # EcclesiaCRM
 
 Open source church management software built to help churches manage people, families, pastoral care, events, communication, and collaboration from a single web platform.
@@ -7,7 +9,7 @@ Open source church management software built to help churches manage people, fam
 [![GitHub Downloads](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total.svg)](https://github.com/phili67/ecclesiacrm/releases)
 [![Release Notes](https://img.shields.io/badge/release-notes-00B2EE.svg?style=flat-square)](https://github-tools.github.io/github-release-notes/)
 [![Contributors](https://img.shields.io/github/contributors/phili67/ecclesiacrm.svg)](https://github.com/phili67/ecclesiacrm/graphs/contributors)
-[![Community Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ecclesiacrm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![GitHub Discussions](https://img.shields.io/badge/GitHub-Discussions-222222?style=flat-square&logo=github)](https://github.com/phili67/ecclesiacrm/discussions)
 
 ## Overview
 
@@ -17,9 +19,14 @@ EcclesiaCRM is a web-based CRM designed for churches and ministries. It brings t
 
 - Website: https://www.ecclesiacrm.com
 - Latest release: https://github.com/phili67/ecclesiacrm/releases/latest
-- Documentation in English: https://docs.ecclesiacrm.com/en/
-- Documentation en Français: https://docs.ecclesiacrm.com/fr/
 - Changelog: [CHANGELOG.md](CHANGELOG.md)
+
+## Documentation
+
+For installation, upgrades, and user documentation, use the online docs:
+
+- English: https://docs.ecclesiacrm.com/en/
+- Français: https://docs.ecclesiacrm.com/fr/
 
 ## Why EcclesiaCRM
 
@@ -29,6 +36,7 @@ EcclesiaCRM is a web-based CRM designed for churches and ministries. It brings t
 - Use built-in collaboration features like EDrive and Jitsi
 - Connect outreach and communication tools such as Mailchimp
 - Keep the platform self-hosted and open source
+
 
 ## Compatibility
 
@@ -62,6 +70,19 @@ You can try the demo instance here: https://demo.ecclesiacrm.com
 | Communication | Mailchimp integration for campaigns and audiences |
 | Education | Sunday school QR code attendance workflows |
 | Search | Powerful search with filters and keyword matching |
+
+
+## Community and Development
+
+[![Contributors](https://img.shields.io/github/contributors/phili67/ecclesiacrm.svg?style=flat-square)](https://github.com/phili67/ecclesiacrm/graphs/contributors)
+[![GitHub Discussions](https://img.shields.io/badge/GitHub-Discussions-222222?style=flat-square&logo=github)](https://github.com/phili67/ecclesiacrm/discussions)
+[![Project Board](https://img.shields.io/badge/Project%20Board-ZenHub-5e60ba?style=flat-square)](https://app.zenhub.com/workspaces/ecclesiacrm-workspace-5ce9590d7f230434befef632/board?repos=115276245)
+
+## Project Metrics
+
+[![Project Graph](https://www.gitcharts.ecclesiacrm.com/image.svg)](https://www.gitcharts.ecclesiacrm.com/image.svg)
+
+[![Downloads](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total)](https://hanadigital.github.io/grev/?user=phili67&repo=ecclesiacrm)
 
 ## Screenshots
 
@@ -105,21 +126,3 @@ You can try the demo instance here: https://demo.ecclesiacrm.com
 
 ![Mailchimp](https://www.ecclesiacrm.com/screenshots/mailchimp.png)
 
-## Project Metrics
-
-[![Project Graph](https://www.gitcharts.ecclesiacrm.com/image.svg)](https://www.gitcharts.ecclesiacrm.com/image.svg)
-
-[![Downloads](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total)](https://hanadigital.github.io/grev/?user=phili67&repo=ecclesiacrm)
-
-## Community and Development
-
-- Contributors: https://github.com/phili67/ecclesiacrm/graphs/contributors
-- Chat: https://gitter.im/ecclesiacrm/Lobby
-- Project board: https://app.zenhub.com/workspaces/ecclesiacrm-workspace-5ce9590d7f230434befef632/board?repos=115276245
-
-## Documentation
-
-For installation, upgrades, and user documentation, use the online docs:
-
-- English: https://docs.ecclesiacrm.com/en/
-- Français: https://docs.ecclesiacrm.com/fr/
