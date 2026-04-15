@@ -81,7 +81,8 @@ if ($sReportType == '') {
 <?php
     // First Pass Cancel, Next Buttons
 ?>
-    <tr>
+
+    <tr class="border-top">
       <td>&nbsp;</td>
       <td><br><button type="button" class="btn btn-sm btn-secondary" name="Cancel"
         onclick="javascript:document.location='<?= $sRootPath ?>/v2/system/report/list';"><i class="fas fa-times mr-1"></i><?= _("Cancel")?></button>
@@ -493,7 +494,8 @@ if ($sReportType == '') {
   ?>
     <tr>
       <td>&nbsp;</td>
-      <td><button type="button" class="btn btn-sm btn-secondary" name="Cancel"
+      <td><hr>
+        <button type="button" class="btn btn-sm btn-secondary" name="Cancel"
         onclick="javascript:document.location='<?= $sRootPath?>/v2/deposit/financial/reports';"><i class="fas fa-arrow-left mr-1"></i><?= _("Back") ?></button>
         <button type="submit" class="btn btn-sm btn-primary" name="Submit2"><i class="fas fa-file-export mr-1"></i><?= _("Create Report") ?></button>
       </td>
