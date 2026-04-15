@@ -1884,10 +1884,22 @@ Route | Method | function | Description
 * `{ref}`->`string` :: Description
 
 ---
-## API "volunteeropportunity"
+## API "roles"
 
-   in route : "/api/routes/sidebar/sidebar-volunteeropportunity.php"
+   in route : "/api/routes/sidebar/sidebar-roles.php"
 
+Route | Method | function | Description
+------|--------|----------|------------
+`/all` | GET | SidebarRolesController::class . ':getAllRoles' | get all roles
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/persons/assign` | POST | SidebarRolesController::class . ':rolePersonAssign' | get all roles
+
+* `{ref}`->`string` :: Description
+
+---
 ## PASTORAL CARE
 ## API "pastoralcare"
 
@@ -2189,6 +2201,11 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
+`/get2FAStatus` | POST | SystemSettingsIndividualController::class . ':get2FAStatus' | Get 2FA enrollment status for session user
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/get2FA` | POST | SystemSettingsIndividualController::class . ':get2FA' | Get 2FA key
 
 ---
@@ -2246,6 +2263,11 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/testEmailConnection` | POST | SystemController::class . ':testEmailConnectionMVC' | Test if email connection is available
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/currentPage` | POST | SystemController::class . ':currentPage' | request-uri
 
 ---
 ## API "systemupgrade"
@@ -2361,6 +2383,11 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/2fa/pending` | POST | UserUsersController::class . ':userstwofapending' | pending 2FA code (Admin)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/setDarkMode` | POST | UserUsersController::class . ':setDarkMode' | set dark mode (Admin)
 
 ---
 ## PLUGINS
@@ -2572,6 +2599,25 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/` | DELETE | CartController::class . ':removePersonCart' | Extract persons in the cart to vcard format
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addVolunteers` | POST | CartController::class . ':addVolunteers' | add all Volunteers members Ids from the cart
+
+* `{ref}`->`int` :: VolID (Id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeVolunteers` | POST | CartController::class . ':removeVolunteers' | Remove all volunteers members Ids from the cart
+
+* `{ref}`->`int` :: VolID (Id)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/render/badge` | POST | CartController::class . ':renderBadgePreview' | Render badge preview from cart data
 
 ---
 ## API "fundraiser"
