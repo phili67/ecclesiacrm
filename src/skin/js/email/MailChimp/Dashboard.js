@@ -11,7 +11,15 @@ $(function () {
     function render_container() {
         if (window.CRM.mailchimpIsActive) {
             // we first empty the container
-            $("#container").html('<br><br><br><h2 class="headline text-primary text-center"><i class="fas fa-spin fa-spinner"></i> ' + i18next.t("Loading datas ...") + "</h2>");
+            $("#container").html(`
+                <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 40vh;">
+                    <div class="spinner-border text-primary mb-4" role="status" style="width: 4rem; height: 4rem;">
+                        <span class="visually-hidden">${i18next.t('Loading...')}</span>
+                    </div>
+                    <h2 class="text-primary fw-bold mb-2">${i18next.t('Loading data...')}</h2>
+                    <p class="text-muted">${i18next.t('Please wait while we retrieve your MailChimp lists.')}</p>
+                </div>
+            `);
 
             window.CRM.APIRequest({
                 method: 'GET',
@@ -55,7 +63,7 @@ $(function () {
                     var list = data.MailChimpLists[i];
 
                     listViews += `<div class="card card-outline card-primary shadow-sm rounded-4 mb-4">
-                        <div class="card-header bg-white d-flex flex-wrap justify-content-between align-items-center">
+                        <div class="card-header bg-body d-flex flex-wrap justify-content-between align-items-center">
                           <div class="d-flex align-items-center flex-wrap">
                             <span class="d-flex align-items-center me-3 mb-2 mb-md-0"><i class="fas fa-list-alt text-primary me-2"></i> <span class="fw-bold h5 mb-0">${i18next.t('Email List')} :</span></span>
                             <span class="fw-bold h5 mb-0">${list.name}</span>
