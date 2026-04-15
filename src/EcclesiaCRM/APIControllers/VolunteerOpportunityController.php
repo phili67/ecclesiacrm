@@ -127,14 +127,14 @@ class VolunteerOpportunityController {
         $res .= '<option value="-1">--'._("None").'--</option>';
 
         foreach ($menus as $menu) {
-            if ($menu['vol_ID'] != $volID) {
-                $res .= '<option value="' . $menu['vol_ID'] . '" '.(($parentId != NULL and $parentId == $menu['vol_ID'])?'selected':''). '>' . $menu['vol_Name'] . '</option>';
+            if ($menu['Id'] != $volID) {
+                $res .= '<option value="' . $menu['Id'] . '" '.(($parentId != NULL and $parentId == $menu['Id'])?'selected':''). '>' . $menu['Name'] . '</option>';
             }
         }
         $res .= '</select>';
 
         return $res;
-    }    
+    }  
 
     private function selectMenuIcons($volID, $icon)
     {
