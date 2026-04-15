@@ -1,101 +1,125 @@
-<img src="https://www.ecclesiacrm.com/favicon-32.png" width="32" height="32" style="bottom:-15px"> Welcome to Ecclesia<b>CRM</b> Web CRM
----
+# EcclesiaCRM
 
-# Important
-Some php packages should create a **bug** in the 6.0.0 version, the **6.0.1** and above solve the problem.
-A work arround with the 6.0.0 version is to get the **Bootstrapper.php** file from the 6.0.1 archive and on your web server to put it in the **EcclesiaCRM** folder inside.
+Open source church management software built to help churches manage people, families, pastoral care, events, communication, and collaboration from a single web platform.
 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/church-web-crm/badge/?version=latest)](https://www.docs.ecclesiacrm.com)
-[![Github All Releases](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total.svg)](https://github.com/phili67/ecclesiacrm/releases)
-[![Automated Release Notes by gren](https://img.shields.io/badge/%F0%9F%A4%96-release%20notes-00B2EE.svg)](https://github-tools.github.io/github-release-notes/)
+[![GitHub Downloads](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total.svg)](https://github.com/phili67/ecclesiacrm/releases)
+[![Release Notes](https://img.shields.io/badge/release-notes-00B2EE.svg?style=flat-square)](https://github-tools.github.io/github-release-notes/)
+[![Contributors](https://img.shields.io/github/contributors/phili67/ecclesiacrm.svg)](https://github.com/phili67/ecclesiacrm/graphs/contributors)
+[![Community Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ecclesiacrm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-### Development
-[![GitHub contributors](https://img.shields.io/github/contributors/phili67/ecclesiacrm.svg)](https://github.com/phili67/ecclesiacrm/graphs/contributors)
-[![Join the chat at https://gitter.im/ecclesiacrm/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ecclesiacrm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-<!--[![Build Status](https://travis-ci.org/ChurchCRM/CRM.svg?branch=master)](https://travis-ci.org/ChurchCRM/CRM)
-[![StyleCI](https://styleci.io/repos/30856851/shield?branch=master)](https://styleci.io/repos/30856851)
-[![POEditor](https://img.shields.io/badge/Languages-22-green.svg)](https://poeditor.com/join/project/RABdnDSqAt)-->
+## Overview
 
-[![ZenHub](https://dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png)](https://app.zenhub.com/workspaces/ecclesiacrm-workspace-5ce9590d7f230434befef632/board?repos=115276245)
-<!--<a href="https://zenhub.com"><img src="//dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png" alt="ZenHub logo"></a>-->
+EcclesiaCRM is a web-based CRM designed for churches and ministries. It brings together member records, calendars, pastoral follow-up, document sharing, communication tools, and reporting features in one place.
 
+## Quick Links
 
+- Website: https://www.ecclesiacrm.com
+- Latest release: https://github.com/phili67/ecclesiacrm/releases/latest
+- Documentation in English: https://docs.ecclesiacrm.com/en/
+- Documentation en Français: https://docs.ecclesiacrm.com/fr/
+- Changelog: [CHANGELOG.md](CHANGELOG.md)
 
-## Website
+## Why EcclesiaCRM
 
-[https://www.ecclesiacrm.com](https://www.ecclesiacrm.com)
+- Manage people and families in one centralized system
+- Organize church events, calendars, resources, and meetings
+- Track pastoral care activity with useful statistics
+- Use built-in collaboration features like EDrive and Jitsi
+- Connect outreach and communication tools such as Mailchimp
+- Keep the platform self-hosted and open source
 
-## Installation, Upgrades and Documentation
+## Compatibility
 
-* EcclesiaCRM is compatible and tested with Ubuntu server 16.04, Ubuntu server 18.04, and Debian 9.7 server.
+EcclesiaCRM has been tested with the following server environments:
 
-* [Download the lastest release](https://github.com/phili67/ecclesiacrm/releases/latest)
+- Ubuntu Server 24.04
+- PHP 8.1 and above
 
-* [Checkout our online Docs (English)](https://docs.ecclesiacrm.com/en/)
-* [Checkout our online Docs (Français)](https://docs.ecclesiacrm.com/fr/)
+## Important Note
 
-## Project Metrics
+Some PHP packages caused issues in version 6.0.0. These problems were fixed in version 6.0.1 and later.
 
-[![Graph](https://www.gitcharts.ecclesiacrm.com/image.svg)](https://www.gitcharts.ecclesiacrm.com/image.svg)
+If you are still using version 6.0.0, a temporary workaround is to copy Bootstrapper.php from the 6.0.1 archive into the EcclesiaCRM directory on your server.
 
+## Demo
 
-see [![Downloads](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total)](https://hanadigital.github.io/grev/?user=phili67&repo=ecclesiacrm)
+You can try the demo instance here: https://demo.ecclesiacrm.com
 
-##  Change Log
+- Username: admin
+- Password: contact the project team
 
-see [Checkout our Change Log](CHANGELOG.md)
+## Main Features
 
-### Demo Account
+| Area | Highlights |
+| --- | --- |
+| Member management | People, families, classifications, custom fields |
+| Calendar | Full calendar, recurring events, resources, locations |
+| Pastoral care | Follow-up workflows and statistics |
+| Documents | EDrive integration for file access and sharing |
+| Meetings | Jitsi integration for online meetings |
+| Communication | Mailchimp integration for campaigns and audiences |
+| Education | Sunday school QR code attendance workflows |
+| Search | Powerful search with filters and keyword matching |
 
-To test out the demo, you may login to the https://demo.ecclesiacrm.com  with the following:
+## Screenshots
 
-- **Username:** admin
-- **Password:** contact us for the password.
+### Dashboard and Navigation
 
+![Dashboard](https://www.ecclesiacrm.com/screenshots/menuNew.png)
 
-## New UI (Admin LTE 3)
-
-![Menu](https://www.ecclesiacrm.com/screenshots/menuNew.png)
-
-## EDrive
+### EDrive
 
 ![EDrive](https://www.ecclesiacrm.com/screenshots/EDrive.png)
 
+### Full Calendar
 
-## Full calendar (groups, resources, etc ..)
 ![Calendar](https://www.ecclesiacrm.com/screenshots/calendar.png)
 
-## Event calendar (with location, with reccurences, etc ...)
-![Calendar Events](https://www.ecclesiacrm.com/screenshots/calendarEvent.png)
+### Event Calendar
 
-## Meta search engine
+![Event Calendar](https://www.ecclesiacrm.com/screenshots/calendarEvent.png)
 
-# with filters
-![Calendar Events](https://www.ecclesiacrm.com/screenshots/PowerfullSearchEngine.png)
+### Search with Filters
 
-# with keywords
-![Calendar Events](https://www.ecclesiacrm.com/screenshots/PowerfullSearchEngine1.png)
+![Search with Filters](https://www.ecclesiacrm.com/screenshots/PowerfullSearchEngine.png)
 
-## Meetings with Jitsi
+### Search with Keywords
+
+![Search with Keywords](https://www.ecclesiacrm.com/screenshots/PowerfullSearchEngine1.png)
+
+### Jitsi Meetings
 
 ![Meetings](https://www.ecclesiacrm.com/screenshots/Mettings.png)
 
-## Pastoral care with statistics
+### Pastoral Care
 
 ![Pastoral Care](https://www.ecclesiacrm.com/screenshots/PastoralCare.png)
 
-## Sunday school QR code call
+### Sunday School QR Code Attendance
 
-![Pastoral Care](https://www.ecclesiacrm.com/screenshots/QRCode_call.png)
+![Sunday School QR Code Attendance](https://www.ecclesiacrm.com/screenshots/QRCode_call.png)
 
-## Mailchimp is completely integrated
+### Mailchimp Integration
 
-# you can create your campaigns
+![Mailchimp](https://www.ecclesiacrm.com/screenshots/mailchimp.png)
 
-![MailChimp](https://www.ecclesiacrm.com/screenshots/mailchimp.png)
+## Project Metrics
 
-# your lists (audiences) templates etc ...
-<!--![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
-![Person](http://www.ecclesiacrm.com/screenshots/person.PNG)-->
+[![Project Graph](https://www.gitcharts.ecclesiacrm.com/image.svg)](https://www.gitcharts.ecclesiacrm.com/image.svg)
 
+[![Downloads](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total)](https://hanadigital.github.io/grev/?user=phili67&repo=ecclesiacrm)
+
+## Community and Development
+
+- Contributors: https://github.com/phili67/ecclesiacrm/graphs/contributors
+- Chat: https://gitter.im/ecclesiacrm/Lobby
+- Project board: https://app.zenhub.com/workspaces/ecclesiacrm-workspace-5ce9590d7f230434befef632/board?repos=115276245
+
+## Documentation
+
+For installation, upgrades, and user documentation, use the online docs:
+
+- English: https://docs.ecclesiacrm.com/en/
+- Français: https://docs.ecclesiacrm.com/fr/
