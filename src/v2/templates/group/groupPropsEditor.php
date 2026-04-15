@@ -292,7 +292,7 @@ if ($numRows == 0) {
    </table>
 </div>
  </div>
-<div class="card-footer bg-white border-0">
+<div class="card-footer bg-body border-0">
   <div class="d-flex flex-wrap gap-2">
     <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $iPersonID ?>/Group" class="btn btn-sm btn-outline-secondary mr-2 mb-2">
       <i class="fas fa-arrow-left mr-1"></i><?= _("Return to Person") ?>
