@@ -142,7 +142,7 @@ if (isset($_POST['PrintReport'])) {
   </div>
 </div>
 
-<div class="card card-light card-outline mb-3">
+<div class="card card-outline card-secondary mb-3">
 <div class="card-body py-2">
 <div class="form-row align-items-end">
     <div class="col-md-2 mb-2">
@@ -218,7 +218,7 @@ if (isset($_POST['PrintReport'])) {
     <input type="text" id="envelopeSearch" class="form-control form-control-sm" placeholder="<?= _('Filter by family name...') ?>">
 </div>
 
-<div class="card card-light">
+<div class="card card-outline card-secondary">
 <div class="card-body p-2">
 <div class="row font-weight-bold small text-muted mb-2">
     <div class="col-md-8"><?= _('Family') ?></div>
