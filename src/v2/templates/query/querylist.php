@@ -59,7 +59,7 @@ require $sRootDocument . '/Include/Header.php';
         <?php
                     }
         ?>
-                    <div class="card card-light card-outline mb-3">
+                    <div class="card card-outline card-secondary mb-3">
                         <div class="card-header py-2">
                             <h4 class="card-title text-uppercase mb-0"><?= mb_convert_case(_($qry_type_Category), MB_CASE_UPPER, "UTF-8") ?></h4>
                         </div>
