@@ -719,9 +719,9 @@ $(function() {
                 borderWidth: 0,
                 borderColor: "#e6e9ef",
                 tickColor: "#eef1f5",
-                backgroundColor: {
-                    colors: ["#ffffff", "#fbfcfe"]
-                },
+                /*backgroundColor: {
+                    colors: ["#8d8d8d", "#d1d1d1"]
+                },*/
                 hoverable: true,
                 clickable: true
             },
