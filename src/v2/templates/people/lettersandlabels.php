@@ -139,7 +139,7 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card card-light h-100 mb-3 mb-md-0">
+                            <div class="card card-outline card-secondary h-100 mb-3 mb-md-0">
                             <div class="card-body py-2">
                             <h5 class="mb-2"><?= _("Mail Label") ?></h5>
                                 <hr class="mt-1" />
@@ -161,7 +161,7 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card card-light h-100 mb-3 mb-md-0">
+                            <div class="card card-outline card-secondary h-100 mb-3 mb-md-0">
                             <div class="card-body py-2">
                             <h5 class="mb-2"><?= _("Person Custom Fields") ?></h5>
                                 <hr class="mt-1" />
@@ -202,7 +202,7 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card card-light h-100">
+                            <div class="card card-outline card-secondary h-100">
                             <div class="card-body py-2">
                             <h5 class="mb-2"><?= _("Person Classifications") ?></h5>
                             <select name="classList[]" style="width:100%" multiple id="classList">
