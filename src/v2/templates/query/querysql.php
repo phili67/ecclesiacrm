@@ -148,7 +148,7 @@ function RunFreeQuery($cnInfoCentral, $aRowClass, $rsQueryResults, $sSQL, $iQuer
         </div>
         </div>
 
-        <div class="card card-light mt-2 mb-3">
+        <div class="card card-outline card-secondary mt-2 mb-3">
             <div class="card-header py-1"><strong><?= _('Executed SQL') ?></strong></div>
             <div class="card-body py-2">
                 <pre class="mb-0 small"><?= htmlspecialchars($sSQL) ?></pre>
