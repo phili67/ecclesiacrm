@@ -4,19 +4,19 @@
 RELEASEZIP="8.0.0"
 
 # Configuration variables (interactive prompts)
-read -p "Domaine (ex: example.com) [test.com]: " DOMAIN
+read -p "Domain (e.g.: example.com) [test.com]: " DOMAIN
 DOMAIN=${DOMAIN:-test.com}
-read -p "Email admin (Let's Encrypt) [admin@test.com]: " ADMIN_EMAIL
+read -p "Admin email (Let's Encrypt) [admin@test.com]: " ADMIN_EMAIL
 ADMIN_EMAIL=${ADMIN_EMAIL:-admin@test.com}
-read -p "Nom de la base de données [ecrm]: " DB_NAME
+read -p "Database name [ecrm]: " DB_NAME
 DB_NAME=${DB_NAME:-ecrm}
-read -p "Nom d'utilisateur DB [admin]: " DB_USER
+read -p "Database username [admin]: " DB_USER
 DB_USER=${DB_USER:-admin}
-read -s -p "Mot de passe DB [eccrm2024]: " DB_PASSWORD
+read -s -p "Database password [eccrm2024]: " DB_PASSWORD
 echo
 DB_PASSWORD=${DB_PASSWORD:-eccrm2024}
 
-read -p "Locale (ex: fr_FR.UTF-8) [fr_FR.UTF-8]: " LOCALE
+read -p "Locale (e.g.: fr_FR.UTF-8) [fr_FR.UTF-8]: " LOCALE
 LOCALE=${LOCALE:-fr_FR.UTF-8}
 LANGCODE=${LOCALE%%_*}
 
