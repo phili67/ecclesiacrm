@@ -161,7 +161,7 @@ class SystemService
     }
 
     public function isUpdateRequired () {
-        $compare = version_compare($_SESSION['sSoftwareInstalledVersion'], $_SESSION['latestVersion']['name']);
+        $compare = version_compare($_SESSION['sSoftwareInstalledVersion'], $_SESSION['latestVersion']['name'], '>=');
         $isUpdateRequired = $_SESSION['latestVersion'] != null && $compare != 1;
 
         return $isUpdateRequired;
