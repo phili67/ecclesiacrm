@@ -40,7 +40,7 @@ A work arround with the 6.0.0 version is to get the **Bootstrapper.php** file fr
 [![Graph](https://www.gitcharts.ecclesiacrm.com/image.svg)](https://www.gitcharts.ecclesiacrm.com/image.svg)
 
 
-see [![Downloads](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total)](https://hanadigital.github.io/grev/?user=phili67&repo=ecclesiacrm)
+see [!([stats](https://grev.shehryar.ae/?owner=phili67&repo=ecclesiacrm)]
 
 ##  Change Log
 
