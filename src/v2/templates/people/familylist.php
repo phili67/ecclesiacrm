@@ -40,7 +40,7 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <div class="card shadow-sm border-0">
-  <div class="card-header border-0 bg-white py-3">
+  <div class="card-header border-0 bg-body py-3">
     <div class="d-flex flex-wrap align-items-center justify-content-between" style="gap:.75rem;">
       <div>
         <?php if ($sMode == 'Single') { ?>
@@ -160,7 +160,7 @@ require $sRootDocument . '/Include/Header.php';
         return;
       }
 
-      wrapper.addClass('border rounded p-2 bg-white');
+      wrapper.addClass('border rounded p-2 bg-body');
       wrapper.find('.dataTables_filter input').addClass('form-control form-control-sm').attr('placeholder', '<?= _('Search') ?>');
       wrapper.find('.dataTables_length select').addClass('form-control form-control-sm');
       wrapper.find('.dataTables_info').addClass('small text-muted');
