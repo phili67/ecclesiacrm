@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # Release version (use GitHub release tag without leading 'v')
-RELEASE="8.0.0-GM.3"
 RELEASEZIP="8.0.0"
 
 # Configuration variables (interactive prompts)
@@ -23,12 +22,14 @@ LANGCODE=${LOCALE%%_*}
 
 # setup the LAMP server with everything
 sudo apt update
-sudo apt install apache2 mariadb-server  mariadb-client php8.3 libapache2-mod-php8.3 php8.3-fpm
+sudo apt install -y apache2 mariadb-server  mariadb-client php8.3 libapache2-mod-php8.3 php8.3-fpm
 
 # install language packs for selected locale
 sudo apt install -y language-pack-$LANGCODE language-pack-$LANGCODE-base
 
-sudo apt install --no-install-recommends php-mysql php-curl php-gd php-msgpack php-memcached php-intl php-sqlite3 php-gmp php-mbstring php-redis php-xml php-zip php-opcache gettext imagemagick php-imagick
+sudo apt install -y --no-install-recommends php-mysql php-curl php-gd php-msgpack php-memcached php-intl php-sqlite3 php-gmp php-mbstring php-redis php-xml php-zip php-opcache gettext imagemagick php-imagick
+
+sudo apt install -y unzip ufw
 
 # set the default php.ini settings
 sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 128M/' /etc/php/8.3/apache2/php.ini
@@ -183,10 +184,9 @@ sudo mysql -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost';"
 sudo mysql -e "FLUSH PRIVILEGES;"
 
 # security
-sudo apt install ufw
-
 sudo ufw allow http
 sudo ufw allow https
+sudo ufw allow ssh
 sudo ufw reload
 
 sudo ufw enable
@@ -196,11 +196,9 @@ sudo locale-gen "$LOCALE"
 sudo update-locale LANG="$LOCALE"
 
 # install the last zip file
-sudo apt install unzip
-
 cd /var/www/
 
-sudo wget "https://github.com/phili67/ecclesiacrm/releases/download/v${RELEASE}/EcclesiaCRM-${RELEASEZIP}.zip"
+sudo wget "https://github.com/phili67/ecclesiacrm/releases/latest/download/EcclesiaCRM-${RELEASEZIP}.zip"
 sudo unzip "EcclesiaCRM-${RELEASEZIP}.zip"
 
 sudo rm -rf html
