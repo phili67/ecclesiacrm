@@ -787,10 +787,10 @@
             "7.6.1"
         ],
         "prescripts": [
-            "/mysql/upgrade/8.0.0-upgrade.sql",
-            "/mysql/upgrade/8.0.0-pre-upgrade.php"
         ],
         "scripts": [            
+            "/mysql/upgrade/8.0.0-upgrade.sql",
+            "/mysql/upgrade/8.0.0-pre-upgrade.php",
             "/Plugins/BirthdayAnniversaryDashboard/mysql/Install.sql",
             "/Plugins/CurrentUsersDashboard/mysql/Install.sql",
             "/Plugins/FamilyInfosDashboard/mysql/Install.sql",
@@ -805,11 +805,11 @@
             "/Plugins/PersonDashboardWidget/mysql/Install.sql",
             "/Plugins/GroupDashboardWidget/mysql/Install.sql",
             "/Plugins/SundaySchoolDashboardWidget/mysql/Install.sql",
-            "/mysql/upgrade/8.0.0-upgrade.php"
+            "/mysql/upgrade/8.0.0-upgrade.php",
+            "/mysql/upgrade/8.0.0-post-upgrade.php"
 
         ],
-        "postscripts": [
-            "/mysql/upgrade/8.0.0-post-upgrade.php"
+        "postscripts": [            
         ],
         "dbVersion": "8.0.0"
     },

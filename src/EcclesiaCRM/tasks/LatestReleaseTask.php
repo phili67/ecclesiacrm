@@ -18,7 +18,7 @@ class LatestReleaseTask implements iTask
 
   public function isActive()
   {
-      $compare = version_compare($this->installedVersion, $this->latestVersion['name']);
+      $compare = version_compare($this->installedVersion, $this->latestVersion['name'], '>=');
       return $this->latestVersion != null && $compare != 1;
   }
 
