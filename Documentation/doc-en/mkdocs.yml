@@ -12,8 +12,8 @@ theme:
   name: 'material'
   language: 'en'
   palette:
-    primary: 'brown'
-    accent: 'brown'
+        primary: 'blue'
+        accent: 'blue'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'

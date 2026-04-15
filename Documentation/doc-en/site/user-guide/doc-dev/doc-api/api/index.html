@@ -63,7 +63,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="brown">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
   
     
     
@@ -2364,8 +2364,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-volunteeropportunity" class="md-nav__link">
-    API "volunteeropportunity"
+  <a href="#api-roles_1" class="md-nav__link">
+    API "roles"
   </a>
   
 </li>
@@ -3027,8 +3027,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-volunteeropportunity" class="md-nav__link">
-    API "volunteeropportunity"
+  <a href="#api-roles_1" class="md-nav__link">
+    API "roles"
   </a>
   
 </li>
@@ -8601,8 +8601,49 @@
 <li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
 </ul>
 <hr />
-<h2 id="api-volunteeropportunity">API "volunteeropportunity"<a class="headerlink" href="#api-volunteeropportunity" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sidebar/sidebar-volunteeropportunity.php"</p>
+<h2 id="api-roles_1">API "roles"<a class="headerlink" href="#api-roles_1" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/sidebar/sidebar-roles.php"</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/all</code></td>
+<td>GET</td>
+<td>SidebarRolesController::class . ':getAllRoles'</td>
+<td>get all roles</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/persons/assign</code></td>
+<td>POST</td>
+<td>SidebarRolesController::class . ':rolePersonAssign'</td>
+<td>get all roles</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>string</code> :: Description</li>
+</ul>
+<hr />
 <h2 id="pastoral-care">PASTORAL CARE<a class="headerlink" href="#pastoral-care" title="Permanent link">&para;</a></h2>
 <h2 id="api-pastoralcare">API "pastoralcare"<a class="headerlink" href="#api-pastoralcare" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/pastoralcare/pastoralcare.php"</p>
@@ -9447,6 +9488,25 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/get2FAStatus</code></td>
+<td>POST</td>
+<td>SystemSettingsIndividualController::class . ':get2FAStatus'</td>
+<td>Get 2FA enrollment status for session user</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/get2FA</code></td>
 <td>POST</td>
 <td>SystemSettingsIndividualController::class . ':get2FA'</td>
@@ -9603,6 +9663,25 @@
 <td>POST</td>
 <td>SystemController::class . ':testEmailConnectionMVC'</td>
 <td>Test if email connection is available</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/currentPage</code></td>
+<td>POST</td>
+<td>SystemController::class . ':currentPage'</td>
+<td>request-uri</td>
 </tr>
 </tbody>
 </table>
@@ -9977,6 +10056,25 @@
 <td>POST</td>
 <td>UserUsersController::class . ':userstwofapending'</td>
 <td>pending 2FA code (Admin)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setDarkMode</code></td>
+<td>POST</td>
+<td>UserUsersController::class . ':setDarkMode'</td>
+<td>set dark mode (Admin)</td>
 </tr>
 </tbody>
 </table>
@@ -10633,6 +10731,69 @@
 <td>DELETE</td>
 <td>CartController::class . ':removePersonCart'</td>
 <td>Extract persons in the cart to vcard format</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addVolunteers</code></td>
+<td>POST</td>
+<td>CartController::class . ':addVolunteers'</td>
+<td>add all Volunteers members Ids from the cart</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: VolID (Id)</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeVolunteers</code></td>
+<td>POST</td>
+<td>CartController::class . ':removeVolunteers'</td>
+<td>Remove all volunteers members Ids from the cart</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>int</code> :: VolID (Id)</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/render/badge</code></td>
+<td>POST</td>
+<td>CartController::class . ':renderBadgePreview'</td>
+<td>Render badge preview from cart data</td>
 </tr>
 </tbody>
 </table>
