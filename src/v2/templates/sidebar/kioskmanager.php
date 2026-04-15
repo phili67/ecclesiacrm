@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-md-12 mb-4">
         <div class="card card-outline card-primary shadow-sm rounded-4">
-            <div class="card-header border-1 bg-white">
+            <div class="card-header border-1 bg-body">
                 <h3 class="card-title mb-0">
                     <i class="fas fa-plus-circle text-primary me-2"></i>
                     <?= _('Register new Kiosk') ?>
@@ -42,7 +42,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-12">
         <div class="card card-outline card-secondary shadow-sm rounded-4">
-            <div class="card-header border-1 bg-white">
+            <div class="card-header border-1 bg-body">
                 <h3 class="card-title mb-0">
                     <i class="fas fa-desktop text-primary me-2"></i>
                     <?= _('Active Kiosks') ?>
