@@ -73,31 +73,26 @@ Header_system_notifications();
                 <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= SessionUser::getUser()->getPersonId() ?>" class="nav-link"><?= _("Private Space") ?></a>
             </li>
         </ul>
-        <!--<form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
 
-                <select class="form-control multiSearch" style="width:120px"></select>
-
-
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
+        <form class="form-inline ml-3 flex-grow-1 navbar-search-form">
+            <div class="input-group input-group-sm flex-nowrap navbar-search-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
                         <i class="fas fa-search"></i>
-                    </button>
+                    </span>
                 </div>
+                <select class="form-control multiSearch left-search-field-menu-bar"></select>
             </div>
-        </form>-->
+        </form>
 
-        <?php if(isset($_SESSION['ControllerAdminUserId']))  { ?>
+        <?php if(isset($_SESSION['ControllerAdminUserId'])) : ?>
         <button class="btn btn-primary exit-control-account" data-userid="<?= $_SESSION['ControllerAdminUserId'] ?>"><?= _("Exit Control") ?></button>
-        <?php } ?>
+        <?php endif; ?>
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Cart Functions: style can be found in dropdown.less -->
-            <?php
-            if (SessionUser::getUser()->isShowCartEnabled()) {
-                ?>
+            <?php if (SessionUser::getUser()->isShowCartEnabled()) : ?>
                 <li class="nav-item dropdown notifications-menu" id="CartBlock">
                     <a href="#" class="nav-link" data-toggle="dropdown" title="<?= _('Your Cart') ?>">
                         <i class="fas fa-shopping-cart"></i>
@@ -105,9 +100,7 @@ Header_system_notifications();
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-lg-left" id="cart-dropdown-menu"></div>
                 </li>
-                <?php
-            }
-            ?>
+                <?php endif; ?>
             <!-- User Account: style can be found in dropdown.less -->
             <li class="nav-item dropdown user user-menu">
                 <a href="#" class="nav-link" id="dropdown-toggle" data-toggle="dropdown"
@@ -166,7 +159,7 @@ Header_system_notifications();
                         <i class="fas fa-bug"></i> <?= _('Report an issue') ?>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="https://gitter.im/ecclesiacrm/Lobby" target="_blank" title="<?= _('Developer Chat') ?>"
+                    <a href="https://github.com/phili67/ecclesiacrm/discussions" target="_blank" title="<?= _('Developer Chat') ?>"
                        class="dropdown-item">
                         <i class="fas fa-comments"></i> <?= _('Developer Chat') ?>
                     </a>
@@ -213,17 +206,7 @@ Header_system_notifications();
         <section class="sidebar">
              <!-- sidebar menu: : style can be found in sidebar.less -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="true">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon  fas fa-search"></i>
-                            <p>
-                                <!-- search form -->
-                                <select class="form-control multiSearch select2-hidden-accessible left-search-field-menu-bar" data-select2-id="1" tabindex="-1" aria-hidden="true"></select>
-                                <!-- /.search form -->
-                            </p>
-                        </a>
-                    </li>
+                <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="true">                    
                     <?= MenuRenderer::RenderMenu() ?>
                 </ul>
             </nav>

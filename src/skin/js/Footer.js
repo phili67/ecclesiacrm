@@ -33,6 +33,7 @@ $(function() {
 
     $(".multiSearch").select2({
         language: window.CRM.shortLocale,
+        width: '100%',
         minimumInputLength: 2,
         ajax: {
             url: function (params) {
@@ -49,6 +50,12 @@ $(function() {
             },
             cache: true
         }
+    });
+    $(".multiSearch").on("select2:opening", function () {
+        $(this).closest(".navbar-search-form").addClass("is-open");
+    });
+    $(".multiSearch").on("select2:close", function () {
+        $(this).closest(".navbar-search-form").removeClass("is-open");
     });
     $(".multiSearch").on("select2:select", function (e) {
         window.location.href = e.params.data.uri;
