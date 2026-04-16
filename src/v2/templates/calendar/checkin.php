@@ -21,25 +21,25 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="card card-outline card-primary shadow-sm mb-3">
-    <div class="card-header py-2 d-flex justify-content-between align-items-center">
+    <div class="card-header py-2 d-flex justify-content-between align-items-center flex-wrap">
         <h3 class="card-title mb-0"><i class="fas fa-clipboard-check mr-1"></i><?= _('Check-in Management') ?></h3>
-        <div class="d-flex flex-wrap gap-2">
-            <button class="btn btn-sm btn-success" id="add-event">
+        <div class="d-flex flex-wrap mt-2 mt-md-0">
+            <button class="btn btn-sm btn-success mr-2 mb-2 mb-md-0" id="add-event">
                 <i class="fas fa-plus mr-1"></i><?= _('Add Event') ?>
             </button>
             <?php if (!is_null($searchEventInActivEvent)) {
                 ?>
-                <a class="btn btn-sm btn-info" id="qrcode-call">
+                <a class="btn btn-sm btn-info mr-2 mb-2 mb-md-0" id="qrcode-call">
                     <i class="fas fa-qrcode mr-1"></i><?= _("QR Code") ?>
                 </a>
-                <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/kioskmanager">
+                <a class="btn btn-sm btn-outline-secondary mr-2 mb-2 mb-md-0" href="<?= $sRootPath ?>/v2/kioskmanager">
                     <i class="fas fa-plug mr-1"></i><?= _("Kiosk") ?>
                 </a>
                 <?php
             }
             if ($bSundaySchool) {
                 ?>
-                <a class="btn btn-sm btn-warning" href="<?= $sRootPath ?>/v2/calendar/events/Attendees/Edit">
+                <a class="btn btn-sm btn-warning mb-2 mb-md-0" href="<?= $sRootPath ?>/v2/calendar/events/Attendees/Edit">
                     <i class="fas fa-edit mr-1"></i><?= _("Attendees") ?>
                 </a>
                 <?php
@@ -53,11 +53,11 @@ require $sRootDocument . '/Include/Header.php';
                 <label class="control-label mb-2"><strong><?= _('Select Event') ?></strong></label>
             </div>
             <div class="col-md-9">
-                <form name="selectEvent" action="<?= $sRootPath ?>/v2/calendar/events/checkin" method="POST">
-                    <div class="input-group input-group-sm">
+                <form name="selectEvent" class="w-100" action="<?= $sRootPath ?>/v2/calendar/events/checkin" method="POST">
+                    <div class="input-group input-group-sm w-100">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
-                        <select name="EventID" class="form-control form-control-sm" onchange="this.form.submit()">
-                            <option value="<?= $EventID; ?>" disabled <?= ($EventID == 0) ? " selected" : "" ?>>><?= _('Select event') ?></option>
+                        <select name="EventID" class="custom-select custom-select-sm" onchange="this.form.submit()">
+                            <option value="<?= $EventID; ?>" disabled <?= ($EventID == 0) ? " selected" : "" ?>><?= _('Select event') ?></option>
                             <?php foreach ($activeEvents as $event) {
                                 $dateStart = $event->getStart()->format(SystemConfig::getValue('sDatePickerFormat'));
                                 ?>
