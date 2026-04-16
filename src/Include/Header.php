@@ -111,7 +111,7 @@ Header_system_notifications();
                     <span class="hidden-xs"><?= SessionUser::getUser()->getName() ?> </span>
 
                 </a>
-                <ul class="hidden-xxs dropdown-menu <?= Theme::getCurrentNavBarColor()?>" style="margin-top:8px;margin-left:0px;height:240px;width:293px">
+                <ul class="hidden-xxs dropdown-menu <?= Theme::getCurrentNavBarColor()?>" style="margin-top:8px;margin-left:0px;height:240px;width:306px">
                     <li class="user-header" id="yourElement" style="height:205px">
                         <table border=0 class="table-dropdown-menu" style="width:293px">
                             <tr style="border-bottom: 1pt solid black;">
