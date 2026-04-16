@@ -73,63 +73,98 @@ function Header_modals()
 {
     ?>
     <!-- Issue Report Modal -->
-    <div id="IssueReportModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
+    <div id="IssueReportModal" class="modal fade" role="dialog" aria-labelledby="issueReportModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content border-0 shadow-lg">
               <div id="submitDiaglogStart">
                   <form name="issueReport">
                       <input type="hidden" name="pageName" value="<?= $_SERVER['SCRIPT_NAME'] ?>"/>
-                      <div class="modal-header">
-                          <h4 class="modal-title"><?= _('Issue Report!') ?></h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <div class="modal-header border-0 pb-0">
+                          <div>
+                              <h4 class="modal-title d-flex align-items-center" id="issueReportModalTitle">
+                                  <i class="fas fa-bug text-primary mr-2"></i><?= _('Issue Report!') ?>
+                              </h4>
+                              <p class="text-muted mb-0"><?= _('Describe the problem or feature request clearly so it can be reviewed and reproduced quickly.') ?></p>
+                          </div>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="<?= _('Close') ?>">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
                       </div>
                       <div class="modal-body">
-                          <div class="container-fluid">
-                              <div class="row">
-                                  <div class="col-xl-12">
-                                      <label class="issueTitle"><?= _('Enter a Title for your bug / feature report') ?> : </label>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-xl-12">
-                                      <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" name="issueTitle"  style="min-width: 100%;max-width: 100%;">
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-xl-12">
-                                      <label class="issueDescription"><?= _('What were you doing when you noticed the bug / feature opportunity?') ?></label>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-xl-12">
-                                      <textarea class= "form-control form-control-sm" rows="10" name="issueDescription" style="min-width: 100%;max-width: 100%;"></textarea>
-                                  </div>
+                          <div class="alert alert-light border d-flex align-items-start mb-4">
+                              <i class="fas fa-lightbulb text-warning mt-1 mr-3"></i>
+                              <div>
+                                  <strong class="d-block mb-1"><?= _('Helpful reports save time') ?></strong>
+                                  <span class="text-muted"><?= _('Use a short title, list the action you took, and explain what you expected to happen.') ?></span>
                               </div>
                           </div>
-                          <br/>
-                          <ul>
-                              <li><?= _("When you click \"submit,\" an error report will be posted to the CRM GitHub Issue tracker.") ?></li>
-                              <li><?= _('Please do not include any confidential information.') ?></li>
-                              <li><?= _('Some general information about your system will be submitted along with the request such as Server version and browser headers.') ?></li>
-                              <li><?= _('No personally identifiable information will be submitted unless you purposefully include it.') ?></li>
-                          </ul>
+                          <div class="container-fluid px-0">
+                              <div class="form-group mb-4">
+                                  <label class="issueTitle font-weight-bold d-flex align-items-center">
+                                      <i class="fas fa-heading text-primary mr-2"></i><?= _('Enter a Title for your bug / feature report') ?>
+                                  </label>
+                                  <div class="input-group input-group-sm">
+                                      <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fas fa-pen"></i></span>
+                                      </div>
+                                      <input class="bootbox-input bootbox-input-text form-control" type="text" name="issueTitle" placeholder="<?= _('Example: Backup download button not visible after completion') ?>">
+                                  </div>
+                              </div>
+                              <div class="form-group mb-0">
+                                  <label class="issueDescription font-weight-bold d-flex align-items-center">
+                                      <i class="fas fa-align-left text-primary mr-2"></i><?= _('What were you doing when you noticed the bug / feature opportunity?') ?>
+                                  </label>
+                                  <textarea class="form-control form-control-sm" rows="10" name="issueDescription" placeholder="<?= _('Describe the steps, the visible result, and any message shown on screen.') ?>"></textarea>
+                                  <small class="form-text text-muted"><?= _('Tip: mention the page, the action, and the expected result.') ?></small>
+                              </div>
+                          </div>
+                          <div class="card bg-light mt-4 mb-0">
+                              <div class="card-body py-3">
+                                  <h5 class="mb-3 d-flex align-items-center">
+                                      <i class="fas fa-shield-alt text-info mr-2"></i><?= _('Before you submit') ?>
+                                  </h5>
+                                  <ul class="mb-0 pl-3">
+                                      <li><?= _("When you click \"submit,\" an error report will be posted to the CRM GitHub Issue tracker.") ?></li>
+                                      <li><?= _('Please do not include any confidential information.') ?></li>
+                                      <li><?= _('Some general information about your system will be submitted along with the request such as Server version and browser headers.') ?></li>
+                                      <li><?= _('No personally identifiable information will be submitted unless you purposefully include it.') ?></li>
+                                  </ul>
+                              </div>
+                          </div>
                       </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" id="submitIssue"><i class="fa fa-paper-plane" aria-hidden="true"></i> <?= _('Submit') ?></button>
+                      <div class="modal-footer border-0 pt-0 d-flex justify-content-between">
+                          <button type="button" class="btn btn-light" data-dismiss="modal">
+                              <i class="fas fa-times mr-1" aria-hidden="true"></i> <?= _('Cancel') ?>
+                          </button>
+                          <button type="button" class="btn btn-primary px-4" id="submitIssue"><i class="fa fa-paper-plane mr-1" aria-hidden="true"></i> <?= _('Submit') ?></button>
                       </div>
                   </form>
               </div>
               <div id="submitDiaglogFinish">
-                <div class="modal-header">
-                    <h4 class="modal-title"><?= _('Issue Report done!') ?></h4>
-                    <button type="button" class="close flush-right" data-dismiss="modal">&times;</button>
+                <div class="modal-header border-0 pb-0">
+                    <div>
+                        <h4 class="modal-title d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success mr-2"></i><?= _('Issue Report done!') ?>
+                        </h4>
+                        <p class="text-muted mb-0"><?= _('Your report has been submitted successfully.') ?></p>
+                    </div>
+                    <button type="button" class="close flush-right" data-dismiss="modal" aria-label="<?= _('Close') ?>">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-body"><h2><?= _("Successfully submitted Issue") ?> <span id="issueSubmitSucces"></span></h2>
-                <a href="" target="_blank" id="issueSubmitSuccesLink"><?= _("View Issue on GitHub")." : #" ?> <span id="issueSubmitSuccesLinkText"></span></a>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="submitIssueDone"><?= _('OK') ?></button>
+                <div class="modal-body pt-3">
+                    <div class="alert alert-success d-flex align-items-start mb-4">
+                        <i class="fas fa-check mt-1 mr-3"></i>
+                        <div>
+                            <h5 class="mb-1"><?= _("Successfully submitted Issue") ?> <span id="issueSubmitSucces"></span></h5>
+                            <p class="mb-0 text-muted"><?= _('You can open the created issue directly on GitHub from the link below.') ?></p>
+                        </div>
+                    </div>
+                    <a href="" target="_blank" id="issueSubmitSuccesLink" class="btn btn-outline-primary"><i class="fab fa-github mr-1"></i><?= _("View Issue on GitHub")." : #" ?> <span id="issueSubmitSuccesLinkText"></span></a>
                 </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-primary px-4" id="submitIssueDone"><i class="fas fa-check mr-1"></i><?= _('OK') ?></button>
                 </div>
               </div>
             </div>
