@@ -27,6 +27,60 @@ $(function () {
     var uploadWindow = null;
     var oldTextField = null;
 
+    const openFilePreviewDialog = function (id) {
+        var dialog = bootbox.dialog({
+            title: `<span class="d-inline-flex align-items-center"><span class="badge badge-primary badge-pill mr-2">EDrive</span><span class="font-weight-bold">${i18next.t('Preview')}</span></span>`,
+            message: `<div class="container-fluid px-0">
+                <div class="card border-0 shadow-sm mb-0">
+                <div class="card-body p-3 p-md-4 bg-light">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between border-bottom pb-3 mb-3">
+                <div class="mb-2 mb-md-0">
+                <div class="text-uppercase text-muted small font-weight-bold">${i18next.t('Document preview')}</div>
+                <div class="preview-title-global h4 mb-0 text-dark"></div>
+                </div>
+                <span class="badge badge-light border text-muted px-3 py-2">${i18next.t('Read only')}</span>
+                </div>
+                <div class="preview-global card border bg-white rounded-lg text-center overflow-auto"></div>
+                </div>
+                </div>
+                </div>`,
+            closeButton: true,
+            backdrop: true,
+            onEscape: true,
+            size: 'extra-large',
+            buttons: {
+                cancel: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Close'),
+                    className: 'btn-outline-secondary'
+                }
+            }
+        });
+
+        dialog.find('.preview-title-global').html('<span class="text-muted font-weight-normal">' + i18next.t('preview currently being created') + '</span>');
+
+        dialog.find('.preview-global').html(
+            `<div class="d-flex flex-column align-items-center justify-content-center py-5 px-3 text-muted">
+            <div class="spinner-border text-primary mb-3" role="status"><span class="sr-only">Loading...</span></div>
+            <div class="font-weight-bold mb-1">${i18next.t('preview currently being created')}</div>
+            <div class="small">${i18next.t('Please wait')}</div>
+            </div>`
+        );
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'filemanager/getPreview',
+            data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
+        }, function (data) {
+            if (data && data.success) {
+                dialog.find('.preview-title-global').html(`<span class="d-inline-flex align-items-center"><i class="fas fa-file-alt text-primary mr-2"></i><span class="font-weight-bold">${data.name}</span></span>`);
+                dialog.find('.preview-global').html(data.path);
+            } else {
+                dialog.find('.preview-title-global').html(`<span class="text-warning"><i class="fas fa-exclamation-triangle mr-2"></i>${i18next.t('Preview')}</span>`);
+                dialog.find('.preview-global').html(`<div class="alert alert-warning m-3 text-left"><div class="font-weight-bold mb-1">${i18next.t('Unable to create the preview')}</div><div class="small mb-0">${i18next.t('The selected file cannot be rendered in preview mode.')}</div></div>`);
+            }
+        });
+    }
+
     var DataTableOpts = {
         ajax: {
             url: window.CRM.root + "/api/filemanager/" + window.CRM.currentPersonID,
@@ -57,9 +111,9 @@ $(function () {
                         locked_icon = ' <i class="fa-solid fa-lock"></i>';
                     }
                     if (!full.dir) {
-                        return '<span class="drag drag-file" id="' + full.name + '" type="file" data-path="' + full.path + '" data-perid="' + full.perID + '">' + data + locked_icon+ '</span>';
+                        return `<span class="drag drag-file" id="${full.name}" type="file" data-path="${full.path}" data-perid="${full.perID}">${data}${locked_icon}</span>`;
                     } else {
-                        return '<a class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + full.name + '"><span class="drag drop" id="' + full.name + '" type="folder">' + data + locked_icon + '</span>';
+                        return `<a class="change-folder" data-personid="${window.CRM.currentPersonID}" data-folder="${full.name}"><span class="drag drop" id="${full.name}" type="folder">${data}${locked_icon}</span></a>`;
                     }
                 }
             },
@@ -72,12 +126,12 @@ $(function () {
                     if (full.dir) {
                         var fileName = data.substring(1);
 
-                        return '<input type="text" value="' + fileName + '" class="fileName form-control form-control-sm" data-name="' + data + '" data-type="folder" readonly>';
+                        return `<input type="text" value="${fileName}" class="fileName form-control form-control-sm" data-name="${data}" data-type="folder" readonly>`;
                     } else {
                         var fileName = data;
                         fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
 
-                        return '<input type="text" value="' + fileName + '" class="fileName form-control form-control-sm" data-name="' + data + '" data-type="file" readonly>';
+                        return `<input type="text" value="${fileName}" class="fileName form-control form-control-sm" data-name="${data}" data-type="file" readonly>`;
                     }
                 }
             },
@@ -87,21 +141,21 @@ $(function () {
                 data: 'id',
                 render: function (data, type, full, meta) {
                     if (!full.dir && !full.link) {
-                        var ret = '<div class="btn-group">' +
-                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="' + window.CRM.currentPersonID + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>' +
-                            '   <button type="button" class="btn ' + (full.isShared ? 'btn-success' : 'btn-outline-secondary') + ' btn-sm px-2 py-1 shareFile" data-personid="' + window.CRM.currentPersonID + '" data-id="' + data + '" data-shared="' + full.isShared + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>' +
-                            '</div>';
+                        var ret = `<div class="btn-group">
+   <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
+   <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
+</div>`;
                         return ret;
                     } else if (!full.link && full.name != '/public') {
-                        var ret = '<div class="btn-group">' +
-                            '   <button type="button" class="btn ' + (full.isShared ? 'btn-success' : 'btn-outline-secondary') + ' btn-sm px-2 py-1 shareFile" data-personid="' + window.CRM.currentPersonID + '" data-id="' + data + '" data-shared="' + full.isShared + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>' +
-                            '</div>';
+                        var ret = `<div class="btn-group">
+   <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
+</div>`;
                         return ret;
                     } else if (full.link) {
-                        var ret = '<div class="btn-group">' +
-                            '   <a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="' + window.CRM.currentPersonID + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>' +
-                            '   <button type="button" class="btn ' + (full.isShared ? 'btn-success' : 'btn-outline-secondary') + ' btn-sm px-2 py-1 shareFile" data-personid="' + window.CRM.currentPersonID + '" data-id="' + data + '" data-shared="' + full.isShared + '" data-bs-toggle="tooltip" data-bs-placement="top" title="Lien partagé"><i class="fa-solid fa-link file-action-icon"></i></button>' +
-                            '</div>';
+                        var ret = `<div class="btn-group">
+   <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
+   <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Lien partagé"><i class="fa-solid fa-link file-action-icon"></i></button>
+</div>`;
                         return ret;
                     }
 
@@ -181,8 +235,8 @@ $(function () {
 
             if (selected.length) {
                 bootbox.confirm({
-                    title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + title + '</span>',
-                    message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
+                    title: `<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ${title}</span>`,
+                    message: `<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ${i18next.t("This can't be undone !!!!")}</span>`,
                     buttons: {
                         cancel: {
                             label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
@@ -310,16 +364,21 @@ $(function () {
 
     // click in the table
     $('#edrive-table tbody').on('click', 'tr', function(event) {
-        if ($(event.target).closest('.fa-download').length 
-            || $(event.target).closest('.fileName').length
-            || $(event.target).closest('.change-folder').length) {
-            window.CRM.dblclick = false;
-            return;
-        }
-        let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment
         var data = window.CRM.dataEDriveTable.row(this).data();
         let id = data['name'];
+        let clickedCellIndex = $(event.target).closest('td').index();
 
+        if (clickedCellIndex === 0
+            && $(event.target).closest('.change-folder').length == 0 
+            && $(event.target).closest('.fa-download').length == 0 
+            && $(event.target).closest('.shareFile').length == 0 && id != '/public') {
+            // not click on a folder link : ie click on the line to select and show preview and not click on the line to open the folder    
+            openFilePreviewDialog(id);
+            return;        
+        }
+        
+        let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment
+        
         let ctrlKey = event.ctrlKey;// on pc        
         let altKey = event.altKey;
         let shiftKey = event.shiftKey;
@@ -371,24 +430,18 @@ $(function () {
             $("#trash-drop").addClass('disabled');            
         }
 
-        if (selectedRows != 1 || window.CRM.dblclick || id == '/public') {
+        if (selectedRows != 1 || window.CRM.dblclick || id == '/public' || clickedCellIndex !== 2) {
             $('.filmanager-right').hide();
         } else if (!window.CRM.dblclick){   
-
             $('.filmanager-right').show();
 
-            $('.preview').html("");
+            ///$('.preview').html("");
 
             $('.preview-title').html(i18next.t("preview currently being created"));
 
-            let h2 = document.createElement('h2');
+            let h2 = document.createElement('h2');            
 
-            let icon = document.createElement('i');
-            icon.setAttribute('class','fas fa-spin fa-spinner text-center');//fas fa-spin fa-spinner
-
-            h2.append(icon);
-
-            $('.preview').append(h2);                        
+            //$('.preview').append(h2);                        
             
             window.CRM.APIRequest({
                 method: 'POST',
@@ -397,7 +450,6 @@ $(function () {
             }, function (data) {
                 if (data && data.success) {                    
                     $('.preview-title').html(data.name);
-                    $('.preview').html(data.path);
                     if (data.link) {
                         $('.share-part').hide();
                         $('.share-part-another-user').show();
