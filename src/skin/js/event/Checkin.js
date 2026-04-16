@@ -7,8 +7,15 @@
 //
 
 window.CRM.editor = null;
+window.CRM.dataT = null;
 
 $(function() {
+
+    const reloadCheckinTable = function (resetPaging) {
+        if (window.CRM.dataT) {
+            window.CRM.dataT.ajax.reload(null, resetPaging === true);
+        }
+    };
 
     const addEvent = (dateStart, dateEnd) => {
         window.CRM.APIRequest({
@@ -77,9 +84,32 @@ $(function() {
         addEvent(dateStart, dateEnd);
     });
 
+    const getNextAttendanceState = function ($button) {
+        return parseInt($button.data('checked'), 10) !== 1;
+    };
+
+    const renderAttendanceButton = function (options) {
+        var buttonClass = 'btn btn-sm btn-block ' + options.variant;
+
+        if (options.isActive) {
+            buttonClass += ' active';
+        }
+
+        return `<button type="button"
+                        class="${buttonClass} ${options.actionClass}"
+                        data-personid="${options.personId}"
+                        data-eventid="${options.eventId}"
+                        data-checked="${options.isActive ? 1 : 0}"
+                        aria-pressed="${options.isActive ? 'true' : 'false'}"
+                        ${options.isDisabled ? 'disabled' : ''}>
+                    <i class="fas ${options.icon} mr-1"></i>${options.label}
+                </button>`;
+    };
+
 
     $(document).on("click", ".PersonCheckinChangeState", function () {
-        var checked = $(this).is(':checked');
+        var $button = $(this);
+        var checked = getNextAttendanceState($button);
         var personID = $(this).data("personid");
         var eventID = $(this).data("eventid");
 
@@ -89,13 +119,14 @@ $(function() {
             data: JSON.stringify({"checked": checked, "personID": personID, "eventID": eventID})
         },function (data) {
             if (data.status) {
-                window.CRM.dataT.ajax.reload(null, false);
+                reloadCheckinTable(false);
             }
         });
     });
 
     $(document).on("click", ".PersonCheckoutChangeState", function () {
-        var checked = $(this).is(':checked');
+        var $button = $(this);
+        var checked = getNextAttendanceState($button);
         var personID = $(this).data("personid");
         var eventID = $(this).data("eventid");
 
@@ -105,7 +136,7 @@ $(function() {
             data: JSON.stringify({"checked": checked, "personID": personID, "eventID": eventID})
         },function (data) {
             if (data.status) {
-                window.CRM.dataT.ajax.reload(null, false);
+                reloadCheckinTable(false);
             }
         });
     });
@@ -141,7 +172,7 @@ $(function() {
             data: JSON.stringify({"eventID": eventID, "type": type})
         },function (data) {
             setToggleButtonState($button, !isChecked);
-            window.CRM.dataT.ajax.reload(null, false);
+            reloadCheckinTable(false);
         });
     });
 
@@ -155,7 +186,7 @@ $(function() {
             path: 'attendees/addPerson',
             data: JSON.stringify({"eventID": window.CRM.EventID, "iChildID": childid, "iAdultID": adultid})
         },function (data) {
-            window.CRM.dataT.ajax.reload();
+            reloadCheckinTable(true);
             SetPersonHtml($('#childDetails'), null);
             SetPersonHtml($('#adultDetails'), null);
             $("#child").val("");
@@ -168,10 +199,31 @@ $(function() {
         var eventId = $(this).data('eventid');
 
         bootbox.confirm({
-            title: i18next.t("User Delete Confirmation"),
-            message: '<p style="color: red">' +
-                i18next.t("Be carefull, You are about to delete a user from the group and therefore the entire call history. This is strongly to be avoided.") + '<br><br>' +
-                i18next.t("This can't be undone") + ' !!!!!!</p>',
+            title: `<span class="d-flex align-items-center">
+                <i class="fas fa-exclamation-triangle text-warning mr-2"></i>
+                <span>${i18next.t("Delete attendee")}</span>
+            </span>`,
+            message: `<div class="text-left">
+                <div class="alert alert-warning mb-3" role="alert">
+                    <div class="font-weight-bold mb-1">${i18next.t("This action is permanent")}</div>
+                    <div>${i18next.t("This can't be undone.")}</div>
+                </div>
+                <p class="mb-3">${i18next.t("You are about to remove this attendee from the event.")}</p>
+                <ul class="mb-0 pl-3">
+                    <li>${i18next.t("The attendee will be removed from this event.")}</li>
+                    <li>${i18next.t("Related attendance history may also be affected.")}</li>
+                </ul>
+            </div>`,
+            buttons: {
+                confirm: {
+                    label: `<i class="far fa-trash-alt mr-1"></i>${i18next.t("Delete")}`,
+                    className: 'btn btn-outline-danger'
+                },
+                cancel: {
+                    label: `<i class="fas fa-times mr-1"></i>${i18next.t("Cancel")}`,
+                    className: 'btn btn-outline-secondary'
+                }
+            },
             callback: function (result) {
                 if (result) {
                     window.CRM.APIRequest({
@@ -179,7 +231,7 @@ $(function() {
                         path: 'attendees/deletePerson',
                         data: JSON.stringify({"eventID": eventId, "personID": personId})
                     },function (data) {
-                        window.CRM.dataT.ajax.reload();
+                        reloadCheckinTable(true);
                     });
                 }
             }
@@ -238,23 +290,37 @@ $(function() {
                     title: i18next.t('Action'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        return '<label>\n' +
-                            '       <input ' + full.isCheckinDate + ' type="checkbox"\n' +
-                            '              data-personid="' + data + '"\n' +
-                            '              data-eventid="' + window.CRM.EventID + '"\n' +
-                            '              class="PersonCheckinChangeState"\n' +
-                            '              id="PersonCheckinChangeState-' + data + '">\n' +
-                            '       <span id="presenceID' + data + '" style="color:blue"> ' + i18next.t("Checkin") + '</span>\n' +
-                            '       </label>\n' +
-                            '       <br/>\n' +
-                            '       <label>\n' +
-                            '           <input ' + full.isCheckoutDate + ' type="checkbox"\n' +
-                            '               data-personid="' + data + '"\n' +
-                            '               data-eventid="' + window.CRM.EventID + '"\n' +
-                            '               class="PersonCheckoutChangeState"\n' +
-                            '               id="PersonCheckoutChangeState-' + data + '">\n' +
-                            '               <span id="presenceID' + data + '" style="color:green"> ' + i18next.t("Checkout") + '</span>\n' +
-                            '       </label>';
+                        var isCheckinActive = String(full.isCheckinDate || '').indexOf('checked') > -1;
+                        var isCheckinDisabled = String(full.isCheckinDate || '').indexOf('disabled') > -1;
+                        var isCheckoutActive = String(full.isCheckoutDate || '').indexOf('checked') > -1;
+                        var isCheckoutDisabled = String(full.isCheckoutDate || '').indexOf('disabled') > -1;
+
+                        return `<div class="btn-group-vertical btn-group-sm w-100" role="group" aria-label="${i18next.t('Attendance actions')}">
+                            <div class="mb-2">
+                                ${renderAttendanceButton({
+                                    actionClass: 'PersonCheckinChangeState',
+                                    personId: data,
+                                    eventId: window.CRM.EventID,
+                                    isActive: isCheckinActive,
+                                    isDisabled: isCheckinDisabled,
+                                    variant: 'btn-outline-primary',
+                                    icon: 'fa-sign-in-alt',
+                                    label: i18next.t('Checkin')
+                                })}
+                            </div>
+                            <div>
+                                ${renderAttendanceButton({
+                                    actionClass: 'PersonCheckoutChangeState',
+                                    personId: data,
+                                    eventId: window.CRM.EventID,
+                                    isActive: isCheckoutActive,
+                                    isDisabled: isCheckoutDisabled,
+                                    variant: 'btn-outline-success',
+                                    icon: 'fa-sign-out-alt',
+                                    label: i18next.t('Checkout')
+                                })}
+                            </div>
+                        </div>`;
                     }
                 },
 
@@ -312,7 +378,12 @@ $(function() {
                     title: i18next.t('Delete'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        return '<i class="far fa-trash-alt DeleteBtn"' + ' data-id="' + full.Id + '" + data-eventid="' + window.CRM.EventID + '" style="color:red"></i>';
+                        return `<button type="button"
+                                        class="btn btn-sm btn-outline-danger DeleteBtn"
+                                        data-id="${full.Id}"
+                                        data-eventid="${window.CRM.EventID}">
+                                    <i class="far fa-trash-alt mr-1"></i>${i18next.t('Delete')}
+                                </button>`;
                     }
                 },
 
@@ -340,6 +411,13 @@ $(function() {
             customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_minimal.js',
             language: window.CRM.lang,
             skin:theme
+        });
+
+        editor.on('instanceReady', function () {
+            var editableBody = editor.document.getBody();
+
+            editableBody.setStyle('background-color', '#ffc107');
+            editableBody.setStyle('color', '#212529');
         });
         
 
@@ -403,20 +481,29 @@ $(function() {
     /* QRCode code */
     const BootboxContent = () => {
 
-        var frm_str = '<div>'
-            +'  <div class="row">'
-            +'      <div class="col-md-12">'
-            +'          <div id="loadingMessage">🎥 '+ i18next.t("Unable to access video stream (please make sure you have a webcam enabled)") + '</div>'
-            +'      </div>'
-            +'  </div>'
-            +'  <div class="row">'
-            +'      <div class="col-md-12">'
-            +'           <canvas id="canvas" hidden></canvas></div>'
-            +'           <div id="output" hidden>'
-            +'           <div id="outputMessage">' + i18next.t("no detected QR Code") + '</div>'
-            +'           <div hidden><b>Data:</b> <span id="outputData"></span></div>'
-            +'      </div>'
-            +'  </div>';
+        var frm_str = `<div class="qr-scanner-modal">
+            <div class="qr-scanner-header mb-3">
+                <h5 class="mb-2">${i18next.t("Scan a QR Code")}</h5>
+                <p class="mb-0 text-muted">${i18next.t("Point your camera at a QR code to check in attendees automatically.")}</p>
+            </div>
+            <div class="qr-scanner-stage">
+                <div id="loadingMessage" class="qr-scanner-status qr-scanner-status-loading">
+                    <span class="qr-scanner-status-icon"><i class="fas fa-camera"></i></span>
+                    <span class="qr-scanner-status-text">${i18next.t("Unable to access video stream (please make sure you have a webcam enabled)")}</span>
+                </div>
+                <canvas id="canvas" class="qr-scanner-canvas" hidden></canvas>
+            </div>
+            <div id="output" class="qr-scanner-feedback" hidden>
+                <div id="outputMessage" class="qr-scanner-status qr-scanner-status-idle">
+                    <span class="qr-scanner-status-icon"><i class="fas fa-search"></i></span>
+                    <span>${i18next.t("No QR code detected yet. Keep the code inside the frame.")}</span>
+                </div>
+                <div class="qr-scanner-result" hidden>
+                    <span class="qr-scanner-result-label">${i18next.t("Detected data")}</span>
+                    <span id="outputData" class="qr-scanner-result-value"></span>
+                </div>
+            </div>
+        </div>`;
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -459,7 +546,7 @@ $(function() {
                 var qrcode = '';
 
                 function tick() {
-                    loadingMessage.innerText = "⌛ " + i18next.t("Loading video...");
+                    loadingMessage.innerHTML = '<span class="qr-scanner-status-icon"><i class="fas fa-spinner fa-spin"></i></span><span class="qr-scanner-status-text">' + i18next.t("Loading video...") + '</span>';
                     if (video.readyState === video.HAVE_ENOUGH_DATA) {
                         loadingMessage.hidden = true;
                         canvasElement.hidden = false;
@@ -502,7 +589,7 @@ $(function() {
                                         alert(i18next.t("Failed") + " : " + i18next.t("No event now.") );
                                     } else {
                                         alert(i18next.t('Success') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + i18next.t("User") + ' : ' + data.person);
-                                        window.CRM.dataT.ajax.reload(null, false);
+                                        reloadCheckinTable(false);
                                     }
                                 });
                             }
@@ -533,7 +620,7 @@ $(function() {
 
 
     setInterval(function(){
-            window.CRM.dataT.ajax.reload(null, false);
+            reloadCheckinTable(false);
         }, 8000
     );
 
