@@ -325,8 +325,8 @@ require $sRootDocument . '/Include/Header.php';
                     </h3>
                 </div>
                 <div class="card-body bg-warning text-dark p-1">
-                    <small><label for="NoteText" class="mb-2 text-white"><i class="fa fa-info-circle" style="font-size:0.6rem;"></i> <?= _("Add some notes") ?></label></small>
-                    <textarea id="NoteText" name="NoteText" class="form-control" style="min-height: 300px; background-color: #fff9db; border-color: #e0c97f;"
+                    <small><label for="NoteText" class="mb-2 text-dark"><i class="fa fa-info-circle" style="font-size:0.6rem;"></i> <?= _("Add some notes") ?></label></small>
+                    <textarea id="NoteText" name="NoteText" class="form-control bg-warning text-dark border-warning" style="min-height: 300px;"
                               rows="12"><?= $sNoteText ?></textarea>
                 </div>
             </div>
