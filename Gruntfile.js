@@ -195,22 +195,7 @@ module.exports = function (grunt) {
                         flatten: true,
                         src: ['node_modules/jquery/dist/jquery.min.js'],
                         dest: 'src/skin/external/jquery/'
-                    },
-
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/jquery-steps/build/jquery.steps.min.js', 'node_modules/jquery-steps/demo/css/jquery.steps.css'],
-                        dest: 'src/skin/external/jquery.steps/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/jquery-validation/dist/jquery.validate.min.js'],
-                        dest: 'src/skin/external/jquery-validation/'
-                    },
+                    },                                        
                     {
                         expand: true,
                         filter: 'isFile',
