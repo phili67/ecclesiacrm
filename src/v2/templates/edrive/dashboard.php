@@ -113,83 +113,94 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="col filmanager-right" style="display: none;">
                 <div class="sticky-top">
-                    <label class="preview-title-label">
-                        <span class="preview-title" style="width: 100%;"></span><button type="button" class="close close-file-preview" data-dismiss="alert" aria-hidden="true">×</button>
-                        <hr class="hr-filemanager" />
-                        <span class="preview"></span>
-                    </label>
-                    <br>
-                    <div class="share-part">
-                        <label><?= _("Internal sharing") ?></label>
-                        <span class="shared" width="100%"></span>
-                        <div>
-                            <div class="row div-title">
-                                <div class="col-md-2">
-                                    <span class="text-red">*</span><?= _("Add users") ?> :
+                    <div class="card card-outline card-primary shadow-sm mb-3">
+                        <div class="card-header">
+                            <div class="d-flex align-items-start justify-content-between">
+                                <div class="mr-3">
+                                    <div class="preview-title h5 mb-0"></div>
                                 </div>
-                                <div class="col-md-7">
-                                    <a data-toggle="popover" title="" data-content="<?= _("Use this method to share files with individuals or teams within your organization. If the recipient already has access to the share, but can't locate it, you can send them the internal link to facilitate access.") ?>" target="_blank" class="blue infoFiles" data-original-title="<?= _("Definition") ?>"><i class="far  fa-question-circle"></i></a>
-                                    <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:90%"></select>
-                                </div>
-                                 <div class="col-md-3">
-                                    <select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
-                                        <option value="2">[👀 ] -- [R ]</option>
-                                        <option value="3">[👀 ✐] -- [RW]</option>
-                                    </select>
-                                </div>
-                            </div>                            
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <span class="text-red">*</span>
-                                    <input id="sendEmail-sabre" type="checkbox" name="sendEmail-sabre"> <label for="sendEmail-sabre" class="fille-mamager-label-small"><?= _("Send email notification") ?></label>
-                                </div>                                
+                                <button type="button" class="close close-file-preview" data-dismiss="alert" aria-label="<?= _("Close") ?>">
+                                    <span aria-hidden="true">×</span>
+                                </button>
                             </div>
-                            <div class="row div-title">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-8 col-center">
-                                    <button type="button" class="btn btn-sm btn-secondary btn-xs"
-                                        id="delete-all-share"
-                                        data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>"
-                                        disabled><i class="fas fa-times"></i> <?= _("Delete") ?></button>
-                                    &nbsp;
-                                    <button type="button" class="btn btn-sm btn-secondary btn-xs" id="delete-share"
-                                        data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>"
-                                        disabled><i class="far fa-stop-circle"></i> <?= _("Stop sharing") ?></button>
-                                </div>
-                            </div>
-                            <div class="row div-title-file-manager">
-                                <div class="col-md-4">
-                                    <span class="text-red">*</span><?= _("With") ?>:
-                                </div>
-                                <div class="col-md-8">
-                                    <select size="6" id="select-share-persons-sabre" class="form-control form-control-access-rights" multiple>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row div-title-file-manager">
-                                <div class="col-md-4"><span class="text-red">*</span><?= _("Set Rights") ?>:</div>
-                                <div class="col-md-8">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle btn-xs" type="button"
-                                            id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false" disabled>
-                                            <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . "--" ?>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <button class="dropdown-item" role="button" id="set-right-read"><?= _("[👀  ]") . ' -- ' . _("[R ]") ?></button>
-                                            <button class="dropdown-item" role="button" id="set-right-read-write"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                            
-                            <br />
                         </div>
                     </div>
-                    <div class="share-part-another-user" style="display: none; ">
-                        <label><?= _("Share By") ?></label>
-                        <hr class="hr-filemanager">
-                        <span class="shared" width="100%"></span>
-                        <div class="share-part-another-user-content"></div>
+
+                    <div class="share-part card card-outline card-secondary shadow-sm mb-3">
+                        <div class="card-header">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <h3 class="card-title mb-0"><i class="fas fa-share-alt mr-1 text-secondary"></i> <?= _("Internal sharing") ?></h3>
+                                </div>
+                                <a data-toggle="popover" title="" data-content="<?= _("Use this method to share files with individuals or teams within your organization. If the recipient already has access to the share, but can't locate it, you can send them the internal link to facilitate access.") ?>" target="_blank" class="text-info infoFiles" data-original-title="<?= _("Definition") ?>"><i class="far fa-question-circle"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted small mb-3"><?= _("Choose people, define their access rights, then manage existing shares from the list below.") ?></p>
+                            <span class="shared d-block w-100 mb-3"></span>
+
+                            <div class="form-group mb-3">
+                                <label for="preview-person-group-sabre-Id" class="font-weight-bold mb-2"><span class="text-danger">*</span> <?= _("Add users") ?></label>
+                                <div class="row">
+                                    <div class="col-md-8 mb-2 mb-md-0">
+                                        <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:100%"></select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
+                                            <option value="2">[👀 ] -- [R ]</option>
+                                            <option value="3">[👀 ✐] -- [RW]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input id="sendEmail-sabre" type="checkbox" name="sendEmail-sabre" class="custom-control-input">
+                                <label for="sendEmail-sabre" class="custom-control-label fille-mamager-label-small"><?= _("Send email notification") ?></label>
+                            </div>
+
+                            <div class="border rounded p-3 bg-light mb-3">
+                                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-2">
+                                    <label for="select-share-persons-sabre" class="mb-2 mb-md-0"><span class="text-danger">*</span> <?= _("Shared with") ?></label>
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-outline-secondary"
+                                            id="delete-all-share"
+                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>"
+                                            disabled><i class="fas fa-times mr-1"></i></button>
+                                        <button type="button" class="btn btn-outline-secondary" id="delete-share"
+                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>"
+                                            disabled><i class="far fa-stop-circle mr-1"></i></button>
+                                    </div>
+                                </div>
+                                <select size="" id="select-share-persons-sabre" class="form-control" multiple>
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-0">
+                                <label class="font-weight-bold d-block mb-2"><span class="text-danger">*</span> <?= _("Set Rights") ?></label>
+                                <div class="dropdown">
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                        id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false" disabled>
+                                        <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . " --" ?>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonRights">
+                                        <button class="dropdown-item" role="button" id="set-right-read"><?= _("[👀  ]") . ' -- ' . _("[R ]") ?></button>
+                                        <button class="dropdown-item" role="button" id="set-right-read-write"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="share-part-another-user card card-outline card-warning shadow-sm" style="display: none; ">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0"><i class="fas fa-link mr-1 text-warning"></i> <?= _("Share By") ?></h3>
+                        </div>
+                        <div class="card-body">
+                            <span class="shared d-block w-100 mb-3"></span>
+                            <div class="share-part-another-user-content"></div>
+                        </div>
                     </div>
                 </div>
             </div>
