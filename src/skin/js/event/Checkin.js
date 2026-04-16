@@ -7,8 +7,15 @@
 //
 
 window.CRM.editor = null;
+window.CRM.dataT = null;
 
 $(function() {
+
+    const reloadCheckinTable = function (resetPaging) {
+        if (window.CRM.dataT) {
+            window.CRM.dataT.ajax.reload(null, resetPaging === true);
+        }
+    };
 
     const addEvent = (dateStart, dateEnd) => {
         window.CRM.APIRequest({
@@ -89,7 +96,7 @@ $(function() {
             data: JSON.stringify({"checked": checked, "personID": personID, "eventID": eventID})
         },function (data) {
             if (data.status) {
-                window.CRM.dataT.ajax.reload(null, false);
+                reloadCheckinTable(false);
             }
         });
     });
@@ -105,7 +112,7 @@ $(function() {
             data: JSON.stringify({"checked": checked, "personID": personID, "eventID": eventID})
         },function (data) {
             if (data.status) {
-                window.CRM.dataT.ajax.reload(null, false);
+                reloadCheckinTable(false);
             }
         });
     });
@@ -141,7 +148,7 @@ $(function() {
             data: JSON.stringify({"eventID": eventID, "type": type})
         },function (data) {
             setToggleButtonState($button, !isChecked);
-            window.CRM.dataT.ajax.reload(null, false);
+            reloadCheckinTable(false);
         });
     });
 
@@ -155,7 +162,7 @@ $(function() {
             path: 'attendees/addPerson',
             data: JSON.stringify({"eventID": window.CRM.EventID, "iChildID": childid, "iAdultID": adultid})
         },function (data) {
-            window.CRM.dataT.ajax.reload();
+            reloadCheckinTable(true);
             SetPersonHtml($('#childDetails'), null);
             SetPersonHtml($('#adultDetails'), null);
             $("#child").val("");
@@ -179,7 +186,7 @@ $(function() {
                         path: 'attendees/deletePerson',
                         data: JSON.stringify({"eventID": eventId, "personID": personId})
                     },function (data) {
-                        window.CRM.dataT.ajax.reload();
+                        reloadCheckinTable(true);
                     });
                 }
             }
@@ -238,23 +245,23 @@ $(function() {
                     title: i18next.t('Action'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        return '<label>\n' +
-                            '       <input ' + full.isCheckinDate + ' type="checkbox"\n' +
-                            '              data-personid="' + data + '"\n' +
-                            '              data-eventid="' + window.CRM.EventID + '"\n' +
-                            '              class="PersonCheckinChangeState"\n' +
-                            '              id="PersonCheckinChangeState-' + data + '">\n' +
-                            '       <span id="presenceID' + data + '" style="color:blue"> ' + i18next.t("Checkin") + '</span>\n' +
-                            '       </label>\n' +
-                            '       <br/>\n' +
-                            '       <label>\n' +
-                            '           <input ' + full.isCheckoutDate + ' type="checkbox"\n' +
-                            '               data-personid="' + data + '"\n' +
-                            '               data-eventid="' + window.CRM.EventID + '"\n' +
-                            '               class="PersonCheckoutChangeState"\n' +
-                            '               id="PersonCheckoutChangeState-' + data + '">\n' +
-                            '               <span id="presenceID' + data + '" style="color:green"> ' + i18next.t("Checkout") + '</span>\n' +
-                            '       </label>';
+                        return `<label>
+                            <input ${full.isCheckinDate} type="checkbox"
+                                   data-personid="${data}"
+                                   data-eventid="${window.CRM.EventID}"
+                                   class="PersonCheckinChangeState"
+                                   id="PersonCheckinChangeState-${data}">
+                            <span id="presenceID${data}" style="color:blue"> ${i18next.t("Checkin")}</span>
+                        </label>
+                        <br/>
+                        <label>
+                            <input ${full.isCheckoutDate} type="checkbox"
+                                   data-personid="${data}"
+                                   data-eventid="${window.CRM.EventID}"
+                                   class="PersonCheckoutChangeState"
+                                   id="PersonCheckoutChangeState-${data}">
+                            <span id="presenceID${data}" style="color:green"> ${i18next.t("Checkout")}</span>
+                        </label>`;
                     }
                 },
 
@@ -312,7 +319,7 @@ $(function() {
                     title: i18next.t('Delete'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        return '<i class="far fa-trash-alt DeleteBtn"' + ' data-id="' + full.Id + '" + data-eventid="' + window.CRM.EventID + '" style="color:red"></i>';
+                        return `<i class="far fa-trash-alt DeleteBtn" data-id="${full.Id}" data-eventid="${window.CRM.EventID}" style="color:red"></i>`;
                     }
                 },
 
@@ -403,20 +410,29 @@ $(function() {
     /* QRCode code */
     const BootboxContent = () => {
 
-        var frm_str = '<div>'
-            +'  <div class="row">'
-            +'      <div class="col-md-12">'
-            +'          <div id="loadingMessage">🎥 '+ i18next.t("Unable to access video stream (please make sure you have a webcam enabled)") + '</div>'
-            +'      </div>'
-            +'  </div>'
-            +'  <div class="row">'
-            +'      <div class="col-md-12">'
-            +'           <canvas id="canvas" hidden></canvas></div>'
-            +'           <div id="output" hidden>'
-            +'           <div id="outputMessage">' + i18next.t("no detected QR Code") + '</div>'
-            +'           <div hidden><b>Data:</b> <span id="outputData"></span></div>'
-            +'      </div>'
-            +'  </div>';
+        var frm_str = `<div class="qr-scanner-modal">
+            <div class="qr-scanner-header mb-3">
+                <h5 class="mb-2">${i18next.t("Scan a QR Code")}</h5>
+                <p class="mb-0 text-muted">${i18next.t("Point your camera at a QR code to check in attendees automatically.")}</p>
+            </div>
+            <div class="qr-scanner-stage">
+                <div id="loadingMessage" class="qr-scanner-status qr-scanner-status-loading">
+                    <span class="qr-scanner-status-icon"><i class="fas fa-camera"></i></span>
+                    <span class="qr-scanner-status-text">${i18next.t("Unable to access video stream (please make sure you have a webcam enabled)")}</span>
+                </div>
+                <canvas id="canvas" class="qr-scanner-canvas" hidden></canvas>
+            </div>
+            <div id="output" class="qr-scanner-feedback" hidden>
+                <div id="outputMessage" class="qr-scanner-status qr-scanner-status-idle">
+                    <span class="qr-scanner-status-icon"><i class="fas fa-search"></i></span>
+                    <span>${i18next.t("No QR code detected yet. Keep the code inside the frame.")}</span>
+                </div>
+                <div class="qr-scanner-result" hidden>
+                    <span class="qr-scanner-result-label">${i18next.t("Detected data")}</span>
+                    <span id="outputData" class="qr-scanner-result-value"></span>
+                </div>
+            </div>
+        </div>`;
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -459,7 +475,7 @@ $(function() {
                 var qrcode = '';
 
                 function tick() {
-                    loadingMessage.innerText = "⌛ " + i18next.t("Loading video...");
+                    loadingMessage.innerHTML = '<span class="qr-scanner-status-icon"><i class="fas fa-spinner fa-spin"></i></span><span class="qr-scanner-status-text">' + i18next.t("Loading video...") + '</span>';
                     if (video.readyState === video.HAVE_ENOUGH_DATA) {
                         loadingMessage.hidden = true;
                         canvasElement.hidden = false;
@@ -502,7 +518,7 @@ $(function() {
                                         alert(i18next.t("Failed") + " : " + i18next.t("No event now.") );
                                     } else {
                                         alert(i18next.t('Success') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + i18next.t("User") + ' : ' + data.person);
-                                        window.CRM.dataT.ajax.reload(null, false);
+                                        reloadCheckinTable(false);
                                     }
                                 });
                             }
@@ -533,7 +549,7 @@ $(function() {
 
 
     setInterval(function(){
-            window.CRM.dataT.ajax.reload(null, false);
+            reloadCheckinTable(false);
         }, 8000
     );
 
