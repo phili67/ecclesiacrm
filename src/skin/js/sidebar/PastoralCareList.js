@@ -193,10 +193,10 @@ window.CRM.dataPastoralCareTypeTable = new DataTable("#pastoral-careTable", {
       render: function (data, type, full, meta) {
         return `
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-outline-primary btn-xs edit-pastoral-care" data-id="${data}" title="${i18next.t('Edit')}">
+            <button type="button" class="btn btn-outline-primary btn-sm edit-pastoral-care" data-id="${data}" title="${i18next.t('Edit')}">
               <i class="fas fa-pen"></i>
             </button>
-            <button type="button" class="btn btn-outline-danger btn-xs delete-pastoral-care" data-id="${data}" title="${i18next.t('Delete')}">
+            <button type="button" class="btn btn-outline-danger btn-sm delete-pastoral-care" data-id="${data}" title="${i18next.t('Delete')}">
               <i class="fa fa-trash-can"></i>
             </button>
           </div>
