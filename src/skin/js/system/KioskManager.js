@@ -138,15 +138,15 @@ $(function() {
                     title: i18next.t('Actions'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        buttons = "<button class='btn btn-outline-secondary btn-xs reload reloadKiosk' data-id='" + full.Id + "' >"
+                        buttons = "<button class='btn btn-outline-secondary btn-sm reload reloadKiosk' data-id='" + full.Id + "' >"
                             + "<i class='fas fa-sync-alt me-1'></i> " + i18next.t("Reload") + "</button>" +
-                            " <button class='btn btn-outline-secondary btn-xs identify identifyKiosk' data-id='" + full.Id + "' >"
+                            " <button class='btn btn-outline-secondary btn-sm identify identifyKiosk' data-id='" + full.Id + "' >"
                             + "<i class='fas fa-bullseye me-1'></i> " + i18next.t("Identify") + "</button>";
                         if(!full.Accepted){
-                            buttons += " <button class='btn btn-outline-primary btn-xs accept acceptKiosk' data-id='" + full.Id + "' >"
+                            buttons += " <button class='btn btn-outline-primary btn-sm accept acceptKiosk' data-id='" + full.Id + "' >"
                                 + "<i class='fas fa-check-circle me-1'></i>" + i18next.t("Accept") + "</button>";
                         }
-                        buttons += " <button class='btn btn-outline-danger btn-xs deleteKiosk' data-id='" + full.Id + "' >"
+                        buttons += " <button class='btn btn-outline-danger btn-sm deleteKiosk' data-id='" + full.Id + "' >"
                             + "<i class='fas fa-trash-alt me-1'></i> " + i18next.t("Delete") + "</button>";
                         return buttons;
                     }
