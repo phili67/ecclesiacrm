@@ -189,38 +189,41 @@ document.addEventListener("DOMContentLoaded", function () {
     columns: [
       {
         width: 'auto',
-        title: "",
+        title: `<span class="text-muted fw-semibold"><i class="fas fa-sort-numeric-down-alt me-1"></i>${i18next.t('Order')}</span>`,
         data: 'realplace',
         render: function (data, type, full, meta) {
-          return data;
-        }
-      },
-      {
-        width: 'auto',
-        title: i18next.t('Place'),
-        data: 'Order',
-        render: function (data, type, full, meta) {
-          var res = "<center>";
+          var res = `<span class="badge bg-secondary">${data}</span>`;
+          res += '&nbsp;&nbsp; <div class="btn-group" role="group">';
           if (full.place == "first" || full.place == "intermediate") {
-            res += '<a href="#" class="down_action" data-id="' + full.Id + '" data-order="' + full.Order + '"><i class="fa-solid fa-arrow-down"></i></a>';
+            res += '<a href="#" class="down_action btn btn-outline-secondary btn-sm" data-id="' + full.Id + '" data-order="' + full.Order + '"><i class="fa-solid fa-arrow-down"></i></a>';
           }
           if (full.place == "last" || full.place == "intermediate") {
-            res += '<a href="#" class="up_action" data-id="' + full.Id + '" data-order="' + full.Order + '"><i class="fa-solid fa-arrow-up"></i></a>';
+            res += '<a href="#" class="up_action btn btn-outline-secondary btn-sm" data-id="' + full.Id + '" data-order="' + full.Order + '"><i class="fa-solid fa-arrow-up"></i></a>';
           }
-          return res + "</center>";
+          return res;
         }
-      },
+      },      
       {
         width: 'auto',
-        title: i18next.t('Actions'),
+        title: `<span class="text-primary fw-semibold"><i class="fas fa-sliders-h me-1"></i>${i18next.t('Actions')}</span>`,
         data: 'Id',
         render: function (data, type, full, meta) {
-          return '<a class="edit-menu-links" data-id="' + data + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-menu-links" data-id="' + data + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
+          var res = `<div class="btn-group" role="group">
+            <a class="edit-menu-links btn btn-outline-primary btn-sm" data-id="${data}">
+              <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+            </a>
+            <a class="delete-menu-links btn btn-outline-danger btn-sm" data-id="${data}">
+              <i class="far fa-trash-alt" aria-hidden="true"></i>
+            </a>
+          </div>`;
+          
+          
+          return res + "</div>";
         }
       },
       {
         width: 'auto',
-        title: i18next.t('Name'),
+        title: `<span class="text-dark fw-semibold"><i class="fas fa-signature me-1"></i>${i18next.t('Name')}</span>`,
         data: 'Name',
         render: function (data, type, full, meta) {
           return data;
@@ -228,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         width: 'auto',
-        title: i18next.t('Uri'),
+        title: `<span class="text-info fw-semibold"><i class="fas fa-link me-1"></i>${i18next.t('Uri')}</span>`,
         data: 'Uri',
         render: function (data, type, full, meta) {
           return '<a href="' + data + '" target="_blank">' + data + '</a>';

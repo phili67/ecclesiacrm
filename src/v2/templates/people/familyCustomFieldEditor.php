@@ -402,12 +402,12 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
                                         <td>
                                             <div class="btn-group" role="group">
                                                 <?php if ($row > 1) { ?>
-                                                    <button type="button" class="btn btn-outline-secondary btn-xs up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Move up') ?>"><i class="fa-solid fa-arrow-up"></i></button>
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Move up') ?>"><i class="fa-solid fa-arrow-up"></i></button>
                                                 <?php } ?>
                                                 <?php if ($row < $numRows) { ?>
-                                                    <button type="button" class="btn btn-outline-secondary btn-xs down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Move down') ?>"><i class="fa-solid fa-arrow-down"></i></button>
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Move down') ?>"><i class="fa-solid fa-arrow-down"></i></button>
                                                 <?php } ?>
-                                                <button type="button" class="btn btn-outline-danger btn-xs delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Delete') ?>"><i class="fa fa-trash-can"></i></button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Delete') ?>"><i class="fa fa-trash-can"></i></button>
                                             </div>
                                         </td>
                                         <td class="TextColumn">

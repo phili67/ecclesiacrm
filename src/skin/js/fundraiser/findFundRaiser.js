@@ -83,7 +83,7 @@ $(function () {
                 orderable: false,
                 className: 'text-center align-middle',
                 render: function (data, type, full) {
-                    return '<a class="btn btn-xs btn-outline-primary" href="' + window.CRM.root + '/v2/fundraiser/editor/' + full.Id + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
+                    return '<a class="btn btn-sm btn-outline-primary" href="' + window.CRM.root + '/v2/fundraiser/editor/' + full.Id + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
                 }
             },
             {

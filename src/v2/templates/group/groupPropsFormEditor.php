@@ -364,12 +364,12 @@ if (isset($_POST['SaveChanges'])) {
                     <td>
                       <div class="btn-group" role="group">
                         <?php if ($row != 1) { ?>
-                          <button type="button" class="up-action btn btn-outline-secondary btn-xs" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Monter') ?>"><i class="fa-solid fa-arrow-up"></i></button>
+                          <button type="button" class="up-action btn btn-outline-secondary btn-sm" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Monter') ?>"><i class="fa-solid fa-arrow-up"></i></button>
                         <?php } ?>
                         <?php if ($row < $numRows) { ?>
-                          <button type="button" class="down-action btn btn-outline-secondary btn-xs" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Descendre') ?>"><i class="fa-solid fa-arrow-down"></i></button>
+                          <button type="button" class="down-action btn btn-outline-secondary btn-sm" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Descendre') ?>"><i class="fa-solid fa-arrow-down"></i></button>
                         <?php } ?>
-                        <button type="button" class="delete-field btn btn-outline-danger btn-xs" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Supprimer') ?>"><i class="fa fa-trash-can"></i></button>
+                        <button type="button" class="delete-field btn btn-outline-danger btn-sm" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" title="<?= _('Supprimer') ?>"><i class="fa fa-trash-can"></i></button>
                       </div>
                     </td>
                     <td>
@@ -398,7 +398,7 @@ if (isset($_POST['SaveChanges'])) {
                           <span class="text-danger small"><i class="fas fa-exclamation-circle"></i> <?= _('Vous devez sélectionner un groupe.') ?></span>
                         <?php } ?>
                       <?php } elseif ($aTypeFields[$row] == 12) { ?>
-                        <a class="btn btn-outline-success btn-xs" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/v2/system/option/manager/groupcustom/<?= $aSpecialFields[$row] ?>','Newwin','toolbar=no,status=no,width=400,height=500')"><i class="fas fa-edit me-1"></i><?= _("Modifier les options de la liste") ?></a>
+                        <a class="btn btn-outline-success btn-sm" href="javascript:void(0)" onClick="Newwin=window.open('<?= $sRootPath ?>/v2/system/option/manager/groupcustom/<?= $aSpecialFields[$row] ?>','Newwin','toolbar=no,status=no,width=400,height=500')"><i class="fas fa-edit me-1"></i><?= _("Modifier les options de la liste") ?></a>
                       <?php } else { ?>
                         &nbsp;
                       <?php } ?>

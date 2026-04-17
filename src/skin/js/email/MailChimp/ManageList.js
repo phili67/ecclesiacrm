@@ -425,7 +425,7 @@ $(function() {
                                         
                                         $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + result.id + '" data-name="' + result.name + '" id="dropdown-item-add-' + result.id + '"><i class="fas fa-tag"></i> ' + result.name + '</a>');
                                         tagsButtons = '<tr id="delete-tag-tr-' + result.id + '">';
-                                        tagsButtons += '<td>&bullet; ' + result.name + ' </td><td><a class="delete-tag btn btn btn-danger btn-xs" data-id="' + result.id + '" data-listid="' + result.list_id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> </a></td>';
+                                        tagsButtons += '<td>&bullet; ' + result.name + ' </td><td><a class="delete-tag btn btn btn-danger btn-sm" data-id="' + result.id + '" data-listid="' + result.list_id + '"><i style="cursor:pointer;" class="icon far fa-trash-alt"></i> </a></td>';
                                         tagsButtons += '</tr>';
 
                                         $("#allTagsRightView").append(tagsButtons);

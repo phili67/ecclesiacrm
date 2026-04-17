@@ -217,7 +217,7 @@ msgid "This event isn't modifiable !!!"
 msgstr "Cet événement ne peut être modifié !!!"
 
 msgid "Modify Event"
-msgstr "Modfier événement"
+msgstr "Modifier événement"
 
 msgid ""
 "What would you like to do ? Be careful with the deletion, it's impossible to "

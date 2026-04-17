@@ -425,8 +425,7 @@ if ($mode == 'classes') {
                                     <th><?= _("Actions") ?></th>
                                     <th><?= _('Name') ?></th>
                                     <?php if ($mode == 'classes') { ?>
-                                    <th><?= _('Icon') ?></th>
-                                    <th><?= _('Delete icon') ?></th>
+                                    <th><?= _('Icon') ?></th>                                    
                                     <th><?= _('Visibility') ?></th>
                                     <?php } ?>
                                 </tr>
@@ -438,19 +437,19 @@ if ($mode == 'classes') {
                                             <span class="badge bg-secondary" style="min-width: 24px; padding: 4px 0px;"><?= $row ?></span>
                                         </td>
                                         <td>
-                                            <div class="btn-group" role="group">
+                                            <div class="btn-group btn-sm" role="group">
                                                 <?php if ($numRows > 1) { ?>
                                                     <?php if ($embedded) { ?>
-                                                        <button type="button" class="btn btn-outline-danger btn-xs row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="delete" title="<?= _('Delete') ?>"><i class="fa fa-trash-can"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger btn-sm row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="delete" title="<?= _('Delete') ?>"><i class="fa fa-trash-can"></i></button>
                                                     <?php } else { ?>
-                                                        <button type="button" class="btn btn-outline-danger btn-xs RemoveClassification" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-name="<?= htmlentities(stripslashes($aNameFields[$row])) ?>" title="<?= _('Delete') ?>"><i class="fa fa-trash-can"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger btn-sm RemoveClassification" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-name="<?= htmlentities(stripslashes($aNameFields[$row])) ?>" title="<?= _('Delete') ?>"><i class="fa fa-trash-can"></i></button>
                                                     <?php } ?>
                                                 <?php } ?>
                                                 <?php if ($row > 1) { ?>
-                                                    <button type="button" class="btn btn-outline-secondary btn-xs row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up" title="<?= _('Move up') ?>"><i class="fa-solid fa-arrow-up"></i></button>
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up" title="<?= _('Move up') ?>"><i class="fa-solid fa-arrow-up"></i></button>
                                                 <?php } ?>
                                                 <?php if ($row < $numRows) { ?>
-                                                    <button type="button" class="btn btn-outline-secondary btn-xs row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down" title="<?= _('Move down') ?>"><i class="fa-solid fa-arrow-down"></i></button>
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down" title="<?= _('Move down') ?>"><i class="fa-solid fa-arrow-down"></i></button>
                                                 <?php } ?>
                                             </div>
                                         </td>
@@ -464,16 +463,30 @@ if ($mode == 'classes') {
                                         </td>
                                         <?php if ($mode == 'grproles') { // dead code ?>
                                             <td>
-                                                <button class="btn btn-success btn-xs row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="makedefault" type="button" name="default"> <?= _('Make Default') ?> </button>
+                                                <button class="btn btn-success btn-sm row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="makedefault" type="button" name="default"> <?= _('Make Default') ?> </button>
                                             </td>
                                         <?php } else if ($mode == 'classes') { ?>
                                             <?php if (is_null($icon) || !is_null($icon) && $icon->getUrl() == '') { ?>
-                                                <td><i class="fa-regular fa-plus AddImage" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>" data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>"></i></td>
-                                                <td></td>
+                                                <td><i class="fa-regular fa-plus AddImage" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>" data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>"></i></td>                                                
                                                 <td><input type="checkbox" class="checkOnlyPersonView" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView()) ? "checked" : "" ?> /> <?= _("Visible only in PersonView") ?></td>
                                             <?php } else { ?>
-                                                <td><img src="/skin/icons/markers/<?= $icon->getUrl() ?>" height="25"></td>
-                                                <td><i class="fa fa-trash-can RemoveImage text-red" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>"></i></td>
+                                                <td>
+                                                    <div class="d-inline-flex align-items-center gap-2 px-2 py-1 border rounded bg-light shadow-sm">
+                                                        <img src="/skin/icons/markers/<?= $icon->getUrl() ?>" height="25" alt="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_QUOTES, 'UTF-8') ?>" class="me-2">
+                                                        <span class="small text-muted me-2"><?= _('Current marker') ?></span>
+                                                        &nbsp;
+                                                        <button
+                                                            type="button"
+                                                            class="btn btn-outline-danger btn-xs RemoveImage"
+                                                            data-ID="<?= $listID ?>"
+                                                            data-optionID="<?= $aIDs[$row] ?>"
+                                                            data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_QUOTES, 'UTF-8') ?>"
+                                                            title="<?= _('Remove marker') ?>">
+                                                            <i class="fa fa-trash-can me-1"></i><?= _('Remove') ?>
+                                                        </button>
+                                                    </div>
+                                                </td>
+
                                                 <td><input type="checkbox" class="checkOnlyPersonView" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView()) ? "checked" : "" ?> /> <?= _("Visible only in PersonView") ?></td>
                                             <?php } ?>
                                         <?php } ?>
