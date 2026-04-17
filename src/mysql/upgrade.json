@@ -818,7 +818,9 @@
             "8.0.0",
             "8.0.1"
         ],
-        "prescripts": [],
+        "prescripts": [
+            "/mysql/upgrade/8.1.0-pre-upgrade.php"
+        ],
         "scripts": [
             "/mysql/upgrade/8.1.0-upgrade.sql"
         ],
