@@ -93,7 +93,7 @@ require $sRootDocument . '/Include/Header.php';
                                 <label class="mb-0"><strong><?= _("Check-in") ?></strong></label>
                             </div>
                             <div class="col-md-3">
-                                <button class="btn btn-sm btn-success w-100" type="button" id="toggleAllCheckin"
+                                <button class="btn btn-sm btn-primary w-100" type="button" id="toggleAllCheckin"
                                         data-id="<?= $EventID ?>"
                                         data-type="1"
                                         data-checked="0"
@@ -107,7 +107,7 @@ require $sRootDocument . '/Include/Header.php';
                                 <label class="mb-0"><strong><?= _("Check-out") ?></strong></label>
                             </div>
                             <div class="col-md-3">
-                                <button class="btn btn-sm btn-info w-100" type="button" id="toggleAllCheckout"
+                                <button class="btn btn-sm btn-success w-100" type="button" id="toggleAllCheckout"
                                         data-id="<?= $EventID ?>"
                                         data-type="2"
                                         data-checked="0"
@@ -398,10 +398,6 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
 
     <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
-    <?php
-} else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-    ?>
-    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
     <?php
 }
 ?>

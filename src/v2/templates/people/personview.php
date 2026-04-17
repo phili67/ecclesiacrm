@@ -1648,10 +1648,6 @@ if ($sMapProvider == 'OpenStreetMap') {
 
     <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
     <?php
-} else if ($sMapProvider == 'BingMaps') {
-    ?>
-    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
-    <?php
 }
 ?>
 

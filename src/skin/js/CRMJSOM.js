@@ -132,8 +132,19 @@ window.CRM.dialogLoadingFunction = function (message, callback) {
   window.CRM.dialogLoading = bootbox.dialog(
     {
       closeButton: false,
-      title: i18next.t("In progress"),
-      message: '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + message + '</div>',
+      title: '<span class="d-inline-flex align-items-center"><i class="fas fa-hourglass-half text-primary mr-2"></i>' + i18next.t("In progress") + '</span>',
+      message: ''
+        + '<div class="py-3 px-2">'
+        + '  <div class="d-flex flex-column align-items-center text-center">'
+        + '    <div class="mb-3">'
+        + '      <span class="d-inline-flex align-items-center justify-content-center rounded-circle border border-primary" style="width:64px;height:64px;">'
+        + '        <i class="fas fa-spinner fa-spin fa-2x text-primary"></i>'
+        + '      </span>'
+        + '    </div>'
+        + '    <div class="h5 mb-2">' + message + '</div>'
+        + '    <div class="text-muted small">' + i18next.t("Please wait while the operation is being completed") + '</div>'
+        + '  </div>'
+        + '</div>',
       onShown: function (e) {
         if (callback) {
           callback();
@@ -1474,8 +1485,6 @@ window.CRM.tools = {
       return '<a href="http://maps.apple.com/?q=' + address + '" target="_blank">' + address + '</a>';
     } else if (window.CRM.sMapExternalProvider == "GoogleMaps") {
       return '<a href="http://maps.google.com/?q=1  ' + address + '" target="_blank">' + address + '</a>';
-    } else if (window.CRM.sMapExternalProvider == "BingMaps") {
-      return '<a href="https://www.bing.com/maps?where1=' + address + '&sty=c" target="_blank">' + address + '</a>';
     }
   }
 };
