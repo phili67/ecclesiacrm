@@ -340,7 +340,7 @@ $(function () {
                 orderable: false,
                 className: 'align-middle text-center',
                 render: function (data) {
-                    return '<a href="#" class="btn btn-xs btn-outline-danger pnDelete" data-pnid="' + data + '" title="' + i18next.t('Delete') + '"><i class="far fa-trash-alt" aria-hidden="true"></i></a>';
+                    return '<a href="#" class="btn btn-sm btn-outline-danger pnDelete" data-pnid="' + data + '" title="' + i18next.t('Delete') + '"><i class="far fa-trash-alt" aria-hidden="true"></i></a>';
                 }
             }
         ],
