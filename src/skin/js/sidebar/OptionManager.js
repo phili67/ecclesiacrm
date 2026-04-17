@@ -69,13 +69,28 @@
   window.CRM.ElementListener('.RemoveImage', 'click', function (event) {
     let lstID = event.currentTarget.dataset.id;
     let lstOptionID = event.currentTarget.dataset.optionid;
+    let name = event.currentTarget.dataset.name || '';
 
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'mapicons/removeIcon',
-      data: JSON.stringify({ "lstID": lstID, "lstOptionID": lstOptionID })
-    }, function (data) {
-      window.location = window.location.href;
+    bootbox.setDefaults({
+      locale: window.CRM.shortLocale
+    });
+
+    bootbox.confirm({
+      title: i18next.t("Delete map marker"),
+      message: `<p style="color: red">${i18next.t("Please confirm deletion of this marker")}${name ? ` : "${name}"` : ''} ?</p>`,
+      callback: function (result) {
+        if (!result) {
+          return;
+        }
+
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'mapicons/removeIcon',
+          data: JSON.stringify({ "lstID": lstID, "lstOptionID": lstOptionID })
+        }, function (data) {
+          window.location = window.location.href;
+        });
+      }
     });
   });
 
@@ -107,7 +122,7 @@
           path: 'mapicons/getall',
         }, function (data) {
           let len = data.length;
-          let table = document.getElementById('here_table');
+          let table = document.getElementById('icon_table');
 
           let res = '<table width=100%>';
           let buff = '';
