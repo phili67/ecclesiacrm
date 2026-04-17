@@ -205,10 +205,10 @@ window.CRM.dataPropertyListTable = new DataTable("#property-listing-table-v2", {
 
         return `
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-outline-primary btn-xs edit-prop" data-typeid="${full.ProId}" title="${i18next.t('Edit')}">
+            <button type="button" class="btn btn-outline-primary btn-sm edit-prop" data-typeid="${full.ProId}" title="${i18next.t('Edit')}">
               <i class="fas fa-pen"></i>
             </button>
-            <button type="button" class="btn btn-outline-danger btn-xs delete-prop" data-typeid="${full.ProId}" title="${i18next.t('Delete')}">
+            <button type="button" class="btn btn-outline-danger btn-sm delete-prop" data-typeid="${full.ProId}" title="${i18next.t('Delete')}">
               <i class="fa fa-trash-can"></i>
             </button>
           </div>
