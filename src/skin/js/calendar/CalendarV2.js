@@ -126,9 +126,29 @@ document.addEventListener('DOMContentLoaded', function () {
             if (type == "event" && window.CRM.isModifiable) {
                 // only with group event We create the dialog,
                 if (type == "event") {
+                    var eventSummary = `
+                        <div class="container-fluid px-0">
+                            <div class="border rounded bg-light p-3 mb-3">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-calendar-check text-primary mr-2"></i>
+                                    <div class="font-weight-bold text-dark">${event.title}</div>
+                                </div>
+                                <div class="small text-muted mb-2">
+                                    <i class="fas fa-clock mr-2 text-info"></i>${event.extendedProps.start_name} - ${event.extendedProps.end_name}
+                                </div>
+                                <div class="small text-muted">
+                                    <i class="fas fa-align-left mr-2 text-secondary"></i>${event.extendedProps.Desc || i18next.t('No description')}
+                                </div>
+                            </div>
+                            <div class="alert alert-warning mb-0" role="alert">
+                                <div class="font-weight-bold mb-1">${i18next.t('What would you like to do?')}</div>
+                                <div class="small">${i18next.t("Be careful with deletion: this action cannot be undone.")}</div>
+                            </div>
+                        </div>`;
+
                     var box = bootbox.dialog({
-                        title: i18next.t("Modify Event"),
-                        message: i18next.t("What would you like to do ? Be careful with the deletion, it's impossible to revert !!!"),
+                        title: '<i class="fas fa-pen-to-square text-primary mr-2"></i>' + i18next.t("Modify Event"),
+                        message: eventSummary,
                         size: 'large',
                         buttons: {
                             cancel: {
