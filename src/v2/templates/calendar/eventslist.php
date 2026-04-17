@@ -155,10 +155,6 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
 
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/GoogleMapEvent.js"></script>
     <?php
-} else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-    ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/BingMapEvent.js"></script>
-    <?php
 }
 ?>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
