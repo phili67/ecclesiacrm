@@ -99,7 +99,7 @@ if ($isMailchimpActiv) {
             <div class="alert alert-danger mb-0">
                 <h5><i class="fas fa-ban mr-1"></i>MailChimp <?= _('is not configured') ?></h5>
                 <?= _('Please update the') ?> MailChimp <?= _('API key in Setting->') ?>
-                <a href="<?= $sRootPath ?>/v2/systemsettings/Integration"><?= _('Edit General Settings') ?></a>,
+                <a href="<?= $sRootPath ?>/v2/systemsettings/integration"><?= _('Edit General Settings') ?></a>,
                 <?= _('then update') ?> sMailChimpApiKey.
                 <?= _('For more info see our ') ?>
                 <a href="<?= $getSupportURL ?>" target="_blank">MailChimp <?= _('support docs.') ?></a>
