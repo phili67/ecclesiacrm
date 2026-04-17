@@ -17,15 +17,17 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 <div id="event">
     <div class="container" id="eventDetails">
         <div class="row">
-            <div class="col-md-4">
-                <span id="eventTitle"></span>
-                <span id="eventKiosk"></span>
-                <br>
+            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                <div id="eventTitle"></div>
             </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <span><?= _("Start Time") ?></span><span id="startTime"></span>
-                <span><?= _("End Time") ?></span><span id="endTime"></span>
+            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                <div id="eventKiosk"></div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                <div id="startTime"></div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                <div id="endTime"></div>
             </div>
         </div>
     </div>
