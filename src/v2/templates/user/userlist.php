@@ -77,41 +77,28 @@ require $sRootDocument . '/Include/Header.php';
                          }
                       ?>
                     </td>
-                    <td>
-                        <?php
-                          if ( $user->getPersonId() != 1 || $user->getId() == $sessionUserId && $user->getPersonId() == 1) {
-                        ?>
-                            <a href="<?= $sRootPath ?>/v2/users/editor/<?= $user->getId() ?>"
+                    <td align="center">
+                        <div class="btn-group btn-group-sm">
+                        <?php if ( $user->getPersonId() != 1 || $user->getId() == $sessionUserId && $user->getPersonId() == 1) : ?>
+                            <a href="<?= $sRootPath ?>/v2/users/editor/<?= $user->getId() ?>" 
+                              class="btn btn-outline-primary"
                                data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Manage user account") ?>"
                                 ><i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                            </a>&nbsp;&nbsp;
-                        <?php
-                          } else {
-                        ?>
-                           <span style="color:red"><?= _("Not modifiable") ?></span>
-                        <?php
-                          }
-                        ?>
-                         <?php
-                           if ( $user->getPersonId() != 1) {
-                         ?>
-
-                          <a class="webdavkey" data-userid="<?= $user->getId()?>"
+                            </a>
+                        <?php endif; ?>
+                         <?php if ( $user->getPersonId() != 1) : ?>
+                          <a class="webdavkey btn btn-outline-secondary" data-userid="<?= $user->getId()?>" href="#"
                              data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("User account webdav key") ?>">
                              <i class="far fa-eye" aria-hidden="true"></i>
                           </a>
-                         <?php
-                           }
-                          ?>
-                        <?php
-                          if ( $user->getId() != $sessionUserId && $user->getPersonId() != 1 ) {
-                        ?>
-                            <a href="#" class="deleteUser" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+                         <?php endif; ?>
+                        <?php if ( $user->getId() != $sessionUserId && $user->getPersonId() != 1 ) : ?>
+                            <a href="#" class="deleteUser btn btn-outline-danger" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+
                                data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Remove user account (not the profile)") ?>"><i
                                         class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>
-                        <?php
-                          }
-                        ?>
+                        <?php endif; ?>
+                        </div>
                       </td>
                     <td>
                         <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
@@ -136,71 +123,59 @@ require $sRootDocument . '/Include/Header.php';
                     <td align="center"><?= $user->getLastLogin($dateFormatLong) ?></td>
                     <td align="center"><?= $user->getLoginCount() ?></td>
                     <td class="text-center">
-                      <?php
-                        if ($user->isLocked()) {
-                      ?>
+                      <?php if ($user->isLocked()) : ?>
                             <span class="text-danger font-weight-bold"><?= $user->getFailedLogins() ?></span>
-                      <?php
-                        } else {
-                            echo $user->getFailedLogins();
-                        }
-                        if ($user->getFailedLogins() > 0) {
-                      ?>
-                            <a href="#" class="btn btn-sm btn-outline-warning ml-1 resetUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
-                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Reset failed login") ?>">
-                                <i class="fas fa-eraser"></i>
-                            </a>
-                      <?php
-                        }
-                      ?>
+                      <?php else : ?>
+                            <?= $user->getFailedLogins() ?>
+                      <?php endif; ?>
+                      <?php if ($user->getFailedLogins() > 0) : ?>
+                          <a href="#" class="btn btn-sm btn-outline-warning ml-1 resetUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
+                              data-toggle="tooltip" data-placement="bottom" title="<?= _("Reset failed login") ?>">
+                              <i class="fas fa-eraser"></i>
+                          </a>
+                      <?php endif; ?>
                     </td>
                     <td class="text-center">
+                      <div class="btn-group btn-group-sm">
                         <a href="<?= $sRootPath ?>/v2/users/change/password/<?= $user->getId() ?>/FromUserList"
                            class="btn btn-sm btn-outline-secondary"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Change user account password") ?>">
                             <i class="fas fa-wrench"></i>
                         </a>
-                        <?php
-                          if ($user->getId() != $sessionUserId && !empty($user->getEmail())) {
-                        ?>
+                        <?php if ($user->getId() != $sessionUserId && !empty($user->getEmail())) : ?>
                             <a href="#" class="btn btn-sm btn-outline-info resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Reset and send new user password") ?>">
                                 <i class="far fa-paper-plane"></i>
                             </a>
-                        <?php
-                          }
-                        ?>
+                        <?php endif; ?>                        
+                      </div>
                     </td>
                     <td class="text-center">
-                        <?php if (SessionUser::isAdmin() and $user->getId() != $sessionUserId) { ?>
+                        <?php if (SessionUser::isAdmin() and $user->getId() != $sessionUserId) : ?>
                             <a href="#" class="btn btn-sm btn-outline-warning control-account" data-userid="<?= $user->getId()?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Take control of the account") ?>">
                                 <i class="fas fa-gamepad"></i>
                             </a>
-                        <?php } ?>
+                        <?php endif; ?>
                     </td>
                     <td class="text-center">
-                        <?php if ($user->getTwoFaSecretConfirm()) { ?>
+                        <?php if ($user->getTwoFaSecretConfirm()) : ?>
                             <a href="#" class="two-fa-manage btn btn-sm btn-outline-secondary" data-userid="<?= $user->getId()?>"
                                data-userName="<?= $user->getPerson()->getFullName() ?>" data-userid="<?= $user->getId()?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Manage 2 factor secret") ?>">
                                 <i class="fas fa-key mr-1"></i><?= _("Management") ?>
                             </a>
-                        <?php } else { ?>
+                        <?php else : ?>
                             <span class="badge badge-secondary"><?= _("No") ?></span>
-                        <?php } ?>
+                        <?php endif; ?>
                     </td>
                     <td class="text-center">
-                      <?php
-                        if ( $user->getPersonId() != 1 && $user->getId() != $sessionUserId) {
-                      ?>
+                      <?php if ( $user->getPersonId() != 1 && $user->getId() != $sessionUserId) : ?>
                           <a href="#" class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName="<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>"
                              data-toggle="tooltip" data-placement="bottom" title="<?= _("Lock/unlock user account") ?>">
                              <i class="fas <?= ($user->getIsDeactivated() == false) ? 'fa-unlock text-success' : 'fa-lock text-danger' ?>"></i>
                           </a>
-                      <?php
-                        }
-                      ?>
+                      <?php endif; ?>
                     </td>
                 </tr>
               <?php
