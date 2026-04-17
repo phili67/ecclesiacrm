@@ -12,10 +12,21 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\FamilyQuery;
 
 use EcclesiaCRM\EventQuery;
+use EcclesiaCRM\SessionUser;
 
 require $sRootDocument . '/Include/Header.php';
 
 $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->find();
+$mapLegendClassSuffix = \EcclesiaCRM\Theme::isDarkModeEnabled() ? '-dark' : '';
+$visibleLegendCount = 2;
+
+foreach ($icons as $legendIcon) {
+  if ($legendIcon->getOnlyInPersonView()) {
+    continue;
+  }
+
+  $visibleLegendCount++;
+}
 
 ?>
 
@@ -59,110 +70,99 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
 ?>
 
 
-    <div class="card card-primary card-outline">
-      <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
-        <h3 class="card-title mb-0"><i class="fas fa-map-marked-alt mr-1"></i><?= _('Map Explorer') ?></h3>
-        <div class="mt-2 mt-sm-0">
-          <button type="button" id="resetMapView" class="btn btn-sm btn-outline-primary">
+    <div class="card card-primary card-outline shadow-sm mb-0 map-shell-card">
+      <div class="card-header d-flex justify-content-between align-items-center flex-wrap map-shell-header">
+        <div>
+          <h3 class="card-title mb-0"><i class="fas fa-map-marked-alt mr-1"></i><?= _('Map Explorer') ?></h3>
+          <small class="text-muted"><?= _('Explore people, families, calendars, and classes from one compact view.') ?></small>
+        </div>
+        <div class="mt-2 mt-sm-0 map-shell-actions">
+          <?php if (SessionUser::getUser()->isAdmin()) : ?>
+          <a href="<?= $sRootPath ?>/v2/systemsettings/mapsettings" class="btn btn-sm btn-outline-secondary mr-1 map-shell-button map-shell-button-secondary">
+            <i class="fas fa-sliders-h mr-1"></i><?= _('Map Settings') ?>
+          </a>
+          <?php endif; ?>
+          <button type="button" id="resetMapView" class="btn btn-sm btn-outline-primary map-shell-button">
             <i class="fas fa-crosshairs mr-1"></i><?= _('Center on Church') ?>
           </button>
         </div>
       </div>
 
-      <div class="card-body p-0">
-        <!-- Google map div -->
-        <div id="mapid" class="map-div"></div>
-      </div>
-
-      <div class="card-footer p-2">
+      <div class="card-body p-0 map-shell-body">
+    <div id="mapid" class="map-div"></div>
 
         <!-- map Desktop legend-->
-      <div class="map-legend-view maplegend<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'-dark':'' ?>"><h4 class="mb-2"><?= _('Legend') ?></h4>
-            <div class="row legendbox">
-                <div class="legenditem">
-                    <img src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
-                    <input type="checkbox" class="view" data-id="-2" id="Unassigned" name="feature" value="scales" checked />
-                    <label for="Unassigned"><?= _('Unassigned') ?></label>
+    <div class="map-legend-view maplegend<?= $mapLegendClassSuffix ?> p-2 rounded">
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <div>
+          <h4 class="mb-1"><i class="fas fa-layer-group mr-1"></i><?= _('Legend') ?></h4>
+          <small><?= _('Toggle visible layers') ?></small>
                 </div>
-                <div class="legenditem">
-                    <img src='<?= $sRootPath ?>/skin/icons/event.png' width="32"/>
-                    <input type="checkbox" class="view" data-id="-1" name="feature" id="calendar" value="scales" checked />
-                    <label for="calendar"><?= _("Calendar") ?></label>
+        <span class="badge badge-primary"><?= $visibleLegendCount ?></span>
+      </div>
+      <div class="row legendbox">
+        <div class="legenditem d-flex align-items-center">
+          <img src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png' width="24" class="mr-2" alt="<?= _('Unassigned') ?>"/>
+          <input type="checkbox" class="view mr-2" data-id="-2" id="Unassigned" name="feature" value="scales" checked />
+          <label class="mb-0" for="Unassigned"><?= _('Unassigned') ?></label>
                 </div>
+        <div class="legenditem d-flex align-items-center">
+          <img src='<?= $sRootPath ?>/skin/icons/event.png' width="24" class="mr-2" alt="<?= _('Calendar') ?>"/>
+          <input type="checkbox" class="view mr-2" data-id="-1" name="feature" id="calendar" value="scales" checked />
+          <label class="mb-0" for="calendar"><?= _("Calendar") ?></label>
+        </div>
                 <?php
                 foreach ($icons as $icon) {
                   if ($icon->getOnlyInPersonView()) {
                     continue;
                   }
                    $arrPlotItemsSeperate[$icon->getOptionId()] =  array();
+                   $legendIconUrl = !empty($icon->getUrl()) ? $sRootPath."/skin/icons/markers/".$icon->getUrl() : $sRootPath."/skin/icons/markers/../interrogation_point.png";
                     ?>
-                    <div class="legenditem">
-                        <?php
-                          if (!empty($icon->getUrl())) {
-                        ?>
-                          <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>' width="32"/>
-                        <?php
-                          } else {
-                        ?>
-                          <img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' width="32"/>
-                        <?php
-                          }
-                        ?>
-                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
-                        <label for="<?= $icon->getOptionId() ?>">
-                        <?= $icon->getOptionName() ?>
-                        </label>
+                    <div class="legenditem d-flex align-items-center">
+                      <img src='<?= $legendIconUrl ?>' width="24" class="mr-2" alt="<?= $icon->getOptionName() ?>"/>
+                      <input type="checkbox" class="view mr-2" data-id="<?= $icon->getOptionId() ?>" id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
+                      <label class="mb-0" for="<?= $icon->getOptionId() ?>"><?= $icon->getOptionName() ?></label>
                     </div>
                     <?php
                 }
                 ?>
             </div>
         </div>
+      </div>
 
         <!-- map Mobile legend-->
-        <div class="maplegend-mobile box visible-xs-block">
-            <div class="row legendbox">
-            <div class="btn btn-primary col-xs-12"><?= _('Legend') ?></div>
-            </div>
-            <div class="row legendbox">
-                <div class="col-xs-6 legenditem">
-                    <input type="checkbox" class="view" data-id="-2" name="feature"
-               value="scales" checked /><img
-                        class="legendicon" src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
+              <div class="maplegend-mobile box visible-xs-block">
+                <div class="row legendbox">
+                  <div class="btn btn-primary col-xs-12"><i class="fas fa-layer-group mr-1"></i><?= _('Legend') ?> <span class="badge badge-light ml-1"><?= $visibleLegendCount ?></span></div>
+                </div>
+                <div class="row legendbox">
+                  <div class="col-xs-6 legenditem d-flex align-items-center">
+                    <input type="checkbox" class="view mr-2" data-id="-2" name="feature" value="scales" checked />
+                    <img class="legendicon mr-2" src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png' width="24" alt="<?= _('Unassigned') ?>"/>
                     <div class="legenditemtext"><?= _('Unassigned') ?></div>
                 </div>
-                <div class="legenditem">
-                    <input type="checkbox" class="view" data-id="-1" name="feature"
-               value="scales" checked /><img
-                        src='<?= $sRootPath ?>/skin/icons/event.png' width="32"/>
-                    <?= _("Calendar") ?>
+                  <div class="col-xs-6 legenditem d-flex align-items-center">
+                    <input type="checkbox" class="view mr-2" data-id="-1" name="feature" value="scales" checked />
+                    <img src='<?= $sRootPath ?>/skin/icons/event.png' width="24" class="mr-2" alt="<?= _('Calendar') ?>"/>
+                    <div class="legenditemtext"><?= _("Calendar") ?></div>
                 </div>
                 <?php
                 foreach ($icons as $icon) {
                   if ($icon->getOnlyInPersonView()) {
                     continue;
                   }
+                    $legendIconUrl = !empty($icon->getUrl()) ? $sRootPath."/skin/icons/markers/".$icon->getUrl() : $sRootPath."/skin/icons/markers/../interrogation_point.png";
                     ?>
-                    <div class="col-xs-6 legenditem">
-                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
-                        <?php
-                          if (!empty($icon->getUrl())) {
-                        ?>
-                          <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>' width="32"/>
-                        <?php
-                          } else {
-                        ?>
-                          <img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' width="32"/>
-                        <?php
-                          }
-                        ?>
-                        <div class="legenditemtext"><?= $icon->getOptionName() ?></div>
+                    <div class="col-xs-6 legenditem d-flex align-items-center">
+                      <input type="checkbox" class="view mr-2" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
+                      <img src='<?= $legendIconUrl ?>' width="24" class="mr-2" alt="<?= $icon->getOptionName() ?>"/>
+                      <div class="legenditemtext"><?= $icon->getOptionName() ?></div>
                     </div>
                     <?php
                 } ?>
             </div>
-        </div>
-            </div>
+              </div>
     </div> <!--Box-->
 
 
@@ -181,15 +181,101 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
   var iconBase = window.CRM.root+'/skin/icons/markers/';
   var newPlotArray = null;
 
+    function escapePopupHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function getPopupTypeIcon(plot) {
+      if (plot.type == 'family') {
+        return 'fa-home';
+      } else if (plot.type == 'person') {
+        return 'fa-user';
+      }
+
+      return 'fa-calendar-alt';
+    }
+
+    function buildMarkerPopupContent(plot, imghref) {
+      var title = escapePopupHtml(plot.Salutation || plot.Name);
+      var addressLink = plot.Address ? window.CRM.tools.getLinkMapFromAddress(plot.Address) : '';
+      var imageSrc = plot.type == 'event' ? plot.bigThumbnail : plot.Thumbnail;
+      var notesBlock = '';
+
+      if (plot.type == 'event' && plot.Text) {
+        notesBlock = "<div class='mt-2 pt-2 border-top'>"
+          + "<div class='text-muted small text-uppercase font-weight-bold'>" + i18next.t("Notes") + "</div>"
+          + "<div class='small'>" + plot.Text + "</div>"
+          + "</div>";
+      }
+
+      var imageBlock = '';
+      if (imageSrc && imageSrc.length > 0) {
+        imageBlock = "<a href='" + imghref + "' class='mr-2 flex-shrink-0'>"
+          + "<img class='profile-user-img img-responsive img-circle shadow-sm' border='1' src='" + imageSrc + "' width='44'>"
+          + "</a>";
+      }
+
+      return "<div class='card border-0 shadow-none mb-0' style='min-width:220px; max-width:280px;'>"
+        + "<div class='card-body p-2'>"
+        + "<div class='d-flex align-items-start'>"
+        + imageBlock
+        + "<div class='flex-grow-1'>"
+        + "<div class='d-flex align-items-center text-primary mb-1'><i class='fas " + getPopupTypeIcon(plot) + " mr-2'></i><span class='small text-uppercase font-weight-bold'>" + escapePopupHtml(plot.type) + "</span></div>"
+        + "<div class='font-weight-bold mb-1'><a href='" + imghref + "'>" + title + "</a></div>"
+        + (addressLink ? "<div class='small text-muted'>" + addressLink + "</div>" : "")
+        + notesBlock
+        + "</div>"
+        + "</div>"
+        + "</div>"
+        + "</div>";
+    }
+
   function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {
       var mark = L.marker([marker_position.lat, marker_position.lng], {icon: image})
-         .bindPopup(infowindow_content)
+       .bindPopup(infowindow_content, {maxWidth: 300, minWidth: 220})
          .addTo(map);
 
       return mark;
   }
 
+    function fitMapHeightToFooter() {
+      var mapElement = document.getElementById("mapid");
+      var footerElement = document.querySelector(".main-footer");
+      var cardElement = mapElement ? mapElement.closest('.map-shell-card') : null;
+      var headerElement = cardElement ? cardElement.querySelector('.map-shell-header') : null;
+      var mobileLegendElement = cardElement ? cardElement.querySelector('.maplegend-mobile') : null;
+
+      if (!mapElement || !footerElement || window.innerWidth < 600) {
+        return;
+      }
+
+      var cardTop = cardElement ? cardElement.getBoundingClientRect().top : mapElement.getBoundingClientRect().top;
+      var footerTop = footerElement.getBoundingClientRect().top;
+      var reservedHeight = 12;
+
+      if (headerElement) {
+        reservedHeight += headerElement.getBoundingClientRect().height;
+      }
+
+      if (mobileLegendElement && window.getComputedStyle(mobileLegendElement).display !== 'none') {
+        reservedHeight += mobileLegendElement.getBoundingClientRect().height;
+      }
+
+      var availableHeight = Math.floor(footerTop - cardTop - reservedHeight);
+
+      if (availableHeight > 320) {
+        mapElement.style.height = availableHeight + "px";
+      }
+    }
+
   function initialize() {
+      fitMapHeightToFooter();
+
       // init map
       var map = L.map('mapid',{
               tap: false
@@ -200,6 +286,11 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.ecclesiacrm.com">EcclesiaCRM</a>'
       }).addTo(map);
+
+      window.requestAnimationFrame(function () {
+        fitMapHeightToFooter();
+        map.invalidateSize(false);
+      });
 
         $('#resetMapView').off('click').on('click', function () {
           map.setView([churchloc.lat, churchloc.lng], <?= SystemConfig::getValue("iMapZoom")?>);
@@ -351,7 +442,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
         var latlng = {lat:plot.Latitude, lng:plot.Longitude};
 
         //Infowindow Content
-        var imghref, contentString;
+        var imghref;
         if (plot.type == 'family') {
             imghref = window.CRM.root + "/v2/people/family/view/" + plot.ID;
         } else if (plot.type == 'person') {
@@ -360,25 +451,7 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
             imghref = window.CRM.root + "/v2/calendar";
         }
 
-        contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
-        contentString += '<p>' + window.CRM.tools.getLinkMapFromAddress (plot.Address) + '</p>';
-
-        if (plot.Thumbnail.length > 0) {
-            //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
-            contentString += "<div class='image-container'><a href='" + imghref + "'>";
-            if (plot.type == 'event') {
-              contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.bigThumbnail + "' width='32'></a>";
-
-              if (plot.Text != '') {
-                 contentString += "<b>"+i18next.t("Notes")+"</b>";
-                 contentString += "<br>"+plot.Text+"</div>";
-              }
-            } else {
-               contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.Thumbnail + "'></a>";
-            }
-        }
-
-        plot.mark = addMarkerWithInfowindow(window.CRM.map, latlng, icon, plot.Name, contentString);
+        plot.mark = addMarkerWithInfowindow(window.CRM.map, latlng, icon, plot.Name, buildMarkerPopupContent(plot, imghref));
   }
 
   function add_all_markers_for_id (id) {
@@ -413,6 +486,15 @@ $empty_families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByL
   });
 
   initialize();
+
+    $(window).on('resize', function () {
+      fitMapHeightToFooter();
+
+      if (window.CRM.map) {
+        window.CRM.map.invalidateSize(false);
+        window.CRM.map.setView([churchloc.lat, churchloc.lng], window.CRM.map.getZoom(), {animate: false});
+      }
+    });
 
   window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {    
       let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
