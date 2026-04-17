@@ -238,6 +238,16 @@ $(document).on('change', '#checkboxEventrecurrence', function (value) {
 });
 
 $(document).on('change', '#eventType', function (val) {
+    $('.ATTENDENCES-title').slideDown();
+    $('.ATTENDENCES').slideDown('slow');
+    $('.date-title').slideDown();
+    $('.map-title').slideUp();
+    $('.date-start').slideUp();
+    $('.date-end').slideUp();
+    $('.date-recurrence').slideUp();
+    $('.eventNotes').slideUp();
+    $('#EventDesc').attr('rows', '1');
+
     var e = document.getElementById("eventType");
     var typeID = e.options[e.selectedIndex].value;
 
@@ -314,27 +324,26 @@ function addAttendees(typeID, first_time, eventID) {
 
             //$('.ATTENDENCES-title').slideUp();
 
-            var innerHtml = '<input id="countFieldsId" name="countFieldsId" type="hidden" value="' + len + '">';
-
-            innerHtml += '<table width="100%">';
+            var innerHtml = `<input id="countFieldsId" name="countFieldsId" type="hidden" value="' + len + '">
+                <table width="100%">`;
 
             var notes = "";
 
             for (i = 0; i < len; ++i) {
-                innerHtml += '<tr>'
-                    + "<td><label>" + eventTypes[i].countName + ":&nbsp;</label></td>"
-                    + '<td>'
-                    + '<input type="text" id="field' + i + '" data-name="' + eventTypes[i].countName + '" data-countid="' + eventTypes[i].countID + '" value="' + eventTypes[i].count + '" size="8" class="form-control form-control-sm"  width="100%" style="width: 100%">'
-                    + '</td>'
-                    + '</tr>'
+                innerHtml += `<tr>
+                    <td><label>${eventTypes[i].countName}:&nbsp;</label></td>
+                    <td>
+                    <input type="text" id="field${i}" data-name="${eventTypes[i].countName}" data-countid="${eventTypes[i].countID}" value="${eventTypes[i].count}" size="8" class="form-control form-control-sm"  width="100%" style="width: 100%">
+                    </td>
+                    </tr>`;
                 notes = eventTypes[i].notes;
             }  //typeID
 
-            innerHtml += '<tr>'
-                + '<td style="vertical-align:top"><label>' + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
-                + '<td><textarea type="text" rows="5" id="EventCountNotes" class="form-control form-control-sm">' + notes + '</textarea>'
-                + '</td>'
-                + '</tr>';
+            innerHtml += `<tr>
+                <td style="vertical-align:top"><label>${i18next.t('Attendance Notes: ')} &nbsp;</label></td>`
+                + `<td><textarea type="text" rows="5" id="EventCountNotes" class="form-control form-control-sm">${notes}</textarea>
+                </td>
+                </tr>`;
 
             innerHtml += '</table><br>';
 
@@ -568,191 +577,248 @@ function BootboxContent(start, end, title) {
     var dateEnd = moment(end).format(fmt);
     var timeEnd = moment(end).format(time_format);
 
-    var frm_str = '<form id="some-form">'
-        + '<div>'
-        + '  <div class="row EventTitle">'
-        + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Title') + ":</div>"
-        + '      <div class="col-md-9">'
-        + "              <input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required " + ((title != undefined) ? ("value='" + title + "'") : "") + ">"
-        + '      </div>'
-        + '  </div>'
-        + ' <br>'
-        + '  <div class="row  div-title EventLocation">'
-        + '      <div class="col-md-3">' + i18next.t('Location') + ":</div>"
-        + '      <div class="col-md-9">'
-        + '          <div class="form-group has-warning location_group_warning">'
-        + '              <label class="control-label location_label_warning" for="inputWarning"><i class="fas fa-bell location_label_warning"></i>' + i18next.t("To validate your address : <b>\"hit return\"</b>.") + '</label>'
-        + "              <input type='text' id='EventLocation' placeholder='" + i18next.t("Location") + "' size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
-        + '              <span class="help-block location_span_warning">' + i18next.t("To see the Map click this text field.") + '</span>'
-        + '          </div>'
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row div-title map-title">'
-        + '      <div class="col-md-3">' + i18next.t("Map") + "</div>"
-        + '      <div class="col-md-9">'
-        + '          <div id="MyMap"></div>'
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row div-title EventDesc">'
-        + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
-        + '      <div class="col-md-9">'
-        + "          <textarea id='EventDesc' rows='1' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Event description") + "'></textarea>"
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row div-title ATTENDENCES-title ">'
-        + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Type') + ":</div>"
-        + '      <div class="col-md-9">'
-        + '          <select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control form-control-sm">'
-        //+"<option value='0' >" + i18next.t("Personal") + "</option>"
-        + '          </select>'
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row div-block ATTENDENCES">'
-        + '      <div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
-        + '      <div class="col-md-9 ATTENDENCES-fields"></div>'
-        + '      <hr/>'
-        + '  </div>'
-        + '  <div class="row date-title div-title">'
-        + '      <div class="col-md-4 text-center" id="rangeStart" data-datestart="' + dateStart + '">'
-        +           i18next.t('From') + ' : ' + dateStart + ' ' + timeStart
-        + '      </div>'
-        + '      <div class="col-md-4 text-center" id="rangeEnd" data-dateend="' + dateEnd + '">'
-        +           i18next.t('to') + ' : ' + dateEnd + ' ' + timeEnd
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row date-start div-block">'
-        + '      <div class="col-md-12">'
-        + '          <div class="row">'
-        + '              <div class="col-md-3"><span style="color: red">*</span>'
-        + i18next.t('Start Date') + ' :'
-        + '              </div>'
-        + '              <div class="input-group col-md-3">'
-        + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
-        + '                  </div>'
-        + '                  <input class=" form-control  form-control-sm date-picker form-control-sm" type="text" id="dateEventStart" name="dateEventStart"  value="' + dateStart + '" '
-        + '                      maxlength="10" id="sel1" size="11"'
-        + '                      placeholder="' + window.CRM.datePickerformat + '">'
-        + '              </div>'
-        + '              <div class="input-group col-md-3">'
-        + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fas fa-clock"></i></span>'
-        + '                  </div>'
-        + '                  <input type="text" class="form-control timepicker form-control-sm" id="timeEventStart" name="timeEventStart" value="' + timeStart + '">'
-        + '              </div>'
-        + '             <div class="col-md-3 text-center">'
-        + '                 <input type="checkbox" id="checkboxEventAllday" name="checkboxEventAllday"> ' + i18next.t('All day')
-        + '             </div>'
-        + '          </div>'
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row date-end div-block">'
-        + '      <div class="col-md-12">'
-        + '          <div class="row">'
-        + '              <div class="col-md-3"><span style="color: red">*</span>'
-        + i18next.t('End Date') + ' :'
-        + '              </div>'
-        + '              <div class="input-group col-md-3">'
-        + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
-        + '                  </div>'
-        + '                  <input class=" form-control  form-control-sm date-picker  form-control-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="' + dateEnd + '" '
-        + '                      maxlength="10" id="sel1" size="11"'
-        + '                      placeholder="' + window.CRM.datePickerformat + '">'
-        + '              </div>'
-        + '              <div class="input-group col-md-3">'
-        + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fas fa-clock"></i></span>'
-        + '                  </div>'
-        + '                  <input type="text" class="form-control timepicker form-control-sm" id="timeEventEnd" name="timeEventEnd" value="' + timeEnd + '">'
-        + '              </div>'
-        + '          </div>'
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row date-recurrence div-block">'
-        + '      <div class="col-md-12">'
-        + '          <div class="row">'
-        + '              <div class="col-md-3">'
-        + '                  <input type="checkbox" id="checkboxEventrecurrence" name="checkboxEventrecurrence"> ' + i18next.t('Repeat') + ' :'
-        + '              </div>'
-        + '              <div class="col-md-3">'
-        + '                  <select class="form-control form-control-sm" id="typeEventrecurrence" name="typeEventrecurrence">'
-        + '                      <option value="FREQ=DAILY">' + i18next.t("Daily") + '</option>'
-        + '                      <option value="FREQ=WEEKLY">' + i18next.t("Weekly") + '</option>'
-        + '                      <option value="FREQ=MONTHLY">' + i18next.t("Monthly") + '</option>'
-        + '                      <option value="FREQ=MONTHLY;INTERVAL=3">' + i18next.t("Quarterly") + '</option>'
-        + '                      <option value="FREQ=MONTHLY;INTERVAL=6">' + i18next.t("Semesterly") + '</option>'
-        + '                      <option value="FREQ=YEARLY">' + i18next.t("Yearly") + '</option>'
-        + '                  </select>'
-        + '               </div>'
-        + '               <div class="col-md-2">'
-        + i18next.t('End') + ' :'
-        + '               </div>'
-        + '               <div class="input-group col-md-4">'
-        + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
-        + '                  </div>'
-        + '                  <input class=" form-control  form-control-sm date-picker form-control-sm" type="text" id="endDateEventrecurrence" name="endDateEventrecurrence"  value="' + dateStart + '" '
-        + '                      maxlength="10" id="sel1" size="11"'
-        + '                      placeholder="' + window.CRM.datePickerformat + '">'
-        + '               </div>'
-        + '            </div>'
-        + '            <div class="col-md-12" style="padding-top:10px">'
-        + '              <div class="row">'
-        + '                  <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Alarm') + ":</div>"
-        + '                  <div class="col-md-9">'
-        + '                    <select class="form-control form-control-sm" id="EventAlarm" name="EventAlarm">'
-        + '                          <option value="NONE">' + i18next.t("NONE") + '</option>'
-        + '                          <option value="PT0S">' + i18next.t("At time of event") + '</option>'
-        + '                          <option value="-PT5M">' + i18next.t("5 minutes before") + '</option>'
-        + '                          <option value="-PT10M">' + i18next.t("10 minutes before") + '</option>'
-        + '                          <option value="-PT15M">' + i18next.t("15 minutes before") + '</option>'
-        + '                          <option value="-PT30M">' + i18next.t("30 minutes before") + '</option>'
-        + '                          <option value="-PT1H">' + i18next.t("1 hour before") + '</option>'
-        + '                          <option value="-PT2H">' + i18next.t("2 hour before") + '</option>'
-        + '                          <option value="-P1D">' + i18next.t("1 day before") + '</option>'
-        + '                          <option value="-P2D">' + i18next.t("2 day before") + '</option>'
-        + '                      </select>'
-        + '                  </div>'
-        + '              </div>'
-        + '          </div>'
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row  div-title calendar-title">'
-        + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Calendar') + ":</div>"
-        + '      <div class="col-md-4">'
-        + '          <select type="text" id="EventCalendar" value="39" width="100%" style="width: 100%" class="form-control form-control-sm"></select>'
-        + '      </div>'
-        + '      <div class="col-md-5">'
-        + '          <div class="checkbox">'
-        + '              <label>'
-        + '                  <input type="checkbox" id="addGroupAttendees" disabled> ' + i18next.t('Add as attendees')
-        + '              </label>'
-        + '          </div>'
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row div-title eventNotesTitle">'
-        + '      <div class="col-md-12">'
-        + i18next.t('Notes')
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row  eventNotes  div-block">'
-        + '      <div class="col-md-12" style="margin-top:-15px;padding-left:0px;padding-right:2px;">'
-        + '          <textarea name="EventText" cols="80" class="form-control form-control-sm eventNotes" id="eventNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea>'
-        + '      </div>'
-        + '  </div>'
-        + '  <div class="row  div-title">'
-        + '      <div class="status-event-title">'
-        + '          <span style="color: red">*</span>' + i18next.t('Status')
-        + '      </div>'
-        + '      <div class="status-event">'
-        + '          <input type="radio" name="EventStatus" value="0" checked/> ' + i18next.t('Active')
-        + '      </div>'
-        + '      <div class="status-event">'
-        + '          <input type="radio" name="EventStatus" value="1" /> ' + i18next.t('inactive')
-        + '      </div>'
-        + '  </div>'
-        + '</form>';
+    var safeTitle = title !== undefined
+        ? String(title)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+        : '';
+
+    var frm_str = `
+        <form id="some-form" class="event-editor-form">
+            <div class="container-fluid px-0">
+                <div class="rounded border bg-light p-3 mb-3">
+                    <div class="row align-items-center EventTitle mb-3">
+                        <div class="col-md-3 font-weight-bold text-muted">
+                            <i class="fas fa-heading mr-2 text-primary"></i><span style="color: red">*</span>${i18next.t('Title')}:
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" id="EventTitle" placeholder="${i18next.t('Calendar Title')}" size="30" maxlength="100" class="form-control form-control-sm" style="width: 100%" required value="${safeTitle}">
+                        </div>
+                    </div>
+
+                    <div class="row div-title EventLocation mb-3">
+                        <div class="col-md-3 font-weight-bold text-muted">
+                            <i class="fas fa-map-marker-alt mr-2 text-danger"></i>${i18next.t('Location')}:
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group has-warning location_group_warning mb-0">
+                                <label class="control-label location_label_warning small d-block mb-2" for="EventLocation">
+                                    <i class="fas fa-bell location_label_warning mr-2"></i>${i18next.t('To validate your address : <b>"hit return"</b>.')}
+                                </label>
+                                <input type="text" id="EventLocation" placeholder="${i18next.t('Location')}" size="30" maxlength="100" class="form-control form-control-sm" style="width: 100%" required>
+                                <span class="help-block location_span_warning small text-muted d-block mt-2">${i18next.t('To see the Map click this text field.')}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row div-title map-title mb-3">
+                        <div class="col-md-3 font-weight-bold text-muted">
+                            <i class="fas fa-map mr-2 text-success"></i>${i18next.t('Map')}
+                        </div>
+                        <div class="col-md-9">
+                            <div class="border rounded bg-white p-2">
+                                <div id="MyMap"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row div-title EventDesc mb-0">
+                        <div class="col-md-3 font-weight-bold text-muted">
+                            <i class="fas fa-align-left mr-2 text-info"></i><span style="color: red">*</span>${i18next.t('Desc')}:
+                        </div>
+                        <div class="col-md-9">
+                            <textarea id="EventDesc" rows="1" maxlength="100" class="form-control form-control-sm" style="width: 100%" required placeholder="${i18next.t('Event description')}"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row div-title ATTENDENCES-title mb-3">
+                    <div class="col-md-3 font-weight-bold text-muted">
+                        <i class="fas fa-users mr-2 text-primary"></i><span style="color: red">*</span>${i18next.t('Event Type')}:
+                    </div>
+                    <div class="col-md-9">
+                        <select type="text" id="eventType" value="39" style="width: 100%" class="form-control form-control-sm"></select>
+                    </div>
+                </div>
+
+                <div class="row div-block ATTENDENCES mb-3">
+                    <div class="col-md-3 font-weight-bold text-muted">
+                        <i class="fas fa-user-check mr-2 text-secondary"></i>${i18next.t('Attendance Counts')}
+                    </div>
+                    <div class="col-md-9 ATTENDENCES-fields"></div>
+                    <div class="col-12"><hr class="mt-3 mb-0"></div>
+                </div>
+
+                <div class="row date-title div-title mb-3">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <div class="border rounded bg-white p-2 text-center" id="rangeStart" data-datestart="${dateStart}">
+                            <i class="fas fa-play-circle text-success mr-2"></i>${i18next.t('From')} : ${dateStart} ${timeStart}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border rounded bg-white p-2 text-center" id="rangeEnd" data-dateend="${dateEnd}">
+                            <i class="fas fa-flag-checkered text-danger mr-2"></i>${i18next.t('to')} : ${dateEnd} ${timeEnd}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row date-start div-block mb-3">
+                    <div class="col-md-12">
+                        <div class="border rounded bg-light p-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-3 font-weight-bold text-muted mb-2 mb-md-0">
+                                    <i class="fas fa-calendar-day mr-2 text-primary"></i><span style="color: red">*</span>${i18next.t('Start Date')} :
+                                </div>
+                                <div class="input-group col-md-3 mb-2 mb-md-0">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                    </div>
+                                    <input class="form-control form-control-sm date-picker" type="text" id="dateEventStart" name="dateEventStart" value="${dateStart}" maxlength="10" size="11" placeholder="${window.CRM.datePickerformat}">
+                                </div>
+                                <div class="input-group col-md-3 mb-2 mb-md-0">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control timepicker form-control-sm" id="timeEventStart" name="timeEventStart" value="${timeStart}">
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <label class="mb-0 font-weight-normal">
+                                        <input type="checkbox" id="checkboxEventAllday" name="checkboxEventAllday"> ${i18next.t('All day')}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row date-end div-block mb-3">
+                    <div class="col-md-12">
+                        <div class="border rounded bg-light p-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-3 font-weight-bold text-muted mb-2 mb-md-0">
+                                    <i class="fas fa-calendar-check mr-2 text-primary"></i><span style="color: red">*</span>${i18next.t('End Date')} :
+                                </div>
+                                <div class="input-group col-md-3 mb-2 mb-md-0">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                    </div>
+                                    <input class="form-control form-control-sm date-picker" type="text" id="dateEventEnd" name="dateEventEnd" value="${dateEnd}" maxlength="10" size="11" placeholder="${window.CRM.datePickerformat}">
+                                </div>
+                                <div class="input-group col-md-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control timepicker form-control-sm" id="timeEventEnd" name="timeEventEnd" value="${timeEnd}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row date-recurrence div-block mb-3">
+                    <div class="col-md-12">
+                        <div class="border rounded bg-light p-3">
+                            <div class="row align-items-center mb-3">
+                                <div class="col-md-3 font-weight-bold text-muted mb-2 mb-md-0">
+                                    <label class="mb-0 font-weight-normal">
+                                        <input type="checkbox" id="checkboxEventrecurrence" name="checkboxEventrecurrence"> ${i18next.t('Repeat')} :
+                                    </label>
+                                </div>
+                                <div class="col-md-3 mb-2 mb-md-0">
+                                    <select class="form-control form-control-sm" id="typeEventrecurrence" name="typeEventrecurrence">
+                                        <option value="FREQ=DAILY">${i18next.t('Daily')}</option>
+                                        <option value="FREQ=WEEKLY">${i18next.t('Weekly')}</option>
+                                        <option value="FREQ=MONTHLY">${i18next.t('Monthly')}</option>
+                                        <option value="FREQ=MONTHLY;INTERVAL=3">${i18next.t('Quarterly')}</option>
+                                        <option value="FREQ=MONTHLY;INTERVAL=6">${i18next.t('Semesterly')}</option>
+                                        <option value="FREQ=YEARLY">${i18next.t('Yearly')}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 font-weight-bold text-muted mb-2 mb-md-0">
+                                    ${i18next.t('End')} :
+                                </div>
+                                <div class="input-group col-md-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                    </div>
+                                    <input class="form-control form-control-sm date-picker" type="text" id="endDateEventrecurrence" name="endDateEventrecurrence" value="${dateStart}" maxlength="10" size="11" placeholder="${window.CRM.datePickerformat}">
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-md-3 font-weight-bold text-muted mb-2 mb-md-0">
+                                    <i class="fas fa-bell mr-2 text-warning"></i><span style="color: red">*</span>${i18next.t('Alarm')}:
+                                </div>
+                                <div class="col-md-9">
+                                    <select class="form-control form-control-sm" id="EventAlarm" name="EventAlarm">
+                                        <option value="NONE">${i18next.t('NONE')}</option>
+                                        <option value="PT0S">${i18next.t('At time of event')}</option>
+                                        <option value="-PT5M">${i18next.t('5 minutes before')}</option>
+                                        <option value="-PT10M">${i18next.t('10 minutes before')}</option>
+                                        <option value="-PT15M">${i18next.t('15 minutes before')}</option>
+                                        <option value="-PT30M">${i18next.t('30 minutes before')}</option>
+                                        <option value="-PT1H">${i18next.t('1 hour before')}</option>
+                                        <option value="-PT2H">${i18next.t('2 hour before')}</option>
+                                        <option value="-P1D">${i18next.t('1 day before')}</option>
+                                        <option value="-P2D">${i18next.t('2 day before')}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row div-title calendar-title mb-3">
+                    <div class="col-md-3 font-weight-bold text-muted mb-2 mb-md-0">
+                        <i class="fas fa-calendar-alt mr-2 text-primary"></i><span style="color: red">*</span>${i18next.t('Calendar')}:
+                    </div>
+                    <div class="col-md-4 mb-2 mb-md-0">
+                        <select type="text" id="EventCalendar" value="39" style="width: 100%" class="form-control form-control-sm"></select>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="custom-control custom-checkbox pt-1">
+                            <input type="checkbox" class="custom-control-input" id="addGroupAttendees" disabled>
+                            <label class="custom-control-label" for="addGroupAttendees">${i18next.t('Add as attendees')}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row div-title eventNotesTitle mb-2">
+                    <div class="col-md-12 font-weight-bold text-muted">
+                        <i class="fas fa-sticky-note mr-2 text-info"></i>${i18next.t('Notes')}
+                    </div>
+                </div>
+
+                <div class="row eventNotes div-block mb-3">
+                    <div class="col-md-12 pt-0">
+                        <textarea name="EventText" cols="80" class="form-control form-control-sm" id="eventNotes" style="width: 100%; height: 4em;"></textarea>
+                    </div>
+                </div>
+
+                <div class="row div-title align-items-center">
+                    <div class="col-md-12">
+                        <div class="border rounded bg-light px-3 py-2 d-md-flex align-items-center justify-content-between">
+                            <div class="status-event-title font-weight-bold text-muted mb-2 mb-md-0">
+                                <i class="fas fa-toggle-on mr-2 text-success"></i><span style="color: red">*</span>${i18next.t('Status')}
+                            </div>
+                            <div class="d-flex flex-wrap align-items-center justify-content-md-end pr-md-2" style="column-gap: 12px; row-gap: 8px;">
+                                <div class="status-event mr-3 mb-2 mb-md-0">
+                                    <label class="mb-0 font-weight-normal px-3 py-2 border rounded bg-white d-inline-flex align-items-center" style="gap: 8px; white-space: nowrap;">
+                                        <input type="radio" name="EventStatus" value="0" checked/> <span>${i18next.t('Active')}</span>
+                                    </label>
+                                </div>
+                                <div class="status-event mb-2 mb-md-0">
+                                    <label class="mb-0 font-weight-normal px-3 py-2 border rounded bg-white d-inline-flex align-items-center" style="gap: 8px; white-space: nowrap;">
+                                        <input type="radio" name="EventStatus" value="1" /> <span>${i18next.t('inactive')}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>`;
 
     var object = $('<div/>').html(frm_str).contents();
 
@@ -783,10 +849,13 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
         end = start;
     }
 
-    if (windowtitle == undefined) {
-        windowtitle = i18next.t("Event Creation");
+    if (window.CRM.eventID == -1) {
+        windowtitle = '<i class="fas fa-calendar-plus mr-2"></i> ' + i18next.t("Event Creation");
+    } else {
+        windowtitle = '<i class="far fa-calendar mr-2"></i> ' + i18next.t("Event Editor");
     }
 
+    
     var modal = bootbox.dialog({
         message: BootboxContent(start, end, title),
         size: 'large',
