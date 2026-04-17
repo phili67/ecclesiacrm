@@ -398,38 +398,44 @@ $("#add-calendar").on('click', function (e) {
 });
 
 $("#add-reservation-calendar").on('click', function (e) {
+    var resourceMessage = `
+        <div class="container-fluid px-0">
+            <div class="border rounded bg-light p-3 mb-3">
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-4 font-weight-bold text-muted">
+                        <i class="fas fa-signature mr-2 text-primary"></i>${i18next.t("Name")}:
+                    </div>
+                    <div class="col-md-8">
+                        <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="textCalendar">
+                    </div>
+                </div>
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-4 font-weight-bold text-muted">
+                        <i class="fas fa-layer-group mr-2 text-warning"></i>${i18next.t("Select a resource type")}:
+                    </div>
+                    <div class="col-md-8">
+                        <select class="form-control form-control-sm" id="typeCalendar" name="typeCalendar">
+                            <option value="2">${i18next.t("Room")}</option>
+                            <option value="3">${i18next.t("Computer")}</option>
+                            <option value="4">${i18next.t("Video")}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-4 font-weight-bold text-muted">
+                        <i class="fas fa-align-left mr-2 text-info"></i>${i18next.t("Description")}:
+                    </div>
+                    <div class="col-md-8">
+                        <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="descCalendar">
+                        <small class="form-text text-muted mt-2">${i18next.t("Add a short description to help identify this resource.")}</small>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
     bootbox.confirm({
-        title: i18next.t("Set Resource Name"),
-        message: '<table width=100%>'
-            + '<tr>'
-            + '<td>'
-            + i18next.t("Name") + ':'
-            + '</td>'
-            + '<td>'
-            + ' <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="textCalendar"><br>'
-            + '</td>'
-            + '</tr>'
-            + '<tr>'
-            + '<td>'
-            + i18next.t("Select a resource type") + ':'
-            + '</td>'
-            + '<td>'
-            + '<select class="form-control form-control-sm" id="typeCalendar" name="typeCalendar">'
-            + '<option value="2">' + i18next.t("Room") + '</option>'
-            + '<option value="3">' + i18next.t("Computer") + '</option>'
-            + '<option value="4">' + i18next.t("Video") + '</option>'
-            + '</select>'
-            + '</td>'
-            + '</tr>'
-            + '<tr>'
-            + '<td>'
-            + i18next.t("Description") + ':'
-            + '</td>'
-            + '<td>'
-            + ' <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="descCalendar"><br>'
-            + '</td>'
-            + '</tr>'
-            + '</table>',
+        title: '<i class="fas fa-calendar-plus mr-2 text-primary"></i>' + i18next.t("Set Resource Name"),
+        message: resourceMessage,
         buttons: {
             cancel: {
                 label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
@@ -494,28 +500,33 @@ const addShareCalendarPresence = (type) => {
 }
 
 const BootboxContentCalendarPresence = () => {
-    var frm_str ='<div>'
-        + '  <div class="row">'
-        + '      <div class="col-md-4">'
-        + '          <span style="color: red">*</span>' + i18next.t("Calendars") + ":"
-        + '      </div>'
-        + '      <div class="col-md-8">'
-        + '          <select size="6" class="form-control BootboxContentCalendarPresence" id="select-calendar-presence" multiple></select>'
-        + '      </div>'
-        + '  </div>'
-        + '  <br/>'
-        + '  <div class="row">'
-        + '      <div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Status") + ":</div>"
-        + '      <div class="col-md-8">'
-        + '          <select name="calendar-show-hide" id="calendar-show-hide" class="form-control form-control-sm"'
-        + '              style="width:100%" data-placeholder="text to place">'
-        + '              <option value="0">' + i18next.t("Select [Exclude] or [Include]") + ' -- </option>'
-        + '              <option value="2">' + '✅' + ' -- ' + i18next.t('[INCLUDE]') + '</option>'
-        + '              <option value="1">' + '❌' + ' -- ' + i18next.t('[EXCLUDE]') + '</option>'
-        + '          </select>'
-        + '      </div>'
-        + '  </div>'
-        + '</div>';
+    var frm_str = `
+        <div class="container-fluid px-0">
+            <div class="border rounded bg-light p-3 mb-3">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-4 font-weight-bold text-muted">
+                        <i class="fas fa-calendar-alt mr-2 text-primary"></i><span style="color: red">*</span>${i18next.t("Calendars")}:
+                    </div>
+                    <div class="col-md-8">
+                        <select size="6" class="form-control BootboxContentCalendarPresence" id="select-calendar-presence" multiple></select>
+                        <small class="form-text text-muted mt-2">${i18next.t("Select one or more calendars to update their visibility in the sidebar.")}</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-4 font-weight-bold text-muted">
+                    <i class="fas fa-eye mr-2 text-info"></i><span style="color: red">*</span>${i18next.t("Set Status")}:
+                </div>
+                <div class="col-md-8">
+                    <select name="calendar-show-hide" id="calendar-show-hide" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
+                        <option value="0">${i18next.t("Select [Exclude] or [Include]")} -- </option>
+                        <option value="2">✅ -- ${i18next.t('[INCLUDE]')}</option>
+                        <option value="1">❌ -- ${i18next.t('[EXCLUDE]')}</option>
+                    </select>
+                </div>
+            </div>
+        </div>`;
 
     var object = $('<div/>').html(frm_str).contents();
 
@@ -525,7 +536,7 @@ const BootboxContentCalendarPresence = () => {
 const CreateCalendarPresenceWindow = (type) => {
     var modal = bootbox.dialog({
         message: BootboxContentCalendarPresence(),
-        title: i18next.t("Include/Exclude your Calendars in the SideBar"),
+        title: '<i class="fas fa-sliders-h mr-2 text-primary"></i>' + i18next.t("Include/Exclude your Calendars in the SideBar"),
         buttons: [
             {
                 label: '<i class="fas fa-check"></i> ' + i18next.t("Ok"),
@@ -649,44 +660,55 @@ const addPersonsFromCalendar = (calendarId) => {
 }
 
 const BootboxContentShare = () => {
-    var frm_str = '<div>'
-        + '<div class="row">'
-        + '<div class="col-md-4">'
-        + '<span style="color: red">*</span>' + i18next.t("With") + ":"
-        + '</div>'
-        + '<div class="col-md-8">'
-        + '<select size="6" class="form-control BootboxContentShare" id="select-share-persons" multiple>'
-        + '</select>'
-        + '</div>'
-        + '<br/>'
-        + '<br/>'
-        + '</div>'
-        + '<div class="row">'
-        + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
-        + '<div class="col-md-8">'
-        + '<select name="person-group-Id-Share" id="person-group-rights" class="form-control form-control-sm"'
-        + 'style="width:100%;margin-bottom:15px" data-placeholder="text to place">'
-        + '<option value="0">' + i18next.t("Select your rights") + " [👀  ]" + i18next.t("or") + " [👀 ✐]" + ' -- </option>'
-        + '<option value="1">' + i18next.t("[👀  ]") + ' -- ' + i18next.t("[R ]") + '</option>'
-        + '<option value="2">' + i18next.t("[👀 ✐]") + ' -- ' + i18next.t("[RW]") + '</option>'
-        + '</select>'
-        + '</div>'
-        + '</div>'
-        + '<div class="row div-title">'
-        + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Send email notification") + ":</div>"
-        + '<div class="col-md-8">'
-        + '<input id="sendEmail" type="checkbox">'
-        + '</div>'
-        + '</div>'
-        + '<div class="row div-title">'
-        + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
-        + '<div class="col-md-8">'
-        + '<select name="person-group-Id-Share" id="person-group-Id-Share" class="form-control select2"'
-        + 'style="width:100%">'
-        + '</select>'
-        + '</div>'
-        + '</div>'
-        + '</div>';
+    var frm_str = `
+        <div class="container-fluid px-0">
+            <div class="border rounded bg-light p-3 mb-3">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-4 font-weight-bold text-muted">
+                        <i class="fas fa-user-friends mr-2 text-primary"></i><span style="color: red">*</span>${i18next.t("With")}:
+                    </div>
+                    <div class="col-md-8">
+                        <select size="6" class="form-control BootboxContentShare" id="select-share-persons" multiple></select>
+                        <small class="form-text text-muted mt-2">${i18next.t("Select one or more current shares to update or remove them.")}</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold text-muted">
+                    <i class="fas fa-user-shield mr-2 text-warning"></i><span style="color: red">*</span>${i18next.t("Set Rights")}:
+                </div>
+                <div class="col-md-8">
+                    <select name="person-group-Id-Share" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
+                        <option value="0">${i18next.t("Select your rights")} [👀  ] ${i18next.t("or")} [👀 ✐] -- </option>
+                        <option value="1">${i18next.t("[👀  ]")} -- ${i18next.t("[R ]")}</option>
+                        <option value="2">${i18next.t("[👀 ✐]")} -- ${i18next.t("[RW]")}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row div-title mb-3 align-items-center">
+                <div class="col-md-4 font-weight-bold text-muted">
+                    <i class="fas fa-envelope mr-2 text-info"></i><span style="color: red">*</span>${i18next.t("Send email notification")}:
+                </div>
+                <div class="col-md-8">
+                    <label class="mb-0 d-inline-flex align-items-center" style="gap: 8px;">
+                        <input id="sendEmail" type="checkbox">
+                        <span>${i18next.t("Notify added people, families, or groups by email")}</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row div-title align-items-center">
+                <div class="col-md-4 font-weight-bold text-muted">
+                    <i class="fas fa-plus-circle mr-2 text-success"></i><span style="color: red">*</span>${i18next.t("Add persons/Family/groups")}:
+                </div>
+                <div class="col-md-8">
+                    <select name="person-group-Id-Share" id="person-group-Id-Share" class="form-control select2" style="width:100%"></select>
+                    <small class="form-text text-muted mt-2">${i18next.t("Search and add people, families, or groups to share this calendar.")}</small>
+                </div>
+            </div>
+        </div>`;
 
     var object = $('<div/>').html(frm_str).contents();
 
@@ -696,12 +718,12 @@ const BootboxContentShare = () => {
 const createShareWindow = (calIDs) => {
     var modal = bootbox.dialog({
         message: BootboxContentShare(),
-        title: i18next.t("Share your Calendar"),
+        title: '<i class="fas fa-share-alt mr-2 text-primary"></i>' + i18next.t("Share your Calendar"),
         size: "large",
         buttons: [
             {
                 label: '<i class="fas fa-times"></i> ' + i18next.t("Delete"),
-                className: "btn btn-warning",
+                className: "btn btn-outline-warning",
                 callback: function () {
                     bootbox.confirm(i18next.t("Are you sure, you want to delete this Share ?"), function (result) {
                         if (result) {
@@ -723,8 +745,8 @@ const createShareWindow = (calIDs) => {
                 }
             },
             {
-                label: i18next.t("Stop sharing"),
-                className: "btn btn-danger",
+                label: '<i class="fas fa-user-slash"></i> ' + i18next.t("Stop sharing"),
+                className: "btn btn-outline-danger",
                 callback: function () {
                     bootbox.confirm(i18next.t("Are you sure, you want to stop sharing your document ?"), function (result) {
                         if (result) {
@@ -865,15 +887,35 @@ $('body').on('click', '#manage-cal-group', function () {
         data: JSON.stringify({"calIDs": calIDs, "type": type})
     }, function (data) {
         var allButtons = {};
+        var calendarIcon = 'fa-calendar-alt';
+
+        if (type == "group") {
+            calendarIcon = 'fa-users';
+        } else if (type == "reservation") {
+            calendarIcon = 'fa-building';
+        } else if (type == "shared") {
+            calendarIcon = 'fa-share-alt';
+        }
+
+        var managementMessage = `
+            <div class="container-fluid px-0">
+                <div class="border rounded bg-light p-3">
+                    <div class="d-flex align-items-start" style="gap: 12px;">
+                        <div>
+                            <div class="text-muted">${i18next.t(data.message)}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
 
         var buttonDelete = {
             delete: {
-                label: i18next.t("Delete"),
+                label: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Delete"),
                 className: 'btn-danger',
                 callback: function () {
 
                     bootbox.confirm({
-                        title: i18next.t("Are you sure?"),
+                        title: '<i class="fas fa-exclamation-triangle text-warning mr-2"></i>' + i18next.t("Are you sure?"),
                         message: i18next.t("You'll lose the calendar, the events and all the share calendars too. This cannot be undone."),
                         callback: function (result) {
                             if (result) {
@@ -898,7 +940,7 @@ $('body').on('click', '#manage-cal-group', function () {
 
         var buttonManage = {
             manage: {
-                label: i18next.t("Manage"),
+                label: '<i class="fas fa-sliders-h"></i> ' + i18next.t("Manage"),
                 className: 'btn-info',
                 callback: function () {
                     createShareWindow(calIDs);
@@ -929,8 +971,8 @@ $('body').on('click', '#manage-cal-group', function () {
 
 
         var dialog = bootbox.dialog({
-            title: i18next.t("Calendar Management for") + " : " + data.title,
-            message: i18next.t(data.message),
+            title: '<i class="fas ' + calendarIcon + ' mr-2 text-primary"></i>' + i18next.t("Calendar Management for") + " : " + data.title,
+            message: managementMessage,
             size: "large",
             buttons: allButtons
         });
@@ -1033,31 +1075,35 @@ $('body').on('click', '#reservation-info', function () {
     var id = $(this).data("id");
     var calType = $(this).data("caltype");
 
+    var resourceMessage = `
+        <div class="container-fluid px-0">
+            <div class="border rounded bg-light p-3 mb-3">
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-4 font-weight-bold text-muted">
+                        <i class="fas fa-layer-group mr-2 text-primary"></i>${i18next.t("Select a resource type")}:
+                    </div>
+                    <div class="col-md-8">
+                        <select class="form-control form-control-sm" id="typeCalendar" name="typeCalendar">
+                            <option value="2"${(calType == 2) ? ' selected' : ''}>${i18next.t("Room")}</option>
+                            <option value="3"${(calType == 3) ? ' selected' : ''}>${i18next.t("Computer")}</option>
+                            <option value="4"${(calType == 4) ? ' selected' : ''}>${i18next.t("Video")}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-4 font-weight-bold text-muted">
+                        <i class="fas fa-align-left mr-2 text-info"></i>${i18next.t("Description")}:
+                    </div>
+                    <div class="col-md-8">
+                        <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="descCalendar" value="${content || ''}">
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
     bootbox.confirm({
-        title: i18next.t("Resource Info for") + ' : ' + title,
-        message: '<table width=100%>'
-            + '<tr>'
-            + '<td>'
-            + i18next.t("Select a resource type") + ':'
-            + '</td>'
-            + '<td>'
-            + '<select class="form-control form-control-sm" id="typeCalendar" name="typeCalendar">'
-            + '<option value="2"' + ((calType == 2) ? ' selected' : '') + '>' + i18next.t("Room") + '</option>'
-            + '<option value="3"' + ((calType == 3) ? ' selected' : '') + '>' + i18next.t("Computer") + '</option>'
-            + '<option value="4"' + ((calType == 4) ? ' selected' : '') + '>' + i18next.t("Video") + '</option>'
-            + '</select>'
-            + '<br>'
-            + '</td>'
-            + '</tr>'
-            + '<tr>'
-            + '<td>'
-            + i18next.t("Description") + ':'
-            + '</td>'
-            + '<td>'
-            + ' <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="descCalendar" value="' + content + '"><br>'
-            + '</td>'
-            + '</tr>'
-            + '</table>',
+        title: '<i class="fas fa-tools mr-2 text-primary"></i>' + i18next.t("Resource Info for") + ' : ' + title,
+        message: resourceMessage,
         buttons: {
             cancel: {
                 label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
