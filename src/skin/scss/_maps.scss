@@ -1,32 +1,139 @@
+.map-shell-card {
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 36%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.93));
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+.map-shell-header {
+    position: relative;
+    z-index: 2;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(241, 245, 249, 0.88));
+
+    .card-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: #0f172a;
+    }
+
+    small {
+        display: block;
+        margin-top: 0.25rem;
+        color: #64748b !important;
+        font-size: 0.88rem;
+    }
+}
+
+.map-shell-body {
+    position: relative;
+    background:
+        linear-gradient(180deg, rgba(241, 245, 249, 0.55), rgba(255, 255, 255, 0) 18%),
+        linear-gradient(135deg, rgba(226, 232, 240, 0.14), rgba(248, 250, 252, 0.08));
+}
+
+.map-shell-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.map-shell-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-height: 38px;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    border-width: 1px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+
+    &:hover,
+    &:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+    }
+}
+
+.map-shell-button-secondary {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(148, 163, 184, 0.38);
+    color: #334155;
+}
+
 .maplegend{
-    font-family: Arial, sans-serif;
-    background: #fff;
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #000;
-    opacity: 0.7;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.78));
+    padding: 14px;
+    margin: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     z-index: 800;
     h4 {
         margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: #0f172a;
     }
     img {
         vertical-align: middle;
+    }
+    small {
+        color: #64748b;
+    }
+    .badge {
+        border-radius: 999px;
+        padding: 0.35rem 0.55rem;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
     }
 }
 
 .maplegend-dark {
-    font-family: Arial, sans-serif;
-    background: #524545;
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #000;
-    opacity: 0.7;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.88), rgba(15, 23, 42, 0.82));
+    padding: 14px;
+    margin: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(2, 6, 23, 0.42);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #f8fafc;
     z-index: 800;
     h4 {
         margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: #f8fafc;
     }
     img {
         vertical-align: middle;
+    }
+    small {
+        color: rgba(226, 232, 240, 0.78);
+    }
+    label,
+    .legenditemtext {
+        color: #f8fafc;
     }
 }
 
@@ -36,15 +143,21 @@
     left: 0px;
     font-size: 12px;
     width: 250px;
-    font-family: Arial, sans-serif;
-    background: #fff;
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #000;
-    opacity: 0.7;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: rgba(255, 255, 255, 0.82);
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 800;
     h4 {
         margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 700;
     }
     img {
         vertical-align: middle;
@@ -57,15 +170,22 @@
     left: 0px;
     font-size: 12px;
     width: 250px;
-    font-family: Arial, sans-serif;
-    background: #524545;
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #000;
-    opacity: 0.7;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: rgba(36, 41, 51, 0.82);
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #f8fafc;
     z-index: 800;
     h4 {
         margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 700;
     }
     img {
         vertical-align: middle;
@@ -73,24 +193,73 @@
 }
     
 .map-div {
-    margin: 2px;
+    margin: 0;
+    border-radius: 0 0 22px 22px;
+    overflow: hidden;
 }
 
 div {
     .legenditem {
-        padding: 4px 4px;
-        margin-bottom: 4px;
-        box-shadow: 1px 1px 1px 1px darkgrey;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 11px;
+        margin-bottom: 6px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.58);
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
         width:100%;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+
+        &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 24px rgba(15, 23, 42, 0.1);
+        }
     }
     .legendbox {
-        margin: 7px 3px 0px 3px ;
+        margin: 6px 0 0 0;
     }
 
     .legenditemtext {
         display: block;
         overflow: hidden;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.25;
     }
+}
+
+.maplegend-dark .legenditem,
+.maplegend-bing-dark .legenditem {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 22px rgba(2, 6, 23, 0.24);
+}
+
+.maplegend label,
+.maplegend-bing label,
+.maplegend-dark label,
+.maplegend-bing-dark label {
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.maplegend input[type="checkbox"],
+.maplegend-bing input[type="checkbox"],
+.maplegend-dark input[type="checkbox"],
+.maplegend-bing-dark input[type="checkbox"] {
+    margin: 0 2px 0 0;
+}
+
+.maplegend img,
+.maplegend-bing img,
+.maplegend-dark img,
+.maplegend-bing-dark img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
 }
 
 img.legendicon {
@@ -102,7 +271,7 @@ img.legendicon {
     bottom: 127px !important;
     right: 50px !important;
     font-size: 12px;
-    width: 250px;
+    width: 280px;
 }
 
 .maplegend-dark {
@@ -110,15 +279,71 @@ img.legendicon {
     bottom: 127px !important;
     right: 50px !important;
     font-size: 12px;
-    width: 250px;
+    width: 280px;
 }
 
 .maplegend-mobile {
      width:100%;
+     margin-top: 0.85rem;
+
+     .btn {
+        border-radius: 16px;
+        box-shadow: 0 14px 24px rgba(15, 23, 42, 0.12);
+     }
 }
 
 .map-div {
     height: 500px;
+}
+
+.leaflet-popup-content-wrapper,
+.gm-style .gm-style-iw-c {
+    border-radius: 18px !important;
+    box-shadow: 0 20px 35px rgba(15, 23, 42, 0.18) !important;
+}
+
+.leaflet-popup-tip,
+.gm-style .gm-style-iw-t::after {
+    box-shadow: none !important;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+    .map-shell-card {
+        border-color: rgba(255, 255, 255, 0.08);
+        background:
+            radial-gradient(circle at top left, rgba(51, 65, 85, 0.5), rgba(51, 65, 85, 0) 34%),
+            linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.93));
+        box-shadow: 0 28px 60px rgba(2, 6, 23, 0.45);
+    }
+
+    .map-shell-header {
+        border-bottom-color: rgba(255, 255, 255, 0.08);
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.94), rgba(15, 23, 42, 0.92));
+
+        .card-title {
+            color: #f8fafc;
+        }
+
+        small {
+            color: rgba(226, 232, 240, 0.78) !important;
+        }
+    }
+
+    .map-shell-body {
+        background:
+            linear-gradient(180deg, rgba(51, 65, 85, 0.18), rgba(15, 23, 42, 0) 18%),
+            linear-gradient(135deg, rgba(30, 41, 59, 0.46), rgba(15, 23, 42, 0.18));
+    }
+
+    .map-shell-button {
+        box-shadow: 0 12px 24px rgba(2, 6, 23, 0.26);
+    }
+
+    .map-shell-button-secondary {
+        background: rgba(30, 41, 59, 0.72);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: #e2e8f0;
+    }
 }
 
 
@@ -133,6 +358,19 @@ img.legendicon {
 
     .maplegend-mobile {
         display: block;
+    }
+
+    .map-shell-header {
+        padding: 1rem;
+    }
+
+    .map-shell-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .map-shell-button {
+        flex: 1 1 180px;
     }
 }
 
@@ -149,6 +387,7 @@ img.legendicon {
         display: none;
     }
     .map-div {
-        height:650px !important;
+        height: calc(100vh - 260px);
+        min-height: 0;
     }
 }
