@@ -34,6 +34,7 @@ $(function() {
     $(".multiSearch").select2({
         language: window.CRM.shortLocale,
         width: '100%',
+        placeholder: i18next.t('Search'),
         minimumInputLength: 2,
         ajax: {
             url: function (params) {
@@ -55,6 +56,7 @@ $(function() {
         $(this).closest(".navbar-search-form").addClass("is-open");
     });
     $(".multiSearch").on("select2:close", function () {
+        $(this).val(null).trigger('change.select2');
         $(this).closest(".navbar-search-form").removeClass("is-open");
     });
     $(".multiSearch").on("select2:select", function (e) {
