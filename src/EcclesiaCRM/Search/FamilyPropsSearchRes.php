@@ -57,9 +57,15 @@ class FamilyPropsSearchRes extends BaseSearchRes
                     //->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
                     //->addAsColumn('ProTypeDesc', PropertyTypeTableMap::COL_PRT_DESCRIPTION)
                     //->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
-                    ->where(PropertyTableMap::COL_PRO_CLASS . "='f' AND (" . PropertyTableMap::COL_PRO_NAME . " LIKE '%".$qry."%' OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '%".$qry."%' )");
+                    ->where(PropertyTableMap::COL_PRO_CLASS . "='f' AND (" . PropertyTableMap::COL_PRO_NAME . " LIKE '%".$qry."%' OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '%".$qry."%' )"
+                        . "OR " . FamilyTableMap::COL_FAM_NAME . " LIKE '%".$qry."%'");
 
                 $families->find();
+
+                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
+                $rootPath = SystemURLs::getRootPath();
+                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();
+                    
 
                 if ( $families->count() > 0 ) {
                     $id = 1;
@@ -90,61 +96,61 @@ class FamilyPropsSearchRes extends BaseSearchRes
                             $inCart = Cart::FamilyInCart($family->getId());
 
                             $res = "";
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/editor/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            if ($shouldShowCart) {
+                                $res .= '<a href="' . $rootPath . '/v2/people/family/editor/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fas fa-square fa-stack-2x"></i>'
                                 . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
                                 . '</span>';
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>&nbsp;';
                             }
 
                             if ($inCart == false) {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="AddToFamilyCart" data-cartfamilyid="' . $family->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     . '                <i class="fas fa-square fa-stack-2x"></i>'
                                     . '                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
                                     . '                </span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '                </a>';
                                 }
                             } else {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="RemoveFromFamilyCart" data-cartfamilyid="' . $family->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     . '                <i class="fas fa-square fa-stack-2x"></i>'
                                     . '                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
                                     . '                </span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '               </a>';
                                 }
                             }
 
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            if ($shouldShowCart) {
+                                $res .= '<a href="' . $rootPath . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fas fa-square fa-stack-2x"></i>'
                                 . '<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
                                 . '</span>';
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>&nbsp;';
                             }
 
                             $elt = [
                                 "id" => $family->getId(),
                                 "img" => $family->getJPGPhotoDatas(),
-                                "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
-                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                "searchresult" => _("Family") . ' : <a href="' . $rootPath . '/v2/people/family/view/' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
+                                "address" => (!$shouldSeePrivacyData) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                 "type" => _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
-                                "Classification" => "",
+                                "Classification" => $family->getProName() . (!empty($family->getProValue()) ? " : " . $family->getProValue() : ""),
                                 "ProNames" => "",
                                 "FamilyRole" => "",
                                 "members" => $res_members,
