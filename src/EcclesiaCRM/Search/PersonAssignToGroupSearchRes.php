@@ -10,6 +10,7 @@ use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -57,13 +58,21 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                     ->addAsColumn('roleName', ListOptionTableMap::COL_LST_OPTIONNAME)
                     ->addAsColumn('groupName', GroupTableMap::COL_GRP_NAME)
                     ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
-                    ->Where(ListOptionTableMap::COL_LST_OPTIONNAME . " LIKE '" . $searchLikeString . "' ORDER BY grp_Name");
+                    ->leftJoinPerson()
+                    ->Where(ListOptionTableMap::COL_LST_OPTIONNAME . " LIKE '" . $searchLikeString 
+                    . "' OR ". PersonTableMap::COL_PER_FIRSTNAME . " LIKE '" . $searchLikeString 
+                    . "' OR " . PersonTableMap::COL_PER_LASTNAME . " LIKE '" . $searchLikeString . "' ORDER BY " . GroupTableMap::COL_GRP_NAME);
 
                 if ( $this->isQuickSearch() ) {
                     $ormAssignedGroups->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
                 $ormAssignedGroups->find();
+
+                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
+                $rootPath = SystemURLs::getRootPath();
+                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();
+                
 
                 if ( $ormAssignedGroups->count() > 0)
                 {
@@ -88,8 +97,8 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                             $inCart = Cart::PersonInCart($per->getPerson()->getId());
 
                             $res = "";
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res = '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/editor/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            if ($shouldShowCart) {
+                                $res = '<a href="' . $rootPath . '/v2/people/person/editor/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
 
                             $res .= '<span class="fa-stack">'
@@ -97,7 +106,7 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                                 . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
                                 . '</span>';
 
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>&nbsp;';
                             }
 
@@ -109,42 +118,42 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                                     . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
                                     . "                <i class=\"fas fa-stack-1x fa-inverse fa-cart-plus\"></i>"
                                     . "                </span>\n";
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= "                </a>  ";
                                 }
                             } else {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getPerson()->getId() . '">';
                                 }
                                 $res .= "                <span class=\"fa-stack\">\n"
                                     . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
                                     . "                <i class=\"fas fa-times fa-stack-1x fa-inverse\"></i>\n"
                                     . "                </span>\n";
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= "                </a>  ";
                                 }
                             }
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/v2/people/person/print/' . $per->getPerson()->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
+                            if ($shouldShowCart) {
+                                $res .= '&nbsp;<a href="' . $rootPath . '/v2/people/person/print/' . $per->getPerson()->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fas fa-square fa-stack-2x"></i>'
                                 . '<i class="fas fa-print fa-stack-1x fa-inverse"></i>'
                                 . '</span>';
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>';
                             }
 
                             $elt = [
                                 "id" => $per->getPerson()->getId(),
                                 "img" => $per->getPerson()->getJPGPhotoDatas(),
-                                "searchresult" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(),
-                                        $per->getPerson()->getSuffix(), 3) . '</a> (<a href="'.SystemURLs::getRootPath().'/v2/group/'.$per->getGroupId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$per->getgroupName().'</a>)',
-                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address,
+                                "searchresult" => '<a href="' . $rootPath . '/v2/people/person/view/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(),
+                                        $per->getPerson()->getSuffix(), 3) . '</a> (<a href="'.$rootPath.'/v2/group/'.$per->getGroupId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$per->getgroupName().'</a>)',
+                                "address" => (!$shouldSeePrivacyData) ? _('Private Data') : $address,
                                 "type" => " " . _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
-                                "Classification" => "",
+                                "Classification" => $per->getGroupName() . " : " . $per->getRoleName(),// . " (" . ($per->getHasSpecialProps() ? _("Yes") : _("No")) . ")",
                                 "ProNames" => "",
                                 "FamilyRole" => "",
                                 "members" => "",

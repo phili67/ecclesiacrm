@@ -53,6 +53,16 @@ $app->group('/search', function (RouteCollectorProxy $group) {
     * #! param: ref->string :: query
     */
     $group->post('/getresult/', SearchController::class . ':getSearchResult' );
+    /*
+    * @! Get available search result types for the main search view
+    * #! param: none
+    */
+    $group->get('/getresulttypes/', SearchController::class . ':getSearchTypes' );
+    /*
+    * @! Get all person ids for the current main search filters
+    * #! param: ref->string :: query
+    */
+    $group->post('/getresultpersonids/', SearchController::class . ':getSearchPeopleIds' );
     //$group->get('/getresult/', SearchController::class . ':getSearchResult' );// for test
 });
 

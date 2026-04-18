@@ -57,12 +57,16 @@ class PersonSearchRes extends BaseSearchRes
                 $people = PersonQuery::create();
                 $people->setDistinct(PersonTableMap::COL_PER_ID);
 
-                $isSeePrivacyDataEnabled = SessionUser::getUser()->isSeePrivacyDataEnabled();
-
+                
                 $iTenThousand = 10000;
 
                 $isGlobalSearch = $this->isGlobalSearch();
                 $isStringSearch = $this->isStringSearch();
+
+                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
+                $rootPath = SystemURLs::getRootPath();
+                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();
+
 
                 if ( $isGlobalSearch or $isStringSearch ) {// we are in the global search project
 
@@ -106,7 +110,7 @@ class PersonSearchRes extends BaseSearchRes
                             $people->_or();
                         }*/
 
-                        if ($isSeePrivacyDataEnabled) {
+                        if ($shouldSeePrivacyData) {
                             $people->_or()->filterByFirstName($searchLikeString, $criteria)
                                 ->_or()->filterByLastName($searchLikeString, $criteria)
                                 ->_or()->filterByEmail($searchLikeString, $criteria)
@@ -243,7 +247,7 @@ class PersonSearchRes extends BaseSearchRes
 
                         foreach ($people as $person) {
                             $properties = "";
-                            if ( $isSeePrivacyDataEnabled ) {
+                            if ( $shouldSeePrivacyData ) {
                                 $ormAssignedProperties = Record2propertyR2pQuery::Create()
                                     ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID, PropertyTableMap::COL_PRO_ID, Criteria::LEFT_JOIN)
                                     ->addJoin(PropertyTableMap::COL_PRO_PRT_ID, PropertyTypeTableMap::COL_PRT_ID, Criteria::LEFT_JOIN)
@@ -262,7 +266,7 @@ class PersonSearchRes extends BaseSearchRes
 
                             $address = "";
                             if ( !is_null($fam) ) {
-                                if ( $isSeePrivacyDataEnabled ) {
+                                if ( $shouldSeePrivacyData ) {
                                     $address = '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $fam->getID() . '">' .
                                         $fam->getName() . MiscUtils::FormatAddressLine($person->getFamily()->getAddress1(), $person->getFamily()->getCity(), $person->getFamily()->getState()) .
                                         "</a>";
@@ -276,20 +280,20 @@ class PersonSearchRes extends BaseSearchRes
                             $inCart = Cart::PersonInCart($person->getId());
 
                             $res = "";
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/editor/' . $person->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            if ($shouldShowCart) {
+                                $res .= '<a href="' . $rootPath . '/v2/people/person/editor/' . $person->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fas fa-square fa-stack-2x"></i>'
                                 . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
                                 . '</span>';
 
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>&nbsp;';
                             }
 
                             if ($inCart == false) {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $person->getId() . '">';
                                 }
                                 $res .= "\n"
@@ -298,11 +302,11 @@ class PersonSearchRes extends BaseSearchRes
                                     . "                <i class=\"fas fa-stack-1x fa-inverse fa-cart-plus\"></i>"
                                     . "                </span>\n";
 
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= "                </a>  ";
                                 }
                             } else {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $person->getId() . '">';
                                 }
                                 $res .= "\n"
@@ -310,31 +314,31 @@ class PersonSearchRes extends BaseSearchRes
                                     . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
                                     . "                <i class=\"fas fa-times fa-stack-1x fa-inverse\"></i>\n"
                                     . "                </span>\n";
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= "                </a>  ";
                                 }
                             }
 
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/v2/people/person/print/' . $person->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
+                            if ($shouldShowCart) {
+                                $res .= '&nbsp;<a href="' . $rootPath . '/v2/people/person/print/' . $person->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fas fa-square fa-stack-2x"></i>'
                                 . '<i class="fas fa-print fa-stack-1x fa-inverse"></i>'
                                 . '</span>';
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>';
                             }
 
                             if ( $isStringSearch ) {
-                                if ( SessionUser::getUser()->isSeePrivacyData() ) {
+                                if ( $shouldSeePrivacyData ) {
                                     $tableOfRes = [$person->getFirstName(), $person->getLastName(), $person->getEmail(), $person->getWorkEmail(),
                                         $person->getHomePhone(), $person->getCellPhone(), $person->getWorkPhone() ];
                                 } else {
                                     $tableOfRes = [$person->getFirstName(), $person->getLastName() ];
                                 }
 
-                                if ( $isSeePrivacyDataEnabled ) {
+                                if ( $shouldSeePrivacyData ) {
                                     array_merge($tableOfRes, [_($person->getClassName()), $properties, $person->getFamilyRoleName()]);
                                 }
 
@@ -351,14 +355,14 @@ class PersonSearchRes extends BaseSearchRes
                                 $elt = [
                                     'id' => $person->getId(),
                                     "img" => $person->getJPGPhotoDatas(),
-                                    'searchresult' => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $person->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) . '</a>',
-                                    'address' => (!$isSeePrivacyDataEnabled) ? _('Private Data') : $address,
+                                    'searchresult' => '<a href="' . $rootPath . '/v2/people/person/view/' . $person->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) . '</a>',
+                                    'address' => (!$shouldSeePrivacyData) ? _('Private Data') : $address,
                                     'type' => _($this->getGlobalSearchType()),
                                     'realType' => $this->getGlobalSearchType(),
                                     'Gender' => ($person->getGender() == 1) ? _('Male') : _('Female'),
-                                    'Classification' => (!$isSeePrivacyDataEnabled) ? _('Private Data') : _($person->getClassName()),
-                                    'ProNames' => (!$isSeePrivacyDataEnabled) ? _('Private Data') : $properties,
-                                    'FamilyRole' => (!$isSeePrivacyDataEnabled) ? _('Private Data') : $person->getFamilyRoleName(),
+                                    'Classification' => (!$shouldSeePrivacyData) ? _('Private Data') : _($person->getClassName()),
+                                    'ProNames' => (!$shouldSeePrivacyData) ? _('Private Data') : $properties,
+                                    'FamilyRole' => (!$shouldSeePrivacyData) ? _('Private Data') : $person->getFamilyRoleName(),
                                     "members" => "",
                                     'actions' => $res
                                 ];
@@ -369,7 +373,7 @@ class PersonSearchRes extends BaseSearchRes
                         $this->results = array_unique($this->results,SORT_ASC);
                     }
                 } else {// not global search
-                    if ($isSeePrivacyDataEnabled) {
+                    if ($shouldSeePrivacyData) {
                         $people->filterByFirstName($searchLikeString, Criteria::LIKE)
                             ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)
                             ->_or()->filterByEmail($searchLikeString, Criteria::LIKE)

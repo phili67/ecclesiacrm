@@ -1,7 +1,12 @@
 $(function() {
     function setCartButtonIcon(button, inCart) {
         var $button = $(button);
-        var $icon = $button.find('i.fas').first();
+
+        var $icon = $button.find('i.fa-stack-1x.fa-inverse').first();
+
+        if ($icon.length === 0) {
+            $icon = $button.find('i.fas').not('.fa-stack-2x').first();
+        }
 
         if ($icon.length === 0) {
             return;

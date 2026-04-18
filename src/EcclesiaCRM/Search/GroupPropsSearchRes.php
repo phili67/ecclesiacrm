@@ -58,6 +58,11 @@ class GroupPropsSearchRes extends BaseSearchRes
 
                 $groups->find();
 
+                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
+                $rootPath = SystemURLs::getRootPath();
+                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();
+                
+
                 if ( $groups->count() > 0 ) {
                     $id = 1;
 
@@ -78,56 +83,56 @@ class GroupPropsSearchRes extends BaseSearchRes
                             $inCart = Cart::GroupInCart($group->getId());
 
                             $res = "";
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/group/editor/' . $group->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            if ($shouldShowCart) {
+                                $res .= '<a href="' . $rootPath . '/v2/group/editor/' . $group->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'
                                 .'<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
                                 .'</span>';
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>&nbsp;';
                             }
 
                             if ($inCart === false) {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="AddToGroupCart" data-cartgroupid="' . $group->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     .'                <i class="fas fa-square fa-stack-2x"></i>'
                                     .'                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
                                     .'                </span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= "                </a>  ";
                                 }
                             } else {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="RemoveFromGroupCart" data-cartgroupid="' . $group->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     .'                <i class="fas fa-square fa-stack-2x"></i>'
                                     .'                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
                                     .'                </span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= "                </a>  ";
                                 }
                             }
 
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/group/' . $group->getId() . '/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            if ($shouldShowCart) {
+                                $res .= '<a href="' . $rootPath . '/v2/group/' . $group->getId() . '/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'
                                 .'<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
                                 .'</span>';
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>&nbsp;';
                             }
 
                             $elt = [
                                 "id" => $group->getId(),
                                 "img" => '<i class="fas fa-users fa-2x"></i>',
-                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/group/'.$group->getId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$group->getName().'</a>',
+                                "searchresult" => '<a href="'.$rootPath.'/v2/group/'.$group->getId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$group->getName().'</a>',
                                 "address" => "",
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),

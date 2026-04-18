@@ -39,6 +39,8 @@ class PaymentSearchRes extends BaseSearchRes
 
                     $id = 1;
 
+                    $rootPath = SystemURLs::getRootPath();                    
+
                     if (!is_null($Payments))
                     {
                         foreach ($Payments as $Payment) {
@@ -50,7 +52,7 @@ class PaymentSearchRes extends BaseSearchRes
                                 $elt = [
                                     "id" => -1,
                                     "img" => '<i class="fas fa-university fa-2x"></i>',
-                                    "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/deposit/slipeditor/'.$Payment['dep_ID'].'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$Payment['displayName'].'</a>',
+                                    "searchresult" => '<a href="'.$rootPath.'/v2/deposit/slipeditor/'.$Payment['dep_ID'].'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$Payment['displayName'].'</a>',
                                     "address" => "",
                                     "type" => _($this->getGlobalSearchType()),
                                     "realType" => " ".$this->getGlobalSearchType(),

@@ -6,12 +6,202 @@ $(function () {
     var buildMenu = false;
     var cart = [];
     var search_Term = window.CRM.mode;
-    var first_loaded = true;
+    var selected_search_types = [];
+    var current_cart_people = [];
+    var current_cart_families = [];
+    var current_cart_groups = [];
 
-    const loadAllPeople = () => {
-        window.CRM.closeDialogLoadingFunction();
+    const reloadSearchResults = () => {
+        cart = [];
 
-        window.CRM.listPeople = cart;
+        window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
+            window.CRM.dataSearchTable.ajax.reload(function () {
+                window.CRM.closeDialogLoadingFunction();
+            }, false);
+        });
+    }
+
+    const loadAllPeople = (done, keepDialogOpen) => {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'search/getresultpersonids/',
+            data: JSON.stringify({
+                "SearchTerm": search_Term,
+                "Elements": elements,
+                "GroupElements": group_elements,
+                "GroupRoleElements": group_role_elements,
+                "SearchTypes": selected_search_types
+            })
+        }, function (data) {
+            window.CRM.listPeople = Array.isArray(data.PeopleIds) ? data.PeopleIds : [];
+
+            if (keepDialogOpen !== true) {
+                window.CRM.closeDialogLoadingFunction();
+            }
+
+            if (typeof done === 'function') {
+                done({
+                    peopleIds: window.CRM.listPeople,
+                    familyIds: Array.isArray(data.FamilyIds) ? data.FamilyIds : [],
+                    groupIds: Array.isArray(data.GroupIds) ? data.GroupIds : []
+                });
+            }
+        });
+    }
+
+    const runCartBatchOperations = (operations) => {
+        var pendingOperations = operations.length;
+
+        if (pendingOperations === 0) {
+            window.CRM.closeDialogLoadingFunction();
+            return;
+        }
+
+        $.each(operations, function (index, operation) {
+            operation(function () {
+                pendingOperations -= 1;
+
+                if (pendingOperations === 0) {
+                    window.CRM.closeDialogLoadingFunction();
+                }
+            });
+        });
+    }
+
+    const loadSearchTypeCombo = () => {
+        window.CRM.APIRequest({
+            method: 'GET',
+            path: 'search/getresulttypes/'
+        }, function (data) {
+            $("#searchTypeCombo").empty();
+
+            $.each(data.SearchTypes || [], function (index, value) {
+                var option = new Option(value.text, value.id, false, false);
+                $("#searchTypeCombo").append(option);
+            });
+        });
+    }
+
+
+    const isWildcardSearch = (term) => {
+        return String(term || '').trim() === "*";
+    }
+
+    const normalizeSearchTerm = (term) => {
+        return String(term || '').trim().toLowerCase();
+    }
+
+    const hasSearchTerm = (term) => {
+        return normalizeSearchTerm(term) !== '';
+    }
+
+    const getRawSearchMode = () => {
+        return normalizeSearchTerm(window.CRM.searchMode);
+    }
+
+    const hidesPersonFilters = (term) => {
+        var normalizedTerm = normalizeSearchTerm(term);
+        var rawSearchMode = getRawSearchMode();
+
+        if (isWildcardSearch(term) || rawSearchMode === 'person') {
+            return false;
+        }
+
+        return rawSearchMode === 'family' || rawSearchMode === 'single' || rawSearchMode === 'singles'
+            || normalizedTerm !== '*';
+    }
+
+    const hidesSearchTypeFilters = (term) => {
+        var normalizedTerm = normalizeSearchTerm(term);
+        var normalizedSearchMode = getRawSearchMode();
+        var hiddenTerms = [
+            '*',
+            'family',
+            'families',
+            'single',
+            'singles',
+            normalizedSearchMode,
+            normalizeSearchTerm(i18next.t('Families')),
+            normalizeSearchTerm(i18next.t('Singles'))
+        ];
+
+        return hiddenTerms.indexOf(normalizedTerm) >= 0;
+    }
+
+    const toggleSearchFiltersVisibility = (term) => {
+        if (hidesPersonFilters(term)) {
+            $(".person-filters").addClass('d-none').hide();
+        } else {
+            $(".person-filters").removeClass('d-none').show();
+        }
+
+        if (hidesSearchTypeFilters(term)) {
+            $("#search_type_filters").addClass('d-none').hide();
+        } else {
+            $("#search_type_filters").removeClass('d-none').show();
+        }
+    }
+
+    const updateSearchTypeComboState = (term) => {
+        $("#searchTypeCombo").prop('disabled', !hasSearchTerm(term)).trigger('change.select2');
+    }
+
+    const setSearchCartButtonState = ($button, inCart, addClassName, removeClassName) => {
+        var $icon = $button.find('i.fa-stack-1x.fa-inverse').first();
+
+        $button.toggleClass(addClassName, !inCart);
+        $button.toggleClass(removeClassName, inCart);
+
+        if ($icon.length > 0) {
+            $icon.toggleClass('fa-cart-plus', !inCart);
+            $icon.toggleClass('fa-times', inCart);
+        }
+    }
+
+    const updateSearchCartButtons = (cartPeople, cartFamilies, cartGroups) => {
+        var peopleIds = Array.isArray(cartPeople) ? cartPeople : [];
+        var familyIds = Array.isArray(cartFamilies) ? cartFamilies : [];
+        var groupIds = Array.isArray(cartGroups) ? cartGroups : [];
+
+        current_cart_people = peopleIds;
+        current_cart_families = familyIds;
+        current_cart_groups = groupIds;
+
+        $("#DataSearchTable a[data-cartpersonid]").each(function () {
+            var $button = $(this);
+            var personId = $button.data("cartpersonid");
+
+            setSearchCartButtonState(
+                $button,
+                peopleIds.includes(personId),
+                "AddToPeopleCart",
+                "RemoveFromPeopleCart"
+            );
+        });
+
+        $("#DataSearchTable a[data-cartfamilyid]").each(function () {
+            var $button = $(this);
+            var familyId = $button.data("cartfamilyid");
+
+            setSearchCartButtonState(
+                $button,
+                familyIds.includes(familyId),
+                "AddToFamilyCart",
+                "RemoveFromFamilyCart"
+            );
+        });
+
+        $("#DataSearchTable a[data-cartgroupid]").each(function () {
+            var $button = $(this);
+            var groupId = $button.data("cartgroupid");
+
+            setSearchCartButtonState(
+                $button,
+                groupIds.includes(groupId),
+                "AddToGroupCart",
+                "RemoveFromGroupCart"
+            );
+        });
     }
 
     const loadGroupByType = (GroupType) => {
@@ -99,9 +289,7 @@ $(function () {
         });
     }
 
-    if (search_Term != "*") {
-        $(".person-filters").hide();
-    }
+    toggleSearchFiltersVisibility(search_Term);
 
     $("#SearchTerm").select2({
         language: window.CRM.shortLocale,
@@ -116,11 +304,7 @@ $(function () {
                 $("#group_search_filters").hide();
                 $('#SearchTerm').empty();
 
-                if (params.term === "*") {
-                    $(".person-filters").show();
-                } else {
-                    $(".person-filters").hide();
-                }
+                toggleSearchFiltersVisibility(params.term);
                 return window.CRM.root + "/api/search/getresultbyname/" + params.term;
             },
             headers: {
@@ -138,14 +322,23 @@ $(function () {
 
     $("#SearchTerm").on("select2:select", function (e) {
         search_Term = e.params.data.text;
+        toggleSearchFiltersVisibility(search_Term);
+        updateSearchTypeComboState(search_Term);
 
-        cart = [];
+        reloadSearchResults();
+    });
 
-        window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
-            window.CRM.dataSearchTable.ajax.reload(function (json) {
-                loadAllPeople();
-            }, false);
-        });
+    $("#SearchTerm").on("change select2:clear", function () {
+        var selectedData = $(this).select2('data');
+
+        if (selectedData.length > 0 && selectedData[0].text !== undefined) {
+            search_Term = selectedData[0].text;
+        } else {
+            search_Term = '';
+        }
+
+        toggleSearchFiltersVisibility(search_Term);
+        updateSearchTypeComboState(search_Term);
     });
 
     if (search_Term != '') {
@@ -156,12 +349,9 @@ $(function () {
 
         var newOption = new Option(data.text, data.id, true, true);
         $('#SearchTerm').append(newOption).trigger('change');
+        toggleSearchFiltersVisibility(search_Term);
 
-        window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
-            window.CRM.dataSearchTable.ajax.reload(function (json) {
-                loadAllPeople();
-            }, false);
-        });
+        reloadSearchResults();
     }
 
 
@@ -180,6 +370,16 @@ $(function () {
     $("#searchCombo").select2();
     $("#searchComboGroup").select2();
     $("#searchComboGroupRole").select2();
+    $("#searchTypeCombo").select2({
+        allowClear: true,
+        placeholder: i18next.t('All search types')
+    });
+    updateSearchTypeComboState(search_Term);
+
+    $("#searchTypeCombo").on("change", function () {
+        selected_search_types = $(this).val() || [];
+        reloadSearchResults();
+    });
 
 
     $("#searchCombo").select2().on("change", function (e) {
@@ -213,13 +413,7 @@ $(function () {
             }
         }
 
-        cart = [];
-        window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
-            window.CRM.dataSearchTable.ajax.reload(function (json) {
-                loadAllPeople()
-            }, false);
-
-        });
+        reloadSearchResults();
 
         if (has_group_in_elements === false) {
             group_elements = {};
@@ -247,12 +441,7 @@ $(function () {
             $("#searchComboGroupRole").empty();
         }
 
-        cart = [];
-        window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
-            window.CRM.dataSearchTable.ajax.reload(function (json) {
-                loadAllPeople()
-            }, false);
-        });
+        reloadSearchResults();
     });
 
     $("#searchComboGroupRole").select2().on("change", function (e) {
@@ -268,12 +457,7 @@ $(function () {
             }
         }
 
-        cart = [];
-        window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
-            window.CRM.dataSearchTable.ajax.reload(function (json) {
-                loadAllPeople()
-            }, false);
-        });
+        reloadSearchResults();
     });
 
     var dataTableSearchConfig = {
@@ -292,7 +476,8 @@ $(function () {
                     "SearchTerm": search_Term,
                     "Elements": elements,
                     "GroupElements": group_elements,
-                    "GroupRoleElements": group_role_elements
+                    "GroupRoleElements": group_role_elements,
+                    "SearchTypes": selected_search_types
                 });
             }
         },
@@ -475,12 +660,30 @@ $(function () {
             {
                 text: '<span class="dt-button-green"><i class="fas fa-cart-plus"></i> ' + i18next.t("Add All results") + '</span>',
                 action: function (e, dt, node, config) {
-                    loadAllPeople()
-
                     window.CRM.dialogLoadingFunction(i18next.t('Loading people in cart....'), function () {
-                        window.CRM.cart.addPerson(window.CRM.listPeople, function () {
-                            window.CRM.closeDialogLoadingFunction();
-                        });
+                        loadAllPeople(function (cartResults) {
+                            var operations = [];
+
+                            if (cartResults.peopleIds.length > 0) {
+                                operations.push(function (done) {
+                                    window.CRM.cart.addPerson(cartResults.peopleIds, done);
+                                });
+                            }
+
+                            if (cartResults.familyIds.length > 0) {
+                                operations.push(function (done) {
+                                    window.CRM.cart.addFamilies(cartResults.familyIds, done);
+                                });
+                            }
+
+                            if (cartResults.groupIds.length > 0) {
+                                operations.push(function (done) {
+                                    window.CRM.cart.addGroups(cartResults.groupIds, done);
+                                });
+                            }
+
+                            runCartBatchOperations(operations);
+                        }, true);
                     });
 
                     $(".dt-button-background").trigger("click");
@@ -538,12 +741,30 @@ $(function () {
             {
                 text: '<span class="dt-button-red"><i class="fas fa-trash"></i> ' + i18next.t("Remove All results") + '</span>',
                 action: function (e, dt, node, config) {
-                    loadAllPeople()
-
                     window.CRM.dialogLoadingFunction(i18next.t('Removing people in cart....'), function () {
-                        window.CRM.cart.removePerson(window.CRM.listPeople, function () {
-                            window.CRM.closeDialogLoadingFunction();
-                        });
+                        loadAllPeople(function (cartResults) {
+                            var operations = [];
+
+                            if (cartResults.peopleIds.length > 0) {
+                                operations.push(function (done) {
+                                    window.CRM.cart.removePerson(cartResults.peopleIds, done);
+                                });
+                            }
+
+                            if (cartResults.familyIds.length > 0) {
+                                operations.push(function (done) {
+                                    window.CRM.cart.removeFamilies(cartResults.familyIds, done);
+                                });
+                            }
+
+                            if (cartResults.groupIds.length > 0) {
+                                operations.push(function (done) {
+                                    window.CRM.cart.removeGroups(cartResults.groupIds, done);
+                                });
+                            }
+
+                            runCartBatchOperations(operations);
+                        }, true);
                     });
 
                     $(".dt-button-background").trigger("click");
@@ -552,12 +773,12 @@ $(function () {
             {
                 text: '<span class="dt-button-orange">&cap; ' + i18next.t("Intersect result with cart") + '</span>',
                 action: function (e, dt, node, config) {
-                    loadAllPeople()
-
                     window.CRM.dialogLoadingFunction(i18next.t('Loading people in cart....'), function () {
-                        window.CRM.cart.intersectPerson(window.CRM.listPeople, function () {
-                            window.CRM.closeDialogLoadingFunction();
-                        });
+                        loadAllPeople(function (cartResults) {
+                            window.CRM.cart.intersectPerson(cartResults.peopleIds, function () {
+                                window.CRM.closeDialogLoadingFunction();
+                            });
+                        }, true);
                     });
 
                     $(".dt-button-background").trigger("click");
@@ -570,13 +791,13 @@ $(function () {
 
     window.CRM.dataSearchTable = $("#DataSearchTable").DataTable(dataTableSearchConfig);
 
+    $("#DataSearchTable").on('draw.dt', function () {
+        updateSearchCartButtons(current_cart_people, current_cart_families, current_cart_groups);
+    });
+
     $("#DataSearchTable").on('search.dt', function () {
         var info = window.CRM.dataSearchTable.page.info();
         $('#numberOfPersons').html(info.recordsDisplay);
-
-        if (info.recordsDisplay > 0) {
-            window.CRM.closeDialogLoadingFunction();
-        }
     });
 
     $(document).on("click", "#search_OK", function () {
@@ -584,18 +805,14 @@ $(function () {
         var res = cart.length;
         cart = [];
 
-        cart = [];
-        window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
-            window.CRM.dataSearchTable.ajax.reload(function (json) {
-                loadAllPeople()
-            }, false);
-        })
+        reloadSearchResults()
     });
 
 
     // the main part
     $("#group_search_filters").hide()
     loadSearchCombo();
+    loadSearchTypeCombo();
 
 
     /* Custom filtering function which will search data in column four between two values */
@@ -612,9 +829,6 @@ $(function () {
 
     // newMessage event handler
     function updateButtons(e) {
-        if (first_loaded == false) {
-            window.CRM.dataSearchTable.ajax.reload(null, false);
-        }
-        first_loaded = false;
+        updateSearchCartButtons(e.people, e.families, e.groups);
     }
 });

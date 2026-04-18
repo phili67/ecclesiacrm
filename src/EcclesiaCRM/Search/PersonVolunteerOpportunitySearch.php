@@ -141,6 +141,105 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
 
                         array_push($this->results, $elt);
                     }
+                } else {
+                    // in the case of a search for "volunteer" or "volunteers", we want to return all the volunteers, so we need to do a specific search
+                    $volunteerPersons = PersonQuery::create();
+                    $volunteerPersons->filterByLastName($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByFirstName($searchLikeString, Criteria::LIKE);
+                    $volunteerPersons->setDistinct();
+
+                    if (SystemConfig::getBooleanValue('bGDPR')) {
+                        $volunteerPersons->filterByDateDeactivated(null);
+                    }
+
+                    $volunteerPersons->usePersonVolunteerOpportunityQuery()
+                            ->useVolunteerOpportunityQuery()
+                                ->filterByName('', Criteria::NOT_EQUAL)
+                                ->addAsColumn('OpportunityName', VolunteerOpportunityTableMap::COL_VOL_NAME)
+                            ->endUse()
+                        ->endUse();
+
+                    if ($this->isQuickSearch()) {
+                        $volunteerPersons->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
+                    }
+
+                    $volunteerPersons = $volunteerPersons->find();
+
+                    if ($volunteerPersons->count() > 0) {
+                        $id = 1;
+
+                        foreach ($volunteerPersons as $per) {                            
+                            if ($this->isQuickSearch()) {
+                                $elt = ['id' => "person-vol-id-" . $id++,
+                                    'text' => $per->getTitle() . " : " . $per->getLastName() . " " . $per->getFirstName(),
+                                    'uri' => SystemURLs::getRootPath() . "/v2/people/person/view/" . $per->getId()];
+                            } else {
+                                $fam = $per->getFamily();
+
+                                $address = "";
+                                if (!is_null($fam)) {
+                                    $address = '<a href="'.SystemURLs::getRootPath().'/v2/people/family/view/'.$fam->getId().'">'.
+                                        $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
+                                        "</a>";
+                                }
+
+                                $inCart = Cart::PersonInCart($per->getId());
+
+                                $res = "";
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                }
+                                $res .= '<span class="fa-stack">'
+                                    .'<i class="fas fa-square fa-stack-2x"></i>'
+                                    .'<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
+                                    .'</span>';
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '</a>&nbsp;';
+                                }
+
+                                if ($inCart == false) {
+                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                    }
+                                    $res .= '                <span class="fa-stack">'
+                                        .'                <i class="fas fa-square fa-stack-2x"></i>'
+                                        .'                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
+                                        .'                </span>';
+                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $res .= '                </a>  ';
+                                    }
+                                } else {
+                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                    }
+                                    $res .= '                <span class="fa-stack">'
+                                        .'                <i class="fas fa-square fa-stack-2x"></i>'
+                                        .'                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
+                                        .'                </span>';
+                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $res .= '                </a>  ';
+                                    }
+                                }
+
+                                $elt = [
+                                    "id" => $per->getId(),
+                                    "img" => $per->getJPGPhotoDatas(),
+                                    "searchresult" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3) . '</a>',
+                                    "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
+                                    "type" => " "._($this->getGlobalSearchType()),
+                                    "realType" => $this->getGlobalSearchType(),
+                                    "Gender" => "",
+                                    "Classification" => $per->getOpportunityName(),
+                                    "ProNames" => "",
+                                    "FamilyRole" => "",
+                                    "members" => "",
+                                    "actions" => $res
+                                ];
+                            }
+
+                            array_push($this->results, $elt);
+                        }
+                    }
                 }
             } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
