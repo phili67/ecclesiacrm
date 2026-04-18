@@ -624,7 +624,7 @@ class OutputUtils
         }
 
         if ($dDate === '1901-01-01') {
-            return 'Date unknown';
+            return _('Date unknown');
         }
 
         return self::FormatDate($dDate, $bWithTime);
@@ -641,7 +641,7 @@ class OutputUtils
         }
 
         if ((int)$per_BirthYear === 1901 && (int)$per_BirthMonth === 1 && (int)$per_BirthDay === 1) {
-            return 'Date unknown';
+            return _('Date unknown');
         }
 
         if ($per_BirthMonth > 0 && $per_BirthDay > 0 && $birthYear != 1000) {
