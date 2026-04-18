@@ -624,9 +624,9 @@ a {
     }
 
     .alert-light {
-        background-color: #23272b !important;
+        background-color: #494d52 !important;
         color: #f8f9fa !important;
-        border-color: #343a40 !important;
+        border-color: #323b44 !important;
     }
     .thead-light th, .thead-light td, tr.thead-light th, tr.thead-light td {
         background-color: #23272b !important;
@@ -650,4 +650,13 @@ a {
         background-color: #3d3e3f !important;
         border-bottom: 1px solid rgba(0,0,0,.125);
     }
+
+    .border {
+        border: 1px solid #3d444b!important;
+    }
+
+    .div-title {
+        border-top: solid 1px #313038!important;
+    }
+    
 }
