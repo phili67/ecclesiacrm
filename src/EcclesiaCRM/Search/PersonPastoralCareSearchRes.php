@@ -72,6 +72,10 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                     $cares->findByPastorId(SessionUser::getUser()->getPerson()->getId());
                 }
 
+                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
+                $rootPath = SystemURLs::getRootPath();
+                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();                
+
                 if ( $cares->count() > 0 ) {
                     $id=1;
 
@@ -94,37 +98,37 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                             $inCart = Cart::PersonInCart($per->getId());
 
                             $res = "";
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/pastoralcare/person/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            if ($shouldShowCart) {
+                                $res .= '<a href="' . $rootPath . '/v2/pastoralcare/person/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'
                                 .'<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
                                 .'</span>';
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($shouldShowCart) {
                                 $res .= '</a>&nbsp;';
                             }
 
                             if ($inCart == false) {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     .'                <i class="fas fa-square fa-stack-2x"></i>'
                                     .'                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
                                     .'                </span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '                </a>  ';
                                 }
                             } else {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     .'                <i class="fas fa-square fa-stack-2x"></i>'
                                     .'                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
                                     .'                </span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($shouldShowCart) {
                                     $res .= '                </a>  ';
                                 }
                             }
@@ -132,8 +136,8 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                             $elt = [
                                 "id" => $per->getId(),
                                 "img" => $per->getJPGPhotoDatas(),
-                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/people/person/view/'.$per->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a>',
-                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
+                                "searchresult" => '<a href="'.$rootPath.'/v2/people/person/view/'.$per->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a>',
+                                "address" => (!$shouldSeePrivacyData)?_('Private Data'):$address,
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
