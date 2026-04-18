@@ -81,7 +81,7 @@ Header_system_notifications();
                         <i class="fas fa-search"></i>
                     </span>
                 </div>
-                <select class="form-control multiSearch left-search-field-menu-bar"></select>
+                <select class="form-control multiSearch left-search-field-menu-bar" multiple data-placeholder="<?= _('Search') ?>"></select>
             </div>
         </form>
 
