@@ -21,23 +21,28 @@ if ($sMode == 'person') {
 } else if ($sMode == 'single' or $sMode == 'singles') {
     $mode = _("Singles");
 }
+
+$hidePersonFilters = in_array($sMode, ['family', 'single', 'singles'], true);
 ?>
 <div class="card card-warning card-outline">
     <div class="card-header border-1">
-        <h3 class="card-title"><i class="fas fa-filter mr-1"></i><?= _('Filters') ?></h3>
+        <h3 class="card-title mb-0"><i class="fas fa-sliders-h text-warning mr-2"></i><?= _('Filters') ?></h3>
+        <div class="small text-muted mt-1"><?= _('Choose a search term, optionally narrow the scope, then refresh the results table.') ?></div>
     </div>
     <div class="card-body">
-        <div class="alert alert-light border d-flex align-items-start mb-3">
-            <i class="fas fa-info-circle mt-1 mr-2"></i>
+        <div class="alert alert-light border d-flex align-items-start mb-4">
+            <i class="fas fa-lightbulb text-warning mt-1 mr-2"></i>
             <div>
                 <strong><?= _("How to search") ?></strong><br>
                 <span class="text-muted"><?= _("Use one or more filters, then run the search to update the results table.") ?></span>
             </div>
         </div>
 
-        <div class="row align-items-center mb-3">
+        <div class="border rounded p-3 mb-3">
+        <div class="row align-items-center">
             <div class="col-md-3">
-                <label class="mb-0" for="SearchTerm"><?= _("Enter the search term") ?></label>
+                <label class="mb-1 font-weight-bold" for="SearchTerm"><i class="fas fa-search text-primary mr-1"></i><?= _("Enter the search term") ?></label>
+                <div class="small text-muted"><?= _('Search by name, phone, address, group, payment, city, zip code, and more.') ?></div>
             </div>
             <div class="col-md-8 mt-2 mt-md-0">
                 <select id="SearchTerm"
@@ -48,28 +53,45 @@ if ($sMode == 'person') {
             <div class="col-md-1 text-md-center mt-2 mt-md-0">
                 <a data-toggle="popover" title="" data-content="<?= "*"."<br>"._("Singles")."<br>"._("Volunteers")."<br>"._("Families")."<br>"._("Groups")."<br>"._("Sunday Groups")."<br>"._("groupmasters")."<br>" ?>
                  <?= _("phone number")."<br>"._("first name")."<br>"._("name")."<br>"._("group name")."<br>"._("check number")."<br>"._("city")."<br>"._("street")."<br>"._("zip code")." "._("or what else")." .... " ?>" target="_blank" class="text-primary" data-original-title="<?= _("Filter Hints") ?>">
-                    <i class="far fa-question-circle fa-lg"></i>
+                    <i class="fas fa-magic fa-lg"></i>
                 </a>
             </div>
         </div>
+        </div>
 
-        <div class="person-filters">
-            <hr />
+        <div class="border rounded p-3 mb-3<?= $hidePersonFilters ? ' d-none' : '' ?>" id="search_type_filters">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <label class="mb-1 font-weight-bold" for="searchTypeCombo"><i class="fas fa-layer-group text-info mr-1"></i><?= _("Limit search to") ?></label>
+                <div class="small text-muted"><?= _('Focus the search on specific result categories such as persons, families, groups, deposits, or payments.') ?></div>
+            </div>
+            <div class="col-md-9 mt-2 mt-md-0">
+                <select name="searchTypes[]" multiple="" id="searchTypeCombo" style="width:100%" size="1"
+                        data-select2-id="searchTypeCombo" tabindex="-1" aria-hidden="true"></select>
+            </div>
+        </div>
+        </div>
+
+        <div class="person-filters<?= $hidePersonFilters ? ' d-none' : '' ?>">
+            <div class="border rounded p-3 mb-3">
             <div class="row align-items-center">
                 <div class="col-md-3">
-                    <label class="mb-0" for="searchCombo"><?= _("Choose your person filters") ?></label>
+                    <label class="mb-1 font-weight-bold" for="searchCombo"><i class="fas fa-user-check text-success mr-1"></i><?= _("Choose your person filters") ?></label>
+                    <div class="small text-muted"><?= _('Refine people results with gender, classification, family role, property, or group type.') ?></div>
                 </div>
                 <div class="col-md-9 mt-2 mt-md-0">
                     <select name="search[]" multiple="" id="searchCombo" style="width:100%" size="1"
                             data-select2-id="searchList" tabindex="-1" aria-hidden="true"></select>
                 </div>
             </div>
+            </div>
         </div>
         <div id="group_search_filters">
-            <hr />
+            <div class="border rounded p-3">
             <div class="row align-items-center">
                 <div class="col-md-3">
-                    <label class="mb-0" for="searchComboGroup"><?= _("Group filters") ?></label>
+                    <label class="mb-1 font-weight-bold" for="searchComboGroup"><i class="fas fa-users text-purple mr-1"></i><?= _("Group filters") ?></label>
+                    <div class="small text-muted"><?= _('Choose a group and optionally a role to narrow the matching members.') ?></div>
                 </div>
                 <div class="col-md-4 mt-2 mt-md-0">
                     <select name="searchGroup[]" id="searchComboGroup" style="width:100%" size="1"
@@ -80,21 +102,25 @@ if ($sMode == 'person') {
                             data-select2-id="searchComboGroupRole" tabindex="-1" aria-hidden="true"></select>
                 </div>
             </div>
+            </div>
         </div>
     </div>
     <div class="card-footer">
         <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-primary" id="search_OK"><i class="fas fa-search mr-1"></i><?= _("Search") ?></button>
+            <button type="button" class="btn btn-primary" id="search_OK"><i class="fas fa-search-plus mr-1"></i><?= _("Search") ?></button>
         </div>
     </div>
 </div>
 
 <div class="card card-primary card-outline">
     <div class="card-header border-1">
-        <h3 class="card-title"><i class="fas fa-search mr-1"></i><?= _('Search Results') ?></h3>
+        <h3 class="card-title mb-0"><i class="fas fa-stream text-primary mr-2"></i><?= _('Search Results') ?></h3>
+        &nbsp;<div class="small text-muted mt-1"><?= _('Browse the matching records and use cart actions directly from the list.') ?></div>
         <div class="card-tools">
-            <span class="badge badge-light">
-                <?= _("Results count:") ?> <span id="numberOfPersons"></span>
+            <span class="badge badge-success border px-3 py-2">
+                <i class="fas fa-chart-bar text-yellow mr-3"></i>
+                <?= _("Results count:") ?>
+                <span class="ml-1 font-weight-bold" id="numberOfPersons"></span>
             </span>
         </div>
     </div>
@@ -108,6 +134,7 @@ if ($sMode == 'person') {
 </div>
 
 <script nonce="<?= $sCSPNonce ?>">
+    window.CRM.searchMode = "<?= $sMode ?>";
     window.CRM.mode = "<?= $mode ?>",
     window.CRM.listPeople = [];
     window.CRM.gender = <?= $iGender ?>;
