@@ -127,7 +127,7 @@ $sFamilyEmails = [];
                             ?>
                             <li>
                                 <strong><i class="fa-li fas fa-magic"></i><?= _("Wedding Date") ?>:</strong>
-                                <span><?= OutputUtils::FormatDate($family->getWeddingdate()->format('Y-m-d'), false) ?></span>
+                                <span><?= OutputUtils::FormatDateOrUnknown($family->getWeddingdate()) ?></span>
                             </li>
                             <?php
                         }
@@ -383,7 +383,7 @@ $sFamilyEmails = [];
                                     </td>
                                     <td class="py-2 text-muted small">
                                         <?= OutputUtils::FormatBirthDate($person->getBirthYear(),
-                                            $person->getBirthMonth(), $person->getBirthDay(), "-", $person->getFlags()) ?>
+                                            $person->getBirthMonth(), $person->getBirthDay(), '-', $person->getFlags()) ?>
                                     </td>
                                     <td class="py-2">
                                         <?php $tmpEmail = $person->getEmail();

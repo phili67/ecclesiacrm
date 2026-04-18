@@ -119,11 +119,11 @@ require $sRootDocument . '/Include/Header.php';
                             ?>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($PersonInfos['person']->getMembershipDate()->format('Y-m-d'), false) ?></a>
+                                    <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDateOrUnknown($PersonInfos['person']->getMembershipDate()) ?></a>
                                 </li>
                                 <?php if (!is_null($PersonInfos['person']->getFriendDate()) and $PersonInfos['person']->getFriendDate()->format('Y-m-d') != '1900-01-01'): ?>
                                 <li class="list-group-item">
-                                    <b><?= _('Friend Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($PersonInfos['person']->getFriendDate()->format('Y-m-d'), false) ?></a>
+                                    <b><?= _('Friend Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDateOrUnknown($PersonInfos['person']->getFriendDate()) ?></a>
                                 </li>
                                 <?php endif ?>                                
                             </ul>
@@ -238,14 +238,18 @@ require $sRootDocument . '/Include/Header.php';
                                 <?php
                             }
 
-                            if ($dBirthDate) {
+                            $personBirthDate = $PersonInfos['person']->getBirthDate();
+                            $birthDateUnknown = $personBirthDate instanceof DateTimeInterface
+                                && $personBirthDate->format('Y-m-d') === '1901-01-01';
+
+                            if ($dBirthDate || $birthDateUnknown) {
                                 ?>
                                 <li>
                                     <strong><i class="fa-li fas fa-calendar"></i><?= _('Birth Date') ?></strong>:
                                     <br>
-                                    <p class="text-muted"><?= $dBirthDate ?>
+                                    <p class="text-muted"><?= $birthDateUnknown ? OutputUtils::FormatDateOrUnknown($personBirthDate) : $dBirthDate ?>
                                         <?php
-                                        if (!$PersonInfos['person']->hideAge()) {
+                                        if (!$birthDateUnknown && !$PersonInfos['person']->hideAge()) {
                                             ?>
                                             (<span
                                                 data-birth-date="<?= $PersonInfos['person']->getBirthDate()->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($PersonInfos['person']->getBirthDate(), $PersonInfos['person']->getFlags()) ?>)
@@ -259,7 +263,7 @@ require $sRootDocument . '/Include/Header.php';
                             if (!SystemConfig::getValue('bHideFriendDate') and $PersonInfos['person']->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
                                 ?>
                                 <li><strong><i class="fa-li fas fa-tasks"></i><?= _('Friend Date') ?>:</strong>
-                                    <span><?= OutputUtils::FormatDate($PersonInfos['person']->getFriendDate()->format('Y-m-d'), false) ?></span>
+                                    <span><?= OutputUtils::FormatDateOrUnknown($PersonInfos['person']->getFriendDate()) ?></span>
                                 </li>
                                 <?php
                             }

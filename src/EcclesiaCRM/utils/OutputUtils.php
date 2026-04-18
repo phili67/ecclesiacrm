@@ -617,6 +617,19 @@ class OutputUtils
         return strftime("$fmt", strtotime($dDate));
     }
 
+    public static function FormatDateOrUnknown($dDate, $bWithTime = false)
+    {
+        if ($dDate instanceof \DateTimeInterface) {
+            $dDate = $dDate->format('Y-m-d');
+        }
+
+        if ($dDate === '1901-01-01') {
+            return _('Date unknown');
+        }
+
+        return self::FormatDate($dDate, $bWithTime);
+    }
+
 // Format a BirthDate
 // Optionally, the separator may be specified.  Default is YEAR-MN-DY
     public static function FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, $sSeparator, $bFlags)
@@ -625,6 +638,10 @@ class OutputUtils
             $birthYear = '1000';
         } else {
             $birthYear = $per_BirthYear;
+        }
+
+        if ((int)$per_BirthYear === 1901 && (int)$per_BirthMonth === 1 && (int)$per_BirthDay === 1) {
+            return _('Date unknown');
         }
 
         if ($per_BirthMonth > 0 && $per_BirthDay > 0 && $birthYear != 1000) {
