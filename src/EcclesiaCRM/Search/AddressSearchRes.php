@@ -161,6 +161,120 @@ class AddressSearchRes extends BaseSearchRes
                             }
                         }
                     }
+                } else {
+                    // we search all the addresses, so we need to return all the addresses, where the name of a family belongs to the search string
+                    $addresses = FamilyQuery::create()
+                        ->filterByName($searchLikeString, Criteria::LIKE);
+
+                    $id=1;
+                    $res_buffer = [];
+
+                    foreach ($addresses as $address) {
+                        if ( $isQuickSearch ) {
+                            $elt = ['id' => 'address-id-' . $id++,
+                                'text' => $address->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH"), false),
+                                'uri' => $address->getViewURI()
+                            ];
+
+                            array_push($this->results, $elt);
+                        } else {
+                            $members = $address->getPeopleSorted();
+
+                            $res_members = [];
+                            $globalMembers = "";
+
+                            foreach ($members as $member) {
+                                $res_members[] = $member->getId();
+                                $globalMembers .= '• <a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $member->getId() . '">' . $member->getFirstName() . " " . $member->getLastName() . "</a><br>";
+                            }
+
+                            $inCart = Cart::FamilyInCart($address->getId());
+
+                            $res = "";
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/editor/' . $address->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            }
+                            $res .= '<span class="fa-stack">'
+                                .'<i class="fas fa-square fa-stack-2x"></i>'
+                                .'<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
+                                .'</span>';
+
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '</a>&nbsp;';
+                            }
+
+                            if ($inCart == false) {
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '<a class="AddToFamilyCart" data-cartfamilyid="' . $address->getId() . '">';
+                                }
+
+                                $res .= '                <span class="fa-stack">'
+                                    .'                <i class="fas fa-square fa-stack-2x"></i>'
+                                    .'                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
+                                    .'                </span>';
+
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '                </a>';
+                                }
+                            } else {
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '<a class="RemoveFromFamilyCart" data-cartfamilyid="' . $address->getId() . '">';
+                                }
+
+                                $res .= '                <span class="fa-stack">'
+                                    .'                <i class="fas fa-square fa-stack-2x"></i>'
+                                    .'                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
+                                    .'                </span>';
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '               </a>';
+                                }
+                            }
+
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $address->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            }
+                            $res .= '<span class="fa-stack">'
+                                .'<i class="fas fa-square fa-stack-2x"></i>'
+                                .'<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
+                                .'</span>';
+
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '</a>&nbsp;';
+                            }
+
+                            if ($isStringSearch) {
+                                $tableOfRes = [$address->getName(), $address->getState(),
+                                    $address->getAddress1(), $address->getAddress2(), $address->getCountry(), $address->getCity(), $address->getZip()];
+
+                                foreach ($tableOfRes as $item) {
+                                    if (mb_strpos(mb_strtolower($item), mb_strtolower($qry)) !== false and !in_array(mb_strtolower($item), $res_buffer)) {
+                                        $elt = ['id' => 'searchname-address-id-' . $id++,
+                                            'text' => $item,
+                                            'uri' => ""];
+                                        array_push($this->results, $elt);
+                                        array_push($res_buffer, mb_strtolower($item));
+                                    }
+                                }
+                            } else {
+                                $elt = [
+                                    "id" => $address->getId(),
+                                    "img" => $address->getJPGPhotoDatas(),
+                                    "searchresult" => _("Addresse") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $address->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $address->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
+                                    "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address->getAddress(),
+                                    "type" => _($this->getGlobalSearchType()),
+                                    "realType" => $this->getGlobalSearchType(),
+                                    "Gender" => "",
+                                    "Classification" => "",
+                                    "ProNames" => "",
+                                    "FamilyRole" => "",
+                                    "members" => $res_members,
+                                    "actions" => $res
+                                ];
+                                array_push($this->results, $elt);
+                            }
+                        }
+                    }
+                    
                 }
             } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
