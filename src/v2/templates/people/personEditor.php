@@ -108,6 +108,9 @@ $sBirthYearError = '';
 $sFriendDateError = '';
 $sMembershipDateError = '';
 $aCustomErrors = [];
+$bBirthDateUnknown = false;
+$bMembershipDateUnknown = false;
+$bFriendDateUnknown = false;
 
 $fam_Country = '';
 
@@ -244,16 +247,32 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sEmail = InputUtils::LegacyFilterInput($_POST['Email']);
     $sWorkEmail = InputUtils::LegacyFilterInput($_POST['WorkEmail']);
 
-    $sBirthDayDate = new DateTime(InputUtils::FilterDate($_POST['BirthDayDate']));
+    $bBirthDateUnknown = isset($_POST['BirthDateUnknown']);
+    $birthDateInput = InputUtils::FilterDate($_POST['BirthDayDate']);
 
-    $iBirthMonth = $sBirthDayDate->format('m');
-    $iBirthDay = $sBirthDayDate->format('d');
-    $iBirthYear = $sBirthDayDate->format('Y');
+    if ($bBirthDateUnknown) {
+        $iBirthMonth = 1;
+        $iBirthDay = 1;
+        $iBirthYear = 1901;
+        $sBirthDayDate = '';
+    } elseif (!empty($birthDateInput)) {
+        $sBirthDayDate = new DateTime($birthDateInput);
+        $iBirthMonth = $sBirthDayDate->format('m');
+        $iBirthDay = $sBirthDayDate->format('d');
+        $iBirthYear = $sBirthDayDate->format('Y');
+    } else {
+        $iBirthMonth = 0;
+        $iBirthDay = 0;
+        $iBirthYear = 0;
+        $sBirthDayDate = '';
+    }
 
     $bHideAge = isset($_POST['HideAge']);
     // Philippe Logel
-    $dFriendDate = InputUtils::FilterDate($_POST['FriendDate']);
-    $dMembershipDate = InputUtils::FilterDate($_POST['MembershipDate']);
+    $bFriendDateUnknown = isset($_POST['FriendDateUnknown']);
+    $bMembershipDateUnknown = isset($_POST['MembershipDateUnknown']);
+    $dFriendDate = $bFriendDateUnknown ? '' : InputUtils::FilterDate($_POST['FriendDate']);
+    $dMembershipDate = $bMembershipDateUnknown ? '' : InputUtils::FilterDate($_POST['MembershipDate']);
     $iClassification = InputUtils::LegacyFilterInput($_POST['Classification'], 'int');
     $iEnvelope = 0;
     if (array_key_exists('EnvID', $_POST)) {
@@ -672,12 +691,15 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iBirthMonth = $person->getBirthMonth();
         $iBirthDay = $person->getBirthDay();
         $iBirthYear = $person->getBirthYear();
+        $bBirthDateUnknown = ($iBirthYear == 1901 && $iBirthMonth == 1 && $iBirthDay == 1);
         $bHideAge = ($person->getFlags() & 1) != 0;
         $iOriginalFamily = $person->getFamId();
         $iFamily = $person->getFamId();
         $iFamilyRole = $person->getFmrId();
         $dMembershipDate = ($person->getMembershipDate() != null) ? $person->getMembershipDate()->format('Y-m-d') : "";
         $dFriendDate = ($person->getFriendDate() != null) ? $person->getFriendDate()->format('Y-m-d') : "";
+        $bMembershipDateUnknown = false;
+        $bFriendDateUnknown = false;
         $iClassification = $person->getClsId();
         $iViewAgeFlag = $person->getFlags();
         $bSendNewsLetter = ($person->getSendNewsletter() == 'TRUE');
@@ -756,6 +778,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iBirthMonth = 0;
         $iBirthDay = 0;
         $iBirthYear = 0;
+        $bBirthDateUnknown = false;
+        $bMembershipDateUnknown = false;
+        $bFriendDateUnknown = false;
         $bHideAge = 0;
         $iOriginalFamily = 0;
         $iFamily = '0';
@@ -796,7 +821,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     }
 }
 
-if ($iBirthDay != 0 and $iBirthMonth != 0 and $iBirthYear) {
+if ($bBirthDateUnknown) {
+    $sBirthDayDate = '';
+} elseif ($iBirthDay != 0 and $iBirthMonth != 0 and $iBirthYear) {
     $sBirthDayDate = $iBirthDay . "-" . $iBirthMonth . "-" . $iBirthYear;
 } else {
     $sBirthDayDate = '';
@@ -831,6 +858,13 @@ if ($iFamily == 0 && $iFamilyID != -1) {
     $iFamily = $iFamilyID;
 }
 
+$familySelectionMode = 'unassigned';
+if ($iFamily == -1) {
+    $familySelectionMode = 'new';
+} elseif ($iFamily > 0) {
+    $familySelectionMode = 'existing';
+}
+
 $sFamName = '';
 
 if ($iFamily != 0) {
@@ -853,26 +887,48 @@ require $sRootDocument . '/Include/Header.php';
 
 ?>
 <form method="post" action="<?= $sRootPath ?>/v2/people/person/editor<?= ($iPersonID != -1)?("/".$iPersonID):"" ?>" name="PersonEditor">
-    <div class="alert alert-info alert-dismissible">
-        <i class="fas fa-info"></i>
+    <div class="card card-outline card-primary shadow-sm mb-3">
+        <div class="card-body py-3 px-4">
+            <div class="d-flex flex-wrap align-items-start justify-content-between">
+                <div class="pr-3">
+                    <h2 class="h4 mb-1">
+                        <i class="fas fa-user-edit mr-2 text-primary"></i><?= $iPersonID > 0 ? _('Edit person') : _('Create person') ?>
+                    </h2>
+                    <div class="text-muted small mb-0">
+                        <?= _('Complete the main information, choose how the address should be managed, then save when everything looks correct.') ?>
+                    </div>
+                </div>
+                <div class="small text-muted mt-2 mt-md-0">
+                    <?= _('Sections can be completed independently and saved at any time.') ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-light border shadow-sm alert-dismissible">
+        <i class="fas fa-info-circle text-primary mr-2"></i>
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong><span
-                style="color: red;"><?= _('Red text') ?></span></strong> <?= _('indicates items inherited from the associated family record.') ?>
+        <strong><span style="color: red;"><?= _('Red text') ?></span></strong> <?= _('indicates items inherited from the associated family record.') ?>
     </div>
     <?php if ($bErrorFlag) {
         ?>
-        <div class="alert alert-danger alert-dismissible">
-            <i class="fas fa-ban"></i>
+        <div class="alert alert-danger shadow-sm alert-dismissible">
+            <i class="fas fa-exclamation-triangle mr-2"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?>
         </div>
         <?php
     } ?>
     <div class="card card-outline card-info shadow-sm clearfix">
-        <div class="card-header border-0">
-            <h3 class="card-title"><?= _('Personal Info') ?></h3>
-            <div class="card-tools">
-                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+        <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+            <div>
+                <h3 class="mb-1"><i class="fas fa-id-card mr-2 text-info"></i><?= _('Personal Info') ?></h3>
+                <div class="small text-muted"><?= _('Identity, title, birth date and age visibility.') ?></div>
+            </div>
+            <div class="card-tools ml-auto text-right mt-2 mt-md-0">
+                <button type="submit" class="btn btn-sm btn-primary" name="PersonSubmit">
+                    <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+                </button>
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -927,9 +983,18 @@ require $sRootDocument . '/Include/Header.php';
                                placeholder="<?= _('Jr., Sr., III') ?>" class= "form-control form-control-sm">
                     </div>                    
                     <div class="col-md-2">
-                        <label><?= _('Birthday Date') ?>:</label>
-                        <input type="text" name="BirthDayDate" class=" form-control  
-                            form-control-sm date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                        <label for="birthDateInput"><?= _('Birthday Date') ?>:</label>
+                        <div class="input-group input-group-sm mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                            <input type="text" name="BirthDayDate" class="form-control form-control-sm date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="birthDateInput" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>" <?= $bBirthDateUnknown ? 'disabled' : '' ?>>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="birthDateUnknown" name="BirthDateUnknown" value="1" <?= $bBirthDateUnknown ? 'checked' : '' ?>>
+                            <label class="custom-control-label small" for="birthDateUnknown"><?= _('Birth date unknown') ?></label>
+                        </div>
 
                         <?php
                         if ($sBirthYearError) {
@@ -939,18 +1004,26 @@ require $sRootDocument . '/Include/Header.php';
                         
                     </div>
                     <div class="col-md-1">
-                        <label><?= _('Hide Age') ?></label><br/>
-                        <input type="checkbox" name="HideAge" value="1" <?= ($bHideAge) ? ' checked' : '' ?>/>
+                        <label><?= _('Hide Age') ?></label>
+                        <div class="custom-control custom-checkbox mt-2">
+                            <input type="checkbox" class="custom-control-input" id="hideAge" name="HideAge" value="1" <?= ($bHideAge) ? ' checked' : '' ?>/>
+                            <label class="custom-control-label small" for="hideAge"><?= _('Yes') ?></label>
+                        </div>
                     </div>
                 </div>                
             </div>
         </div>
     </div>
     <div class="card card-outline card-info shadow-sm clearfix">
-        <div class="card-header border-0">
-            <h3 class="card-title"><?= _("Person or Family Info") ?></h3>
-            <div class="card-tools">
-                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+        <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+            <div>
+                <h3 class="mb-1"><i class="fas fa-home mr-2 text-info"></i><?= _("Person or Family Info") ?></h3>
+                <div class="small text-muted"><?= _('Role assignment, family link and shared address management.') ?></div>
+            </div>
+            <div class="card-tools ml-auto text-right mt-2 mt-md-0">
+                <button type="submit" class="btn btn-sm btn-primary" name="PersonSubmit">
+                    <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+                </button>
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -975,33 +1048,89 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
 
                 <div class="col-md-9" <?= (!SessionUser::getUser()->isEditRecordsEnabled()) ? 'style="display: none;"' : '' ?>>
-                    <label><?= _('Person or Family address'); ?>:</label>
-                    <select name="Family" size="8" class= "form-control form-control-sm" id="optionFamily">
-                        <option value="0" selected><?= _('Unassigned') ?></option>
-                        <option value="-1"><?= _("Create a new Address or A new family (using last name)") ?></option>
-                        <option value="0" disabled>-----------------------</option>
-                        <?php
-                        foreach ($ormFamilies as $ormFamily) {
-                        ?>
-                        <option value="<?= $ormFamily->getId() ?>"
-                            <?= ($iFamily == $ormFamily->getId() || $iFamilyID != -1 && $iFamilyID == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?> (ID<?= $ormFamily->getId() ?>)
-                            &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
-                            <?php
-                            }
-                            ?>
-                    </select>
+                    <label><?= _('Address assignment'); ?>:</label>
+                    
+                    <input type="hidden" name="Family" id="familySelectionValue" value="<?= (int)$iFamily ?>">
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="card card-outline card-secondary h-100 mb-0 shadow-sm" style="cursor:pointer;">
+                                <div class="card-body">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="familyModeUnassigned" name="familyAssignmentMode" value="unassigned" <?= $familySelectionMode === 'unassigned' ? 'checked' : '' ?>>
+                                        <label for="familyModeUnassigned" class="custom-control-label font-weight-bold"><?= _('No assigned address') ?></label>
+                                    </div>
+                                    <div class="small text-muted mt-3">
+                                        <?= _('Keep this person independent, without linking to a family address.') ?>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="card card-outline card-info h-100 mb-0 shadow-sm" style="cursor:pointer;">
+                                <div class="card-body">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="familyModeNew" name="familyAssignmentMode" value="new" <?= $familySelectionMode === 'new' ? 'checked' : '' ?>>
+                                        <label for="familyModeNew" class="custom-control-label font-weight-bold"><?= _('Create a new address') ?></label>
+                                    </div>
+                                    <div class="small text-muted mt-3">
+                                        <?= _('Create a new address or a new family directly from this form.') ?>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="card card-outline card-primary h-100 mb-0 shadow-sm" style="cursor:pointer;">
+                                <div class="card-body">
+                                    <div class="custom-control custom-radio">
+                                        <input class="custom-control-input" type="radio" id="familyModeExisting" name="familyAssignmentMode" value="existing" <?= $familySelectionMode === 'existing' ? 'checked' : '' ?>>
+                                        <label for="familyModeExisting" class="custom-control-label font-weight-bold"><?= _('Use an existing address') ?></label>
+                                    </div>
+                                    <div class="small text-muted mt-3">
+                                        <?= _('Use this for a move, an address change, or a family reassignment.') ?>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
             <!-- start of the new code PL -->
             <div id="familyAddress">
-                <div class="form-group">
+                <div class="card card-outline card-secondary shadow-none mb-3">
+                    <div class="card-body">
+                <div class="form-group mb-0">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="border-bottom mb-3 pb-2">
                                 <h3 class="h5 mb-0"><i class="fas fa-map-marker-alt mr-2"></i><?= _('Person or Family Address') ?></h3>
+                                <div class="small text-muted mt-1"><?= _('Use these fields when creating a new family/address or when reviewing a selected family address.') ?></div>
                             </div>
                         </div><!-- /.box-header -->
+                    </div>
+                    <div id="existingFamilyPicker" class="mb-4" <?= $familySelectionMode === 'existing' ? '' : 'style="display:none;"' ?>>
+                        <div class="border rounded bg-light p-3">
+                            <label for="optionFamily" class="font-weight-bold mb-2 d-block"><?= _('Choose an existing family or address') ?></label>
+                            <div class="small text-muted mb-3">
+                                <?= _('Select the shared address first, then review or adjust the values just below.') ?>
+                            </div>
+                            <select class= "form-control form-control-sm" id="optionFamily">
+                            <?php
+                            foreach ($ormFamilies as $ormFamily) {
+                            ?>
+                            <option value="<?= $ormFamily->getId() ?>"
+                                data-family-name="<?= htmlentities($ormFamily->getName(), ENT_QUOTES, 'UTF-8') ?>"
+                                data-family-address="<?= htmlentities(MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()), ENT_QUOTES, 'UTF-8') ?>"
+                                <?= ($iFamily == $ormFamily->getId() || $iFamilyID != -1 && $iFamilyID == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?> (ID<?= $ormFamily->getId() ?>)
+                                &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
+                                <?php
+                                }
+                                ?>
+                            </select>
+
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -1011,7 +1140,9 @@ require $sRootDocument . '/Include/Header.php';
                                    maxlength="250" class= "form-control form-control-sm">
                         </div>
                         <div class="col-md-6">
-                            <b><?= _('A person could have a different name as his family.<br>• In this case set the Family Name in this field.<br>• In the other case, leave this field blank.') ?></b>
+                            <div class="alert alert-light border mb-0 py-2 px-3 small">
+                                <i class="fas fa-lightbulb text-warning mr-2"></i><?= _('A person may have a different last name than the family. Enter the family name here only when it must differ from the person name; otherwise leave this field blank.') ?>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -1068,6 +1199,8 @@ require $sRootDocument . '/Include/Header.php';
                             echo $countriesDDF->getDropDown($sCountry, "FamCountry");
                             ?>
                         </div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
@@ -1133,10 +1266,15 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <div class="card card-outline card-info shadow-sm clearfix">
-        <div class="card-header border-0">
-            <h3 class="card-title"><?= _('Contact Info') ?></h3>
-            <div class="card-tools">
-                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+        <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+            <div>
+                <h3 class="mb-1"><i class="fas fa-address-book mr-2 text-info"></i><?= _('Contact Info') ?></h3>
+                <div class="small text-muted"><?= _('Personal contact details, phone numbers, email addresses and social links.') ?></div>
+            </div>
+            <div class="card-tools ml-auto text-right mt-2 mt-md-0">
+                <button type="submit" class="btn btn-sm btn-primary" name="PersonSubmit">
+                    <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+                </button>
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1144,6 +1282,11 @@ require $sRootDocument . '/Include/Header.php';
                 <?php
                 if (!SystemConfig::getValue('bHidePersonAddress')) { // Person Address can be hidden - General Settings : dead code now
                     ?>
+                    <div class="border rounded p-3 mb-4 bg-light">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                            <div class="font-weight-bold"><?= _('Personal address') ?></div>
+                            <div class="small text-muted"><?= _('Use this only when the person keeps an individual address.') ?></div>
+                        </div>
                     <div class="row">
                         <div class="form-group">
                             <div class="col-md-4">
@@ -1313,6 +1456,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
                     <p/>
+                    </div>
                     <?php
                 } else { // put the current values in hidden controls so they are not lost if hiding the person-specific info?>
                     <input type="hidden" name="Address1"
@@ -1332,6 +1476,11 @@ require $sRootDocument . '/Include/Header.php';
                     <?php
                 } ?>
             </div>
+            <div class="border rounded p-3 mb-4">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                    <div class="font-weight-bold"><?= _('Phone numbers and newsletter') ?></div>
+                    <div class="small text-muted"><?= _('Store the preferred phone numbers and mailing preference.') ?></div>
+                </div>
             <div class="row">
                 <div class="form-group col-md-3">
                     <label for="HomePhone">
@@ -1435,6 +1584,12 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
             <p/>
+            </div>
+            <div class="border rounded p-3">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                    <div class="font-weight-bold"><?= _('Email and social profiles') ?></div>
+                    <div class="small text-muted"><?= _('Add the main email addresses and optional online profile identifiers.') ?></div>
+                </div>
             <div class="row">
                 <div class="form-group col-md-4">
                     <label for="Email">
@@ -1550,13 +1705,19 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </div>
     <div class="card card-outline card-info shadow-sm clearfix">
-        <div class="card-header border-0">
-            <h3 class="card-title"><?= _('Membership Info') ?></h3>
-            <div class="card-tools">
-                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+        <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+            <div>
+                <h3 class="mb-1"><i class="fas fa-user-check mr-2 text-info"></i><?= _('Membership Info') ?></h3>
+                <div class="small text-muted"><?= _('Classification, membership date and friend date.') ?></div>
+            </div>
+            <div class="card-tools ml-auto text-right mt-2 mt-md-0">
+                <button type="submit" class="btn btn-sm btn-primary" name="PersonSubmit">
+                    <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+                </button>
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
@@ -1581,47 +1742,53 @@ require $sRootDocument . '/Include/Header.php';
                     </select>
                 </div>
                 <div class="form-group col-md-3 col-lg-3">
-                    <label ><?= _('Membership Date') ?>:</label>
-                    <div class="input-group mb-2">
+                    <label for="membershipDateInput"><?= _('Membership Date') ?>:</label>
+                    <div class="input-group input-group-sm mb-2">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <!-- Philippe Logel -->
-                        <input type="text" name="MembershipDate" class=" form-control  form-control-sm date-picker"
+                        <input type="text" name="MembershipDate" class="form-control form-control-sm date-picker"
                                value="<?= OutputUtils::change_date_for_place_holder($dMembershipDate) ?>" maxlength="10"
-                               id="sel1" size="11"
-                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                        <?php
-                        if ($sMembershipDateError) {
-                            ?>
-                            <span class="text-red"><?= $sMembershipDateError ?></span>
-                            <?php
-                        }
-                        ?>
+                               id="membershipDateInput" size="11"
+                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>" <?= $bMembershipDateUnknown ? 'disabled' : '' ?>>
                     </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="membershipDateUnknown" name="MembershipDateUnknown" value="1" <?= $bMembershipDateUnknown ? 'checked' : '' ?>>
+                        <label class="custom-control-label small" for="membershipDateUnknown"><?= _('Membership date unknown') ?></label>
+                    </div>
+                    <?php
+                    if ($sMembershipDateError) {
+                        ?>
+                        <span class="text-red"><?= $sMembershipDateError ?></span>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <?php
                 if (!SystemConfig::getBooleanValue('bHideFriendDate')) { /* Friend Date can be hidden - General Settings */
                     ?>
                     <div class="form-group col-md-3 col-lg-3">
-                        <label ><?= _('Friend Date') ?>:</label>
-                        <div class="input-group mb-2">
+                        <label for="friendDateInput"><?= _('Friend Date') ?>:</label>
+                        <div class="input-group input-group-sm mb-2">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
-                            <!-- Philippe Logel -->
-                            <input type="text" name="FriendDate" class=" form-control  form-control-sm date-picker"
+                            <input type="text" name="FriendDate" class="form-control form-control-sm date-picker"
                                    value="<?= OutputUtils::change_date_for_place_holder($dFriendDate) ?>" maxlength="10"
-                                   id="sel2" size="10"
-                                   placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                            <?php
-                            if ($sFriendDateError) {
-                                ?>
-                                <span class="text-red"><?= $sFriendDateError ?></span>
-                                <?php
-                            }
-                            ?>
+                                   id="friendDateInput" size="10"
+                                   placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>" <?= $bFriendDateUnknown ? 'disabled' : '' ?>>
                         </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="friendDateUnknown" name="FriendDateUnknown" value="1" <?= $bFriendDateUnknown ? 'checked' : '' ?>>
+                            <label class="custom-control-label small" for="friendDateUnknown"><?= _('Friend date unknown') ?></label>
+                        </div>
+                        <?php
+                        if ($sFriendDateError) {
+                            ?>
+                            <span class="text-red"><?= $sFriendDateError ?></span>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <?php
                 }
@@ -1633,10 +1800,15 @@ require $sRootDocument . '/Include/Header.php';
     if ($numCustomFields > 0) {
         ?>
         <div class="card card-outline card-info shadow-sm clearfix">
-            <div class="card-header border-0">
-                <h3 class="card-title"><?= _('Custom Fields') ?></h3>
-                <div class="card-tools">
-                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+            <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+                <div>
+                    <h3 class="mb-1"><i class="fas fa-sliders-h mr-2 text-info"></i><?= _('Custom Fields') ?></h3>
+                    <div class="small text-muted"><?= _('Additional information defined specifically for your organization.') ?></div>
+                </div>
+                <div class="card-tools ml-auto text-right mt-2 mt-md-0">
+                    <button type="submit" class="btn btn-sm btn-primary" name="PersonSubmit">
+                        <i class="fas fa-save mr-1"></i><?= _('Save') ?>
+                    </button>
                 </div>
             </div><!-- /.box-header -->
             <div class="card-body">
@@ -1726,7 +1898,11 @@ require $sRootDocument . '/Include/Header.php';
     ?>
     <div class="card card-outline card-secondary shadow-sm mt-3 mb-3">
         <div class="card-body py-2 px-3">
-            <div class="d-flex flex-wrap justify-content-end align-items-center">
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <div class="small text-muted mb-2 mb-md-0">
+                    <?= _('Review the information above before saving. You can come back later to complete missing details.') ?>
+                </div>
+                <div class="d-flex flex-wrap justify-content-end align-items-center">
                 <button type="button" class="btn btn-sm btn-outline-secondary mr-2 mb-1" name="PersonCancel"
                         onclick="javascript:document.location='<?= $sRootPath ?>/v2/people/list/person';">
                     <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
@@ -1743,6 +1919,7 @@ require $sRootDocument . '/Include/Header.php';
                 <button type="submit" class="btn btn-sm btn-primary mb-1" name="PersonSubmit">
                     <i class="fas fa-save mr-1"></i><?= _('Save') ?>
                 </button>
+                </div>
             </div>
         </div>
     </div>
@@ -1751,6 +1928,25 @@ require $sRootDocument . '/Include/Header.php';
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.bShowAddress = <?= ($bShowAddress) ? 'true' : 'false' ?>;
+
+    $(function () {
+        function bindUnknownDateToggle(checkboxSelector, inputSelector) {
+            $(checkboxSelector).on('change', function () {
+                const dateInput = $(inputSelector);
+                const isUnknown = $(this).is(':checked');
+
+                dateInput.prop('disabled', isUnknown);
+
+                if (isUnknown) {
+                    dateInput.val('');
+                }
+            });
+        }
+
+        bindUnknownDateToggle('#birthDateUnknown', '#birthDateInput');
+        bindUnknownDateToggle('#membershipDateUnknown', '#membershipDateInput');
+        bindUnknownDateToggle('#friendDateUnknown', '#friendDateInput');
+    });
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonEditor.js"></script>
