@@ -100,6 +100,7 @@ $bErrorFlag = false;
 $sNameError = '';
 $sEmailError = '';
 $sWeddingDateError = '';
+$bWeddingDateUnknown = false;
 
 $sName = '';
 
@@ -195,7 +196,8 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     if (array_key_exists('PropertyID', $_POST)) {
         $iPropertyID = InputUtils::LegacyFilterInput($_POST['PropertyID'], 'int');
     }
-    $dWeddingDate = InputUtils::LegacyFilterInput($_POST['WeddingDate']);
+    $bWeddingDateUnknown = isset($_POST['WeddingDateUnknown']);
+    $dWeddingDate = $bWeddingDateUnknown ? '' : InputUtils::FilterDate($_POST['WeddingDate']);
 
     $bNoFormat_HomePhone = isset($_POST['NoFormat_HomePhone']);
     $bNoFormat_WorkPhone = isset($_POST['NoFormat_WorkPhone']);
@@ -574,7 +576,8 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $bSendNewsLetter = ($family->getSendNewsletter() == 'TRUE');
         $bOkToCanvass = ($family->getOkToCanvass() == 'TRUE');
         $iCanvasser = $family->getCanvasser();
-        $dWeddingDate = ($family->getWeddingdate() != null) ? $family->getWeddingdate()->format("Y-M-d") : "";
+        $dWeddingDate = ($family->getWeddingdate() != null) ? $family->getWeddingdate()->format('Y-m-d') : "";
+        $bWeddingDateUnknown = $family->getWeddingdate() == null;
         $nLatitude = $family->getLatitude();
         $nLongitude = $family->getLongitude();
 
@@ -658,6 +661,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $bSendNewsLetter = false;
         $iCanvasser = -1;
         $dWeddingDate = '';
+        $bWeddingDateUnknown = false;
         $nLatitude = 0.0;
         $nLongitude = 0.0;
 
@@ -695,15 +699,36 @@ require $sRootDocument . '/Include/Header.php';
 <form method="post" action="<?= $sRootPath ?>/v2/people/family/editor<?= ($iFamilyID != -1)?("/".$iFamilyID):"" ?>">
     <input type="hidden" Name="iFamilyID" value="<?= $iFamilyID ?>">
     <input type="hidden" name="FamCount" value="<?= $iFamilyMemberRows ?>">
+    <div class="card card-outline card-primary shadow-sm mb-3">
+        <div class="card-body py-3 px-4">
+            <div class="d-flex flex-wrap align-items-start justify-content-between">
+                <div class="pr-3">
+                    <h2 class="h4 mb-1">
+                        <i class="fas fa-home mr-2 text-primary"></i><?= $iFamilyID > 0 ? _('Edit family') : _('Create family') ?>
+                    </h2>
+                    <div class="text-muted small mb-0">
+                        <?= _('Update the household details, contact information, members and custom fields, then save when everything is ready.') ?>
+                    </div>
+                </div>
+                <div class="small text-muted mt-2 mt-md-0">
+                    <?= _('You can complete each section independently before saving.') ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card card-outline card-info shadow-sm clearfix">
-        <div class="card-header border-0">
-            <h3 class="card-title"><?= _('Family Info') ?></h3>
-            <div class="card-tools">
+        <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+            <div>
+                <h3 class="mb-1"><i class="fas fa-house-user mr-2 text-info"></i><?= _('Family Info') ?></h3>
+                <div class="small text-muted"><?= _('Household name, address, geographic details and primary location information.') ?></div>
+            </div>
+            <div class="card-tools ml-auto text-right mt-2 mt-md-0">
                 <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
-            <div class="form-group">
+            <div class="border rounded p-3 bg-light">
+            <div class="form-group mb-0">
                 <div class="row">
                     <div class="col-md-2">
                         <label><?= _('Family Name') ?>:</label>
@@ -780,6 +805,7 @@ require $sRootDocument . '/Include/Header.php';
                     }
                 } /* Lat/Lon can be hidden - General Settings */ ?>
             </div>
+            </div>
         </div>
     </div>
     <script nonce="<?= $CSPNonce ?>">
@@ -789,13 +815,21 @@ require $sRootDocument . '/Include/Header.php';
         });
     </script>
     <div class="card card-outline card-info shadow-sm clearfix">
-        <div class="card-header border-0">
-            <h3 class="card-title"><?= _('Contact Info') ?></h3>
-            <div class="card-tools">
+        <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+            <div>
+                <h3 class="mb-1"><i class="fas fa-address-book mr-2 text-info"></i><?= _('Contact Info') ?></h3>
+                <div class="small text-muted"><?= _('Phone numbers, email address and newsletter preferences for the family.') ?></div>
+            </div>
+            <div class="card-tools ml-auto text-right mt-2 mt-md-0">
                 <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="card-body">
+            <div class="border rounded p-3 mb-4">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                    <div class="font-weight-bold"><?= _('Phone numbers') ?></div>
+                    <div class="small text-muted"><?= _('Store the main family phone numbers.') ?></div>
+                </div>
             <div class="row">
                 <div class="form-group col-md-4">
                     <label><?= _('Home Phone') ?>:</label>
@@ -838,6 +872,12 @@ require $sRootDocument . '/Include/Header.php';
                                value="1" <?= $bNoFormat_CellPhone ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
                 </div>
             </div>
+            </div>
+            <div class="border rounded p-3">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                    <div class="font-weight-bold"><?= _('Email and newsletter') ?></div>
+                    <div class="small text-muted"><?= _('Manage the shared family email and newsletter subscription.') ?></div>
+                </div>
             <div class="row">
                 <div class="form-group col-md-4">
                     <label><?= _('Email') ?>:</label>
@@ -861,12 +901,16 @@ require $sRootDocument . '/Include/Header.php';
                 }
                 ?>
             </div>
+            </div>
         </div>
     </div>
     <div class="card card-outline card-info shadow-sm clearfix">
-        <div class="card-header border-0">
-            <h3 class="card-title"><?= _('Other Info') ?>:</h3>
-            <div class="card-tools">
+        <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+            <div>
+                <h3 class="mb-1"><i class="fas fa-info-circle mr-2 text-info"></i><?= _('Other Info') ?></h3>
+                <div class="small text-muted"><?= _('Wedding date, canvassing and other administrative details.') ?></div>
+            </div>
+            <div class="card-tools ml-auto text-right mt-2 mt-md-0">
                 <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
@@ -877,19 +921,23 @@ require $sRootDocument . '/Include/Header.php';
                 } ?>
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label for="LinkedIn"><?= _('Wedding Date') ?>:</label>
-                        <div class="input-group mb-2">
+                        <label for="weddingDateInput"><?= _('Wedding Date') ?>:</label>
+                        <div class="input-group input-group-sm mb-2">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
-                            <input type="text" class=" form-control  form-control-sm date-picker" Name="WeddingDate"
-                                   value="<?= OutputUtils::change_date_for_place_holder($dWeddingDate) ?>" maxlength="12"
-                                   id="WeddingDate" size="15"
-                                   placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                            <?php if ($sWeddingDateError) {
-                                ?> <span class="text-danger"><br/><?php $sWeddingDateError ?></span> <?php
-                            } ?>
+                            <input type="text" class="form-control form-control-sm date-picker" Name="WeddingDate"
+                                   value="<?= OutputUtils::change_date_for_place_holder($dWeddingDate) ?>" maxlength="10"
+                                   id="weddingDateInput" size="15"
+                                   placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>" <?= $bWeddingDateUnknown ? 'disabled' : '' ?>>
                         </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="weddingDateUnknown" name="WeddingDateUnknown" value="1" <?= $bWeddingDateUnknown ? 'checked' : '' ?>>
+                            <label class="custom-control-label small" for="weddingDateUnknown"><?= _('Wedding date unknown') ?></label>
+                        </div>
+                        <?php if ($sWeddingDateError) { ?>
+                            <span class="text-danger"><?= $sWeddingDateError ?></span>
+                        <?php } ?>
                     </div>
                 </div>
 
@@ -952,9 +1000,12 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <?php if (SystemConfig::getValue('bUseDonationEnvelopes')) { /* Donation envelopes can be hidden - General Settings */ ?>
         <div class="card card-outline card-info shadow-sm clearfix">
-            <div class="card-header border-0">
-                <h3><?= _('Envelope Info') ?></h3>
-                <div class="card-tools">
+            <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+                <div>
+                    <h3 class="mb-1"><i class="fas fa-envelope-open-text mr-2 text-info"></i><?= _('Envelope Info') ?></h3>
+                    <div class="small text-muted"><?= _('Donation envelope configuration for this family.') ?></div>
+                </div>
+                <div class="card-tools ml-auto text-right mt-2 mt-md-0">
                     <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
                 </div>
             </div><!-- /.box-header -->
@@ -974,9 +1025,12 @@ require $sRootDocument . '/Include/Header.php';
     if ($numCustomFields > 0) {
         ?>
         <div class="card card-outline card-info shadow-sm clearfix">
-            <div class="card-header border-0">
-                <h3 class="card-title"><?= _('Custom Fields') ?></h3>
-                <div class="card-tools">
+            <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+                <div>
+                    <h3 class="mb-1"><i class="fas fa-sliders-h mr-2 text-info"></i><?= _('Custom Fields') ?></h3>
+                    <div class="small text-muted"><?= _('Additional household information configured by your organization.') ?></div>
+                </div>
+                <div class="card-tools ml-auto text-right mt-2 mt-md-0">
                     <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
                 </div>
             </div><!-- /.box-header -->
@@ -1048,9 +1102,12 @@ require $sRootDocument . '/Include/Header.php';
         <?php
     } ?>
     <div class="card card-outline card-info shadow-sm clearfix">
-        <div class="card-header border-0">
-            <h3 class="card-title"><?= _('Family Members') ?></h3>
-            <div class="card-tools">
+            <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+                <div>
+                    <h3 class="mb-1"><i class="fas fa-users mr-2 text-info"></i><?= _('Family Members') ?></h3>
+                    <div class="small text-muted"><?= _('Create or update the people currently attached to this household.') ?></div>
+                </div>
+                <div class="card-tools ml-auto text-right mt-2 mt-md-0">
                 <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
             </div>
         </div><!-- /.box-header -->
@@ -1271,7 +1328,11 @@ require $sRootDocument . '/Include/Header.php';
 
     <div class="card card-outline card-secondary shadow-sm mt-3 mb-3">
         <div class="card-body py-2 px-3">
-            <div class="d-flex flex-wrap justify-content-end align-items-center">
+            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <div class="small text-muted mb-2 mb-md-0 pr-3">
+                    <?= _('Review the sections above before saving the family record.') ?>
+                </div>
+                <div class="d-flex flex-wrap justify-content-end align-items-center">
                 <button type="button" class="btn btn-sm btn-outline-secondary mr-2 mb-1" name="FamilyCancel"
                     <?= ($iFamilyID > 0)?" onclick=\"javascript:document.location='". $sRootPath ."/v2/people/family/view/$iFamilyID';\"":" onclick=\"javascript:document.location='". $sRootPath ."/v2/familylist';\"" ?>>
                     <i class="fas fa-times mr-1"></i><?= _('Cancel') ?>
@@ -1289,6 +1350,7 @@ require $sRootDocument . '/Include/Header.php';
                 <button type="submit" class="btn btn-sm btn-success mb-1" name="FamilySubmit">
                     <i class="fas fa-save mr-1"></i><?= _('Save') ?>
                 </button>
+                </div>
             </div>
         </div>
     </div>
@@ -1298,6 +1360,17 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= $CSPNonce ?>">
     $(function () {
         $("[data-mask]").inputmask();
+
+        $('#weddingDateUnknown').on('change', function () {
+            const dateInput = $('#weddingDateInput');
+            const isUnknown = $(this).is(':checked');
+
+            dateInput.prop('disabled', isUnknown);
+
+            if (isUnknown) {
+                dateInput.val('');
+            }
+        });
     });
 </script>
 
