@@ -8,7 +8,7 @@
 
 window.CRM.editor = null;
 
-$(function() {
+$(function() {  
   $( ".filterByPastor" ).on('click',function() {
     var ID = $(this).data("pastorid");
 
@@ -75,16 +75,9 @@ $(function() {
     var ID = $(this).data("id");
 
     bootbox.confirm({
-       title:  i18next.t("Delete Pastoral Care Type") + "?",
-        message: i18next.t("This action can never be undone !!!!"),
-        buttons: {
-          cancel: {
-            label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
-          },
-          confirm: {
-            label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
-          }
-        },
+       title: '<i class="fas fa-trash-alt text-danger mr-2"></i>' + i18next.t("Delete Pastoral Care Type"),
+        message: window.CRM.buildDialogNotice('fa-exclamation-triangle text-danger', i18next.t('Irreversible action'), i18next.t("This action can never be undone !!!!"), 'alert-danger'),
+        buttons: window.CRM.buildDialogButtons(i18next.t('Delete'), 'btn-danger', i18next.t('Keep note'), 'btn-outline-secondary'),
         callback: function (result) {
           if (result == true)// only Pastoral care can be drag and drop, not anniversary or birthday
           {
@@ -144,30 +137,40 @@ $(function() {
 
   function BootboxContent(type,visible){
     var frm_str = '<form id="some-form">'
-      +'<div class="row">'
-        +'<div class="col-md-3">' + i18next.t('Type') + ":</div>"
-        +'<div class="col-md-9"><b>'
-          +type
-        +'</b></div>'
-      +'</div>'
+      + window.CRM.buildDialogNotice('fa-hands-helping text-primary', i18next.t('Pastoral care note'), i18next.t('Review the note type, write the content and define who can see it.'), 'alert-light border')
+      + '<div class="card card-outline card-secondary shadow-sm mt-3 mb-3">'
+      + '<div class="card-body">'
+      + '<div class="form-group mb-0">'
+      + '<label class="font-weight-bold mb-1"><i class="fas fa-tag text-primary mr-1"></i>' + i18next.t('Type') + '</label>'
+      + '<div class="form-control form-control-sm bg-light">' + type + '</div>'
+      + '</div>'
+      + '</div>'
+      + '</div>'
+      + '<div class="card card-outline card-secondary shadow-sm mb-3">'
+      + '<div class="card-body">'
+      + '<div class="d-flex align-items-center mb-2">'
+      + '<i class="fas fa-align-left text-info mr-2"></i>'
       + '<div>'
-          +'<div class="row">'
-            +'<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
-                +'<textarea name="NoteText" cols="80" class="form-control form-control-sm NoteText" id="NoteText"  width="100%" style="width: 100%;height: 4em;"></textarea></div>'
-            +'</div>'
-          +'</div>'
-        +'</div>'
-        +'<div class="row  div-title">'
-          +'<div class="col-md-6">'
-            +'<span style="color: red">*</span>'+i18next.t("For every administrator")
-          +'</div>'
-          +'<div class="col-md-3">'
-            +'<input type="radio" name="visibilityStatus" value="1"'+((visible)?' checked':'')+'/> '+i18next.t("Show")
-          +'</div>'
-          +'<div class="col-md-3">'
-            +'<input type="radio" name="visibilityStatus" value="0" '+((!visible)?' checked':'')+'/> '+i18next.t("Hide")
-          +'</div>'
-        +'</div>'
+      + '<div class="font-weight-bold">' + i18next.t('Note') + '</div>'
+      + '<div class="small text-muted">' + i18next.t('Write the pastoral care message associated with this person.') + '</div>'
+      + '</div>'
+      + '</div>'
+      + '<textarea name="NoteText" cols="80" class="form-control form-control-sm NoteText" id="NoteText" width="100%" style="width: 100%;height: 4em;"></textarea>'
+      + '</div>'
+      + '</div>'
+      + '<div class="card card-outline card-secondary shadow-sm mb-0">'
+      + '<div class="card-body">'
+      + '<div class="font-weight-bold mb-2"><span style="color: red">*</span>' + i18next.t("For every administrator") + '</div>'
+      + '<div class="custom-control custom-radio mb-2">'
+      + '<input class="custom-control-input" type="radio" id="visibilityShow" name="visibilityStatus" value="1"'+((visible)?' checked':'')+'>'
+      + '<label class="custom-control-label" for="visibilityShow">' + i18next.t("Show") + '</label>'
+      + '</div>'
+      + '<div class="custom-control custom-radio">'
+      + '<input class="custom-control-input" type="radio" id="visibilityHide" name="visibilityStatus" value="0" '+((!visible)?' checked':'')+'>'
+      + '<label class="custom-control-label" for="visibilityHide">' + i18next.t("Hide") + '</label>'
+      + '</div>'
+      + '</div>'
+      + '</div>'
      +'</form>';
 
     var object = $('<div/>').html(frm_str).contents();
@@ -182,19 +185,19 @@ $(function() {
     }
 
     var modal = bootbox.dialog({
-       title: i18next.t("Pastoral Care Note Creation"),
+       title: '<i class="fas fa-hands-helping text-primary mr-2"></i>' + i18next.t("Pastoral Care Note Creation"),
        message: BootboxContent(typeDesc,visible),
        size: 'large',
        buttons: [
         {
          label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
-         className: "btn btn-default",
+        className: "btn btn-outline-secondary",
          callback: function() {
             console.log("just do something on close");
          }
         },
         {
-         label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
+        label: '<i class="fas fa-save"></i> ' + i18next.t("Save"),
          className: "btn btn-primary",
          callback: function() {
             var visibilityStatus  = $('input[name="visibilityStatus"]:checked').val();
