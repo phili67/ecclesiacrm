@@ -118,6 +118,11 @@ $bNoFormat_HomePhone = false;
 $bNoFormat_WorkPhone = false;
 $bNoFormat_CellPhone = false;
 $bFacebookID = $sFacebookError = 0;
+
+$prefilledFamilyRole = 0;
+if ($iPersonID <= 0 && isset($_GET['FamilyRole'])) {
+    $prefilledFamilyRole = InputUtils::LegacyFilterInput($_GET['FamilyRole'], 'int');
+}
 $sTwitter = $sTwitterError = 0;
 $sLinkedIn = $sLinkedInError = 0;
 $type_ID = 0;
@@ -785,6 +790,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iOriginalFamily = 0;
         $iFamily = '0';
         $iFamilyRole = '0';
+        if ($prefilledFamilyRole > 0) {
+            $iFamilyRole = (string)$prefilledFamilyRole;
+        }
         $dMembershipDate = '';
         $dFriendDate = date('Y-m-d');
         $iClassification = '0';
