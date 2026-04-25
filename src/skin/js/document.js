@@ -172,36 +172,75 @@ $(function() {
 
     const BootboxContent = (sTitleText, sDocType, sText) => {
 
-        var frm_str = '<form id="some-form">'
-            + '<div>'
-            + '<div class="row">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Document Title') + ":</div>"
-            + '<div class="col-md-9">'
-            + '<input type="text" id="documentTitle" placeholder="' + i18next.t("Set your Document title") + '" size="30" maxlength="100" class="form-control form-control-sm"  width="100%" style="width: 100%" required>'
-            + '</div>'
-            + '</div>'
-            + '<br>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Choose your Document Type') + ":</div>"
-            + '<div class="col-md-9">'
-            + '  <select name="documentType" class="form-control form-control-sm" id="documentType">'
-            + '     <option value="note">' + i18next.t("document") + '</option>'
-            + '     <option value="video">' + i18next.t("video") + '</option>'
-            + '     <option value="audio">' + i18next.t("audio") + '</option>'
-            + '  </select>'
-            + '</div>'
-            + '</div>'
-            + '<div class="row  eventNotes">'
-            + '<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
-            + '<textarea name="documentText" cols="80" class="form-control form-control-sm" id="documentText"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
-            + '</div>'
-            + '</div>'
-            + '<div class="row  eventNotes">'
-            + '<div class="col-md-12">'
-            + '   <center><input type="checkbox" value="1" id="private" name="private" echo "checked">&nbsp;<label for="private">' + i18next.t('Private') + '</label></center>'
-            + '</div>'
-            + '</div>'
-            + '</form>';
+        var frm_str = `
+            <form id="some-form">
+                <div class="alert alert-light border d-flex align-items-start mb-3">
+                    <i class="fas fa-file-alt text-primary mt-1 mr-2"></i>
+                    <div>
+                        <div class="font-weight-bold">${i18next.t("Document Editor")}</div>
+                        <div class="small text-muted">${i18next.t("Create a note, audio or video entry and keep it organized with a clear title.")}</div>
+                    </div>
+                </div>
+
+                <div class="card card-outline card-secondary shadow-sm mb-3">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-info-circle text-secondary mr-2"></i>
+                            <div>
+                                <div class="font-weight-bold">${i18next.t("Document details")}</div>
+                                <div class="small text-muted">${i18next.t("Set the title and choose the type before writing the content.")}</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="documentTitle" class="font-weight-bold mb-1">
+                                <i class="fas fa-heading text-primary mr-1"></i><span style="color: red">*</span>${i18next.t('Document Title')}
+                            </label>
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-pen"></i></span>
+                                </div>
+                                <input type="text" id="documentTitle" placeholder="${i18next.t("Set your Document title")}" maxlength="100" class="form-control form-control-sm" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0">
+                            <label for="documentType" class="font-weight-bold mb-1">
+                                <i class="fas fa-tags text-info mr-1"></i><span style="color: red">*</span>${i18next.t('Choose your Document Type')}
+                            </label>
+                            <select name="documentType" class="form-control form-control-sm" id="documentType">
+                                <option value="note">${i18next.t("document")}</option>
+                                <option value="video">${i18next.t("video")}</option>
+                                <option value="audio">${i18next.t("audio")}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-outline card-secondary shadow-sm mb-3">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-align-left text-danger mr-2"></i>
+                            <div>
+                                <div class="font-weight-bold">${i18next.t("Content")}</div>
+                                <div class="small text-muted">${i18next.t("Write the main content of your document below.")}</div>
+                            </div>
+                        </div>
+
+                        <textarea name="documentText" cols="80" class="form-control form-control-sm" id="documentText" width="100%" style="width: 100%;height: 4em;"></textarea>
+                    </div>
+                </div>
+
+                <div class="card card-outline card-secondary shadow-sm mb-0">
+                    <div class="card-body py-3">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" value="1" id="private" name="private" class="custom-control-input">
+                            <label for="private" class="custom-control-label font-weight-bold">${i18next.t('Private')}</label>
+                        </div>
+                        <div class="small text-muted mt-2">${i18next.t("Private documents are visible only to authorized users.")}</div>
+                    </div>
+                </div>
+            </form>`;
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -209,15 +248,18 @@ $(function() {
     }
 
     const DocumentEditorWindow = (mode, docID) => {
+        var dialogTitle = mode == 'edit'
+            ? '<i class="fas fa-file-signature text-primary mr-2"></i>' + i18next.t("Edit Document")
+            : '<i class="fas fa-file-medical text-primary mr-2"></i>' + i18next.t("Create Document");
 
         var modal = bootbox.dialog({
             message: BootboxContent(),
-            title: i18next.t("Document Editor"),
+            title: dialogTitle,
             size: 'large',
             buttons: [
                 {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
-                    className: "btn btn-default",
+                    className: "btn btn-outline-secondary",
                     callback: function () {
                         window.CRM.APIRequest({
                             method: 'POST',
@@ -229,7 +271,7 @@ $(function() {
                     }
                 },
                 {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
+                    label: '<i class="fas fa-save"></i> ' + i18next.t("Save"),
                     className: "btn btn-primary",
                     callback: function () {
                         var DocumentTitle = $('#documentTitle').val();
