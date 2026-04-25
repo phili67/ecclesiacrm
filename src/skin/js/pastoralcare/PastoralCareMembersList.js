@@ -22,7 +22,33 @@ $(function() {
         }
 
         var telValue = display.replace(/\s+/g, '');
-        return '<a href="tel:' + telValue + '"><i class="fas fa-phone-alt mr-1 text-success"></i>' + display + '</a>';
+        return '<a href="tel:' + telValue + '" class="d-inline-flex align-items-center">'
+            + '<span class="badge badge-light border mr-2"><i class="fas fa-phone-alt text-success"></i></span>'
+            + '<span>' + display + '</span>'
+            + '</a>';
+    }
+
+    function buildIdentityLink(options) {
+        var image = options.image;
+        var href = options.href;
+        var primary = options.primary || '';
+        var secondary = options.secondary || '';
+
+        return '<div class="d-flex align-items-center">'
+            + image
+            + '<div class="ml-2">'
+            + '<div class="font-weight-bold"><a href="' + href + '">' + primary + '</a></div>'
+            + (secondary !== '' ? '<div class="small text-muted">' + secondary + '</div>' : '')
+            + '</div>'
+            + '</div>';
+    }
+
+    function buildThumbnail(id) {
+        if (window.CRM.bThumbnailIconPresence) {
+            return '<img src="/api/persons/' + id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35">';
+        }
+
+        return '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img" width="50" height="50">';
     }
 
     function getBestPhone(full) {
@@ -52,7 +78,10 @@ $(function() {
         if (address === '') {
             return '';
         }
-        return '<i class="fas fa-map-marker-alt mr-1 text-danger"></i>' + window.CRM.tools.getLinkMapFromAddress(address);
+        return '<div class="d-inline-flex align-items-start">'
+            + '<span class="badge badge-light border mr-2"><i class="fas fa-map-marker-alt text-danger"></i></span>'
+            + '<span>' + window.CRM.tools.getLinkMapFromAddress(address) + '</span>'
+            + '</div>';
     }
 
     function formatCareDate(data) {
@@ -61,9 +90,9 @@ $(function() {
         }
         var date = moment(data).format(window.CRM.fmt);
         if (date === window.CRM.neverDate) {
-            return '<span class="text-muted"><i class="fas fa-ban mr-1"></i>' + i18next.t("Never contacted") + '</span>';
+            return '<span class="badge badge-light border text-muted"><i class="fas fa-ban mr-1"></i>' + i18next.t("Never contacted") + '</span>';
         }
-        return '<i class="far fa-calendar-check mr-1 text-success"></i>' + date;
+        return '<span class="badge badge-light border text-dark"><i class="far fa-calendar-check mr-1 text-success"></i>' + date + '</span>';
     }
 
     window.CRM.dataPastoralcareMembersList = $("#pastoralCareMembersList").DataTable({
@@ -88,13 +117,12 @@ $(function() {
                 title: i18next.t("Last Name (Family Name)"),
                 data: 'LastName',
                 render: function (data, type, full, meta) {
-                    let res = '';
-                    if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
-                    } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img " width="50" height="50"> ';
-                    }
-                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + '</a> ('+ i18next.t("Family Name") +' : <a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.FamilyId + '">' + full.FamilyName + "</a>)";
+                    return buildIdentityLink({
+                        image: buildThumbnail(full.Id),
+                        href: window.CRM.root + "/v2/pastoralcare/person/" + full.Id,
+                        primary: data,
+                        secondary: i18next.t("Family Name") + ' : <a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.FamilyId + '">' + full.FamilyName + '</a>'
+                    });
                 }
             },
             {
@@ -110,7 +138,7 @@ $(function() {
                 title: i18next.t("Classification"),
                 data: 'ClassName',
                 render: function (data, type, full, meta) {
-                    return data;
+                    return '<span class="badge badge-light border text-dark">' + data + '</span>';
                 }
             },
             {

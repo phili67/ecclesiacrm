@@ -62,6 +62,32 @@ if ($iFamilyID > 0) {
     exit;
 }
 
+$ormFamilyRoles = ListOptionQuery::Create()
+    ->orderByOptionSequence()
+    ->findById(2);
+
+$ormClassifications = ListOptionQuery::Create()
+    ->orderByOptionSequence()
+    ->findById(1);
+
+$familyQuickRoleIds = [
+    'head' => 0,
+    'spouse' => 0,
+    'child' => 0,
+];
+
+foreach ($ormFamilyRoles as $ormFamilyRole) {
+    $optionName = $ormFamilyRole->getOptionName();
+
+    if ($optionName === _('Head of Household')) {
+        $familyQuickRoleIds['head'] = $ormFamilyRole->getOptionId();
+    } elseif ($optionName === _('Spouse')) {
+        $familyQuickRoleIds['spouse'] = $ormFamilyRole->getOptionId();
+    } elseif ($optionName === _('Child')) {
+        $familyQuickRoleIds['child'] = $ormFamilyRole->getOptionId();
+    }
+}
+
 // Get the lists of canvassers
 $canvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
 $braveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
@@ -553,7 +579,17 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         }
     }
 } else if (isset($_POST['FamilySubmitAndAddPerson']) and $iFamilyID > 0) {
-    RedirectUtils::Redirect('v2/people/person/editor/AddToFamily/'.$iFamilyID);
+    $quickAddRole = 0;
+    if (isset($_POST['QuickAddFamilyRole'])) {
+        $quickAddRole = InputUtils::LegacyFilterInput($_POST['QuickAddFamilyRole'], 'int');
+    }
+
+    $redirect = 'v2/people/person/editor/AddToFamily/'.$iFamilyID;
+    if ($quickAddRole > 0) {
+        $redirect .= '?FamilyRole='.$quickAddRole;
+    }
+
+    RedirectUtils::Redirect($redirect);
 } else {
     //FirstPass
     //Are we editing or adding?
@@ -643,7 +679,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $sCountry = SystemConfig::getValue('sDefaultCountry');
         $sState = SystemConfig::getValue('sDefaultState');
         $iClassification = '0';
-        $iFamilyMemberRows = 6;
+        $iFamilyMemberRows = 1;
         $bOkToCanvass = 1;
 
         $iFamilyID = -1;
@@ -698,7 +734,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <form method="post" action="<?= $sRootPath ?>/v2/people/family/editor<?= ($iFamilyID != -1)?("/".$iFamilyID):"" ?>">
     <input type="hidden" Name="iFamilyID" value="<?= $iFamilyID ?>">
-    <input type="hidden" name="FamCount" value="<?= $iFamilyMemberRows ?>">
+    <input type="hidden" id="familyMemberCount" name="FamCount" value="<?= $iFamilyMemberRows ?>">
     <div class="card card-outline card-primary shadow-sm mb-3">
         <div class="card-body py-3 px-4">
             <div class="d-flex flex-wrap align-items-start justify-content-between">
@@ -1107,27 +1143,54 @@ require $sRootDocument . '/Include/Header.php';
                     <h3 class="mb-1"><i class="fas fa-users mr-2 text-info"></i><?= _('Family Members') ?></h3>
                     <div class="small text-muted"><?= _('Create or update the people currently attached to this household.') ?></div>
                 </div>
-                <div class="card-tools ml-auto text-right mt-2 mt-md-0">
-                <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
-            </div>
+                <div class="card-tools ml-auto text-right mt-2 mt-md-0 d-flex flex-wrap align-items-center justify-content-end">
+                    <span class="badge badge-primary mr-2 mb-2" id="familyMemberCountBadge"><i class="fas fa-users mr-1"></i><?= $iFamilyMemberRows . ' ' . _('Members') ?></span>
+                    <input type="submit" class="btn btn-sm btn-primary mb-2" value="<?= _('Save') ?>" name="FamilySubmit">
+                </div>
         </div><!-- /.box-header -->
         <div class="card-body">
 
             <?php if ($iFamilyMemberRows > 0) {
             ?>
-
-            <tr>
-                <td colspan="2">
-                    <div class="MediumText">
-                        <center>
-                            <b><?= $iFamilyID < 0 ? _('You may create family members now or add them later.  All entries will become <i>new</i> person records.') : '' ?></b>
-                        </center>
+                    <div class="row align-items-end mb-3">
+                        <div class="col-lg-6 mb-3 mb-lg-0">
+                            <div class="text-muted text-uppercase small"><?= _('Quick actions') ?></div>
+                            <div class="font-weight-bold"><?= _('Build the household progressively') ?></div>
+                            <div class="text-muted small"><?= $iFamilyID < 0 ? _('Start with one member, then add only the rows you need. All filled rows will create new person records when you save.') : _('Existing members stay editable here. New rows are ideal for adding more people without leaving the form.') ?></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-wrap justify-content-lg-end">
+                                <button type="button" class="btn btn-sm btn-outline-primary mr-2 mb-2 add-family-member-row" data-role-id="0">
+                                    <i class="fas fa-user-plus mr-1"></i><?= _('Add member row') ?>
+                                </button>
+                                <?php if ($familyQuickRoleIds['head'] > 0) { ?>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary mr-2 mb-2 add-family-member-row" data-role-id="<?= $familyQuickRoleIds['head'] ?>">
+                                        <i class="fas fa-crown mr-1"></i><?= _('Add head') ?>
+                                    </button>
+                                <?php } ?>
+                                <?php if ($familyQuickRoleIds['spouse'] > 0) { ?>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary mr-2 mb-2 add-family-member-row" data-role-id="<?= $familyQuickRoleIds['spouse'] ?>">
+                                        <i class="fas fa-heart mr-1"></i><?= _('Add spouse') ?>
+                                    </button>
+                                <?php } ?>
+                                <?php if ($familyQuickRoleIds['child'] > 0) { ?>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary mb-2 add-family-member-row" data-role-id="<?= $familyQuickRoleIds['child'] ?>">
+                                        <i class="fas fa-child mr-1"></i><?= _('Add child') ?>
+                                    </button>
+                                <?php } ?>
+                            </div>
+                        </div>
                     </div>
-                    <br><br>
+                    <?php if ($iFamilyID > 0) { ?>
+                        <div class="alert alert-light border py-2 px-3 small">
+                            <i class="fas fa-info-circle text-info mr-1"></i><?= _('Rows linked to existing people stay locked for removal here. Use the family or person view for delete actions.') ?>
+                        </div>
+                    <?php } ?>
                     <div class="table-responsive">
                         <table class="table table-sm table-hover" width="100%">
                             <thead>
                             <tr class="thead-light" >
+                                <th><?= _('#') ?></th>
                                 <th><?= _('First Name') ?></th>
                                 <th><?= _('Middle Name') ?></th>
                                 <th><?= _('Last Name') ?></th>
@@ -1138,15 +1201,11 @@ require $sRootDocument . '/Include/Header.php';
                                 <th><?= _('Day') ?></th>
                                 <th><?= _('Year') ?></th>
                                 <th><?= _('Classification') ?></th>
+                                <th class="text-center"><?= _('Action') ?></th>
                             </tr>
                             </thead>
+                            <tbody id="familyMembersTableBody">
                             <?php
-
-                            //Get family roles
-                            $ormFamilyRoles = ListOptionQuery::Create()
-                                ->orderByOptionSequence()
-                                ->findById(2);
-
                             $numFamilyRoles = $ormFamilyRoles->count();
 
                             $c = 1;
@@ -1157,30 +1216,32 @@ require $sRootDocument . '/Include/Header.php';
                             }
 
                             for ($iCount = 1; $iCount <= $iFamilyMemberRows; $iCount++) {
+                                $isExistingPerson = !empty($aPersonIDs[$iCount]);
                                 ?>
-                                <input type="hidden" name="PersonID<?= $iCount ?>" value="<?= $aPersonIDs[$iCount] ?>">
-                                <tr>
+                                <tr class="family-member-row" data-member-index="<?= $iCount ?>">
+                                    <input class="person-id-input" type="hidden" name="PersonID<?= $iCount ?>" value="<?= $aPersonIDs[$iCount] ?>">
+                                    <td class="align-middle text-muted small font-weight-bold member-row-label"><?= $iCount ?></td>
                                     <td class="TextColumnFam">
-                                        <input class="form-control form-control-sm" name="FirstName<?= $iCount ?>" type="text"
+                                        <input class="form-control form-control-sm" data-field-base="FirstName" name="FirstName<?= $iCount ?>" type="text"
                                                value="<?= $aFirstNames[$iCount] ?>" size="10">
                                         <?php if (array_key_exists($iCount, $aFirstNameError)) {?>
                                                 <span class="text-danger"><?= $aFirstNameError[$iCount] ?></span>
                                             <?php } ?>
                                     </td>
                                     <td class="TextColumnFam">
-                                        <input class="form-control form-control-sm" name="MiddleName<?= $iCount ?>" type="text"
+                                        <input class="form-control form-control-sm" data-field-base="MiddleName" name="MiddleName<?= $iCount ?>" type="text"
                                                value="<?= $aMiddleNames[$iCount] ?>" size="10">
                                     </td>
                                     <td class="TextColumnFam">
-                                        <input class="form-control form-control-sm" name="LastName<?= $iCount ?>" type="text"
+                                        <input class="form-control form-control-sm family-member-last-name" data-field-base="LastName" name="LastName<?= $iCount ?>" type="text"
                                                value="<?= $aLastNames[$iCount] ?>" size="10">
                                     </td>
                                     <td class="TextColumnFam">
-                                        <input class="form-control form-control-sm" name="Suffix<?= $iCount ?>" type="text"
+                                        <input class="form-control form-control-sm" data-field-base="Suffix" name="Suffix<?= $iCount ?>" type="text"
                                                value="<?= $aSuffix[$iCount] ?>" size="10">
                                     </td>
                                     <td class="TextColumnFam">
-                                        <select class="form-control form-control-sm" name="Gender<?php echo $iCount ?>">
+                                        <select class="form-control form-control-sm" data-field-base="Gender" name="Gender<?php echo $iCount ?>">
                                             <option value="0" <?php if ($aGenders[$iCount] == 0) {
                                                 echo 'selected';
                                             } ?> ><?= _('Select Gender') ?></option>
@@ -1194,7 +1255,7 @@ require $sRootDocument . '/Include/Header.php';
                                     </td>
 
                                     <td class="TextColumnFam">
-                                        <select class="form-control form-control-sm" name="Role<?php echo $iCount ?>">
+                                        <select class="form-control form-control-sm family-member-role" data-field-base="Role" name="Role<?php echo $iCount ?>">
                                             <option value="0" <?php if ($aRoles[$iCount] == 0) {
                                                 echo 'selected';
                                             } ?> ><?= _('Select Role') ?></option>
@@ -1210,7 +1271,7 @@ require $sRootDocument . '/Include/Header.php';
                                         </select>
                                     </td>
                                     <td class="TextColumnFam">
-                                        <select class="form-control form-control-sm" name="BirthMonth<?php echo $iCount ?>">
+                                        <select class="form-control form-control-sm" data-field-base="BirthMonth" name="BirthMonth<?php echo $iCount ?>">
                                             <option value="0" <?php if ($aBirthMonths[$iCount] == 0) {
                                                 echo 'selected';
                                             } ?>><?= _('Unknown') ?></option>
@@ -1253,7 +1314,7 @@ require $sRootDocument . '/Include/Header.php';
                                         </select>
                                     </td>
                                     <td class="TextColumnFam">
-                                        <select class="form-control form-control-sm" name="BirthDay<?= $iCount ?>">
+                                        <select class="form-control form-control-sm" data-field-base="BirthDay" name="BirthDay<?= $iCount ?>">
                                             <option value="0"><?= _('Unk') ?></option>
                                             <?php for ($x = 1; $x < 32; $x++) {
                                                 if ($x < 10) {
@@ -1271,7 +1332,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <td class="TextColumnFam">
                                         <?php if (!array_key_exists($iCount, $aperFlags) || !$aperFlags[$iCount] || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                                             $UpdateBirthYear = 1; ?>
-                                            <input class="form-control form-control-sm" name="BirthYear<?= $iCount ?>"
+                                            <input class="form-control form-control-sm" data-field-base="BirthYear" name="BirthYear<?= $iCount ?>"
                                                    type="text" value="<?= $aBirthYears[$iCount] ?>" size="4"
                                                    maxlength="4">
                                             <?php
@@ -1289,17 +1350,12 @@ require $sRootDocument . '/Include/Header.php';
                                     </td>
                                     <td>
                                         <select class="form-control form-control-sm"
-                                                name="Classification<?php echo $iCount ?>">
+                                                data-field-base="Classification" name="Classification<?php echo $iCount ?>">
                                             <option value="0" <?php if ($aClassification[$iCount] == 0) {
                                                 echo 'selected';
                                             } ?>><?= _('Unassigned') ?></option>
                                             <option value="0" disabled>-----------------------</option>
                                             <?php
-                                            //Get Classifications for the drop-down
-                                            $ormClassifications = ListOptionQuery::Create()
-                                                ->orderByOptionSequence()
-                                                ->findById(1);
-
                                             foreach ($ormClassifications
 
                                             as $rowClassification) {
@@ -1312,10 +1368,16 @@ require $sRootDocument . '/Include/Header.php';
                                                 ?>
                                         </select>
                                     </td>
+                                    <td class="text-center align-middle">
+                                        <button type="button" class="btn btn-sm <?= $isExistingPerson ? 'btn-outline-secondary' : 'btn-outline-danger' ?> remove-family-member-row" <?= $isExistingPerson ? 'disabled' : '' ?> title="<?= $isExistingPerson ? _('Existing members cannot be removed here') : _('Remove this row') ?>">
+                                            <i class="fas <?= $isExistingPerson ? 'fa-lock' : 'fa-trash-alt' ?>"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                                 <?php
                             }
                             ?>
+                            </tbody>
                         </table>
                     </div>
         </div>
@@ -1342,6 +1404,14 @@ require $sRootDocument . '/Include/Header.php';
                     <button type="submit" class="btn btn-sm btn-primary mr-2 mb-1" name="FamilySubmitAndAdd">
                         <i class="fas fa-home mr-1"></i><?= _('Save and Add Family') ?>
                     </button>
+                    <select name="QuickAddFamilyRole" class="form-control form-control-sm mr-2 mb-1" style="max-width: 220px;">
+                        <option value="0"><?= _('Detailed person form role') ?></option>
+                        <?php foreach ($ormFamilyRoles as $ormFamilyRole) {
+                            if ((int)$ormFamilyRole->getOptionId() > 0) { ?>
+                                <option value="<?= $ormFamilyRole->getOptionId() ?>"><?= $ormFamilyRole->getOptionName() ?></option>
+                            <?php }
+                        } ?>
+                    </select>
                     <button type="submit" class="btn btn-sm btn-primary mr-2 mb-1" name="FamilySubmitAndAddPerson">
                         <i class="fas fa-user-plus mr-1"></i><?= _('Save and Add Person To Family') ?>
                     </button>
@@ -1360,6 +1430,96 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= $CSPNonce ?>">
     $(function () {
         $("[data-mask]").inputmask();
+
+        const familyMemberCountInput = $('#familyMemberCount');
+        const familyMemberCountBadge = $('#familyMemberCountBadge');
+        const familyMembersTableBody = $('#familyMembersTableBody');
+        const familyNameInput = $('#FamilyName');
+
+        function updateFamilyMemberNames() {
+            const rows = familyMembersTableBody.find('tr.family-member-row');
+
+            rows.each(function (index) {
+                const rowIndex = index + 1;
+                const row = $(this);
+
+                row.attr('data-member-index', rowIndex);
+                row.find('.member-row-label').text(rowIndex);
+                row.find('.person-id-input').attr('name', 'PersonID' + rowIndex);
+
+                row.find('[data-field-base]').each(function () {
+                    const fieldBase = $(this).data('fieldBase');
+                    $(this).attr('name', fieldBase + rowIndex);
+                });
+            });
+
+            familyMemberCountInput.val(rows.length);
+            familyMemberCountBadge.html('<i class="fas fa-users mr-1"></i>' + rows.length + ' <?= addslashes(_('Members')) ?>');
+        }
+
+        function resetMemberRow(row, roleId) {
+            row.find('.person-id-input').val('0');
+            row.find('input[type="text"]').val('');
+            row.find('select').each(function () {
+                $(this).val('0');
+            });
+            row.find('.text-danger').remove();
+
+            if (roleId) {
+                row.find('.family-member-role').val(String(roleId));
+            }
+
+            const familyName = familyNameInput.val().trim();
+            if (familyName.length > 0) {
+                row.find('.family-member-last-name').val(familyName);
+            }
+
+            row.find('.remove-family-member-row')
+                .removeClass('btn-outline-secondary')
+                .addClass('btn-outline-danger')
+                .prop('disabled', false)
+                .attr('title', '<?= addslashes(_('Remove this row')) ?>')
+                .html('<i class="fas fa-trash-alt"></i>');
+        }
+
+        $('.add-family-member-row').on('click', function () {
+            const roleId = Number($(this).data('role-id')) || 0;
+            const sourceRow = familyMembersTableBody.find('tr.family-member-row').last();
+            const newRow = sourceRow.clone();
+
+            resetMemberRow(newRow, roleId);
+            familyMembersTableBody.append(newRow);
+            updateFamilyMemberNames();
+            newRow.find('[data-field-base="FirstName"]').trigger('focus');
+        });
+
+        $(document).on('click', '.remove-family-member-row', function () {
+            const row = $(this).closest('tr.family-member-row');
+            const rowCount = familyMembersTableBody.find('tr.family-member-row').length;
+            const personId = Number(row.find('.person-id-input').val()) || 0;
+
+            if (personId > 0 || rowCount === 1) {
+                return;
+            }
+
+            row.remove();
+            updateFamilyMemberNames();
+        });
+
+        familyNameInput.on('blur', function () {
+            const familyName = $(this).val().trim();
+            if (!familyName.length) {
+                return;
+            }
+
+            familyMembersTableBody.find('.family-member-last-name').each(function () {
+                if (!$(this).val().trim().length) {
+                    $(this).val(familyName);
+                }
+            });
+        });
+
+        updateFamilyMemberNames();
 
         $('#weddingDateUnknown').on('change', function () {
             const dateInput = $('#weddingDateInput');

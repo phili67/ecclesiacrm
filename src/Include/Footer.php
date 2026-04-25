@@ -38,23 +38,26 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 <!-- The Right Sidebar -->
 <aside class="control-sidebar <?= Theme::getCurrentRightSideBarTypeColor() ?>" id="right-sidebar">
-    <ul class="nav nav-tabs" role="tablist">
+    <ul class="nav nav-tabs nav-justified" role="tablist">
         <li class="nav-item">
             <a href="#control-sidebar-tasks-tab" data-toggle="tab" aria-expanded="true" class="nav-link active"
-               role="tab">
+               role="tab" title="<?= _('Open Tasks') ?>">
                 <i class="fas fa-tasks"></i>
+                <span class="sr-only"><?= _('Open Tasks') ?></span>
             </a>
         </li>
         <?php if (SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isMenuOptionsEnabled()): ?>
         <li class="nav-item">
-            <a href="#control-sidebar-settings-tab" data-toggle="tab" aria-expanded="false" class="nav-link" role="tab">
+            <a href="#control-sidebar-settings-tab" data-toggle="tab" aria-expanded="false" class="nav-link" role="tab" title="<?= _('System Settings') ?>">
                 <i class="fas fa-wrench"></i>
+                <span class="sr-only"><?= _('System Settings') ?></span>
             </a>
         </li>
         <li class="nav-item">
             <a href="#control-sidebar-settings-other-tab" data-toggle="tab" aria-expanded="false" class="nav-link"
-               role="tab">
+               role="tab" title="<?= _('Configuration Shortcuts') ?>">
                 <i class="fas fa-sliders-h"></i>
+                <span class="sr-only"><?= _('Configuration Shortcuts') ?></span>
             </a>
         </li>
         <?php endif; ?>
@@ -66,122 +69,142 @@ use Propel\Runtime\ActiveQuery\Criteria;
             <?php
             if (SessionUser::getUser()->isMenuOptionsEnabled()) {
                 ?>
-                <h5><i class="fas fa-cogs"></i> <?= _('Family') ?></h5>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/famroles">
-                        <i class="fas fa-cog"></i> <?= _('Family Roles') ?>
-                    </a>
+                <div class="card card-outline card-secondary shadow-sm mb-3">
+                    <div class="card-body py-3">
+                        <div class="small text-uppercase text-muted mb-2"><?= _('Configuration Shortcuts') ?></div>
+                        <div class="font-weight-bold mb-1"><?= _('Quick access by topic') ?></div>
+                        <div class="small text-muted mb-0"><?= _('Access the most common configuration areas by topic.') ?></div>
+                    </div>
                 </div>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/f">
-                        <i class="fas fa-cog"></i> <?= _('Family Properties') ?>
-                    </a>
-                </div>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/people/family/customfield/editor">
-                        <i class="fas fa-cog"></i> <?= _('Edit Custom Family Fields') ?>
-                    </a>
-                </div>
-                <br>
-                <h5><i class="fas fa-cogs"></i> <?= _('Person') ?></h5>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/classes">
-                        <i class="fas fa-cog"></i> <?= _('Classifications Manager') ?>
-                    </a>
-                </div>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/p">
-                        <i class="fas fa-cog"></i> <?= _('People Properties') ?>
-                    </a>
-                </div>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/customfield/editor">
-                        <i class="fas fa-cog"></i> <?= _('Edit Custom Person Fields') ?>
-                    </a>
-                </div>
-                <br>
-                <h5><i class="fas fa-cogs"></i> <?= _('Group') ?></h5>
-                <?php
-                if (SessionUser::getUser()->isManageGroupsEnabled()) {
-                    ?>
-                    <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/g">
-                            <i class="fas fa-cog"></i> <?= _('Group Properties') ?>
+
+                <div class="card card-outline card-primary shadow-sm mb-3">
+                    <div class="card-header py-2 bg-primary">
+                        <h5 class="card-title mb-0"><i class="fas fa-home mr-2"></i><?= _('Family') ?></h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/famroles">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-cog mr-2 text-muted"></i><?= _('Family Roles') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/f">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-tags mr-2 text-muted"></i><?= _('Family Properties') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/people/family/customfield/editor">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-sliders-h mr-2 text-muted"></i><?= _('Edit Custom Family Fields') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
                         </a>
                     </div>
-                    <?php
-                }
-
-                if (SessionUser::getUser()->isManageGroupsEnabled()) {
-                    ?>
-                    <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/grptypes">
-                            <i class="fas fa-cog"></i> <?= _('Group Types') ?>
-                        </a>
-                    </div>
-                    <?php
-                }
-
-                if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || SessionUser::getUser()->isManageGroupsEnabled()) {
-                    ?>
-                    <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/grptypesSundSchool">
-                            <i class="fas fa-cog"></i> <?= _('Sunday School Group Types') ?>
-                        </a>
-                    </div>
-                    <?php
-                }
-                ?>
-                <br>
-                <h5><i class="fas fa-cogs"></i> <?= _('Other') ?></h5>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertytypelist">
-                        <i class="fas fa-cog"></i> <?= _('Property Types') ?>
-                    </a>
                 </div>
 
-                <?php
-                if (SessionUser::getUser()->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
-                    ?>
-                    <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/v2/fundlist">
-                            <i class="fas fa-cog"></i> <?= _('Edit Donation Funds') ?>
+                <div class="card card-outline card-info shadow-sm mb-3">
+                    <div class="card-header py-2 bg-info">
+                        <h5 class="card-title mb-0"><i class="fas fa-user mr-2"></i><?= _('Person') ?></h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/classes">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-layer-group mr-2 text-muted"></i><?= _('Classifications Manager') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/p">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-tags mr-2 text-muted"></i><?= _('People Properties') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/people/person/customfield/editor">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-sliders-h mr-2 text-muted"></i><?= _('Edit Custom Person Fields') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
                         </a>
                     </div>
-                    <?php
-                }
+                </div>
 
-                if (SessionUser::getUser()->isPastoralCareEnabled()) {
-                    ?>
-                    <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcarelist">
-                            <i class="fas fa-cog"></i> <?= _("Pastoral Care Type") ?>
-                        </a>
+                <div class="card card-outline card-warning shadow-sm mb-3">
+                    <div class="card-header py-2 bg-warning">
+                        <h5 class="card-title mb-0"><i class="fas fa-users mr-2"></i><?= _('Group') ?></h5>
                     </div>
-                    <?php
-                }
-
-                if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
-                    ?>
-                    <div class="mb-1">
-                        <a href="<?= SystemURLs::getRootPath() ?>/v2/menulinklist">
-                            <i class="fas fa-cog"></i> <?= _("Global Custom Menus") ?>
-                        </a>
+                    <div class="list-group list-group-flush">
+                        <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
+                            <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/g">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-tags mr-2 text-muted"></i><?= _('Group Properties') ?></span>
+                                    <i class="fas fa-chevron-right text-muted small"></i>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/grptypes">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-sitemap mr-2 text-muted"></i><?= _('Group Types') ?></span>
+                                    <i class="fas fa-chevron-right text-muted small"></i>
+                                </div>
+                            </a>
+                        <?php } ?>
+                        <?php if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || SessionUser::getUser()->isManageGroupsEnabled()) { ?>
+                            <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/option/manager/grptypesSundSchool">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-school mr-2 text-muted"></i><?= _('Sunday School Group Types') ?></span>
+                                    <i class="fas fa-chevron-right text-muted small"></i>
+                                </div>
+                            </a>
+                        <?php } ?>
                     </div>
-                    <?php
-                }
-                ?>
+                </div>
 
-
-                <!-- /.control-sidebar-menu -->
-
+                <div class="card card-outline card-secondary shadow-sm mb-0">
+                    <div class="card-header py-2 bg-secondary">
+                        <h5 class="card-title mb-0"><i class="fas fa-cogs mr-2"></i><?= _('Other') ?></h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/propertytypelist">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-project-diagram mr-2 text-muted"></i><?= _('Property Types') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <?php if (SessionUser::getUser()->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) { ?>
+                            <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/fundlist">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-donate mr-2 text-muted"></i><?= _('Edit Donation Funds') ?></span>
+                                    <i class="fas fa-chevron-right text-muted small"></i>
+                                </div>
+                            </a>
+                        <?php } ?>
+                        <?php if (SessionUser::getUser()->isPastoralCareEnabled()) { ?>
+                            <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcarelist">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-hands-helping mr-2 text-muted"></i><?= _("Pastoral Care Type") ?></span>
+                                    <i class="fas fa-chevron-right text-muted small"></i>
+                                </div>
+                            </a>
+                        <?php } ?>
+                        <?php if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) { ?>
+                            <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/menulinklist">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-link mr-2 text-muted"></i><?= _("Global Custom Menus") ?></span>
+                                    <i class="fas fa-chevron-right text-muted small"></i>
+                                </div>
+                            </a>
+                        <?php } ?>
+                    </div>
+                </div>
                 <?php
             } else {
                 ?>
-
-                <div class="mb-5">
-                    <div class="menu-info"><?= _('Please contact your admin to change the system settings.') ?></div>
-                    </li>
+                <div class="card card-outline card-secondary shadow-sm mb-0">
+                    <div class="card-body py-3">
+                        <div class="small text-uppercase text-muted mb-2"><?= _('Configuration Shortcuts') ?></div>
+                        <div class="font-weight-bold mb-1"><?= _('Administrator access required') ?></div>
+                        <div class="small text-muted mb-0"><?= _('Please contact your admin to change the system settings.') ?></div>
+                    </div>
                 </div>
                 <?php
             }
@@ -189,117 +212,102 @@ use Propel\Runtime\ActiveQuery\Criteria;
         </div>
 
         <div id="control-sidebar-settings-tab" class="tab-pane">
-            <h5><?= _('System Settings') ?></h5>
+            <div class="card card-outline card-secondary shadow-sm mb-3">
+                <div class="card-body py-3">
+                    <div class="small text-uppercase text-muted mb-2"><?= _('System Settings') ?></div>
+                    <div class="font-weight-bold mb-1"><?= _('Administrative tools') ?></div>
+                    <div class="small text-muted mb-0"><?= _('Administrative tools and global maintenance actions.') ?></div>
+                </div>
+            </div>
 
             <?php
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/systemsettings">
-                        <i class="menu-icon fas fa-cogs bg-red"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('Edit General Settings') ?></h4>
+                <div class="card card-outline card-danger shadow-sm mb-3">
+                    <div class="card-header py-2 bg-danger">
+                        <h5 class="card-title mb-0"><i class="fas fa-wrench mr-2"></i><?= _('Administration') ?></h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/systemsettings">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-cogs mr-2 text-danger"></i><?= _('Edit General Settings') ?></span>
+                            <i class="fas fa-chevron-right text-muted small"></i>
                         </div>
                     </a>
-                </div>
-                <?php
-            }
-            if (SessionUser::getUser()->isAdmin()) {
-                ?>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/users">
-                        <i class="menu-icon fas fa-user-secret bg-gradient-indigo"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('System Users') ?></h4>
+                    <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/users">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-user-secret mr-2 text-primary"></i><?= _('System Users') ?></span>
+                            <i class="fas fa-chevron-right text-muted small"></i>
                         </div>
                     </a>
-                </div>
-                <?php
-            }
-            if (SessionUser::getUser()->isAdmin()) {
-                ?>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/plugins">
-                        <i class="menu-icon fas fa-plug bg-gradient-primary"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('Plugins') ?></h4>
+                    <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/plugins">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-plug mr-2 text-primary"></i><?= _('Plugins') ?></span>
+                            <i class="fas fa-chevron-right text-muted small"></i>
                         </div>
                     </a>
-                </div>
-                <?php
-            }
-            if (SessionUser::getUser()->isAdmin()) {
-                ?>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/infos">
-                        <i class="menu-icon fas fa-info bg-gradient-info"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('System Infos') ?></h4>
+                    <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/infos">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span><i class="fas fa-info-circle mr-2 text-info"></i><?= _('System Infos') ?></span>
+                            <i class="fas fa-chevron-right text-muted small"></i>
                         </div>
                     </a>
+                    </div>
                 </div>
                 <?php
             }
             ?>
-            <hr/>
 
             <?php
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/backup">
-                        <i class="menu-icon fas fa-database bg-green"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('Backup Database')."/CRM" ?></h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/restore">
-                        <i class="menu-icon fas fa-database bg-yellow-gradient"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('Restore Database')."/CRM" ?></h4>
-                        </div>
-                    </a>
-                </div>
-
-                <hr/>
-
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/import">
-                        <i class="menu-icon fas fa-upload bg-yellow-gradient"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('CSV Import') ?></h4>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="mb-1">
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/export">
-                        <i class="menu-icon fas fa-download bg-green"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('CSV Export Records') ?></h4>
-                        </div>
-                    </a>
-                </div>
-
-                <hr/>
-
-                <div class="mb-1">
-                    <a href="/v2/kioskmanager">
-                        <i class="menu-icon fas fa-laptop bg-blue-gradient"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"><?= _('Kiosk Manager') ?></h4>
-                        </div>
-                    </a>
+                <div class="card card-outline card-success shadow-sm mb-0">
+                    <div class="card-header py-2 bg-success">
+                        <h5 class="card-title mb-0"><i class="fas fa-tools mr-2"></i><?= _('Maintenance') ?></h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/backup">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span><i class="fas fa-database mr-2 text-success"></i><?= _('Backup Database')."/CRM" ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/restore">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span><i class="fas fa-database mr-2 text-warning"></i><?= _('Restore Database')."/CRM" ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/import">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span><i class="fas fa-upload mr-2 text-warning"></i><?= _('CSV Import') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/export">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span><i class="fas fa-download mr-2 text-success"></i><?= _('CSV Export Records') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="/v2/kioskmanager">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span><i class="fas fa-laptop mr-2 text-primary"></i><?= _('Kiosk Manager') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
                 <?php
             } else {
                 ?>
-                <div class="mb-5">
-                    <div
-                        class="menu-info"><?= _('Please contact your admin to change the system settings.') ?></div>
+                <div class="card card-outline card-secondary shadow-sm mb-0">
+                    <div class="card-body py-3">
+                        <div class="small text-uppercase text-muted mb-2"><?= _('System Settings') ?></div>
+                        <div class="font-weight-bold mb-1"><?= _('Administrator access required') ?></div>
+                        <div class="small text-muted mb-0"><?= _('Please contact your admin to change the system settings.') ?></div>
+                    </div>
                 </div>
                 <?php
             }            
@@ -310,10 +318,26 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
         <!-- Settings tab content -->
         <div id="control-sidebar-tasks-tab" class="tab-pane active">
-            <h5><?= _('Open Tasks') ?></h5>
-            <?= _('You have') ?> &nbsp; <span class="badge badge-danger"><?= $taskSize ?></span>
-            &nbsp; <?= _('task(s)') ?>
-            <br/><br/>
+            <div class="card card-outline card-secondary shadow-sm mb-3">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="small text-uppercase text-muted mb-1"><?= _('Open Tasks') ?></div>
+                            <div class="font-weight-bold mb-1"><?= _('Pending actions') ?></div>
+                            <div class="small text-muted mb-0"><?= _('Follow up on the actions that still need attention.') ?></div>
+                        </div>
+                        <span class="badge badge-danger badge-pill px-3 py-2"><?= $taskSize ?></span>
+                    </div>
+                </div>
+            </div>
+            <?php if (empty($tasks)) { ?>
+                <div class="card card-outline card-success shadow-sm mb-0">
+                    <div class="card-body py-3">
+                        <div class="font-weight-bold text-success mb-1"><i class="fas fa-check-circle mr-2"></i><?= _('All caught up') ?></div>
+                        <div class="small text-muted mb-0"><?= _('There are no open tasks at the moment.') ?></div>
+                    </div>
+                </div>
+            <?php } ?>
             <?php foreach ($tasks as $task) {
                 $taskIcon = 'fa-info bg-green';
                 if ($task['admin']) {
@@ -321,15 +345,20 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 }
                 ?>
                 <!-- Task item -->
-                <div class="mb-3">
-                    <a href="<?= $task['link'] ?>" <?= ($task['title'] == _('Register Software')) ? 'id="registerSoftware"' : '' ?>>
-                        <i class="menu-icon fa  <?= $taskIcon ?>"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading"
-                                title="<?= htmlspecialchars($task['desc'], ENT_QUOTES, 'UTF-8') ?>"><?= $task['title'] ?></h4>
+                <div class="list-group shadow-sm mb-2">
+                    <a class="list-group-item list-group-item-action" href="<?= $task['link'] ?>" <?= ($task['title'] == _('Register Software')) ? 'id="registerSoftware"' : '' ?>>
+                        <div class="d-flex align-items-start justify-content-between">
+                            <div class="pr-2">
+                                <div class="font-weight-bold mb-1">
+                                    <i class="menu-icon fa <?= $taskIcon ?> mr-2"></i><?= $task['title'] ?>
+                                </div>
+                                <div class="small text-muted" title="<?= htmlspecialchars($task['desc'], ENT_QUOTES, 'UTF-8') ?>">
+                                    <?= $task['desc'] ?>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-muted small mt-1"></i>
                         </div>
                     </a>
-
                 </div>
                 <!-- end task item -->
                 <?php

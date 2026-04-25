@@ -2061,7 +2061,30 @@ window.CRM.darkMode = function (mode, save = false) {
 }
 
 
+window.CRM.buildDialogNotice = function (iconClass, title, body, alertClass = 'alert-light border') {
+    return `<div class="alert ${alertClass} mb-0">
+        <div class="d-flex align-items-start">
+        <i class="fas ${iconClass} mr-2 mt-1"></i>
+        <div>
+        <div class="font-weight-bold">${title}</div>
+        <div class="small">${body}</div>
+        </div>
+        </div>
+        </div>`;
+}
 
+window.CRM.buildDialogButtons = function (confirmLabel, confirmClass = 'btn-primary', cancelLabel = i18next.t('Cancel'), cancelClass = 'btn-outline-secondary') {
+    return {
+        confirm: {
+            label: '<i class="fas fa-check"></i> ' + confirmLabel,
+            className: confirmClass
+        },
+        cancel: {
+            label: '<i class="fas fa-times"></i> ' + cancelLabel,
+            className: cancelClass
+        }
+    };
+}
 
 $(document).ajaxError(function (evt, xhr, settings, errortext) {
   if (errortext !== "abort") {
