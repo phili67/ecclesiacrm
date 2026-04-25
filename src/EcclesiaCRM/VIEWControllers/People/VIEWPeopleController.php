@@ -937,6 +937,10 @@ class VIEWPeopleController {
             ->orderByOptionSequence()
             ->findById(1);
 
+        $ormFamilyRoles = ListOptionQuery::Create()
+            ->orderByOptionSequence()
+            ->findById(2);
+
 
         //Set the spacer cell width
         $iTableSpacerWidth = 10;
@@ -1016,6 +1020,7 @@ class VIEWPeopleController {
             'ormAutoPayments'           => $ormAutoPayments,
             'ormProperties'             => $ormProperties,
             'ormClassifications'        => $ormClassifications,
+            'ormFamilyRoles'            => $ormFamilyRoles,
             'iTableSpacerWidth'         => $iTableSpacerWidth,
             'sHomePhone'                => $sHomePhone,
             'sWorkPhone'                => $sWorkPhone,
