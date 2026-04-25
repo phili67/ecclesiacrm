@@ -9,7 +9,7 @@
 var tagButtonsLoaded = false;
 
 $(function() {
-    window.CRM.editor = null;
+    window.CRM.editor = null;    
 
     function addTagsToMainDropdown() {
         $("#allTags").empty();
@@ -404,7 +404,12 @@ $(function() {
             });
 
             if (tag == -1) {
-                bootbox.prompt(i18next.t("Add your tag name"), function (name) {
+                bootbox.prompt({
+                    title: '<i class="fas fa-tag text-primary mr-2"></i>' + i18next.t('Add a new tag'),
+                    message: window.CRM.buildDialogNotice('fa-plus-circle text-primary', i18next.t('New tag'), i18next.t('Enter the name of the tag to create and apply to the selected members.'), 'alert-light border'),
+                    value: '',
+                    buttons: window.CRM.buildDialogButtons(i18next.t('Create tag'), 'btn-primary', i18next.t('Cancel'), 'btn-outline-secondary'),
+                    callback: function (name) {
                     if (name != null && name != "") {
                         window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'), function () {
                             window.CRM.APIRequest({
@@ -440,19 +445,13 @@ $(function() {
                     } else if (name != null) {
                         window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("Name is empty !!"));
                     }
-                });
+                        }
+                    });
             } else {
                 bootbox.confirm({
-                    title: i18next.t("Add tag?"),
-                    message: i18next.t("This will add the tag") + " \"" + name + "\" " + i18next.t("to all the current selected members in the list."),
-                    buttons: {
-                        cancel: {
-                            label: '<i class="fas fa-times"></i> ' + i18next.t("No")
-                        },
-                        confirm: {
-                            label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
-                        }
-                    },
+                    title: '<i class="fas fa-tag text-primary mr-2"></i>' + i18next.t("Add tag"),
+                    message: window.CRM.buildDialogNotice('fa-tags text-primary', i18next.t('Selected tag'), i18next.t("This will add the tag") + ' <strong>"' + name + '"</strong> ' + i18next.t("to all the current selected members in the list."), 'alert-light border'),
+                    buttons: window.CRM.buildDialogButtons(i18next.t('Confirm')),
                     callback: function (result) {
                         if (result) {
                             window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'), function() {
@@ -517,9 +516,11 @@ $(function() {
                 }
 
                 bootbox.prompt({
-                    title: i18next.t("Choose the tag you want to delete :"),
+                    title: '<i class="fas fa-tags text-warning mr-2"></i>' + i18next.t('Remove tags from selected members'),
+                    message: window.CRM.buildDialogNotice('fa-filter text-warning', i18next.t('Choose a tag'), i18next.t('Select one tag to remove, or choose all tags for a full cleanup on the selected members.'), 'alert-light border'),
                     inputType: 'select',
                     inputOptions: res,
+                    buttons: window.CRM.buildDialogButtons(i18next.t('Apply'), 'btn-primary', i18next.t('Cancel'), 'btn-outline-secondary'),
                     callback: function (tag) {
                         if (tag && tag != -1) {
                             console.log(tag);
@@ -572,18 +573,9 @@ $(function() {
         var listID = $(this).data("listid");
 
         bootbox.confirm({
-            title: i18next.t("You're about to delete a tag!"),
-            message: i18next.t("This will also delete the tag for all the members in this list. Are you sure ?"),
-            buttons: {
-                confirm: {
-                    label: '<i class="fas fa-times"></i> ' + i18next.t('Yes'),
-                    className: 'btn-danger'
-                },
-                cancel: {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
-                    className: 'btn-primary'
-                }
-            },
+            title: '<i class="fas fa-trash-alt text-danger mr-2"></i>' + i18next.t("Delete tag"),
+            message: window.CRM.buildDialogNotice('fa-exclamation-triangle text-danger', i18next.t("This action affects the whole list"), i18next.t("This will also delete the tag for all the members in this list. Are you sure ?"), 'alert-danger'),
+            buttons: window.CRM.buildDialogButtons(i18next.t('Delete'), 'btn-danger', i18next.t('Keep tag'), 'btn-outline-secondary'),
             callback: function (result) {
                 if (result) {
                     window.CRM.dialogLoadingFunction(i18next.t("Deleting tag"), function() {
@@ -802,7 +794,8 @@ $(function() {
         var email = $(this).data("id");
 
         bootbox.prompt({
-            title: i18next.t("Select status for : ") + email,
+            title: '<i class="fas fa-user-cog text-primary mr-2"></i>' + i18next.t('Update subscriber status'),
+            message: window.CRM.buildDialogNotice('fa-envelope text-primary', i18next.t('Selected subscriber'), '<span class="font-weight-bold">' + email + '</span><br>' + i18next.t('Choose the status to apply to this subscriber.'), 'alert-light border'),
             inputType: 'select',
             inputOptions: [
                 {
@@ -814,6 +807,7 @@ $(function() {
                     value: 'unsubscribed',
                 }
             ],
+            buttons: window.CRM.buildDialogButtons(i18next.t('Update'), 'btn-primary', i18next.t('Cancel'), 'btn-outline-secondary'),
             callback: function (status) {
                 if (status) {
                     window.CRM.dialogLoadingFunction(i18next.t("Changing status ..."), function() {
@@ -841,17 +835,9 @@ $(function() {
         var email = $(this).data("id");
 
         bootbox.confirm({
-            message: i18next.t("You're about to delete a subscriber! Are you sure ?"),
-            buttons: {
-                confirm: {
-                    label: i18next.t('Yes'),
-                    className: '<i class="fas fa-times"></i> ' + 'btn-danger'
-                },
-                cancel: {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
-                    className: 'btn-primary'
-                }
-            },
+            title: '<i class="fas fa-user-times text-danger mr-2"></i>' + i18next.t('Delete subscriber'),
+            message: window.CRM.buildDialogNotice('fa-exclamation-triangle text-danger', i18next.t('Subscriber removal'), i18next.t("You're about to delete a subscriber! Are you sure ?") + '<br><span class="font-weight-bold">' + email + '</span>', 'alert-danger'),
+            buttons: window.CRM.buildDialogButtons(i18next.t('Delete'), 'btn-danger', i18next.t('Keep subscriber'), 'btn-outline-secondary'),
             callback: function (result) {
                 if (result) {
                     window.CRM.dialogLoadingFunction(i18next.t('Deleting Subscriber...'), function() {
@@ -880,17 +866,9 @@ $(function() {
         var list_id = $(this).data("listid");
 
         bootbox.confirm({
-            message: i18next.t("Do you really want to delete this mailing list ?"),
-            buttons: {
-                confirm: {
-                    label: '<i class="fas fa-times"></i> ' + i18next.t('Yes'),
-                    className: 'btn-danger'
-                },
-                cancel: {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
-                    className: 'btn-primary'
-                }
-            },
+            title: '<i class="fas fa-trash-alt text-danger mr-2"></i>' + i18next.t('Delete mailing list'),
+            message: window.CRM.buildDialogNotice('fa-exclamation-triangle text-danger', i18next.t('This action is irreversible'), i18next.t("Do you really want to delete this mailing list ?"), 'alert-danger'),
+            buttons: window.CRM.buildDialogButtons(i18next.t('Delete list'), 'btn-danger', i18next.t('Cancel'), 'btn-outline-secondary'),
             callback: function (result) {
                 if (result) {
                     window.CRM.APIRequest({
@@ -913,17 +891,9 @@ $(function() {
         var list_id = $(this).data("listid");
 
         bootbox.confirm({
-            message: i18next.t("Are you sure you want to delete all the subscribers"),
-            buttons: {
-                confirm: {
-                    label: '<i class="fas fa-times"></i> ' + i18next.t('Yes'),
-                    className: 'btn-danger'
-                },
-                cancel: {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
-                    className: 'btn-primary'
-                }
-            },
+            title: '<i class="fas fa-users-slash text-danger mr-2"></i>' + i18next.t('Delete all subscribers'),
+            message: window.CRM.buildDialogNotice('fa-exclamation-triangle text-danger', i18next.t('Bulk deletion'), i18next.t("Are you sure you want to delete all the subscribers"), 'alert-danger'),
+            buttons: window.CRM.buildDialogButtons(i18next.t('Delete all'), 'btn-danger', i18next.t('Cancel'), 'btn-outline-secondary'),
             callback: function (result) {
                 if (result) {
                     window.CRM.dialogLoadingFunction(i18next.t('Deleting all subscribers...') 
@@ -950,33 +920,81 @@ $(function() {
 
     function BootboxCampaignContent(nameTag) {
 
-        var frm_str = '<form id="some-form">'
-            + '<div>'
-            + '<div class="row">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Campaign Title') + ":</div>"
-            + '<div class="col-md-9">'
-            + "<input type='text' id='CampaignTitle' placeholder=\"" + i18next.t("Your Campaign Title") + "\" size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
-            + '</div>'
-            + '</div>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('For Tag') + ":</div>"
-            + '<div class="col-md-9">'
-            + '<div class="col-md-3">' + nameTag + "</div>"
-            + '</div>'
-            + '</div>'
-            + '<div class="row div-title">'
-            + '<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Mail Subject') + ":</div>"
-            + '<div class="col-md-9">'
-            + "<input type='text' id='Subject' placeholder=\"" + i18next.t("Your Mail Subject") + "\" size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
-            + '</div>'
-            + '</div>'
-            + '<div class="row  eventNotes">'
-            + '<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
-            + '<textarea name="CampaignText" cols="80" class="form-control form-control-sm campaignNotes" id="campaignNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
-            + '</div>'
-            + '</div>'
-            + '</div>'
-            + '</form>';
+        var frm_str = `
+            <form id="some-form">
+                <div class="alert alert-light border d-flex align-items-start mb-3">
+                    <i class="fas fa-paper-plane text-primary mt-1 mr-2"></i>
+                    <div>
+                        <div class="font-weight-bold">${i18next.t("Email Campaign Creation")}</div>
+                        <div class="small text-muted">${i18next.t("Prepare a clear title, confirm the target tag and write the content of your email campaign.")}</div>
+                    </div>
+                </div>
+
+                <div class="card card-outline card-secondary shadow-sm mb-3">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-bullhorn text-secondary mr-2"></i>
+                            <div>
+                                <div class="font-weight-bold">${i18next.t("Campaign details")}</div>
+                                <div class="small text-muted">${i18next.t("Set the campaign title and review the MailChimp target before writing the message.")}</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="CampaignTitle" class="font-weight-bold mb-1">
+                                <i class="fas fa-heading text-primary mr-1"></i><span style="color: red">*</span>${i18next.t('Campaign Title')}
+                            </label>
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-pen"></i></span>
+                                </div>
+                                <input type="text" id="CampaignTitle" placeholder="${i18next.t("Your Campaign Title")}" maxlength="100" class="form-control form-control-sm" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0">
+                            <label class="font-weight-bold mb-1">
+                                <i class="fas fa-tag text-info mr-1"></i><span style="color: red">*</span>${i18next.t('For Tag')}
+                            </label>
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                </div>
+                                <div class="form-control form-control-sm bg-light">${nameTag}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-outline card-secondary shadow-sm mb-0">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope-open-text text-danger mr-2"></i>
+                            <div>
+                                <div class="font-weight-bold">${i18next.t("Message")}</div>
+                                <div class="small text-muted">${i18next.t("Write the subject and the body of your email campaign.")}</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="Subject" class="font-weight-bold mb-1">
+                                <i class="fas fa-tag text-primary mr-1"></i><span style="color: red">*</span>${i18next.t('Mail Subject')}
+                            </label>
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input type="text" id="Subject" placeholder="${i18next.t("Your Mail Subject")}" maxlength="100" class="form-control form-control-sm" required>
+                            </div>
+                        </div>
+
+                        <div class="small text-muted mb-2">
+                            <i class="fas fa-align-left mr-1"></i>${i18next.t("Compose the content that will be sent to members of this tag.")}
+                        </div>
+                        <textarea name="CampaignText" cols="80" class="form-control form-control-sm campaignNotes" id="campaignNotes" width="100%" style="width: 100%;height: 4em;"></textarea>
+                    </div>
+                </div>
+            </form>`;
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -987,20 +1005,21 @@ $(function() {
         if (tagName == "") {
             tagName = i18next.t("All list members");
         }
+        var dialogTitle = '<i class="fas fa-paper-plane text-primary mr-2"></i>' + i18next.t("Email Campaign Creation");
         var modal = bootbox.dialog({
-            title: i18next.t("Email Campaign Creation"),
+            title: dialogTitle,
             message: BootboxCampaignContent(tagName),
             size: 'extra-large',
             buttons: [
                 {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
-                    className: "btn btn-default",
+                    className: "btn btn-outline-secondary",
                     callback: function () {
                         console.log("just do something on close");
                     }
                 },
                 {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
+                    label: '<i class="fas fa-save"></i> ' + i18next.t("Save"),
                     className: "btn btn-primary",
                     callback: function () {
                         var campaignTitle = $('form #CampaignTitle').val();
@@ -1025,17 +1044,9 @@ $(function() {
                                     window.CRM.closeDialogLoadingFunction();
                                     if (data.success) {
                                         bootbox.confirm({
-                                            message: i18next.t("Would like to manage directly this new campaign ?"),
-                                            buttons: {
-                                                confirm: {
-                                                    label: '<i class="fas fa-check"></i> ' + i18next.t('Yes'),
-                                                    className: 'btn-primary'
-                                                },
-                                                cancel: {
-                                                    label: '<i class="fas fa-times"></i> ' + i18next.t('No'),
-                                                    className: 'btn-default'
-                                                }
-                                            },
+                                            title: '<i class="fas fa-paper-plane text-success mr-2"></i>' + i18next.t('Campaign created'),
+                                            message: window.CRM.buildDialogNotice('fa-check-circle text-success', i18next.t('Your campaign is ready'), i18next.t("Would like to manage directly this new campaign ?"), 'alert-success'),
+                                            buttons: window.CRM.buildDialogButtons(i18next.t('Open campaign'), 'btn-primary', i18next.t('Stay here'), 'btn-outline-secondary'),
                                             callback: function (result) {
                                                 render_container();
                                                 if (result) {
@@ -1073,37 +1084,52 @@ $(function() {
         var subject = $(this).data('subject');
         var permission_reminder = $(this).data('permissionreminder');
 
-        bootbox.confirm('<form id="infos" action="#">'
-            + i18next.t('List Name') + ':<input type="text" class= "form-control form-control-sm" id="list_name" value="' + name + '"/><br/>'
-            + i18next.t('Subject') + ':<input type="text" class= "form-control form-control-sm" id="list_subject" value="' + subject + '"/><br/>'
-            + i18next.t('Permission Reminder') + ':<input type="text" class= "form-control form-control-sm" id="list_permission_reminder" value="' + permission_reminder + '"/>'
-            + '</form>', function (result) {
-            if (result) {
-                name = $("#list_name").val();
-                subject = $("#list_subject").val();
-                permission_reminder = $("#list_permission_reminder").val();
+        bootbox.confirm({
+            title: '<i class="fas fa-list-alt text-primary mr-2"></i>' + i18next.t('Edit list settings'),
+            message: window.CRM.buildDialogNotice('fa-sliders-h text-primary', i18next.t('MailChimp list settings'), i18next.t('Update the main details used by this list and its campaigns.'), 'alert-light border')
+                + '<form id="infos" action="#" class="mt-3">'
+                + '<div class="form-group">'
+                + '<label for="list_name" class="font-weight-bold mb-1">' + i18next.t('List Name') + '</label>'
+                + '<input type="text" class="form-control form-control-sm" id="list_name" value="' + name + '"/>'
+                + '</div>'
+                + '<div class="form-group">'
+                + '<label for="list_subject" class="font-weight-bold mb-1">' + i18next.t('Subject') + '</label>'
+                + '<input type="text" class="form-control form-control-sm" id="list_subject" value="' + subject + '"/>'
+                + '</div>'
+                + '<div class="form-group mb-0">'
+                + '<label for="list_permission_reminder" class="font-weight-bold mb-1">' + i18next.t('Permission Reminder') + '</label>'
+                + '<input type="text" class="form-control form-control-sm" id="list_permission_reminder" value="' + permission_reminder + '"/>'
+                + '</div>'
+                + '</form>',
+            buttons: window.CRM.buildDialogButtons(i18next.t('Save'), 'btn-primary', i18next.t('Close'), 'btn-outline-secondary'),
+            callback: function (result) {
+                if (result) {
+                    name = $("#list_name").val();
+                    subject = $("#list_subject").val();
+                    permission_reminder = $("#list_permission_reminder").val();
 
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'mailchimp/modifylist',
-                    data: JSON.stringify({
-                        "list_id": window.CRM.list_ID,
-                        "name": name,
-                        "subject": subject,
-                        "permission_reminder": permission_reminder
-                    })
-                }, function (data) {
-                    if (data.success) {
-                        $("#modifyList").data('name', name);
-                        $("#modifyList").data('subject', subject);
-                        $("#modifyList").data('permissionreminder', permission_reminder);
-                        $("#ListTitle").text(name);
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'mailchimp/modifylist',
+                        data: JSON.stringify({
+                            "list_id": window.CRM.list_ID,
+                            "name": name,
+                            "subject": subject,
+                            "permission_reminder": permission_reminder
+                        })
+                    }, function (data) {
+                        if (data.success) {
+                            $("#modifyList").data('name', name);
+                            $("#modifyList").data('subject', subject);
+                            $("#modifyList").data('permissionreminder', permission_reminder);
+                            $("#ListTitle").text(name);
 
-                        render_container();
-                        $('.listName' + window.CRM.list_ID).html('<i class="far fa-circle"></i>' + name);
-                    }
-                });
+                            render_container();
+                            $('.listName' + window.CRM.list_ID).html('<i class="far fa-circle"></i>' + name);
+                        }
+                    });
 
+                }
             }
         });
     });
@@ -1206,17 +1232,9 @@ $(function() {
         });
 
         bootbox.confirm({
-            message: i18next.t("You're about to delete subscribers! Are you sure ?"),
-            buttons: {
-                confirm: {
-                    label: i18next.t('Yes'),
-                    className: '<i class="fas fa-times"></i> ' + 'btn-danger'
-                },
-                cancel: {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
-                    className: 'btn-primary'
-                }
-            },
+            title: '<i class="fas fa-user-times text-danger mr-2"></i>' + i18next.t('Delete selected subscribers'),
+            message: buildDialogNotice('fa-exclamation-triangle text-danger', i18next.t('Selected members'), i18next.t("You're about to delete subscribers! Are you sure ?") + '<br><span class="font-weight-bold">' + emails.length + ' ' + i18next.t('selected') + '</span>', 'alert-danger'),
+            buttons: buildDialogButtons(i18next.t('Delete selected'), 'btn-danger', i18next.t('Cancel'), 'btn-outline-secondary'),
             callback: function (result) {
                 if (result) {
                     window.CRM.dialogLoadingFunction(i18next.t('Deleting Subscribers...'));
