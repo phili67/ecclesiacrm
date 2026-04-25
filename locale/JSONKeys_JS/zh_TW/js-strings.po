@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
+"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,9 +65,6 @@ msgstr "取消"
 msgid "Confirm"
 msgstr "确认"
 
-msgid "Set Resource Name"
-msgstr "设置资源名称"
-
 msgid "Name"
 msgstr "命名"
 
@@ -86,11 +83,20 @@ msgstr "视频"
 msgid "Description"
 msgstr "描述"
 
+msgid "Add a short description to help identify this resource."
+msgstr "添加简短说明，以帮助识别该资源。"
+
+msgid "Set Resource Name"
+msgstr "设置资源名称"
+
 msgid "OK"
 msgstr "认可"
 
 msgid "Calendars"
 msgstr "日历"
+
+msgid "Select one or more calendars to update their visibility in the sidebar."
+msgstr "选择一个或多个日历，更新其在侧边栏中的可见性。"
 
 msgid "Set Status"
 msgstr "设置状态"
@@ -119,6 +125,9 @@ msgstr "[👀 ✐]"
 msgid "With"
 msgstr "与"
 
+msgid "Select one or more current shares to update or remove them."
+msgstr "选择一个或多个当前份额，更新或删除它们。"
+
 msgid "Set Rights"
 msgstr "设置权利"
 
@@ -137,8 +146,14 @@ msgstr "[RW]"
 msgid "Send email notification"
 msgstr "发送电子邮件通知"
 
+msgid "Notify added people, families, or groups by email"
+msgstr "通过电子邮件通知添加的人员、家庭或团体"
+
 msgid "Add persons/Family/groups"
 msgstr "添加人员/家庭/团体"
+
+msgid "Search and add people, families, or groups to share this calendar."
+msgstr "搜索并添加要共享此日历的人、家庭或群组。"
 
 msgid "Share your Calendar"
 msgstr "分享您的日历"
@@ -211,13 +226,17 @@ msgstr "列表月"
 msgid "This event isn't modifiable !!!"
 msgstr "这个事件是不能修改的！！！。"
 
+msgid "No description"
+msgstr "无说明"
+
+msgid "What would you like to do?"
+msgstr "你想做什么？"
+
+msgid "Be careful with deletion: this action cannot be undone."
+msgstr "小心删除：此操作无法撤销。"
+
 msgid "Modify Event"
 msgstr "修改事件"
-
-msgid ""
-"What would you like to do ? Be careful with the deletion, it's impossible to "
-"revert !!!"
-msgstr "你想做什么？小心删除，不可能再恢复了！！！。"
 
 msgid "Delete Event"
 msgstr "删除事件"
@@ -334,9 +353,6 @@ msgstr "事件描述"
 msgid "Event Type"
 msgstr "事件类型"
 
-msgid "Personal"
-msgstr "个人"
-
 msgid "Attendance Counts"
 msgstr "出席率统计"
 
@@ -427,6 +443,9 @@ msgstr "不活跃"
 msgid "Event Creation"
 msgstr "事件创建"
 
+msgid "Event Editor"
+msgstr "活动编辑"
+
 msgid "Close"
 msgstr "关闭"
 
@@ -474,6 +493,11 @@ msgstr "月份的活动"
 
 msgid "Events by Type"
 msgstr "按类型划分的活动"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr "你想做什么？小心删除，不可能再恢复了！！！。"
 
 msgid "Text for Event ID"
 msgstr "事件ID的文本"
@@ -634,6 +658,9 @@ msgstr "错误"
 
 msgid "In progress"
 msgstr "进行中"
+
+msgid "Please wait while the operation is being completed"
+msgstr "操作完成后请稍候"
 
 msgid "Mailchimp"
 msgstr "邮件营销"
@@ -893,6 +920,19 @@ msgstr "请确认删除此文件"
 msgid "Document Delete Confirmation"
 msgstr "文件删除确认"
 
+msgid "Document Editor"
+msgstr "文件编辑"
+
+msgid ""
+"Create a note, audio or video entry and keep it organized with a clear title."
+msgstr "创建笔记、音频或视频条目，并用清晰的标题将其组织起来。"
+
+msgid "Document details"
+msgstr "文件详情"
+
+msgid "Set the title and choose the type before writing the content."
+msgstr "在撰写内容之前，先设置标题并选择类型。"
+
 msgid "Document Title"
 msgstr "文件标题"
 
@@ -911,11 +951,23 @@ msgstr "视频"
 msgid "audio"
 msgstr "音频"
 
+msgid "Content"
+msgstr "内容"
+
+msgid "Write the main content of your document below."
+msgstr "请将文件的主要内容写在下面。"
+
 msgid "Private"
 msgstr "私营"
 
-msgid "Document Editor"
-msgstr "文件编辑"
+msgid "Private documents are visible only to authorized users."
+msgstr "私人文件只有授权用户才能看到。"
+
+msgid "Edit Document"
+msgstr "编辑文档"
+
+msgid "Create Document"
+msgstr "创建文件"
 
 msgid "You have to set a Title for your document"
 msgstr "你必须为你的文件设置一个标题"
@@ -1063,8 +1115,14 @@ msgstr "未订阅"
 msgid "Email Marketing"
 msgstr "电子邮件营销"
 
-msgid "Add your tag name"
-msgstr "添加你的标签名称"
+msgid "New tag"
+msgstr "新标签"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr "输入要创建并应用于所选成员的标记名称。"
+
+msgid "Create tag"
+msgstr "创建标签"
 
 msgid "Adding tag..."
 msgstr "添加标签..."
@@ -1072,8 +1130,11 @@ msgstr "添加标签..."
 msgid "Name is empty !!"
 msgstr "名字是空的！!"
 
-msgid "Add tag?"
-msgstr "添加标签？"
+msgid "Add tag"
+msgstr "添加标签"
+
+msgid "Selected tag"
+msgstr "选定标签"
 
 msgid "This will add the tag"
 msgstr "这将添加标签"
@@ -1087,14 +1148,31 @@ msgstr "选择一个"
 msgid "All Tags"
 msgstr "所有标签"
 
-msgid "Choose the tag you want to delete :"
-msgstr "选择你要删除的标签 。"
+msgid "Remove tags from selected members"
+msgstr "从选定的成员中移除标记"
+
+msgid "Choose a tag"
+msgstr "选择标签"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr "选择一个标签进行删除，或选择所有标签对所选成员进行全面清理。"
+
+msgid "Apply"
+msgstr "申请"
 
 msgid "Removing tags..."
 msgstr "移除标签..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "删除列表中选定成员的所有标签..."
+
+msgid "This action affects the whole list"
+msgstr "该操作会影响整个列表"
+
+msgid "Keep tag"
+msgstr "保留标签"
 
 msgid "A person name or Family or Group"
 msgstr "一个人的名字或家庭或团体"
@@ -1128,23 +1206,59 @@ msgid ""
 "could take a while !"
 msgstr "从EcclesiaCRM加载所有的家庭首发用户<br>这可能需要一些时间!"
 
-msgid "Select status for : "
-msgstr "选择状态为 。"
+msgid "Update subscriber status"
+msgstr "更新订阅者状态"
+
+msgid "Selected subscriber"
+msgstr "选定用户"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr "选择适用于该订户的状态。"
+
+msgid "Update"
+msgstr "更新"
 
 msgid "Changing status ..."
 msgstr "改变地位..."
 
+msgid "Delete subscriber"
+msgstr "删除用户"
+
+msgid "Subscriber removal"
+msgstr "删除订阅者"
+
 msgid "You're about to delete a subscriber! Are you sure ?"
 msgstr "你要删除一个订户！？你确定吗？"
+
+msgid "Keep subscriber"
+msgstr "保持订阅"
 
 msgid "Deleting Subscriber..."
 msgstr "删除订阅者..."
 
+msgid "Delete mailing list"
+msgstr "删除邮件列表"
+
+msgid "This action is irreversible"
+msgstr "这一行动不可逆转"
+
 msgid "Do you really want to delete this mailing list ?"
 msgstr "你真的想删除这个邮件列表吗？"
 
+msgid "Delete list"
+msgstr "删除列表"
+
+msgid "Delete all subscribers"
+msgstr "删除所有订阅者"
+
+msgid "Bulk deletion"
+msgstr "批量删除"
+
 msgid "Are you sure you want to delete all the subscribers"
 msgstr "你确定你要删除所有的用户吗？"
+
+msgid "Delete all"
+msgstr "全部删除"
 
 msgid "Deleting all subscribers..."
 msgstr "删除所有订阅者..."
@@ -1156,6 +1270,22 @@ msgstr ""
 "事实上，你最好离开CRM，并在四分之一小时内重新打开它来管理你的名单。<br>要删除"
 "大量数据，MailChimp的API很慢。"
 
+msgid "Email Campaign Creation"
+msgstr "创建电子邮件活动"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr "准备一个清晰的标题，确认目标标签并撰写电子邮件营销活动的内容。"
+
+msgid "Campaign details"
+msgstr "活动详情"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr "在撰写邮件之前，设置活动标题并查看 MailChimp 目标。"
+
 msgid "Campaign Title"
 msgstr "活动名称"
 
@@ -1165,26 +1295,50 @@ msgstr "您的活动标题"
 msgid "For Tag"
 msgstr "对于标签"
 
+msgid "Write the subject and the body of your email campaign."
+msgstr "撰写电子邮件活动的主题和正文。"
+
 msgid "Mail Subject"
 msgstr "邮件主题"
 
 msgid "Your Mail Subject"
 msgstr "您的邮件主题"
 
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "编写将发送给此标记成员的内容。"
+
 msgid "All list members"
 msgstr "所有名单成员"
-
-msgid "Email Campaign Creation"
-msgstr "创建电子邮件活动"
 
 msgid "Adding Campaign ..."
 msgstr "添加运动..."
 
+msgid "Campaign created"
+msgstr "创建活动"
+
+msgid "Your campaign is ready"
+msgstr "您的活动已准备就绪"
+
 msgid "Would like to manage directly this new campaign ?"
 msgstr "想直接管理这个新活动吗？"
 
+msgid "Open campaign"
+msgstr "公开活动"
+
+msgid "Stay here"
+msgstr "留在这里"
+
 msgid "You have to set a Campaign Title for your eMail Campaign"
 msgstr "你必须为你的电子邮件活动设置一个活动标题"
+
+msgid "Edit list settings"
+msgstr "编辑列表设置"
+
+msgid "MailChimp list settings"
+msgstr "MailChimp 列表设置"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr "更新该列表及其活动使用的主要详细信息。"
 
 msgid "List Name"
 msgstr "列表名称"
@@ -1192,8 +1346,20 @@ msgstr "列表名称"
 msgid "Changing subscribers state..."
 msgstr "改变订阅者的状态..."
 
+msgid "Delete selected subscribers"
+msgstr "删除选定的订阅者"
+
+msgid "Selected members"
+msgstr "部分成员"
+
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "你要删除订阅者了!你确定吗？"
+
+msgid "selected"
+msgstr "选定的"
+
+msgid "Delete selected"
+msgstr "删除选定"
 
 msgid "Deleting Subscribers..."
 msgstr "删除订阅者..."
@@ -1210,23 +1376,32 @@ msgstr "免费活动参与者"
 msgid "Successfully Added!"
 msgstr "成功添加!"
 
-msgid "User Delete Confirmation"
-msgstr "用户删除确认"
+msgid "Delete attendee"
+msgstr "删除与会者"
 
-msgid ""
-"Be carefull, You are about to delete a user from the group and therefore the "
-"entire call history. This is strongly to be avoided."
-msgstr ""
-"请注意，您将从组中删除一个用户，从而删除整个通话记录。请务必避免这样做。"
+msgid "This action is permanent"
+msgstr "这一行动是永久性的"
 
-msgid "This can't be undone"
-msgstr "这是不可能被撤销的"
+msgid "This can't be undone."
+msgstr "这是无法挽回的。"
+
+msgid "You are about to remove this attendee from the event."
+msgstr "您将从活动中删除该与会者。"
+
+msgid "The attendee will be removed from this event."
+msgstr "该与会者将被除名。"
+
+msgid "Related attendance history may also be affected."
+msgstr "相关的出勤记录也可能受到影响。"
 
 msgid "Photo"
 msgstr "照片"
 
 msgid "Action"
 msgstr "行动"
+
+msgid "Attendance actions"
+msgstr "考勤行动"
 
 msgid "Checkin"
 msgstr "办理登机手续"
@@ -1249,12 +1424,21 @@ msgstr "结账日期"
 msgid "Checkout By"
 msgstr "结账方式"
 
+msgid "Scan a QR Code"
+msgstr "扫描 QR 码"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr "将相机对准二维码，即可自动为与会者办理登机手续。"
+
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr "无法访问视频流（请确保你有一个网络摄像头启用）。"
 
-msgid "no detected QR Code"
-msgstr "没有检测到QR码"
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr "尚未检测到 QR 码。请将二维码放在框架内。"
+
+msgid "Detected data"
+msgstr "检测到的数据"
 
 msgid "QR Code : Call the register"
 msgstr "二维码:呼叫登记处"
@@ -1301,6 +1485,27 @@ msgstr "删除事件类型"
 msgid "This action can never be undone !!!!"
 msgstr "这一行动永远不能被撤销 !!!!"
 
+msgid "Preview"
+msgstr "预览"
+
+msgid "Document preview"
+msgstr "文件预览"
+
+msgid "Read only"
+msgstr "只读"
+
+msgid "preview currently being created"
+msgstr "正在创建预览"
+
+msgid "Please wait"
+msgstr "请稍候"
+
+msgid "Unable to create the preview"
+msgstr "无法创建预览"
+
+msgid "The selected file cannot be rendered in preview mode."
+msgstr "所选文件无法在预览模式下渲染。"
+
 msgid "Icon"
 msgstr "图标"
 
@@ -1333,9 +1538,6 @@ msgstr "设置你的文件夹名称"
 
 msgid "Actualize files"
 msgstr "实现文件"
-
-msgid "preview currently being created"
-msgstr "正在创建预览"
 
 msgid "Set a File/Folder name"
 msgstr "设置一个文件/文件夹名称"
@@ -1454,6 +1656,9 @@ msgstr "关闭"
 msgid "Deposit Type"
 msgstr "存款类型"
 
+msgid "Search"
+msgstr "搜索"
+
 msgid "Please enter at least one winner."
 msgstr "请至少输入一位获奖者。"
 
@@ -1474,9 +1679,6 @@ msgstr "你要删除一个标签!"
 
 msgid "Item"
 msgstr "项目"
-
-msgid "Preview"
-msgstr "预览"
 
 msgid "Multiple"
 msgstr "多个"
@@ -1746,6 +1948,9 @@ msgstr "任命"
 msgid "Never contacted"
 msgstr "从未联系过"
 
+msgid "Pastoral care member"
+msgstr "教牧关怀成员"
+
 msgid "Visits/calls"
 msgstr "访问/通话"
 
@@ -1754,6 +1959,24 @@ msgstr "最后一次访问/致电"
 
 msgid "Delete Pastoral Care Type"
 msgstr "删除教牧关怀类型"
+
+msgid "Irreversible action"
+msgstr "不可逆转的作用"
+
+msgid "Keep note"
+msgstr "记录"
+
+msgid "Pastoral care note"
+msgstr "牧师关怀说明"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr "查看备注类型，编写内容并定义谁可以查看。"
+
+msgid "Note"
+msgstr "备注"
+
+msgid "Write the pastoral care message associated with this family."
+msgstr "写出与这个家庭相关的教牧关怀信息。"
 
 msgid "For every administrator"
 msgstr "对于每个管理员来说"
@@ -1778,6 +2001,9 @@ msgstr "姓氏 (姓氏)"
 
 msgid "Family Name"
 msgstr "姓氏"
+
+msgid "Write the pastoral care message associated with this person."
+msgstr "写出与此人相关的教牧关怀信息。"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "你确定要从CRM中删除这个家族吗？"
@@ -1955,6 +2181,9 @@ msgstr "家庭身份"
 msgid "Valid Until"
 msgstr "有效期至"
 
+msgid "Search for a family or address"
+msgstr "搜索家庭或地址"
+
 msgid "Are you sure you want to remove this person from the CRM"
 msgstr "你确定要把这个人从CRM中删除吗？"
 
@@ -2044,6 +2273,9 @@ msgstr "插件下载管理器"
 msgid "The current images folder is now the public folder !!!"
 msgstr "当前的图像文件夹现在是公共文件夹!!!"
 
+msgid "Singles"
+msgstr "单身"
+
 msgid "All Groups"
 msgstr "所有团体"
 
@@ -2054,6 +2286,9 @@ msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr "搜索条件如：姓名、名字、电话号码、财产、团体名称等 ..."
+
+msgid "All search types"
+msgstr "所有搜索类型"
 
 msgid "id"
 msgstr "身份证"
@@ -2146,8 +2381,8 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "自定义菜单链接编辑器"
 
-msgid "Place"
-msgstr "地点"
+msgid "Order"
+msgstr "订购"
 
 msgid "Uri"
 msgstr "乌里"
@@ -2167,6 +2402,12 @@ msgstr "请确认删除该分类"
 msgid ""
 "This will also delete this Classification for all the associated persons."
 msgstr "这也将删除所有相关人员的这个分类。"
+
+msgid "Delete map marker"
+msgstr "删除地图标记"
+
+msgid "Please confirm deletion of this marker"
+msgstr "请确认删除此标记"
 
 msgid "Map Icon GoogleMap"
 msgstr "地图图标 GoogleMap"
@@ -2376,11 +2617,38 @@ msgstr "至少要选择一个小组来制作班级名单或考勤表。"
 msgid "You have to set a Title and a Description for your issue."
 msgstr "你必须为你的问题设置一个标题和一个描述。"
 
+msgid "Find member"
+msgstr "查找成员"
+
+msgid "Search by name, role, or ID."
+msgstr "按姓名、角色或 ID 搜索。"
+
+msgid "Search a member"
+msgstr "搜索会员"
+
+msgid "Clear"
+msgstr "清晰"
+
+msgid "In"
+msgstr "在"
+
+msgid "Out"
+msgstr "外出"
+
+msgid "Notify"
+msgstr "通知"
+
 msgid "Trigger Parent Alert"
 msgstr "触发家长警报"
 
 msgid "Kiosk"
 msgstr "亭子"
+
+msgid "Attendance"
+msgstr "出席情况"
+
+msgid "Current event"
+msgstr "当前事件"
 
 msgid "No assignments for kiosk"
 msgstr "没有为报刊亭分配任务"
@@ -2441,6 +2709,15 @@ msgstr "将这些备份密码保存在一个安全的地方，以防你丢失OTP
 msgid "Unable to remove 2FA right now."
 msgstr "现在无法移除 2FA。"
 
+msgid "Current step"
+msgstr "当前步骤"
+
+msgid "Completed"
+msgstr "已完成"
+
+msgid "Locked"
+msgstr "锁定"
+
 msgid "Backup Complete, Ready for Download."
 msgstr "备份完成，可供下载。"
 
@@ -2489,6 +2766,9 @@ msgstr "现在已被锁定"
 msgid "is now unlocked"
 msgstr "现已解锁"
 
+msgid "User Delete Confirmation"
+msgstr "用户删除确认"
+
 msgid "Please confirm removal of user status from:"
 msgstr "请确认将用户身份从。"
 
@@ -2496,6 +2776,9 @@ msgid ""
 "Be carefull, You are about to lose the home folder and the associated files, "
 "the Calendars, the Share calendars and all the events too, for"
 msgstr "要小心，你将失去主文件夹和相关文件、日历、共享日历和所有事件，因为"
+
+msgid "This can't be undone"
+msgstr "这是不可能被撤销的"
 
 msgid "Action Confirmation"
 msgstr "行动确认"
@@ -2582,6 +2865,27 @@ msgid ""
 "altered."
 msgstr "所有成员资格将被销毁。  成员本身不会改变。"
 
+#~ msgid "Personal"
+#~ msgstr "个人"
+
+#~ msgid "Add your tag name"
+#~ msgstr "添加你的标签名称"
+
+#~ msgid "Choose the tag you want to delete :"
+#~ msgstr "选择你要删除的标签 。"
+
+#~ msgid "Select status for : "
+#~ msgstr "选择状态为 。"
+
+#~ msgid ""
+#~ "Be carefull, You are about to delete a user from the group and therefore "
+#~ "the entire call history. This is strongly to be avoided."
+#~ msgstr ""
+#~ "请注意，您将从组中删除一个用户，从而删除整个通话记录。请务必避免这样做。"
+
+#~ msgid "Place"
+#~ msgstr "地点"
+
 #~ msgid "GDPR"
 #~ msgstr "GDPR"
 
@@ -2596,9 +2900,6 @@ msgstr "所有成员资格将被销毁。  成员本身不会改变。"
 
 #~ msgid "Add buyer"
 #~ msgstr "添加买家"
-
-#~ msgid "Select"
-#~ msgstr "选择"
 
 #~ msgid "All members of this group are in the cart"
 #~ msgstr "该组的所有成员都在购物车中"
@@ -2636,9 +2937,6 @@ msgstr "所有成员资格将被销毁。  成员本身不会改变。"
 
 #~ msgid "Add all"
 #~ msgstr "添加所有"
-
-#~ msgid "Remove Selected Members"
-#~ msgstr "删除选定的成员"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "
@@ -2732,9 +3030,6 @@ msgstr "所有成员资格将被销毁。  成员本身不会改变。"
 
 #~ msgid "Absent"
 #~ msgstr "缺席"
-
-#~ msgid "Attendance"
-#~ msgstr "出席情况"
 
 #~ msgid "Add all tags for the selected members in the list..."
 #~ msgstr "添加列表中选定成员的所有标签..."

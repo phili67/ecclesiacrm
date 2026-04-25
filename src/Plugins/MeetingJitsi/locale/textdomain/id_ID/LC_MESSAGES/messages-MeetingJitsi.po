@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:27+0000\n"
+"POT-Creation-Date: 2026-04-25 18:27+0000\n"
 "Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:25
 msgid "Jitsi Meeting"
-msgstr ""
+msgstr "Pertemuan Jitsi"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:27
 msgid "Create, select and launch your rooms"
-msgstr ""
+msgstr "Buat, pilih, dan luncurkan kamar Anda"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:36
 msgid "Room names"
@@ -55,7 +55,7 @@ msgstr "Nama kamar"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:68
 msgid "No room selected"
-msgstr ""
+msgstr "Tidak ada kamar yang dipilih"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:76
 msgid "First create a Jitsi room with the button above !"
@@ -63,7 +63,7 @@ msgstr "Pertama membuat ruang Jitsi dengan tombol di atas!"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:77
 msgid "Then choose a room from the dropdown to launch the meeting"
-msgstr ""
+msgstr "Kemudian pilih ruangan dari menu tarik-turun untuk memulai rapat"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:23
 msgid "Settings"
@@ -71,7 +71,7 @@ msgstr ""
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:24
 msgid "Configure your meeting provider and API access"
-msgstr ""
+msgstr "Konfigurasikan penyedia rapat dan akses API Anda"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:42
 msgid "The Jitsi domain name, by default"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
+"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,9 +67,6 @@ msgstr "Avbryt"
 msgid "Confirm"
 msgstr "Bekreft"
 
-msgid "Set Resource Name"
-msgstr "Angi ressursnavn"
-
 msgid "Name"
 msgstr "Navn"
 
@@ -88,11 +85,22 @@ msgstr "Video"
 msgid "Description"
 msgstr "Beskrivelse"
 
+msgid "Add a short description to help identify this resource."
+msgstr "Legg til en kort beskrivelse for å identifisere denne ressursen."
+
+msgid "Set Resource Name"
+msgstr "Angi ressursnavn"
+
 msgid "OK"
 msgstr "OK"
 
 msgid "Calendars"
 msgstr "Kalendere"
+
+msgid "Select one or more calendars to update their visibility in the sidebar."
+msgstr ""
+"Velg én eller flere kalendere for å oppdatere synligheten av dem i "
+"sidepanelet."
 
 msgid "Set Status"
 msgstr "Angi status"
@@ -121,6 +129,9 @@ msgstr "[👀 ✐]"
 msgid "With"
 msgstr "Med"
 
+msgid "Select one or more current shares to update or remove them."
+msgstr "Velg én eller flere gjeldende aksjer for å oppdatere eller fjerne dem."
+
 msgid "Set Rights"
 msgstr "Angi rettigheter"
 
@@ -139,8 +150,16 @@ msgstr "[RW] [RW]"
 msgid "Send email notification"
 msgstr "Send e-postvarsling"
 
+msgid "Notify added people, families, or groups by email"
+msgstr "Varsle personer, familier eller grupper som er lagt til, via e-post"
+
 msgid "Add persons/Family/groups"
 msgstr "Legg til personer/familie/grupper"
+
+msgid "Search and add people, families, or groups to share this calendar."
+msgstr ""
+"Søk etter og legg til personer, familier eller grupper som kan dele denne "
+"kalenderen."
 
 msgid "Share your Calendar"
 msgstr "Del kalenderen din"
@@ -215,15 +234,17 @@ msgstr "Liste Måned"
 msgid "This event isn't modifiable !!!"
 msgstr "Denne hendelsen kan ikke endres !!!"
 
+msgid "No description"
+msgstr "Ingen beskrivelse"
+
+msgid "What would you like to do?"
+msgstr "Hva har du lyst til å gjøre?"
+
+msgid "Be careful with deletion: this action cannot be undone."
+msgstr "Vær forsiktig med sletting: Denne handlingen kan ikke gjøres ugjort."
+
 msgid "Modify Event"
 msgstr "Endre hendelse"
-
-msgid ""
-"What would you like to do ? Be careful with the deletion, it's impossible to "
-"revert !!!"
-msgstr ""
-"Hva ønsker du å gjøre? Vær forsiktig med slettingen, det er umulig å gå "
-"tilbake !!!!"
 
 msgid "Delete Event"
 msgstr "Slett hendelse"
@@ -344,9 +365,6 @@ msgstr "Beskrivelse av hendelsen"
 msgid "Event Type"
 msgstr "Type hendelse"
 
-msgid "Personal"
-msgstr "Personlig"
-
 msgid "Attendance Counts"
 msgstr "Oppmøte teller"
 
@@ -437,6 +455,9 @@ msgstr "inaktiv"
 msgid "Event Creation"
 msgstr "Opprettelse av arrangementer"
 
+msgid "Event Editor"
+msgstr "Event Editor"
+
 msgid "Close"
 msgstr "Lukk"
 
@@ -484,6 +505,13 @@ msgstr "Hendelser i måneden"
 
 msgid "Events by Type"
 msgstr "Hendelser etter type"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Hva ønsker du å gjøre? Vær forsiktig med slettingen, det er umulig å gå "
+"tilbake !!!!"
 
 msgid "Text for Event ID"
 msgstr "Tekst for hendelses-ID"
@@ -645,6 +673,9 @@ msgstr "FEIL"
 
 msgid "In progress"
 msgstr "Pågående"
+
+msgid "Please wait while the operation is being completed"
+msgstr "Vennligst vent mens operasjonen fullføres"
 
 msgid "Mailchimp"
 msgstr "Mailchimp"
@@ -913,6 +944,21 @@ msgstr "Vennligst bekreft sletting av dette dokumentet"
 msgid "Document Delete Confirmation"
 msgstr "Bekreftelse på sletting av dokument"
 
+msgid "Document Editor"
+msgstr "Dokumentredigering"
+
+msgid ""
+"Create a note, audio or video entry and keep it organized with a clear title."
+msgstr ""
+"Opprett et notat, en lyd- eller videooppføring, og hold den organisert med "
+"en tydelig tittel."
+
+msgid "Document details"
+msgstr "Dokumentdetaljer"
+
+msgid "Set the title and choose the type before writing the content."
+msgstr "Angi tittelen og velg type før du skriver innholdet."
+
 msgid "Document Title"
 msgstr "Dokumentets tittel"
 
@@ -931,11 +977,23 @@ msgstr "video"
 msgid "audio"
 msgstr "lyd"
 
+msgid "Content"
+msgstr "Innhold"
+
+msgid "Write the main content of your document below."
+msgstr "Skriv hovedinnholdet i dokumentet ditt nedenfor."
+
 msgid "Private"
 msgstr "Privat"
 
-msgid "Document Editor"
-msgstr "Dokumentredigering"
+msgid "Private documents are visible only to authorized users."
+msgstr "Private dokumenter er kun synlige for autoriserte brukere."
+
+msgid "Edit Document"
+msgstr "Rediger dokument"
+
+msgid "Create Document"
+msgstr "Opprett dokument"
 
 msgid "You have to set a Title for your document"
 msgstr "Du må angi en tittel for dokumentet ditt"
@@ -1085,8 +1143,16 @@ msgstr "Avmeldt"
 msgid "Email Marketing"
 msgstr "E-postmarkedsføring"
 
-msgid "Add your tag name"
-msgstr "Legg til navnet ditt på taggen"
+msgid "New tag"
+msgstr "Ny tag"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+"Skriv inn navnet på taggen som skal opprettes og brukes på de valgte "
+"medlemmene."
+
+msgid "Create tag"
+msgstr "Opprett tagg"
 
 msgid "Adding tag..."
 msgstr "Legge til tag..."
@@ -1094,8 +1160,11 @@ msgstr "Legge til tag..."
 msgid "Name is empty !!"
 msgstr "Navnet er tomt !!"
 
-msgid "Add tag?"
-msgstr "Legg til tag?"
+msgid "Add tag"
+msgstr "Legg til tagg"
+
+msgid "Selected tag"
+msgstr "Valgt tagg"
 
 msgid "This will add the tag"
 msgstr "Dette vil legge til taggen"
@@ -1109,14 +1178,33 @@ msgstr "Velg en"
 msgid "All Tags"
 msgstr "Alle tagger"
 
-msgid "Choose the tag you want to delete :"
-msgstr "Velg taggen du vil slette :"
+msgid "Remove tags from selected members"
+msgstr "Fjern tagger fra utvalgte medlemmer"
+
+msgid "Choose a tag"
+msgstr "Velg en tagg"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+"Velg én tagg som skal fjernes, eller velg alle tagger for å få en "
+"fullstendig opprydding av de valgte medlemmene."
+
+msgid "Apply"
+msgstr "Søk"
 
 msgid "Removing tags..."
 msgstr "Fjerne tagger..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Slette alle tagger for de valgte medlemmene i listen..."
+
+msgid "This action affects the whole list"
+msgstr "Denne handlingen påvirker hele listen"
+
+msgid "Keep tag"
+msgstr "Behold taggen"
 
 msgid "A person name or Family or Group"
 msgstr "Et personnavn eller en familie eller gruppe"
@@ -1154,23 +1242,59 @@ msgstr ""
 "Laster inn alle familiens første hovedpersoner abonnenter fra "
 "EcclesiaCRM<br>Dette kan ta en stund!"
 
-msgid "Select status for : "
-msgstr "Velg status for :"
+msgid "Update subscriber status"
+msgstr "Oppdater abonnentstatus"
+
+msgid "Selected subscriber"
+msgstr "Utvalgt abonnent"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr "Velg hvilken status som skal gjelde for denne abonnenten."
+
+msgid "Update"
+msgstr "Oppdatering"
 
 msgid "Changing status ..."
 msgstr "Endring av status ..."
 
+msgid "Delete subscriber"
+msgstr "Slett abonnent"
+
+msgid "Subscriber removal"
+msgstr "Fjerning av abonnent"
+
 msgid "You're about to delete a subscriber! Are you sure ?"
 msgstr "Du er i ferd med å slette en abonnent! Er du sikker?"
+
+msgid "Keep subscriber"
+msgstr "Behold abonnenten"
 
 msgid "Deleting Subscriber..."
 msgstr "Slette abonnent..."
 
+msgid "Delete mailing list"
+msgstr "Slett adresseliste"
+
+msgid "This action is irreversible"
+msgstr "Denne handlingen er irreversibel"
+
 msgid "Do you really want to delete this mailing list ?"
 msgstr "Vil du virkelig slette denne adresselisten?"
 
+msgid "Delete list"
+msgstr "Slett liste"
+
+msgid "Delete all subscribers"
+msgstr "Slett alle abonnenter"
+
+msgid "Bulk deletion"
+msgstr "Bulk-sletting"
+
 msgid "Are you sure you want to delete all the subscribers"
 msgstr "Er du sikker på at du vil slette alle abonnentene?"
+
+msgid "Delete all"
+msgstr "Slett alle"
 
 msgid "Deleting all subscribers..."
 msgstr "Slette alle abonnenter..."
@@ -1183,6 +1307,25 @@ msgstr ""
 "for å administrere listen din.<br> For å slette store data er MailChimp API "
 "treg."
 
+msgid "Email Campaign Creation"
+msgstr "Opprettelse av e-postkampanje"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+"Lag en tydelig tittel, bekreft måltaggen og skriv innholdet i e-"
+"postkampanjen."
+
+msgid "Campaign details"
+msgstr "Detaljer om kampanjen"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+"Angi kampanjetittelen og gå gjennom MailChimp-målet før du skriver meldingen."
+
 msgid "Campaign Title"
 msgstr "Tittel på kampanjen"
 
@@ -1192,26 +1335,51 @@ msgstr "Din kampanjetittel"
 msgid "For Tag"
 msgstr "For Tag"
 
+msgid "Write the subject and the body of your email campaign."
+msgstr "Skriv emnefeltet og brødteksten til e-postkampanjen din."
+
 msgid "Mail Subject"
 msgstr "E-post Emne"
 
 msgid "Your Mail Subject"
 msgstr "E-postens emne"
 
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "Komponere innholdet som skal sendes til medlemmer av denne taggen."
+
 msgid "All list members"
 msgstr "Alle medlemmer av listen"
-
-msgid "Email Campaign Creation"
-msgstr "Opprettelse av e-postkampanje"
 
 msgid "Adding Campaign ..."
 msgstr "Legge til kampanje ..."
 
+msgid "Campaign created"
+msgstr "Kampanjen ble opprettet"
+
+msgid "Your campaign is ready"
+msgstr "Kampanjen din er klar"
+
 msgid "Would like to manage directly this new campaign ?"
 msgstr "Ønsker du å administrere denne nye kampanjen direkte?"
 
+msgid "Open campaign"
+msgstr "Åpen kampanje"
+
+msgid "Stay here"
+msgstr "Bli her"
+
 msgid "You have to set a Campaign Title for your eMail Campaign"
 msgstr "Du må angi en kampanjetittel for e-postkampanjen din."
+
+msgid "Edit list settings"
+msgstr "Rediger listeinnstillinger"
+
+msgid "MailChimp list settings"
+msgstr "Innstillinger for MailChimp-listen"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr ""
+"Oppdater hovedopplysningene som brukes av denne listen og dens kampanjer."
 
 msgid "List Name"
 msgstr "Liste Navn"
@@ -1219,8 +1387,20 @@ msgstr "Liste Navn"
 msgid "Changing subscribers state..."
 msgstr "Endring av abonnentstatus..."
 
+msgid "Delete selected subscribers"
+msgstr "Slett valgte abonnenter"
+
+msgid "Selected members"
+msgstr "Utvalgte medlemmer"
+
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Du er i ferd med å slette abonnenter! Er du sikker?"
+
+msgid "selected"
+msgstr "valgt"
+
+msgid "Delete selected"
+msgstr "Slett valgt"
 
 msgid "Deleting Subscribers..."
 msgstr "Slette abonnenter..."
@@ -1237,24 +1417,32 @@ msgstr "Deltakere på gratis arrangementer"
 msgid "Successfully Added!"
 msgstr "Vellykket lagt til!"
 
-msgid "User Delete Confirmation"
-msgstr "Bekreftelse på sletting av bruker"
+msgid "Delete attendee"
+msgstr "Slett deltaker"
 
-msgid ""
-"Be carefull, You are about to delete a user from the group and therefore the "
-"entire call history. This is strongly to be avoided."
-msgstr ""
-"Vær forsiktig, du er i ferd med å slette en bruker fra gruppen og dermed "
-"hele anropshistorikken. Dette bør på det sterkeste unngås."
+msgid "This action is permanent"
+msgstr "Denne handlingen er permanent"
 
-msgid "This can't be undone"
-msgstr "Dette kan ikke gjøres ugjort"
+msgid "This can't be undone."
+msgstr "Dette kan ikke gjøres ugjort."
+
+msgid "You are about to remove this attendee from the event."
+msgstr "Du er i ferd med å fjerne denne deltakeren fra arrangementet."
+
+msgid "The attendee will be removed from this event."
+msgstr "Deltakeren vil bli fjernet fra dette arrangementet."
+
+msgid "Related attendance history may also be affected."
+msgstr "Relatert oppmøtehistorikk kan også bli påvirket."
 
 msgid "Photo"
 msgstr "Foto"
 
 msgid "Action"
 msgstr "Tiltak"
+
+msgid "Attendance actions"
+msgstr "Tilstedeværelsestiltak"
 
 msgid "Checkin"
 msgstr "Innsjekking"
@@ -1277,14 +1465,23 @@ msgstr "Utsjekkingsdato"
 msgid "Checkout By"
 msgstr "Kasse etter"
 
+msgid "Scan a QR Code"
+msgstr "Skann en QR-kode"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr "Hold kameraet mot en QR-kode for å sjekke inn deltakerne automatisk."
+
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
 "Kan ikke få tilgang til videostrømmen (sørg for at du har et webkamera "
 "aktivert)"
 
-msgid "no detected QR Code"
-msgstr "ingen oppdaget QR-kode"
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr "Ingen QR-kode oppdaget ennå. Hold koden inne i rammen."
+
+msgid "Detected data"
+msgstr "Oppdagede data"
 
 msgid "QR Code : Call the register"
 msgstr "QR-kode : Ring registeret"
@@ -1331,6 +1528,27 @@ msgstr "Slett hendelsestype"
 msgid "This action can never be undone !!!!"
 msgstr "Denne handlingen kan aldri omgjøres !!!!"
 
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
+msgid "Document preview"
+msgstr "Forhåndsvisning av dokument"
+
+msgid "Read only"
+msgstr "Bare les"
+
+msgid "preview currently being created"
+msgstr "forhåndsvisning som er under opprettelse"
+
+msgid "Please wait"
+msgstr "Vennligst vent"
+
+msgid "Unable to create the preview"
+msgstr "Kan ikke opprette forhåndsvisningen"
+
+msgid "The selected file cannot be rendered in preview mode."
+msgstr "Den valgte filen kan ikke gjengis i forhåndsvisningsmodus."
+
 msgid "Icon"
 msgstr "Ikon"
 
@@ -1363,9 +1581,6 @@ msgstr "Angi mappenavn"
 
 msgid "Actualize files"
 msgstr "Aktualiser filer"
-
-msgid "preview currently being created"
-msgstr "forhåndsvisning som er under opprettelse"
 
 msgid "Set a File/Folder name"
 msgstr "Angi et fil-/mappenavn"
@@ -1484,6 +1699,9 @@ msgstr "Avsluttet"
 msgid "Deposit Type"
 msgstr "Type innskudd"
 
+msgid "Search"
+msgstr "Søk"
+
 msgid "Please enter at least one winner."
 msgstr "Vennligst skriv inn minst én vinner."
 
@@ -1505,9 +1723,6 @@ msgstr "Du er i ferd med å slette varen!!!"
 
 msgid "Item"
 msgstr "Gjenstand"
-
-msgid "Preview"
-msgstr "Forhåndsvisning"
 
 msgid "Multiple"
 msgstr "Flere"
@@ -1787,6 +2002,9 @@ msgstr "Utnevnelse"
 msgid "Never contacted"
 msgstr "Aldri kontaktet"
 
+msgid "Pastoral care member"
+msgstr "Medlem av sjelesorgen"
+
 msgid "Visits/calls"
 msgstr "Besøk/samtaler"
 
@@ -1795,6 +2013,24 @@ msgstr "Siste besøk/anrop"
 
 msgid "Delete Pastoral Care Type"
 msgstr "Slett Pastoral Care Type"
+
+msgid "Irreversible action"
+msgstr "Irreversibel handling"
+
+msgid "Keep note"
+msgstr "Behold notatet"
+
+msgid "Pastoral care note"
+msgstr "Notat om sjelesorg"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr "Gå gjennom notattypen, skriv innholdet og definer hvem som kan se det."
+
+msgid "Note"
+msgstr "Merknad"
+
+msgid "Write the pastoral care message associated with this family."
+msgstr "Skriv sjelesorgsbudskapet knyttet til denne familien."
 
 msgid "For every administrator"
 msgstr "For alle administratorer"
@@ -1819,6 +2055,9 @@ msgstr "Etternavn (etternavn)"
 
 msgid "Family Name"
 msgstr "Etternavn"
+
+msgid "Write the pastoral care message associated with this person."
+msgstr "Skriv sjelesorgsbudskapet knyttet til denne personen."
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Er du sikker på at du vil fjerne denne familien fra CRM?"
@@ -2003,6 +2242,9 @@ msgstr "Familie-ID"
 msgid "Valid Until"
 msgstr "Gyldig til"
 
+msgid "Search for a family or address"
+msgstr "Søk etter en familie eller adresse"
+
 msgid "Are you sure you want to remove this person from the CRM"
 msgstr "Er du sikker på at du vil fjerne denne personen fra CRM?"
 
@@ -2096,6 +2338,9 @@ msgstr "Nedlastingsadministrator for plugin"
 msgid "The current images folder is now the public folder !!!"
 msgstr "Den gjeldende bildemappen er nå den offentlige mappen !!!!"
 
+msgid "Singles"
+msgstr "Singler"
+
 msgid "All Groups"
 msgstr "Alle grupper"
 
@@ -2106,6 +2351,9 @@ msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr "Søkeord som: navn, fornavn, telefonnummer, eiendom, gruppenavn osv ..."
+
+msgid "All search types"
+msgstr "Alle søketyper"
 
 msgid "id"
 msgstr "id"
@@ -2200,8 +2448,8 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Egendefinert menykoblingsredigering"
 
-msgid "Place"
-msgstr "Sted"
+msgid "Order"
+msgstr "Bestilling"
 
 msgid "Uri"
 msgstr "Uri"
@@ -2222,6 +2470,12 @@ msgid ""
 "This will also delete this Classification for all the associated persons."
 msgstr ""
 "Dette vil også slette denne klassifiseringen for alle tilknyttede personer."
+
+msgid "Delete map marker"
+msgstr "Slett kartmarkør"
+
+msgid "Please confirm deletion of this marker"
+msgstr "Vennligst bekreft sletting av denne markøren"
 
 msgid "Map Icon GoogleMap"
 msgstr "Kartikon GoogleMap"
@@ -2443,11 +2697,38 @@ msgstr "Minst én gruppe må velges for å lage klasselister eller oppmøteliste
 msgid "You have to set a Title and a Description for your issue."
 msgstr "Du må angi en tittel og en beskrivelse for saken din."
 
+msgid "Find member"
+msgstr "Finn medlem"
+
+msgid "Search by name, role, or ID."
+msgstr "Søk etter navn, rolle eller ID."
+
+msgid "Search a member"
+msgstr "Søk etter et medlem"
+
+msgid "Clear"
+msgstr "Klar"
+
+msgid "In"
+msgstr "I"
+
+msgid "Out"
+msgstr "Ut"
+
+msgid "Notify"
+msgstr "Varsle"
+
 msgid "Trigger Parent Alert"
 msgstr "Utløse foreldrevarsel"
 
 msgid "Kiosk"
 msgstr "Kiosk"
+
+msgid "Attendance"
+msgstr "Tilstedeværelse"
+
+msgid "Current event"
+msgstr "Aktuell hendelse"
 
 msgid "No assignments for kiosk"
 msgstr "Ingen oppdrag for kiosk"
@@ -2510,6 +2791,15 @@ msgstr ""
 msgid "Unable to remove 2FA right now."
 msgstr "Det er ikke mulig å fjerne 2FA akkurat nå."
 
+msgid "Current step"
+msgstr "Nåværende trinn"
+
+msgid "Completed"
+msgstr "Ferdigstilt"
+
+msgid "Locked"
+msgstr "Låst"
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Sikkerhetskopiering fullført, klar for nedlasting."
 
@@ -2558,6 +2848,9 @@ msgstr "er nå låst"
 msgid "is now unlocked"
 msgstr "er nå låst opp"
 
+msgid "User Delete Confirmation"
+msgstr "Bekreftelse på sletting av bruker"
+
 msgid "Please confirm removal of user status from:"
 msgstr "Vennligst bekreft fjerning av brukerstatus fra:"
 
@@ -2567,6 +2860,9 @@ msgid ""
 msgstr ""
 "Vær forsiktig, du er i ferd med å miste hjemmemappen og de tilknyttede "
 "filene, kalenderne, delingskalenderne og alle hendelsene også, for"
+
+msgid "This can't be undone"
+msgstr "Dette kan ikke gjøres ugjort"
 
 msgid "Action Confirmation"
 msgstr "Handlingsbekreftelse"
@@ -2654,6 +2950,28 @@ msgid ""
 "altered."
 msgstr "Alle medlemskap vil bli ødelagt.  Medlemmene selv vil ikke bli endret."
 
+#~ msgid "Personal"
+#~ msgstr "Personlig"
+
+#~ msgid "Add your tag name"
+#~ msgstr "Legg til navnet ditt på taggen"
+
+#~ msgid "Choose the tag you want to delete :"
+#~ msgstr "Velg taggen du vil slette :"
+
+#~ msgid "Select status for : "
+#~ msgstr "Velg status for :"
+
+#~ msgid ""
+#~ "Be carefull, You are about to delete a user from the group and therefore "
+#~ "the entire call history. This is strongly to be avoided."
+#~ msgstr ""
+#~ "Vær forsiktig, du er i ferd med å slette en bruker fra gruppen og dermed "
+#~ "hele anropshistorikken. Dette bør på det sterkeste unngås."
+
+#~ msgid "Place"
+#~ msgstr "Sted"
+
 #~ msgid "GDPR"
 #~ msgstr "GDPR"
 
@@ -2668,9 +2986,6 @@ msgstr "Alle medlemskap vil bli ødelagt.  Medlemmene selv vil ikke bli endret."
 
 #~ msgid "Add buyer"
 #~ msgstr "Legg til kjøper"
-
-#~ msgid "Select"
-#~ msgstr "Velg"
 
 #~ msgid "All members of this group are in the cart"
 #~ msgstr "Alle medlemmer av denne gruppen er i handlekurven"
@@ -2708,9 +3023,6 @@ msgstr "Alle medlemskap vil bli ødelagt.  Medlemmene selv vil ikke bli endret."
 
 #~ msgid "Add all"
 #~ msgstr "Legg til alle"
-
-#~ msgid "Remove Selected Members"
-#~ msgstr "Fjern valgte medlemmer"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
+"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,9 +67,6 @@ msgstr "Anulează"
 msgid "Confirm"
 msgstr "Confirmați"
 
-msgid "Set Resource Name"
-msgstr "Setați numele resursei"
-
 msgid "Name"
 msgstr "Nume"
 
@@ -88,11 +85,23 @@ msgstr "Video"
 msgid "Description"
 msgstr "Descriere"
 
+msgid "Add a short description to help identify this resource."
+msgstr ""
+"Adăugați o scurtă descriere pentru a ajuta la identificarea acestei resurse."
+
+msgid "Set Resource Name"
+msgstr "Setați numele resursei"
+
 msgid "OK"
 msgstr "OK"
 
 msgid "Calendars"
 msgstr "Calendare"
+
+msgid "Select one or more calendars to update their visibility in the sidebar."
+msgstr ""
+"Selectați unul sau mai multe calendare pentru a le actualiza vizibilitatea "
+"în bara laterală."
 
 msgid "Set Status"
 msgstr "Setați starea"
@@ -121,6 +130,11 @@ msgstr "[👀 ✐]"
 msgid "With"
 msgstr "Cu"
 
+msgid "Select one or more current shares to update or remove them."
+msgstr ""
+"Selectați una sau mai multe acțiuni curente pentru a le actualiza sau "
+"elimina."
+
 msgid "Set Rights"
 msgstr "Set de drepturi"
 
@@ -139,8 +153,16 @@ msgstr "[RW]"
 msgid "Send email notification"
 msgstr "Trimiteți o notificare prin e-mail"
 
+msgid "Notify added people, families, or groups by email"
+msgstr "Anunțați persoanele, familiile sau grupurile adăugate prin e-mail"
+
 msgid "Add persons/Family/groups"
 msgstr "Adăugați persoane/familii/grupuri"
+
+msgid "Search and add people, families, or groups to share this calendar."
+msgstr ""
+"Căutați și adăugați persoane, familii sau grupuri pentru a partaja acest "
+"calendar."
 
 msgid "Share your Calendar"
 msgstr "Partajați calendarul dvs."
@@ -215,15 +237,17 @@ msgstr "Listă Luna"
 msgid "This event isn't modifiable !!!"
 msgstr "Acest eveniment nu este modificabil !!!"
 
+msgid "No description"
+msgstr "Nicio descriere"
+
+msgid "What would you like to do?"
+msgstr "Ce ți-ar plăcea să faci?"
+
+msgid "Be careful with deletion: this action cannot be undone."
+msgstr "Aveți grijă cu ștergerea: această acțiune nu poate fi anulată."
+
 msgid "Modify Event"
 msgstr "Modificare eveniment"
-
-msgid ""
-"What would you like to do ? Be careful with the deletion, it's impossible to "
-"revert !!!"
-msgstr ""
-"Ce ați dori să faceți? Aveți grijă la ștergere, este imposibil de "
-"revenit !!!!"
 
 msgid "Delete Event"
 msgstr "Ștergeți evenimentul"
@@ -346,9 +370,6 @@ msgstr "Descrierea evenimentului"
 msgid "Event Type"
 msgstr "Tip de eveniment"
 
-msgid "Personal"
-msgstr "Personal"
-
 msgid "Attendance Counts"
 msgstr "Numărătoarea prezenței"
 
@@ -439,6 +460,9 @@ msgstr "inactiv"
 msgid "Event Creation"
 msgstr "Crearea de evenimente"
 
+msgid "Event Editor"
+msgstr "Editor de evenimente"
+
 msgid "Close"
 msgstr "Închideți"
 
@@ -486,6 +510,13 @@ msgstr "Evenimente în luna"
 
 msgid "Events by Type"
 msgstr "Evenimente pe tipuri"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Ce ați dori să faceți? Aveți grijă la ștergere, este imposibil de "
+"revenit !!!!"
 
 msgid "Text for Event ID"
 msgstr "Text pentru ID-ul evenimentului"
@@ -650,6 +681,9 @@ msgstr "ERROR"
 
 msgid "In progress"
 msgstr "În curs de desfășurare"
+
+msgid "Please wait while the operation is being completed"
+msgstr "Vă rugăm să așteptați în timp ce operațiunea este finalizată"
 
 msgid "Mailchimp"
 msgstr "Mailchimp"
@@ -920,6 +954,21 @@ msgstr "Vă rugăm să confirmați ștergerea acestui document"
 msgid "Document Delete Confirmation"
 msgstr "Confirmare de ștergere a documentului"
 
+msgid "Document Editor"
+msgstr "Editor de documente"
+
+msgid ""
+"Create a note, audio or video entry and keep it organized with a clear title."
+msgstr ""
+"Creați o notă, o intrare audio sau video și păstrați-o organizată cu un "
+"titlu clar."
+
+msgid "Document details"
+msgstr "Detalii document"
+
+msgid "Set the title and choose the type before writing the content."
+msgstr "Setați titlul și alegeți tipul înainte de a scrie conținutul."
+
 msgid "Document Title"
 msgstr "Titlul documentului"
 
@@ -938,11 +987,24 @@ msgstr "video"
 msgid "audio"
 msgstr "audio"
 
+msgid "Content"
+msgstr "Conținut"
+
+msgid "Write the main content of your document below."
+msgstr "Scrieți mai jos conținutul principal al documentului dumneavoastră."
+
 msgid "Private"
 msgstr "Privat"
 
-msgid "Document Editor"
-msgstr "Editor de documente"
+msgid "Private documents are visible only to authorized users."
+msgstr ""
+"Documentele private sunt vizibile numai pentru utilizatorii autorizați."
+
+msgid "Edit Document"
+msgstr "Editare document"
+
+msgid "Create Document"
+msgstr "Crearea documentului"
 
 msgid "You have to set a Title for your document"
 msgstr "Trebuie să setați un titlu pentru documentul dvs."
@@ -1092,8 +1154,16 @@ msgstr "Dezabonat"
 msgid "Email Marketing"
 msgstr "Marketing prin e-mail"
 
-msgid "Add your tag name"
-msgstr "Adăugați numele etichetei dvs."
+msgid "New tag"
+msgstr "Etichetă nouă"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+"Introduceți numele etichetei care urmează să fie creată și aplicată "
+"membrilor selectați."
+
+msgid "Create tag"
+msgstr "Creați eticheta"
 
 msgid "Adding tag..."
 msgstr "Adăugarea etichetei..."
@@ -1101,8 +1171,11 @@ msgstr "Adăugarea etichetei..."
 msgid "Name is empty !!"
 msgstr "Numele este gol !!"
 
-msgid "Add tag?"
-msgstr "Adăugați eticheta?"
+msgid "Add tag"
+msgstr "Adaugă etichetă"
+
+msgid "Selected tag"
+msgstr "Etichetă selectată"
 
 msgid "This will add the tag"
 msgstr "Acest lucru va adăuga eticheta"
@@ -1116,14 +1189,33 @@ msgstr "Selectați unul"
 msgid "All Tags"
 msgstr "Toate etichetele"
 
-msgid "Choose the tag you want to delete :"
-msgstr "Alegeți eticheta pe care doriți să o ștergeți :"
+msgid "Remove tags from selected members"
+msgstr "Eliminarea etichetelor de la membrii selectați"
+
+msgid "Choose a tag"
+msgstr "Alegeți o etichetă"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+"Selectați o etichetă pentru a o elimina sau selectați toate etichetele "
+"pentru o curățare completă a membrilor selectați."
+
+msgid "Apply"
+msgstr "Aplicați"
 
 msgid "Removing tags..."
 msgstr "Îndepărtarea etichetelor..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Ștergerea tuturor etichetelor pentru membrii selectați în listă..."
+
+msgid "This action affects the whole list"
+msgstr "Această acțiune afectează întreaga listă"
+
+msgid "Keep tag"
+msgstr "Păstrați eticheta"
 
 msgid "A person name or Family or Group"
 msgstr "Un nume de persoană sau o familie sau un grup"
@@ -1164,23 +1256,59 @@ msgstr ""
 "Încărcarea tuturor familiilor de abonați din EcclesiaCRM<br>Aceasta ar putea "
 "dura ceva timp!"
 
-msgid "Select status for : "
-msgstr "Selectați starea pentru :"
+msgid "Update subscriber status"
+msgstr "Actualizarea statutului abonatului"
+
+msgid "Selected subscriber"
+msgstr "Abonat selectat"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr "Alegeți statutul care se aplică acestui abonat."
+
+msgid "Update"
+msgstr "Actualizare"
 
 msgid "Changing status ..."
 msgstr "Schimbarea statutului ..."
 
+msgid "Delete subscriber"
+msgstr "Ștergeți abonatul"
+
+msgid "Subscriber removal"
+msgstr "Eliminarea abonaților"
+
 msgid "You're about to delete a subscriber! Are you sure ?"
 msgstr "Sunteți pe cale să ștergeți un abonat! Sunteți sigur?"
+
+msgid "Keep subscriber"
+msgstr "Păstrați abonamentul"
 
 msgid "Deleting Subscriber..."
 msgstr "Ștergerea abonatului..."
 
+msgid "Delete mailing list"
+msgstr "Ștergeți lista de corespondență"
+
+msgid "This action is irreversible"
+msgstr "Această acțiune este ireversibilă"
+
 msgid "Do you really want to delete this mailing list ?"
 msgstr "Chiar doriți să ștergeți această listă de discuții?"
 
+msgid "Delete list"
+msgstr "Ștergeți lista"
+
+msgid "Delete all subscribers"
+msgstr "Ștergeți toți abonații"
+
+msgid "Bulk deletion"
+msgstr "Ștergere în masă"
+
 msgid "Are you sure you want to delete all the subscribers"
 msgstr "Sunteți sigur că doriți să ștergeți toți abonații"
+
+msgid "Delete all"
+msgstr "Ștergeți toate"
 
 msgid "Deleting all subscribers..."
 msgstr "Ștergerea tuturor abonaților..."
@@ -1193,6 +1321,26 @@ msgstr ""
 "redeschideți pentru a vă gestiona lista.<br>Pentru a șterge date uriașe, "
 "MailChimp API este lent."
 
+msgid "Email Campaign Creation"
+msgstr "Crearea campaniilor de e-mail"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+"Pregătiți un titlu clar, confirmați tag-ul țintă și scrieți conținutul "
+"campaniei dvs. de e-mail."
+
+msgid "Campaign details"
+msgstr "Detalii privind campania"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+"Setați titlul campaniei și analizați ținta MailChimp înainte de a scrie "
+"mesajul."
+
 msgid "Campaign Title"
 msgstr "Titlul campaniei"
 
@@ -1202,26 +1350,52 @@ msgstr "Titlul campaniei dvs."
 msgid "For Tag"
 msgstr "Pentru etichetă"
 
+msgid "Write the subject and the body of your email campaign."
+msgstr "Scrieți subiectul și corpul campaniei dvs. de e-mail."
+
 msgid "Mail Subject"
 msgstr "Mail Subiect"
 
 msgid "Your Mail Subject"
 msgstr "Subiectul e-mailului dvs."
 
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "Compuneți conținutul care va fi trimis membrilor acestei etichete."
+
 msgid "All list members"
 msgstr "Toți membrii listei"
-
-msgid "Email Campaign Creation"
-msgstr "Crearea campaniilor de e-mail"
 
 msgid "Adding Campaign ..."
 msgstr "Adăugarea campaniei ..."
 
+msgid "Campaign created"
+msgstr "Campanie creată"
+
+msgid "Your campaign is ready"
+msgstr "Campania dvs. este gata"
+
 msgid "Would like to manage directly this new campaign ?"
 msgstr "Doriți să gestionați direct această nouă campanie?"
 
+msgid "Open campaign"
+msgstr "Campanie deschisă"
+
+msgid "Stay here"
+msgstr "Rămâi aici"
+
 msgid "You have to set a Campaign Title for your eMail Campaign"
 msgstr "Trebuie să setați un titlu de campanie pentru campania dvs. de e-mail."
+
+msgid "Edit list settings"
+msgstr "Editarea setărilor listei"
+
+msgid "MailChimp list settings"
+msgstr "Setări listă MailChimp"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr ""
+"Actualizați detaliile principale utilizate de această listă și de campaniile "
+"sale."
 
 msgid "List Name"
 msgstr "Nume listă"
@@ -1229,8 +1403,20 @@ msgstr "Nume listă"
 msgid "Changing subscribers state..."
 msgstr "Schimbarea stării abonaților..."
 
+msgid "Delete selected subscribers"
+msgstr "Ștergeți abonații selectați"
+
+msgid "Selected members"
+msgstr "Membri selectați"
+
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Sunteți pe cale să ștergeți abonați! Sunteți sigur?"
+
+msgid "selected"
+msgstr "selectat"
+
+msgid "Delete selected"
+msgstr "Ștergeți selectat"
 
 msgid "Deleting Subscribers..."
 msgstr "Ștergerea abonaților..."
@@ -1247,24 +1433,32 @@ msgstr "Participanții la evenimentul gratuit"
 msgid "Successfully Added!"
 msgstr "Adăugat cu succes!"
 
-msgid "User Delete Confirmation"
-msgstr "Confirmarea ștergerii utilizatorului"
+msgid "Delete attendee"
+msgstr "Ștergeți participantul"
 
-msgid ""
-"Be carefull, You are about to delete a user from the group and therefore the "
-"entire call history. This is strongly to be avoided."
-msgstr ""
-"Aveți grijă, sunteți pe cale să ștergeți un utilizator din grup și, prin "
-"urmare, întregul istoric al apelurilor. Acest lucru trebuie neapărat evitat."
+msgid "This action is permanent"
+msgstr "Această acțiune este permanentă"
 
-msgid "This can't be undone"
-msgstr "Asta nu poate fi anulat."
+msgid "This can't be undone."
+msgstr "Acest lucru nu poate fi anulat."
+
+msgid "You are about to remove this attendee from the event."
+msgstr "Sunteți pe cale să eliminați acest participant din eveniment."
+
+msgid "The attendee will be removed from this event."
+msgstr "Participantul va fi eliminat din acest eveniment."
+
+msgid "Related attendance history may also be affected."
+msgstr "Istoricul de prezență aferent poate fi, de asemenea, afectat."
 
 msgid "Photo"
 msgstr "Fotografie"
 
 msgid "Action"
 msgstr "Acțiune"
+
+msgid "Attendance actions"
+msgstr "Acțiuni legate de prezență"
 
 msgid "Checkin"
 msgstr "Checkin"
@@ -1287,13 +1481,25 @@ msgstr "Data de checkout"
 msgid "Checkout By"
 msgstr "Checkout Prin"
 
+msgid "Scan a QR Code"
+msgstr "Scanați un cod QR"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+"Îndreptați aparatul foto către un cod QR pentru a înregistra participanții "
+"în mod automat."
+
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
 "Nu se poate accesa fluxul video (asigurați-vă că aveți o cameră web activată)"
 
-msgid "no detected QR Code"
-msgstr "niciun cod QR detectat"
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr ""
+"Încă nu a fost detectat niciun cod QR. Păstrați codul în interiorul cadrului."
+
+msgid "Detected data"
+msgstr "Date detectate"
 
 msgid "QR Code : Call the register"
 msgstr "Cod QR : Sunați la registru"
@@ -1342,6 +1548,27 @@ msgstr "Ștergeți tipul de eveniment"
 msgid "This action can never be undone !!!!"
 msgstr "Această acțiune nu poate fi anulată niciodată !!!!"
 
+msgid "Preview"
+msgstr "Previzualizare"
+
+msgid "Document preview"
+msgstr "Previzualizare document"
+
+msgid "Read only"
+msgstr "Doar citire"
+
+msgid "preview currently being created"
+msgstr "previzualizare în curs de creare"
+
+msgid "Please wait"
+msgstr "Vă rugăm să așteptați"
+
+msgid "Unable to create the preview"
+msgstr "Imposibilitatea de a crea previzualizarea"
+
+msgid "The selected file cannot be rendered in preview mode."
+msgstr "Fișierul selectat nu poate fi redat în modul previzualizare."
+
 msgid "Icon"
 msgstr "Icoana"
 
@@ -1374,9 +1601,6 @@ msgstr "Setați numele dosarului dvs."
 
 msgid "Actualize files"
 msgstr "Actualizați fișierele"
-
-msgid "preview currently being created"
-msgstr "previzualizare în curs de creare"
 
 msgid "Set a File/Folder name"
 msgstr "Setați un nume de fișier/folder"
@@ -1496,6 +1720,9 @@ msgstr "Închis"
 msgid "Deposit Type"
 msgstr "Tipul de depozit"
 
+msgid "Search"
+msgstr "Căutare"
+
 msgid "Please enter at least one winner."
 msgstr "Vă rugăm să înscrieți cel puțin un câștigător."
 
@@ -1517,9 +1744,6 @@ msgstr "Sunteți pe cale să ștergeți articolul!!!"
 
 msgid "Item"
 msgstr "Articolul"
-
-msgid "Preview"
-msgstr "Previzualizare"
 
 msgid "Multiple"
 msgstr "Mai multe"
@@ -1801,6 +2025,9 @@ msgstr "Programare"
 msgid "Never contacted"
 msgstr "Niciodată contactat"
 
+msgid "Pastoral care member"
+msgstr "Membru de îngrijire pastorală"
+
 msgid "Visits/calls"
 msgstr "Vizite/apeluri"
 
@@ -1809,6 +2036,25 @@ msgstr "Ultima vizită/apel"
 
 msgid "Delete Pastoral Care Type"
 msgstr "Ștergeți tipul de îngrijire pastorală"
+
+msgid "Irreversible action"
+msgstr "Acțiune ireversibilă"
+
+msgid "Keep note"
+msgstr "Păstrați nota"
+
+msgid "Pastoral care note"
+msgstr "Notă de îngrijire pastorală"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+"Revizuiți tipul de notă, scrieți conținutul și definiți cine o poate vedea."
+
+msgid "Note"
+msgstr "Notă"
+
+msgid "Write the pastoral care message associated with this family."
+msgstr "Scrieți mesajul de îngrijire pastorală asociat cu această familie."
 
 msgid "For every administrator"
 msgstr "Pentru fiecare administrator"
@@ -1833,6 +2079,9 @@ msgstr "Numele de familie (numele de familie)"
 
 msgid "Family Name"
 msgstr "Nume de familie"
+
+msgid "Write the pastoral care message associated with this person."
+msgstr "Scrieți mesajul de îngrijire pastorală asociat cu această persoană."
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Sunteți sigur că doriți să eliminați această familie din CRM?"
@@ -2020,6 +2269,9 @@ msgstr "Id. de familie"
 msgid "Valid Until"
 msgstr "Valabil până la"
 
+msgid "Search for a family or address"
+msgstr "Căutați o familie sau o adresă"
+
 msgid "Are you sure you want to remove this person from the CRM"
 msgstr "Sunteți sigur că doriți să eliminați această persoană din CRM?"
 
@@ -2116,6 +2368,9 @@ msgstr "Manager de descărcare a plugin-urilor"
 msgid "The current images folder is now the public folder !!!"
 msgstr "Dosarul de imagini curente este acum dosarul public !!!"
 
+msgid "Singles"
+msgstr "Singuri"
+
 msgid "All Groups"
 msgstr "Toate grupurile"
 
@@ -2128,6 +2383,9 @@ msgid ""
 msgstr ""
 "Termeni de căutare precum: nume, prenume, număr de telefon, proprietate, "
 "nume de grup, etc ..."
+
+msgid "All search types"
+msgstr "Toate tipurile de căutare"
 
 msgid "id"
 msgstr "id"
@@ -2222,8 +2480,8 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Editor de linkuri pentru meniuri personalizate"
 
-msgid "Place"
-msgstr "Locul"
+msgid "Order"
+msgstr "Comandă"
 
 msgid "Uri"
 msgstr "Uri"
@@ -2245,6 +2503,12 @@ msgid ""
 msgstr ""
 "Acest lucru va șterge, de asemenea, această clasificare pentru toate "
 "persoanele asociate."
+
+msgid "Delete map marker"
+msgstr "Ștergeți markerul de hartă"
+
+msgid "Please confirm deletion of this marker"
+msgstr "Vă rugăm să confirmați ștergerea acestui marker"
 
 msgid "Map Icon GoogleMap"
 msgstr "Icoana Hartă GoogleHarta"
@@ -2475,11 +2739,38 @@ msgid "You have to set a Title and a Description for your issue."
 msgstr ""
 "Trebuie să setați un titlu și o descriere pentru problema dumneavoastră."
 
+msgid "Find member"
+msgstr "Găsiți membru"
+
+msgid "Search by name, role, or ID."
+msgstr "Căutați după nume, rol sau ID."
+
+msgid "Search a member"
+msgstr "Căutați un membru"
+
+msgid "Clear"
+msgstr "Clar"
+
+msgid "In"
+msgstr "În"
+
+msgid "Out"
+msgstr "Afară"
+
+msgid "Notify"
+msgstr "Notificare"
+
 msgid "Trigger Parent Alert"
 msgstr "Declanșarea alertei pentru părinți"
 
 msgid "Kiosk"
 msgstr "Chioșc"
+
+msgid "Attendance"
+msgstr "Prezența"
+
+msgid "Current event"
+msgstr "Eveniment actual"
 
 msgid "No assignments for kiosk"
 msgstr "Nu există atribuții pentru chioșc"
@@ -2542,6 +2833,15 @@ msgstr ""
 msgid "Unable to remove 2FA right now."
 msgstr "Imposibilitatea de a elimina 2FA chiar acum."
 
+msgid "Current step"
+msgstr "Etapa curentă"
+
+msgid "Completed"
+msgstr "Completat"
+
+msgid "Locked"
+msgstr "Blocat"
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Copie de rezervă completă, gata de descărcare."
 
@@ -2590,6 +2890,9 @@ msgstr "este acum blocat"
 msgid "is now unlocked"
 msgstr "este acum deblocat"
 
+msgid "User Delete Confirmation"
+msgstr "Confirmarea ștergerii utilizatorului"
+
 msgid "Please confirm removal of user status from:"
 msgstr "Vă rugăm să confirmați înlăturarea statutului de utilizator din:"
 
@@ -2600,6 +2903,9 @@ msgstr ""
 "Fiți atenți, Sunteți pe cale să pierdeți dosarul de acasă și fișierele "
 "asociate, Calendarele, calendarele de partajare și toate evenimentele, de "
 "asemenea, pentru"
+
+msgid "This can't be undone"
+msgstr "Asta nu poate fi anulat."
 
 msgid "Action Confirmation"
 msgstr "Confirmarea acțiunii"
@@ -2689,6 +2995,29 @@ msgid ""
 "altered."
 msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
 
+#~ msgid "Personal"
+#~ msgstr "Personal"
+
+#~ msgid "Add your tag name"
+#~ msgstr "Adăugați numele etichetei dvs."
+
+#~ msgid "Choose the tag you want to delete :"
+#~ msgstr "Alegeți eticheta pe care doriți să o ștergeți :"
+
+#~ msgid "Select status for : "
+#~ msgstr "Selectați starea pentru :"
+
+#~ msgid ""
+#~ "Be carefull, You are about to delete a user from the group and therefore "
+#~ "the entire call history. This is strongly to be avoided."
+#~ msgstr ""
+#~ "Aveți grijă, sunteți pe cale să ștergeți un utilizator din grup și, prin "
+#~ "urmare, întregul istoric al apelurilor. Acest lucru trebuie neapărat "
+#~ "evitat."
+
+#~ msgid "Place"
+#~ msgstr "Locul"
+
 #~ msgid "GDPR"
 #~ msgstr "GDPR"
 
@@ -2703,9 +3032,6 @@ msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați
 
 #~ msgid "Add buyer"
 #~ msgstr "Adăugați cumpărător"
-
-#~ msgid "Select"
-#~ msgstr "Selectați"
 
 #~ msgid "All members of this group are in the cart"
 #~ msgstr "Toți membrii acestui grup sunt în coș"
@@ -2743,9 +3069,6 @@ msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați
 
 #~ msgid "Add all"
 #~ msgstr "Adăugați toate"
-
-#~ msgid "Remove Selected Members"
-#~ msgstr "Eliminarea membrilor selectați"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "

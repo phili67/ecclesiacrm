@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:27+0000\n"
+"POT-Creation-Date: 2026-04-25 18:26+0000\n"
 "Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +19,11 @@ msgstr "Mødeindstillinger"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:25
 msgid "Jitsi Meeting"
-msgstr ""
+msgstr "Jitsi-møde"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:27
 msgid "Create, select and launch your rooms"
-msgstr ""
+msgstr "Opret, vælg og start dine rum"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:36
 msgid "Room names"
@@ -55,7 +55,7 @@ msgstr "Navn på værelse"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:68
 msgid "No room selected"
-msgstr ""
+msgstr "Intet værelse valgt"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:76
 msgid "First create a Jitsi room with the button above !"
@@ -63,7 +63,7 @@ msgstr "Først opretter du et Jitsi-rum med knappen ovenfor !"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:77
 msgid "Then choose a room from the dropdown to launch the meeting"
-msgstr ""
+msgstr "Vælg derefter et lokale fra rullemenuen for at starte mødet."
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:23
 msgid "Settings"
@@ -71,7 +71,7 @@ msgstr "Indstillinger"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:24
 msgid "Configure your meeting provider and API access"
-msgstr ""
+msgstr "Konfigurer din mødeudbyder og API-adgang"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:42
 msgid "The Jitsi domain name, by default"
