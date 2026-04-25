@@ -19,7 +19,35 @@ $(function() {
         }
 
         var telValue = display.replace(/\s+/g, '');
-        return '<a href="tel:' + telValue + '"><i class="fas fa-phone-alt mr-1 text-success"></i>' + display + '</a>';
+        return '<a href="tel:' + telValue + '" class="d-inline-flex align-items-center">'
+            + '<span class="badge badge-light border mr-2"><i class="fas fa-phone-alt text-success"></i></span>'
+            + '<span>' + display + '</span>'
+            + '</a>';
+    }
+
+    function buildIdentityLink(options) {
+        var image = options.image;
+        var href = options.href;
+        var primary = options.primary || '';
+        var secondary = options.secondary || '';
+        var fallbackIcon = options.fallbackIcon || 'fa-user';
+
+        return '<div class="d-flex align-items-center">'
+            + image
+            + '<div class="ml-2">'
+            + '<div class="font-weight-bold"><a href="' + href + '">' + primary + '</a></div>'
+            + (secondary !== '' ? '<div class="small text-muted"><i class="fas ' + fallbackIcon + ' mr-1"></i>' + secondary + '</div>' : '')
+            + '</div>'
+            + '</div>';
+    }
+
+    function buildThumbnail(full, id, type) {
+        if (window.CRM.bThumbnailIconPresence) {
+            return '<img src="' + window.CRM.root + '/api/' + type + '/' + id + '/thumbnail" alt="User Image" class="user-image initials-image-24">';
+        }
+
+        var fallback = type === 'families' ? 'Family.png' : 'Person.png';
+        return '<img src="' + window.CRM.root + '/Images/' + fallback + '" class="initials-image direct-chat-img-24">';
     }
 
     function getBestPhone(full) {
@@ -49,7 +77,10 @@ $(function() {
         if (address === '') {
             return '';
         }
-        return '<i class="fas fa-map-marker-alt mr-1 text-danger"></i>' + window.CRM.tools.getLinkMapFromAddress(address);
+        return '<div class="d-inline-flex align-items-start">'
+            + '<span class="badge badge-light border mr-2"><i class="fas fa-map-marker-alt text-danger"></i></span>'
+            + '<span>' + window.CRM.tools.getLinkMapFromAddress(address) + '</span>'
+            + '</div>';
     }
 
     function formatCareDate(data) {
@@ -58,9 +89,9 @@ $(function() {
         }
         var date = moment(data).format(fmt);
         if (date === window.CRM.neverDate) {
-            return '<span class="text-muted"><i class="fas fa-ban mr-1"></i>' + i18next.t("Never contacted") + '</span>';
+            return '<span class="badge badge-light border text-muted"><i class="fas fa-ban mr-1"></i>' + i18next.t("Never contacted") + '</span>';
         }
-        return '<i class="far fa-calendar-check mr-1 text-success"></i>' + date;
+        return '<span class="badge badge-light border text-dark"><i class="far fa-calendar-check mr-1 text-success"></i>' + date + '</span>';
     }
 
     columnsPastoralCareMembers = [
@@ -69,13 +100,13 @@ $(function() {
             title:i18next.t("Name"),
             data:'LastName',
             render: function(data, type, full, meta) {
-                let res = '';
-                if (window.CRM.bThumbnailIconPresence) {
-                    res += '<img src="' + window.CRM.root + '/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
-                } else {
-                    res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
-                }
-                return res + '<a href="' + window.CRM.root + "/v2/people/person/view/" + full.PersonID + '">'+ data + '</a>';
+                    return buildIdentityLink({
+                        image: buildThumbnail(full, full.PersonID, 'persons'),
+                        href: window.CRM.root + "/v2/people/person/view/" + full.PersonID,
+                        primary: data,
+                        secondary: i18next.t('Pastoral care member'),
+                        fallbackIcon: 'fa-user'
+                    });
             }
         },
         {
@@ -150,13 +181,13 @@ $(function() {
                 title:i18next.t("Name"),
                 data:'LastName',
                 render: function(data, type, full, meta) {
-                    let res = '';
-                    if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
-                    } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
-                    }
-                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return buildIdentityLink({
+                        image: buildThumbnail(full, full.Id, 'persons'),
+                        href: window.CRM.root + "/v2/pastoralcare/person/" + full.Id,
+                        primary: data,
+                        secondary: i18next.t('Person'),
+                        fallbackIcon: 'fa-user'
+                    });
                 }
             },
             {
@@ -222,13 +253,13 @@ $(function() {
                 title:i18next.t("Name"),
                 data:'Name',
                 render: function(data, type, full, meta) {
-                    let res = '';
-                    if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + '/api/families/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
-                    } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Family.png" class="initials-image direct-chat-img-24"> ';
-                    }
-                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.Id + '">'+ data + "</a>";
+                    return buildIdentityLink({
+                        image: buildThumbnail(full, full.Id, 'families'),
+                        href: window.CRM.root + "/v2/pastoralcare/family/" + full.Id,
+                        primary: data,
+                        secondary: i18next.t('Family'),
+                        fallbackIcon: 'fa-home'
+                    });
                 }
             },
             {
@@ -430,13 +461,13 @@ $(function() {
                 title:i18next.t("Name"),
                 data:'LastName',
                 render: function(data, type, full, meta) {
-                    res = '';
-                    if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
-                    } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
-                    }
-                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return buildIdentityLink({
+                        image: buildThumbnail(full, full.Id, 'persons'),
+                        href: window.CRM.root + "/v2/pastoralcare/person/" + full.Id,
+                        primary: data,
+                        secondary: i18next.t('Person'),
+                        fallbackIcon: 'fa-user'
+                    });
                 }
             },
             {
