@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
+"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,9 +66,6 @@ msgstr "Anuloje."
 msgid "Confirm"
 msgstr "Konfirmo."
 
-msgid "Set Resource Name"
-msgstr "vendosni emrin e resurseve"
-
 msgid "Name"
 msgstr "Emri"
 
@@ -87,11 +84,20 @@ msgstr "video."
 msgid "Description"
 msgstr "Përshkrim"
 
+msgid "Add a short description to help identify this resource."
+msgstr ""
+
+msgid "Set Resource Name"
+msgstr "vendosni emrin e resurseve"
+
 msgid "OK"
 msgstr "në rregull."
 
 msgid "Calendars"
 msgstr "kalendar."
+
+msgid "Select one or more calendars to update their visibility in the sidebar."
+msgstr ""
 
 msgid "Set Status"
 msgstr "vendosni statusin"
@@ -120,6 +126,9 @@ msgstr "[👀 ✐]"
 msgid "With"
 msgstr "me"
 
+msgid "Select one or more current shares to update or remove them."
+msgstr ""
+
 msgid "Set Rights"
 msgstr "Përgatisni të drejtat"
 
@@ -138,8 +147,14 @@ msgstr "[RW]"
 msgid "Send email notification"
 msgstr "Dërgo njoftimin e e-mail"
 
+msgid "Notify added people, families, or groups by email"
+msgstr ""
+
 msgid "Add persons/Family/groups"
 msgstr "Add persona/Family/grupe"
+
+msgid "Search and add people, families, or groups to share this calendar."
+msgstr ""
 
 msgid "Share your Calendar"
 msgstr "Ndaje kalendarin tënd"
@@ -214,14 +229,19 @@ msgstr "muaji i listës"
 msgid "This event isn't modifiable !!!"
 msgstr "Kjo ngjarje nuk është e modifikueshme! !"
 
+#, fuzzy
+msgid "No description"
+msgstr "Përshkrim"
+
+msgid "What would you like to do?"
+msgstr ""
+
+#, fuzzy
+msgid "Be careful with deletion: this action cannot be undone."
+msgstr "Do ta fshish këtë person? Nuk mund të kthehet prapa."
+
 msgid "Modify Event"
 msgstr "Modifikimi i ngjarjes"
-
-msgid ""
-"What would you like to do ? Be careful with the deletion, it's impossible to "
-"revert !!!"
-msgstr ""
-"Çfarë do të doje të bëje? Kujdes me fshirjen, është e pamundur të kthehesh! !"
 
 msgid "Delete Event"
 msgstr "Fshije Event"
@@ -344,9 +364,6 @@ msgstr "përshkrimi i ngjarjes"
 msgid "Event Type"
 msgstr "Tip i eventeve"
 
-msgid "Personal"
-msgstr "personale"
-
 msgid "Attendance Counts"
 msgstr "numërimi i pranimeve"
 
@@ -438,6 +455,10 @@ msgstr "jo aktive"
 msgid "Event Creation"
 msgstr "Krijim i ngjarjes"
 
+#, fuzzy
+msgid "Event Editor"
+msgstr "E provuar"
+
 msgid "Close"
 msgstr "Afër."
 
@@ -485,6 +506,12 @@ msgstr "ngjarjet në muaj"
 
 msgid "Events by Type"
 msgstr "ngjarje nga tipi"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Çfarë do të doje të bëje? Kujdes me fshirjen, është e pamundur të kthehesh! !"
 
 msgid "Text for Event ID"
 msgstr "Më dërgo mesazh për eventin e identitetit"
@@ -650,6 +677,9 @@ msgstr "ERROR"
 #, fuzzy
 msgid "In progress"
 msgstr "në progres..."
+
+msgid "Please wait while the operation is being completed"
+msgstr ""
 
 msgid "Mailchimp"
 msgstr "Mailkim."
@@ -927,6 +957,20 @@ msgstr "Ju lutem konfirmoni fshirjen e këtij dokumenti"
 msgid "Document Delete Confirmation"
 msgstr "Dokumenti fshin konfirmimin"
 
+msgid "Document Editor"
+msgstr "redaktor i dokumenteve"
+
+msgid ""
+"Create a note, audio or video entry and keep it organized with a clear title."
+msgstr ""
+
+#, fuzzy
+msgid "Document details"
+msgstr "Titull i dokumenteve"
+
+msgid "Set the title and choose the type before writing the content."
+msgstr ""
+
 msgid "Document Title"
 msgstr "Titull i dokumenteve"
 
@@ -945,11 +989,26 @@ msgstr "video."
 msgid "audio"
 msgstr "audio"
 
+msgid "Content"
+msgstr ""
+
+msgid "Write the main content of your document below."
+msgstr ""
+
 msgid "Private"
 msgstr "private"
 
-msgid "Document Editor"
-msgstr "redaktor i dokumenteve"
+#, fuzzy
+msgid "Private documents are visible only to authorized users."
+msgstr "I dukshëm për përdorues të tjerë të autorizuar"
+
+#, fuzzy
+msgid "Edit Document"
+msgstr "dokument"
+
+#, fuzzy
+msgid "Create Document"
+msgstr "krijo një."
 
 msgid "You have to set a Title for your document"
 msgstr "Duhet të vendosësh Titullin për dokumentin tënd"
@@ -1102,8 +1161,16 @@ msgstr "E papërshkruara"
 msgid "Email Marketing"
 msgstr "marketing e-mail"
 
-msgid "Add your tag name"
-msgstr "shto emrin e etiketës"
+#, fuzzy
+msgid "New tag"
+msgstr "Shto një etiketë të re"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+
+#, fuzzy
+msgid "Create tag"
+msgstr "fshije etiketën"
 
 msgid "Adding tag..."
 msgstr "Shtimi i etiketave..."
@@ -1111,8 +1178,13 @@ msgstr "Shtimi i etiketave..."
 msgid "Name is empty !!"
 msgstr "emri është bosh!"
 
-msgid "Add tag?"
+#, fuzzy
+msgid "Add tag"
 msgstr "Shtoni etiketën?"
+
+#, fuzzy
+msgid "Selected tag"
+msgstr "fshije etiketën"
 
 msgid "This will add the tag"
 msgstr "Kjo do të shtojë etiketën"
@@ -1126,14 +1198,34 @@ msgstr "Zgjedhja një"
 msgid "All Tags"
 msgstr "Të gjitha taket"
 
-msgid "Choose the tag you want to delete :"
-msgstr "Zgjidh etiketën që do ta fshish :"
+#, fuzzy
+msgid "Remove tags from selected members"
+msgstr "Largoni të gjitha"
+
+#, fuzzy
+msgid "Choose a tag"
+msgstr "Zgjidh një emër roli"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+
+msgid "Apply"
+msgstr ""
 
 msgid "Removing tags..."
 msgstr "Hiqja etiketat..."
 
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Po mbledh të gjitha etiketat për anëtarët e zgjedhur në listë..."
+
+msgid "This action affects the whole list"
+msgstr ""
+
+#, fuzzy
+msgid "Keep tag"
+msgstr "fshije etiketën"
 
 msgid "A person name or Family or Group"
 msgstr "Një emër ose familje ose grup"
@@ -1174,23 +1266,70 @@ msgstr ""
 "Duke mbushur të gjitha familjet e para të rekrutëve të kokave nga "
 "EcclesiaCRM<br>kjo mund të marrë një kohë!"
 
-msgid "Select status for : "
-msgstr "Zgjidh statusin:"
+#, fuzzy
+msgid "Update subscriber status"
+msgstr "Ndryshimi i abonentëve shtet..."
+
+#, fuzzy
+msgid "Selected subscriber"
+msgstr "Po i mbledh këshillat..."
+
+msgid "Choose the status to apply to this subscriber."
+msgstr ""
+
+#, fuzzy
+msgid "Update"
+msgstr "Lajmërim i ri"
 
 msgid "Changing status ..."
 msgstr "Ndrysho statusin..."
 
+#, fuzzy
+msgid "Delete subscriber"
+msgstr "Po i mbledh këshillat..."
+
+#, fuzzy
+msgid "Subscriber removal"
+msgstr "është i shkruar në rresht."
+
 msgid "You're about to delete a subscriber! Are you sure ?"
 msgstr "Do ta fshish abonentët! A je i sigurt?"
+
+#, fuzzy
+msgid "Keep subscriber"
+msgstr "Mbushi abonentët"
 
 msgid "Deleting Subscriber..."
 msgstr "Po i mbledh këshillat..."
 
+#, fuzzy
+msgid "Delete mailing list"
+msgstr "Fshij menaxherat"
+
+#, fuzzy
+msgid "This action is irreversible"
+msgstr "Ky aksion nuk mund të bëhet kurrë! !!!!"
+
 msgid "Do you really want to delete this mailing list ?"
 msgstr "A dëshiron vërtet ta fshish këtë listë postare?"
 
+#, fuzzy
+msgid "Delete list"
+msgstr "fshije etiketën"
+
+#, fuzzy
+msgid "Delete all subscribers"
+msgstr "Po fshij të gjithë abonentët..."
+
+msgid "Bulk deletion"
+msgstr ""
+
 msgid "Are you sure you want to delete all the subscribers"
 msgstr "Je i sigurt që do t'i fshish të gjithë abonentët"
+
+#, fuzzy
+msgid "Delete all"
+msgstr "fshije etiketën"
 
 msgid "Deleting all subscribers..."
 msgstr "Po fshij të gjithë abonentët..."
@@ -1203,6 +1342,23 @@ msgstr ""
 "listën tënde.<br>për të fshirë datat e mëdha, mailchip api është i "
 "ngadalshëm."
 
+msgid "Email Campaign Creation"
+msgstr "Krijimi i fushatës elektronike"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+
+#, fuzzy
+msgid "Campaign details"
+msgstr "fushata titëll"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+
 msgid "Campaign Title"
 msgstr "fushata titëll"
 
@@ -1212,26 +1368,55 @@ msgstr "Titulli yt i fushatës"
 msgid "For Tag"
 msgstr "Për Tagun"
 
+#, fuzzy
+msgid "Write the subject and the body of your email campaign."
+msgstr "Duhet të vendosësh një titull fushate për fushatën elektronike"
+
 msgid "Mail Subject"
 msgstr "posta subjekt"
 
 msgid "Your Mail Subject"
 msgstr "Subjekti yt i postës"
 
+msgid "Compose the content that will be sent to members of this tag."
+msgstr ""
+
 msgid "All list members"
 msgstr "të gjithë anëtarët e listës"
-
-msgid "Email Campaign Creation"
-msgstr "Krijimi i fushatës elektronike"
 
 msgid "Adding Campaign ..."
 msgstr "Shtimi i fushatës..."
 
+#, fuzzy
+msgid "Campaign created"
+msgstr "fushata titëll"
+
+#, fuzzy
+msgid "Your campaign is ready"
+msgstr "Titulli yt i fushatës"
+
 msgid "Would like to manage directly this new campaign ?"
 msgstr "A do të donim ta menaxhonim këtë fushatë të re?"
 
+#, fuzzy
+msgid "Open campaign"
+msgstr "fushata"
+
+msgid "Stay here"
+msgstr ""
+
 msgid "You have to set a Campaign Title for your eMail Campaign"
 msgstr "Duhet të vendosësh një titull fushate për fushatën elektronike"
+
+#, fuzzy
+msgid "Edit list settings"
+msgstr "Seksionet e Gjeneralit Edit"
+
+msgid "MailChimp list settings"
+msgstr ""
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr ""
 
 msgid "List Name"
 msgstr "emri i listes"
@@ -1239,8 +1424,24 @@ msgstr "emri i listes"
 msgid "Changing subscribers state..."
 msgstr "Ndryshimi i abonentëve shtet..."
 
+#, fuzzy
+msgid "Delete selected subscribers"
+msgstr "fshije etiketën nga abonentët(s)"
+
+#, fuzzy
+msgid "Selected members"
+msgstr "Rrugë të zgjedhur"
+
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Do t'i fshish abonentët! A je i sigurt?"
+
+#, fuzzy
+msgid "selected"
+msgstr "Zgjedh."
+
+#, fuzzy
+msgid "Delete selected"
+msgstr "Fshije Event"
 
 msgid "Deleting Subscribers..."
 msgstr "Po mbledh abreceta..."
@@ -1257,22 +1458,36 @@ msgstr "të ndjekurit për të ndjekur lirinë"
 msgid "Successfully Added!"
 msgstr "Shtuar me sukses!"
 
-msgid "User Delete Confirmation"
-msgstr "Konfirmimi Delete"
+#, fuzzy
+msgid "Delete attendee"
+msgstr "pa të pranishëm"
 
-msgid ""
-"Be carefull, You are about to delete a user from the group and therefore the "
-"entire call history. This is strongly to be avoided."
+msgid "This action is permanent"
 msgstr ""
 
-msgid "This can't be undone"
+#, fuzzy
+msgid "This can't be undone."
 msgstr "kjo nuk mund të prishet"
+
+#, fuzzy
+msgid "You are about to remove this attendee from the event."
+msgstr "Je i sigurt që do ta largosh këtë njeri nga CRM"
+
+msgid "The attendee will be removed from this event."
+msgstr ""
+
+msgid "Related attendance history may also be affected."
+msgstr ""
 
 msgid "Photo"
 msgstr "fotografi"
 
 msgid "Action"
 msgstr "Aksion."
+
+#, fuzzy
+msgid "Attendance actions"
+msgstr "numërimi i pranimeve"
 
 msgid "Checkin"
 msgstr "Kontrollo"
@@ -1295,14 +1510,24 @@ msgstr "shiko datën"
 msgid "Checkout By"
 msgstr "po"
 
+#, fuzzy
+msgid "Scan a QR Code"
+msgstr "s'ka kod ajror"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
 "të paaftë për të hyrë në rrjet të videove (ju lutem sigurohuni që keni një "
 "kamerë të mundësuar)"
 
-msgid "no detected QR Code"
-msgstr "s'ka kod ajror"
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr ""
+
+msgid "Detected data"
+msgstr ""
 
 msgid "QR Code : Call the register"
 msgstr "Thirre regjistrin"
@@ -1349,6 +1574,30 @@ msgstr "Fshije Eventet Tip"
 msgid "This action can never be undone !!!!"
 msgstr "Ky aksion nuk mund të bëhet kurrë! !!!!"
 
+msgid "Preview"
+msgstr "Previetni"
+
+#, fuzzy
+msgid "Document preview"
+msgstr "Titull i dokumenteve"
+
+msgid "Read only"
+msgstr ""
+
+msgid "preview currently being created"
+msgstr ""
+
+#, fuzzy
+msgid "Please wait"
+msgstr "ju lutem, lajmëroni"
+
+#, fuzzy
+msgid "Unable to create the preview"
+msgstr "Nuk ka ngjarje tani."
+
+msgid "The selected file cannot be rendered in preview mode."
+msgstr ""
+
 msgid "Icon"
 msgstr "ikonë."
 
@@ -1383,9 +1632,6 @@ msgstr "vendos emrin tënd folder"
 #, fuzzy
 msgid "Actualize files"
 msgstr "Aktualize"
-
-msgid "preview currently being created"
-msgstr ""
 
 msgid "Set a File/Folder name"
 msgstr "vendos emrin e filmit/folder"
@@ -1508,6 +1754,10 @@ msgid "Deposit Type"
 msgstr "depozit tajpe"
 
 #, fuzzy
+msgid "Search"
+msgstr "rezultat i kërkimit"
+
+#, fuzzy
 msgid "Please enter at least one winner."
 msgstr "Duhet të kontrollosh të paktën një përdorues."
 
@@ -1528,9 +1778,6 @@ msgstr "Do ta fshish etiketën!"
 
 msgid "Item"
 msgstr "Item"
-
-msgid "Preview"
-msgstr "Previetni"
 
 msgid "Multiple"
 msgstr "Shumë"
@@ -1828,6 +2075,10 @@ msgstr "Takimi."
 msgid "Never contacted"
 msgstr ""
 
+#, fuzzy
+msgid "Pastoral care member"
+msgstr "Shto \"Care Pastore\""
+
 msgid "Visits/calls"
 msgstr "Vizitet dhe telefonatat"
 
@@ -1836,6 +2087,26 @@ msgstr "vizita e fundit"
 
 msgid "Delete Pastoral Care Type"
 msgstr "Fshije Pastorin"
+
+msgid "Irreversible action"
+msgstr ""
+
+msgid "Keep note"
+msgstr ""
+
+#, fuzzy
+msgid "Pastoral care note"
+msgstr "Pastoria \"Care\" Shëndimi"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+
+#, fuzzy
+msgid "Note"
+msgstr "- Jo."
+
+msgid "Write the pastoral care message associated with this family."
+msgstr ""
 
 msgid "For every administrator"
 msgstr "Për çdo administrator"
@@ -1860,6 +2131,9 @@ msgstr "emri i fundit..."
 
 msgid "Family Name"
 msgstr "Emri i familjes"
+
+msgid "Write the pastoral care message associated with this person."
+msgstr ""
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "je i sigurt që do ta largosh këtë familje nga cm"
@@ -2047,6 +2321,9 @@ msgstr "kartë identiteti"
 msgid "Valid Until"
 msgstr "E vlefshme deri në atë"
 
+msgid "Search for a family or address"
+msgstr ""
+
 msgid "Are you sure you want to remove this person from the CRM"
 msgstr "Je i sigurt që do ta largosh këtë njeri nga CRM"
 
@@ -2144,6 +2421,9 @@ msgstr ""
 msgid "The current images folder is now the public folder !!!"
 msgstr "tani fotografitë e tanishme të fotografive janë dosja publike! !"
 
+msgid "Singles"
+msgstr ""
+
 msgid "All Groups"
 msgstr "Të gjithë grupin"
 
@@ -2153,6 +2433,9 @@ msgstr "rolles"
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
+msgstr ""
+
+msgid "All search types"
 msgstr ""
 
 msgid "id"
@@ -2252,8 +2535,8 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "redaktori i lidhjeve manu"
 
-msgid "Place"
-msgstr "Vend."
+msgid "Order"
+msgstr ""
 
 msgid "Uri"
 msgstr "juri"
@@ -2275,6 +2558,14 @@ msgid ""
 msgstr ""
 "Kjo gjithashtu do ta fshijë këtë klasifikim për të gjithë personat që kanë "
 "bashkëpunuar."
+
+#, fuzzy
+msgid "Delete map marker"
+msgstr "Fshij menaxherat"
+
+#, fuzzy
+msgid "Please confirm deletion of this marker"
+msgstr "Ju lutem konfirmoni fshirjen e këtij rekordi të grupit"
 
 msgid "Map Icon GoogleMap"
 msgstr "harta e google map"
@@ -2497,11 +2788,42 @@ msgstr ""
 msgid "You have to set a Title and a Description for your issue."
 msgstr "Duhet të caktoni një Titull dhe një libër për hir të All-llahut."
 
+#, fuzzy
+msgid "Find member"
+msgstr "Anëtarë"
+
+msgid "Search by name, role, or ID."
+msgstr ""
+
+#, fuzzy
+msgid "Search a member"
+msgstr "Largoni të gjitha"
+
+msgid "Clear"
+msgstr ""
+
+#, fuzzy
+msgid "In"
+msgstr "ikonë."
+
+msgid "Out"
+msgstr ""
+
+msgid "Notify"
+msgstr ""
+
 msgid "Trigger Parent Alert"
 msgstr "Alarmi i prindërve"
 
 msgid "Kiosk"
 msgstr "Kiosk."
+
+#, fuzzy
+msgid "Attendance"
+msgstr "Bëj kujdes"
+
+msgid "Current event"
+msgstr ""
 
 msgid "No assignments for kiosk"
 msgstr "Nuk ka detyra për kiosk"
@@ -2565,6 +2887,16 @@ msgstr ""
 msgid "Unable to remove 2FA right now."
 msgstr "Nuk ka ngjarje tani."
 
+msgid "Current step"
+msgstr ""
+
+#, fuzzy
+msgid "Completed"
+msgstr "kompjuter."
+
+msgid "Locked"
+msgstr ""
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Përforcime e plotë, gati për shkarkim."
 
@@ -2614,6 +2946,9 @@ msgstr "është e mbyllur"
 msgid "is now unlocked"
 msgstr "është e hapur"
 
+msgid "User Delete Confirmation"
+msgstr "Konfirmimi Delete"
+
 msgid "Please confirm removal of user status from:"
 msgstr "Ju lutem konfirmoni heqjen e statusit të përdoruesit:"
 
@@ -2623,6 +2958,9 @@ msgid ""
 msgstr ""
 "Kujdes, do të humbasësh dosjet e shtëpisë, Kalendarët, kalendarët, "
 "kalendarët e Ndryer dhe të gjitha ngjarjet gjithashtu"
+
+msgid "This can't be undone"
+msgstr "kjo nuk mund të prishet"
 
 msgid "Action Confirmation"
 msgstr "Aksioni u konfirmua"
@@ -2722,6 +3060,21 @@ msgstr ""
 "Të gjitha anëtarësimi në grup dhe pronat do të shkatërrohen. vetë anëtarët e "
 "grupit nuk do të ndryshojnë."
 
+#~ msgid "Personal"
+#~ msgstr "personale"
+
+#~ msgid "Add your tag name"
+#~ msgstr "shto emrin e etiketës"
+
+#~ msgid "Choose the tag you want to delete :"
+#~ msgstr "Zgjidh etiketën që do ta fshish :"
+
+#~ msgid "Select status for : "
+#~ msgstr "Zgjidh statusin:"
+
+#~ msgid "Place"
+#~ msgstr "Vend."
+
 #~ msgid "GDPR"
 #~ msgstr "gdp"
 
@@ -2736,9 +3089,6 @@ msgstr ""
 
 #~ msgid "Add buyer"
 #~ msgstr "Shto blerësin"
-
-#~ msgid "Select"
-#~ msgstr "Zgjedh."
 
 #~ msgid "All members of this group are in the cart"
 #~ msgstr "Të gjithë anëtarët e grupit janë në karrocë"

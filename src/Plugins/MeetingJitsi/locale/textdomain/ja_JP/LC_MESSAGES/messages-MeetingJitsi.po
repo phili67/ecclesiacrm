@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:28+0000\n"
+"POT-Creation-Date: 2026-04-25 18:28+0000\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +19,11 @@ msgstr "会議の設定"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:25
 msgid "Jitsi Meeting"
-msgstr ""
+msgstr "ジッツィ・ミーティング"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:27
 msgid "Create, select and launch your rooms"
-msgstr ""
+msgstr "部屋の作成、選択、立ち上げ"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:36
 msgid "Room names"
@@ -55,7 +55,7 @@ msgstr "部屋名"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:68
 msgid "No room selected"
-msgstr ""
+msgstr "部屋が選択されていない"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:76
 msgid "First create a Jitsi room with the button above !"
@@ -63,7 +63,7 @@ msgstr "まず、上のボタンでJitsiルームを作成してください。"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:77
 msgid "Then choose a room from the dropdown to launch the meeting"
-msgstr ""
+msgstr "次に、ドロップダウンから部屋を選択し、会議を開始します。"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:23
 msgid "Settings"
@@ -71,7 +71,7 @@ msgstr "設定"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:24
 msgid "Configure your meeting provider and API access"
-msgstr ""
+msgstr "会議プロバイダーとAPIアクセスを設定する"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:42
 msgid "The Jitsi domain name, by default"

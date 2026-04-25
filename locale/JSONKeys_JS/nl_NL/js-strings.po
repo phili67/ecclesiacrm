@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-13T11:41:38.922Z\n"
+"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,9 +67,6 @@ msgstr "Annuleren"
 msgid "Confirm"
 msgstr "Bevestig"
 
-msgid "Set Resource Name"
-msgstr "Ingestelde bronnaam"
-
 msgid "Name"
 msgstr "Naam"
 
@@ -88,11 +85,22 @@ msgstr "Video"
 msgid "Description"
 msgstr "Beschrijving"
 
+msgid "Add a short description to help identify this resource."
+msgstr "Voeg een korte beschrijving toe om deze bron te helpen identificeren."
+
+msgid "Set Resource Name"
+msgstr "Ingestelde bronnaam"
+
 msgid "OK"
 msgstr "OK"
 
 msgid "Calendars"
 msgstr "Kalenders"
+
+msgid "Select one or more calendars to update their visibility in the sidebar."
+msgstr ""
+"Selecteer een of meer kalenders om hun zichtbaarheid in de zijbalk bij te "
+"werken."
 
 msgid "Set Status"
 msgstr "Status instellen"
@@ -121,6 +129,10 @@ msgstr "[👀 ✐]"
 msgid "With"
 msgstr "Met"
 
+msgid "Select one or more current shares to update or remove them."
+msgstr ""
+"Selecteer een of meer huidige aandelen om ze bij te werken of te verwijderen."
+
 msgid "Set Rights"
 msgstr "Rechten instellen"
 
@@ -139,8 +151,16 @@ msgstr "[RW]"
 msgid "Send email notification"
 msgstr "E-mail bericht verzenden"
 
+msgid "Notify added people, families, or groups by email"
+msgstr ""
+"Breng toegevoegde personen, families of groepen op de hoogte via e-mail"
+
 msgid "Add persons/Family/groups"
 msgstr "Personen/familie/groepen toevoegen"
+
+msgid "Search and add people, families, or groups to share this calendar."
+msgstr ""
+"Zoek en voeg mensen, families of groepen toe om deze kalender te delen."
 
 msgid "Share your Calendar"
 msgstr "Deel uw agenda"
@@ -217,15 +237,19 @@ msgstr "Lijst Maand"
 msgid "This event isn't modifiable !!!"
 msgstr "Deze gebeurtenis is niet aanpasbaar !!!"
 
+msgid "No description"
+msgstr "Geen beschrijving"
+
+msgid "What would you like to do?"
+msgstr "Wat zou je willen doen?"
+
+msgid "Be careful with deletion: this action cannot be undone."
+msgstr ""
+"Wees voorzichtig met verwijderen: deze actie kan niet ongedaan worden "
+"gemaakt."
+
 msgid "Modify Event"
 msgstr "Gebeurtenis wijzigen"
-
-msgid ""
-"What would you like to do ? Be careful with the deletion, it's impossible to "
-"revert !!!"
-msgstr ""
-"Wat zou je willen doen ? Wees voorzichtig met het verwijderen, het is "
-"onmogelijk terug te draaien !!!"
 
 msgid "Delete Event"
 msgstr "Event verwijderen"
@@ -352,9 +376,6 @@ msgstr "Beschrijving van het evenement"
 msgid "Event Type"
 msgstr "Type gebeurtenis"
 
-msgid "Personal"
-msgstr "Persoonlijk"
-
 msgid "Attendance Counts"
 msgstr "Aanwezigheid Telt"
 
@@ -445,6 +466,9 @@ msgstr "inactief"
 msgid "Event Creation"
 msgstr "Evenement Creatie"
 
+msgid "Event Editor"
+msgstr "Evenement Editor"
+
 msgid "Close"
 msgstr "Sluiten"
 
@@ -492,6 +516,13 @@ msgstr "Gebeurtenissen in maand"
 
 msgid "Events by Type"
 msgstr "Evenementen per Type"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Wat zou je willen doen ? Wees voorzichtig met het verwijderen, het is "
+"onmogelijk terug te draaien !!!"
 
 msgid "Text for Event ID"
 msgstr "Tekst voor gebeurtenis-ID"
@@ -657,6 +688,9 @@ msgstr "ERROR"
 
 msgid "In progress"
 msgstr "In uitvoering"
+
+msgid "Please wait while the operation is being completed"
+msgstr "Even geduld terwijl de bewerking wordt voltooid"
 
 msgid "Mailchimp"
 msgstr "Mailchimp"
@@ -928,6 +962,21 @@ msgstr "Bevestig de verwijdering van dit document"
 msgid "Document Delete Confirmation"
 msgstr "Bevestiging verwijderen document"
 
+msgid "Document Editor"
+msgstr "Document redacteur"
+
+msgid ""
+"Create a note, audio or video entry and keep it organized with a clear title."
+msgstr ""
+"Maak een notitie, audio- of video-item en houd het overzichtelijk met een "
+"duidelijke titel."
+
+msgid "Document details"
+msgstr "Document details"
+
+msgid "Set the title and choose the type before writing the content."
+msgstr "Stel de titel in en kies het type voordat je de inhoud schrijft."
+
 msgid "Document Title"
 msgstr "Titel van het document"
 
@@ -946,11 +995,23 @@ msgstr "video"
 msgid "audio"
 msgstr "audio"
 
+msgid "Content"
+msgstr "Inhoud"
+
+msgid "Write the main content of your document below."
+msgstr "Schrijf de hoofdinhoud van je document hieronder."
+
 msgid "Private"
 msgstr "Privé"
 
-msgid "Document Editor"
-msgstr "Document redacteur"
+msgid "Private documents are visible only to authorized users."
+msgstr "Privédocumenten zijn alleen zichtbaar voor bevoegde gebruikers."
+
+msgid "Edit Document"
+msgstr "Document bewerken"
+
+msgid "Create Document"
+msgstr "Document maken"
 
 msgid "You have to set a Title for your document"
 msgstr "U moet een titel instellen voor uw document"
@@ -1099,8 +1160,16 @@ msgstr "Uitgeschreven"
 msgid "Email Marketing"
 msgstr "E-mail Marketing"
 
-msgid "Add your tag name"
-msgstr "Voeg uw tag naam toe"
+msgid "New tag"
+msgstr "Nieuw label"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+"Voer de naam in van de tag die moet worden aangemaakt en toegepast op de "
+"geselecteerde leden."
+
+msgid "Create tag"
+msgstr "Tag maken"
 
 msgid "Adding tag..."
 msgstr "Tag toevoegen..."
@@ -1108,8 +1177,11 @@ msgstr "Tag toevoegen..."
 msgid "Name is empty !!"
 msgstr "Naam is leeg !!"
 
-msgid "Add tag?"
-msgstr "Tag toevoegen?"
+msgid "Add tag"
+msgstr "Label toevoegen"
+
+msgid "Selected tag"
+msgstr "Geselecteerde tag"
 
 msgid "This will add the tag"
 msgstr "Dit zal de tag toevoegen"
@@ -1123,8 +1195,21 @@ msgstr "Kies er een"
 msgid "All Tags"
 msgstr "Alle tags"
 
-msgid "Choose the tag you want to delete :"
-msgstr "Kies de tag die u wilt verwijderen :"
+msgid "Remove tags from selected members"
+msgstr "Tags verwijderen van geselecteerde leden"
+
+msgid "Choose a tag"
+msgstr "Kies een tag"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+"Selecteer één tag om te verwijderen of kies alle tags voor een volledige "
+"opruiming van de geselecteerde leden."
+
+msgid "Apply"
+msgstr "Toepassen"
 
 msgid "Removing tags..."
 msgstr "Verwijderen van tags..."
@@ -1132,6 +1217,12 @@ msgstr "Verwijderen van tags..."
 msgid "Deleting all tags for the selected members in the list..."
 msgstr ""
 "Het verwijderen van alle tags voor de geselecteerde leden in de lijst..."
+
+msgid "This action affects the whole list"
+msgstr "Deze actie beïnvloedt de hele lijst"
+
+msgid "Keep tag"
+msgstr "Label houden"
 
 msgid "A person name or Family or Group"
 msgstr "Een persoonsnaam of Familie of Groep"
@@ -1169,23 +1260,59 @@ msgstr ""
 "Het laden van alle families eerste hoofdpersonen abonnees van "
 "EcclesiaCRM<br>Dit kan een tijdje duren !"
 
-msgid "Select status for : "
-msgstr "Status kiezen voor :"
+msgid "Update subscriber status"
+msgstr "Abonneestatus bijwerken"
+
+msgid "Selected subscriber"
+msgstr "Geselecteerde abonnee"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr "Kies de status die van toepassing is op deze abonnee."
+
+msgid "Update"
+msgstr "Update"
 
 msgid "Changing status ..."
 msgstr "Veranderende status ..."
 
+msgid "Delete subscriber"
+msgstr "Abonnee verwijderen"
+
+msgid "Subscriber removal"
+msgstr "Verwijdering van abonnees"
+
 msgid "You're about to delete a subscriber! Are you sure ?"
 msgstr "Je staat op het punt een abonnee te verwijderen! Ben je zeker ?"
+
+msgid "Keep subscriber"
+msgstr "Abonnee blijven"
 
 msgid "Deleting Subscriber..."
 msgstr "Abonnee verwijderen..."
 
+msgid "Delete mailing list"
+msgstr "Mailinglijst verwijderen"
+
+msgid "This action is irreversible"
+msgstr "Deze actie is onomkeerbaar"
+
 msgid "Do you really want to delete this mailing list ?"
 msgstr "Wilt u deze mailinglijst echt verwijderen ?"
 
+msgid "Delete list"
+msgstr "Lijst verwijderen"
+
+msgid "Delete all subscribers"
+msgstr "Alle abonnees verwijderen"
+
+msgid "Bulk deletion"
+msgstr "Bulkverwijdering"
+
 msgid "Are you sure you want to delete all the subscribers"
 msgstr "Weet u zeker dat u alle abonnees wilt verwijderen"
+
+msgid "Delete all"
+msgstr "Alles verwijderen"
 
 msgid "Deleting all subscribers..."
 msgstr "Alle abonnees verwijderen..."
@@ -1198,6 +1325,26 @@ msgstr ""
 "om je lijst te beheren.<br>Om grote datas te verwijderen, is MailChimp API "
 "traag."
 
+msgid "Email Campaign Creation"
+msgstr "Creatie van e-mailcampagnes"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+"Maak een duidelijke titel, bevestig de doeltag en schrijf de inhoud van je e-"
+"mailcampagne."
+
+msgid "Campaign details"
+msgstr "Campagne details"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+"Stel de campagnetitel in en bekijk het MailChimp-doel voordat je het bericht "
+"schrijft."
+
 msgid "Campaign Title"
 msgstr "Titel van de campagne"
 
@@ -1207,26 +1354,52 @@ msgstr "De titel van uw campagne"
 msgid "For Tag"
 msgstr "Voor Tag"
 
+msgid "Write the subject and the body of your email campaign."
+msgstr "Schrijf het onderwerp en de hoofdtekst van je e-mailcampagne."
+
 msgid "Mail Subject"
 msgstr "Post Onderwerp"
 
 msgid "Your Mail Subject"
 msgstr "Onderwerp van uw e-mail"
 
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "Stel de inhoud samen die wordt verzonden naar leden van deze tag."
+
 msgid "All list members"
 msgstr "Alle leden van de lijst"
-
-msgid "Email Campaign Creation"
-msgstr "Creatie van e-mailcampagnes"
 
 msgid "Adding Campaign ..."
 msgstr "Campagne toevoegen..."
 
+msgid "Campaign created"
+msgstr "Campagne gemaakt"
+
+msgid "Your campaign is ready"
+msgstr "Je campagne is klaar"
+
 msgid "Would like to manage directly this new campaign ?"
 msgstr "Wil je deze nieuwe campagne direct beheren ?"
 
+msgid "Open campaign"
+msgstr "Campagne openen"
+
+msgid "Stay here"
+msgstr "Blijf hier"
+
 msgid "You have to set a Campaign Title for your eMail Campaign"
 msgstr "U moet een Campagne Titel instellen voor uw eMail Campagne"
+
+msgid "Edit list settings"
+msgstr "Lijstinstellingen bewerken"
+
+msgid "MailChimp list settings"
+msgstr "MailChimp lijst instellingen"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr ""
+"Werk de belangrijkste gegevens bij die door deze lijst en zijn campagnes "
+"worden gebruikt."
 
 msgid "List Name"
 msgstr "Lijst Naam"
@@ -1234,8 +1407,20 @@ msgstr "Lijst Naam"
 msgid "Changing subscribers state..."
 msgstr "De staat van de abonnees veranderen..."
 
+msgid "Delete selected subscribers"
+msgstr "Geselecteerde abonnees verwijderen"
+
+msgid "Selected members"
+msgstr "Geselecteerde leden"
+
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Je staat op het punt om abonnees te verwijderen! Ben je zeker ?"
+
+msgid "selected"
+msgstr "geselecteerd"
+
+msgid "Delete selected"
+msgstr "Geselecteerde verwijderen"
 
 msgid "Deleting Subscribers..."
 msgstr "Abonnees verwijderen..."
@@ -1252,24 +1437,32 @@ msgstr "Gratis bezoekers"
 msgid "Successfully Added!"
 msgstr "Succesvol toegevoegd!"
 
-msgid "User Delete Confirmation"
-msgstr "Gebruiker verwijderen Bevestiging"
+msgid "Delete attendee"
+msgstr "Deelnemer verwijderen"
 
-msgid ""
-"Be carefull, You are about to delete a user from the group and therefore the "
-"entire call history. This is strongly to be avoided."
-msgstr ""
-"Wees voorzichtig, je staat op het punt een gebruiker uit de groep te "
-"verwijderen en daarmee de hele gesprekshistorie. Dit is sterk te vermijden."
+msgid "This action is permanent"
+msgstr "Deze actie is permanent"
 
-msgid "This can't be undone"
+msgid "This can't be undone."
 msgstr "Dit kan niet ongedaan worden gemaakt."
+
+msgid "You are about to remove this attendee from the event."
+msgstr "Je staat op het punt deze deelnemer van het evenement te verwijderen."
+
+msgid "The attendee will be removed from this event."
+msgstr "De deelnemer wordt verwijderd van dit evenement."
+
+msgid "Related attendance history may also be affected."
+msgstr "Gerelateerde aanwezigheidsgeschiedenis kan ook worden beïnvloed."
 
 msgid "Photo"
 msgstr "Foto"
 
 msgid "Action"
 msgstr "Actie"
+
+msgid "Attendance actions"
+msgstr "Aanwezigheidsacties"
 
 msgid "Checkin"
 msgstr "Checkin"
@@ -1292,13 +1485,23 @@ msgstr "Vertrekdatum"
 msgid "Checkout By"
 msgstr "Uitchecken door"
 
+msgid "Scan a QR Code"
+msgstr "Scan een QR-code"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+"Richt je camera op een QR-code om deelnemers automatisch in te checken."
+
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr ""
 "Geen toegang tot videostream (zorg ervoor dat u een webcam hebt ingeschakeld)"
 
-msgid "no detected QR Code"
-msgstr "geen gedetecteerde QR Code"
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr "Nog geen QR-code gedetecteerd. Bewaar de code in het frame."
+
+msgid "Detected data"
+msgstr "Gedetecteerde gegevens"
 
 msgid "QR Code : Call the register"
 msgstr "QR Code : Bel het register"
@@ -1345,6 +1548,28 @@ msgstr "Type gebeurtenis verwijderen"
 msgid "This action can never be undone !!!!"
 msgstr "Deze actie kan nooit ongedaan worden gemaakt !!!!"
 
+msgid "Preview"
+msgstr "Voorbeeld"
+
+msgid "Document preview"
+msgstr "Voorbeeld van een document"
+
+msgid "Read only"
+msgstr "Alleen lezen"
+
+msgid "preview currently being created"
+msgstr "voorbeeld wordt momenteel gemaakt"
+
+msgid "Please wait"
+msgstr "Even geduld"
+
+msgid "Unable to create the preview"
+msgstr "Kan het voorbeeld niet maken"
+
+msgid "The selected file cannot be rendered in preview mode."
+msgstr ""
+"Het geselecteerde bestand kan niet worden weergegeven in de voorbeeldmodus."
+
 msgid "Icon"
 msgstr "Icoon"
 
@@ -1377,9 +1602,6 @@ msgstr "Stel uw mapnaam in"
 
 msgid "Actualize files"
 msgstr "Bestanden actualiseren"
-
-msgid "preview currently being created"
-msgstr "voorbeeld wordt momenteel gemaakt"
 
 msgid "Set a File/Folder name"
 msgstr "Een bestands-/mapnaam instellen"
@@ -1501,6 +1723,9 @@ msgstr "Gesloten"
 msgid "Deposit Type"
 msgstr "Stortingstype"
 
+msgid "Search"
+msgstr "Zoek op"
+
 msgid "Please enter at least one winner."
 msgstr "Schrijf ten minste één winnaar in."
 
@@ -1522,9 +1747,6 @@ msgstr "U staat op het punt het item te verwijderen!!!"
 
 msgid "Item"
 msgstr "Item"
-
-msgid "Preview"
-msgstr "Voorbeeld"
 
 msgid "Multiple"
 msgstr "Meervoud"
@@ -1803,6 +2025,9 @@ msgstr "Afspraak"
 msgid "Never contacted"
 msgstr "Nooit contact opgenomen"
 
+msgid "Pastoral care member"
+msgstr "Pastoraal medewerker"
+
 msgid "Visits/calls"
 msgstr "Bezoeken/oproepen"
 
@@ -1811,6 +2036,25 @@ msgstr "Laatste bezoek/oproep"
 
 msgid "Delete Pastoral Care Type"
 msgstr "Verwijder Pastorale Zorg Type"
+
+msgid "Irreversible action"
+msgstr "Onomkeerbare actie"
+
+msgid "Keep note"
+msgstr "Notitie houden"
+
+msgid "Pastoral care note"
+msgstr "Notitie pastorale zorg"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+"Bekijk het type notitie, schrijf de inhoud en bepaal wie de notitie kan zien."
+
+msgid "Note"
+msgstr "Opmerking"
+
+msgid "Write the pastoral care message associated with this family."
+msgstr "Schrijf de pastorale boodschap op die bij dit gezin hoort."
 
 msgid "For every administrator"
 msgstr "Voor elke beheerder"
@@ -1835,6 +2079,9 @@ msgstr "Achternaam (familienaam)"
 
 msgid "Family Name"
 msgstr "Familienaam"
+
+msgid "Write the pastoral care message associated with this person."
+msgstr "Schrijf de pastorale boodschap op die bij deze persoon hoort."
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Weet u zeker dat u deze familie wilt verwijderen uit het CRM"
@@ -2022,6 +2269,9 @@ msgstr "Familie Id"
 msgid "Valid Until"
 msgstr "Geldig tot"
 
+msgid "Search for a family or address"
+msgstr "Familie of adres zoeken"
+
 msgid "Are you sure you want to remove this person from the CRM"
 msgstr "Weet u zeker dat u deze persoon wilt verwijderen uit het CRM"
 
@@ -2116,6 +2366,9 @@ msgstr "Plugin download manager"
 msgid "The current images folder is now the public folder !!!"
 msgstr "De huidige afbeeldingen map is nu de openbare map !!!"
 
+msgid "Singles"
+msgstr "Singles"
+
 msgid "All Groups"
 msgstr "Alle groepen"
 
@@ -2128,6 +2381,9 @@ msgid ""
 msgstr ""
 "Zoektermen zoals : naam, voornaam, telefoonnummer, eigendom, groepsnaam, "
 "enz ..."
+
+msgid "All search types"
+msgstr "Alle zoektypes"
 
 msgid "id"
 msgstr "id"
@@ -2222,8 +2478,8 @@ msgstr ""
 msgid "Custom Menu Link Editor"
 msgstr "Aangepaste menu link editor"
 
-msgid "Place"
-msgstr "Plaats"
+msgid "Order"
+msgstr "Bestel"
 
 msgid "Uri"
 msgstr "Uri"
@@ -2244,6 +2500,12 @@ msgid ""
 "This will also delete this Classification for all the associated persons."
 msgstr ""
 "Dit zal ook deze Classificatie voor alle geassocieerde personen verwijderen."
+
+msgid "Delete map marker"
+msgstr "Kaartmarkering verwijderen"
+
+msgid "Please confirm deletion of this marker"
+msgstr "Bevestig verwijdering van deze marker"
 
 msgid "Map Icon GoogleMap"
 msgstr "Kaart Icoon GoogleMap"
@@ -2470,11 +2732,38 @@ msgstr ""
 msgid "You have to set a Title and a Description for your issue."
 msgstr "U moet een Titel en een Beschrijving voor uw probleem instellen."
 
+msgid "Find member"
+msgstr "Lid zoeken"
+
+msgid "Search by name, role, or ID."
+msgstr "Zoek op naam, rol of ID."
+
+msgid "Search a member"
+msgstr "Een lid zoeken"
+
+msgid "Clear"
+msgstr "Duidelijk"
+
+msgid "In"
+msgstr "In"
+
+msgid "Out"
+msgstr "Uit"
+
+msgid "Notify"
+msgstr "Verwittig"
+
 msgid "Trigger Parent Alert"
 msgstr "Trigger Parent Alert"
 
 msgid "Kiosk"
 msgstr "Kiosk"
+
+msgid "Attendance"
+msgstr "Aanwezigheid"
+
+msgid "Current event"
+msgstr "Actueel"
 
 msgid "No assignments for kiosk"
 msgstr "Geen opdrachten voor kiosk"
@@ -2537,6 +2826,15 @@ msgstr ""
 msgid "Unable to remove 2FA right now."
 msgstr "Kan 2FA nu niet verwijderen."
 
+msgid "Current step"
+msgstr "Huidige stap"
+
+msgid "Completed"
+msgstr "Voltooid"
+
+msgid "Locked"
+msgstr "Gesloten"
+
 msgid "Backup Complete, Ready for Download."
 msgstr "Back-up compleet, klaar om te downloaden."
 
@@ -2585,6 +2883,9 @@ msgstr "is nu vergrendeld"
 msgid "is now unlocked"
 msgstr "is nu ontgrendeld"
 
+msgid "User Delete Confirmation"
+msgstr "Gebruiker verwijderen Bevestiging"
+
 msgid "Please confirm removal of user status from:"
 msgstr "Bevestig de verwijdering van de gebruikersstatus van:"
 
@@ -2595,6 +2896,9 @@ msgstr ""
 "Wees voorzichtig, U staat op het punt om de thuismap en de bijbehorende "
 "bestanden, de kalenders, de gedeelde kalenders en alle gebeurtenissen te "
 "verliezen, want"
+
+msgid "This can't be undone"
+msgstr "Dit kan niet ongedaan worden gemaakt."
 
 msgid "Action Confirmation"
 msgstr "Actie Bevestiging"
@@ -2682,6 +2986,29 @@ msgid ""
 "altered."
 msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
 
+#~ msgid "Personal"
+#~ msgstr "Persoonlijk"
+
+#~ msgid "Add your tag name"
+#~ msgstr "Voeg uw tag naam toe"
+
+#~ msgid "Choose the tag you want to delete :"
+#~ msgstr "Kies de tag die u wilt verwijderen :"
+
+#~ msgid "Select status for : "
+#~ msgstr "Status kiezen voor :"
+
+#~ msgid ""
+#~ "Be carefull, You are about to delete a user from the group and therefore "
+#~ "the entire call history. This is strongly to be avoided."
+#~ msgstr ""
+#~ "Wees voorzichtig, je staat op het punt een gebruiker uit de groep te "
+#~ "verwijderen en daarmee de hele gesprekshistorie. Dit is sterk te "
+#~ "vermijden."
+
+#~ msgid "Place"
+#~ msgstr "Plaats"
+
 #~ msgid "GDPR"
 #~ msgstr "GDPR"
 
@@ -2696,9 +3023,6 @@ msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
 
 #~ msgid "Add buyer"
 #~ msgstr "Koper toevoegen"
-
-#~ msgid "Select"
-#~ msgstr "Selecteer"
 
 #~ msgid "All members of this group are in the cart"
 #~ msgstr "Alle leden van deze groep zitten in de kar"
@@ -2736,9 +3060,6 @@ msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
 
 #~ msgid "Add all"
 #~ msgstr "Alles toevoegen"
-
-#~ msgid "Remove Selected Members"
-#~ msgstr "Geselecteerde leden verwijderen"
 
 #~ msgid ""
 #~ "Use this method to share files with individuals or teams within your "
