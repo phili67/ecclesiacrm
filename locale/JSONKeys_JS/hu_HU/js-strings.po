@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -675,8 +675,20 @@ msgstr "Hiba szövege"
 msgid "Stack Trace"
 msgstr "Stack Trace"
 
-msgid "ERROR"
-msgstr "HIBA"
+msgid "The application could not complete this API request."
+msgstr "Az alkalmazás nem tudta befejezni ezt az API-kérést."
+
+msgid "Information"
+msgstr "Információ"
+
+msgid "Please confirm"
+msgstr "Kérjük, erősítse meg"
+
+msgid "Update information"
+msgstr "Információ frissítése"
+
+msgid "Make a selection"
+msgstr "Válasszon ki valamit"
 
 msgid "In progress"
 msgstr "Folyamatban"
@@ -697,8 +709,18 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Probléma merült fel a kért objektum lekérdezésében"
 
-msgid "Select the method to add to a group"
-msgstr "Válassza ki a csoporthoz hozzáadni kívánt módszert"
+msgid "Add cart to a group"
+msgstr "Kosár hozzáadása egy csoporthoz"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+"Válassza ki, hogy a kosarat egy meglévő csoporthoz adja-e hozzá, vagy "
+"közvetlenül a kosárból hozzon létre egy újat."
+
+msgid "Action"
+msgstr "Akció"
 
 msgid "Select an existing Group"
 msgstr "Meglévő csoport kiválasztása"
@@ -706,14 +728,19 @@ msgstr "Meglévő csoport kiválasztása"
 msgid "or Create a new Group from the Cart"
 msgstr "vagy Új csoport létrehozása a Kosárból"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Válassza ki a csoportot, amelyhez hozzá szeretné adni a kosarát."
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr "Válassza ki a célcsoportot és a kosár tagjaihoz rendelendő szerepet."
 
 msgid "Select Group"
 msgstr "Csoport kiválasztása"
 
 msgid "Select Role"
 msgstr "Szerep kiválasztása"
+
+msgid "Create a new group and move the current cart into it."
+msgstr ""
+"Hozzon létre egy új csoportot, és helyezze át az aktuális kosarat ebbe."
 
 msgid "Group Name"
 msgstr "Csoport neve"
@@ -724,44 +751,76 @@ msgstr "Alapértelmezett név Csoport"
 msgid "Add Cart to Group"
 msgstr "Kosár hozzáadása a csoporthoz"
 
-msgid "You have to select one group and a group role if you want"
+msgid "Missing selection"
+msgstr "Hiányzó kiválasztás"
+
+msgid "You need to select both a group and a role before continuing."
 msgstr ""
-"Ki kell választania egy csoportot és egy csoport-szerepet, ha azt szeretné, "
-"hogy"
+"A folytatás előtt ki kell választania egy csoportot és egy szerepet is."
 
-msgid "You have to set a Group Name"
-msgstr "Be kell állítania egy csoportnevet"
+msgid "Group name required"
+msgstr "Csoport neve szükséges"
 
-msgid "Do you really want to deactivate the persons?"
-msgstr "Tényleg ki akarja kapcsolni a személyeket?"
+msgid "Enter a group name before creating a new group from the cart."
+msgstr ""
+"Adjon meg egy csoportnevet, mielőtt új csoportot hozna létre a kosárból."
 
-msgid "This action can be undone !!!!"
-msgstr "Ez a művelet visszavonható !!!!"
+msgid "Deactivate cart persons"
+msgstr "Kocsis személyek kikapcsolása"
 
-msgid "Yes : if you're sure"
-msgstr "Igen : ha biztos vagy benne"
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr ""
+"Tényleg az összes jelenleg a kosárban lévő személyt deaktiválni szeretné?"
 
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Tényleg törölni szeretné a személyeket a CRM-ből?"
+msgid "This action can be undone later if needed."
+msgstr "Ez a művelet később szükség esetén visszavonható."
 
-msgid "This action cannot be undone !!!!"
-msgstr "Ezt a műveletet nem lehet visszacsinálni !!!!"
+msgid "Keep active"
+msgstr "Maradjon aktív"
 
-msgid "Select the event to which you would like to add your cart"
-msgstr "Válassza ki az eseményt, amelyhez hozzá szeretné adni a kosarát."
+msgid "Deactivate persons"
+msgstr "Személyek deaktiválása"
 
-msgid "Create First A New Event"
+msgid "Delete cart persons"
+msgstr "Kocsis személyek törlése"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr "Tényleg törölni szeretné a CRM-ből a kosárban lévő összes személyt?"
+
+msgid "This action cannot be undone."
+msgstr "Ezt a műveletet nem lehet visszacsinálni."
+
+msgid "Keep persons"
+msgstr "Tartsa meg a személyeket"
+
+msgid "Delete persons"
+msgstr "Személyek törlése"
+
+msgid "Add cart to event"
+msgstr "Kosár hozzáadása az eseményhez"
+
+msgid "Select the event that should receive the current cart."
+msgstr "Válassza ki azt az eseményt, amelyhez az aktuális kosár érkezzen."
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+"Először is létrehozhat egy új eseményt, majd visszatérhet ide a kosár "
+"hozzárendeléséhez."
+
+msgid "Event"
+msgstr "Esemény"
+
+msgid "Choose one of the available events from the list below."
+msgstr ""
+"Válasszon egyet a rendelkezésre álló események közül az alábbi listából."
+
+msgid "Create new event"
 msgstr "Új esemény létrehozása"
 
 msgid "Add to Event"
 msgstr "Hozzáadás az eseményhez"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"A kosár tartalmát hozzáadhatja az alább kiválasztott eseményhez<br> - VAGY - "
-"<br>Létrehozhat először egy eseményt, és utána adhatja hozzá őket."
 
 msgid "Register"
 msgstr "Regisztráció"
@@ -817,24 +876,22 @@ msgstr "Minden megtekintése"
 msgid "Your Cart is Empty"
 msgstr "A kosár üres"
 
+msgid "Software registration"
+msgstr "Szoftver regisztráció"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"Az elküldés előtt tekintse át az alábbi regisztrációs adatokat. Ezeket az "
+"információkat csak a szoftver használatának nyomon követésére használjuk."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr ""
 "Ha módosítani szeretné a regisztrációs adatokat, lépjen a következő oldalra"
 
 msgid "Admin->Edit General Settings"
 msgstr "Admin->Általános beállítások szerkesztése"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Kérjük, regisztrálja a CRM példányát az alábbi információk ellenőrzésével és "
-"a Küldés gomb megnyomásával."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Ezeket az információkat kizárólag a szoftver használatának nyomon követésére "
-"használjuk."
 
 msgid "Church Name"
 msgstr "Egyház neve"
@@ -872,14 +929,40 @@ msgstr "A szoftver mostantól regisztrálva van. Köszönjük !"
 msgid "Select Volunteer Opportunity"
 msgstr "Önkéntes lehetőség kiválasztása"
 
-msgid "Please select target volunteers for members"
-msgstr "Kérjük, válassza ki a tagok önkénteseit"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "Válassza ki a hozzárendelt önkéntes lehetőséget."
 
-msgid "Please select target group for members"
-msgstr "Kérjük, válassza ki a tagok célcsoportját"
+msgid "This selection will be applied to the current members."
+msgstr "Ez a kiválasztás a jelenlegi tagokra vonatkozik."
 
-msgid "Please select target Role for members"
-msgstr "Kérjük, válassza ki a tagok célszerepét"
+msgid "Volunteer opportunity"
+msgstr "Önkéntes lehetőség"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr ""
+"Válassza ki a célzott önkéntes lehetőséget a rendelkezésre álló listából."
+
+msgid "Choose the destination for the selected members."
+msgstr "Válassza ki a kiválasztott tagok célállomását."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+"Az alábbi mezőkkel a művelettől függően választhat ki egy csoportot, egy "
+"szerepet vagy mindkettőt."
+
+msgid "Group"
+msgstr "Csoport"
+
+msgid "Select the target group for the selected members."
+msgstr "Válassza ki a kiválasztott tagok célcsoportját."
+
+msgid "Role"
+msgstr "Szerepvállalás"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "Válassza ki a kiválasztott csoporton belül kiosztandó szerepet."
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroupID szükséges a szerepkör kiválasztásához"
@@ -887,11 +970,19 @@ msgstr "GroupID szükséges a szerepkör kiválasztásához"
 msgid "Select Group and Role"
 msgstr "Csoport és szerepkör kiválasztása"
 
-msgid "Add A Group Name"
-msgstr "Csoportnév hozzáadása"
+msgid "Select both the destination group and the role to apply."
+msgstr "Válassza ki a célcsoportot és az alkalmazandó szerepet is."
 
-msgid "Yes"
-msgstr "Igen"
+msgid "Create a group"
+msgstr "Csoport létrehozása"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr "Adja meg a jelenlegi munkafolyamatból létrehozandó új csoport nevét."
+
+msgid "Create group"
+msgstr "Csoport létrehozása"
 
 msgid "Calendar Event"
 msgstr "Naptár esemény"
@@ -1021,6 +1112,9 @@ msgstr "sikeresen mentve"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "Mindjárt elküldi a kampányát! Biztos vagy benne?"
+
+msgid "Yes"
+msgstr "Igen"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Hamarosan törölni fogod a kampányodat! Biztos vagy benne?"
@@ -1450,9 +1544,6 @@ msgstr "A kapcsolódó jelenléti előzmények is befolyásolhatják."
 msgid "Photo"
 msgstr "Fotó"
 
-msgid "Action"
-msgstr "Akció"
-
 msgid "Attendance actions"
 msgstr "Jelenléti intézkedések"
 
@@ -1514,9 +1605,6 @@ msgstr "Mozgassa az egyiket a megfelelő tartományban."
 
 msgid "Create one."
 msgstr "Hozzon létre egyet."
-
-msgid "Group"
-msgstr "Csoport"
 
 msgid "User"
 msgstr "Felhasználó"
@@ -1839,9 +1927,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Csoport-specifikus tulajdonságok letiltása"
 
-msgid "Role"
-msgstr "Szerepvállalás"
-
 msgid "Please enter a role name."
 msgstr "Kérjük, adja meg a szerepkör nevét."
 
@@ -2015,6 +2100,18 @@ msgstr "Biztos, hogy az összes menedzsert törölni akarja?"
 msgid "Appointment"
 msgstr "Időpontkérés"
 
+msgid "Pastoral Care"
+msgstr "Lelkipásztori gondozás"
+
+msgid "Open the pastoral care record"
+msgstr "Nyissa meg a lelkipásztori nyilvántartást"
+
+msgid "No records found for this view."
+msgstr "Ehhez a nézethez nem találtak rekordot."
+
+msgid "No matching records found."
+msgstr "Nem találtunk megfelelő rekordot."
+
 msgid "Never contacted"
 msgstr "Soha nem lépett kapcsolatba"
 
@@ -2026,6 +2123,22 @@ msgstr "Látogatások/hívások"
 
 msgid "Last visit/call"
 msgstr "Utolsó látogatás/hívás"
+
+msgid "Opening..."
+msgstr "Nyitás..."
+
+msgid "Selecting..."
+msgstr "Kiválasztása..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+"Jelenleg nem készülhetne megfelelő lelkipásztori nyilvántartás. Kérjük, "
+"próbálkozzon más kategóriával."
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr "Jelenleg nem tudunk lelkigondozói akciót indítani."
 
 msgid "Delete Pastoral Care Type"
 msgstr "Lelkipásztori ellátás típusának törlése"
@@ -2091,6 +2204,22 @@ msgstr ""
 "Nem minden családot töröltek : Néhányuknak vannak adományokat tartalmazó "
 "feljegyzései, és ezeket NEM lehet törölni, amíg ezek az adományok nem "
 "kapcsolódnak egy másik családhoz."
+
+msgid "Review family member information"
+msgstr "A családtagok adatainak felülvizsgálata"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+"A mentés előtt ellenőrizze a megjelenített információkat, és szükség esetén "
+"frissítse a családtagot."
+
+msgid "Update family member details"
+msgstr "Családtagok adatainak frissítése"
+
+msgid "Save changes"
+msgstr "Változások mentése"
 
 msgid "Confirm Deactivation"
 msgstr "Hatályon kívül helyezés megerősítése"
@@ -2277,6 +2406,28 @@ msgstr ""
 "feljegyzései, és NEM törölhetők, amíg ezek az adományok nem kapcsolódnak egy "
 "másik családhoz."
 
+msgid "Review personal information"
+msgstr "Személyes információk felülvizsgálata"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+"Ellenőrizze az aktuális értékeket, és mentés előtt frissítse a javításra "
+"szoruló mezőket."
+
+msgid "Profile information"
+msgstr "Profil információk"
+
+msgid "Additional information"
+msgstr "További információk"
+
+msgid "Update personal details"
+msgstr "Személyes adatok frissítése"
+
+msgid "Processing..."
+msgstr "Feldolgozás..."
+
 msgid "Please confirm deactivation of person"
 msgstr "Kérjük, erősítse meg a személy deaktiválását"
 
@@ -2299,8 +2450,29 @@ msgstr "A  deaktiválása"
 msgid "Activate"
 msgstr "Aktiválja a  címet."
 
+msgid "Deactivating..."
+msgstr "Kikapcsolás..."
+
+msgid "Activating..."
+msgstr "Aktiválás..."
+
+msgid "Unable to update this person status."
+msgstr "Nem lehet frissíteni a személy státuszát."
+
+msgid "Deleting..."
+msgstr "Törlés..."
+
+msgid "Unable to delete the photo."
+msgstr "Nem lehet törölni a fényképet."
+
+msgid "Preview the current profile photo."
+msgstr "Az aktuális profilkép előnézete."
+
 msgid "Property actions"
 msgstr "Tulajdonosi intézkedések"
+
+msgid "Please select a property first."
+msgstr "Kérjük, először válasszon ki egy ingatlant."
 
 msgid "Assigning..."
 msgstr "Hozzárendelés..."
@@ -2308,30 +2480,210 @@ msgstr "Hozzárendelés..."
 msgid "Assign"
 msgstr "Hozzárendelés"
 
-msgid "Are you sure you want to remove this person's membership from"
+msgid "Unable to assign this property."
+msgstr "Ezt a tulajdonságot nem lehet hozzárendelni."
+
+msgid "Remove group assignment"
+msgstr "Csoport hozzárendelés eltávolítása"
+
+msgid "Remove this person from the group"
+msgstr "Távolítsa el ezt a személyt a csoportból"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
 msgstr ""
-"Biztos vagy benne, hogy el akarod távolítani ennek a személynek a tagságát a"
+"A tagság és a csoporthoz kapcsolódó szerepkörök törlésre kerülnek az adott "
+"személy esetében."
+
+msgid "Remove from group"
+msgstr "Eltávolítás a csoportból"
+
+msgid "Keep assignment"
+msgstr "Tartsa meg a megbízást"
+
+msgid "Share your document"
+msgstr "Dokumentum megosztása"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+"Válassza ki a címzetteket, határozza meg a hozzáférésüket, és döntse el, "
+"hogy kapjanak-e e-mail értesítést."
+
+msgid "Current access"
+msgstr "Jelenlegi hozzáférés"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+"Válasszon ki egy vagy több címzettet a hozzáférésük frissítéséhez vagy "
+"eltávolításához."
+
+msgid "Set rights"
+msgstr "Jogok beállítása"
+
+msgid "Read and write"
+msgstr "Olvasás és írás"
+
+msgid "Notification"
+msgstr "Értesítés"
+
+msgid "Add people, families or groups"
+msgstr "Személyek, családok vagy csoportok hozzáadása"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+"Név szerinti kereséssel hozzáférést biztosíthat egy másik személynek, egy "
+"családnak vagy egy egész csoportnak."
+
+msgid "Please select at least one recipient first."
+msgstr "Kérjük, először legalább egy címzettet válasszon ki."
+
+msgid "Remove shared access"
+msgstr "Megosztott hozzáférés eltávolítása"
+
+msgid "Remove access for the selected recipients?"
+msgstr "Megszünteti a hozzáférést a kiválasztott címzettek számára?"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+"Csak a kiválasztott címzettek kerülnek eltávolításra. A dokumentum továbbra "
+"is megmarad a többi címzett számára."
+
+msgid "Remove access"
+msgstr "Hozzáférés eltávolítása"
+
+msgid "Keep access"
+msgstr "Hozzáférés fenntartása"
+
+msgid "Stop sharing this document"
+msgstr "Ne ossza meg ezt a dokumentumot"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "Ne osszuk meg ezt a dokumentumot mindenkivel?"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+"A jelenlegi kedvezményezettek azonnal elveszítik a hozzáférést. Maga a "
+"dokumentum továbbra is elérhető marad az Ön számára."
+
+msgid "Keep sharing"
+msgstr "Ossza meg továbbra is"
 
 msgid "Share your Document"
 msgstr "Dokumentum megosztása"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Biztos vagy benne? Törölni akarod ezt a személyt?"
+msgid "Unassign property"
+msgstr "Hozzárendelés feloldása"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Biztos vagy benne? Nem akarja tovább megosztani a dokumentumát ?"
+msgid "Remove this property from the current person?"
+msgstr "Eltávolítja ezt a tulajdonságot az aktuális személytől?"
+
+msgid "The property value will be removed from this profile."
+msgstr "A tulajdonság értéke eltávolításra kerül ebből a profilból."
+
+msgid "Remove property"
+msgstr "Tulajdonság eltávolítása"
+
+msgid "Keep property"
+msgstr "Tartsa meg az ingatlant"
+
+msgid "Edit property value"
+msgstr "Tulajdonság értékének szerkesztése"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr "Frissíti az aktuális személy profiljában tárolt értéket."
+
+msgid "Save property"
+msgstr "Mentsd az ingatlant"
 
 msgid "Change classification"
 msgstr "Változás az osztályozásban"
 
-msgid "Change role"
-msgstr "Szerepváltás"
+msgid "Choose the classification that best matches this person profile."
+msgstr "Válassza ki a személy profiljának leginkább megfelelő besorolást."
+
+msgid "Update classification"
+msgstr "Frissítés osztályozás"
+
+msgid "Change family role"
+msgstr "Családi szerep megváltoztatása"
+
+msgid "Select the role this person should have inside the family record."
+msgstr ""
+"Válassza ki, hogy a személynek milyen szerepet kell betöltenie a családi "
+"nyilvántartásban."
+
+msgid "Update role"
+msgstr "Szerepkör frissítése"
 
 msgid "Volunteer actions"
 msgstr "Önkéntes tevékenységek"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "Önkéntes lehetőség törlése"
+msgid "Remove volunteer opportunity"
+msgstr "Önkéntes lehetőség eltávolítása"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Elvenni ezt az önkéntes lehetőséget az illetőtől?"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "A feladat csak ebből a profilból kerül eltávolításra."
+
+msgid "Remove assignment"
+msgstr "Hozzárendelés eltávolítása"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr "Kérjük, először válasszon ki legalább egy önkéntes lehetőséget."
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Nem sikerült hozzárendelni a kiválasztott önkéntes lehetőségeket."
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Néhány önkéntes lehetőséget nem lehetett kijelölni."
+
+msgid "Delete automatic payment"
+msgstr "Automatikus fizetés törlése"
+
+msgid "Delete this automatic payment setup?"
+msgstr "Törölje ezt az automatikus fizetési beállítást?"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+"Az ehhez a beállításhoz kapcsolódó ismétlődő kifizetések a törlés után "
+"megszűnnek."
+
+msgid "Delete payment"
+msgstr "Fizetés törlése"
+
+msgid "Keep payment"
+msgstr "Fizetés megtartása"
+
+msgid "Delete pledge or payment"
+msgstr "Zálogjog vagy fizetés törlése"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "Törölje ezt a zálogbejegyzést vagy fizetési bejegyzést?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr "Ez a bejegyzés törlésre kerül a család hozzájárulási előzményeiből."
+
+msgid "Delete entry"
+msgstr "Bejegyzés törlése"
+
+msgid "Keep entry"
+msgstr "Tartsa meg a bejegyzést"
+
+msgid "Share this secure verification link with the person."
+msgstr "Ossza meg ezt a biztonságos ellenőrző linket a személlyel."
 
 msgid "Comments"
 msgstr "Megjegyzések"
@@ -2344,14 +2696,29 @@ msgid ""
 msgstr ""
 "A kiválasztott bővítményeket törölni fogja. Ez a művelet nem vonható vissza!"
 
-msgid "Select your zipped plugin file"
-msgstr "Válassza ki a zippelt plugin fájlt"
+msgid "Update plugin"
+msgstr "Plugin frissítése"
 
-msgid "Download the zipped file of the plugin"
-msgstr "Töltse le a plugin zippelt fájlját"
+msgid "Add plugin"
+msgstr "Plugin hozzáadása"
 
-msgid "Plugin download manager"
-msgstr "Plugin letöltés menedzser"
+msgid "Choose the new zipped package to update this plugin."
+msgstr "Válassza ki az új zippelt csomagot a bővítmény frissítéséhez."
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "Válassza ki a zippelt bővítménycsomagot a CRM-be való telepítéshez."
+
+msgid "Plugin archive"
+msgstr "Plugin archívum"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "Itt csak a zippelt plugin csomagokat kell kiválasztani."
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "A feltöltés akkor kezdődik, amikor elküldi ezt az űrlapot."
+
+msgid "Plugin manager"
+msgstr "Plugin menedzser"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Az aktuális képek mappa mostantól a nyilvános mappa !!!"
@@ -2660,6 +3027,9 @@ msgstr ""
 "Válassza ki az eseménytípust, amelyet a jelenléti ív létrehozásához "
 "használni szeretne."
 
+msgid "Create First A New Event"
+msgstr "Új esemény létrehozása"
+
 msgid "Create Event With Students"
 msgstr "Esemény létrehozása diákokkal"
 
@@ -2760,9 +3130,6 @@ msgstr "Aktuális esemény"
 
 msgid "No assignments for kiosk"
 msgstr "Nincs hozzárendelés a kioszkhoz"
-
-msgid "Event"
-msgstr "Esemény"
 
 msgid "Kiosk Name"
 msgstr "Kioszk neve"
@@ -2980,6 +3347,58 @@ msgid ""
 "altered."
 msgstr "Minden tagság megsemmisül.  Maguk a tagok nem fognak megváltozni."
 
+#~ msgid "ERROR"
+#~ msgstr "HIBA"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Válassza ki a csoportot, amelyhez hozzá szeretné adni a kosarát."
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "Be kell állítania egy csoportnevet"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Igen : ha biztos vagy benne"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "A kosár tartalmát hozzáadhatja az alább kiválasztott eseményhez<br> - "
+#~ "VAGY - <br>Létrehozhat először egy eseményt, és utána adhatja hozzá őket."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Kérjük, regisztrálja a CRM példányát az alábbi információk ellenőrzésével "
+#~ "és a Küldés gomb megnyomásával."
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Kérjük, válassza ki a tagok önkénteseit"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Kérjük, válassza ki a tagok célszerepét"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Csoportnév hozzáadása"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr ""
+#~ "Biztos vagy benne, hogy el akarod távolítani ennek a személynek a "
+#~ "tagságát a"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Biztos vagy benne? Törölni akarod ezt a személyt?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "Biztos vagy benne? Nem akarja tovább megosztani a dokumentumát ?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "Önkéntes lehetőség törlése"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Válassza ki a zippelt plugin fájlt"
+
 #~ msgid "Personal"
 #~ msgstr "Személyes"
 
@@ -3048,9 +3467,6 @@ msgstr "Minden tagság megsemmisül.  Maguk a tagok nem fognak megváltozni."
 #~ msgid "Songs"
 #~ msgstr "Dalok"
 
-#~ msgid "Remove all"
-#~ msgstr "Távolítson el mindent"
-
 #~ msgid "Add all"
 #~ msgstr "Adja hozzá az összes"
 
@@ -3081,9 +3497,6 @@ msgstr "Minden tagság megsemmisül.  Maguk a tagok nem fognak megváltozni."
 
 #~ msgid "Share your File"
 #~ msgstr "Fájl megosztása"
-
-#~ msgid "Members from group"
-#~ msgstr "A csoport tagjai"
 
 #~ msgid "Add person"
 #~ msgstr "Személy hozzáadása"

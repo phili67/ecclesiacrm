@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-25 18:26+0000\n"
+"POT-Creation-Date: 2026-04-26 18:38+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +73,7 @@ msgstr "视频"
 #: v2/templates/people/personPrint.php:403
 #: v2/templates/people/personPrint.php:659
 #: v2/templates/people/personPrint.php:718
-#: v2/templates/people/personview.php:1038
+#: v2/templates/people/personview.php:1098
 #: v2/templates/sundayschool/sundayschoolreports.php:66
 msgid "None"
 msgstr "无"
@@ -353,8 +353,8 @@ msgstr "所有家庭"
 #: EcclesiaCRM/MenuBar/MenuBar.php:224
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:210
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:165
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:256
 #: v2/templates/people/lettersandlabels.php:228
 #: v2/templates/people/lettersandlabels.php:317
 #: v2/templates/people/personlist.php:19
@@ -369,8 +369,8 @@ msgstr "人数"
 #: EcclesiaCRM/MenuBar/MenuBar.php:197 EcclesiaCRM/MenuBar/MenuBar.php:231
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:139
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:215
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:261
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:50
 #: v2/templates/people/lettersandlabels.php:352
@@ -392,7 +392,9 @@ msgstr "家庭"
 #: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:132
 #: v2/templates/pastoralcare/pastoralcareperson.php:160
 #: v2/templates/people/peopledashboard.php:170
-#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:133
+#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:92
+#: v2/templates/people/personview.php:154
+#: v2/templates/people/personview.php:440
 msgid "Groups"
 msgstr "群体"
 
@@ -484,7 +486,7 @@ msgstr "添加到组"
 #: v2/templates/calendar/eventnames.php:280
 #: v2/templates/cart/cartToFamily.php:224
 #: v2/templates/group/groupPropsEditor.php:235
-#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:50
+#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:97
 #: v2/templates/group/groupview.php:400
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
@@ -544,8 +546,9 @@ msgstr "名字"
 #: v2/templates/fundraiser/batchWinnerEntry.php:104
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:103
-#: v2/templates/group/groupedit.php:68 v2/templates/group/grouplist.php:51
-#: v2/templates/group/grouplist.php:136 v2/templates/map/MapUsingGoogle.php:121
+#: v2/templates/group/groupedit.php:20 v2/templates/group/groupedit.php:118
+#: v2/templates/group/grouplist.php:51 v2/templates/group/grouplist.php:136
+#: v2/templates/map/MapUsingGoogle.php:121
 #: v2/templates/map/MapUsingGoogle.php:123
 #: v2/templates/map/MapUsingGoogle.php:157
 #: v2/templates/map/MapUsingGoogle.php:158
@@ -704,7 +707,8 @@ msgstr "认捐"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:151
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: v2/templates/people/personview.php:670
+#: v2/templates/people/personview.php:713
+#: v2/templates/people/personview.php:1260
 #: v2/templates/volunteer/volunteeropportunity.php:102
 msgid "Volunteer Opportunities"
 msgstr "志愿者机会"
@@ -712,8 +716,8 @@ msgstr "志愿者机会"
 #: EcclesiaCRM/APIControllers/SearchController.php:319
 #: EcclesiaCRM/APIControllers/SearchController.php:322
 #: EcclesiaCRM/Search/FamilySearchRes.php:186
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:149
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:220
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:266
 #: v2/templates/people/peopledashboard.php:96
 #: v2/templates/people/peoplelist.php:22 v2/templates/people/peoplelist.php:54
 msgid "Singles"
@@ -840,7 +844,7 @@ msgstr "集团类型"
 #: v2/templates/people/familyview.php:424
 #: v2/templates/people/personPrint.php:426
 #: v2/templates/people/personPrint.php:491
-#: v2/templates/people/personview.php:826
+#: v2/templates/people/personview.php:877
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:728 v2/templates/user/userseditor.php:796
@@ -956,7 +960,6 @@ msgid "Group Member Role"
 msgstr "小组成员角色"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:159
-#: v2/templates/group/groupedit.php:87
 #: v2/templates/system/optionManager.php:132
 msgid "Group Member Roles"
 msgstr "小组成员的角色"
@@ -1033,7 +1036,7 @@ msgstr "家庭自定义列表选项编辑器"
 #: v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:55
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:34
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:44
 msgid "Person"
 msgstr "个人"
@@ -1061,13 +1064,13 @@ msgstr "个人"
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:99
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:298
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:28
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:35
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:48
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:55
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:50
 #: v2/templates/people/UpdateAllLatLon.php:67
 #: v2/templates/people/familyview.php:85
 #: v2/templates/people/personPrint.php:316
-#: v2/templates/people/personview.php:621
+#: v2/templates/people/personview.php:664
 #: v2/templates/system/convertIndividualToAddress.php:106
 #: v2/templates/system/convertIndividualToAddress.php:149
 msgid "Family"
@@ -1215,9 +1218,9 @@ msgstr "激活的账户"
 #: v2/templates/people/familyview.php:960 v2/templates/people/personlist.php:93
 #: v2/templates/people/personlist.php:94 v2/templates/people/personlist.php:95
 #: v2/templates/people/personlist.php:96 v2/templates/people/personlist.php:97
-#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:162
-#: v2/templates/people/personview.php:365
-#: v2/templates/people/personview.php:1553
+#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:191
+#: v2/templates/people/personview.php:391
+#: v2/templates/people/personview.php:1699
 #: v2/templates/sundayschool/sundayschooldashboard.php:290
 #: v2/templates/sundayschool/sundayschooldashboard.php:291
 #: v2/templates/sundayschool/sundayschooldashboard.php:292
@@ -1442,19 +1445,20 @@ msgid "Home"
 msgstr "首页"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:129
-#: v2/templates/people/personview.php:455
+#: v2/templates/people/personview.php:496
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "更改密码"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:122 Include/Header.php:131
-#: v2/templates/people/personview.php:453
+#: v2/templates/people/personview.php:494
 msgid "Change Settings"
 msgstr "更改设置"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:123 v2/templates/people/familyview.php:574
 #: v2/templates/people/personPrint.php:612
-#: v2/templates/people/personview.php:715
+#: v2/templates/people/personview.php:758
+#: v2/templates/people/personview.php:1474
 msgid "Documents"
 msgstr "文件"
 
@@ -1577,7 +1581,7 @@ msgstr "列表组"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:343
 #: v2/templates/deposit/electronicPaymentList.php:200
-#: v2/templates/group/groupedit.php:136 v2/templates/group/groupview.php:239
+#: v2/templates/group/groupedit.php:178 v2/templates/group/groupview.php:239
 #: v2/templates/volunteer/volunteerview.php:206
 msgid "Disabled"
 msgstr "失能"
@@ -1616,7 +1620,7 @@ msgstr "自定义菜单"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:29
 #: v2/templates/people/familyview.php:305
-#: v2/templates/people/personview.php:485 v2/templates/user/userseditor.php:494
+#: v2/templates/people/personview.php:526 v2/templates/user/userseditor.php:494
 msgid "Pastoral Care"
 msgstr "牧民关怀"
 
@@ -1814,7 +1818,7 @@ msgstr "总数"
 #: v2/templates/people/personEditor.php:1164
 #: v2/templates/people/personEditor.php:1310
 #: v2/templates/people/personEditor.php:1334
-#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:227
+#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:253
 #: v2/templates/system/csvExport.php:121 v2/templates/system/csvExport.php:127
 #: v2/templates/system/csvImport.php:185 v2/templates/system/csvImport.php:186
 msgid "Address"
@@ -1848,7 +1852,7 @@ msgstr "城市，州，邮编"
 #: v2/templates/people/personEditor.php:1498
 #: v2/templates/people/personEditor.php:1502
 #: v2/templates/people/personPrint.php:246
-#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:290
+#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:316
 #: v2/templates/system/csvExport.php:169 v2/templates/system/csvImport.php:191
 #: v2/templates/system/eventAttendance.php:193 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1866,7 +1870,7 @@ msgstr "家庭电话"
 #: v2/templates/people/familyEditor.php:932
 #: v2/templates/people/familyview.php:148
 #: v2/templates/people/personEditor.php:1585
-#: v2/templates/people/personview.php:297
+#: v2/templates/people/personview.php:323
 msgid "Send Newsletter"
 msgstr "发送通讯"
 
@@ -1934,9 +1938,9 @@ msgstr "成人/儿童"
 #: v2/templates/people/personEditor.php:1607
 #: v2/templates/people/personEditor.php:1611
 #: v2/templates/people/personPrint.php:361
-#: v2/templates/people/personview.php:304
-#: v2/templates/people/personview.php:438
-#: v2/templates/people/personview.php:828
+#: v2/templates/people/personview.php:330
+#: v2/templates/people/personview.php:479
+#: v2/templates/people/personview.php:879
 #: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:190 v2/templates/system/csvImport.php:194
@@ -1953,7 +1957,7 @@ msgstr "电子邮件"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:168
 #: v2/templates/people/familyview.php:426
-#: v2/templates/people/personview.php:827
+#: v2/templates/people/personview.php:878
 msgid "Birthday"
 msgstr "生日"
 
@@ -1993,7 +1997,7 @@ msgstr "会员/朋友"
 #: v2/templates/people/personEditor.php:1527
 #: v2/templates/people/personEditor.php:1531
 #: v2/templates/people/personPrint.php:251
-#: v2/templates/people/personview.php:318 v2/templates/system/csvExport.php:175
+#: v2/templates/people/personview.php:344 v2/templates/system/csvExport.php:175
 #: v2/templates/system/csvImport.php:192
 msgid "Work Phone"
 msgstr "工作电话"
@@ -2042,7 +2046,7 @@ msgstr "页码"
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
 #: Reports/GroupReport.php:129
 #: external/templates/registration/family-register-members.php:104
-#: v2/templates/people/personview.php:332
+#: v2/templates/people/personview.php:358
 msgid "Work"
 msgstr "工作"
 
@@ -2065,7 +2069,7 @@ msgstr "和"
 #: EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 Reports/DirectoryReport.php:331
 #: v2/templates/pastoralcare/pastoralcareperson.php:330
-#: v2/templates/people/personview.php:325 v2/templates/system/csvExport.php:196
+#: v2/templates/people/personview.php:351 v2/templates/system/csvExport.php:196
 msgid "Work/Other Email"
 msgstr "工作/其他电子邮件"
 
@@ -2153,8 +2157,8 @@ msgstr "学生"
 #: v2/templates/people/familylist.php:96 v2/templates/people/familyview.php:99
 #: v2/templates/people/familyview.php:504
 #: v2/templates/people/familyview.php:666 v2/templates/people/personlist.php:74
-#: v2/templates/people/personview.php:168
-#: v2/templates/people/personview.php:894
+#: v2/templates/people/personview.php:197
+#: v2/templates/people/personview.php:945
 msgid "Edit"
 msgstr "编辑"
 
@@ -2236,6 +2240,7 @@ msgid "group"
 msgstr "组"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:38
+#: v2/templates/people/personview.php:990
 msgid "groups"
 msgstr "团体"
 
@@ -2258,7 +2263,7 @@ msgstr "周日小组"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:237
 #: v2/templates/people/familylist.php:93 v2/templates/people/personlist.php:71
-#: v2/templates/people/personview.php:964
+#: v2/templates/people/personview.php:1024
 msgid "View"
 msgstr "查看"
 
@@ -2368,9 +2373,9 @@ msgstr "纪念日"
 #: v2/templates/people/familyview.php:674
 #: v2/templates/people/familyview.php:991
 #: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:899
-#: v2/templates/people/personview.php:994
-#: v2/templates/people/personview.php:1582 v2/templates/plugins/plugins.php:58
+#: v2/templates/people/personview.php:950
+#: v2/templates/people/personview.php:1054
+#: v2/templates/people/personview.php:1728 v2/templates/plugins/plugins.php:58
 #: v2/templates/system/optionManager.php:443
 #: v2/templates/system/optionManager.php:445
 msgid "Delete"
@@ -2449,7 +2454,7 @@ msgstr "无"
 #: v2/templates/people/personEditor.php:1558
 #: v2/templates/people/personEditor.php:1562
 #: v2/templates/people/personPrint.php:256
-#: v2/templates/people/personview.php:278 v2/templates/system/csvExport.php:184
+#: v2/templates/people/personview.php:304 v2/templates/system/csvExport.php:184
 msgid "Mobile Phone"
 msgstr "移动电话"
 
@@ -2634,7 +2639,7 @@ msgstr "的。"
 
 #: EcclesiaCRM/Service/PersonService.php:51
 #: v2/templates/pastoralcare/pastoralcareperson.php:225
-#: v2/templates/people/personview.php:212
+#: v2/templates/people/personview.php:238
 msgid "(No assigned family)"
 msgstr "(无指定家庭)"
 
@@ -2690,7 +2695,7 @@ msgstr "其他"
 #: v2/templates/pastoralcare/pastoralcareperson.php:534
 #: v2/templates/people/familyEditor.php:82
 #: v2/templates/people/familyview.php:448
-#: v2/templates/people/personview.php:850
+#: v2/templates/people/personview.php:901
 msgid "Head of Household"
 msgstr "户主"
 
@@ -2700,7 +2705,7 @@ msgstr "户主"
 #: v2/templates/pastoralcare/pastoralcareperson.php:535
 #: v2/templates/people/familyEditor.php:84
 #: v2/templates/people/familyview.php:451
-#: v2/templates/people/personview.php:853
+#: v2/templates/people/personview.php:904
 msgid "Spouse"
 msgstr "配偶"
 
@@ -2710,7 +2715,7 @@ msgstr "配偶"
 #: v2/templates/pastoralcare/pastoralcareperson.php:537
 #: v2/templates/people/familyEditor.php:86
 #: v2/templates/people/familyview.php:454
-#: v2/templates/people/personview.php:856
+#: v2/templates/people/personview.php:907
 msgid "Child"
 msgstr "儿童"
 
@@ -3069,19 +3074,19 @@ msgid "Plugins"
 msgstr "插件"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:45
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:65
 msgid "Pastoral care list of members for"
 msgstr "牧民关怀的成员名单为"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:124
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:187
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
 msgid "Period  from"
 msgstr "期间从"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:124
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:187
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
 msgid "to"
 msgstr "至"
 
@@ -6001,7 +6006,7 @@ msgstr "清楚地描述问题或功能请求，以便快速审查和复制。"
 
 #: Include/Header-function.php:90 Include/Header-function.php:152
 #: browser/browse.php:148 v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:31
+#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "关闭"
@@ -6087,7 +6092,7 @@ msgstr "除非你特意加入，否则不会提交任何个人身份信息。"
 #: v2/templates/people/familyview.php:990
 #: v2/templates/people/lettersandlabels.php:297
 #: v2/templates/people/personEditor.php:1916
-#: v2/templates/people/personview.php:1581
+#: v2/templates/people/personview.php:1727
 #: v2/templates/people/reminderreport.php:50
 #: v2/templates/sundayschool/sundayschooldashboard.php:325
 #: v2/templates/user/userseditor.php:878 v2/templates/user/userseditor.php:879
@@ -6247,6 +6252,7 @@ msgstr "产生于"
 #: Reports/AdvancedDeposit.php:829 Reports/AdvancedDeposit.php:843
 #: Reports/AdvancedDeposit.php:860
 #: v2/templates/fundraiser/batchWinnerEntry.php:70
+#: v2/templates/people/personview.php:1478
 msgid "items"
 msgstr "项目"
 
@@ -6511,8 +6517,8 @@ msgstr ""
 #: v2/templates/pastoralcare/pastoralcareperson.php:193
 #: v2/templates/people/familyview.php:957
 #: v2/templates/people/personPrint.php:239
-#: v2/templates/people/personview.php:182
-#: v2/templates/people/personview.php:1550
+#: v2/templates/people/personview.php:208
+#: v2/templates/people/personview.php:1696
 msgid "Informations"
 msgstr "信息"
 
@@ -6906,7 +6912,7 @@ msgstr "注册"
 #: v2/templates/people/familyEditor.php:1143
 #: v2/templates/people/familyview.php:400
 #: v2/templates/people/personPrint.php:421
-#: v2/templates/people/personview.php:825
+#: v2/templates/people/personview.php:94 v2/templates/people/personview.php:876
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "家庭成员"
@@ -7003,7 +7009,7 @@ msgstr "确认新密码"
 #: v2/templates/deposit/pledgeEditor.php:238
 #: v2/templates/fundraiser/donatedItemEditor.php:179
 #: v2/templates/fundraiser/fundRaiserEditor.php:179
-#: v2/templates/group/groupedit.php:147
+#: v2/templates/group/groupedit.php:78
 #: v2/templates/people/canvassEditor.php:277
 #: v2/templates/people/familyEditor.php:762
 #: v2/templates/people/familyEditor.php:860
@@ -7200,7 +7206,7 @@ msgstr "或以不同的用户身份登录"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:293
 #: v2/templates/pastoralcare/pastoralcareperson.php:253
 #: v2/templates/people/personPrint.php:311
-#: v2/templates/people/personview.php:248
+#: v2/templates/people/personview.php:274
 #: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/sundayschool/sundayschoolview.php:318
 #: v2/templates/system/csvImport.php:196
@@ -7428,6 +7434,7 @@ msgstr "全部"
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:157
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/calendar/calendar.php:243
+#: v2/templates/people/personview.php:1588
 msgid "Shared"
 msgstr "共用的"
 
@@ -7572,7 +7579,7 @@ msgstr "返回到活动"
 #: v2/templates/group/groupPropsEditor.php:236
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
-#: v2/templates/group/groupedit.php:56 v2/templates/group/groupview.php:401
+#: v2/templates/group/groupedit.php:101 v2/templates/group/groupview.php:401
 #: v2/templates/plugins/plugins.php:90
 msgid "Description"
 msgstr "描述"
@@ -7582,7 +7589,7 @@ msgstr "描述"
 #: v2/templates/deposit/depositslipeditor.php:180
 #: v2/templates/deposit/electronicPaymentList.php:152
 #: v2/templates/people/familyEditor.php:1204
-#: v2/templates/people/personview.php:970
+#: v2/templates/people/personview.php:1030
 msgid "Action"
 msgstr "行动"
 
@@ -8129,12 +8136,12 @@ msgstr "清空购物车到活动现场"
 msgid "Map Cart"
 msgstr "地图车"
 
-#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:518
+#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:559
 msgid "Get the vCard of the person"
 msgstr "获取该人的VCard"
 
 #: v2/templates/cart/cartview.php:52 v2/templates/people/familyview.php:333
-#: v2/templates/people/personview.php:521
+#: v2/templates/people/personview.php:562
 msgid "vCard"
 msgstr "vCard"
 
@@ -8152,7 +8159,7 @@ msgstr "电子邮件购物车"
 
 #: v2/templates/cart/cartview.php:66 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:297
-#: v2/templates/people/personview.php:441
+#: v2/templates/people/personview.php:482
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
 #: v2/templates/volunteer/volunteerview.php:122
@@ -8250,7 +8257,7 @@ msgstr "自定义页面"
 
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:51
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:80
 #: v2/templates/plugins/plugins.php:110
 msgid "Settings"
 msgstr "设置"
@@ -8448,7 +8455,7 @@ msgstr "结束日期。"
 #: v2/templates/deposit/electronicPaymentList.php:79
 #: v2/templates/deposit/finddepositslip.php:134
 #: v2/templates/people/familyview.php:981
-#: v2/templates/people/personview.php:1570
+#: v2/templates/people/personview.php:1716
 msgid "Confirm Delete"
 msgstr "确认删除"
 
@@ -8510,7 +8517,7 @@ msgstr "年"
 #: v2/templates/people/familyCustomFieldEditor.php:388
 #: v2/templates/people/familyview.php:428
 #: v2/templates/people/personCustomEditor.php:380
-#: v2/templates/people/personview.php:829
+#: v2/templates/people/personview.php:880
 #: v2/templates/system/optionManager.php:425 v2/templates/user/userlist.php:53
 #: v2/templates/volunteer/volunteerview.php:36
 msgid "Actions"
@@ -8887,10 +8894,10 @@ msgstr "指派从#开始"
 
 #: v2/templates/deposit/manageEnvelopes.php:200
 #: v2/templates/group/groupview.php:359 v2/templates/people/familyview.php:732
-#: v2/templates/people/personview.php:1175
-#: v2/templates/people/personview.php:1177
-#: v2/templates/people/personview.php:1243
-#: v2/templates/people/personview.php:1245
+#: v2/templates/people/personview.php:1242
+#: v2/templates/people/personview.php:1244
+#: v2/templates/people/personview.php:1317
+#: v2/templates/people/personview.php:1319
 msgid "Assign"
 msgstr "指定"
 
@@ -9267,6 +9274,7 @@ msgid "New"
 msgstr "新"
 
 #: v2/templates/fundraiser/donatedItemEditor.php:27
+#: v2/templates/group/groupedit.php:91
 msgid "Basic Information"
 msgstr "基本信息"
 
@@ -9503,7 +9511,7 @@ msgid "Special option"
 msgstr "特别选项"
 
 #: v2/templates/group/groupPropsEditor.php:263
-#: v2/templates/group/groupedit.php:96
+#: v2/templates/group/groupedit.php:157
 #: v2/templates/people/familyCustomFieldEditor.php:425
 #: v2/templates/people/personCustomEditor.php:417
 msgid "Select a group"
@@ -9695,77 +9703,171 @@ msgstr "徽章预览"
 msgid "Generate a PDF using current group configuration."
 msgstr "使用当前组配置生成 PDF。"
 
-#: v2/templates/group/groupedit.php:41
+#: v2/templates/group/groupedit.php:55
 msgid "Special Group Settings : Sunday School Type"
 msgstr "特殊小组设置：主日学类型"
 
-#: v2/templates/group/groupedit.php:41
+#: v2/templates/group/groupedit.php:55
 msgid "Group Settings"
 msgstr "组别设置"
 
-#: v2/templates/group/groupedit.php:65
+#: v2/templates/group/groupedit.php:58
+msgid ""
+"Update the group identity, category and special options, then manage member "
+"roles below."
+msgstr "更新组身份、类别和特殊选项，然后在下面管理成员角色。"
+
+#: v2/templates/group/groupedit.php:63 v2/templates/group/groupedit.php:214
+msgid "Roles"
+msgstr "角色"
+
+#: v2/templates/group/groupedit.php:64
+msgid "Properties enabled"
+msgstr "已启用的属性"
+
+#: v2/templates/group/groupedit.php:64
+msgid "Properties disabled"
+msgstr "禁用属性"
+
+#: v2/templates/group/groupedit.php:73
+msgid "Edit Group"
+msgstr "编辑组"
+
+#: v2/templates/group/groupedit.php:74
+msgid ""
+"Keep the basic information clear so the group is easy to identify from menus "
+"and reports."
+msgstr "保持基本信息清晰，以便从菜单和报告中轻松识别组别。"
+
+#: v2/templates/group/groupedit.php:86
+msgid ""
+"Changes to the group are saved from this form. Role names are managed "
+"separately and update instantly when edited."
+msgstr "对组的更改可通过此表单保存。角色名称单独管理，编辑后会立即更新。"
+
+#: v2/templates/group/groupedit.php:92
+msgid "Name and description shown across the application."
+msgstr "在整个应用程序中显示名称和说明。"
+
+#: v2/templates/group/groupedit.php:98
+msgid "Enter the group name"
+msgstr "输入组名"
+
+#: v2/templates/group/groupedit.php:102
+msgid "Describe the purpose of this group"
+msgstr "说明该小组的目的"
+
+#: v2/templates/group/groupedit.php:110
+msgid "Category and Navigation"
+msgstr "类别和导航"
+
+#: v2/templates/group/groupedit.php:111
+msgid ""
+"This controls where the group appears in the left menu and how it is "
+"categorized."
+msgstr "这可以控制组在左侧菜单中的显示位置和分类方式。"
+
+#: v2/templates/group/groupedit.php:115
 msgid "Type of Group and Menu Category"
 msgstr "集团类型和菜单类别"
 
-#: v2/templates/group/groupedit.php:67
+#: v2/templates/group/groupedit.php:117
 msgid "This will include the group in a menu item in the left sidebar"
 msgstr "这将把该组包括在左侧边栏的一个菜单项中。"
 
-#: v2/templates/group/groupedit.php:89
-msgid "Clone roles"
-msgstr "克隆角色"
+#: v2/templates/group/groupedit.php:131
+msgid "Current behavior"
+msgstr "当前行为"
 
-#: v2/templates/group/groupedit.php:94
-msgid "from group"
-msgstr "来自集团的"
+#: v2/templates/group/groupedit.php:132
+msgid ""
+"Selecting a group type places this group in the related menu category and "
+"helps users find it faster."
+msgstr "选择组类型可将该组置于相关菜单类别中，帮助用户更快地找到该组。"
 
-#: v2/templates/group/groupedit.php:116
+#: v2/templates/group/groupedit.php:144
+msgid "Initial Member Roles"
+msgstr "初始成员角色"
+
+#: v2/templates/group/groupedit.php:145
+msgid "Reuse an existing group structure to get started faster."
+msgstr "重复使用现有的小组结构，更快地开始工作。"
+
+#: v2/templates/group/groupedit.php:151
+msgid "Clone roles from another group"
+msgstr "从另一个组中克隆角色"
+
+#: v2/templates/group/groupedit.php:155
+msgid "Source group"
+msgstr "来源组"
+
+#: v2/templates/group/groupedit.php:174
 msgid "Group Specific Properties"
 msgstr "组的具体属性"
 
-#: v2/templates/group/groupedit.php:121
+#: v2/templates/group/groupedit.php:175
+msgid ""
+"Useful when you need custom answers, classifications or form-driven "
+"information for this group."
+msgstr "当您需要为该组自定义答案、分类或表单驱动信息时非常有用。"
+
+#: v2/templates/group/groupedit.php:178
 msgid "Enabled"
 msgstr "已启用"
 
-#: v2/templates/group/groupedit.php:125 v2/templates/group/groupedit.php:138
+#: v2/templates/group/groupedit.php:187 v2/templates/group/groupedit.php:199
 msgid ""
 "Group-specific properties are useful to classify your groups or to make a "
 "sort of Doodle"
 msgstr "组的特定属性对分类你的组或做一种Doodle很有用"
 
-#: v2/templates/group/groupedit.php:126
+#: v2/templates/group/groupedit.php:188
 msgid "Disable Group Specific Properties"
 msgstr "禁用组的特定属性"
 
-#: v2/templates/group/groupedit.php:130
+#: v2/templates/group/groupedit.php:192
 msgid "Group-specific properties are useful to make a sort of doodle"
 msgstr "组的特定属性是有用的，可以做一种涂鸦的方式"
 
-#: v2/templates/group/groupedit.php:130 v2/templates/group/groupview.php:433
+#: v2/templates/group/groupedit.php:192 v2/templates/group/groupview.php:433
 msgid "Edit Group-Specific Properties Form"
 msgstr "编辑组的具体属性表"
 
-#: v2/templates/group/groupedit.php:138
+#: v2/templates/group/groupedit.php:199
 msgid "Enable Group Specific Properties"
 msgstr "启用组的特定属性"
 
-#: v2/templates/group/groupedit.php:157
+#: v2/templates/group/groupedit.php:210
 msgid "Group Roles"
 msgstr "集团角色"
 
-#: v2/templates/group/groupedit.php:163
+#: v2/templates/group/groupedit.php:211
+msgid ""
+"Manage the labels used for memberships in this group, choose the default "
+"role and keep their order tidy."
+msgstr "管理该组中成员资格使用的标签，选择默认角色并保持其顺序整齐。"
+
+#: v2/templates/group/groupedit.php:221
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr "一旦方框失去焦点，集团角色名称的改变就会被保存下来"
 
-#: v2/templates/group/groupedit.php:171
+#: v2/templates/group/groupedit.php:229
+msgid "Add a new role"
+msgstr "添加新角色"
+
+#: v2/templates/group/groupedit.php:230
+msgid "Create a role name that members and leaders will easily understand."
+msgstr "创建一个成员和领导容易理解的角色名称。"
+
+#: v2/templates/group/groupedit.php:235
 msgid "New Role"
 msgstr "新角色"
 
-#: v2/templates/group/groupedit.php:172
+#: v2/templates/group/groupedit.php:236
 msgid "Enter a role name"
 msgstr "输入角色名称"
 
-#: v2/templates/group/groupedit.php:176
+#: v2/templates/group/groupedit.php:240
 msgid "Add New Role"
 msgstr "添加新角色"
 
@@ -9842,14 +9944,14 @@ msgid "Map this group"
 msgstr "绘制本组地图"
 
 #: v2/templates/group/groupview.php:42 v2/templates/people/familyview.php:274
-#: v2/templates/people/personview.php:417
+#: v2/templates/people/personview.php:458
 msgid "Remove from Cart"
 msgstr "从购物车中删除"
 
 #: v2/templates/group/groupview.php:46 v2/templates/people/familyview.php:281
 #: v2/templates/people/familyview.php:493
-#: v2/templates/people/personview.php:427
-#: v2/templates/people/personview.php:886 v2/templates/query/queryview.php:172
+#: v2/templates/people/personview.php:468
+#: v2/templates/people/personview.php:937 v2/templates/query/queryview.php:172
 #: v2/templates/volunteer/volunteerview.php:44
 msgid "Add to Cart"
 msgstr "添加到购物车"
@@ -9870,7 +9972,7 @@ msgstr "删除该组"
 
 #: v2/templates/group/groupview.php:61
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:42
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:42
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:62
 #: v2/templates/pastoralcare/pastoralcarefamily.php:80
 #: v2/templates/pastoralcare/pastoralcareperson.php:81
 #: v2/templates/volunteer/volunteerview.php:62
@@ -9965,12 +10067,13 @@ msgstr "添加经理"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
 #: v2/templates/people/familyview.php:550
 #: v2/templates/people/personPrint.php:568
-#: v2/templates/people/personview.php:656
+#: v2/templates/people/personview.php:699
+#: v2/templates/people/personview.php:1189
 msgid "Assigned Properties"
 msgstr "分配的属性"
 
 #: v2/templates/group/groupview.php:335 v2/templates/people/familyview.php:703
-#: v2/templates/people/personview.php:1146
+#: v2/templates/people/personview.php:1213
 msgid "Assign a New Property"
 msgstr "指定一个新属性"
 
@@ -9987,7 +10090,7 @@ msgid "Property"
 msgstr "财产"
 
 #: v2/templates/group/groupview.php:342 v2/templates/people/familyview.php:713
-#: v2/templates/people/personview.php:1154 v2/templates/query/queryview.php:422
+#: v2/templates/people/personview.php:1221 v2/templates/query/queryview.php:422
 #: v2/templates/query/queryview.php:439
 msgid "select an option"
 msgstr "选择一个选项"
@@ -10103,7 +10206,7 @@ msgid "Filter by member types"
 msgstr "按成员类型过滤"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:41
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:61
 #: v2/templates/pastoralcare/pastoralcarefamily.php:79
 #: v2/templates/pastoralcare/pastoralcareperson.php:80
 msgid "Create an appointment"
@@ -10139,20 +10242,21 @@ msgstr "工作/其他电子邮件"
 #: v2/templates/pastoralcare/pastoralcareperson.php:136
 #: v2/templates/people/personEditor.php:1753
 #: v2/templates/people/personPrint.php:371
-#: v2/templates/people/personview.php:122 v2/templates/system/csvExport.php:205
+#: v2/templates/people/personview.php:140 v2/templates/system/csvExport.php:205
 #: v2/templates/system/csvExport.php:464 v2/templates/system/csvImport.php:197
 msgid "Membership Date"
 msgstr "成员日期"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:455
 #: v2/templates/people/personPrint.php:472
-#: v2/templates/people/personview.php:640
+#: v2/templates/people/personview.php:683
+#: v2/templates/people/personview.php:987
 msgid "Assigned Groups"
 msgstr "分配的小组"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:484
-#: v2/templates/people/personview.php:929
+#: v2/templates/people/personview.php:980
 msgid "No group assignments."
 msgstr "没有小组作业。"
 
@@ -10166,7 +10270,7 @@ msgstr "价值"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:580
-#: v2/templates/people/personview.php:1130
+#: v2/templates/people/personview.php:1197
 msgid "No property assignments."
 msgstr "没有财产分配。"
 
@@ -10177,87 +10281,159 @@ msgstr "没有财产分配。"
 msgid "Entered:"
 msgstr "进入了。"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:22
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:23
+msgid "Pastoral Care Dashboard"
+msgstr "教牧关怀仪表板"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:24
+msgid ""
+"Track visits, launch quick pastoral actions and focus first on members who "
+"still need attention."
+msgstr "跟踪访问情况，迅速开展牧养行动，首先关注仍需关注的成员。"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:28
+msgid "Persons pending"
+msgstr "待定人员"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:29
+msgid "Families pending"
+msgstr "家庭待定"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
 msgid "Visit/Call randomly"
 msgstr "随机访问/打电话"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:27
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:39
+msgid ""
+"Start a pastoral action in one click and quickly choose the profile type you "
+"want to reach."
+msgstr "一键启动教牧行动，快速选择您想联系的资料类型。"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:47
 msgid ""
 "Pastoral care with a familly. You can validated all the persons together."
 msgstr "牧养一个家庭。你可以让所有的人一起生效。"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:36
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:159
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:56
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:195
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:271
 msgid "Retired"
 msgstr "已退休"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:37
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 msgid "Young"
 msgstr "年轻人"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:58
 msgid "Single"
 msgstr "单人"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:66
 msgid "Lists"
 msgstr "列表"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:50
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:73
+msgid "Quick guidance"
+msgstr "快速指导"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:74
+msgid ""
+"Use Family when you want to validate several people at once, or pick a "
+"specific profile from the dropdown for a more focused outreach."
+msgstr ""
+"当您想同时验证几个人时，请使用 \"家庭\"，或者从下拉菜单中选择一个特定的资料，"
+"进行更有针对性的推广。"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:79
 msgid "Pastoral care Settings."
 msgstr "牧民关怀设置。"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:64
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:94
 msgid "Not visited Persons"
 msgstr "未访问人员"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:76
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:106
 msgid "Not visited Families"
 msgstr "未探访家庭"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:88
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:118
 msgid "Not visited Single Persons"
 msgstr "未访问 单身人士"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:99
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
 msgid "Not visited Retired Persons"
 msgstr "未访问 退休人员"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:110
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:140
 msgid "Not visited Youngs"
 msgstr "未访问 Youngs"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:127
-msgid "• Statistics about persons, families ... who remain to be contacted."
-msgstr "- 有关个人、家庭......的统计资料，仍有待联系。"
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:155
+msgid "Coverage Overview"
+msgstr "覆盖范围概览"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:169
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:230
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:158
+msgid "Current period"
+msgstr "本期"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
+msgid ""
+"Statistics about persons, families and categories that still need to be "
+"contacted."
+msgstr "统计仍需联系的人员、家庭和类别。"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:205
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:276
 msgid "Young People"
 msgstr "年轻人"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:222
 msgid "Pastoral Care Members"
 msgstr "牧民关怀成员"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:238
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:228
+msgid "Follow-up list"
+msgstr "后续清单"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:247
+msgid "Members Still Not Reached"
+msgstr "仍未联系到的成员"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:248
+msgid ""
+"Switch by category to focus your follow-up list and start the next pastoral "
+"action faster."
+msgstr "按类别进行切换，使您的跟进清单重点突出，更快地开始下一个教牧行动。"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:250
+msgid "Segmented view"
+msgstr "分段视图"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:285
 msgid "Persons not reached"
 msgstr "未接触到的人"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:242
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:286
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:293
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:300
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:307
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:314
+msgid "remaining"
+msgstr "剩余的"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:292
 msgid "Families not reached"
 msgstr "未达到的家庭"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:246
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:299
 msgid "Single Persons not reached"
 msgstr "未达到的单身人士"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:250
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:306
 msgid "Retired not reached"
 msgstr "未到达的退休人员"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:254
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:313
 msgid "Young People not reached"
 msgstr "未接触到的年轻人"
 
@@ -10301,14 +10477,14 @@ msgstr "纬度/经度"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:205
 #: v2/templates/pastoralcare/pastoralcareperson.php:286
 #: v2/templates/people/familyview.php:186
-#: v2/templates/people/personview.php:281
+#: v2/templates/people/personview.php:307
 msgid "Text Message"
 msgstr "短信"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:207
 #: v2/templates/pastoralcare/pastoralcareperson.php:288
 #: v2/templates/people/familyview.php:188
-#: v2/templates/people/personview.php:283
+#: v2/templates/people/personview.php:309
 msgid "CRM text message"
 msgstr "客户关系管理短信"
 
@@ -10318,20 +10494,20 @@ msgid "Return to Family View"
 msgstr "返回到家庭视图"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:128
-#: v2/templates/people/personview.php:88 v2/templates/user/userlist.php:118
+#: v2/templates/people/personview.php:30 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "未定义"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:140
 #: v2/templates/pastoralcare/pastoralcareperson.php:270
 #: v2/templates/people/personEditor.php:1779
-#: v2/templates/people/personview.php:126
-#: v2/templates/people/personview.php:265
+#: v2/templates/people/personview.php:144
+#: v2/templates/people/personview.php:291
 msgid "Friend Date"
 msgstr "朋友约会"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:216
-#: v2/templates/people/personview.php:196
+#: v2/templates/people/personview.php:222
 msgid "Family:"
 msgstr "家庭。"
 
@@ -10339,24 +10515,24 @@ msgstr "家庭。"
 #: v2/templates/pastoralcare/pastoralcareperson.php:347
 #: v2/templates/people/personEditor.php:1654
 #: v2/templates/people/personEditor.php:1658
-#: v2/templates/people/personview.php:340
-#: v2/templates/people/personview.php:342
+#: v2/templates/people/personview.php:366
+#: v2/templates/people/personview.php:368
 msgid "Facebook"
 msgstr "脸书"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:354
 #: v2/templates/pastoralcare/pastoralcareperson.php:355
 #: v2/templates/people/personEditor.php:1680
-#: v2/templates/people/personview.php:349
-#: v2/templates/people/personview.php:350
+#: v2/templates/people/personview.php:375
+#: v2/templates/people/personview.php:376
 msgid "Twitter"
 msgstr "推特"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:362
 #: v2/templates/pastoralcare/pastoralcareperson.php:363
 #: v2/templates/people/personEditor.php:1698
-#: v2/templates/people/personview.php:357
-#: v2/templates/people/personview.php:358
+#: v2/templates/people/personview.php:383
+#: v2/templates/people/personview.php:384
 msgid "LinkedIn"
 msgstr "ǞǞǞ"
 
@@ -11144,6 +11320,7 @@ msgid "Browse, edit and manage family records from one place."
 msgstr "从一个地方浏览、编辑和管理家庭记录。"
 
 #: v2/templates/people/familylist.php:54
+#: v2/templates/people/personview.php:1342
 msgid "records"
 msgstr "记录"
 
@@ -11168,15 +11345,15 @@ msgstr "移除所有"
 msgid " This Family is Deactivated"
 msgstr "这个家庭已经停用了"
 
-#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:50
+#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:58
 msgid "View Photo"
 msgstr "查看照片"
 
-#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:54
+#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:62
 msgid "Upload Photo"
 msgstr "上传照片"
 
-#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:58
+#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:66
 msgid "Delete Photo"
 msgstr "删除照片"
 
@@ -11185,6 +11362,7 @@ msgid "Emails"
 msgstr "电子邮件"
 
 #: v2/templates/people/familyview.php:251
+#: v2/templates/people/personview.php:435
 msgid "Overview"
 msgstr "概述"
 
@@ -11193,10 +11371,12 @@ msgid "Reachable by email"
 msgstr "可通过电子邮件联系"
 
 #: v2/templates/people/familyview.php:256
+#: v2/templates/people/personview.php:441
 msgid "Private access granted"
 msgstr "批准私人访问"
 
 #: v2/templates/people/familyview.php:256
+#: v2/templates/people/personview.php:441
 msgid "Private access restricted"
 msgstr "限制私人进入"
 
@@ -11211,14 +11391,14 @@ msgid "Some details remain hidden because this family contains private data."
 msgstr "由于该家庭包含私人数据，因此某些细节仍被隐藏。"
 
 #: v2/templates/people/familyview.php:313
-#: v2/templates/people/personview.php:473
+#: v2/templates/people/personview.php:514
 msgid "Verify Info"
 msgstr "验证信息"
 
 #: v2/templates/people/familyview.php:321
 #: v2/templates/people/familyview.php:322
-#: v2/templates/people/personview.php:496
-#: v2/templates/people/personview.php:497
+#: v2/templates/people/personview.php:537
+#: v2/templates/people/personview.php:538
 msgid "Create a document"
 msgstr "创建一个文件"
 
@@ -11227,13 +11407,13 @@ msgid "Get the vCard of the family"
 msgstr "获得家庭的VCard"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:554 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:57
 #: v2/templates/plugins/plugins.php:113
 msgid "Deactivate"
 msgstr "停用"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:554 v2/templates/plugins/plugins.php:56
+#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:113
 msgid "Activate"
 msgstr "激活"
@@ -11288,24 +11468,26 @@ msgid "N/A"
 msgstr "不适用"
 
 #: v2/templates/people/familyview.php:544
-#: v2/templates/people/personview.php:609
+#: v2/templates/people/personview.php:652
 msgid "Timeline"
 msgstr "时间轴"
 
 #: v2/templates/people/familyview.php:559
-#: v2/templates/people/personview.php:688
+#: v2/templates/people/personview.php:731
+#: v2/templates/people/personview.php:1339
 msgid "Automatic Payments"
 msgstr "自动付款"
 
 #: v2/templates/people/familyview.php:565
-#: v2/templates/people/personview.php:695
+#: v2/templates/people/personview.php:738
+#: v2/templates/people/personview.php:1383
 msgid "Pledges and Payments"
 msgstr "认捐和支付"
 
 #: v2/templates/people/familyview.php:710
-#: v2/templates/people/personview.php:1152
-#: v2/templates/people/personview.php:1225
-#: v2/templates/people/personview.php:1367
+#: v2/templates/people/personview.php:1219
+#: v2/templates/people/personview.php:1299
+#: v2/templates/people/personview.php:1484
 msgid "Select"
 msgstr "选择"
 
@@ -11314,58 +11496,58 @@ msgid "No automatic payments configured yet."
 msgstr "尚未配置自动付款功能。"
 
 #: v2/templates/people/familyview.php:766
-#: v2/templates/people/personview.php:1275
+#: v2/templates/people/personview.php:1364
 msgid "Add a new automatic payment"
 msgstr "添加一个新的自动付款"
 
 #: v2/templates/people/familyview.php:775
-#: v2/templates/people/personview.php:1296
+#: v2/templates/people/personview.php:1399
 msgid "Show Pledges"
 msgstr "显示认捐情况"
 
 #: v2/templates/people/familyview.php:779
-#: v2/templates/people/personview.php:1300
+#: v2/templates/people/personview.php:1406
 msgid "Show Payments"
 msgstr "显示付款"
 
 #: v2/templates/people/familyview.php:782
-#: v2/templates/people/personview.php:1303
+#: v2/templates/people/personview.php:1410
 msgid "From"
 msgstr "来自"
 
 #: v2/templates/people/familyview.php:791
-#: v2/templates/people/personview.php:1312
+#: v2/templates/people/personview.php:1419
 msgid "To"
 msgstr "拟"
 
 #: v2/templates/people/familyview.php:814
-#: v2/templates/people/personview.php:1325
+#: v2/templates/people/personview.php:1436
 msgid "Add a new pledge"
 msgstr "增加一个新的认捐"
 
 #: v2/templates/people/familyview.php:816
-#: v2/templates/people/personview.php:1327
+#: v2/templates/people/personview.php:1438
 msgid "Add a new payment"
 msgstr "添加一个新的付款"
 
 #: v2/templates/people/familyview.php:824
-#: v2/templates/people/personview.php:1343
+#: v2/templates/people/personview.php:1456
 msgid " Canvass Entry"
 msgstr "拉票入场"
 
 #: v2/templates/people/familyview.php:986
-#: v2/templates/people/personview.php:1575
+#: v2/templates/people/personview.php:1721
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "你即将删除个人资料照片，这个过程是不可逆的。"
 
 #: v2/templates/people/familyview.php:987
-#: v2/templates/people/personview.php:1577
+#: v2/templates/people/personview.php:1723
 msgid "Do you want to proceed?"
 msgstr "你想继续吗？"
 
 #: v2/templates/people/familyview.php:1002
-#: v2/templates/people/personview.php:1595
+#: v2/templates/people/personview.php:1741
 msgid "Request Family Info Verification"
 msgstr "申请家庭信息验证"
 
@@ -11381,18 +11563,18 @@ msgstr "你即将把家庭信息的副本以pdf格式发到以下邮箱中"
 
 #: v2/templates/people/familyview.php:1034
 #: v2/templates/people/familyview.php:1038
-#: v2/templates/people/personview.php:1609
-#: v2/templates/people/personview.php:1613
+#: v2/templates/people/personview.php:1755
+#: v2/templates/people/personview.php:1759
 msgid "Online Verification"
 msgstr "在线验证"
 
 #: v2/templates/people/familyview.php:1045
-#: v2/templates/people/personview.php:1620
+#: v2/templates/people/personview.php:1766
 msgid "PDF Report"
 msgstr "PDF报告"
 
 #: v2/templates/people/familyview.php:1049
-#: v2/templates/people/personview.php:1624
+#: v2/templates/people/personview.php:1770
 msgid "Verified In Person"
 msgstr "亲自验证"
 
@@ -11889,7 +12071,7 @@ msgid "Red text"
 msgstr "红色文本"
 
 #: v2/templates/people/personEditor.php:919
-#: v2/templates/people/personview.php:400
+#: v2/templates/people/personview.php:426
 msgid "indicates items inherited from the associated family record."
 msgstr "表示从相关家族记录中继承的项目。"
 
@@ -12073,126 +12255,205 @@ msgstr ""
 msgid "Person Directory"
 msgstr "人员名录"
 
-#: v2/templates/people/personview.php:29
+#: v2/templates/people/personview.php:37
 msgid "This Person is Deactivated"
 msgstr "此人已被停用"
 
-#: v2/templates/people/personview.php:463
+#: v2/templates/people/personview.php:155
+#: v2/templates/people/personview.php:1192
+#: v2/templates/people/personview.php:1263
+#, fuzzy
+msgid "assigned"
+msgstr "未分配的"
+
+#: v2/templates/people/personview.php:185
+msgid "No group assignments yet."
+msgstr "尚未分配小组任务。"
+
+#: v2/templates/people/personview.php:444
+msgid ""
+"Use the quick actions to manage this profile, documents and assignments from "
+"one place."
+msgstr "使用快速操作从一个地方管理此配置文件、文件和任务。"
+
+#: v2/templates/people/personview.php:444
+msgid "Some sections remain hidden because this profile contains private data."
+msgstr "由于该个人资料包含私人数据，因此某些部分仍然隐藏。"
+
+#: v2/templates/people/personview.php:504
 msgid "Printable Page"
 msgstr "可打印的页面"
 
-#: v2/templates/people/personview.php:484
+#: v2/templates/people/personview.php:525
 msgid "Add a pastoral care note"
 msgstr "添加牧民关怀说明"
 
-#: v2/templates/people/personview.php:506
+#: v2/templates/people/personview.php:547
 msgid "Assign this user to a group"
 msgstr "将该用户分配到一个组"
 
-#: v2/templates/people/personview.php:508
+#: v2/templates/people/personview.php:549
 msgid "Assign New Group"
 msgstr "指派新的组别"
 
-#: v2/templates/people/personview.php:533
+#: v2/templates/people/personview.php:574
 msgid "Create a CRM user"
 msgstr "创建一个CRM用户"
 
-#: v2/templates/people/personview.php:534
+#: v2/templates/people/personview.php:575
 msgid "Make User"
 msgstr "使用户"
 
-#: v2/templates/people/personview.php:542
+#: v2/templates/people/personview.php:583
 msgid "Add rights to this user"
 msgstr "为该用户添加权限"
 
-#: v2/templates/people/personview.php:543
+#: v2/templates/people/personview.php:584
 msgid "Edit User"
 msgstr "编辑用户"
 
-#: v2/templates/people/personview.php:554
+#: v2/templates/people/personview.php:595
 msgid " this Person"
 msgstr "这个人"
 
-#: v2/templates/people/personview.php:569
-#: v2/templates/people/personview.php:578
+#: v2/templates/people/personview.php:610
+#: v2/templates/people/personview.php:619
 msgid "Delete this Record"
 msgstr "删除该记录"
 
-#: v2/templates/people/personview.php:802
+#: v2/templates/people/personview.php:845
 msgid "click to download"
 msgstr "点击下载"
 
-#: v2/templates/people/personview.php:961
+#: v2/templates/people/personview.php:867
+msgid "Family Circle"
+msgstr "家庭圈"
+
+#: v2/templates/people/personview.php:868
+msgid ""
+"See the rest of the household, their role and the fastest actions available."
+msgstr "查看家庭中的其他成员、他们的角色和可采取的最快行动。"
+
+#: v2/templates/people/personview.php:870
+msgid "other members"
+msgstr "其他成员"
+
+#: v2/templates/people/personview.php:988
+msgid ""
+"Manage memberships, group-specific information and role changes from this "
+"section."
+msgstr "在此部分管理成员资格、特定组信息和角色变更。"
+
+#: v2/templates/people/personview.php:1021
 msgid "Group actions"
 msgstr "小组行动"
 
-#: v2/templates/people/personview.php:976
+#: v2/templates/people/personview.php:1036
 msgid "Change Role"
 msgstr "改变角色"
 
-#: v2/templates/people/personview.php:983
+#: v2/templates/people/personview.php:1043
 msgid "Update Properties"
 msgstr "更新属性"
 
-#: v2/templates/people/personview.php:1015
+#: v2/templates/people/personview.php:1075
 msgid "Group Informations"
 msgstr "集团信息"
 
-#: v2/templates/people/personview.php:1057
+#: v2/templates/people/personview.php:1117
 msgid "Person Informations"
 msgstr "人员信息"
 
-#: v2/templates/people/personview.php:1081
+#: v2/templates/people/personview.php:1141
 msgid "Modify Specific Properties"
 msgstr "修改特定属性"
 
-#: v2/templates/people/personview.php:1092
+#: v2/templates/people/personview.php:1152
 msgid "No specific group properties defined !"
 msgstr "未定义特定组属性 ！"
 
-#: v2/templates/people/personview.php:1176
-#: v2/templates/people/personview.php:1244
+#: v2/templates/people/personview.php:1190
+msgid ""
+"Track the specific attributes already linked to this person and add new ones "
+"when needed."
+msgstr "跟踪已链接到此人的特定属性，并在需要时添加新属性。"
+
+#: v2/templates/people/personview.php:1243
+#: v2/templates/people/personview.php:1318
 msgid "Assigning..."
 msgstr "分配..."
 
-#: v2/templates/people/personview.php:1203
+#: v2/templates/people/personview.php:1261
+msgid ""
+"Keep volunteer assignments visible and assign new opportunities from the "
+"same place."
+msgstr "保持志愿者任务的可见性，并从同一地点分配新的机会。"
+
+#: v2/templates/people/personview.php:1277
 msgid "No volunteer opportunity assignments."
 msgstr "没有志愿者机会的分配。"
 
-#: v2/templates/people/personview.php:1218
+#: v2/templates/people/personview.php:1292
 msgid "Assign a New Volunteer Opportunity"
 msgstr "指定一个新的志愿者机会"
 
-#: v2/templates/people/personview.php:1280
-#: v2/templates/people/personview.php:1332
+#: v2/templates/people/personview.php:1340
+msgid ""
+"Review recurring contributions and add a new payment setup when appropriate."
+msgstr "审查经常性缴款，并在适当时添加新的付款设置。"
+
+#: v2/templates/people/personview.php:1357
+msgid "No automatic payments recorded for this person yet."
+msgstr "尚未记录此人的自动付款。"
+
+#: v2/templates/people/personview.php:1370
+#: v2/templates/people/personview.php:1444
 msgid "You must set an address for this person"
 msgstr "你必须为这个人设置一个地址"
 
-#: v2/templates/people/personview.php:1368
+#: v2/templates/people/personview.php:1384
+msgid ""
+"Filter contributions by period and add a new pledge or payment directly from "
+"this tab."
+msgstr "按时期筛选捐款，并直接从该选项卡添加新的认捐或付款。"
+
+#: v2/templates/people/personview.php:1476
+msgid "Timeline Documents"
+msgstr "时间表文件"
+
+#: v2/templates/people/personview.php:1480
+msgid "Filter notes, audio, video and shared documents from a single stream."
+msgstr "从单一数据流中筛选笔记、音频、视频和共享文档。"
+
+#: v2/templates/people/personview.php:1485
 msgid "Filter your documents by : "
 msgstr "通过以下方式过滤你的文件。"
 
-#: v2/templates/people/personview.php:1369
+#: v2/templates/people/personview.php:1486
 msgid "All type"
 msgstr "所有类型"
 
-#: v2/templates/people/personview.php:1374
+#: v2/templates/people/personview.php:1491
 msgid "Shared documents"
 msgstr "共享的文件"
 
-#: v2/templates/people/personview.php:1425
+#: v2/templates/people/personview.php:1499
+msgid "No documents or notes available yet."
+msgstr "暂无文件或说明。"
+
+#: v2/templates/people/personview.php:1556
 msgid "Share this document to another user"
 msgstr "分享此文件给另一个用户"
 
-#: v2/templates/people/personview.php:1434
+#: v2/templates/people/personview.php:1565
 msgid "Export this document to word Format"
 msgstr "将此文件导出为word格式"
 
-#: v2/templates/people/personview.php:1478
+#: v2/templates/people/personview.php:1621
 msgid "Last modification by"
 msgstr "最后修改的是"
 
-#: v2/templates/people/personview.php:1600
+#: v2/templates/people/personview.php:1746
 msgid "Select how do you want to request the person information to be verified"
 msgstr "选择如何要求验证个人资料"
 
@@ -15143,6 +15404,12 @@ msgstr "数天"
 msgid "Giving Report"
 msgstr "捐赠报告"
 
+#~ msgid "Clone roles"
+#~ msgstr "克隆角色"
+
+#~ msgid "from group"
+#~ msgstr "来自集团的"
+
 #~ msgid "You have"
 #~ msgstr "你有"
 
@@ -15383,9 +15650,6 @@ msgstr "捐赠报告"
 
 #~ msgid "Update Family Latitude or Longitude now."
 #~ msgstr "现在更新家庭纬度或经度。"
-
-#~ msgid "of members"
-#~ msgstr "的成员"
 
 #~ msgid "to contact"
 #~ msgstr "请联系"
@@ -15959,9 +16223,6 @@ msgstr "捐赠报告"
 
 #~ msgid "Lonely People"
 #~ msgstr "孤独的人"
-
-#~ msgid "Person not reached"
-#~ msgstr "未联系到的人"
 
 #~ msgid "Family not reached"
 #~ msgstr "未接触到的家庭"

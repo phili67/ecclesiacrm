@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -668,8 +668,20 @@ msgstr "Virheteksti"
 msgid "Stack Trace"
 msgstr "Stack Trace"
 
-msgid "ERROR"
-msgstr "VIRHE"
+msgid "The application could not complete this API request."
+msgstr "Sovellus ei pystynyt suorittamaan tätä API-pyyntöä."
+
+msgid "Information"
+msgstr "Tiedot"
+
+msgid "Please confirm"
+msgstr "Vahvistakaa"
+
+msgid "Update information"
+msgstr "Päivitä tiedot"
+
+msgid "Make a selection"
+msgstr "Tee valinta"
 
 msgid "In progress"
 msgstr "Käynnissä"
@@ -690,8 +702,18 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Pyydetyn objektin hakemisessa oli ongelma."
 
-msgid "Select the method to add to a group"
-msgstr "Valitse ryhmään lisättävä menetelmä"
+msgid "Add cart to a group"
+msgstr "Lisää ostoskori ryhmään"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+"Valitse, lisätäänkö ostoskori olemassa olevaan ryhmään vai luodaanko uusi "
+"ryhmä suoraan ostoskorista."
+
+msgid "Action"
+msgstr "Toiminta"
 
 msgid "Select an existing Group"
 msgstr "Valitse olemassa oleva ryhmä"
@@ -699,14 +721,18 @@ msgstr "Valitse olemassa oleva ryhmä"
 msgid "or Create a new Group from the Cart"
 msgstr "tai Luo uusi ryhmä ostoskorista"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Valitse ryhmä, johon haluat lisätä ostoskorisi."
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr "Valitse kohderyhmä ja rooli, joka määritetään korin jäsenille."
 
 msgid "Select Group"
 msgstr "Valitse ryhmä"
 
 msgid "Select Role"
 msgstr "Valitse rooli"
+
+msgid "Create a new group and move the current cart into it."
+msgstr "Luo uusi ryhmä ja siirrä nykyinen kärry siihen."
 
 msgid "Group Name"
 msgstr "Ryhmän nimi"
@@ -717,42 +743,75 @@ msgstr "Oletusnimi Ryhmä"
 msgid "Add Cart to Group"
 msgstr "Lisää ostoskori ryhmään"
 
-msgid "You have to select one group and a group role if you want"
-msgstr "Sinun on valittava yksi ryhmä ja ryhmärooli, jos haluat, että"
+msgid "Missing selection"
+msgstr "Puuttuva valinta"
 
-msgid "You have to set a Group Name"
-msgstr "Sinun on määritettävä ryhmän nimi"
+msgid "You need to select both a group and a role before continuing."
+msgstr "Sinun on valittava sekä ryhmä että rooli, ennen kuin jatkat."
 
-msgid "Do you really want to deactivate the persons?"
-msgstr "Haluatko todella poistaa henkilöt käytöstä?"
+msgid "Group name required"
+msgstr "Ryhmän nimi vaaditaan"
 
-msgid "This action can be undone !!!!"
-msgstr "Tämän toimenpiteen voi peruuttaa !!!!"
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "Anna ryhmän nimi ennen uuden ryhmän luomista ostoskorista."
 
-msgid "Yes : if you're sure"
-msgstr "Kyllä : jos olet varma"
+msgid "Deactivate cart persons"
+msgstr "Deaktivoi kärryjen henkilöt"
 
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Haluatko todella poistaa henkilöt CRM:stä?"
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr ""
+"Haluatko todella poistaa käytöstä kaikki ostoskorissa tällä hetkellä olevat "
+"henkilöt?"
 
-msgid "This action cannot be undone !!!!"
-msgstr "Tätä toimenpidettä ei voi peruuttaa !!!!"
+msgid "This action can be undone later if needed."
+msgstr "Tämän toimenpiteen voi tarvittaessa peruuttaa myöhemmin."
 
-msgid "Select the event to which you would like to add your cart"
-msgstr "Valitse tapahtuma, johon haluat lisätä ostoskorisi."
+msgid "Keep active"
+msgstr "Pysy aktiivisena"
 
-msgid "Create First A New Event"
-msgstr "Luo ensin uusi tapahtuma"
+msgid "Deactivate persons"
+msgstr "Henkilöiden poistaminen käytöstä"
+
+msgid "Delete cart persons"
+msgstr "Poistetaan kärryn henkilöt"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr "Haluatko todella poistaa kaikki ostoskorissa olevat henkilöt CRM:stä?"
+
+msgid "This action cannot be undone."
+msgstr "Tätä toimenpidettä ei voi perua."
+
+msgid "Keep persons"
+msgstr "Pidä henkilöt"
+
+msgid "Delete persons"
+msgstr "Henkilöiden poistaminen"
+
+msgid "Add cart to event"
+msgstr "Lisää ostoskori tapahtumaan"
+
+msgid "Select the event that should receive the current cart."
+msgstr "Valitse tapahtuma, jolle nykyinen ostoskori on tarkoitus lähettää."
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+"Voit myös luoda ensin uuden tapahtuman ja palata sitten tänne osoittamaan "
+"kärryn."
+
+msgid "Event"
+msgstr "Tapahtuma"
+
+msgid "Choose one of the available events from the list below."
+msgstr ""
+"Valitse jokin saatavilla olevista tapahtumista alla olevasta luettelosta."
+
+msgid "Create new event"
+msgstr "Luo uusi tapahtuma"
 
 msgid "Add to Event"
 msgstr "Lisää tapahtumaan"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Voit lisätä ostoskorin sisällön valittuun tapahtumaan alla<br> - TAI - "
-"<br>Luo ensin tapahtuma ja lisää ne sen jälkeen."
 
 msgid "Register"
 msgstr "Rekisteröi"
@@ -808,22 +867,22 @@ msgstr "Näytä kaikki"
 msgid "Your Cart is Empty"
 msgstr "Ostoskori on tyhjä"
 
+msgid "Software registration"
+msgstr "Ohjelmiston rekisteröinti"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"Tarkista alla olevat rekisteröintitiedot ennen niiden lähettämistä. Näitä "
+"tietoja käytetään vain tämän ohjelmiston käytön seurantaan."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr ""
 "Jos sinun on tehtävä muutoksia rekisteröintitietoihin, siirry osoitteeseen"
 
 msgid "Admin->Edit General Settings"
 msgstr "Ylläpito->Muokkaa yleisiä asetuksia"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Rekisteröi CRM-kappaleesi tarkistamalla nämä tiedot ja painamalla Lähetä-"
-"painiketta."
-
-msgid "This information is used only to track the usage of this software."
-msgstr "Näitä tietoja käytetään vain tämän ohjelmiston käytön seurantaan."
 
 msgid "Church Name"
 msgstr "Kirkon nimi"
@@ -861,14 +920,39 @@ msgstr "Ohjelmistosi on nyt rekisteröity. Kiitos !"
 msgid "Select Volunteer Opportunity"
 msgstr "Valitse vapaaehtoistyömahdollisuus"
 
-msgid "Please select target volunteers for members"
-msgstr "Valitse vapaaehtoisten kohderyhmä jäsenille"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "Valitse vapaaehtoistyömahdollisuus, joka on määrättävä."
 
-msgid "Please select target group for members"
-msgstr "Valitse jäsenten kohderyhmä"
+msgid "This selection will be applied to the current members."
+msgstr "Tätä valintaa sovelletaan nykyisiin jäseniin."
 
-msgid "Please select target Role for members"
-msgstr "Valitse jäsenille tarkoitettu rooli"
+msgid "Volunteer opportunity"
+msgstr "Vapaaehtoistyömahdollisuus"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr "Valitse vapaaehtoistoiminnan kohde käytettävissä olevasta luettelosta."
+
+msgid "Choose the destination for the selected members."
+msgstr "Valitse valittujen jäsenten määränpää."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+"Käytä alla olevia kenttiä ryhmän, roolin tai molempien valitsemiseen "
+"toimenpiteestä riippuen."
+
+msgid "Group"
+msgstr "Ryhmä"
+
+msgid "Select the target group for the selected members."
+msgstr "Valitse valittujen jäsenten kohderyhmä."
+
+msgid "Role"
+msgstr "Rooli"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "Valitse rooli, joka on tarkoitus määrittää valitun ryhmän sisällä."
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroupID vaaditaan roolin valintakehotusta varten"
@@ -876,11 +960,19 @@ msgstr "GroupID vaaditaan roolin valintakehotusta varten"
 msgid "Select Group and Role"
 msgstr "Valitse ryhmä ja rooli"
 
-msgid "Add A Group Name"
-msgstr "Lisää ryhmän nimi"
+msgid "Select both the destination group and the role to apply."
+msgstr "Valitse sekä kohderyhmä että sovellettava rooli."
 
-msgid "Yes"
-msgstr "Kyllä"
+msgid "Create a group"
+msgstr "Luo ryhmä"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr "Anna nykyisen työnkulun pohjalta luotavan uuden ryhmän nimi."
+
+msgid "Create group"
+msgstr "Luo ryhmä"
 
 msgid "Calendar Event"
 msgstr "Kalenteritapahtuma"
@@ -1009,6 +1101,9 @@ msgstr "tallennettu onnistuneesti"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "Olet lähettämässä kampanjaasi! Oletko varma?"
+
+msgid "Yes"
+msgstr "Kyllä"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Olet poistamassa kampanjaasi! Oletko varma?"
@@ -1439,9 +1534,6 @@ msgstr "Myös asiaan liittyvä läsnäolohistoria voi vaikuttaa."
 msgid "Photo"
 msgstr "Kuva"
 
-msgid "Action"
-msgstr "Toiminta"
-
 msgid "Attendance actions"
 msgstr "Läsnäolotoimet"
 
@@ -1501,9 +1593,6 @@ msgstr "Siirrä yksi oikealle alueelle."
 
 msgid "Create one."
 msgstr "Luo yksi."
-
-msgid "Group"
-msgstr "Ryhmä"
 
 msgid "User"
 msgstr "Käyttäjä"
@@ -1824,9 +1913,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Ryhmäkohtaisten ominaisuuksien poistaminen käytöstä"
 
-msgid "Role"
-msgstr "Rooli"
-
 msgid "Please enter a role name."
 msgstr "Anna roolin nimi."
 
@@ -2001,6 +2087,18 @@ msgstr "Oletko varma, että haluat poistaa kaikki managerit?"
 msgid "Appointment"
 msgstr "Nimitys"
 
+msgid "Pastoral Care"
+msgstr "Sielunhoito"
+
+msgid "Open the pastoral care record"
+msgstr "Avaa sielunhoitotiedot"
+
+msgid "No records found for this view."
+msgstr "Tälle näkymälle ei löytynyt tietueita."
+
+msgid "No matching records found."
+msgstr "Vastaavia tietueita ei löytynyt."
+
 msgid "Never contacted"
 msgstr "Ei koskaan otettu yhteyttä"
 
@@ -2012,6 +2110,22 @@ msgstr "Vierailut/puhelut"
 
 msgid "Last visit/call"
 msgstr "Viimeisin käynti/puhelu"
+
+msgid "Opening..."
+msgstr "Avaaminen..."
+
+msgid "Selecting..."
+msgstr "Valitsemalla..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+"Vastaavaa sielunhoitokertomusta ei voitaisi laatia juuri nyt. Kokeile toista "
+"luokkaa."
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr "Tällä hetkellä ei voida käynnistää sielunhoitotoimia."
 
 msgid "Delete Pastoral Care Type"
 msgstr "Poista sielunhoidon tyyppi"
@@ -2077,6 +2191,22 @@ msgstr ""
 "Kaikkia perheitä ei ole poistettu : Joillakin perheillä on tietoja "
 "lahjoituksista, eikä niitä saa poistaa ennen kuin nämä lahjoitukset "
 "liitetään toiseen perheeseen."
+
+msgid "Review family member information"
+msgstr "Tarkista perheenjäsenten tiedot"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+"Tarkista näytetyt tiedot ja päivitä perheenjäsen tarvittaessa ennen "
+"tallentamista."
+
+msgid "Update family member details"
+msgstr "Päivitä perheenjäsenten tiedot"
+
+msgid "Save changes"
+msgstr "Tallenna muutokset"
 
 msgid "Confirm Deactivation"
 msgstr "Vahvista deaktivointi"
@@ -2260,6 +2390,28 @@ msgstr ""
 "lahjoituksista, eikä niitä saa poistaa ennen kuin nämä lahjoitukset "
 "liitetään toiseen perheeseen."
 
+msgid "Review personal information"
+msgstr "Henkilökohtaisten tietojen tarkistaminen"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+"Tarkista nykyiset arvot ja päivitä korjausta vaativat kentät ennen "
+"tallentamista."
+
+msgid "Profile information"
+msgstr "Profiilin tiedot"
+
+msgid "Additional information"
+msgstr "Lisätietoja"
+
+msgid "Update personal details"
+msgstr "Päivitä henkilökohtaiset tiedot"
+
+msgid "Processing..."
+msgstr "Käsittely..."
+
 msgid "Please confirm deactivation of person"
 msgstr "Vahvistakaa henkilön poistaminen käytöstä"
 
@@ -2282,8 +2434,29 @@ msgstr "Deaktivoi"
 msgid "Activate"
 msgstr "Aktivoi"
 
+msgid "Deactivating..."
+msgstr "Deaktivointi..."
+
+msgid "Activating..."
+msgstr "Aktivointi..."
+
+msgid "Unable to update this person status."
+msgstr "Tämän henkilön tilaa ei voida päivittää."
+
+msgid "Deleting..."
+msgstr "Poistaminen..."
+
+msgid "Unable to delete the photo."
+msgstr "Valokuvan poistaminen ei onnistu."
+
+msgid "Preview the current profile photo."
+msgstr "Nykyisen profiilikuvan esikatselu."
+
 msgid "Property actions"
 msgstr "Kiinteistötoimet"
+
+msgid "Please select a property first."
+msgstr "Valitse ensin kiinteistö."
 
 msgid "Assigning..."
 msgstr "Määrittäminen..."
@@ -2291,29 +2464,208 @@ msgstr "Määrittäminen..."
 msgid "Assign"
 msgstr "Määritä"
 
-msgid "Are you sure you want to remove this person's membership from"
-msgstr "Haluatko varmasti poistaa tämän henkilön jäsenyyden osoitteesta"
+msgid "Unable to assign this property."
+msgstr "Tätä ominaisuutta ei voida määrittää."
+
+msgid "Remove group assignment"
+msgstr "Poista ryhmäjako"
+
+msgid "Remove this person from the group"
+msgstr "Poista tämä henkilö ryhmästä"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
+msgstr ""
+"Jäsenyys ja kaikki tähän ryhmään liittyvät roolit poistetaan tältä "
+"henkilöltä."
+
+msgid "Remove from group"
+msgstr "Poista ryhmästä"
+
+msgid "Keep assignment"
+msgstr "Pidä toimeksianto"
+
+msgid "Share your document"
+msgstr "Jaa asiakirjasi"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+"Valitse vastaanottajat, määritä heidän käyttöoikeutensa ja päätä, saavatko "
+"he sähköposti-ilmoituksen."
+
+msgid "Current access"
+msgstr "Nykyinen pääsy"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+"Valitse yksi tai useampi vastaanottaja päivittääksesi heidän "
+"käyttöoikeutensa tai poistaaksesi heidät."
+
+msgid "Set rights"
+msgstr "Aseta oikeudet"
+
+msgid "Read and write"
+msgstr "Lue ja kirjoita"
+
+msgid "Notification"
+msgstr "Ilmoitus"
+
+msgid "Add people, families or groups"
+msgstr "Lisää ihmisiä, perheitä tai ryhmiä"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+"Hae nimellä ja myönnä käyttöoikeus toiselle henkilölle, perheelle tai koko "
+"ryhmälle."
+
+msgid "Please select at least one recipient first."
+msgstr "Valitse ensin vähintään yksi vastaanottaja."
+
+msgid "Remove shared access"
+msgstr "Poista jaettu käyttöoikeus"
+
+msgid "Remove access for the selected recipients?"
+msgstr "Poista valittujen vastaanottajien käyttöoikeus?"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+"Vain valitut vastaanottajat poistetaan. Asiakirja pysyy jaettuna muiden "
+"vastaanottajien kanssa."
+
+msgid "Remove access"
+msgstr "Poista pääsy"
+
+msgid "Keep access"
+msgstr "Pidä pääsy"
+
+msgid "Stop sharing this document"
+msgstr "Lopeta tämän asiakirjan jakaminen"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "Lakkaa jakamasta tätä asiakirjaa kaikille?"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+"Kaikki nykyiset vastaanottajat menettävät pääsyn välittömästi. Itse "
+"asiakirja säilyy sinun käytettävissäsi."
+
+msgid "Keep sharing"
+msgstr "Jatka jakamista"
 
 msgid "Share your Document"
 msgstr "Jaa asiakirjasi"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Oletko varma? Aiotko poistaa tämän henkilön?"
+msgid "Unassign property"
+msgstr "Unassign property"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Oletko varma? Aiotko lopettaa dokumenttisi jakamisen ?"
+msgid "Remove this property from the current person?"
+msgstr "Poista tämä ominaisuus nykyiseltä henkilöltä?"
+
+msgid "The property value will be removed from this profile."
+msgstr "Ominaisuuden arvo poistetaan tästä profiilista."
+
+msgid "Remove property"
+msgstr "Poista omaisuus"
+
+msgid "Keep property"
+msgstr "Pidä omaisuus"
+
+msgid "Edit property value"
+msgstr "Muokkaa ominaisuuden arvoa"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+"Päivittää tämän ominaisuuden tallennetun arvon nykyiseen henkilöprofiiliin."
+
+msgid "Save property"
+msgstr "Tallenna omaisuus"
 
 msgid "Change classification"
 msgstr "Luokituksen muuttaminen"
 
-msgid "Change role"
-msgstr "Vaihda roolia"
+msgid "Choose the classification that best matches this person profile."
+msgstr "Valitse luokitus, joka parhaiten vastaa tämän henkilön profiilia."
+
+msgid "Update classification"
+msgstr "Päivitysluokitus"
+
+msgid "Change family role"
+msgstr "Perheen roolin muuttaminen"
+
+msgid "Select the role this person should have inside the family record."
+msgstr "Valitse rooli, joka tällä henkilöllä on perhetietueessa."
+
+msgid "Update role"
+msgstr "Päivitä rooli"
 
 msgid "Volunteer actions"
 msgstr "Vapaaehtoistoiminta"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "Vahvista Poista vapaaehtoistyömahdollisuus"
+msgid "Remove volunteer opportunity"
+msgstr "Poista vapaaehtoistyömahdollisuus"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Poista tämä vapaaehtoistoiminnan mahdollisuus henkilöltä?"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "Tehtävä poistetaan vain tästä profiilista."
+
+msgid "Remove assignment"
+msgstr "Poista tehtävä"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr "Valitse ensin vähintään yksi vapaaehtoistyömahdollisuus."
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Valittuja vapaaehtoistoimintamahdollisuuksia ei pystytä osoittamaan."
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Joitakin vapaaehtoistehtäviä ei voitu osoittaa."
+
+msgid "Delete automatic payment"
+msgstr "Poista automaattinen maksu"
+
+msgid "Delete this automatic payment setup?"
+msgstr "Poista tämä automaattinen maksuasetus?"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+"Tähän asetukseen liittyvät toistuvat maksut lakkaavat poistamisen jälkeen."
+
+msgid "Delete payment"
+msgstr "Poista maksu"
+
+msgid "Keep payment"
+msgstr "Pidä maksu"
+
+msgid "Delete pledge or payment"
+msgstr "Poista pantti tai maksu"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "Poista tämä pantti- tai maksukirjaus?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr "Tämä merkintä poistetaan tämän perheen maksuhistoriasta."
+
+msgid "Delete entry"
+msgstr "Poista merkintä"
+
+msgid "Keep entry"
+msgstr "Pidä merkintä"
+
+msgid "Share this secure verification link with the person."
+msgstr "Jaa tämä suojattu vahvistuslinkki henkilön kanssa."
 
 msgid "Comments"
 msgstr "Kommentit"
@@ -2326,14 +2678,29 @@ msgid ""
 msgstr ""
 "Olet poistamassa valittuja laajennuksia. Tätä toimenpidettä ei voi peruuttaa!"
 
-msgid "Select your zipped plugin file"
-msgstr "Valitse pakattu lisäosatiedosto"
+msgid "Update plugin"
+msgstr "Päivitä plugin"
 
-msgid "Download the zipped file of the plugin"
-msgstr "Lataa laajennuksen pakattu tiedosto"
+msgid "Add plugin"
+msgstr "Lisää lisäosa"
 
-msgid "Plugin download manager"
-msgstr "Plugin download manager"
+msgid "Choose the new zipped package to update this plugin."
+msgstr "Valitse uusi pakattu paketti päivittääksesi tämän laajennuksen."
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "Valitse pakattu lisäosapaketti ja asenna se CRM:ään."
+
+msgid "Plugin archive"
+msgstr "Plugin arkisto"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "Vain pakatut laajennuspaketit tulisi valita tässä."
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "Lähetys alkaa heti, kun lähetät tämän lomakkeen."
+
+msgid "Plugin manager"
+msgstr "Plugin manager"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Nykyinen kuvakansio on nyt julkinen kansio !!!!"
@@ -2639,6 +3006,9 @@ msgid "Select the event Type you would like to use to create the Attendance"
 msgstr ""
 "Valitse tapahtumatyyppi, jota haluat käyttää läsnäolotietojen luomiseen."
 
+msgid "Create First A New Event"
+msgstr "Luo ensin uusi tapahtuma"
+
 msgid "Create Event With Students"
 msgstr "Luo tapahtuma opiskelijoiden kanssa"
 
@@ -2738,9 +3108,6 @@ msgstr "Ajankohtainen tapahtuma"
 
 msgid "No assignments for kiosk"
 msgstr "Kioskille ei ole annettu tehtäviä"
-
-msgid "Event"
-msgstr "Tapahtuma"
 
 msgid "Kiosk Name"
 msgstr "Kioskin nimi"
@@ -2957,6 +3324,56 @@ msgid ""
 "altered."
 msgstr "Kaikki jäsenyys tuhotaan.  Jäseniä itseään ei muuteta."
 
+#~ msgid "ERROR"
+#~ msgstr "VIRHE"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Valitse ryhmä, johon haluat lisätä ostoskorisi."
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "Sinun on määritettävä ryhmän nimi"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Kyllä : jos olet varma"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "Voit lisätä ostoskorin sisällön valittuun tapahtumaan alla<br> - TAI - "
+#~ "<br>Luo ensin tapahtuma ja lisää ne sen jälkeen."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Rekisteröi CRM-kappaleesi tarkistamalla nämä tiedot ja painamalla Lähetä-"
+#~ "painiketta."
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Valitse vapaaehtoisten kohderyhmä jäsenille"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Valitse jäsenille tarkoitettu rooli"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Lisää ryhmän nimi"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr "Haluatko varmasti poistaa tämän henkilön jäsenyyden osoitteesta"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Oletko varma? Aiotko poistaa tämän henkilön?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "Oletko varma? Aiotko lopettaa dokumenttisi jakamisen ?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "Vahvista Poista vapaaehtoistyömahdollisuus"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Valitse pakattu lisäosatiedosto"
+
 #~ msgid "Personal"
 #~ msgstr "Henkilökohtainen"
 
@@ -3025,9 +3442,6 @@ msgstr "Kaikki jäsenyys tuhotaan.  Jäseniä itseään ei muuteta."
 #~ msgid "Songs"
 #~ msgstr "Laulut"
 
-#~ msgid "Remove all"
-#~ msgstr "Poista kaikki"
-
 #~ msgid "Add all"
 #~ msgstr "Lisää kaikki"
 
@@ -3058,9 +3472,6 @@ msgstr "Kaikki jäsenyys tuhotaan.  Jäseniä itseään ei muuteta."
 
 #~ msgid "Share your File"
 #~ msgstr "Jaa tiedostosi"
-
-#~ msgid "Members from group"
-#~ msgstr "Ryhmän jäsenet"
 
 #~ msgid "Add person"
 #~ msgstr "Lisää henkilö"

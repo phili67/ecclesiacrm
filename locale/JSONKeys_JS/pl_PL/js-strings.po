@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -667,8 +667,20 @@ msgstr "Tekst błędu"
 msgid "Stack Trace"
 msgstr "Śledzenie stosu"
 
-msgid "ERROR"
-msgstr "ERROR"
+msgid "The application could not complete this API request."
+msgstr "Aplikacja nie mogła wykonać tego żądania API."
+
+msgid "Information"
+msgstr "Informacje"
+
+msgid "Please confirm"
+msgstr "Proszę o potwierdzenie"
+
+msgid "Update information"
+msgstr "Aktualizacja informacji"
+
+msgid "Make a selection"
+msgstr "Dokonaj wyboru"
 
 msgid "In progress"
 msgstr "W toku"
@@ -689,8 +701,18 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Wystąpił problem z pobraniem żądanego obiektu"
 
-msgid "Select the method to add to a group"
-msgstr "Wybierz metodę, którą chcesz dodać do grupy"
+msgid "Add cart to a group"
+msgstr "Dodawanie koszyka do grupy"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+"Wybierz, czy chcesz dodać koszyk do istniejącej grupy, czy utworzyć nową "
+"bezpośrednio z koszyka."
+
+msgid "Action"
+msgstr "Działanie"
 
 msgid "Select an existing Group"
 msgstr "Wybierz istniejącą grupę"
@@ -698,14 +720,18 @@ msgstr "Wybierz istniejącą grupę"
 msgid "or Create a new Group from the Cart"
 msgstr "lub Utwórz nową grupę z koszyka"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Wybierz grupę, do której chcesz dodać swój koszyk"
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr "Wybierz grupę docelową i rolę do przypisania członkom koszyka."
 
 msgid "Select Group"
 msgstr "Wybierz grupę"
 
 msgid "Select Role"
 msgstr "Wybierz rolę"
+
+msgid "Create a new group and move the current cart into it."
+msgstr "Utwórz nową grupę i przenieś do niej bieżący koszyk."
 
 msgid "Group Name"
 msgstr "Nazwa grupy"
@@ -716,42 +742,76 @@ msgstr "Nazwa domyślna Grupa"
 msgid "Add Cart to Group"
 msgstr "Dodaj koszyk do grupy"
 
-msgid "You have to select one group and a group role if you want"
-msgstr "Musisz wybrać jedną grupę i rolę grupy, jeśli chcesz"
+msgid "Missing selection"
+msgstr "Brakujący wybór"
 
-msgid "You have to set a Group Name"
-msgstr "Musisz ustawić nazwę grupy"
+msgid "You need to select both a group and a role before continuing."
+msgstr "Przed kontynuowaniem należy wybrać zarówno grupę, jak i rolę."
 
-msgid "Do you really want to deactivate the persons?"
-msgstr "Czy naprawdę chcesz dezaktywować te osoby?"
+msgid "Group name required"
+msgstr "Wymagana nazwa grupy"
 
-msgid "This action can be undone !!!!"
-msgstr "Czynność tę można cofnąć !!!!"
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "Wprowadź nazwę grupy przed utworzeniem nowej grupy z koszyka."
 
-msgid "Yes : if you're sure"
-msgstr "Tak: jeśli jesteś pewien."
+msgid "Deactivate cart persons"
+msgstr "Dezaktywacja osób w wózku"
 
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Czy naprawdę chcesz usunąć te osoby z CRM?"
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr ""
+"Czy naprawdę chcesz dezaktywować wszystkie osoby znajdujące się obecnie w "
+"koszyku?"
 
-msgid "This action cannot be undone !!!!"
-msgstr "Tej czynności nie można cofnąć !!!!"
+msgid "This action can be undone later if needed."
+msgstr "Czynność ta może zostać cofnięta później, jeśli zajdzie taka potrzeba."
 
-msgid "Select the event to which you would like to add your cart"
-msgstr "Wybierz wydarzenie, do którego chcesz dodać swój koszyk"
+msgid "Keep active"
+msgstr "Zachowaj aktywność"
 
-msgid "Create First A New Event"
-msgstr "Najpierw utwórz nowe wydarzenie"
+msgid "Deactivate persons"
+msgstr "Dezaktywacja osób"
+
+msgid "Delete cart persons"
+msgstr "Usuń osoby w koszyku"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr ""
+"Czy naprawdę chcesz usunąć z CRM wszystkie osoby znajdujące się obecnie w "
+"koszyku?"
+
+msgid "This action cannot be undone."
+msgstr "Tego działania nie można cofnąć."
+
+msgid "Keep persons"
+msgstr "Przechowywać osoby"
+
+msgid "Delete persons"
+msgstr "Usuń osoby"
+
+msgid "Add cart to event"
+msgstr "Dodaj koszyk do wydarzenia"
+
+msgid "Select the event that should receive the current cart."
+msgstr "Wybierz zdarzenie, które ma otrzymać bieżący koszyk."
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+"Możesz także najpierw utworzyć nowe wydarzenie, a następnie wrócić tutaj, "
+"aby przypisać koszyk."
+
+msgid "Event"
+msgstr "Wydarzenia"
+
+msgid "Choose one of the available events from the list below."
+msgstr "Wybierz jedno z dostępnych wydarzeń z poniższej listy."
+
+msgid "Create new event"
+msgstr "Utwórz nowe zdarzenie"
 
 msgid "Add to Event"
 msgstr "Dodaj do wydarzenia"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Możesz dodać zawartość koszyka do wybranego wydarzenia poniżej<br> - LUB - "
-"<br>Utwórz pierwsze wydarzenie i dodaj je po."
 
 msgid "Register"
 msgstr "Rejestr"
@@ -807,23 +867,22 @@ msgstr "Zobacz wszystkie"
 msgid "Your Cart is Empty"
 msgstr "Twój koszyk jest pusty"
 
+msgid "Software registration"
+msgstr "Rejestracja oprogramowania"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"Przed ich wysłaniem należy zapoznać się z poniższymi danymi rejestracyjnymi. "
+"Informacje te są wykorzystywane wyłącznie do śledzenia korzystania z tego "
+"oprogramowania."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr "Jeśli chcesz dokonać zmian w danych rejestracyjnych, przejdź na stronę"
 
 msgid "Admin->Edit General Settings"
 msgstr "Administrator->Edytuj ustawienia ogólne"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Zarejestruj swoją kopię CRM, sprawdzając te informacje i naciskając przycisk "
-"Wyślij."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Informacje te są wykorzystywane wyłącznie do śledzenia wykorzystania tego "
-"oprogramowania."
 
 msgid "Church Name"
 msgstr "Nazwa Kościoła"
@@ -861,14 +920,38 @@ msgstr "Twoje oprogramowanie jest teraz zarejestrowane. Dziękujemy !"
 msgid "Select Volunteer Opportunity"
 msgstr "Wybierz możliwość wolontariatu"
 
-msgid "Please select target volunteers for members"
-msgstr "Wybierz docelowych wolontariuszy dla członków"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "Wybierz możliwość wolontariatu, która powinna zostać przypisana."
 
-msgid "Please select target group for members"
-msgstr "Proszę wybrać grupę docelową dla członków"
+msgid "This selection will be applied to the current members."
+msgstr "Ten wybór zostanie zastosowany do obecnych członków."
 
-msgid "Please select target Role for members"
-msgstr "Proszę wybrać docelową rolę dla członków"
+msgid "Volunteer opportunity"
+msgstr "Możliwość zostania wolontariuszem"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr "Wybierz docelową możliwość wolontariatu z dostępnej listy."
+
+msgid "Choose the destination for the selected members."
+msgstr "Wybierz miejsce docelowe dla wybranych członków."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+"Użyj poniższych pól, aby wybrać grupę, rolę lub obie, w zależności od akcji."
+
+msgid "Group"
+msgstr "Grupa"
+
+msgid "Select the target group for the selected members."
+msgstr "Wybierz grupę docelową dla wybranych członków."
+
+msgid "Role"
+msgstr "Rola"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "Wybierz rolę, która ma zostać przypisana do wybranej grupy."
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroupID wymagany do podpowiedzi wyboru roli"
@@ -876,11 +959,21 @@ msgstr "GroupID wymagany do podpowiedzi wyboru roli"
 msgid "Select Group and Role"
 msgstr "Wybierz Grupę i Rolę"
 
-msgid "Add A Group Name"
-msgstr "Dodaj nazwę grupy"
+msgid "Select both the destination group and the role to apply."
+msgstr "Wybierz zarówno grupę docelową, jak i rolę do zastosowania."
 
-msgid "Yes"
-msgstr "Tak"
+msgid "Create a group"
+msgstr "Utwórz grupę"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr ""
+"Wprowadź nazwę nowej grupy, która powinna zostać utworzona na podstawie "
+"bieżącego przepływu pracy."
+
+msgid "Create group"
+msgstr "Utwórz grupę"
 
 msgid "Calendar Event"
 msgstr "Kalendarz wydarzeń"
@@ -1008,6 +1101,9 @@ msgstr "zapisany pomyślnie"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "Za chwilę wyślesz swoją kampanię! Czy jesteś pewien?"
+
+msgid "Yes"
+msgstr "Tak"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Zamierzasz usunąć swoją kampanię! Czy jesteś pewien?"
@@ -1436,9 +1532,6 @@ msgstr "Może to mieć również wpływ na historię obecności."
 msgid "Photo"
 msgstr "Zdjęcie"
 
-msgid "Action"
-msgstr "Działanie"
-
 msgid "Attendance actions"
 msgstr "Działania związane z frekwencją"
 
@@ -1498,9 +1591,6 @@ msgstr "Przesuń jeden w odpowiednim zakresie."
 
 msgid "Create one."
 msgstr "Stwórz jeden."
-
-msgid "Group"
-msgstr "Grupa"
 
 msgid "User"
 msgstr "Użytkownik"
@@ -1821,9 +1911,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Wyłączanie właściwości specyficznych dla grupy"
 
-msgid "Role"
-msgstr "Rola"
-
 msgid "Please enter a role name."
 msgstr "Wprowadź nazwę roli."
 
@@ -1998,6 +2085,18 @@ msgstr "Jesteś pewien, że chcesz usunąć wszystkich menedżerów?"
 msgid "Appointment"
 msgstr "Powołanie"
 
+msgid "Pastoral Care"
+msgstr "Opieka duszpasterska"
+
+msgid "Open the pastoral care record"
+msgstr "Otwórz rejestr opieki duszpasterskiej"
+
+msgid "No records found for this view."
+msgstr "Nie znaleziono rekordów dla tego widoku."
+
+msgid "No matching records found."
+msgstr "Nie znaleziono pasujących rekordów."
+
 msgid "Never contacted"
 msgstr "Nigdy się nie kontaktowano"
 
@@ -2009,6 +2108,22 @@ msgstr "Wizyty/wezwania"
 
 msgid "Last visit/call"
 msgstr "Ostatnia wizyta/ wezwanie"
+
+msgid "Opening..."
+msgstr "Otwarcie..."
+
+msgid "Selecting..."
+msgstr "Wybór..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+"Nie znaleziono pasujących rekordów opieki duszpasterskiej. Wypróbuj inną "
+"kategorię."
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr "W tej chwili nie można rozpocząć akcji opieki duszpasterskiej."
 
 msgid "Delete Pastoral Care Type"
 msgstr "Usuń Typ opieki duszpasterskiej"
@@ -2072,6 +2187,22 @@ msgstr ""
 "Nie wszystkie rodziny zostały USUNIĘTE: Niektóre z nich mają zapisy darowizn "
 "i NIE mogą być usunięte dopóki te darowizny nie zostaną powiązane z inną "
 "rodziną."
+
+msgid "Review family member information"
+msgstr "Przegląd informacji o członkach rodziny"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+"Sprawdź wyświetlane informacje i w razie potrzeby zaktualizuj członka "
+"rodziny przed zapisaniem."
+
+msgid "Update family member details"
+msgstr "Aktualizacja danych członka rodziny"
+
+msgid "Save changes"
+msgstr "Zapisz zmiany"
 
 msgid "Confirm Deactivation"
 msgstr "Potwierdź dezaktywację"
@@ -2259,6 +2390,28 @@ msgstr ""
 "NIE mogą być usunięte dopóki te darowizny nie zostaną powiązane z inną "
 "rodziną."
 
+msgid "Review personal information"
+msgstr "Przeglądanie danych osobowych"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+"Przed zapisaniem sprawdź bieżące wartości i zaktualizuj pola, które wymagają "
+"korekty."
+
+msgid "Profile information"
+msgstr "Informacje o profilu"
+
+msgid "Additional information"
+msgstr "Dodatkowe informacje"
+
+msgid "Update personal details"
+msgstr "Aktualizacja danych osobowych"
+
+msgid "Processing..."
+msgstr "Przetwarzanie..."
+
 msgid "Please confirm deactivation of person"
 msgstr "Proszę potwierdzić dezaktywację osoby"
 
@@ -2281,8 +2434,29 @@ msgstr "Dezaktywuj"
 msgid "Activate"
 msgstr "Aktywuj"
 
+msgid "Deactivating..."
+msgstr "Dezaktywacja..."
+
+msgid "Activating..."
+msgstr "Aktywacja..."
+
+msgid "Unable to update this person status."
+msgstr "Nie można zaktualizować statusu tej osoby."
+
+msgid "Deleting..."
+msgstr "Usuwanie..."
+
+msgid "Unable to delete the photo."
+msgstr "Nie można usunąć zdjęcia."
+
+msgid "Preview the current profile photo."
+msgstr "Podgląd bieżącego zdjęcia profilowego."
+
 msgid "Property actions"
 msgstr "Działania dotyczące nieruchomości"
+
+msgid "Please select a property first."
+msgstr "Najpierw wybierz nieruchomość."
 
 msgid "Assigning..."
 msgstr "Przypisywanie..."
@@ -2290,29 +2464,209 @@ msgstr "Przypisywanie..."
 msgid "Assign"
 msgstr "Przypisanie"
 
-msgid "Are you sure you want to remove this person's membership from"
-msgstr "Czy jesteś pewien, że chcesz usunąć członkostwo tej osoby z"
+msgid "Unable to assign this property."
+msgstr "Nie można przypisać tej właściwości."
+
+msgid "Remove group assignment"
+msgstr "Usuń przypisanie do grupy"
+
+msgid "Remove this person from the group"
+msgstr "Usuń tę osobę z grupy"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
+msgstr ""
+"Członkostwo i wszelkie role powiązane z tą grupą zostaną usunięte dla tej "
+"osoby."
+
+msgid "Remove from group"
+msgstr "Usuń z grupy"
+
+msgid "Keep assignment"
+msgstr "Zachowaj przydział"
+
+msgid "Share your document"
+msgstr "Udostępnianie dokumentu"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+"Wybierz odbiorców, zdefiniuj ich dostęp i zdecyduj, czy powinni otrzymywać "
+"powiadomienia e-mail."
+
+msgid "Current access"
+msgstr "Bieżący dostęp"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+"Wybierz jednego lub więcej odbiorców, aby zaktualizować ich dostęp lub "
+"usunąć."
+
+msgid "Set rights"
+msgstr "Ustawione prawa"
+
+msgid "Read and write"
+msgstr "Odczyt i zapis"
+
+msgid "Notification"
+msgstr "Powiadomienie"
+
+msgid "Add people, families or groups"
+msgstr "Dodawanie osób, rodzin lub grup"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+"Wyszukaj według nazwy, aby przyznać dostęp innej osobie, rodzinie lub całej "
+"grupie."
+
+msgid "Please select at least one recipient first."
+msgstr "Najpierw wybierz co najmniej jednego odbiorcę."
+
+msgid "Remove shared access"
+msgstr "Usunięcie współdzielonego dostępu"
+
+msgid "Remove access for the selected recipients?"
+msgstr "Usunąć dostęp dla wybranych odbiorców?"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+"Usunięci zostaną tylko wybrani odbiorcy. Dokument pozostanie udostępniony "
+"wszystkim pozostałym odbiorcom."
+
+msgid "Remove access"
+msgstr "Usuń dostęp"
+
+msgid "Keep access"
+msgstr "Zachowaj dostęp"
+
+msgid "Stop sharing this document"
+msgstr "Przestań udostępniać ten dokument"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "Przestać udostępniać ten dokument wszystkim?"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+"Wszyscy obecni odbiorcy natychmiast utracą dostęp. Sam dokument pozostanie "
+"dostępny dla użytkownika."
+
+msgid "Keep sharing"
+msgstr "Udostępniaj dalej"
 
 msgid "Share your Document"
 msgstr "Udostępnij swój dokument"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Czy na pewno? Zamierzasz usunąć tę osobę?"
+msgid "Unassign property"
+msgstr "Nieprzypisana właściwość"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Czy jesteś pewien, że ? Zamierzasz przestać udostępniać swój dokument?"
+msgid "Remove this property from the current person?"
+msgstr "Usunąć tę właściwość z bieżącej osoby?"
+
+msgid "The property value will be removed from this profile."
+msgstr "Wartość właściwości zostanie usunięta z tego profilu."
+
+msgid "Remove property"
+msgstr "Usuń własność"
+
+msgid "Keep property"
+msgstr "Zachować własność"
+
+msgid "Edit property value"
+msgstr "Edytuj wartość właściwości"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+"Aktualizuje wartość zapisaną dla tej właściwości w bieżącym profilu osoby."
+
+msgid "Save property"
+msgstr "Oszczędzanie nieruchomości"
 
 msgid "Change classification"
 msgstr "Zmiana klasyfikacji"
 
-msgid "Change role"
-msgstr "Zmiana roli"
+msgid "Choose the classification that best matches this person profile."
+msgstr "Wybierz klasyfikację, która najlepiej pasuje do profilu tej osoby."
+
+msgid "Update classification"
+msgstr "Klasyfikacja aktualizacji"
+
+msgid "Change family role"
+msgstr "Zmiana roli rodziny"
+
+msgid "Select the role this person should have inside the family record."
+msgstr "Wybierz rolę, jaką ta osoba powinna pełnić w rekordzie rodziny."
+
+msgid "Update role"
+msgstr "Rola aktualizacji"
 
 msgid "Volunteer actions"
 msgstr "Działania wolontariuszy"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "Potwierdź Usuń wolontariusza Szansa"
+msgid "Remove volunteer opportunity"
+msgstr "Usuń możliwość wolontariatu"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Usunąć tę możliwość wolontariatu z danej osoby?"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "Przypisanie zostanie usunięte tylko z tego profilu."
+
+msgid "Remove assignment"
+msgstr "Usuń przypisanie"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr "Najpierw wybierz co najmniej jedną możliwość wolontariatu."
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Nie można przypisać wybranych możliwości wolontariatu."
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Niektóre możliwości wolontariatu nie mogły zostać przydzielone."
+
+msgid "Delete automatic payment"
+msgstr "Usuń płatność automatyczną"
+
+msgid "Delete this automatic payment setup?"
+msgstr "Usunąć konfigurację automatycznej płatności?"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+"Płatności cykliczne powiązane z tą konfiguracją zostaną zatrzymane po jej "
+"usunięciu."
+
+msgid "Delete payment"
+msgstr "Usuń płatność"
+
+msgid "Keep payment"
+msgstr "Utrzymanie płatności"
+
+msgid "Delete pledge or payment"
+msgstr "Usuń zobowiązanie lub płatność"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "Usunąć ten wpis zobowiązania lub płatności?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr "Ten wpis zostanie usunięty z historii wpłat dla tej rodziny."
+
+msgid "Delete entry"
+msgstr "Usuń wpis"
+
+msgid "Keep entry"
+msgstr "Zachowaj wpis"
+
+msgid "Share this secure verification link with the person."
+msgstr "Udostępnij tej osobie bezpieczny link weryfikacyjny."
 
 msgid "Comments"
 msgstr "Uwagi"
@@ -2324,14 +2678,29 @@ msgid ""
 "You are about to delete the selected plugins. This action cannot be undone!"
 msgstr "Właśnie usuwasz wybrane wtyczki. Tej czynności nie można cofnąć!"
 
-msgid "Select your zipped plugin file"
-msgstr "Wybierz swój spakowany plik wtyczki"
+msgid "Update plugin"
+msgstr "Aktualizacja wtyczki"
 
-msgid "Download the zipped file of the plugin"
-msgstr "Pobierz zzipowany plik wtyczki"
+msgid "Add plugin"
+msgstr "Dodaj wtyczkę"
 
-msgid "Plugin download manager"
-msgstr "Menedżer pobierania wtyczek"
+msgid "Choose the new zipped package to update this plugin."
+msgstr "Wybierz nowy spakowany pakiet, aby zaktualizować tę wtyczkę."
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "Wybierz spakowany pakiet wtyczek, aby zainstalować go w swoim CRM."
+
+msgid "Plugin archive"
+msgstr "Archiwum wtyczek"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "W tym miejscu należy wybrać tylko spakowane pakiety wtyczek."
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "Przesyłanie rozpocznie się natychmiast po przesłaniu tego formularza."
+
+msgid "Plugin manager"
+msgstr "Menedżer wtyczek"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Aktualny folder z obrazami jest teraz folderem publicznym !!!"
@@ -2636,6 +3005,9 @@ msgstr "Dodaj Nauczyciele do koszyka"
 msgid "Select the event Type you would like to use to create the Attendance"
 msgstr "Wybierz typ zdarzenia, którego chcesz użyć do utworzenia frekwencji."
 
+msgid "Create First A New Event"
+msgstr "Najpierw utwórz nowe wydarzenie"
+
 msgid "Create Event With Students"
 msgstr "Tworzenie wydarzeń z udziałem uczniów"
 
@@ -2735,9 +3107,6 @@ msgstr "Bieżące wydarzenie"
 
 msgid "No assignments for kiosk"
 msgstr "Brak przydziału dla kiosku"
-
-msgid "Event"
-msgstr "Wydarzenia"
 
 msgid "Kiosk Name"
 msgstr "Nazwa kiosku"
@@ -2955,6 +3324,57 @@ msgstr ""
 "Wszystkie członkostwa zostaną zniszczone.  Sami członkowie nie zostaną "
 "zmienieni."
 
+#~ msgid "ERROR"
+#~ msgstr "ERROR"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Wybierz grupę, do której chcesz dodać swój koszyk"
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "Musisz ustawić nazwę grupy"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Tak: jeśli jesteś pewien."
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "Możesz dodać zawartość koszyka do wybranego wydarzenia poniżej<br> - LUB "
+#~ "- <br>Utwórz pierwsze wydarzenie i dodaj je po."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Zarejestruj swoją kopię CRM, sprawdzając te informacje i naciskając "
+#~ "przycisk Wyślij."
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Wybierz docelowych wolontariuszy dla członków"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Proszę wybrać docelową rolę dla członków"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Dodaj nazwę grupy"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr "Czy jesteś pewien, że chcesz usunąć członkostwo tej osoby z"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Czy na pewno? Zamierzasz usunąć tę osobę?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr ""
+#~ "Czy jesteś pewien, że ? Zamierzasz przestać udostępniać swój dokument?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "Potwierdź Usuń wolontariusza Szansa"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Wybierz swój spakowany plik wtyczki"
+
 #~ msgid "Personal"
 #~ msgstr "Osobisty"
 
@@ -3023,9 +3443,6 @@ msgstr ""
 #~ msgid "Songs"
 #~ msgstr "Piosenki"
 
-#~ msgid "Remove all"
-#~ msgstr "Usuń wszystko"
-
 #~ msgid "Add all"
 #~ msgstr "Dodaj wszystkie"
 
@@ -3056,9 +3473,6 @@ msgstr ""
 
 #~ msgid "Share your File"
 #~ msgstr "Udostępnij swój plik"
-
-#~ msgid "Members from group"
-#~ msgstr "Członkowie grupy"
 
 #~ msgid "Add person"
 #~ msgstr "Dodaj osobę"

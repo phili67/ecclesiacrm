@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -656,8 +656,23 @@ msgstr "错误文本"
 msgid "Stack Trace"
 msgstr "堆栈跟踪"
 
-msgid "ERROR"
-msgstr "错误"
+msgid "The application could not complete this API request."
+msgstr ""
+
+#, fuzzy
+msgid "Information"
+msgstr "地点"
+
+#, fuzzy
+msgid "Please confirm"
+msgstr "请更新"
+
+#, fuzzy
+msgid "Update information"
+msgstr "用户删除确认"
+
+msgid "Make a selection"
+msgstr ""
 
 msgid "In progress"
 msgstr "进行中"
@@ -678,8 +693,17 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "检索所请求的对象时出现了问题"
 
-msgid "Select the method to add to a group"
-msgstr "选择要添加到一个组的方法"
+#, fuzzy
+msgid "Add cart to a group"
+msgstr "添加购物车到组"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+
+msgid "Action"
+msgstr "行动"
 
 msgid "Select an existing Group"
 msgstr "选择一个现有的组"
@@ -687,14 +711,19 @@ msgstr "选择一个现有的组"
 msgid "or Create a new Group from the Cart"
 msgstr "或从购物车中创建一个新的组"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "选择你想加入购物车的组别"
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr ""
 
 msgid "Select Group"
 msgstr "选择组别"
 
 msgid "Select Role"
 msgstr "选择角色"
+
+#, fuzzy
+msgid "Create a new group and move the current cart into it."
+msgstr "或从购物车中创建一个新的组"
 
 msgid "Group Name"
 msgstr "集团名称"
@@ -705,42 +734,86 @@ msgstr "默认名称组"
 msgid "Add Cart to Group"
 msgstr "添加购物车到组"
 
-msgid "You have to select one group and a group role if you want"
+msgid "Missing selection"
+msgstr ""
+
+#, fuzzy
+msgid "You need to select both a group and a role before continuing."
 msgstr "你必须选择一个组和一个组的角色，如果你想"
 
-msgid "You have to set a Group Name"
-msgstr "你必须设置一个组名"
+#, fuzzy
+msgid "Group name required"
+msgstr "集团名称"
 
-msgid "Do you really want to deactivate the persons?"
+#, fuzzy
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "或从购物车中创建一个新的组"
+
+#, fuzzy
+msgid "Deactivate cart persons"
+msgstr "从购物车中停用人员"
+
+#, fuzzy
+msgid "Do you really want to deactivate all persons currently in the cart?"
 msgstr "你真的想停用这些人吗？"
 
-msgid "This action can be undone !!!!"
+#, fuzzy
+msgid "This action can be undone later if needed."
 msgstr "这一行动可以被撤销 !!!!"
 
-msgid "Yes : if you're sure"
-msgstr "是的：如果你确定"
+#, fuzzy
+msgid "Keep active"
+msgstr "停用"
 
-msgid "Do you really want to delete the persons from the CRM?"
+#, fuzzy
+msgid "Deactivate persons"
+msgstr "从购物车中停用人员"
+
+#, fuzzy
+msgid "Delete cart persons"
+msgstr "删除这个人？"
+
+#, fuzzy
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
 msgstr "你真的想从CRM中删除这些人吗？"
 
-msgid "This action cannot be undone !!!!"
+#, fuzzy
+msgid "This action cannot be undone."
 msgstr "这一行动不能被撤销 !!!!"
 
-msgid "Select the event to which you would like to add your cart"
+#, fuzzy
+msgid "Keep persons"
+msgstr "由个人"
+
+#, fuzzy
+msgid "Delete persons"
+msgstr "删除这个人？"
+
+#, fuzzy
+msgid "Add cart to event"
+msgstr "添加到活动"
+
+#, fuzzy
+msgid "Select the event that should receive the current cart."
 msgstr "选择你想加入购物车的活动"
 
-msgid "Create First A New Event"
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+
+msgid "Event"
+msgstr "活动"
+
+msgid "Choose one of the available events from the list below."
+msgstr ""
+
+#, fuzzy
+msgid "Create new event"
 msgstr "首先创建一个新的活动"
 
 msgid "Add to Event"
 msgstr "添加到活动"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"你可以把购物车的内容添加到下面选定的事件中<br> - 或者 - <br>先创建一个事件，"
-"然后再添加它们。"
 
 msgid "Register"
 msgstr "注册"
@@ -797,20 +870,21 @@ msgstr "查看全部"
 msgid "Your Cart is Empty"
 msgstr "您的购物车是空的"
 
+#, fuzzy
+msgid "Software registration"
+msgstr "软件注册"
+
+#, fuzzy
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr "这些信息仅用于跟踪本软件的使用情况。"
+
 msgid "If you need to make changes to registration data, go to "
 msgstr "如果你需要对注册数据进行修改，请到"
 
 msgid "Admin->Edit General Settings"
 msgstr "管理员->编辑常规设置"
-
-#, fuzzy
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr "请通过检查这些信息并按发送按钮来注册你的EcclesiaCRM副本。"
-
-msgid "This information is used only to track the usage of this software."
-msgstr "这些信息仅用于跟踪本软件的使用情况。"
 
 msgid "Church Name"
 msgstr "教会名称"
@@ -850,14 +924,42 @@ msgid "Select Volunteer Opportunity"
 msgstr "添加新的志愿者机会"
 
 #, fuzzy
-msgid "Please select target volunteers for members"
-msgstr "请选择成员的目标角色"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "添加新的志愿者机会"
 
-msgid "Please select target group for members"
+msgid "This selection will be applied to the current members."
+msgstr ""
+
+#, fuzzy
+msgid "Volunteer opportunity"
+msgstr "添加新的志愿者机会"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr ""
+
+#, fuzzy
+msgid "Choose the destination for the selected members."
+msgstr "删除列表中选定成员的所有标签..."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+
+msgid "Group"
+msgstr "集团"
+
+#, fuzzy
+msgid "Select the target group for the selected members."
 msgstr "请选择成员的目标群体"
 
-msgid "Please select target Role for members"
-msgstr "请选择成员的目标角色"
+#, fuzzy
+msgid "Role"
+msgstr "角色名称"
+
+#, fuzzy
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "选择要添加到一个组的方法"
 
 msgid "GroupID required for role selection prompt"
 msgstr "角色选择提示所需的GroupID"
@@ -865,11 +967,21 @@ msgstr "角色选择提示所需的GroupID"
 msgid "Select Group and Role"
 msgstr "选择组别和角色"
 
-msgid "Add A Group Name"
-msgstr "添加群组名称"
+msgid "Select both the destination group and the role to apply."
+msgstr ""
 
-msgid "Yes"
-msgstr "是"
+#, fuzzy
+msgid "Create a group"
+msgstr "删除标签"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr ""
+
+#, fuzzy
+msgid "Create group"
+msgstr "删除标签"
 
 msgid "Calendar Event"
 msgstr "日历活动"
@@ -998,6 +1110,9 @@ msgstr "成功保存"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "你即将发送你的活动!你确定吗？"
+
+msgid "Yes"
+msgstr "是"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "你即将删除你的活动!你确定吗？"
@@ -1446,9 +1561,6 @@ msgstr ""
 msgid "Photo"
 msgstr "照片"
 
-msgid "Action"
-msgstr "行动"
-
 #, fuzzy
 msgid "Attendance actions"
 msgstr "出席率统计"
@@ -1508,9 +1620,6 @@ msgstr "在正确的范围内移动一个。"
 
 msgid "Create one."
 msgstr "创建一个。"
-
-msgid "Group"
-msgstr "集团"
 
 msgid "User"
 msgstr "用户"
@@ -1831,10 +1940,6 @@ msgstr "你确定你要删除组内特定的人的属性吗？所有组内成员
 msgid "Disable Group Specific Properties"
 msgstr "禁用组的特定属性"
 
-#, fuzzy
-msgid "Role"
-msgstr "角色名称"
-
 msgid "Please enter a role name."
 msgstr ""
 
@@ -2013,6 +2118,20 @@ msgstr "你确定你要删除所有的管理人员吗？"
 msgid "Appointment"
 msgstr "任命"
 
+#, fuzzy
+msgid "Pastoral Care"
+msgstr "牧民关怀笔记创作"
+
+#, fuzzy
+msgid "Open the pastoral care record"
+msgstr "删除教牧关怀类型"
+
+msgid "No records found for this view."
+msgstr ""
+
+msgid "No matching records found."
+msgstr ""
+
 msgid "Never contacted"
 msgstr ""
 
@@ -2025,6 +2144,22 @@ msgstr "访问/通话"
 
 msgid "Last visit/call"
 msgstr "最后一次访问/致电"
+
+#, fuzzy
+msgid "Opening..."
+msgstr "任务"
+
+#, fuzzy
+msgid "Selecting..."
+msgstr "选择一个"
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr ""
 
 msgid "Delete Pastoral Care Type"
 msgstr "删除教牧关怀类型"
@@ -2089,6 +2224,22 @@ msgid ""
 msgstr ""
 "不是所有的家庭都被删除了：其中一些家庭有捐赠记录，在这些捐赠与另一个家庭相关"
 "联之前，可能不会被删除。"
+
+msgid "Review family member information"
+msgstr ""
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+
+#, fuzzy
+msgid "Update family member details"
+msgstr "包括所有的家庭成员"
+
+#, fuzzy
+msgid "Save changes"
+msgstr "保存模板"
 
 msgid "Confirm Deactivation"
 msgstr "确认停用"
@@ -2269,6 +2420,29 @@ msgstr ""
 "不是所有的人都被删除了：有些人有捐赠记录，可能不会被删除，直到这些捐赠与另一"
 "个家庭有关。"
 
+msgid "Review personal information"
+msgstr ""
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+
+#, fuzzy
+msgid "Profile information"
+msgstr "用户删除确认"
+
+#, fuzzy
+msgid "Additional information"
+msgstr "行动确认"
+
+msgid "Update personal details"
+msgstr ""
+
+#, fuzzy
+msgid "Processing..."
+msgstr "任务"
+
 msgid "Please confirm deactivation of person"
 msgstr "请确认停用人员"
 
@@ -2290,8 +2464,34 @@ msgid "Activate"
 msgstr "激活"
 
 #, fuzzy
+msgid "Deactivating..."
+msgstr "停用"
+
+#, fuzzy
+msgid "Activating..."
+msgstr "激活"
+
+msgid "Unable to update this person status."
+msgstr ""
+
+#, fuzzy
+msgid "Deleting..."
+msgstr "选择一个"
+
+#, fuzzy
+msgid "Unable to delete the photo."
+msgstr "现在没有活动。"
+
+msgid "Preview the current profile photo."
+msgstr ""
+
+#, fuzzy
 msgid "Property actions"
 msgstr "财产名称"
+
+#, fuzzy
+msgid "Please select a property first."
+msgstr "请选择成员的目标群体"
 
 #, fuzzy
 msgid "Assigning..."
@@ -2301,29 +2501,232 @@ msgstr "任务"
 msgid "Assign"
 msgstr "任务"
 
-msgid "Are you sure you want to remove this person's membership from"
-msgstr "你确定要把这个人的会员资格从"
+#, fuzzy
+msgid "Unable to assign this property."
+msgstr "你确定你要解除这个属性的分配吗？"
+
+#, fuzzy
+msgid "Remove group assignment"
+msgstr "从购物车中删除"
+
+#, fuzzy
+msgid "Remove this person from the group"
+msgstr "从购物车中删除教师"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
+msgstr ""
+
+#, fuzzy
+msgid "Remove from group"
+msgstr "从购物车中删除"
+
+#, fuzzy
+msgid "Keep assignment"
+msgstr "任务"
+
+#, fuzzy
+msgid "Share your document"
+msgstr "分享您的文件"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+
+msgid "Current access"
+msgstr ""
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+
+#, fuzzy
+msgid "Set rights"
+msgstr "设置权利"
+
+msgid "Read and write"
+msgstr ""
+
+#, fuzzy
+msgid "Notification"
+msgstr "修改"
+
+#, fuzzy
+msgid "Add people, families or groups"
+msgstr "添加人员/家庭/团体"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+
+#, fuzzy
+msgid "Please select at least one recipient first."
+msgstr "请选择成员的目标角色"
+
+#, fuzzy
+msgid "Remove shared access"
+msgstr "移除人员"
+
+#, fuzzy
+msgid "Remove access for the selected recipients?"
+msgstr "删除所有成员"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+
+#, fuzzy
+msgid "Remove access"
+msgstr "删除所有成员"
+
+#, fuzzy
+msgid "Keep access"
+msgstr "删除标签"
+
+#, fuzzy
+msgid "Stop sharing this document"
+msgstr "停止分享"
+
+msgid "Stop sharing this document with everyone?"
+msgstr ""
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+
+#, fuzzy
+msgid "Keep sharing"
+msgstr "停止分享"
 
 msgid "Share your Document"
 msgstr "分享您的文件"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "你确定吗？你要删除这个人？"
+#, fuzzy
+msgid "Unassign property"
+msgstr "未分配的"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "你确定吗？你要停止分享你的文件了吗？"
+msgid "Remove this property from the current person?"
+msgstr ""
+
+msgid "The property value will be removed from this profile."
+msgstr ""
+
+#, fuzzy
+msgid "Remove property"
+msgstr "从购物车中删除"
+
+#, fuzzy
+msgid "Keep property"
+msgstr "财产"
+
+#, fuzzy
+msgid "Edit property value"
+msgstr "财产名称"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+
+#, fuzzy
+msgid "Save property"
+msgstr "财产"
 
 msgid "Change classification"
 msgstr "改变分类"
 
-msgid "Change role"
+msgid "Choose the classification that best matches this person profile."
+msgstr ""
+
+#, fuzzy
+msgid "Update classification"
+msgstr "改变分类"
+
+#, fuzzy
+msgid "Change family role"
 msgstr "改变角色"
+
+msgid "Select the role this person should have inside the family record."
+msgstr ""
+
+#, fuzzy
+msgid "Update role"
+msgstr "更新时间"
 
 msgid "Volunteer actions"
 msgstr ""
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "确认删除志愿者机会"
+#, fuzzy
+msgid "Remove volunteer opportunity"
+msgstr "添加新的志愿者机会"
+
+#, fuzzy
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "添加新的志愿者机会"
+
+msgid "The assignment will be removed from this profile only."
+msgstr ""
+
+#, fuzzy
+msgid "Remove assignment"
+msgstr "任务"
+
+#, fuzzy
+msgid "Please select at least one volunteer opportunity first."
+msgstr "请选择成员的目标角色"
+
+#, fuzzy
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "添加新的志愿者机会"
+
+#, fuzzy
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "添加新的志愿者机会"
+
+#, fuzzy
+msgid "Delete automatic payment"
+msgstr "确认 删除 自动付款"
+
+#, fuzzy
+msgid "Delete this automatic payment setup?"
+msgstr "确认 删除 自动付款"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+
+#, fuzzy
+msgid "Delete payment"
+msgstr "删除事件"
+
+#, fuzzy
+msgid "Keep payment"
+msgstr "认捐或付款"
+
+#, fuzzy
+msgid "Delete pledge or payment"
+msgstr "认捐或付款"
+
+#, fuzzy
+msgid "Delete this pledge or payment entry?"
+msgstr "删除这个人？"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr ""
+
+#, fuzzy
+msgid "Delete entry"
+msgstr "删除事件"
+
+#, fuzzy
+msgid "Keep entry"
+msgstr "删除标签"
+
+msgid "Share this secure verification link with the person."
+msgstr ""
 
 msgid "Comments"
 msgstr "评论"
@@ -2335,13 +2738,32 @@ msgid ""
 "You are about to delete the selected plugins. This action cannot be undone!"
 msgstr "你即将删除所选的插件。这个动作不能撤消!"
 
-msgid "Select your zipped plugin file"
-msgstr "选择你压缩的插件文件"
+#, fuzzy
+msgid "Update plugin"
+msgstr "更新时间"
 
-msgid "Download the zipped file of the plugin"
+#, fuzzy
+msgid "Add plugin"
+msgstr "添加基金"
+
+#, fuzzy
+msgid "Choose the new zipped package to update this plugin."
 msgstr "下载该插件的压缩文件"
 
-msgid "Plugin download manager"
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr ""
+
+msgid "Plugin archive"
+msgstr ""
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr ""
+
+msgid "The upload starts as soon as you submit this form."
+msgstr ""
+
+#, fuzzy
+msgid "Plugin manager"
 msgstr "插件下载管理器"
 
 msgid "The current images folder is now the public folder !!!"
@@ -2643,6 +3065,9 @@ msgstr "添加教师到购物车"
 msgid "Select the event Type you would like to use to create the Attendance"
 msgstr "选择你想用来创建考勤的事件类型"
 
+msgid "Create First A New Event"
+msgstr "首先创建一个新的活动"
+
 msgid "Create Event With Students"
 msgstr "与学生一起创建活动"
 
@@ -2736,9 +3161,6 @@ msgstr ""
 
 msgid "No assignments for kiosk"
 msgstr "没有为报刊亭分配任务"
-
-msgid "Event"
-msgstr "活动"
 
 msgid "Kiosk Name"
 msgstr "亭子名称"
@@ -2961,6 +3383,56 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "所有组的成员和属性都将被销毁。  组成员本身不会被改变。"
+
+#~ msgid "ERROR"
+#~ msgstr "错误"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "选择你想加入购物车的组别"
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "你必须设置一个组名"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "是的：如果你确定"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "你可以把购物车的内容添加到下面选定的事件中<br> - 或者 - <br>先创建一个事"
+#~ "件，然后再添加它们。"
+
+#, fuzzy
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr "请通过检查这些信息并按发送按钮来注册你的EcclesiaCRM副本。"
+
+#, fuzzy
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "请选择成员的目标角色"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "请选择成员的目标角色"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "添加群组名称"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr "你确定要把这个人的会员资格从"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "你确定吗？你要删除这个人？"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "你确定吗？你要停止分享你的文件了吗？"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "确认删除志愿者机会"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "选择你压缩的插件文件"
 
 #~ msgid "Personal"
 #~ msgstr "个人"

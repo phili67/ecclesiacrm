@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -674,8 +674,20 @@ msgstr "Pesan kesalahan"
 msgid "Stack Trace"
 msgstr "Stack Trace"
 
-msgid "ERROR"
-msgstr "ERROR"
+msgid "The application could not complete this API request."
+msgstr "Aplikasi tidak dapat menyelesaikan permintaan API ini."
+
+msgid "Information"
+msgstr "Informasi"
+
+msgid "Please confirm"
+msgstr "Mohon konfirmasi"
+
+msgid "Update information"
+msgstr "Memperbarui informasi"
+
+msgid "Make a selection"
+msgstr "Tentukan pilihan"
 
 msgid "In progress"
 msgstr "Sedang berlangsung"
@@ -696,8 +708,18 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Ada masalah mengambil objek yang diminta"
 
-msgid "Select the method to add to a group"
-msgstr "Memilih metode untuk menambahkan ke sebuah kelompok"
+msgid "Add cart to a group"
+msgstr "Menambahkan keranjang ke grup"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+"Pilih apakah akan menambahkan keranjang ke grup yang sudah ada atau membuat "
+"yang baru langsung dari keranjang."
+
+msgid "Action"
+msgstr "Action"
 
 msgid "Select an existing Group"
 msgstr "Memilih sebuah grup yang ada"
@@ -705,14 +727,18 @@ msgstr "Memilih sebuah grup yang ada"
 msgid "or Create a new Group from the Cart"
 msgstr "atau membuat kelompok baru dari Cart"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Pilih kelompok yang ingin kau tambahkan gerobak"
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr "Pilih grup tujuan dan peran yang akan diberikan kepada anggota troli."
 
 msgid "Select Group"
 msgstr "Pilih Grup"
 
 msgid "Select Role"
 msgstr "Pilih Role"
+
+msgid "Create a new group and move the current cart into it."
+msgstr "Buat grup baru dan pindahkan keranjang saat ini ke dalamnya."
 
 msgid "Group Name"
 msgstr "Grup Name"
@@ -723,42 +749,76 @@ msgstr "Defaulkan Name Group"
 msgid "Add Cart to Group"
 msgstr "Tambahkan Cart ke Grup"
 
-msgid "You have to select one group and a group role if you want"
-msgstr "Kau harus memilih satu kelompok dan peran kelompok jika kau mau"
+msgid "Missing selection"
+msgstr "Pilihan yang hilang"
 
-msgid "You have to set a Group Name"
-msgstr "Kau harus mengatur nama Grup"
+msgid "You need to select both a group and a role before continuing."
+msgstr "Anda perlu memilih grup dan peran sebelum melanjutkan."
 
-msgid "Do you really want to deactivate the persons?"
-msgstr "Apa kau benar-benar ingin menonaktifkan orang-orang?"
+msgid "Group name required"
+msgstr "Diperlukan nama grup"
 
-msgid "This action can be undone !!!!"
-msgstr "Aksi ini bisa dibatalkan! !\" Ugh!"
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "Masukkan nama grup sebelum membuat grup baru dari troli."
 
-msgid "Yes : if you're sure"
-msgstr "Ya, jika kau yakin"
+msgid "Deactivate cart persons"
+msgstr "Menonaktifkan orang gerobak"
 
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Apa kau benar-benar ingin menghapus orang-orang dari CRM?"
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr ""
+"Apakah Anda benar-benar ingin menonaktifkan semua orang yang saat ini berada "
+"di dalam troli?"
 
-msgid "This action cannot be undone !!!!"
-msgstr "Tindakan ini tidak bisa dibatalkan! !\" Ugh!"
+msgid "This action can be undone later if needed."
+msgstr "Tindakan ini dapat dibatalkan nanti jika diperlukan."
 
-msgid "Select the event to which you would like to add your cart"
-msgstr "Pilih peristiwa yang ingin kau tambahkan kereta"
+msgid "Keep active"
+msgstr "Tetap aktif"
 
-msgid "Create First A New Event"
-msgstr "Buat Pertama A New Event"
+msgid "Deactivate persons"
+msgstr "Menonaktifkan orang"
+
+msgid "Delete cart persons"
+msgstr "Menghapus orang dalam keranjang"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr ""
+"Apakah Anda benar-benar ingin menghapus semua orang yang saat ini berada di "
+"dalam troli dari CRM?"
+
+msgid "This action cannot be undone."
+msgstr "Tindakan ini tidak dapat dibatalkan."
+
+msgid "Keep persons"
+msgstr "Menjaga orang"
+
+msgid "Delete persons"
+msgstr "Menghapus orang"
+
+msgid "Add cart to event"
+msgstr "Tambahkan keranjang ke acara"
+
+msgid "Select the event that should receive the current cart."
+msgstr "Pilih acara yang akan menerima troli saat ini."
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+"Anda juga dapat membuat acara baru terlebih dahulu, lalu kembali ke sini "
+"untuk menetapkan troli."
+
+msgid "Event"
+msgstr "Event"
+
+msgid "Choose one of the available events from the list below."
+msgstr "Pilih salah satu acara yang tersedia dari daftar di bawah ini."
+
+msgid "Create new event"
+msgstr "Buat acara baru"
 
 msgid "Add to Event"
 msgstr "Tambahkan ke Event"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Kau bisa menambahkan isi kereta ke acara terpilih di bawah, atau - dan "
-"menciptakan sebuah acara pertama dan menambahkan mereka setelah itu."
 
 msgid "Register"
 msgstr "Daftar"
@@ -814,22 +874,21 @@ msgstr "Lihat semua"
 msgid "Your Cart is Empty"
 msgstr "Mobilmu kosong"
 
+msgid "Software registration"
+msgstr "Pendaftaran perangkat lunak"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"Tinjau detail pendaftaran di bawah ini sebelum mengirimkannya. Informasi ini "
+"hanya digunakan untuk melacak penggunaan perangkat lunak ini."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr "Jika kau perlu membuat perubahan data pendaftaran, pergilah"
 
 msgid "Admin->Edit General Settings"
 msgstr "Admin-- - Edit Umum Setting"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Silakan daftarkan salinan CRM Anda dengan memeriksa informasi ini dan tekan "
-"tombol Kirim."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Informasi ini digunakan hanya untuk melacak penggunaan perangkat lunak ini."
 
 msgid "Church Name"
 msgstr "Nama Gereja"
@@ -867,14 +926,39 @@ msgstr "Perangkat lunakmu sekarang terdaftar. Terima kasih!"
 msgid "Select Volunteer Opportunity"
 msgstr "Pilih Peluang Relawan"
 
-msgid "Please select target volunteers for members"
-msgstr "Silakan pilih target relawan untuk anggota"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "Pilih peluang sukarelawan yang harus ditugaskan."
 
-msgid "Please select target group for members"
-msgstr "Silakan pilih kelompok target untuk anggota"
+msgid "This selection will be applied to the current members."
+msgstr "Seleksi ini akan diterapkan pada anggota saat ini."
 
-msgid "Please select target Role for members"
-msgstr "Silakan pilih target Role untuk anggota"
+msgid "Volunteer opportunity"
+msgstr "Kesempatan menjadi relawan"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr "Pilih peluang relawan yang dituju dari daftar yang tersedia."
+
+msgid "Choose the destination for the selected members."
+msgstr "Pilih tujuan untuk anggota yang dipilih."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+"Gunakan kolom di bawah ini untuk memilih grup, peran, atau keduanya, "
+"tergantung pada tindakan."
+
+msgid "Group"
+msgstr "Kelompok"
+
+msgid "Select the target group for the selected members."
+msgstr "Pilih kelompok sasaran untuk anggota yang dipilih."
+
+msgid "Role"
+msgstr "Peran"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "Pilih peran yang harus ditetapkan di dalam grup yang dipilih."
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroupID membutuhkan untuk prompt pilihan peran"
@@ -882,11 +966,19 @@ msgstr "GroupID membutuhkan untuk prompt pilihan peran"
 msgid "Select Group and Role"
 msgstr "Pilih Grup dan Role"
 
-msgid "Add A Group Name"
-msgstr "Tambahkan A Grup Name"
+msgid "Select both the destination group and the role to apply."
+msgstr "Pilih grup tujuan dan peran yang akan diterapkan."
 
-msgid "Yes"
-msgstr "Ya"
+msgid "Create a group"
+msgstr "Membuat grup"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr "Masukkan nama grup baru yang harus dibuat dari alur kerja saat ini."
+
+msgid "Create group"
+msgstr "Buat grup"
 
 msgid "Calendar Event"
 msgstr "Peristiwa kalender"
@@ -1019,6 +1111,9 @@ msgstr "diselamatkan dengan sukses"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "Kau akan mengirim kampanyemu! Apakah Anda yakin?"
+
+msgid "Yes"
+msgstr "Ya"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Kau akan menghapus kampanyemu! Apakah Anda yakin?"
@@ -1448,9 +1543,6 @@ msgstr "Riwayat kehadiran terkait juga dapat terpengaruh."
 msgid "Photo"
 msgstr "Foto"
 
-msgid "Action"
-msgstr "Action"
-
 msgid "Attendance actions"
 msgstr "Tindakan kehadiran"
 
@@ -1512,9 +1604,6 @@ msgstr "Pindahkan satu di jarak yang tepat."
 
 msgid "Create one."
 msgstr "Buat satu."
-
-msgid "Group"
-msgstr "Kelompok"
 
 msgid "User"
 msgstr "Pengguna"
@@ -1834,9 +1923,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Matikan Grup Spesifik Properties"
 
-msgid "Role"
-msgstr "Peran"
-
 msgid "Please enter a role name."
 msgstr "Silakan masukkan nama peran."
 
@@ -2010,6 +2096,18 @@ msgstr "Apakah Anda yakin, Anda ingin menghapus semua manajer?"
 msgid "Appointment"
 msgstr "Penampilan"
 
+msgid "Pastoral Care"
+msgstr "Perawatan Pastoral"
+
+msgid "Open the pastoral care record"
+msgstr "Membuka catatan perawatan pastoral"
+
+msgid "No records found for this view."
+msgstr "Tidak ada catatan yang ditemukan untuk tampilan ini."
+
+msgid "No matching records found."
+msgstr "Tidak ditemukan catatan yang cocok."
+
 msgid "Never contacted"
 msgstr "Tidak pernah dihubungi"
 
@@ -2021,6 +2119,22 @@ msgstr "Pengunjung/panggilan"
 
 msgid "Last visit/call"
 msgstr "Kunjungan terakhir/panggilan"
+
+msgid "Opening..."
+msgstr "Pembukaan..."
+
+msgid "Selecting..."
+msgstr "Memilih..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+"Tidak ada catatan perawatan pastoral yang cocok yang dapat disiapkan saat "
+"ini. Silakan coba kategori lain."
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr "Tidak dapat memulai tindakan pelayanan pastoral saat ini."
 
 msgid "Delete Pastoral Care Type"
 msgstr "Hapus Pastor Care Tipe"
@@ -2085,6 +2199,22 @@ msgstr ""
 "Tidak semua keluarga yang didedikasikan: beberapa dari mereka memiliki "
 "catatan sumbangan dan mungkin tidak dihapus sampai sumbangan ini terkait "
 "dengan keluarga lain."
+
+msgid "Review family member information"
+msgstr "Meninjau informasi anggota keluarga"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+"Periksa informasi yang ditampilkan dan perbarui anggota keluarga ini jika "
+"perlu sebelum menyimpan."
+
+msgid "Update family member details"
+msgstr "Memperbarui detail anggota keluarga"
+
+msgid "Save changes"
+msgstr "Menyimpan perubahan"
 
 msgid "Confirm Deactivation"
 msgstr "Konfirmasi menonaktifkan"
@@ -2273,6 +2403,28 @@ msgstr ""
 "sumbangan dan mungkin tidak dihapus sampai sumbangan ini terkait dengan "
 "keluarga lain."
 
+msgid "Review personal information"
+msgstr "Meninjau informasi pribadi"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+"Periksa nilai saat ini dan perbarui bidang yang perlu dikoreksi sebelum "
+"menyimpan."
+
+msgid "Profile information"
+msgstr "Informasi profil"
+
+msgid "Additional information"
+msgstr "Informasi tambahan"
+
+msgid "Update personal details"
+msgstr "Memperbarui informasi pribadi"
+
+msgid "Processing..."
+msgstr "Pemrosesan..."
+
 msgid "Please confirm deactivation of person"
 msgstr "Tolong konfirmasi menonaktifkan seseorang"
 
@@ -2294,8 +2446,29 @@ msgstr "Menonaktifkan"
 msgid "Activate"
 msgstr "Aktifkan"
 
+msgid "Deactivating..."
+msgstr "Menonaktifkan..."
+
+msgid "Activating..."
+msgstr "Mengaktifkan..."
+
+msgid "Unable to update this person status."
+msgstr "Tidak dapat memperbarui status orang ini."
+
+msgid "Deleting..."
+msgstr "Menghapus..."
+
+msgid "Unable to delete the photo."
+msgstr "Tidak dapat menghapus foto."
+
+msgid "Preview the current profile photo."
+msgstr "Mempratinjau foto profil saat ini."
+
 msgid "Property actions"
 msgstr "Tindakan properti"
+
+msgid "Please select a property first."
+msgstr "Silakan pilih properti terlebih dahulu."
 
 msgid "Assigning..."
 msgstr "Menetapkan..."
@@ -2303,29 +2476,210 @@ msgstr "Menetapkan..."
 msgid "Assign"
 msgstr "Tetapkan"
 
-msgid "Are you sure you want to remove this person's membership from"
-msgstr "Kau yakin ingin menghapus keanggotaan orang ini"
+msgid "Unable to assign this property."
+msgstr "Tidak dapat menetapkan properti ini."
+
+msgid "Remove group assignment"
+msgstr "Menghapus penugasan kelompok"
+
+msgid "Remove this person from the group"
+msgstr "Hapus orang ini dari grup"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
+msgstr ""
+"Keanggotaan dan peran apa pun yang terkait dengan grup ini akan dihapus "
+"untuk orang ini."
+
+msgid "Remove from group"
+msgstr "Hapus dari grup"
+
+msgid "Keep assignment"
+msgstr "Simpan tugas"
+
+msgid "Share your document"
+msgstr "Bagikan dokumen Anda"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+"Pilih penerima, tentukan akses mereka dan tentukan apakah mereka akan "
+"menerima notifikasi email."
+
+msgid "Current access"
+msgstr "Akses saat ini"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+"Pilih satu atau beberapa penerima untuk memperbarui akses mereka atau "
+"menghapusnya."
+
+msgid "Set rights"
+msgstr "Menetapkan hak"
+
+msgid "Read and write"
+msgstr "Membaca dan menulis"
+
+msgid "Notification"
+msgstr "Pemberitahuan"
+
+msgid "Add people, families or groups"
+msgstr "Tambahkan orang, keluarga, atau grup"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+"Cari berdasarkan nama untuk memberikan akses kepada orang lain, keluarga, "
+"atau seluruh grup."
+
+msgid "Please select at least one recipient first."
+msgstr "Pilih setidaknya satu penerima terlebih dahulu."
+
+msgid "Remove shared access"
+msgstr "Menghapus akses bersama"
+
+msgid "Remove access for the selected recipients?"
+msgstr "Menghapus akses untuk penerima yang dipilih?"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+"Hanya penerima yang dipilih yang akan dihapus. Dokumen akan tetap dibagikan "
+"dengan penerima lainnya."
+
+msgid "Remove access"
+msgstr "Menghapus akses"
+
+msgid "Keep access"
+msgstr "Pertahankan akses"
+
+msgid "Stop sharing this document"
+msgstr "Berhenti membagikan dokumen ini"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "Berhenti membagikan dokumen ini kepada semua orang?"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+"Semua penerima saat ini akan segera kehilangan akses. Dokumen itu sendiri "
+"akan tetap tersedia untuk Anda."
+
+msgid "Keep sharing"
+msgstr "Teruslah berbagi"
 
 msgid "Share your Document"
 msgstr "Bagikan Dokumen Anda"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Apakah Anda yakin? Kau akan menghapus orang ini?"
+msgid "Unassign property"
+msgstr "Membatalkan penetapan properti"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Apakah Anda yakin? Kau akan berhenti berbagi dokumen?"
+msgid "Remove this property from the current person?"
+msgstr "Hapus properti ini dari orang yang sekarang?"
+
+msgid "The property value will be removed from this profile."
+msgstr "Nilai properti akan dihapus dari profil ini."
+
+msgid "Remove property"
+msgstr "Menghapus properti"
+
+msgid "Keep property"
+msgstr "Menyimpan properti"
+
+msgid "Edit property value"
+msgstr "Mengedit nilai properti"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+"Perbarui nilai yang disimpan untuk properti ini pada profil orang saat ini."
+
+msgid "Save property"
+msgstr "Menyimpan properti"
 
 msgid "Change classification"
 msgstr "Mengubah klasifikasi"
 
-msgid "Change role"
-msgstr "Ganti peran"
+msgid "Choose the classification that best matches this person profile."
+msgstr "Pilih klasifikasi yang paling cocok dengan profil orang ini."
+
+msgid "Update classification"
+msgstr "Perbarui klasifikasi"
+
+msgid "Change family role"
+msgstr "Mengubah peran keluarga"
+
+msgid "Select the role this person should have inside the family record."
+msgstr "Pilih peran yang harus dimiliki orang ini di dalam catatan keluarga."
+
+msgid "Update role"
+msgstr "Perbarui peran"
 
 msgid "Volunteer actions"
 msgstr "Tindakan sukarela"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "Konfirmasi peluang sukarelawan"
+msgid "Remove volunteer opportunity"
+msgstr "Menghapus kesempatan menjadi sukarelawan"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Menghapus kesempatan sukarelawan ini dari orang tersebut?"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "Penugasan hanya akan dihapus dari profil ini."
+
+msgid "Remove assignment"
+msgstr "Menghapus penugasan"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr ""
+"Pilihlah setidaknya satu kesempatan menjadi sukarelawan terlebih dahulu."
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Tidak dapat menetapkan peluang sukarelawan yang dipilih."
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Beberapa kesempatan sukarelawan tidak dapat ditugaskan."
+
+msgid "Delete automatic payment"
+msgstr "Menghapus pembayaran otomatis"
+
+msgid "Delete this automatic payment setup?"
+msgstr "Menghapus pengaturan pembayaran otomatis ini?"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+"Pembayaran berulang yang ditautkan ke pengaturan ini akan berhenti setelah "
+"dihapus."
+
+msgid "Delete payment"
+msgstr "Menghapus pembayaran"
+
+msgid "Keep payment"
+msgstr "Simpan pembayaran"
+
+msgid "Delete pledge or payment"
+msgstr "Menghapus janji atau pembayaran"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "Menghapus entri janji atau pembayaran ini?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr "Entri ini akan dihapus dari riwayat kontribusi untuk keluarga ini."
+
+msgid "Delete entry"
+msgstr "Menghapus entri"
+
+msgid "Keep entry"
+msgstr "Tetap masuk"
+
+msgid "Share this secure verification link with the person."
+msgstr "Bagikan tautan verifikasi aman ini kepada orang tersebut."
 
 msgid "Comments"
 msgstr "Komentar"
@@ -2338,15 +2692,29 @@ msgid ""
 "You are about to delete the selected plugins. This action cannot be undone!"
 msgstr "Kau ingin menghapus orang ini? Ini tidak bisa dibatalkan."
 
-#, fuzzy
-msgid "Select your zipped plugin file"
-msgstr "Pilih Role-mu"
+msgid "Update plugin"
+msgstr "Perbarui plugin"
 
-msgid "Download the zipped file of the plugin"
-msgstr ""
+msgid "Add plugin"
+msgstr "Tambahkan plugin"
 
-msgid "Plugin download manager"
-msgstr ""
+msgid "Choose the new zipped package to update this plugin."
+msgstr "Pilih paket zip baru untuk memperbarui plugin ini."
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "Pilih paket plugin zip untuk menginstalnya di CRM Anda."
+
+msgid "Plugin archive"
+msgstr "Arsip plugin"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "Hanya paket plugin yang di-zip yang harus dipilih di sini."
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "Pengunggahan dimulai segera setelah Anda mengirimkan formulir ini."
+
+msgid "Plugin manager"
+msgstr "Manajer plugin"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Folder saat ini sekarang adalah folder publik! !"
@@ -2651,6 +3019,9 @@ msgstr "Tambahkan Guru ke Cart"
 msgid "Select the event Type you would like to use to create the Attendance"
 msgstr "Memilih peristiwa yang ingin kau gunakan untuk menciptakan Attendance"
 
+msgid "Create First A New Event"
+msgstr "Buat Pertama A New Event"
+
 msgid "Create Event With Students"
 msgstr "Buat Event With Students"
 
@@ -2750,9 +3121,6 @@ msgstr "Peristiwa terkini"
 
 msgid "No assignments for kiosk"
 msgstr "Tidak ada tugas untuk kios"
-
-msgid "Event"
-msgstr "Event"
 
 msgid "Kiosk Name"
 msgstr "Kiosk Name"
@@ -2971,6 +3339,57 @@ msgid ""
 msgstr ""
 "Semua keanggotaan akan dihancurkan.  Anggota itu sendiri tidak akan diubah."
 
+#~ msgid "ERROR"
+#~ msgstr "ERROR"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Pilih kelompok yang ingin kau tambahkan gerobak"
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "Kau harus mengatur nama Grup"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Ya, jika kau yakin"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "Kau bisa menambahkan isi kereta ke acara terpilih di bawah, atau - dan "
+#~ "menciptakan sebuah acara pertama dan menambahkan mereka setelah itu."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Silakan daftarkan salinan CRM Anda dengan memeriksa informasi ini dan "
+#~ "tekan tombol Kirim."
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Silakan pilih target relawan untuk anggota"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Silakan pilih target Role untuk anggota"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Tambahkan A Grup Name"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr "Kau yakin ingin menghapus keanggotaan orang ini"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Apakah Anda yakin? Kau akan menghapus orang ini?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "Apakah Anda yakin? Kau akan berhenti berbagi dokumen?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "Konfirmasi peluang sukarelawan"
+
+#, fuzzy
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Pilih Role-mu"
+
 #~ msgid "Personal"
 #~ msgstr "Pribadi"
 
@@ -3039,9 +3458,6 @@ msgstr ""
 #~ msgid "Songs"
 #~ msgstr "Lagu"
 
-#~ msgid "Remove all"
-#~ msgstr "Hapus semua"
-
 #~ msgid "Add all"
 #~ msgstr "Tambahkan semua"
 
@@ -3072,9 +3488,6 @@ msgstr ""
 
 #~ msgid "Share your File"
 #~ msgstr "Berbagi file Anda"
-
-#~ msgid "Members from group"
-#~ msgstr "Anggota dari kelompok"
 
 #~ msgid "Add person"
 #~ msgstr "Tambahkan orang"

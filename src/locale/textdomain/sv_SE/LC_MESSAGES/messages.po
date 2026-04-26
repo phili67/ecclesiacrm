@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-25 18:26+0000\n"
+"POT-Creation-Date: 2026-04-26 18:38+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,7 @@ msgstr "Video"
 #: v2/templates/people/personPrint.php:403
 #: v2/templates/people/personPrint.php:659
 #: v2/templates/people/personPrint.php:718
-#: v2/templates/people/personview.php:1038
+#: v2/templates/people/personview.php:1098
 #: v2/templates/sundayschool/sundayschoolreports.php:66
 msgid "None"
 msgstr "Ingen"
@@ -358,8 +358,8 @@ msgstr "Alla familjer"
 #: EcclesiaCRM/MenuBar/MenuBar.php:224
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:210
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:165
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:256
 #: v2/templates/people/lettersandlabels.php:228
 #: v2/templates/people/lettersandlabels.php:317
 #: v2/templates/people/personlist.php:19
@@ -374,8 +374,8 @@ msgstr "Personer"
 #: EcclesiaCRM/MenuBar/MenuBar.php:197 EcclesiaCRM/MenuBar/MenuBar.php:231
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:139
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:215
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:261
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:50
 #: v2/templates/people/lettersandlabels.php:352
@@ -397,7 +397,9 @@ msgstr "Familjer"
 #: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:132
 #: v2/templates/pastoralcare/pastoralcareperson.php:160
 #: v2/templates/people/peopledashboard.php:170
-#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:133
+#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:92
+#: v2/templates/people/personview.php:154
+#: v2/templates/people/personview.php:440
 msgid "Groups"
 msgstr "Grupper"
 
@@ -489,7 +491,7 @@ msgstr "Tillagd till gruppen"
 #: v2/templates/calendar/eventnames.php:280
 #: v2/templates/cart/cartToFamily.php:224
 #: v2/templates/group/groupPropsEditor.php:235
-#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:50
+#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:97
 #: v2/templates/group/groupview.php:400
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
@@ -549,8 +551,9 @@ msgstr "Förnamn"
 #: v2/templates/fundraiser/batchWinnerEntry.php:104
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:103
-#: v2/templates/group/groupedit.php:68 v2/templates/group/grouplist.php:51
-#: v2/templates/group/grouplist.php:136 v2/templates/map/MapUsingGoogle.php:121
+#: v2/templates/group/groupedit.php:20 v2/templates/group/groupedit.php:118
+#: v2/templates/group/grouplist.php:51 v2/templates/group/grouplist.php:136
+#: v2/templates/map/MapUsingGoogle.php:121
 #: v2/templates/map/MapUsingGoogle.php:123
 #: v2/templates/map/MapUsingGoogle.php:157
 #: v2/templates/map/MapUsingGoogle.php:158
@@ -709,7 +712,8 @@ msgstr "Löften"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:151
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: v2/templates/people/personview.php:670
+#: v2/templates/people/personview.php:713
+#: v2/templates/people/personview.php:1260
 #: v2/templates/volunteer/volunteeropportunity.php:102
 msgid "Volunteer Opportunities"
 msgstr "Möjligheter till volontärarbete"
@@ -717,8 +721,8 @@ msgstr "Möjligheter till volontärarbete"
 #: EcclesiaCRM/APIControllers/SearchController.php:319
 #: EcclesiaCRM/APIControllers/SearchController.php:322
 #: EcclesiaCRM/Search/FamilySearchRes.php:186
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:149
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:220
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:266
 #: v2/templates/people/peopledashboard.php:96
 #: v2/templates/people/peoplelist.php:22 v2/templates/people/peoplelist.php:54
 msgid "Singles"
@@ -845,7 +849,7 @@ msgstr "Typ av grupp"
 #: v2/templates/people/familyview.php:424
 #: v2/templates/people/personPrint.php:426
 #: v2/templates/people/personPrint.php:491
-#: v2/templates/people/personview.php:826
+#: v2/templates/people/personview.php:877
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:728 v2/templates/user/userseditor.php:796
@@ -961,7 +965,6 @@ msgid "Group Member Role"
 msgstr "Gruppmedlem Roll"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:159
-#: v2/templates/group/groupedit.php:87
 #: v2/templates/system/optionManager.php:132
 msgid "Group Member Roles"
 msgstr "Gruppmedlemmarnas roller"
@@ -1038,7 +1041,7 @@ msgstr "Redigeraren för anpassade listalternativ för familjer"
 #: v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:55
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:34
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:44
 msgid "Person"
 msgstr "Person"
@@ -1066,13 +1069,13 @@ msgstr "Person"
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:99
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:298
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:28
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:35
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:48
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:55
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:50
 #: v2/templates/people/UpdateAllLatLon.php:67
 #: v2/templates/people/familyview.php:85
 #: v2/templates/people/personPrint.php:316
-#: v2/templates/people/personview.php:621
+#: v2/templates/people/personview.php:664
 #: v2/templates/system/convertIndividualToAddress.php:106
 #: v2/templates/system/convertIndividualToAddress.php:149
 msgid "Family"
@@ -1220,9 +1223,9 @@ msgstr "Konto aktiverat"
 #: v2/templates/people/familyview.php:960 v2/templates/people/personlist.php:93
 #: v2/templates/people/personlist.php:94 v2/templates/people/personlist.php:95
 #: v2/templates/people/personlist.php:96 v2/templates/people/personlist.php:97
-#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:162
-#: v2/templates/people/personview.php:365
-#: v2/templates/people/personview.php:1553
+#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:191
+#: v2/templates/people/personview.php:391
+#: v2/templates/people/personview.php:1699
 #: v2/templates/sundayschool/sundayschooldashboard.php:290
 #: v2/templates/sundayschool/sundayschooldashboard.php:291
 #: v2/templates/sundayschool/sundayschooldashboard.php:292
@@ -1450,19 +1453,20 @@ msgid "Home"
 msgstr "Hem"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:129
-#: v2/templates/people/personview.php:455
+#: v2/templates/people/personview.php:496
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "Ändra lösenord"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:122 Include/Header.php:131
-#: v2/templates/people/personview.php:453
+#: v2/templates/people/personview.php:494
 msgid "Change Settings"
 msgstr "Ändra inställningar"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:123 v2/templates/people/familyview.php:574
 #: v2/templates/people/personPrint.php:612
-#: v2/templates/people/personview.php:715
+#: v2/templates/people/personview.php:758
+#: v2/templates/people/personview.php:1474
 msgid "Documents"
 msgstr "Dokument"
 
@@ -1585,7 +1589,7 @@ msgstr "Lista grupper"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:343
 #: v2/templates/deposit/electronicPaymentList.php:200
-#: v2/templates/group/groupedit.php:136 v2/templates/group/groupview.php:239
+#: v2/templates/group/groupedit.php:178 v2/templates/group/groupview.php:239
 #: v2/templates/volunteer/volunteerview.php:206
 msgid "Disabled"
 msgstr "Inaktiverad"
@@ -1624,7 +1628,7 @@ msgstr "Anpassade menyer"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:29
 #: v2/templates/people/familyview.php:305
-#: v2/templates/people/personview.php:485 v2/templates/user/userseditor.php:494
+#: v2/templates/people/personview.php:526 v2/templates/user/userseditor.php:494
 msgid "Pastoral Care"
 msgstr "Pastoralvård"
 
@@ -1822,7 +1826,7 @@ msgstr "Totalsumma"
 #: v2/templates/people/personEditor.php:1164
 #: v2/templates/people/personEditor.php:1310
 #: v2/templates/people/personEditor.php:1334
-#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:227
+#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:253
 #: v2/templates/system/csvExport.php:121 v2/templates/system/csvExport.php:127
 #: v2/templates/system/csvImport.php:185 v2/templates/system/csvImport.php:186
 msgid "Address"
@@ -1856,7 +1860,7 @@ msgstr "Stad, stat, postnummer"
 #: v2/templates/people/personEditor.php:1498
 #: v2/templates/people/personEditor.php:1502
 #: v2/templates/people/personPrint.php:246
-#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:290
+#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:316
 #: v2/templates/system/csvExport.php:169 v2/templates/system/csvImport.php:191
 #: v2/templates/system/eventAttendance.php:193 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1874,7 +1878,7 @@ msgstr "Hemtelefon"
 #: v2/templates/people/familyEditor.php:932
 #: v2/templates/people/familyview.php:148
 #: v2/templates/people/personEditor.php:1585
-#: v2/templates/people/personview.php:297
+#: v2/templates/people/personview.php:323
 msgid "Send Newsletter"
 msgstr "Skicka nyhetsbrev"
 
@@ -1942,9 +1946,9 @@ msgstr "Vuxen/barn"
 #: v2/templates/people/personEditor.php:1607
 #: v2/templates/people/personEditor.php:1611
 #: v2/templates/people/personPrint.php:361
-#: v2/templates/people/personview.php:304
-#: v2/templates/people/personview.php:438
-#: v2/templates/people/personview.php:828
+#: v2/templates/people/personview.php:330
+#: v2/templates/people/personview.php:479
+#: v2/templates/people/personview.php:879
 #: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:190 v2/templates/system/csvImport.php:194
@@ -1961,7 +1965,7 @@ msgstr "E-post"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:168
 #: v2/templates/people/familyview.php:426
-#: v2/templates/people/personview.php:827
+#: v2/templates/people/personview.php:878
 msgid "Birthday"
 msgstr "Födelsedag"
 
@@ -2001,7 +2005,7 @@ msgstr "Medlem/vän"
 #: v2/templates/people/personEditor.php:1527
 #: v2/templates/people/personEditor.php:1531
 #: v2/templates/people/personPrint.php:251
-#: v2/templates/people/personview.php:318 v2/templates/system/csvExport.php:175
+#: v2/templates/people/personview.php:344 v2/templates/system/csvExport.php:175
 #: v2/templates/system/csvImport.php:192
 msgid "Work Phone"
 msgstr "Arbetstelefon"
@@ -2050,7 +2054,7 @@ msgstr "Sidan"
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
 #: Reports/GroupReport.php:129
 #: external/templates/registration/family-register-members.php:104
-#: v2/templates/people/personview.php:332
+#: v2/templates/people/personview.php:358
 msgid "Work"
 msgstr "Arbete"
 
@@ -2073,7 +2077,7 @@ msgstr "och"
 #: EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 Reports/DirectoryReport.php:331
 #: v2/templates/pastoralcare/pastoralcareperson.php:330
-#: v2/templates/people/personview.php:325 v2/templates/system/csvExport.php:196
+#: v2/templates/people/personview.php:351 v2/templates/system/csvExport.php:196
 msgid "Work/Other Email"
 msgstr "Arbete/annan e-post"
 
@@ -2161,8 +2165,8 @@ msgstr "Studenter"
 #: v2/templates/people/familylist.php:96 v2/templates/people/familyview.php:99
 #: v2/templates/people/familyview.php:504
 #: v2/templates/people/familyview.php:666 v2/templates/people/personlist.php:74
-#: v2/templates/people/personview.php:168
-#: v2/templates/people/personview.php:894
+#: v2/templates/people/personview.php:197
+#: v2/templates/people/personview.php:945
 msgid "Edit"
 msgstr "Redigera"
 
@@ -2244,6 +2248,7 @@ msgid "group"
 msgstr "grupp"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:38
+#: v2/templates/people/personview.php:990
 msgid "groups"
 msgstr "grupper"
 
@@ -2266,7 +2271,7 @@ msgstr "Söndagsgruppen"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:237
 #: v2/templates/people/familylist.php:93 v2/templates/people/personlist.php:71
-#: v2/templates/people/personview.php:964
+#: v2/templates/people/personview.php:1024
 msgid "View"
 msgstr "Visa"
 
@@ -2376,9 +2381,9 @@ msgstr "Årsdag"
 #: v2/templates/people/familyview.php:674
 #: v2/templates/people/familyview.php:991
 #: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:899
-#: v2/templates/people/personview.php:994
-#: v2/templates/people/personview.php:1582 v2/templates/plugins/plugins.php:58
+#: v2/templates/people/personview.php:950
+#: v2/templates/people/personview.php:1054
+#: v2/templates/people/personview.php:1728 v2/templates/plugins/plugins.php:58
 #: v2/templates/system/optionManager.php:443
 #: v2/templates/system/optionManager.php:445
 msgid "Delete"
@@ -2457,7 +2462,7 @@ msgstr "INGA"
 #: v2/templates/people/personEditor.php:1558
 #: v2/templates/people/personEditor.php:1562
 #: v2/templates/people/personPrint.php:256
-#: v2/templates/people/personview.php:278 v2/templates/system/csvExport.php:184
+#: v2/templates/people/personview.php:304 v2/templates/system/csvExport.php:184
 msgid "Mobile Phone"
 msgstr "Mobiltelefon"
 
@@ -2643,7 +2648,7 @@ msgstr " av den"
 
 #: EcclesiaCRM/Service/PersonService.php:51
 #: v2/templates/pastoralcare/pastoralcareperson.php:225
-#: v2/templates/people/personview.php:212
+#: v2/templates/people/personview.php:238
 msgid "(No assigned family)"
 msgstr "(Ingen tilldelad familj)"
 
@@ -2699,7 +2704,7 @@ msgstr "Övriga"
 #: v2/templates/pastoralcare/pastoralcareperson.php:534
 #: v2/templates/people/familyEditor.php:82
 #: v2/templates/people/familyview.php:448
-#: v2/templates/people/personview.php:850
+#: v2/templates/people/personview.php:901
 msgid "Head of Household"
 msgstr "Hushållschef"
 
@@ -2709,7 +2714,7 @@ msgstr "Hushållschef"
 #: v2/templates/pastoralcare/pastoralcareperson.php:535
 #: v2/templates/people/familyEditor.php:84
 #: v2/templates/people/familyview.php:451
-#: v2/templates/people/personview.php:853
+#: v2/templates/people/personview.php:904
 msgid "Spouse"
 msgstr "Make/maka"
 
@@ -2719,7 +2724,7 @@ msgstr "Make/maka"
 #: v2/templates/pastoralcare/pastoralcareperson.php:537
 #: v2/templates/people/familyEditor.php:86
 #: v2/templates/people/familyview.php:454
-#: v2/templates/people/personview.php:856
+#: v2/templates/people/personview.php:907
 msgid "Child"
 msgstr "Barn"
 
@@ -3078,19 +3083,19 @@ msgid "Plugins"
 msgstr "Insticksprogram"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:45
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:65
 msgid "Pastoral care list of members for"
 msgstr "Förteckning över medlemmar i pastoralvård för"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:124
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:187
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
 msgid "Period  from"
 msgstr "Period från och med"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:124
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:187
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
 msgid "to"
 msgstr "till"
 
@@ -6076,7 +6081,7 @@ msgstr ""
 
 #: Include/Header-function.php:90 Include/Header-function.php:152
 #: browser/browse.php:148 v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:31
+#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Stäng"
@@ -6173,7 +6178,7 @@ msgstr ""
 #: v2/templates/people/familyview.php:990
 #: v2/templates/people/lettersandlabels.php:297
 #: v2/templates/people/personEditor.php:1916
-#: v2/templates/people/personview.php:1581
+#: v2/templates/people/personview.php:1727
 #: v2/templates/people/reminderreport.php:50
 #: v2/templates/sundayschool/sundayschooldashboard.php:325
 #: v2/templates/user/userseditor.php:878 v2/templates/user/userseditor.php:879
@@ -6333,6 +6338,7 @@ msgstr "Genereras den"
 #: Reports/AdvancedDeposit.php:829 Reports/AdvancedDeposit.php:843
 #: Reports/AdvancedDeposit.php:860
 #: v2/templates/fundraiser/batchWinnerEntry.php:70
+#: v2/templates/people/personview.php:1478
 msgid "items"
 msgstr "objekt"
 
@@ -6598,8 +6604,8 @@ msgstr ""
 #: v2/templates/pastoralcare/pastoralcareperson.php:193
 #: v2/templates/people/familyview.php:957
 #: v2/templates/people/personPrint.php:239
-#: v2/templates/people/personview.php:182
-#: v2/templates/people/personview.php:1550
+#: v2/templates/people/personview.php:208
+#: v2/templates/people/personview.php:1696
 msgid "Informations"
 msgstr "Information"
 
@@ -6999,7 +7005,7 @@ msgstr "Registrera"
 #: v2/templates/people/familyEditor.php:1143
 #: v2/templates/people/familyview.php:400
 #: v2/templates/people/personPrint.php:421
-#: v2/templates/people/personview.php:825
+#: v2/templates/people/personview.php:94 v2/templates/people/personview.php:876
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "Familjemedlemmar"
@@ -7100,7 +7106,7 @@ msgstr "Bekräfta det nya lösenordet"
 #: v2/templates/deposit/pledgeEditor.php:238
 #: v2/templates/fundraiser/donatedItemEditor.php:179
 #: v2/templates/fundraiser/fundRaiserEditor.php:179
-#: v2/templates/group/groupedit.php:147
+#: v2/templates/group/groupedit.php:78
 #: v2/templates/people/canvassEditor.php:277
 #: v2/templates/people/familyEditor.php:762
 #: v2/templates/people/familyEditor.php:860
@@ -7306,7 +7312,7 @@ msgstr "Eller logga in som en annan användare"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:293
 #: v2/templates/pastoralcare/pastoralcareperson.php:253
 #: v2/templates/people/personPrint.php:311
-#: v2/templates/people/personview.php:248
+#: v2/templates/people/personview.php:274
 #: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/sundayschool/sundayschoolview.php:318
 #: v2/templates/system/csvImport.php:196
@@ -7542,6 +7548,7 @@ msgstr "Alla"
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:157
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/calendar/calendar.php:243
+#: v2/templates/people/personview.php:1588
 msgid "Shared"
 msgstr "Delad"
 
@@ -7686,7 +7693,7 @@ msgstr "Tillbaka till evenemang"
 #: v2/templates/group/groupPropsEditor.php:236
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
-#: v2/templates/group/groupedit.php:56 v2/templates/group/groupview.php:401
+#: v2/templates/group/groupedit.php:101 v2/templates/group/groupview.php:401
 #: v2/templates/plugins/plugins.php:90
 msgid "Description"
 msgstr "Beskrivning"
@@ -7696,7 +7703,7 @@ msgstr "Beskrivning"
 #: v2/templates/deposit/depositslipeditor.php:180
 #: v2/templates/deposit/electronicPaymentList.php:152
 #: v2/templates/people/familyEditor.php:1204
-#: v2/templates/people/personview.php:970
+#: v2/templates/people/personview.php:1030
 msgid "Action"
 msgstr "Åtgärd"
 
@@ -8250,12 +8257,12 @@ msgstr "Tömma kundvagnen till evenemanget"
 msgid "Map Cart"
 msgstr "Kartan Varukorg"
 
-#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:518
+#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:559
 msgid "Get the vCard of the person"
 msgstr "Hämta personens vCard"
 
 #: v2/templates/cart/cartview.php:52 v2/templates/people/familyview.php:333
-#: v2/templates/people/personview.php:521
+#: v2/templates/people/personview.php:562
 msgid "vCard"
 msgstr "vCard"
 
@@ -8273,7 +8280,7 @@ msgstr "E-postkorg"
 
 #: v2/templates/cart/cartview.php:66 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:297
-#: v2/templates/people/personview.php:441
+#: v2/templates/people/personview.php:482
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
 #: v2/templates/volunteer/volunteerview.php:122
@@ -8371,7 +8378,7 @@ msgstr "Anpassa sidan"
 
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:51
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:80
 #: v2/templates/plugins/plugins.php:110
 msgid "Settings"
 msgstr "Inställningar"
@@ -8573,7 +8580,7 @@ msgstr "Slutdatum:"
 #: v2/templates/deposit/electronicPaymentList.php:79
 #: v2/templates/deposit/finddepositslip.php:134
 #: v2/templates/people/familyview.php:981
-#: v2/templates/people/personview.php:1570
+#: v2/templates/people/personview.php:1716
 msgid "Confirm Delete"
 msgstr "Bekräfta Radera"
 
@@ -8635,7 +8642,7 @@ msgstr "År"
 #: v2/templates/people/familyCustomFieldEditor.php:388
 #: v2/templates/people/familyview.php:428
 #: v2/templates/people/personCustomEditor.php:380
-#: v2/templates/people/personview.php:829
+#: v2/templates/people/personview.php:880
 #: v2/templates/system/optionManager.php:425 v2/templates/user/userlist.php:53
 #: v2/templates/volunteer/volunteerview.php:36
 msgid "Actions"
@@ -9020,10 +9027,10 @@ msgstr "Tilldela med början vid #"
 
 #: v2/templates/deposit/manageEnvelopes.php:200
 #: v2/templates/group/groupview.php:359 v2/templates/people/familyview.php:732
-#: v2/templates/people/personview.php:1175
-#: v2/templates/people/personview.php:1177
-#: v2/templates/people/personview.php:1243
-#: v2/templates/people/personview.php:1245
+#: v2/templates/people/personview.php:1242
+#: v2/templates/people/personview.php:1244
+#: v2/templates/people/personview.php:1317
+#: v2/templates/people/personview.php:1319
 msgid "Assign"
 msgstr "Tilldela"
 
@@ -9410,6 +9417,7 @@ msgid "New"
 msgstr "Ny"
 
 #: v2/templates/fundraiser/donatedItemEditor.php:27
+#: v2/templates/group/groupedit.php:91
 msgid "Basic Information"
 msgstr "Grundläggande information"
 
@@ -9649,7 +9657,7 @@ msgid "Special option"
 msgstr "Särskilt alternativ"
 
 #: v2/templates/group/groupPropsEditor.php:263
-#: v2/templates/group/groupedit.php:96
+#: v2/templates/group/groupedit.php:157
 #: v2/templates/people/familyCustomFieldEditor.php:425
 #: v2/templates/people/personCustomEditor.php:417
 msgid "Select a group"
@@ -9847,41 +9855,131 @@ msgstr "Förhandsgranskning av badge"
 msgid "Generate a PDF using current group configuration."
 msgstr "Generera en PDF-fil med aktuell gruppkonfiguration."
 
-#: v2/templates/group/groupedit.php:41
+#: v2/templates/group/groupedit.php:55
 msgid "Special Group Settings : Sunday School Type"
 msgstr "Inställningar för särskilda grupper : Söndagsskola Typ"
 
-#: v2/templates/group/groupedit.php:41
+#: v2/templates/group/groupedit.php:55
 msgid "Group Settings"
 msgstr "Gruppinställningar"
 
-#: v2/templates/group/groupedit.php:65
+#: v2/templates/group/groupedit.php:58
+msgid ""
+"Update the group identity, category and special options, then manage member "
+"roles below."
+msgstr ""
+"Uppdatera gruppens identitet, kategori och specialalternativ och hantera "
+"sedan medlemsrollerna nedan."
+
+#: v2/templates/group/groupedit.php:63 v2/templates/group/groupedit.php:214
+msgid "Roles"
+msgstr "Roller"
+
+#: v2/templates/group/groupedit.php:64
+msgid "Properties enabled"
+msgstr "Egenskaper aktiverade"
+
+#: v2/templates/group/groupedit.php:64
+msgid "Properties disabled"
+msgstr "Egenskaper inaktiverade"
+
+#: v2/templates/group/groupedit.php:73
+msgid "Edit Group"
+msgstr "Redigera grupp"
+
+#: v2/templates/group/groupedit.php:74
+msgid ""
+"Keep the basic information clear so the group is easy to identify from menus "
+"and reports."
+msgstr ""
+"Håll grundinformationen tydlig så att gruppen är lätt att identifiera i "
+"menyer och rapporter."
+
+#: v2/templates/group/groupedit.php:86
+msgid ""
+"Changes to the group are saved from this form. Role names are managed "
+"separately and update instantly when edited."
+msgstr ""
+"Ändringar i gruppen sparas från det här formuläret. Rollnamn hanteras "
+"separat och uppdateras direkt när de redigeras."
+
+#: v2/templates/group/groupedit.php:92
+msgid "Name and description shown across the application."
+msgstr "Namn och beskrivning visas i hela applikationen."
+
+#: v2/templates/group/groupedit.php:98
+msgid "Enter the group name"
+msgstr "Ange gruppens namn"
+
+#: v2/templates/group/groupedit.php:102
+msgid "Describe the purpose of this group"
+msgstr "Beskriv syftet med denna grupp"
+
+#: v2/templates/group/groupedit.php:110
+msgid "Category and Navigation"
+msgstr "Kategori och navigering"
+
+#: v2/templates/group/groupedit.php:111
+msgid ""
+"This controls where the group appears in the left menu and how it is "
+"categorized."
+msgstr "Här styrs var gruppen visas i vänstermenyn och hur den kategoriseras."
+
+#: v2/templates/group/groupedit.php:115
 msgid "Type of Group and Menu Category"
 msgstr "Typ av grupp och menykategori"
 
-#: v2/templates/group/groupedit.php:67
+#: v2/templates/group/groupedit.php:117
 msgid "This will include the group in a menu item in the left sidebar"
 msgstr ""
 "Detta kommer att inkludera gruppen i ett menyalternativ i den vänstra "
 "sidofältet."
 
-#: v2/templates/group/groupedit.php:89
-msgid "Clone roles"
-msgstr "Klonroller"
+#: v2/templates/group/groupedit.php:131
+msgid "Current behavior"
+msgstr "Nuvarande beteende"
 
-#: v2/templates/group/groupedit.php:94
-msgid "from group"
-msgstr "från gruppen"
+#: v2/templates/group/groupedit.php:132
+msgid ""
+"Selecting a group type places this group in the related menu category and "
+"helps users find it faster."
+msgstr ""
+"Om du väljer en grupptyp placeras den här gruppen i den relaterade "
+"menykategorin och hjälper användarna att hitta den snabbare."
 
-#: v2/templates/group/groupedit.php:116
+#: v2/templates/group/groupedit.php:144
+msgid "Initial Member Roles"
+msgstr "Initiala medlemsroller"
+
+#: v2/templates/group/groupedit.php:145
+msgid "Reuse an existing group structure to get started faster."
+msgstr "Återanvänd en befintlig gruppstruktur för att komma igång snabbare."
+
+#: v2/templates/group/groupedit.php:151
+msgid "Clone roles from another group"
+msgstr "Klona roller från en annan grupp"
+
+#: v2/templates/group/groupedit.php:155
+msgid "Source group"
+msgstr "Källgrupp"
+
+#: v2/templates/group/groupedit.php:174
 msgid "Group Specific Properties"
 msgstr "Gruppspecifika egenskaper"
 
-#: v2/templates/group/groupedit.php:121
+#: v2/templates/group/groupedit.php:175
+msgid ""
+"Useful when you need custom answers, classifications or form-driven "
+"information for this group."
+msgstr ""
+"Användbart när du behöver anpassade svar, klassificeringar eller "
+"formulärstyrd information för den här gruppen."
+
+#: v2/templates/group/groupedit.php:178
 msgid "Enabled"
 msgstr "Aktiverad"
 
-#: v2/templates/group/groupedit.php:125 v2/templates/group/groupedit.php:138
+#: v2/templates/group/groupedit.php:187 v2/templates/group/groupedit.php:199
 msgid ""
 "Group-specific properties are useful to classify your groups or to make a "
 "sort of Doodle"
@@ -9889,39 +9987,55 @@ msgstr ""
 "Gruppspecifika egenskaper är användbara för att klassificera dina grupper "
 "eller för att skapa en slags Doodle"
 
-#: v2/templates/group/groupedit.php:126
+#: v2/templates/group/groupedit.php:188
 msgid "Disable Group Specific Properties"
 msgstr "Inaktivera gruppspecifika egenskaper"
 
-#: v2/templates/group/groupedit.php:130
+#: v2/templates/group/groupedit.php:192
 msgid "Group-specific properties are useful to make a sort of doodle"
 msgstr "Gruppspecifika egenskaper är användbara för att göra en slags doodle"
 
-#: v2/templates/group/groupedit.php:130 v2/templates/group/groupview.php:433
+#: v2/templates/group/groupedit.php:192 v2/templates/group/groupview.php:433
 msgid "Edit Group-Specific Properties Form"
 msgstr "Formuläret Redigera gruppspecifika egenskaper"
 
-#: v2/templates/group/groupedit.php:138
+#: v2/templates/group/groupedit.php:199
 msgid "Enable Group Specific Properties"
 msgstr "Aktivera gruppspecifika egenskaper"
 
-#: v2/templates/group/groupedit.php:157
+#: v2/templates/group/groupedit.php:210
 msgid "Group Roles"
 msgstr "Grupproller"
 
-#: v2/templates/group/groupedit.php:163
+#: v2/templates/group/groupedit.php:211
+msgid ""
+"Manage the labels used for memberships in this group, choose the default "
+"role and keep their order tidy."
+msgstr ""
+"Hantera de etiketter som används för medlemskap i den här gruppen, välj "
+"standardroll och håll ordning på dem."
+
+#: v2/templates/group/groupedit.php:221
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr "Ändringar av grupprollsnamn sparas så snart rutan förlorar fokus."
 
-#: v2/templates/group/groupedit.php:171
+#: v2/templates/group/groupedit.php:229
+msgid "Add a new role"
+msgstr "Lägg till en ny roll"
+
+#: v2/templates/group/groupedit.php:230
+msgid "Create a role name that members and leaders will easily understand."
+msgstr "Skapa ett rollnamn som medlemmar och ledare lätt kan förstå."
+
+#: v2/templates/group/groupedit.php:235
 msgid "New Role"
 msgstr "Ny roll"
 
-#: v2/templates/group/groupedit.php:172
+#: v2/templates/group/groupedit.php:236
 msgid "Enter a role name"
 msgstr "Ange ett rollnamn"
 
-#: v2/templates/group/groupedit.php:176
+#: v2/templates/group/groupedit.php:240
 msgid "Add New Role"
 msgstr "Lägg till en ny roll"
 
@@ -9998,14 +10112,14 @@ msgid "Map this group"
 msgstr "Kartlägga denna grupp"
 
 #: v2/templates/group/groupview.php:42 v2/templates/people/familyview.php:274
-#: v2/templates/people/personview.php:417
+#: v2/templates/people/personview.php:458
 msgid "Remove from Cart"
 msgstr "Ta bort från kundvagnen"
 
 #: v2/templates/group/groupview.php:46 v2/templates/people/familyview.php:281
 #: v2/templates/people/familyview.php:493
-#: v2/templates/people/personview.php:427
-#: v2/templates/people/personview.php:886 v2/templates/query/queryview.php:172
+#: v2/templates/people/personview.php:468
+#: v2/templates/people/personview.php:937 v2/templates/query/queryview.php:172
 #: v2/templates/volunteer/volunteerview.php:44
 msgid "Add to Cart"
 msgstr "Lägg till i varukorgen"
@@ -10028,7 +10142,7 @@ msgstr "Ta bort den här gruppen"
 
 #: v2/templates/group/groupview.php:61
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:42
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:42
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:62
 #: v2/templates/pastoralcare/pastoralcarefamily.php:80
 #: v2/templates/pastoralcare/pastoralcareperson.php:81
 #: v2/templates/volunteer/volunteerview.php:62
@@ -10124,12 +10238,13 @@ msgstr "Lägg till chef"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
 #: v2/templates/people/familyview.php:550
 #: v2/templates/people/personPrint.php:568
-#: v2/templates/people/personview.php:656
+#: v2/templates/people/personview.php:699
+#: v2/templates/people/personview.php:1189
 msgid "Assigned Properties"
 msgstr "Tilldelade egenskaper"
 
 #: v2/templates/group/groupview.php:335 v2/templates/people/familyview.php:703
-#: v2/templates/people/personview.php:1146
+#: v2/templates/people/personview.php:1213
 msgid "Assign a New Property"
 msgstr "Tilldela en ny egenskap"
 
@@ -10146,7 +10261,7 @@ msgid "Property"
 msgstr "Fastighet"
 
 #: v2/templates/group/groupview.php:342 v2/templates/people/familyview.php:713
-#: v2/templates/people/personview.php:1154 v2/templates/query/queryview.php:422
+#: v2/templates/people/personview.php:1221 v2/templates/query/queryview.php:422
 #: v2/templates/query/queryview.php:439
 msgid "select an option"
 msgstr "välja ett alternativ"
@@ -10265,7 +10380,7 @@ msgid "Filter by member types"
 msgstr "Filtrera efter medlemstyper"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:41
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:61
 #: v2/templates/pastoralcare/pastoralcarefamily.php:79
 #: v2/templates/pastoralcare/pastoralcareperson.php:80
 msgid "Create an appointment"
@@ -10301,20 +10416,21 @@ msgstr "Arbete / annan e-post"
 #: v2/templates/pastoralcare/pastoralcareperson.php:136
 #: v2/templates/people/personEditor.php:1753
 #: v2/templates/people/personPrint.php:371
-#: v2/templates/people/personview.php:122 v2/templates/system/csvExport.php:205
+#: v2/templates/people/personview.php:140 v2/templates/system/csvExport.php:205
 #: v2/templates/system/csvExport.php:464 v2/templates/system/csvImport.php:197
 msgid "Membership Date"
 msgstr "Medlemskap Datum"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:455
 #: v2/templates/people/personPrint.php:472
-#: v2/templates/people/personview.php:640
+#: v2/templates/people/personview.php:683
+#: v2/templates/people/personview.php:987
 msgid "Assigned Groups"
 msgstr "Tilldelade grupper"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:484
-#: v2/templates/people/personview.php:929
+#: v2/templates/people/personview.php:980
 msgid "No group assignments."
 msgstr "Inga gruppuppgifter."
 
@@ -10328,7 +10444,7 @@ msgstr "Värde"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:580
-#: v2/templates/people/personview.php:1130
+#: v2/templates/people/personview.php:1197
 msgid "No property assignments."
 msgstr "Inga fastighetsöverlåtelser."
 
@@ -10339,87 +10455,168 @@ msgstr "Inga fastighetsöverlåtelser."
 msgid "Entered:"
 msgstr "Ingår:"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:22
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:23
+msgid "Pastoral Care Dashboard"
+msgstr "Dashboard för pastoral vård"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:24
+msgid ""
+"Track visits, launch quick pastoral actions and focus first on members who "
+"still need attention."
+msgstr ""
+"Följ upp besöken, vidta snabba pastorala åtgärder och fokusera först på de "
+"medlemmar som fortfarande behöver uppmärksamhet."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:28
+msgid "Persons pending"
+msgstr "Personer i väntan på"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:29
+msgid "Families pending"
+msgstr "Familjer i väntan på"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
 msgid "Visit/Call randomly"
 msgstr "Besök/samtal slumpmässigt"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:27
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:39
+msgid ""
+"Start a pastoral action in one click and quickly choose the profile type you "
+"want to reach."
+msgstr ""
+"Starta en pastoral aktion med ett klick och välj snabbt den profiltyp som du "
+"vill nå."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:47
 msgid ""
 "Pastoral care with a familly. You can validated all the persons together."
 msgstr "Pastoralvård med en familj. Du kan validera alla personer tillsammans."
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:36
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:159
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:56
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:195
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:271
 msgid "Retired"
 msgstr "Pensionerad"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:37
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 msgid "Young"
 msgstr "Unga"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:58
 msgid "Single"
 msgstr "Enkel"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:66
 msgid "Lists"
 msgstr "Listor"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:50
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:73
+msgid "Quick guidance"
+msgstr "Snabb vägledning"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:74
+msgid ""
+"Use Family when you want to validate several people at once, or pick a "
+"specific profile from the dropdown for a more focused outreach."
+msgstr ""
+"Använd Family när du vill validera flera personer samtidigt, eller välj en "
+"specifik profil från rullgardinsmenyn för en mer fokuserad uppsökande "
+"verksamhet."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:79
 msgid "Pastoral care Settings."
 msgstr "Pastoralvård Inställningar."
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:64
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:94
 msgid "Not visited Persons"
 msgstr "Ej besökt Personer"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:76
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:106
 msgid "Not visited Families"
 msgstr "Ej besökt Familjer"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:88
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:118
 msgid "Not visited Single Persons"
 msgstr "Ej besökt Enskilda personer"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:99
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
 msgid "Not visited Retired Persons"
 msgstr "Ej besökt Pensionärer"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:110
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:140
 msgid "Not visited Youngs"
 msgstr "Ej besökt Youngs"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:127
-msgid "• Statistics about persons, families ... who remain to be contacted."
-msgstr "- Statistik om personer, familjer ... som inte har kontaktats."
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:155
+msgid "Coverage Overview"
+msgstr "Översikt över täckning"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:169
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:230
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:158
+msgid "Current period"
+msgstr "Aktuell period"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
+msgid ""
+"Statistics about persons, families and categories that still need to be "
+"contacted."
+msgstr ""
+"Statistik över personer, familjer och kategorier som fortfarande behöver "
+"kontaktas."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:205
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:276
 msgid "Young People"
 msgstr "Ungdomar"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:222
 msgid "Pastoral Care Members"
 msgstr "Medlemmar i pastoralvård"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:238
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:228
+msgid "Follow-up list"
+msgstr "Uppföljningslista"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:247
+msgid "Members Still Not Reached"
+msgstr "Medlemmar som fortfarande inte nåtts"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:248
+msgid ""
+"Switch by category to focus your follow-up list and start the next pastoral "
+"action faster."
+msgstr ""
+"Byt kategori för att fokusera din uppföljningslista och starta nästa "
+"pastorala åtgärd snabbare."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:250
+msgid "Segmented view"
+msgstr "Segmenterad vy"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:285
 msgid "Persons not reached"
 msgstr "Personer som inte nåtts"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:242
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:286
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:293
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:300
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:307
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:314
+msgid "remaining"
+msgstr "återstående"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:292
 msgid "Families not reached"
 msgstr "Familjer som inte nåtts"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:246
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:299
 msgid "Single Persons not reached"
 msgstr "Ensamstående personer som inte nås"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:250
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:306
 msgid "Retired not reached"
 msgstr "Pensionerad ej nådd"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:254
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:313
 msgid "Young People not reached"
 msgstr "Ungdomar som inte nåtts"
 
@@ -10463,14 +10660,14 @@ msgstr "Latitud/Longitud"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:205
 #: v2/templates/pastoralcare/pastoralcareperson.php:286
 #: v2/templates/people/familyview.php:186
-#: v2/templates/people/personview.php:281
+#: v2/templates/people/personview.php:307
 msgid "Text Message"
 msgstr "Textmeddelande"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:207
 #: v2/templates/pastoralcare/pastoralcareperson.php:288
 #: v2/templates/people/familyview.php:188
-#: v2/templates/people/personview.php:283
+#: v2/templates/people/personview.php:309
 msgid "CRM text message"
 msgstr "CRM-textmeddelande"
 
@@ -10480,20 +10677,20 @@ msgid "Return to Family View"
 msgstr "Tillbaka till Family View"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:128
-#: v2/templates/people/personview.php:88 v2/templates/user/userlist.php:118
+#: v2/templates/people/personview.php:30 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "Odefinierad"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:140
 #: v2/templates/pastoralcare/pastoralcareperson.php:270
 #: v2/templates/people/personEditor.php:1779
-#: v2/templates/people/personview.php:126
-#: v2/templates/people/personview.php:265
+#: v2/templates/people/personview.php:144
+#: v2/templates/people/personview.php:291
 msgid "Friend Date"
 msgstr "Vänskapsdatum"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:216
-#: v2/templates/people/personview.php:196
+#: v2/templates/people/personview.php:222
 msgid "Family:"
 msgstr "Familj:"
 
@@ -10501,24 +10698,24 @@ msgstr "Familj:"
 #: v2/templates/pastoralcare/pastoralcareperson.php:347
 #: v2/templates/people/personEditor.php:1654
 #: v2/templates/people/personEditor.php:1658
-#: v2/templates/people/personview.php:340
-#: v2/templates/people/personview.php:342
+#: v2/templates/people/personview.php:366
+#: v2/templates/people/personview.php:368
 msgid "Facebook"
 msgstr "Facebook"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:354
 #: v2/templates/pastoralcare/pastoralcareperson.php:355
 #: v2/templates/people/personEditor.php:1680
-#: v2/templates/people/personview.php:349
-#: v2/templates/people/personview.php:350
+#: v2/templates/people/personview.php:375
+#: v2/templates/people/personview.php:376
 msgid "Twitter"
 msgstr "Twitter"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:362
 #: v2/templates/pastoralcare/pastoralcareperson.php:363
 #: v2/templates/people/personEditor.php:1698
-#: v2/templates/people/personview.php:357
-#: v2/templates/people/personview.php:358
+#: v2/templates/people/personview.php:383
+#: v2/templates/people/personview.php:384
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
@@ -11327,6 +11524,7 @@ msgstr ""
 "Bläddra bland, redigera och hantera släktregister från ett och samma ställe."
 
 #: v2/templates/people/familylist.php:54
+#: v2/templates/people/personview.php:1342
 msgid "records"
 msgstr "register"
 
@@ -11351,15 +11549,15 @@ msgstr "Ta bort alla"
 msgid " This Family is Deactivated"
 msgstr " Denna familj är inaktiverad"
 
-#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:50
+#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:58
 msgid "View Photo"
 msgstr "Visa bild"
 
-#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:54
+#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:62
 msgid "Upload Photo"
 msgstr "Ladda upp en bild"
 
-#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:58
+#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:66
 msgid "Delete Photo"
 msgstr "Radera foto"
 
@@ -11368,6 +11566,7 @@ msgid "Emails"
 msgstr "E-postmeddelanden"
 
 #: v2/templates/people/familyview.php:251
+#: v2/templates/people/personview.php:435
 msgid "Overview"
 msgstr "Översikt"
 
@@ -11376,10 +11575,12 @@ msgid "Reachable by email"
 msgstr "Nåbar via e-post"
 
 #: v2/templates/people/familyview.php:256
+#: v2/templates/people/personview.php:441
 msgid "Private access granted"
 msgstr "Privat åtkomst beviljad"
 
 #: v2/templates/people/familyview.php:256
+#: v2/templates/people/personview.php:441
 msgid "Private access restricted"
 msgstr "Privat tillgång begränsad"
 
@@ -11398,14 +11599,14 @@ msgstr ""
 "uppgifter."
 
 #: v2/templates/people/familyview.php:313
-#: v2/templates/people/personview.php:473
+#: v2/templates/people/personview.php:514
 msgid "Verify Info"
 msgstr "Verifiera information"
 
 #: v2/templates/people/familyview.php:321
 #: v2/templates/people/familyview.php:322
-#: v2/templates/people/personview.php:496
-#: v2/templates/people/personview.php:497
+#: v2/templates/people/personview.php:537
+#: v2/templates/people/personview.php:538
 msgid "Create a document"
 msgstr "Skapa ett dokument"
 
@@ -11414,13 +11615,13 @@ msgid "Get the vCard of the family"
 msgstr "Hämta familjens vCard"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:554 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:57
 #: v2/templates/plugins/plugins.php:113
 msgid "Deactivate"
 msgstr "Inaktivera"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:554 v2/templates/plugins/plugins.php:56
+#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:113
 msgid "Activate"
 msgstr "Aktivera"
@@ -11479,24 +11680,26 @@ msgid "N/A"
 msgstr "N/A"
 
 #: v2/templates/people/familyview.php:544
-#: v2/templates/people/personview.php:609
+#: v2/templates/people/personview.php:652
 msgid "Timeline"
 msgstr "Tidslinje"
 
 #: v2/templates/people/familyview.php:559
-#: v2/templates/people/personview.php:688
+#: v2/templates/people/personview.php:731
+#: v2/templates/people/personview.php:1339
 msgid "Automatic Payments"
 msgstr "Automatiska betalningar"
 
 #: v2/templates/people/familyview.php:565
-#: v2/templates/people/personview.php:695
+#: v2/templates/people/personview.php:738
+#: v2/templates/people/personview.php:1383
 msgid "Pledges and Payments"
 msgstr "Utfästelser och betalningar"
 
 #: v2/templates/people/familyview.php:710
-#: v2/templates/people/personview.php:1152
-#: v2/templates/people/personview.php:1225
-#: v2/templates/people/personview.php:1367
+#: v2/templates/people/personview.php:1219
+#: v2/templates/people/personview.php:1299
+#: v2/templates/people/personview.php:1484
 msgid "Select"
 msgstr "Välj"
 
@@ -11505,59 +11708,59 @@ msgid "No automatic payments configured yet."
 msgstr "Inga automatiska betalningar konfigurerade ännu."
 
 #: v2/templates/people/familyview.php:766
-#: v2/templates/people/personview.php:1275
+#: v2/templates/people/personview.php:1364
 msgid "Add a new automatic payment"
 msgstr "Lägg till en ny automatisk betalning"
 
 #: v2/templates/people/familyview.php:775
-#: v2/templates/people/personview.php:1296
+#: v2/templates/people/personview.php:1399
 msgid "Show Pledges"
 msgstr "Visa utfästelser"
 
 #: v2/templates/people/familyview.php:779
-#: v2/templates/people/personview.php:1300
+#: v2/templates/people/personview.php:1406
 msgid "Show Payments"
 msgstr "Visa betalningar"
 
 #: v2/templates/people/familyview.php:782
-#: v2/templates/people/personview.php:1303
+#: v2/templates/people/personview.php:1410
 msgid "From"
 msgstr "Från"
 
 #: v2/templates/people/familyview.php:791
-#: v2/templates/people/personview.php:1312
+#: v2/templates/people/personview.php:1419
 msgid "To"
 msgstr "Till"
 
 #: v2/templates/people/familyview.php:814
-#: v2/templates/people/personview.php:1325
+#: v2/templates/people/personview.php:1436
 msgid "Add a new pledge"
 msgstr "Lägg till ett nytt löfte"
 
 #: v2/templates/people/familyview.php:816
-#: v2/templates/people/personview.php:1327
+#: v2/templates/people/personview.php:1438
 msgid "Add a new payment"
 msgstr "Lägg till en ny betalning"
 
 #: v2/templates/people/familyview.php:824
-#: v2/templates/people/personview.php:1343
+#: v2/templates/people/personview.php:1456
 msgid " Canvass Entry"
 msgstr " Inträde till kampanjen"
 
 #: v2/templates/people/familyview.php:986
-#: v2/templates/people/personview.php:1575
+#: v2/templates/people/personview.php:1721
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 "Du är på väg att radera profilbilden, detta förfarande är oåterkalleligt."
 
 #: v2/templates/people/familyview.php:987
-#: v2/templates/people/personview.php:1577
+#: v2/templates/people/personview.php:1723
 msgid "Do you want to proceed?"
 msgstr "Vill du fortsätta?"
 
 #: v2/templates/people/familyview.php:1002
-#: v2/templates/people/personview.php:1595
+#: v2/templates/people/personview.php:1741
 msgid "Request Family Info Verification"
 msgstr "Begäran om verifiering av familjeinformation"
 
@@ -11575,18 +11778,18 @@ msgstr ""
 
 #: v2/templates/people/familyview.php:1034
 #: v2/templates/people/familyview.php:1038
-#: v2/templates/people/personview.php:1609
-#: v2/templates/people/personview.php:1613
+#: v2/templates/people/personview.php:1755
+#: v2/templates/people/personview.php:1759
 msgid "Online Verification"
 msgstr "Verifiering online"
 
 #: v2/templates/people/familyview.php:1045
-#: v2/templates/people/personview.php:1620
+#: v2/templates/people/personview.php:1766
 msgid "PDF Report"
 msgstr "PDF-rapport"
 
 #: v2/templates/people/familyview.php:1049
-#: v2/templates/people/personview.php:1624
+#: v2/templates/people/personview.php:1770
 msgid "Verified In Person"
 msgstr "Verifierad personligen"
 
@@ -12107,7 +12310,7 @@ msgid "Red text"
 msgstr "Röd text"
 
 #: v2/templates/people/personEditor.php:919
-#: v2/templates/people/personview.php:400
+#: v2/templates/people/personview.php:426
 msgid "indicates items inherited from the associated family record."
 msgstr "anger objekt som ärvts från den tillhörande familjeuppgiften."
 
@@ -12303,126 +12506,222 @@ msgstr ""
 msgid "Person Directory"
 msgstr "Personregister"
 
-#: v2/templates/people/personview.php:29
+#: v2/templates/people/personview.php:37
 msgid "This Person is Deactivated"
 msgstr "Den här personen är inaktiverad"
 
-#: v2/templates/people/personview.php:463
+#: v2/templates/people/personview.php:155
+#: v2/templates/people/personview.php:1192
+#: v2/templates/people/personview.php:1263
+msgid "assigned"
+msgstr "tilldelad"
+
+#: v2/templates/people/personview.php:185
+msgid "No group assignments yet."
+msgstr "Inga gruppuppgifter ännu."
+
+#: v2/templates/people/personview.php:444
+msgid ""
+"Use the quick actions to manage this profile, documents and assignments from "
+"one place."
+msgstr ""
+"Använd snabbåtgärderna för att hantera den här profilen, dokument och "
+"uppdrag från ett och samma ställe."
+
+#: v2/templates/people/personview.php:444
+msgid "Some sections remain hidden because this profile contains private data."
+msgstr ""
+"Vissa avsnitt förblir dolda eftersom den här profilen innehåller privata "
+"uppgifter."
+
+#: v2/templates/people/personview.php:504
 msgid "Printable Page"
 msgstr "Utskrivbar sida"
 
-#: v2/templates/people/personview.php:484
+#: v2/templates/people/personview.php:525
 msgid "Add a pastoral care note"
 msgstr "Lägg till en anteckning om själavård"
 
-#: v2/templates/people/personview.php:506
+#: v2/templates/people/personview.php:547
 msgid "Assign this user to a group"
 msgstr "Tilldela den här användaren till en grupp"
 
-#: v2/templates/people/personview.php:508
+#: v2/templates/people/personview.php:549
 msgid "Assign New Group"
 msgstr "Tilldela en ny grupp"
 
-#: v2/templates/people/personview.php:533
+#: v2/templates/people/personview.php:574
 msgid "Create a CRM user"
 msgstr "Skapa en CRM-användare"
 
-#: v2/templates/people/personview.php:534
+#: v2/templates/people/personview.php:575
 msgid "Make User"
 msgstr "Gör användare"
 
-#: v2/templates/people/personview.php:542
+#: v2/templates/people/personview.php:583
 msgid "Add rights to this user"
 msgstr "Lägga till rättigheter för den här användaren"
 
-#: v2/templates/people/personview.php:543
+#: v2/templates/people/personview.php:584
 msgid "Edit User"
 msgstr "Redigera användare"
 
-#: v2/templates/people/personview.php:554
+#: v2/templates/people/personview.php:595
 msgid " this Person"
 msgstr " denna person"
 
-#: v2/templates/people/personview.php:569
-#: v2/templates/people/personview.php:578
+#: v2/templates/people/personview.php:610
+#: v2/templates/people/personview.php:619
 msgid "Delete this Record"
 msgstr "Ta bort denna post"
 
-#: v2/templates/people/personview.php:802
+#: v2/templates/people/personview.php:845
 msgid "click to download"
 msgstr "Klicka för att ladda ner"
 
-#: v2/templates/people/personview.php:961
+#: v2/templates/people/personview.php:867
+msgid "Family Circle"
+msgstr "Familjecirkel"
+
+#: v2/templates/people/personview.php:868
+msgid ""
+"See the rest of the household, their role and the fastest actions available."
+msgstr ""
+"Se resten av hushållet, deras roll och de snabbaste åtgärderna som finns "
+"tillgängliga."
+
+#: v2/templates/people/personview.php:870
+msgid "other members"
+msgstr "övriga medlemmar"
+
+#: v2/templates/people/personview.php:988
+msgid ""
+"Manage memberships, group-specific information and role changes from this "
+"section."
+msgstr ""
+"Hantera medlemskap, gruppspecifik information och rolländringar från det här "
+"avsnittet."
+
+#: v2/templates/people/personview.php:1021
 msgid "Group actions"
 msgstr "Gruppåtgärder"
 
-#: v2/templates/people/personview.php:976
+#: v2/templates/people/personview.php:1036
 msgid "Change Role"
 msgstr "Ändra roll"
 
-#: v2/templates/people/personview.php:983
+#: v2/templates/people/personview.php:1043
 msgid "Update Properties"
 msgstr "Uppdatera egenskaper"
 
-#: v2/templates/people/personview.php:1015
+#: v2/templates/people/personview.php:1075
 msgid "Group Informations"
 msgstr "Information om gruppen"
 
-#: v2/templates/people/personview.php:1057
+#: v2/templates/people/personview.php:1117
 msgid "Person Informations"
 msgstr "Information om personen"
 
-#: v2/templates/people/personview.php:1081
+#: v2/templates/people/personview.php:1141
 msgid "Modify Specific Properties"
 msgstr "Ändra specifika egenskaper"
 
-#: v2/templates/people/personview.php:1092
+#: v2/templates/people/personview.php:1152
 msgid "No specific group properties defined !"
 msgstr "Inga specifika gruppegenskaper definierade !"
 
-#: v2/templates/people/personview.php:1176
-#: v2/templates/people/personview.php:1244
+#: v2/templates/people/personview.php:1190
+msgid ""
+"Track the specific attributes already linked to this person and add new ones "
+"when needed."
+msgstr ""
+"Spåra de specifika attribut som redan är kopplade till den här personen och "
+"lägg till nya vid behov."
+
+#: v2/templates/people/personview.php:1243
+#: v2/templates/people/personview.php:1318
 msgid "Assigning..."
 msgstr "Tilldela..."
 
-#: v2/templates/people/personview.php:1203
+#: v2/templates/people/personview.php:1261
+msgid ""
+"Keep volunteer assignments visible and assign new opportunities from the "
+"same place."
+msgstr ""
+"Håll volontäruppdragen synliga och tilldela nya möjligheter från samma plats."
+
+#: v2/templates/people/personview.php:1277
 msgid "No volunteer opportunity assignments."
 msgstr "Inga uppdrag för volontärarbete."
 
-#: v2/templates/people/personview.php:1218
+#: v2/templates/people/personview.php:1292
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Tilldela ett nytt volontärtillfälle"
 
-#: v2/templates/people/personview.php:1280
-#: v2/templates/people/personview.php:1332
+#: v2/templates/people/personview.php:1340
+msgid ""
+"Review recurring contributions and add a new payment setup when appropriate."
+msgstr ""
+"Granska återkommande bidrag och lägg till en ny betalningsinställning när "
+"det är lämpligt."
+
+#: v2/templates/people/personview.php:1357
+msgid "No automatic payments recorded for this person yet."
+msgstr ""
+"Inga automatiska betalningar har registrerats för den här personen ännu."
+
+#: v2/templates/people/personview.php:1370
+#: v2/templates/people/personview.php:1444
 msgid "You must set an address for this person"
 msgstr "Du måste ange en adress för denna person."
 
-#: v2/templates/people/personview.php:1368
+#: v2/templates/people/personview.php:1384
+msgid ""
+"Filter contributions by period and add a new pledge or payment directly from "
+"this tab."
+msgstr ""
+"Filtrera bidrag per period och lägg till en ny pant eller betalning direkt "
+"från den här fliken."
+
+#: v2/templates/people/personview.php:1476
+msgid "Timeline Documents"
+msgstr "Tidslinje Dokument"
+
+#: v2/templates/people/personview.php:1480
+msgid "Filter notes, audio, video and shared documents from a single stream."
+msgstr ""
+"Filtrera anteckningar, ljud, video och delade dokument från ett och samma "
+"flöde."
+
+#: v2/templates/people/personview.php:1485
 msgid "Filter your documents by : "
 msgstr "Filtrera dina dokument efter :"
 
-#: v2/templates/people/personview.php:1369
+#: v2/templates/people/personview.php:1486
 msgid "All type"
 msgstr "Alla typer"
 
-#: v2/templates/people/personview.php:1374
+#: v2/templates/people/personview.php:1491
 msgid "Shared documents"
 msgstr "Delade dokument"
 
-#: v2/templates/people/personview.php:1425
+#: v2/templates/people/personview.php:1499
+msgid "No documents or notes available yet."
+msgstr "Inga dokument eller anteckningar tillgängliga ännu."
+
+#: v2/templates/people/personview.php:1556
 msgid "Share this document to another user"
 msgstr "Dela det här dokumentet med en annan användare"
 
-#: v2/templates/people/personview.php:1434
+#: v2/templates/people/personview.php:1565
 msgid "Export this document to word Format"
 msgstr "Exportera det här dokumentet till word Format"
 
-#: v2/templates/people/personview.php:1478
+#: v2/templates/people/personview.php:1621
 msgid "Last modification by"
 msgstr "Senast ändrad av"
 
-#: v2/templates/people/personview.php:1600
+#: v2/templates/people/personview.php:1746
 msgid "Select how do you want to request the person information to be verified"
 msgstr "Välj hur du vill begära att personuppgifterna ska verifieras"
 
@@ -15489,6 +15788,12 @@ msgstr "Flera dagar"
 msgid "Giving Report"
 msgstr "Rapport om givande"
 
+#~ msgid "Clone roles"
+#~ msgstr "Klonroller"
+
+#~ msgid "from group"
+#~ msgstr "från gruppen"
+
 #~ msgid "You have"
 #~ msgstr "Du har"
 
@@ -15733,9 +16038,6 @@ msgstr "Rapport om givande"
 
 #~ msgid "Update Family Latitude or Longitude now."
 #~ msgstr "Uppdatera familjens latitud eller longitud nu."
-
-#~ msgid "of members"
-#~ msgstr "av medlemmar"
 
 #~ msgid "to contact"
 #~ msgstr "för att kontakta"
@@ -16352,9 +16654,6 @@ msgstr "Rapport om givande"
 #~ msgid "Lonely"
 #~ msgstr "Ensam"
 
-#~ msgid "Person not reached"
-#~ msgstr "Person som inte nåtts"
-
 #~ msgid "Family not reached"
 #~ msgstr "Familj som inte nås"
 
@@ -16411,9 +16710,6 @@ msgstr "Rapport om givande"
 
 #~ msgid "Attendees for Event ID:"
 #~ msgstr "Deltagare för evenemangs-ID:"
-
-#~ msgid "Toggle navigation"
-#~ msgstr "Växla navigering"
 
 #~ msgid "Change Custom Settings"
 #~ msgstr "Ändra anpassade inställningar"
@@ -17002,9 +17298,6 @@ msgstr "Rapport om givande"
 
 #~ msgid "Your Cart is Empty"
 #~ msgstr "Din varukorg är tom"
-
-#~ msgid "assigned"
-#~ msgstr "tilldelad"
 
 #~ msgid "Please confirm reset failed login count"
 #~ msgstr "Bekräfta att du återställer antalet misslyckade inloggningar"

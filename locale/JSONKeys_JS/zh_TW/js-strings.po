@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -653,8 +653,20 @@ msgstr "错误文本"
 msgid "Stack Trace"
 msgstr "堆栈跟踪"
 
-msgid "ERROR"
-msgstr "错误"
+msgid "The application could not complete this API request."
+msgstr "应用程序无法完成此 API 请求。"
+
+msgid "Information"
+msgstr "信息"
+
+msgid "Please confirm"
+msgstr "请确认"
+
+msgid "Update information"
+msgstr "更新信息"
+
+msgid "Make a selection"
+msgstr "进行选择"
 
 msgid "In progress"
 msgstr "进行中"
@@ -673,8 +685,16 @@ msgstr " 1235  4568 如果您想管理这些列表，请单击此通知 !"
 msgid "There was a problem retrieving the requested object"
 msgstr "检索所请求的对象时出现了问题"
 
-msgid "Select the method to add to a group"
-msgstr "选择要添加到一个组的方法"
+msgid "Add cart to a group"
+msgstr "将购物车添加到组"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr "选择是将购物车添加到现有组，还是直接从购物车创建一个新组。"
+
+msgid "Action"
+msgstr "行动"
 
 msgid "Select an existing Group"
 msgstr "选择一个现有的组"
@@ -682,14 +702,18 @@ msgstr "选择一个现有的组"
 msgid "or Create a new Group from the Cart"
 msgstr "或从购物车中创建一个新的组"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "选择你想加入购物车的组别"
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr "选择目的地组和要分配给购物车成员的角色。"
 
 msgid "Select Group"
 msgstr "选择组别"
 
 msgid "Select Role"
 msgstr "选择角色"
+
+msgid "Create a new group and move the current cart into it."
+msgstr "创建一个新组，并将当前购物车移入其中。"
 
 msgid "Group Name"
 msgstr "集团名称"
@@ -700,42 +724,70 @@ msgstr "默认名称组"
 msgid "Add Cart to Group"
 msgstr "添加购物车到组"
 
-msgid "You have to select one group and a group role if you want"
-msgstr "你必须选择一个组和一个组的角色，如果你想"
+msgid "Missing selection"
+msgstr "缺失的选择"
 
-msgid "You have to set a Group Name"
-msgstr "你必须设置一个组名"
+msgid "You need to select both a group and a role before continuing."
+msgstr "在继续之前，您需要同时选择组和角色。"
 
-msgid "Do you really want to deactivate the persons?"
-msgstr "你真的想停用这些人吗？"
+msgid "Group name required"
+msgstr "需要组名"
 
-msgid "This action can be undone !!!!"
-msgstr "这一行动可以被撤销 !!!!"
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "从购物车创建新组之前，请输入组名。"
 
-msgid "Yes : if you're sure"
-msgstr "是的：如果你确定"
+msgid "Deactivate cart persons"
+msgstr "停用推车人"
 
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "你真的想从CRM中删除这些人吗？"
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr "您真的想停用购物车中的所有人员吗？"
 
-msgid "This action cannot be undone !!!!"
-msgstr "这一行动不能被撤销 !!!!"
+msgid "This action can be undone later if needed."
+msgstr "如果需要，可以在以后撤销这一操作。"
 
-msgid "Select the event to which you would like to add your cart"
-msgstr "选择你想加入购物车的活动"
+msgid "Keep active"
+msgstr "保持活跃"
 
-msgid "Create First A New Event"
-msgstr "首先创建一个新的活动"
+msgid "Deactivate persons"
+msgstr "停用人员"
+
+msgid "Delete cart persons"
+msgstr "删除推车人"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr "您真的想从客户关系管理中删除购物车中的所有人员吗？"
+
+msgid "This action cannot be undone."
+msgstr "该操作无法撤销。"
+
+msgid "Keep persons"
+msgstr "保留人员"
+
+msgid "Delete persons"
+msgstr "删除人员"
+
+msgid "Add cart to event"
+msgstr "将购物车添加到活动"
+
+msgid "Select the event that should receive the current cart."
+msgstr "选择应接收当前购物车的事件。"
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr "您也可以先创建一个新事件，然后返回此处分配购物车。"
+
+msgid "Event"
+msgstr "活动"
+
+msgid "Choose one of the available events from the list below."
+msgstr "从以下列表中选择一项活动。"
+
+msgid "Create new event"
+msgstr "创建新活动"
 
 msgid "Add to Event"
 msgstr "添加到活动"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"你可以把购物车的内容添加到下面选定的事件中<br> - 或者 - <br>先创建一个事件，"
-"然后再添加它们。"
 
 msgid "Register"
 msgstr "注册"
@@ -791,19 +843,20 @@ msgstr "查看全部"
 msgid "Your Cart is Empty"
 msgstr "您的购物车是空的"
 
+msgid "Software registration"
+msgstr "软件注册"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"在发送之前，请查看下面的注册详细信息。这些信息仅用于跟踪本软件的使用情况。"
+
 msgid "If you need to make changes to registration data, go to "
 msgstr "如果你需要对注册数据进行修改，请到"
 
 msgid "Admin->Edit General Settings"
 msgstr "管理员->编辑常规设置"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr "请核对这些信息并按发送按钮注册您的 CRM 版本。"
-
-msgid "This information is used only to track the usage of this software."
-msgstr "这些信息仅用于跟踪本软件的使用情况。"
 
 msgid "Church Name"
 msgstr "教会名称"
@@ -841,14 +894,37 @@ msgstr "您的软件现在已经注册。谢谢您!"
 msgid "Select Volunteer Opportunity"
 msgstr "选择志愿者机会"
 
-msgid "Please select target volunteers for members"
-msgstr "请为成员选择目标志愿者"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "选择应分配的志愿服务机会。"
 
-msgid "Please select target group for members"
-msgstr "请选择成员的目标群体"
+msgid "This selection will be applied to the current members."
+msgstr "该选择将适用于当前成员。"
 
-msgid "Please select target Role for members"
-msgstr "请选择成员的目标角色"
+msgid "Volunteer opportunity"
+msgstr "志愿者机会"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr "从可用列表中选择目标志愿服务机会。"
+
+msgid "Choose the destination for the selected members."
+msgstr "为所选成员选择目的地。"
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr "根据操作的不同，使用下面的字段选择组、角色或两者。"
+
+msgid "Group"
+msgstr "集团"
+
+msgid "Select the target group for the selected members."
+msgstr "为所选成员选择目标群体。"
+
+msgid "Role"
+msgstr "角色"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "选择应在所选组内分配的角色。"
 
 msgid "GroupID required for role selection prompt"
 msgstr "角色选择提示所需的GroupID"
@@ -856,11 +932,19 @@ msgstr "角色选择提示所需的GroupID"
 msgid "Select Group and Role"
 msgstr "选择组别和角色"
 
-msgid "Add A Group Name"
-msgstr "添加群组名称"
+msgid "Select both the destination group and the role to apply."
+msgstr "同时选择目标组和要应用的角色。"
 
-msgid "Yes"
-msgstr "是"
+msgid "Create a group"
+msgstr "创建小组"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr "输入应从当前工作流程中创建的新组的名称。"
+
+msgid "Create group"
+msgstr "创建小组"
 
 msgid "Calendar Event"
 msgstr "日历活动"
@@ -983,6 +1067,9 @@ msgstr "成功保存"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "你即将发送你的活动!你确定吗？"
+
+msgid "Yes"
+msgstr "是"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "你即将删除你的活动!你确定吗？"
@@ -1397,9 +1484,6 @@ msgstr "相关的出勤记录也可能受到影响。"
 msgid "Photo"
 msgstr "照片"
 
-msgid "Action"
-msgstr "行动"
-
 msgid "Attendance actions"
 msgstr "考勤行动"
 
@@ -1457,9 +1541,6 @@ msgstr "在正确的范围内移动一个。"
 
 msgid "Create one."
 msgstr "创建一个。"
-
-msgid "Group"
-msgstr "集团"
 
 msgid "User"
 msgstr "用户"
@@ -1773,9 +1854,6 @@ msgstr "你确定你要删除组内特定的人的属性吗？所有组内成员
 msgid "Disable Group Specific Properties"
 msgstr "禁用组的特定属性"
 
-msgid "Role"
-msgstr "角色"
-
 msgid "Please enter a role name."
 msgstr "请输入角色名称。"
 
@@ -1945,6 +2023,18 @@ msgstr "你确定你要删除所有的管理人员吗？"
 msgid "Appointment"
 msgstr "任命"
 
+msgid "Pastoral Care"
+msgstr "教牧关怀"
+
+msgid "Open the pastoral care record"
+msgstr "打开教牧关怀记录"
+
+msgid "No records found for this view."
+msgstr "该视图无记录。"
+
+msgid "No matching records found."
+msgstr "未找到匹配记录。"
+
 msgid "Never contacted"
 msgstr "从未联系过"
 
@@ -1956,6 +2046,20 @@ msgstr "访问/通话"
 
 msgid "Last visit/call"
 msgstr "最后一次访问/致电"
+
+msgid "Opening..."
+msgstr "开幕..."
+
+msgid "Selecting..."
+msgstr "选择..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr "现在无法准备与之匹配的教牧关怀记录。请尝试其他类别。"
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr "目前无法启动教牧关怀行动。"
 
 msgid "Delete Pastoral Care Type"
 msgstr "删除教牧关怀类型"
@@ -2018,6 +2122,20 @@ msgid ""
 msgstr ""
 "不是所有的家庭都被删除了：其中一些家庭有捐赠记录，在这些捐赠与另一个家庭相关"
 "联之前，可能不会被删除。"
+
+msgid "Review family member information"
+msgstr "查看家庭成员信息"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr "保存前，请检查显示的信息并根据需要更新该家庭成员。"
+
+msgid "Update family member details"
+msgstr "更新家庭成员详细信息"
+
+msgid "Save changes"
+msgstr "保存更改"
 
 msgid "Confirm Deactivation"
 msgstr "确认停用"
@@ -2198,6 +2316,26 @@ msgstr ""
 "不是所有的人都被删除了：有些人有捐赠记录，可能不会被删除，直到这些捐赠与另一"
 "个家庭有关。"
 
+msgid "Review personal information"
+msgstr "审查个人信息"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr "保存前，检查当前值并更新需要更正的字段。"
+
+msgid "Profile information"
+msgstr "简介信息"
+
+msgid "Additional information"
+msgstr "其他信息"
+
+msgid "Update personal details"
+msgstr "更新个人资料"
+
+msgid "Processing..."
+msgstr "处理..."
+
 msgid "Please confirm deactivation of person"
 msgstr "请确认停用人员"
 
@@ -2218,8 +2356,29 @@ msgstr "停用"
 msgid "Activate"
 msgstr "激活"
 
+msgid "Deactivating..."
+msgstr "停用..."
+
+msgid "Activating..."
+msgstr "激活..."
+
+msgid "Unable to update this person status."
+msgstr "无法更新此人状态。"
+
+msgid "Deleting..."
+msgstr "删除..."
+
+msgid "Unable to delete the photo."
+msgstr "无法删除照片。"
+
+msgid "Preview the current profile photo."
+msgstr "预览当前个人照片。"
+
 msgid "Property actions"
 msgstr "财产行动"
+
+msgid "Please select a property first."
+msgstr "请先选择一个属性。"
 
 msgid "Assigning..."
 msgstr "分配..."
@@ -2227,29 +2386,194 @@ msgstr "分配..."
 msgid "Assign"
 msgstr "分配"
 
-msgid "Are you sure you want to remove this person's membership from"
-msgstr "你确定要把这个人的会员资格从"
+msgid "Unable to assign this property."
+msgstr "无法分配此属性。"
+
+msgid "Remove group assignment"
+msgstr "删除小组分配"
+
+msgid "Remove this person from the group"
+msgstr "将此人从小组中删除"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
+msgstr "此人与该组相关的成员资格和任何角色都将被删除。"
+
+msgid "Remove from group"
+msgstr "从小组中删除"
+
+msgid "Keep assignment"
+msgstr "保留任务"
+
+msgid "Share your document"
+msgstr "分享您的文档"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr "选择收件人，定义他们的访问权限，并决定他们是否应收到电子邮件通知。"
+
+msgid "Current access"
+msgstr "当前访问"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr "选择一个或多个收件人，更新其访问权限或将其删除。"
+
+msgid "Set rights"
+msgstr "设定权利"
+
+msgid "Read and write"
+msgstr "读写"
+
+msgid "Notification"
+msgstr "通知"
+
+msgid "Add people, families or groups"
+msgstr "添加人员、家庭或团体"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr "按姓名搜索，将访问权限授予他人、家庭或整个小组。"
+
+msgid "Please select at least one recipient first."
+msgstr "请先选择至少一个收件人。"
+
+msgid "Remove shared access"
+msgstr "删除共享访问"
+
+msgid "Remove access for the selected recipients?"
+msgstr "删除所选收件人的访问权限？"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr "只有选定的收件人会被移除。文件仍将与其他收件人共享。"
+
+msgid "Remove access"
+msgstr "删除访问"
+
+msgid "Keep access"
+msgstr "保持访问"
+
+msgid "Stop sharing this document"
+msgstr "停止共享本文件"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "停止与所有人分享这份文件？"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr "所有当前接收者将立即失去访问权。您仍可访问文件本身。"
+
+msgid "Keep sharing"
+msgstr "继续分享"
 
 msgid "Share your Document"
 msgstr "分享您的文件"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "你确定吗？你要删除这个人？"
+msgid "Unassign property"
+msgstr "取消分配属性"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "你确定吗？你要停止分享你的文件了吗？"
+msgid "Remove this property from the current person?"
+msgstr "从当前人身上移除该属性？"
+
+msgid "The property value will be removed from this profile."
+msgstr "属性值将从该配置文件中删除。"
+
+msgid "Remove property"
+msgstr "删除属性"
+
+msgid "Keep property"
+msgstr "保留财产"
+
+msgid "Edit property value"
+msgstr "编辑属性值"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr "更新当前个人资料中该属性的存储值。"
+
+msgid "Save property"
+msgstr "保存财产"
 
 msgid "Change classification"
 msgstr "改变分类"
 
-msgid "Change role"
-msgstr "改变角色"
+msgid "Choose the classification that best matches this person profile."
+msgstr "选择最符合此人特征的分类。"
+
+msgid "Update classification"
+msgstr "更新分类"
+
+msgid "Change family role"
+msgstr "改变家庭角色"
+
+msgid "Select the role this person should have inside the family record."
+msgstr "选择此人在家庭记录中应扮演的角色。"
+
+msgid "Update role"
+msgstr "更新角色"
 
 msgid "Volunteer actions"
 msgstr "志愿者行动"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "确认删除志愿者机会"
+msgid "Remove volunteer opportunity"
+msgstr "删除志愿者机会"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "将此志愿者机会从该人身上删除？"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "任务只会从该个人资料中删除。"
+
+msgid "Remove assignment"
+msgstr "删除任务"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr "请先选择至少一个志愿服务机会。"
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "无法分配所选的志愿服务机会。"
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "有些志愿服务机会无法分配。"
+
+msgid "Delete automatic payment"
+msgstr "删除自动付款"
+
+msgid "Delete this automatic payment setup?"
+msgstr "删除自动付款设置？"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr "删除后，与此设置相关联的重复付款将停止。"
+
+msgid "Delete payment"
+msgstr "删除付款"
+
+msgid "Keep payment"
+msgstr "保留付款"
+
+msgid "Delete pledge or payment"
+msgstr "删除认捐或付款"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "删除此认捐或付款条目？"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr "此条目将从该家庭的贡献历史中删除。"
+
+msgid "Delete entry"
+msgstr "删除条目"
+
+msgid "Keep entry"
+msgstr "保留条目"
+
+msgid "Share this secure verification link with the person."
+msgstr "与对方共享此安全验证链接。"
 
 msgid "Comments"
 msgstr "评论"
@@ -2261,14 +2585,29 @@ msgid ""
 "You are about to delete the selected plugins. This action cannot be undone!"
 msgstr "你即将删除所选的插件。这个动作不能撤消!"
 
-msgid "Select your zipped plugin file"
-msgstr "选择你压缩的插件文件"
+msgid "Update plugin"
+msgstr "更新插件"
 
-msgid "Download the zipped file of the plugin"
-msgstr "下载该插件的压缩文件"
+msgid "Add plugin"
+msgstr "添加插件"
 
-msgid "Plugin download manager"
-msgstr "插件下载管理器"
+msgid "Choose the new zipped package to update this plugin."
+msgstr "选择新的压缩包更新此插件。"
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "选择一个压缩插件包，将其安装到 CRM 中。"
+
+msgid "Plugin archive"
+msgstr "插件档案"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "此处只能选择压缩的插件包。"
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "提交本表后，上传工作即刻开始。"
+
+msgid "Plugin manager"
+msgstr "插件管理器"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "当前的图像文件夹现在是公共文件夹!!!"
@@ -2563,6 +2902,9 @@ msgstr "添加教师到购物车"
 msgid "Select the event Type you would like to use to create the Attendance"
 msgstr "选择你想用来创建考勤的事件类型"
 
+msgid "Create First A New Event"
+msgstr "首先创建一个新的活动"
+
 msgid "Create Event With Students"
 msgstr "与学生一起创建活动"
 
@@ -2652,9 +2994,6 @@ msgstr "当前事件"
 
 msgid "No assignments for kiosk"
 msgstr "没有为报刊亭分配任务"
-
-msgid "Event"
-msgstr "活动"
 
 msgid "Kiosk Name"
 msgstr "亭子名称"
@@ -2865,6 +3204,54 @@ msgid ""
 "altered."
 msgstr "所有成员资格将被销毁。  成员本身不会改变。"
 
+#~ msgid "ERROR"
+#~ msgstr "错误"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "选择你想加入购物车的组别"
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "你必须设置一个组名"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "是的：如果你确定"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "你可以把购物车的内容添加到下面选定的事件中<br> - 或者 - <br>先创建一个事"
+#~ "件，然后再添加它们。"
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr "请核对这些信息并按发送按钮注册您的 CRM 版本。"
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "请为成员选择目标志愿者"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "请选择成员的目标角色"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "添加群组名称"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr "你确定要把这个人的会员资格从"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "你确定吗？你要删除这个人？"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "你确定吗？你要停止分享你的文件了吗？"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "确认删除志愿者机会"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "选择你压缩的插件文件"
+
 #~ msgid "Personal"
 #~ msgstr "个人"
 
@@ -2932,9 +3319,6 @@ msgstr "所有成员资格将被销毁。  成员本身不会改变。"
 #~ msgid "Songs"
 #~ msgstr "歌曲"
 
-#~ msgid "Remove all"
-#~ msgstr "移除所有"
-
 #~ msgid "Add all"
 #~ msgstr "添加所有"
 
@@ -2963,9 +3347,6 @@ msgstr "所有成员资格将被销毁。  成员本身不会改变。"
 
 #~ msgid "Share your File"
 #~ msgstr "分享您的文件"
-
-#~ msgid "Members from group"
-#~ msgstr "小组成员"
 
 #~ msgid "Add person"
 #~ msgstr "添加人"

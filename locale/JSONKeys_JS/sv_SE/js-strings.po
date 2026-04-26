@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -674,8 +674,20 @@ msgstr "Feltext"
 msgid "Stack Trace"
 msgstr "Spårning av stacken"
 
-msgid "ERROR"
-msgstr "FEL"
+msgid "The application could not complete this API request."
+msgstr "Programmet kunde inte slutföra denna API-begäran."
+
+msgid "Information"
+msgstr "Information om"
+
+msgid "Please confirm"
+msgstr "Vänligen bekräfta"
+
+msgid "Update information"
+msgstr "Uppdatera information"
+
+msgid "Make a selection"
+msgstr "Gör ett val"
 
 msgid "In progress"
 msgstr "Pågående arbete"
@@ -696,8 +708,18 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Det fanns ett problem med att hämta det begärda objektet."
 
-msgid "Select the method to add to a group"
-msgstr "Välj den metod som ska läggas till i en grupp"
+msgid "Add cart to a group"
+msgstr "Lägg till kundvagn i en grupp"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+"Välj om du vill lägga till kundvagnen i en befintlig grupp eller skapa en ny "
+"direkt från kundvagnen."
+
+msgid "Action"
+msgstr "Åtgärd"
 
 msgid "Select an existing Group"
 msgstr "Välj en befintlig grupp"
@@ -705,14 +727,20 @@ msgstr "Välj en befintlig grupp"
 msgid "or Create a new Group from the Cart"
 msgstr "eller Skapa en ny grupp från varukorgen"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Välj den grupp som du vill lägga till din varukorg i."
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr ""
+"Välj destinationsgrupp och den roll som ska tilldelas medlemmarna i "
+"kundvagnen."
 
 msgid "Select Group"
 msgstr "Välj grupp"
 
 msgid "Select Role"
 msgstr "Välj roll"
+
+msgid "Create a new group and move the current cart into it."
+msgstr "Skapa en ny grupp och flytta den nuvarande vagnen till den."
 
 msgid "Group Name"
 msgstr "Gruppens namn"
@@ -723,42 +751,76 @@ msgstr "Standardnamn Grupp"
 msgid "Add Cart to Group"
 msgstr "Lägg till varukorgen i gruppen"
 
-msgid "You have to select one group and a group role if you want"
-msgstr "Du måste välja en grupp och en grupproll om du vill"
+msgid "Missing selection"
+msgstr "Saknat urval"
 
-msgid "You have to set a Group Name"
-msgstr "Du måste ange ett gruppnamn"
+msgid "You need to select both a group and a role before continuing."
+msgstr "Du måste välja både en grupp och en roll innan du kan fortsätta."
 
-msgid "Do you really want to deactivate the persons?"
-msgstr "Vill du verkligen avaktivera personerna?"
+msgid "Group name required"
+msgstr "Gruppnamn krävs"
 
-msgid "This action can be undone !!!!"
-msgstr "Denna åtgärd kan göras ogjord !!!!"
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "Ange ett gruppnamn innan du skapar en ny grupp från kundvagnen."
 
-msgid "Yes : if you're sure"
-msgstr "Ja : om du är säker"
+msgid "Deactivate cart persons"
+msgstr "Avaktivera personer i vagnen"
 
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Vill du verkligen ta bort personerna från CRM?"
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr ""
+"Vill du verkligen avaktivera alla personer som för närvarande finns i "
+"kundvagnen?"
 
-msgid "This action cannot be undone !!!!"
-msgstr "Denna åtgärd kan inte göras ogjord !!!!"
+msgid "This action can be undone later if needed."
+msgstr "Denna åtgärd kan ångras senare om det behövs."
 
-msgid "Select the event to which you would like to add your cart"
-msgstr "Välj det evenemang som du vill lägga till din varukorg i."
+msgid "Keep active"
+msgstr "Håll dig aktiv"
 
-msgid "Create First A New Event"
-msgstr "Skapa först en ny händelse"
+msgid "Deactivate persons"
+msgstr "Avaktivera personer"
+
+msgid "Delete cart persons"
+msgstr "Ta bort personer i vagnen"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr ""
+"Vill du verkligen ta bort alla personer som för närvarande finns i "
+"kundvagnen från CRM?"
+
+msgid "This action cannot be undone."
+msgstr "Denna åtgärd kan inte ångras."
+
+msgid "Keep persons"
+msgstr "Hålla personer"
+
+msgid "Delete persons"
+msgstr "Radera personer"
+
+msgid "Add cart to event"
+msgstr "Lägg till kundvagn till evenemang"
+
+msgid "Select the event that should receive the current cart."
+msgstr "Välj den händelse som ska ta emot den aktuella vagnen."
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+"Du kan också skapa ett nytt evenemang först och sedan återvända hit för att "
+"tilldela vagnen."
+
+msgid "Event"
+msgstr "Evenemang"
+
+msgid "Choose one of the available events from the list below."
+msgstr "Välj ett av de tillgängliga evenemangen från listan nedan."
+
+msgid "Create new event"
+msgstr "Skapa nytt evenemang"
 
 msgid "Add to Event"
 msgstr "Lägg till i evenemanget"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Du kan lägga till innehållet i kundvagnen till den valda händelsen nedan<br> "
-"- ELLER - <br>Skapa först en händelse och lägg till dem efteråt."
 
 msgid "Register"
 msgstr "Registrera"
@@ -814,23 +876,21 @@ msgstr "Visa alla"
 msgid "Your Cart is Empty"
 msgstr "Din varukorg är tom"
 
+msgid "Software registration"
+msgstr "Registrering av programvara"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"Granska registreringsuppgifterna nedan innan du skickar dem. Denna "
+"information används endast för att spåra användningen av denna programvara."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr "Om du behöver göra ändringar i registreringsuppgifter går du till"
 
 msgid "Admin->Edit General Settings"
 msgstr "Admin->Redigera allmänna inställningar"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Vänligen registrera din kopia av CRM genom att kontrollera denna information "
-"och tryck på knappen Skicka."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Denna information används endast för att spåra användningen av denna "
-"programvara."
 
 msgid "Church Name"
 msgstr "Kyrkans namn"
@@ -868,14 +928,41 @@ msgstr "Din programvara är nu registrerad. Tack!"
 msgid "Select Volunteer Opportunity"
 msgstr "Välj volontärmöjlighet"
 
-msgid "Please select target volunteers for members"
-msgstr "Vänligen välj målgrupp för volontärer för medlemmar"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "Välj den volontärmöjlighet som ska tilldelas."
 
-msgid "Please select target group for members"
-msgstr "Välj målgrupp för medlemmarna"
+msgid "This selection will be applied to the current members."
+msgstr "Detta val kommer att tillämpas på de nuvarande medlemmarna."
 
-msgid "Please select target Role for members"
-msgstr "Välj målroll för medlemmarna"
+msgid "Volunteer opportunity"
+msgstr "Möjlighet till volontärarbete"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr ""
+"Välj den volontärmöjlighet som du är intresserad av från den tillgängliga "
+"listan."
+
+msgid "Choose the destination for the selected members."
+msgstr "Välj destination för de utvalda medlemmarna."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+"Använd fälten nedan för att välja en grupp, en roll eller båda beroende på "
+"åtgärd."
+
+msgid "Group"
+msgstr "Grupp"
+
+msgid "Select the target group for the selected members."
+msgstr "Välj målgrupp för de utvalda medlemmarna."
+
+msgid "Role"
+msgstr "Roll"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "Välj den roll som ska tilldelas inom den valda gruppen."
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroupID krävs för att välja roll"
@@ -883,11 +970,20 @@ msgstr "GroupID krävs för att välja roll"
 msgid "Select Group and Role"
 msgstr "Välj grupp och roll"
 
-msgid "Add A Group Name"
-msgstr "Lägg till ett gruppnamn"
+msgid "Select both the destination group and the role to apply."
+msgstr "Välj både destinationsgrupp och den roll som ska tillämpas."
 
-msgid "Yes"
-msgstr "Ja"
+msgid "Create a group"
+msgstr "Skapa en grupp"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr ""
+"Ange namnet på den nya grupp som ska skapas från det aktuella arbetsflödet."
+
+msgid "Create group"
+msgstr "Skapa grupp"
 
 msgid "Calendar Event"
 msgstr "Kalenderhändelse"
@@ -1017,6 +1113,9 @@ msgstr "sparad framgångsrikt"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "Du är på väg att skicka din kampanj! Är du säker?"
+
+msgid "Yes"
+msgstr "Ja"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Du är på väg att radera din kampanj! Är du säker?"
@@ -1449,9 +1548,6 @@ msgstr "Relaterad närvarohistorik kan också påverkas."
 msgid "Photo"
 msgstr "Foto"
 
-msgid "Action"
-msgstr "Åtgärd"
-
 msgid "Attendance actions"
 msgstr "Åtgärder för närvaro"
 
@@ -1511,9 +1607,6 @@ msgstr "Flytta en i rätt intervall."
 
 msgid "Create one."
 msgstr "Skapa en."
-
-msgid "Group"
-msgstr "Grupp"
 
 msgid "User"
 msgstr "Användare"
@@ -1833,9 +1926,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Inaktivera gruppspecifika egenskaper"
 
-msgid "Role"
-msgstr "Roll"
-
 msgid "Please enter a role name."
 msgstr "Ange ett namn på rollen."
 
@@ -2011,6 +2101,18 @@ msgstr "Är du säker på att du vill radera alla chefer?"
 msgid "Appointment"
 msgstr "Utnämning"
 
+msgid "Pastoral Care"
+msgstr "Pastoral vård"
+
+msgid "Open the pastoral care record"
+msgstr "Öppna journalen för pastoral vård"
+
+msgid "No records found for this view."
+msgstr "Inga poster hittades för denna vy."
+
+msgid "No matching records found."
+msgstr "Inga matchande poster hittades."
+
 msgid "Never contacted"
 msgstr "Aldrig kontaktad"
 
@@ -2022,6 +2124,22 @@ msgstr "Besök/samtal"
 
 msgid "Last visit/call"
 msgstr "Senaste besök/samtal"
+
+msgid "Opening..."
+msgstr "Öppnar..."
+
+msgid "Selecting..."
+msgstr "Välja..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+"Inget matchande pastoralvårdsregister kunde förberedas just nu. Vänligen "
+"försök med en annan kategori."
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr "Det går inte att starta en pastoral vårdåtgärd för tillfället."
 
 msgid "Delete Pastoral Care Type"
 msgstr "Ta bort typ av pastoral vård"
@@ -2085,6 +2203,22 @@ msgid ""
 msgstr ""
 "Alla familjer har inte raderats: Vissa av dem har donationer och kan INTE "
 "raderas förrän dessa donationer kopplas till en annan familj."
+
+msgid "Review family member information"
+msgstr "Granska information om familjemedlemmar"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+"Kontrollera den information som visas och uppdatera vid behov denna "
+"familjemedlem innan du sparar."
+
+msgid "Update family member details"
+msgstr "Uppdatera uppgifter om familjemedlemmar"
+
+msgid "Save changes"
+msgstr "Spara ändringar"
 
 msgid "Confirm Deactivation"
 msgstr "Bekräfta avaktivering"
@@ -2267,6 +2401,28 @@ msgstr ""
 "Alla personer har inte raderats: Vissa av dem har donationer och kan INTE "
 "raderas förrän dessa donationer kopplas till en annan familj."
 
+msgid "Review personal information"
+msgstr "Granska personlig information"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+"Kontrollera de aktuella värdena och uppdatera de fält som behöver korrigeras "
+"innan du sparar."
+
+msgid "Profile information"
+msgstr "Information om profilen"
+
+msgid "Additional information"
+msgstr "Ytterligare information"
+
+msgid "Update personal details"
+msgstr "Uppdatera personuppgifter"
+
+msgid "Processing..."
+msgstr "Bearbetning..."
+
 msgid "Please confirm deactivation of person"
 msgstr "Bekräfta att personen har avaktiverats"
 
@@ -2288,8 +2444,29 @@ msgstr "Inaktivera"
 msgid "Activate"
 msgstr "Aktivera"
 
+msgid "Deactivating..."
+msgstr "Avaktiverar..."
+
+msgid "Activating..."
+msgstr "Aktiverar..."
+
+msgid "Unable to update this person status."
+msgstr "Det går inte att uppdatera denna persons status."
+
+msgid "Deleting..."
+msgstr "Radera..."
+
+msgid "Unable to delete the photo."
+msgstr "Det går inte att radera fotot."
+
+msgid "Preview the current profile photo."
+msgstr "Förhandsgranska det aktuella profilfotot."
+
 msgid "Property actions"
 msgstr "Fastighetsåtgärder"
+
+msgid "Please select a property first."
+msgstr "Vänligen välj en fastighet först."
 
 msgid "Assigning..."
 msgstr "Tilldela..."
@@ -2297,29 +2474,211 @@ msgstr "Tilldela..."
 msgid "Assign"
 msgstr "Tilldela"
 
-msgid "Are you sure you want to remove this person's membership from"
-msgstr "Är du säker på att du vill ta bort den här personens medlemskap från"
+msgid "Unable to assign this property."
+msgstr "Det går inte att tilldela denna egenskap."
+
+msgid "Remove group assignment"
+msgstr "Ta bort grupptilldelning"
+
+msgid "Remove this person from the group"
+msgstr "Ta bort den här personen från gruppen"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
+msgstr ""
+"Medlemskapet och alla roller som är kopplade till den här gruppen tas bort "
+"för den här personen."
+
+msgid "Remove from group"
+msgstr "Ta bort från gruppen"
+
+msgid "Keep assignment"
+msgstr "Behåll uppdraget"
+
+msgid "Share your document"
+msgstr "Dela ditt dokument"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+"Välj mottagare, definiera deras åtkomst och bestäm om de ska få ett e-"
+"postmeddelande."
+
+msgid "Current access"
+msgstr "Aktuell åtkomst"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+"Välj en eller flera mottagare för att uppdatera deras åtkomst eller ta bort "
+"dem."
+
+msgid "Set rights"
+msgstr "Ange rättigheter"
+
+msgid "Read and write"
+msgstr "Läsa och skriva"
+
+msgid "Notification"
+msgstr "Anmälan"
+
+msgid "Add people, families or groups"
+msgstr "Lägg till personer, familjer eller grupper"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+"Sök på namn för att ge åtkomst till en annan person, en familj eller en hel "
+"grupp."
+
+msgid "Please select at least one recipient first."
+msgstr "Vänligen välj minst en mottagare först."
+
+msgid "Remove shared access"
+msgstr "Ta bort delad åtkomst"
+
+msgid "Remove access for the selected recipients?"
+msgstr "Ta bort åtkomst för de valda mottagarna?"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+"Endast de valda mottagarna kommer att tas bort. Dokumentet kommer "
+"fortfarande att delas med alla andra mottagare."
+
+msgid "Remove access"
+msgstr "Ta bort åtkomst"
+
+msgid "Keep access"
+msgstr "Behåll åtkomst"
+
+msgid "Stop sharing this document"
+msgstr "Sluta dela detta dokument"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "Sluta dela det här dokumentet med alla?"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+"Alla nuvarande mottagare kommer att förlora åtkomst omedelbart. Själva "
+"dokumentet kommer att förbli tillgängligt för dig."
+
+msgid "Keep sharing"
+msgstr "Fortsätt dela"
 
 msgid "Share your Document"
 msgstr "Dela ditt dokument"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Är du säker? Ska du radera den här personen?"
+msgid "Unassign property"
+msgstr "Avyttra egendom"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Är du säker? Ska du sluta dela med dig av ditt dokument?"
+msgid "Remove this property from the current person?"
+msgstr "Ta bort den här egenskapen från den aktuella personen?"
+
+msgid "The property value will be removed from this profile."
+msgstr "Fastighetsvärdet kommer att tas bort från denna profil."
+
+msgid "Remove property"
+msgstr "Ta bort egendom"
+
+msgid "Keep property"
+msgstr "Behåll egendom"
+
+msgid "Edit property value"
+msgstr "Redigera egenskapens värde"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+"Uppdaterar det värde som lagrats för denna egenskap i den aktuella "
+"personprofilen."
+
+msgid "Save property"
+msgstr "Spara egendom"
 
 msgid "Change classification"
 msgstr "Ändra klassificering"
 
-msgid "Change role"
-msgstr "Ändra roll"
+msgid "Choose the classification that best matches this person profile."
+msgstr "Välj den klassificering som bäst stämmer överens med personprofilen."
+
+msgid "Update classification"
+msgstr "Uppdatering av klassificering"
+
+msgid "Change family role"
+msgstr "Förändra familjens roll"
+
+msgid "Select the role this person should have inside the family record."
+msgstr "Välj vilken roll den här personen ska ha i släktregistret."
+
+msgid "Update role"
+msgstr "Uppdatering av roll"
 
 msgid "Volunteer actions"
 msgstr "Frivilliga insatser"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "Bekräfta Radera frivillig möjlighet"
+msgid "Remove volunteer opportunity"
+msgstr "Ta bort möjlighet till volontärarbete"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Ta bort den här volontärmöjligheten från personen?"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "Uppgiften kommer att tas bort från den här profilen."
+
+msgid "Remove assignment"
+msgstr "Ta bort uppdrag"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr "Vänligen välj minst en volontärmöjlighet först."
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Det gick inte att tilldela de valda volontärmöjligheterna."
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Vissa volontärmöjligheter kunde inte tilldelas."
+
+msgid "Delete automatic payment"
+msgstr "Ta bort automatisk betalning"
+
+msgid "Delete this automatic payment setup?"
+msgstr "Ta bort denna automatiska betalningsinställning?"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+"Återkommande betalningar som är kopplade till denna inställning kommer att "
+"stoppas efter borttagningen."
+
+msgid "Delete payment"
+msgstr "Ta bort betalning"
+
+msgid "Keep payment"
+msgstr "Behåll betalningen"
+
+msgid "Delete pledge or payment"
+msgstr "Ta bort pantsättning eller betalning"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "Ta bort denna pant- eller betalningspost?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr ""
+"Denna post kommer att tas bort från bidragshistoriken för denna familj."
+
+msgid "Delete entry"
+msgstr "Radera post"
+
+msgid "Keep entry"
+msgstr "Behåll posten"
+
+msgid "Share this secure verification link with the person."
+msgstr "Dela den säkra verifieringslänken med personen."
 
 msgid "Comments"
 msgstr "Kommentarer"
@@ -2332,14 +2691,29 @@ msgid ""
 msgstr ""
 "Du är på väg att radera de valda plugins. Denna åtgärd kan inte göras ogjord!"
 
-msgid "Select your zipped plugin file"
-msgstr "Välj din komprimerade plugin-fil"
+msgid "Update plugin"
+msgstr "Uppdatera plugin"
 
-msgid "Download the zipped file of the plugin"
-msgstr "Ladda ner den komprimerade filen med insticksprogrammet"
+msgid "Add plugin"
+msgstr "Lägg till plugin"
 
-msgid "Plugin download manager"
-msgstr "Hanterare för nedladdning av insticksprogram"
+msgid "Choose the new zipped package to update this plugin."
+msgstr "Välj det nya zippade paketet för att uppdatera detta plugin."
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "Välj ett zippat plugin-paket för att installera det i ditt CRM."
+
+msgid "Plugin archive"
+msgstr "Plugin-arkiv"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "Endast zippade plugin-paket ska väljas här."
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "Uppladdningen startar så snart du har skickat in detta formulär."
+
+msgid "Plugin manager"
+msgstr "Plugin-hanterare"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Den nuvarande mappen med bilder är nu den offentliga mappen !!!!"
@@ -2640,6 +3014,9 @@ msgstr "Lägg till lärare i varukorgen"
 msgid "Select the event Type you would like to use to create the Attendance"
 msgstr "Välj den händelsetyp som du vill använda för att skapa närvaron."
 
+msgid "Create First A New Event"
+msgstr "Skapa först en ny händelse"
+
 msgid "Create Event With Students"
 msgstr "Skapa evenemang med elever"
 
@@ -2741,9 +3118,6 @@ msgstr "Aktuell händelse"
 
 msgid "No assignments for kiosk"
 msgstr "Inga uppdrag för kiosken"
-
-msgid "Event"
-msgstr "Evenemang"
 
 msgid "Kiosk Name"
 msgstr "Kioskens namn"
@@ -2962,6 +3336,57 @@ msgstr ""
 "Alla medlemskap kommer att förstöras.  Medlemmarna själva kommer inte att "
 "förändras."
 
+#~ msgid "ERROR"
+#~ msgstr "FEL"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Välj den grupp som du vill lägga till din varukorg i."
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "Du måste ange ett gruppnamn"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Ja : om du är säker"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "Du kan lägga till innehållet i kundvagnen till den valda händelsen "
+#~ "nedan<br> - ELLER - <br>Skapa först en händelse och lägg till dem efteråt."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Vänligen registrera din kopia av CRM genom att kontrollera denna "
+#~ "information och tryck på knappen Skicka."
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Vänligen välj målgrupp för volontärer för medlemmar"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Välj målroll för medlemmarna"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Lägg till ett gruppnamn"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr ""
+#~ "Är du säker på att du vill ta bort den här personens medlemskap från"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Är du säker? Ska du radera den här personen?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "Är du säker? Ska du sluta dela med dig av ditt dokument?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "Bekräfta Radera frivillig möjlighet"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Välj din komprimerade plugin-fil"
+
 #~ msgid "Personal"
 #~ msgstr "Personligt"
 
@@ -3030,9 +3455,6 @@ msgstr ""
 #~ msgid "Songs"
 #~ msgstr "Sånger"
 
-#~ msgid "Remove all"
-#~ msgstr "Ta bort alla"
-
 #~ msgid "Add all"
 #~ msgstr "Lägg till alla"
 
@@ -3063,9 +3485,6 @@ msgstr ""
 
 #~ msgid "Share your File"
 #~ msgstr "Dela din fil"
-
-#~ msgid "Members from group"
-#~ msgstr "Ledamöter från gruppen"
 
 #~ msgid "Add person"
 #~ msgstr "Lägg till person"
