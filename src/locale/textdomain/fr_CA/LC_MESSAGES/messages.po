@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-25 18:26+0000\n"
+"POT-Creation-Date: 2026-04-26 18:38+0000\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,7 +77,7 @@ msgstr "Vidéo"
 #: v2/templates/people/personPrint.php:403
 #: v2/templates/people/personPrint.php:659
 #: v2/templates/people/personPrint.php:718
-#: v2/templates/people/personview.php:1038
+#: v2/templates/people/personview.php:1098
 #: v2/templates/sundayschool/sundayschoolreports.php:66
 msgid "None"
 msgstr "Aucun"
@@ -365,8 +365,8 @@ msgstr "Toutes les familles"
 #: EcclesiaCRM/MenuBar/MenuBar.php:224
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:210
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:165
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:256
 #: v2/templates/people/lettersandlabels.php:228
 #: v2/templates/people/lettersandlabels.php:317
 #: v2/templates/people/personlist.php:19
@@ -381,8 +381,8 @@ msgstr "Personnes"
 #: EcclesiaCRM/MenuBar/MenuBar.php:197 EcclesiaCRM/MenuBar/MenuBar.php:231
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:139
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:215
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:261
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:50
 #: v2/templates/people/lettersandlabels.php:352
@@ -404,7 +404,9 @@ msgstr "Familles"
 #: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:132
 #: v2/templates/pastoralcare/pastoralcareperson.php:160
 #: v2/templates/people/peopledashboard.php:170
-#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:133
+#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:92
+#: v2/templates/people/personview.php:154
+#: v2/templates/people/personview.php:440
 msgid "Groups"
 msgstr "Groupes"
 
@@ -499,7 +501,7 @@ msgstr "Ajouté au groupe"
 #: v2/templates/calendar/eventnames.php:280
 #: v2/templates/cart/cartToFamily.php:224
 #: v2/templates/group/groupPropsEditor.php:235
-#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:50
+#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:97
 #: v2/templates/group/groupview.php:400
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
@@ -559,8 +561,9 @@ msgstr "Prénom"
 #: v2/templates/fundraiser/batchWinnerEntry.php:104
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:103
-#: v2/templates/group/groupedit.php:68 v2/templates/group/grouplist.php:51
-#: v2/templates/group/grouplist.php:136 v2/templates/map/MapUsingGoogle.php:121
+#: v2/templates/group/groupedit.php:20 v2/templates/group/groupedit.php:118
+#: v2/templates/group/grouplist.php:51 v2/templates/group/grouplist.php:136
+#: v2/templates/map/MapUsingGoogle.php:121
 #: v2/templates/map/MapUsingGoogle.php:123
 #: v2/templates/map/MapUsingGoogle.php:157
 #: v2/templates/map/MapUsingGoogle.php:158
@@ -719,7 +722,8 @@ msgstr "Promesses de don"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:151
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: v2/templates/people/personview.php:670
+#: v2/templates/people/personview.php:713
+#: v2/templates/people/personview.php:1260
 #: v2/templates/volunteer/volunteeropportunity.php:102
 msgid "Volunteer Opportunities"
 msgstr "Opportunités de bénévolats"
@@ -727,8 +731,8 @@ msgstr "Opportunités de bénévolats"
 #: EcclesiaCRM/APIControllers/SearchController.php:319
 #: EcclesiaCRM/APIControllers/SearchController.php:322
 #: EcclesiaCRM/Search/FamilySearchRes.php:186
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:149
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:220
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:266
 #: v2/templates/people/peopledashboard.php:96
 #: v2/templates/people/peoplelist.php:22 v2/templates/people/peoplelist.php:54
 msgid "Singles"
@@ -855,7 +859,7 @@ msgstr "Type de Groupe"
 #: v2/templates/people/familyview.php:424
 #: v2/templates/people/personPrint.php:426
 #: v2/templates/people/personPrint.php:491
-#: v2/templates/people/personview.php:826
+#: v2/templates/people/personview.php:877
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:728 v2/templates/user/userseditor.php:796
@@ -971,7 +975,6 @@ msgid "Group Member Role"
 msgstr "Rôle des Membres du Groupe"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:159
-#: v2/templates/group/groupedit.php:87
 #: v2/templates/system/optionManager.php:132
 msgid "Group Member Roles"
 msgstr "Rôles des membres du groupe"
@@ -1048,7 +1051,7 @@ msgstr "Gestionnaire des Options de Liste familiale personnalisée"
 #: v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:55
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:34
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:44
 msgid "Person"
 msgstr "Personne"
@@ -1076,13 +1079,13 @@ msgstr "Personne"
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:99
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:298
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:28
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:35
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:48
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:55
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:50
 #: v2/templates/people/UpdateAllLatLon.php:67
 #: v2/templates/people/familyview.php:85
 #: v2/templates/people/personPrint.php:316
-#: v2/templates/people/personview.php:621
+#: v2/templates/people/personview.php:664
 #: v2/templates/system/convertIndividualToAddress.php:106
 #: v2/templates/system/convertIndividualToAddress.php:149
 msgid "Family"
@@ -1231,9 +1234,9 @@ msgstr "Compte activé"
 #: v2/templates/people/familyview.php:960 v2/templates/people/personlist.php:93
 #: v2/templates/people/personlist.php:94 v2/templates/people/personlist.php:95
 #: v2/templates/people/personlist.php:96 v2/templates/people/personlist.php:97
-#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:162
-#: v2/templates/people/personview.php:365
-#: v2/templates/people/personview.php:1553
+#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:191
+#: v2/templates/people/personview.php:391
+#: v2/templates/people/personview.php:1699
 #: v2/templates/sundayschool/sundayschooldashboard.php:290
 #: v2/templates/sundayschool/sundayschooldashboard.php:291
 #: v2/templates/sundayschool/sundayschooldashboard.php:292
@@ -1462,19 +1465,20 @@ msgid "Home"
 msgstr "Accueil"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:129
-#: v2/templates/people/personview.php:455
+#: v2/templates/people/personview.php:496
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "Modifier Mot de Passe"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:122 Include/Header.php:131
-#: v2/templates/people/personview.php:453
+#: v2/templates/people/personview.php:494
 msgid "Change Settings"
 msgstr "Changer les Réglages"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:123 v2/templates/people/familyview.php:574
 #: v2/templates/people/personPrint.php:612
-#: v2/templates/people/personview.php:715
+#: v2/templates/people/personview.php:758
+#: v2/templates/people/personview.php:1474
 msgid "Documents"
 msgstr "Documents"
 
@@ -1597,7 +1601,7 @@ msgstr "Lister les groupes"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:343
 #: v2/templates/deposit/electronicPaymentList.php:200
-#: v2/templates/group/groupedit.php:136 v2/templates/group/groupview.php:239
+#: v2/templates/group/groupedit.php:178 v2/templates/group/groupview.php:239
 #: v2/templates/volunteer/volunteerview.php:206
 msgid "Disabled"
 msgstr "Désactivé"
@@ -1636,7 +1640,7 @@ msgstr "Menus Perso."
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:29
 #: v2/templates/people/familyview.php:305
-#: v2/templates/people/personview.php:485 v2/templates/user/userseditor.php:494
+#: v2/templates/people/personview.php:526 v2/templates/user/userseditor.php:494
 msgid "Pastoral Care"
 msgstr "Suivi pastoral"
 
@@ -1834,7 +1838,7 @@ msgstr "Totaux"
 #: v2/templates/people/personEditor.php:1164
 #: v2/templates/people/personEditor.php:1310
 #: v2/templates/people/personEditor.php:1334
-#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:227
+#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:253
 #: v2/templates/system/csvExport.php:121 v2/templates/system/csvExport.php:127
 #: v2/templates/system/csvImport.php:185 v2/templates/system/csvImport.php:186
 msgid "Address"
@@ -1868,7 +1872,7 @@ msgstr "Ville,Code postal"
 #: v2/templates/people/personEditor.php:1498
 #: v2/templates/people/personEditor.php:1502
 #: v2/templates/people/personPrint.php:246
-#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:290
+#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:316
 #: v2/templates/system/csvExport.php:169 v2/templates/system/csvImport.php:191
 #: v2/templates/system/eventAttendance.php:193 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1886,7 +1890,7 @@ msgstr "Tél. Fixe"
 #: v2/templates/people/familyEditor.php:932
 #: v2/templates/people/familyview.php:148
 #: v2/templates/people/personEditor.php:1585
-#: v2/templates/people/personview.php:297
+#: v2/templates/people/personview.php:323
 msgid "Send Newsletter"
 msgstr "Envoyer Newsletter"
 
@@ -1954,9 +1958,9 @@ msgstr "Adulte / Enfant"
 #: v2/templates/people/personEditor.php:1607
 #: v2/templates/people/personEditor.php:1611
 #: v2/templates/people/personPrint.php:361
-#: v2/templates/people/personview.php:304
-#: v2/templates/people/personview.php:438
-#: v2/templates/people/personview.php:828
+#: v2/templates/people/personview.php:330
+#: v2/templates/people/personview.php:479
+#: v2/templates/people/personview.php:879
 #: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:190 v2/templates/system/csvImport.php:194
@@ -1973,7 +1977,7 @@ msgstr "Email"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:168
 #: v2/templates/people/familyview.php:426
-#: v2/templates/people/personview.php:827
+#: v2/templates/people/personview.php:878
 msgid "Birthday"
 msgstr "Naissance"
 
@@ -2013,7 +2017,7 @@ msgstr "Membre/Ami"
 #: v2/templates/people/personEditor.php:1527
 #: v2/templates/people/personEditor.php:1531
 #: v2/templates/people/personPrint.php:251
-#: v2/templates/people/personview.php:318 v2/templates/system/csvExport.php:175
+#: v2/templates/people/personview.php:344 v2/templates/system/csvExport.php:175
 #: v2/templates/system/csvImport.php:192
 msgid "Work Phone"
 msgstr "Tél. Professionnel"
@@ -2062,7 +2066,7 @@ msgstr "Page"
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
 #: Reports/GroupReport.php:129
 #: external/templates/registration/family-register-members.php:104
-#: v2/templates/people/personview.php:332
+#: v2/templates/people/personview.php:358
 msgid "Work"
 msgstr "Travail"
 
@@ -2085,7 +2089,7 @@ msgstr "et"
 #: EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 Reports/DirectoryReport.php:331
 #: v2/templates/pastoralcare/pastoralcareperson.php:330
-#: v2/templates/people/personview.php:325 v2/templates/system/csvExport.php:196
+#: v2/templates/people/personview.php:351 v2/templates/system/csvExport.php:196
 msgid "Work/Other Email"
 msgstr "Email professionnel / ou autre"
 
@@ -2173,8 +2177,8 @@ msgstr "Etudiants"
 #: v2/templates/people/familylist.php:96 v2/templates/people/familyview.php:99
 #: v2/templates/people/familyview.php:504
 #: v2/templates/people/familyview.php:666 v2/templates/people/personlist.php:74
-#: v2/templates/people/personview.php:168
-#: v2/templates/people/personview.php:894
+#: v2/templates/people/personview.php:197
+#: v2/templates/people/personview.php:945
 msgid "Edit"
 msgstr "Editer"
 
@@ -2256,6 +2260,7 @@ msgid "group"
 msgstr "groupe"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:38
+#: v2/templates/people/personview.php:990
 msgid "groups"
 msgstr "groupes"
 
@@ -2278,7 +2283,7 @@ msgstr "Groupe du dimanche"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:237
 #: v2/templates/people/familylist.php:93 v2/templates/people/personlist.php:71
-#: v2/templates/people/personview.php:964
+#: v2/templates/people/personview.php:1024
 msgid "View"
 msgstr "Voir"
 
@@ -2389,9 +2394,9 @@ msgstr "Anniversaire de mariage"
 #: v2/templates/people/familyview.php:674
 #: v2/templates/people/familyview.php:991
 #: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:899
-#: v2/templates/people/personview.php:994
-#: v2/templates/people/personview.php:1582 v2/templates/plugins/plugins.php:58
+#: v2/templates/people/personview.php:950
+#: v2/templates/people/personview.php:1054
+#: v2/templates/people/personview.php:1728 v2/templates/plugins/plugins.php:58
 #: v2/templates/system/optionManager.php:443
 #: v2/templates/system/optionManager.php:445
 msgid "Delete"
@@ -2470,7 +2475,7 @@ msgstr "AUCUN(E)"
 #: v2/templates/people/personEditor.php:1558
 #: v2/templates/people/personEditor.php:1562
 #: v2/templates/people/personPrint.php:256
-#: v2/templates/people/personview.php:278 v2/templates/system/csvExport.php:184
+#: v2/templates/people/personview.php:304 v2/templates/system/csvExport.php:184
 msgid "Mobile Phone"
 msgstr "Tél. portable"
 
@@ -2655,7 +2660,7 @@ msgstr " de la/du"
 
 #: EcclesiaCRM/Service/PersonService.php:51
 #: v2/templates/pastoralcare/pastoralcareperson.php:225
-#: v2/templates/people/personview.php:212
+#: v2/templates/people/personview.php:238
 msgid "(No assigned family)"
 msgstr "(Aucune famille attribuée)"
 
@@ -2711,7 +2716,7 @@ msgstr "Autre"
 #: v2/templates/pastoralcare/pastoralcareperson.php:534
 #: v2/templates/people/familyEditor.php:82
 #: v2/templates/people/familyview.php:448
-#: v2/templates/people/personview.php:850
+#: v2/templates/people/personview.php:901
 msgid "Head of Household"
 msgstr "Rep. Famille"
 
@@ -2721,7 +2726,7 @@ msgstr "Rep. Famille"
 #: v2/templates/pastoralcare/pastoralcareperson.php:535
 #: v2/templates/people/familyEditor.php:84
 #: v2/templates/people/familyview.php:451
-#: v2/templates/people/personview.php:853
+#: v2/templates/people/personview.php:904
 msgid "Spouse"
 msgstr "Conjoint(e)"
 
@@ -2731,7 +2736,7 @@ msgstr "Conjoint(e)"
 #: v2/templates/pastoralcare/pastoralcareperson.php:537
 #: v2/templates/people/familyEditor.php:86
 #: v2/templates/people/familyview.php:454
-#: v2/templates/people/personview.php:856
+#: v2/templates/people/personview.php:907
 msgid "Child"
 msgstr "Enfant"
 
@@ -3091,19 +3096,19 @@ msgid "Plugins"
 msgstr "Plugins"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:45
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:65
 msgid "Pastoral care list of members for"
 msgstr "Liste des Membres pour le suivi pastoral"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:124
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:187
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
 msgid "Period  from"
 msgstr "Période de"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:124
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:187
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
 msgid "to"
 msgstr "à"
 
@@ -6116,7 +6121,7 @@ msgstr ""
 
 #: Include/Header-function.php:90 Include/Header-function.php:152
 #: browser/browse.php:148 v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:31
+#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Fermer"
@@ -6213,7 +6218,7 @@ msgstr ""
 #: v2/templates/people/familyview.php:990
 #: v2/templates/people/lettersandlabels.php:297
 #: v2/templates/people/personEditor.php:1916
-#: v2/templates/people/personview.php:1581
+#: v2/templates/people/personview.php:1727
 #: v2/templates/people/reminderreport.php:50
 #: v2/templates/sundayschool/sundayschooldashboard.php:325
 #: v2/templates/user/userseditor.php:878 v2/templates/user/userseditor.php:879
@@ -6375,6 +6380,7 @@ msgstr "Générer sur"
 #: Reports/AdvancedDeposit.php:829 Reports/AdvancedDeposit.php:843
 #: Reports/AdvancedDeposit.php:860
 #: v2/templates/fundraiser/batchWinnerEntry.php:70
+#: v2/templates/people/personview.php:1478
 msgid "items"
 msgstr "articles"
 
@@ -6640,8 +6646,8 @@ msgstr ""
 #: v2/templates/pastoralcare/pastoralcareperson.php:193
 #: v2/templates/people/familyview.php:957
 #: v2/templates/people/personPrint.php:239
-#: v2/templates/people/personview.php:182
-#: v2/templates/people/personview.php:1550
+#: v2/templates/people/personview.php:208
+#: v2/templates/people/personview.php:1696
 msgid "Informations"
 msgstr "Informations"
 
@@ -7046,7 +7052,7 @@ msgstr "S'inscrire"
 #: v2/templates/people/familyEditor.php:1143
 #: v2/templates/people/familyview.php:400
 #: v2/templates/people/personPrint.php:421
-#: v2/templates/people/personview.php:825
+#: v2/templates/people/personview.php:94 v2/templates/people/personview.php:876
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "Membres de la famille"
@@ -7148,7 +7154,7 @@ msgstr "Confirmer le Nouveau Mot de Passe"
 #: v2/templates/deposit/pledgeEditor.php:238
 #: v2/templates/fundraiser/donatedItemEditor.php:179
 #: v2/templates/fundraiser/fundRaiserEditor.php:179
-#: v2/templates/group/groupedit.php:147
+#: v2/templates/group/groupedit.php:78
 #: v2/templates/people/canvassEditor.php:277
 #: v2/templates/people/familyEditor.php:762
 #: v2/templates/people/familyEditor.php:860
@@ -7353,7 +7359,7 @@ msgstr "Ou choisir un autre utilisateur afin de vous connecter"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:293
 #: v2/templates/pastoralcare/pastoralcareperson.php:253
 #: v2/templates/people/personPrint.php:311
-#: v2/templates/people/personview.php:248
+#: v2/templates/people/personview.php:274
 #: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/sundayschool/sundayschoolview.php:318
 #: v2/templates/system/csvImport.php:196
@@ -7592,6 +7598,7 @@ msgstr "Tous"
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:157
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/calendar/calendar.php:243
+#: v2/templates/people/personview.php:1588
 msgid "Shared"
 msgstr "Partagés"
 
@@ -7736,7 +7743,7 @@ msgstr "Retour aux événements"
 #: v2/templates/group/groupPropsEditor.php:236
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
-#: v2/templates/group/groupedit.php:56 v2/templates/group/groupview.php:401
+#: v2/templates/group/groupedit.php:101 v2/templates/group/groupview.php:401
 #: v2/templates/plugins/plugins.php:90
 msgid "Description"
 msgstr "Description"
@@ -7746,7 +7753,7 @@ msgstr "Description"
 #: v2/templates/deposit/depositslipeditor.php:180
 #: v2/templates/deposit/electronicPaymentList.php:152
 #: v2/templates/people/familyEditor.php:1204
-#: v2/templates/people/personview.php:970
+#: v2/templates/people/personview.php:1030
 msgid "Action"
 msgstr "Action"
 
@@ -8307,12 +8314,12 @@ msgstr "Vider le panier dans l'événement"
 msgid "Map Cart"
 msgstr "Visualiser le panier sur la carte"
 
-#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:518
+#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:559
 msgid "Get the vCard of the person"
 msgstr "Export vCard de la personnes"
 
 #: v2/templates/cart/cartview.php:52 v2/templates/people/familyview.php:333
-#: v2/templates/people/personview.php:521
+#: v2/templates/people/personview.php:562
 msgid "vCard"
 msgstr "vCard"
 
@@ -8330,7 +8337,7 @@ msgstr "Envoyer un Email au panier"
 
 #: v2/templates/cart/cartview.php:66 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:297
-#: v2/templates/people/personview.php:441
+#: v2/templates/people/personview.php:482
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
 #: v2/templates/volunteer/volunteerview.php:122
@@ -8428,7 +8435,7 @@ msgstr "Personnaliser la page"
 
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:51
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:80
 #: v2/templates/plugins/plugins.php:110
 msgid "Settings"
 msgstr "Paramètres"
@@ -8630,7 +8637,7 @@ msgstr "Jusqu&#39;à:"
 #: v2/templates/deposit/electronicPaymentList.php:79
 #: v2/templates/deposit/finddepositslip.php:134
 #: v2/templates/people/familyview.php:981
-#: v2/templates/people/personview.php:1570
+#: v2/templates/people/personview.php:1716
 msgid "Confirm Delete"
 msgstr "Confirmer la suppression"
 
@@ -8692,7 +8699,7 @@ msgstr "Année"
 #: v2/templates/people/familyCustomFieldEditor.php:388
 #: v2/templates/people/familyview.php:428
 #: v2/templates/people/personCustomEditor.php:380
-#: v2/templates/people/personview.php:829
+#: v2/templates/people/personview.php:880
 #: v2/templates/system/optionManager.php:425 v2/templates/user/userlist.php:53
 #: v2/templates/volunteer/volunteerview.php:36
 msgid "Actions"
@@ -9079,10 +9086,10 @@ msgstr "Assignée le début à #"
 
 #: v2/templates/deposit/manageEnvelopes.php:200
 #: v2/templates/group/groupview.php:359 v2/templates/people/familyview.php:732
-#: v2/templates/people/personview.php:1175
-#: v2/templates/people/personview.php:1177
-#: v2/templates/people/personview.php:1243
-#: v2/templates/people/personview.php:1245
+#: v2/templates/people/personview.php:1242
+#: v2/templates/people/personview.php:1244
+#: v2/templates/people/personview.php:1317
+#: v2/templates/people/personview.php:1319
 msgid "Assign"
 msgstr "Attribuer"
 
@@ -9473,6 +9480,7 @@ msgid "New"
 msgstr "Nouveau"
 
 #: v2/templates/fundraiser/donatedItemEditor.php:27
+#: v2/templates/group/groupedit.php:91
 msgid "Basic Information"
 msgstr "Informations de base"
 
@@ -9719,7 +9727,7 @@ msgid "Special option"
 msgstr "Option spéciale"
 
 #: v2/templates/group/groupPropsEditor.php:263
-#: v2/templates/group/groupedit.php:96
+#: v2/templates/group/groupedit.php:157
 #: v2/templates/people/familyCustomFieldEditor.php:425
 #: v2/templates/people/personCustomEditor.php:417
 msgid "Select a group"
@@ -9918,39 +9926,133 @@ msgstr "Aperçu du badge"
 msgid "Generate a PDF using current group configuration."
 msgstr "Générer un PDF en utilisant la configuration actuelle du groupe."
 
-#: v2/templates/group/groupedit.php:41
+#: v2/templates/group/groupedit.php:55
 msgid "Special Group Settings : Sunday School Type"
 msgstr "Propriétés des groupes spéciaux : Type école du dimanche"
 
-#: v2/templates/group/groupedit.php:41
+#: v2/templates/group/groupedit.php:55
 msgid "Group Settings"
 msgstr "Réglages de groupe"
 
-#: v2/templates/group/groupedit.php:65
+#: v2/templates/group/groupedit.php:58
+msgid ""
+"Update the group identity, category and special options, then manage member "
+"roles below."
+msgstr ""
+"Mettez à jour l'identité du groupe, la catégorie et les options spéciales, "
+"puis gérez les rôles des membres ci-dessous."
+
+#: v2/templates/group/groupedit.php:63 v2/templates/group/groupedit.php:214
+msgid "Roles"
+msgstr "Rôles"
+
+#: v2/templates/group/groupedit.php:64
+msgid "Properties enabled"
+msgstr "Propriétés activées"
+
+#: v2/templates/group/groupedit.php:64
+msgid "Properties disabled"
+msgstr "Propriétés désactivées"
+
+#: v2/templates/group/groupedit.php:73
+msgid "Edit Group"
+msgstr "Groupe d'édition"
+
+#: v2/templates/group/groupedit.php:74
+msgid ""
+"Keep the basic information clear so the group is easy to identify from menus "
+"and reports."
+msgstr ""
+"Veillez à ce que les informations de base soient claires afin que le groupe "
+"soit facilement identifiable dans les menus et les rapports."
+
+#: v2/templates/group/groupedit.php:86
+msgid ""
+"Changes to the group are saved from this form. Role names are managed "
+"separately and update instantly when edited."
+msgstr ""
+"Les modifications apportées au groupe sont enregistrées à partir de ce "
+"formulaire. Les noms de rôles sont gérés séparément et sont mis à jour "
+"instantanément lorsqu'ils sont modifiés."
+
+#: v2/templates/group/groupedit.php:92
+msgid "Name and description shown across the application."
+msgstr "Nom et description affichés dans l'application."
+
+#: v2/templates/group/groupedit.php:98
+msgid "Enter the group name"
+msgstr "Saisir le nom du groupe"
+
+#: v2/templates/group/groupedit.php:102
+msgid "Describe the purpose of this group"
+msgstr "Décrire l'objectif de ce groupe"
+
+#: v2/templates/group/groupedit.php:110
+msgid "Category and Navigation"
+msgstr "Catégorie et navigation"
+
+#: v2/templates/group/groupedit.php:111
+msgid ""
+"This controls where the group appears in the left menu and how it is "
+"categorized."
+msgstr ""
+"Cela permet de contrôler l'endroit où le groupe apparaît dans le menu de "
+"gauche et la manière dont il est classé."
+
+#: v2/templates/group/groupedit.php:115
 msgid "Type of Group and Menu Category"
 msgstr "Type de groupe et Catégorie de menu"
 
-#: v2/templates/group/groupedit.php:67
+#: v2/templates/group/groupedit.php:117
 msgid "This will include the group in a menu item in the left sidebar"
 msgstr "Cette action inclura le groupe dans la barre de menu à gauche"
 
-#: v2/templates/group/groupedit.php:89
-msgid "Clone roles"
-msgstr "Dupliquer les rôles"
+#: v2/templates/group/groupedit.php:131
+msgid "Current behavior"
+msgstr "Comportement actuel"
 
-#: v2/templates/group/groupedit.php:94
-msgid "from group"
-msgstr "du groupe"
+#: v2/templates/group/groupedit.php:132
+msgid ""
+"Selecting a group type places this group in the related menu category and "
+"helps users find it faster."
+msgstr ""
+"La sélection d'un type de groupe place ce groupe dans la catégorie du menu "
+"connexe et aide les utilisateurs à le trouver plus rapidement."
 
-#: v2/templates/group/groupedit.php:116
+#: v2/templates/group/groupedit.php:144
+msgid "Initial Member Roles"
+msgstr "Rôles initiaux des membres"
+
+#: v2/templates/group/groupedit.php:145
+msgid "Reuse an existing group structure to get started faster."
+msgstr ""
+"Réutiliser une structure de groupe existante pour démarrer plus rapidement."
+
+#: v2/templates/group/groupedit.php:151
+msgid "Clone roles from another group"
+msgstr "Cloner les rôles d'un autre groupe"
+
+#: v2/templates/group/groupedit.php:155
+msgid "Source group"
+msgstr "Groupe source"
+
+#: v2/templates/group/groupedit.php:174
 msgid "Group Specific Properties"
 msgstr "Propriétés spécifiques du groupe"
 
-#: v2/templates/group/groupedit.php:121
+#: v2/templates/group/groupedit.php:175
+msgid ""
+"Useful when you need custom answers, classifications or form-driven "
+"information for this group."
+msgstr ""
+"Utile lorsque vous avez besoin de réponses personnalisées, de "
+"classifications ou d'informations basées sur des formulaires pour ce groupe."
+
+#: v2/templates/group/groupedit.php:178
 msgid "Enabled"
 msgstr "Activer"
 
-#: v2/templates/group/groupedit.php:125 v2/templates/group/groupedit.php:138
+#: v2/templates/group/groupedit.php:187 v2/templates/group/groupedit.php:199
 msgid ""
 "Group-specific properties are useful to classify your groups or to make a "
 "sort of Doodle"
@@ -9958,41 +10060,59 @@ msgstr ""
 "Propriétés spécifiques de groupe, utile pour classer vos groupes ou pour "
 "créer une sort de Doodle."
 
-#: v2/templates/group/groupedit.php:126
+#: v2/templates/group/groupedit.php:188
 msgid "Disable Group Specific Properties"
 msgstr "Désactiver les Propriétés Spécifiques du Groupe"
 
-#: v2/templates/group/groupedit.php:130
+#: v2/templates/group/groupedit.php:192
 msgid "Group-specific properties are useful to make a sort of doodle"
 msgstr "Les propriétés spécifiques sont utile pour créer des sortes de Doodle"
 
-#: v2/templates/group/groupedit.php:130 v2/templates/group/groupview.php:433
+#: v2/templates/group/groupedit.php:192 v2/templates/group/groupview.php:433
 msgid "Edit Group-Specific Properties Form"
 msgstr "Modifier formulaire Propriétés spécifiques de groupe"
 
-#: v2/templates/group/groupedit.php:138
+#: v2/templates/group/groupedit.php:199
 msgid "Enable Group Specific Properties"
 msgstr "Activer les Propriétés spécifiques du groupe"
 
-#: v2/templates/group/groupedit.php:157
+#: v2/templates/group/groupedit.php:210
 msgid "Group Roles"
 msgstr "Rôles du groupe"
 
-#: v2/templates/group/groupedit.php:163
+#: v2/templates/group/groupedit.php:211
+msgid ""
+"Manage the labels used for memberships in this group, choose the default "
+"role and keep their order tidy."
+msgstr ""
+"Gérez les étiquettes utilisées pour les adhésions à ce groupe, choisissez le "
+"rôle par défaut et maintenez l'ordre."
+
+#: v2/templates/group/groupedit.php:221
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr ""
 "Les modifications des noms de rôle du groupe sont enregistrées quand le "
 "champ de texte est quitté."
 
-#: v2/templates/group/groupedit.php:171
+#: v2/templates/group/groupedit.php:229
+msgid "Add a new role"
+msgstr "Ajouter un nouveau rôle"
+
+#: v2/templates/group/groupedit.php:230
+msgid "Create a role name that members and leaders will easily understand."
+msgstr ""
+"Créez un nom de rôle que les membres et les responsables comprendront "
+"facilement."
+
+#: v2/templates/group/groupedit.php:235
 msgid "New Role"
 msgstr "Nouveau rôle"
 
-#: v2/templates/group/groupedit.php:172
+#: v2/templates/group/groupedit.php:236
 msgid "Enter a role name"
 msgstr "Saisir un nom de rôle"
 
-#: v2/templates/group/groupedit.php:176
+#: v2/templates/group/groupedit.php:240
 msgid "Add New Role"
 msgstr "Ajouter un nouveau rôle"
 
@@ -10069,14 +10189,14 @@ msgid "Map this group"
 msgstr "Localiser le groupe"
 
 #: v2/templates/group/groupview.php:42 v2/templates/people/familyview.php:274
-#: v2/templates/people/personview.php:417
+#: v2/templates/people/personview.php:458
 msgid "Remove from Cart"
 msgstr "Retirer du panier"
 
 #: v2/templates/group/groupview.php:46 v2/templates/people/familyview.php:281
 #: v2/templates/people/familyview.php:493
-#: v2/templates/people/personview.php:427
-#: v2/templates/people/personview.php:886 v2/templates/query/queryview.php:172
+#: v2/templates/people/personview.php:468
+#: v2/templates/people/personview.php:937 v2/templates/query/queryview.php:172
 #: v2/templates/volunteer/volunteerview.php:44
 msgid "Add to Cart"
 msgstr "Ajouter au Panier"
@@ -10099,7 +10219,7 @@ msgstr "Supprimer ce Groupe"
 
 #: v2/templates/group/groupview.php:61
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:42
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:42
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:62
 #: v2/templates/pastoralcare/pastoralcarefamily.php:80
 #: v2/templates/pastoralcare/pastoralcareperson.php:81
 #: v2/templates/volunteer/volunteerview.php:62
@@ -10196,12 +10316,13 @@ msgstr "Ajouter Manager"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
 #: v2/templates/people/familyview.php:550
 #: v2/templates/people/personPrint.php:568
-#: v2/templates/people/personview.php:656
+#: v2/templates/people/personview.php:699
+#: v2/templates/people/personview.php:1189
 msgid "Assigned Properties"
 msgstr "Propriétés attribuées"
 
 #: v2/templates/group/groupview.php:335 v2/templates/people/familyview.php:703
-#: v2/templates/people/personview.php:1146
+#: v2/templates/people/personview.php:1213
 msgid "Assign a New Property"
 msgstr "Attribuer une nouvelle propriété"
 
@@ -10220,7 +10341,7 @@ msgid "Property"
 msgstr "Propriété"
 
 #: v2/templates/group/groupview.php:342 v2/templates/people/familyview.php:713
-#: v2/templates/people/personview.php:1154 v2/templates/query/queryview.php:422
+#: v2/templates/people/personview.php:1221 v2/templates/query/queryview.php:422
 #: v2/templates/query/queryview.php:439
 msgid "select an option"
 msgstr "sélectionner une option"
@@ -10343,7 +10464,7 @@ msgid "Filter by member types"
 msgstr "Filtrer par type de membres"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:41
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:61
 #: v2/templates/pastoralcare/pastoralcarefamily.php:79
 #: v2/templates/pastoralcare/pastoralcareperson.php:80
 msgid "Create an appointment"
@@ -10379,20 +10500,21 @@ msgstr "Email professionnel ou autre"
 #: v2/templates/pastoralcare/pastoralcareperson.php:136
 #: v2/templates/people/personEditor.php:1753
 #: v2/templates/people/personPrint.php:371
-#: v2/templates/people/personview.php:122 v2/templates/system/csvExport.php:205
+#: v2/templates/people/personview.php:140 v2/templates/system/csvExport.php:205
 #: v2/templates/system/csvExport.php:464 v2/templates/system/csvImport.php:197
 msgid "Membership Date"
 msgstr "Date adhésion"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:455
 #: v2/templates/people/personPrint.php:472
-#: v2/templates/people/personview.php:640
+#: v2/templates/people/personview.php:683
+#: v2/templates/people/personview.php:987
 msgid "Assigned Groups"
 msgstr "Groupes attribués"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:484
-#: v2/templates/people/personview.php:929
+#: v2/templates/people/personview.php:980
 msgid "No group assignments."
 msgstr "N'appartient à aucun groupe."
 
@@ -10406,7 +10528,7 @@ msgstr "Valeur"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:580
-#: v2/templates/people/personview.php:1130
+#: v2/templates/people/personview.php:1197
 msgid "No property assignments."
 msgstr "Aucune propriété affectée."
 
@@ -10417,90 +10539,170 @@ msgstr "Aucune propriété affectée."
 msgid "Entered:"
 msgstr "Saisie le :"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:22
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:23
+msgid "Pastoral Care Dashboard"
+msgstr "Tableau de bord de la pastorale"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:24
+msgid ""
+"Track visits, launch quick pastoral actions and focus first on members who "
+"still need attention."
+msgstr ""
+"Suivez les visites, lancez des actions pastorales rapides et concentrez-vous "
+"d'abord sur les membres qui ont encore besoin d'attention."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:28
+msgid "Persons pending"
+msgstr "Personnes en attente"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:29
+msgid "Families pending"
+msgstr "Familles en attente"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
 msgid "Visit/Call randomly"
 msgstr "Visiter/Appeler aléatoirement"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:27
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:39
+msgid ""
+"Start a pastoral action in one click and quickly choose the profile type you "
+"want to reach."
+msgstr ""
+"Lancez une action pastorale en un clic et choisissez rapidement le type de "
+"profil que vous souhaitez atteindre."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:47
 msgid ""
 "Pastoral care with a familly. You can validated all the persons together."
 msgstr ""
 "Un suivi pastoral par famille est plus efficace, vous pourrez valider tous "
 "ses membres."
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:36
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:159
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:56
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:195
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:271
 msgid "Retired"
 msgstr "Retraités"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:37
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 msgid "Young"
 msgstr "Jeune"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:58
 msgid "Single"
 msgstr "Personne Seule"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:66
 msgid "Lists"
 msgstr "Listes"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:50
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:73
+msgid "Quick guidance"
+msgstr "Orientation rapide"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:74
+msgid ""
+"Use Family when you want to validate several people at once, or pick a "
+"specific profile from the dropdown for a more focused outreach."
+msgstr ""
+"Utilisez la fonction Famille lorsque vous souhaitez valider plusieurs "
+"personnes à la fois, ou choisissez un profil spécifique dans la liste "
+"déroulante pour une diffusion plus ciblée."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:79
 msgid "Pastoral care Settings."
 msgstr "Soins pastoraux."
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:64
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:94
 msgid "Not visited Persons"
 msgstr "Non visité Personnes"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:76
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:106
 msgid "Not visited Families"
 msgstr "Pas de visite Familles"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:88
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:118
 msgid "Not visited Single Persons"
 msgstr "Non visité Personnes seules"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:99
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
 msgid "Not visited Retired Persons"
 msgstr "Non visité Retraités"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:110
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:140
 msgid "Not visited Youngs"
 msgstr "Pas de visite Youngs"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:127
-msgid "• Statistics about persons, families ... who remain to be contacted."
-msgstr ""
-"• Statistiques à propos des personnes, familles ... qui restent à contacter."
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:155
+msgid "Coverage Overview"
+msgstr "Aperçu de la couverture"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:169
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:230
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:158
+msgid "Current period"
+msgstr "Période en cours"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
+msgid ""
+"Statistics about persons, families and categories that still need to be "
+"contacted."
+msgstr ""
+"Statistiques sur les personnes, les familles et les catégories qui doivent "
+"encore être contactées."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:205
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:276
 msgid "Young People"
 msgstr "Les jeunes"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:222
 msgid "Pastoral Care Members"
 msgstr "Membres pour le suivi pastoral"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:238
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:228
+msgid "Follow-up list"
+msgstr "Liste de suivi"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:247
+msgid "Members Still Not Reached"
+msgstr "Membres non atteints"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:248
+msgid ""
+"Switch by category to focus your follow-up list and start the next pastoral "
+"action faster."
+msgstr ""
+"Passez d'une catégorie à l'autre pour cibler votre liste de suivi et lancer "
+"plus rapidement la prochaine action pastorale."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:250
+msgid "Segmented view"
+msgstr "Vue segmentée"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:285
 msgid "Persons not reached"
 msgstr "Personnes non contactées"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:242
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:286
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:293
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:300
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:307
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:314
+msgid "remaining"
+msgstr "restant"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:292
 msgid "Families not reached"
 msgstr "Familles non contactées"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:246
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:299
 msgid "Single Persons not reached"
 msgstr "Personnes Seules non contactées"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:250
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:306
 msgid "Retired not reached"
 msgstr "Retraités non contactés"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:254
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:313
 msgid "Young People not reached"
 msgstr "Les jeunes non contactées"
 
@@ -10544,14 +10746,14 @@ msgstr "Latitude / Longitude"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:205
 #: v2/templates/pastoralcare/pastoralcareperson.php:286
 #: v2/templates/people/familyview.php:186
-#: v2/templates/people/personview.php:281
+#: v2/templates/people/personview.php:307
 msgid "Text Message"
 msgstr "Message SMS"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:207
 #: v2/templates/pastoralcare/pastoralcareperson.php:288
 #: v2/templates/people/familyview.php:188
-#: v2/templates/people/personview.php:283
+#: v2/templates/people/personview.php:309
 msgid "CRM text message"
 msgstr "Message texte CRM"
 
@@ -10561,20 +10763,20 @@ msgid "Return to Family View"
 msgstr "Retourner sur Voir la Famille"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:128
-#: v2/templates/people/personview.php:88 v2/templates/user/userlist.php:118
+#: v2/templates/people/personview.php:30 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "Non défini"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:140
 #: v2/templates/pastoralcare/pastoralcareperson.php:270
 #: v2/templates/people/personEditor.php:1779
-#: v2/templates/people/personview.php:126
-#: v2/templates/people/personview.php:265
+#: v2/templates/people/personview.php:144
+#: v2/templates/people/personview.php:291
 msgid "Friend Date"
 msgstr "Date d'amitié"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:216
-#: v2/templates/people/personview.php:196
+#: v2/templates/people/personview.php:222
 msgid "Family:"
 msgstr "Famille:"
 
@@ -10582,24 +10784,24 @@ msgstr "Famille:"
 #: v2/templates/pastoralcare/pastoralcareperson.php:347
 #: v2/templates/people/personEditor.php:1654
 #: v2/templates/people/personEditor.php:1658
-#: v2/templates/people/personview.php:340
-#: v2/templates/people/personview.php:342
+#: v2/templates/people/personview.php:366
+#: v2/templates/people/personview.php:368
 msgid "Facebook"
 msgstr "Facebook"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:354
 #: v2/templates/pastoralcare/pastoralcareperson.php:355
 #: v2/templates/people/personEditor.php:1680
-#: v2/templates/people/personview.php:349
-#: v2/templates/people/personview.php:350
+#: v2/templates/people/personview.php:375
+#: v2/templates/people/personview.php:376
 msgid "Twitter"
 msgstr "Twitter"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:362
 #: v2/templates/pastoralcare/pastoralcareperson.php:363
 #: v2/templates/people/personEditor.php:1698
-#: v2/templates/people/personview.php:357
-#: v2/templates/people/personview.php:358
+#: v2/templates/people/personview.php:383
+#: v2/templates/people/personview.php:384
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
@@ -11431,6 +11633,7 @@ msgstr ""
 "endroit."
 
 #: v2/templates/people/familylist.php:54
+#: v2/templates/people/personview.php:1342
 msgid "records"
 msgstr "dossiers"
 
@@ -11455,15 +11658,15 @@ msgstr "Tout supprimer"
 msgid " This Family is Deactivated"
 msgstr " Cette famille est désactivée"
 
-#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:50
+#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:58
 msgid "View Photo"
 msgstr "Voir la Photo"
 
-#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:54
+#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:62
 msgid "Upload Photo"
 msgstr "Télécharger une photo"
 
-#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:58
+#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:66
 msgid "Delete Photo"
 msgstr "Supprimer une photo"
 
@@ -11472,6 +11675,7 @@ msgid "Emails"
 msgstr "Emails"
 
 #: v2/templates/people/familyview.php:251
+#: v2/templates/people/personview.php:435
 msgid "Overview"
 msgstr "Vue d'ensemble"
 
@@ -11480,10 +11684,12 @@ msgid "Reachable by email"
 msgstr "Joignable par courriel"
 
 #: v2/templates/people/familyview.php:256
+#: v2/templates/people/personview.php:441
 msgid "Private access granted"
 msgstr "Accès privé accordé"
 
 #: v2/templates/people/familyview.php:256
+#: v2/templates/people/personview.php:441
 msgid "Private access restricted"
 msgstr "Accès privé restreint"
 
@@ -11502,14 +11708,14 @@ msgstr ""
 "privées."
 
 #: v2/templates/people/familyview.php:313
-#: v2/templates/people/personview.php:473
+#: v2/templates/people/personview.php:514
 msgid "Verify Info"
 msgstr "Vérifier les infos"
 
 #: v2/templates/people/familyview.php:321
 #: v2/templates/people/familyview.php:322
-#: v2/templates/people/personview.php:496
-#: v2/templates/people/personview.php:497
+#: v2/templates/people/personview.php:537
+#: v2/templates/people/personview.php:538
 msgid "Create a document"
 msgstr "Créer un Document"
 
@@ -11518,13 +11724,13 @@ msgid "Get the vCard of the family"
 msgstr "Export vCard de la famille"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:554 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:57
 #: v2/templates/plugins/plugins.php:113
 msgid "Deactivate"
 msgstr "Désactiver"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:554 v2/templates/plugins/plugins.php:56
+#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:113
 msgid "Activate"
 msgstr "Activer"
@@ -11584,24 +11790,26 @@ msgid "N/A"
 msgstr "N/A"
 
 #: v2/templates/people/familyview.php:544
-#: v2/templates/people/personview.php:609
+#: v2/templates/people/personview.php:652
 msgid "Timeline"
 msgstr "Chronologie"
 
 #: v2/templates/people/familyview.php:559
-#: v2/templates/people/personview.php:688
+#: v2/templates/people/personview.php:731
+#: v2/templates/people/personview.php:1339
 msgid "Automatic Payments"
 msgstr "Paiements automatiques"
 
 #: v2/templates/people/familyview.php:565
-#: v2/templates/people/personview.php:695
+#: v2/templates/people/personview.php:738
+#: v2/templates/people/personview.php:1383
 msgid "Pledges and Payments"
 msgstr "Engagements et paiements"
 
 #: v2/templates/people/familyview.php:710
-#: v2/templates/people/personview.php:1152
-#: v2/templates/people/personview.php:1225
-#: v2/templates/people/personview.php:1367
+#: v2/templates/people/personview.php:1219
+#: v2/templates/people/personview.php:1299
+#: v2/templates/people/personview.php:1484
 msgid "Select"
 msgstr "Sélectionner"
 
@@ -11610,47 +11818,47 @@ msgid "No automatic payments configured yet."
 msgstr "Aucun paiement automatique n'a encore été configuré."
 
 #: v2/templates/people/familyview.php:766
-#: v2/templates/people/personview.php:1275
+#: v2/templates/people/personview.php:1364
 msgid "Add a new automatic payment"
 msgstr "Ajouter un nouveau paiement automatique"
 
 #: v2/templates/people/familyview.php:775
-#: v2/templates/people/personview.php:1296
+#: v2/templates/people/personview.php:1399
 msgid "Show Pledges"
 msgstr "Montrer les engagements"
 
 #: v2/templates/people/familyview.php:779
-#: v2/templates/people/personview.php:1300
+#: v2/templates/people/personview.php:1406
 msgid "Show Payments"
 msgstr "Montrer les paiements"
 
 #: v2/templates/people/familyview.php:782
-#: v2/templates/people/personview.php:1303
+#: v2/templates/people/personview.php:1410
 msgid "From"
 msgstr "De"
 
 #: v2/templates/people/familyview.php:791
-#: v2/templates/people/personview.php:1312
+#: v2/templates/people/personview.php:1419
 msgid "To"
 msgstr "À"
 
 #: v2/templates/people/familyview.php:814
-#: v2/templates/people/personview.php:1325
+#: v2/templates/people/personview.php:1436
 msgid "Add a new pledge"
 msgstr "Ajouter un nouvel engagement"
 
 #: v2/templates/people/familyview.php:816
-#: v2/templates/people/personview.php:1327
+#: v2/templates/people/personview.php:1438
 msgid "Add a new payment"
 msgstr "Ajouter un nouveau paiement"
 
 #: v2/templates/people/familyview.php:824
-#: v2/templates/people/personview.php:1343
+#: v2/templates/people/personview.php:1456
 msgid " Canvass Entry"
 msgstr " entrée/ajout de démarchage"
 
 #: v2/templates/people/familyview.php:986
-#: v2/templates/people/personview.php:1575
+#: v2/templates/people/personview.php:1721
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
@@ -11658,12 +11866,12 @@ msgstr ""
 "irréversible."
 
 #: v2/templates/people/familyview.php:987
-#: v2/templates/people/personview.php:1577
+#: v2/templates/people/personview.php:1723
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous continuer ?"
 
 #: v2/templates/people/familyview.php:1002
-#: v2/templates/people/personview.php:1595
+#: v2/templates/people/personview.php:1741
 msgid "Request Family Info Verification"
 msgstr "Demande de vérification des infos familliale"
 
@@ -11683,18 +11891,18 @@ msgstr ""
 
 #: v2/templates/people/familyview.php:1034
 #: v2/templates/people/familyview.php:1038
-#: v2/templates/people/personview.php:1609
-#: v2/templates/people/personview.php:1613
+#: v2/templates/people/personview.php:1755
+#: v2/templates/people/personview.php:1759
 msgid "Online Verification"
 msgstr "Vérification en ligne"
 
 #: v2/templates/people/familyview.php:1045
-#: v2/templates/people/personview.php:1620
+#: v2/templates/people/personview.php:1766
 msgid "PDF Report"
 msgstr "Rapport PDF"
 
 #: v2/templates/people/familyview.php:1049
-#: v2/templates/people/personview.php:1624
+#: v2/templates/people/personview.php:1770
 msgid "Verified In Person"
 msgstr "Vérifier en personne"
 
@@ -12222,7 +12430,7 @@ msgid "Red text"
 msgstr "Texte Rouge"
 
 #: v2/templates/people/personEditor.php:919
-#: v2/templates/people/personview.php:400
+#: v2/templates/people/personview.php:426
 msgid "indicates items inherited from the associated family record."
 msgstr "indique les objets hérités de l'enregistrement familiale associé."
 
@@ -12427,126 +12635,223 @@ msgstr ""
 msgid "Person Directory"
 msgstr "Répertoire des personnes"
 
-#: v2/templates/people/personview.php:29
+#: v2/templates/people/personview.php:37
 msgid "This Person is Deactivated"
 msgstr " Cette Personne est désactivée"
 
-#: v2/templates/people/personview.php:463
+#: v2/templates/people/personview.php:155
+#: v2/templates/people/personview.php:1192
+#: v2/templates/people/personview.php:1263
+msgid "assigned"
+msgstr "Assigné"
+
+#: v2/templates/people/personview.php:185
+msgid "No group assignments yet."
+msgstr "Il n'y a pas encore de travaux de groupe."
+
+#: v2/templates/people/personview.php:444
+msgid ""
+"Use the quick actions to manage this profile, documents and assignments from "
+"one place."
+msgstr ""
+"Utilisez les actions rapides pour gérer ce profil, les documents et les "
+"missions à partir d'un seul endroit."
+
+#: v2/templates/people/personview.php:444
+msgid "Some sections remain hidden because this profile contains private data."
+msgstr ""
+"Certaines sections restent cachées car ce profil contient des données "
+"privées."
+
+#: v2/templates/people/personview.php:504
 msgid "Printable Page"
 msgstr "Page imprimable"
 
-#: v2/templates/people/personview.php:484
+#: v2/templates/people/personview.php:525
 msgid "Add a pastoral care note"
 msgstr "Ajouter note de suivi pastoral"
 
-#: v2/templates/people/personview.php:506
+#: v2/templates/people/personview.php:547
 msgid "Assign this user to a group"
 msgstr "Affecter cette personne à un groupe"
 
-#: v2/templates/people/personview.php:508
+#: v2/templates/people/personview.php:549
 msgid "Assign New Group"
 msgstr "Affecter à un Groupe"
 
-#: v2/templates/people/personview.php:533
+#: v2/templates/people/personview.php:574
 msgid "Create a CRM user"
 msgstr "Créer un utilisateur du CRM"
 
-#: v2/templates/people/personview.php:534
+#: v2/templates/people/personview.php:575
 msgid "Make User"
 msgstr "Créer Utilisateur"
 
-#: v2/templates/people/personview.php:542
+#: v2/templates/people/personview.php:583
 msgid "Add rights to this user"
 msgstr "Ajouter des droits à cet utilisateur"
 
-#: v2/templates/people/personview.php:543
+#: v2/templates/people/personview.php:584
 msgid "Edit User"
 msgstr "Modifier Utilisateur"
 
-#: v2/templates/people/personview.php:554
+#: v2/templates/people/personview.php:595
 msgid " this Person"
 msgstr "Cette Personne"
 
-#: v2/templates/people/personview.php:569
-#: v2/templates/people/personview.php:578
+#: v2/templates/people/personview.php:610
+#: v2/templates/people/personview.php:619
 msgid "Delete this Record"
 msgstr "Effacer cet Enregistrement"
 
-#: v2/templates/people/personview.php:802
+#: v2/templates/people/personview.php:845
 msgid "click to download"
 msgstr "Cliquer pour télécharger"
 
-#: v2/templates/people/personview.php:961
+#: v2/templates/people/personview.php:867
+msgid "Family Circle"
+msgstr "Cercle familial"
+
+#: v2/templates/people/personview.php:868
+msgid ""
+"See the rest of the household, their role and the fastest actions available."
+msgstr ""
+"Voir le reste du ménage, son rôle et les actions les plus rapides "
+"disponibles."
+
+#: v2/templates/people/personview.php:870
+msgid "other members"
+msgstr "autres membres"
+
+#: v2/templates/people/personview.php:988
+msgid ""
+"Manage memberships, group-specific information and role changes from this "
+"section."
+msgstr ""
+"Cette section permet de gérer les adhésions, les informations spécifiques au "
+"groupe et les changements de rôle."
+
+#: v2/templates/people/personview.php:1021
 msgid "Group actions"
 msgstr "Actions de groupe"
 
-#: v2/templates/people/personview.php:976
+#: v2/templates/people/personview.php:1036
 msgid "Change Role"
 msgstr "Changer le rôle"
 
-#: v2/templates/people/personview.php:983
+#: v2/templates/people/personview.php:1043
 msgid "Update Properties"
 msgstr "Modifier les propriétés"
 
-#: v2/templates/people/personview.php:1015
+#: v2/templates/people/personview.php:1075
 msgid "Group Informations"
 msgstr "Informations Groupe"
 
-#: v2/templates/people/personview.php:1057
+#: v2/templates/people/personview.php:1117
 msgid "Person Informations"
 msgstr "Informations Personne"
 
-#: v2/templates/people/personview.php:1081
+#: v2/templates/people/personview.php:1141
 msgid "Modify Specific Properties"
 msgstr "Modifier Propriétés spécifiques"
 
-#: v2/templates/people/personview.php:1092
+#: v2/templates/people/personview.php:1152
 msgid "No specific group properties defined !"
 msgstr "Aucune propriété de groupe spécifique n'est définie !"
 
-#: v2/templates/people/personview.php:1176
-#: v2/templates/people/personview.php:1244
+#: v2/templates/people/personview.php:1190
+msgid ""
+"Track the specific attributes already linked to this person and add new ones "
+"when needed."
+msgstr ""
+"Suivez les attributs spécifiques déjà liés à cette personne et ajoutez-en de "
+"nouveaux si nécessaire."
+
+#: v2/templates/people/personview.php:1243
+#: v2/templates/people/personview.php:1318
 msgid "Assigning..."
 msgstr "Attribuer..."
 
-#: v2/templates/people/personview.php:1203
+#: v2/templates/people/personview.php:1261
+msgid ""
+"Keep volunteer assignments visible and assign new opportunities from the "
+"same place."
+msgstr ""
+"Veillez à ce que les affectations de volontaires soient visibles et "
+"attribuez les nouvelles opportunités au même endroit."
+
+#: v2/templates/people/personview.php:1277
 msgid "No volunteer opportunity assignments."
 msgstr "Ne fait pas de bénévolat."
 
-#: v2/templates/people/personview.php:1218
+#: v2/templates/people/personview.php:1292
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Ajouter une Nouvelle Opportunité de Bénévolat"
 
-#: v2/templates/people/personview.php:1280
-#: v2/templates/people/personview.php:1332
+#: v2/templates/people/personview.php:1340
+msgid ""
+"Review recurring contributions and add a new payment setup when appropriate."
+msgstr ""
+"Examinez les contributions récurrentes et ajoutez une nouvelle configuration "
+"de paiement le cas échéant."
+
+#: v2/templates/people/personview.php:1357
+msgid "No automatic payments recorded for this person yet."
+msgstr ""
+"Aucun paiement automatique n'a encore été enregistré pour cette personne."
+
+#: v2/templates/people/personview.php:1370
+#: v2/templates/people/personview.php:1444
 msgid "You must set an address for this person"
 msgstr "Vous devez entrer une adresse pour cette personne"
 
-#: v2/templates/people/personview.php:1368
+#: v2/templates/people/personview.php:1384
+msgid ""
+"Filter contributions by period and add a new pledge or payment directly from "
+"this tab."
+msgstr ""
+"Filtrez les contributions par période et ajoutez une nouvelle promesse de "
+"don ou un nouveau paiement directement à partir de cet onglet."
+
+#: v2/templates/people/personview.php:1476
+msgid "Timeline Documents"
+msgstr "Documents chronologiques"
+
+#: v2/templates/people/personview.php:1480
+msgid "Filter notes, audio, video and shared documents from a single stream."
+msgstr ""
+"Filtrez les notes, les fichiers audio et vidéo et les documents partagés à "
+"partir d'un seul flux."
+
+#: v2/templates/people/personview.php:1485
 msgid "Filter your documents by : "
 msgstr "Filtrer vos documents par:"
 
-#: v2/templates/people/personview.php:1369
+#: v2/templates/people/personview.php:1486
 msgid "All type"
 msgstr "Tous les types"
 
-#: v2/templates/people/personview.php:1374
+#: v2/templates/people/personview.php:1491
 msgid "Shared documents"
 msgstr "Documents partagés"
 
-#: v2/templates/people/personview.php:1425
+#: v2/templates/people/personview.php:1499
+msgid "No documents or notes available yet."
+msgstr "Aucun document ou note n'est encore disponible."
+
+#: v2/templates/people/personview.php:1556
 msgid "Share this document to another user"
 msgstr "Partager ce document avec un autre utilisateur"
 
-#: v2/templates/people/personview.php:1434
+#: v2/templates/people/personview.php:1565
 msgid "Export this document to word Format"
 msgstr "Export du document sous format Word"
 
-#: v2/templates/people/personview.php:1478
+#: v2/templates/people/personview.php:1621
 msgid "Last modification by"
 msgstr "Dernière modification par"
 
-#: v2/templates/people/personview.php:1600
+#: v2/templates/people/personview.php:1746
 msgid "Select how do you want to request the person information to be verified"
 msgstr ""
 "Sélectionnez la manière dont vous souhaitez demander la vérification des "
@@ -15663,6 +15968,12 @@ msgstr "Plusieurs jours"
 msgid "Giving Report"
 msgstr "Rapport sur les dons"
 
+#~ msgid "Clone roles"
+#~ msgstr "Dupliquer les rôles"
+
+#~ msgid "from group"
+#~ msgstr "du groupe"
+
 #~ msgid "You have"
 #~ msgstr "Vous avez"
 
@@ -15914,9 +16225,6 @@ msgstr "Rapport sur les dons"
 
 #~ msgid "Update Family Latitude or Longitude now."
 #~ msgstr "Mettre à jour les Latitude et Longitude des familles maintenant."
-
-#~ msgid "of members"
-#~ msgstr "des membres"
 
 #~ msgid "to contact"
 #~ msgstr "à joindre"
@@ -16543,9 +16851,6 @@ msgstr "Rapport sur les dons"
 #~ msgid "Lonely"
 #~ msgstr "Pers. Seules"
 
-#~ msgid "Person not reached"
-#~ msgstr "Personne non contactées"
-
 #~ msgid "Family not reached"
 #~ msgstr "Famille non contactée"
 
@@ -16602,9 +16907,6 @@ msgstr "Rapport sur les dons"
 
 #~ msgid "Attendees for Event ID:"
 #~ msgstr "Participants à l&#39;événement ID :"
-
-#~ msgid "Toggle navigation"
-#~ msgstr "Basculer le mode de navigation"
 
 #~ msgid "Change Custom Settings"
 #~ msgstr "Modifier vos réglages personnels"
@@ -17211,9 +17513,6 @@ msgstr "Rapport sur les dons"
 
 #~ msgid "Your Cart is Empty"
 #~ msgstr "Votre panier est vide"
-
-#~ msgid "assigned"
-#~ msgstr "Assigné"
 
 #~ msgid "Please confirm reset failed login count"
 #~ msgstr "Veuillez confirmer l'échec de la réinitialisation de l'identifiant"

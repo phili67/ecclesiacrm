@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -676,8 +676,20 @@ msgstr "Text de eroare"
 msgid "Stack Trace"
 msgstr "Urmărirea stivei"
 
-msgid "ERROR"
-msgstr "ERROR"
+msgid "The application could not complete this API request."
+msgstr "Aplicația nu a putut finaliza această cerere API."
+
+msgid "Information"
+msgstr "Informații"
+
+msgid "Please confirm"
+msgstr "Vă rugăm să confirmați"
+
+msgid "Update information"
+msgstr "Informații actualizate"
+
+msgid "Make a selection"
+msgstr "Faceți o selecție"
 
 msgid "In progress"
 msgstr "În curs de desfășurare"
@@ -698,8 +710,18 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "A existat o problemă în recuperarea obiectului solicitat"
 
-msgid "Select the method to add to a group"
-msgstr "Selectați metoda de adăugat la un grup"
+msgid "Add cart to a group"
+msgstr "Adăugați coșul la un grup"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+"Alegeți dacă doriți să adăugați coșul la un grup existent sau să creați unul "
+"nou direct din coș."
+
+msgid "Action"
+msgstr "Acțiune"
 
 msgid "Select an existing Group"
 msgstr "Selectați un grup existent"
@@ -707,14 +729,20 @@ msgstr "Selectați un grup existent"
 msgid "or Create a new Group from the Cart"
 msgstr "sau Creați un nou grup din coș"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Selectați grupul la care doriți să adăugați coșul de cumpărături"
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr ""
+"Selectați grupul de destinație și rolul care urmează să fie atribuit "
+"membrilor coșului."
 
 msgid "Select Group"
 msgstr "Selectați grupul"
 
 msgid "Select Role"
 msgstr "Selectați rolul"
+
+msgid "Create a new group and move the current cart into it."
+msgstr "Creați un grup nou și mutați coșul curent în acesta."
 
 msgid "Group Name"
 msgstr "Numele grupului"
@@ -725,43 +753,74 @@ msgstr "Nume implicit Grup"
 msgid "Add Cart to Group"
 msgstr "Adăugați coșul la grup"
 
-msgid "You have to select one group and a group role if you want"
-msgstr "Trebuie să selectați un grup și un rol de grup dacă doriți să"
+msgid "Missing selection"
+msgstr "Selecție lipsă"
 
-msgid "You have to set a Group Name"
-msgstr "Trebuie să setați un nume de grup"
-
-msgid "Do you really want to deactivate the persons?"
-msgstr "Chiar doriți să dezactivați persoanele?"
-
-msgid "This action can be undone !!!!"
-msgstr "Această acțiune poate fi anulată !!!!"
-
-msgid "Yes : if you're sure"
-msgstr "Da : dacă sunteți sigur"
-
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Chiar doriți să ștergeți persoanele din CRM?"
-
-msgid "This action cannot be undone !!!!"
-msgstr "Această acțiune nu poate fi anulată !!!!"
-
-msgid "Select the event to which you would like to add your cart"
+msgid "You need to select both a group and a role before continuing."
 msgstr ""
-"Selectați evenimentul la care doriți să vă adăugați coșul de cumpărături"
+"Trebuie să selectați atât un grup, cât și un rol înainte de a continua."
 
-msgid "Create First A New Event"
-msgstr "Creați mai întâi un eveniment nou"
+msgid "Group name required"
+msgstr "Numele grupului necesar"
+
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "Introduceți un nume de grup înainte de a crea un grup nou din coș."
+
+msgid "Deactivate cart persons"
+msgstr "Dezactivați persoanele din coș"
+
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr "Chiar doriți să dezactivați toate persoanele aflate în prezent în coș?"
+
+msgid "This action can be undone later if needed."
+msgstr "Această acțiune poate fi anulată ulterior, dacă este necesar."
+
+msgid "Keep active"
+msgstr "Rămâneți activi"
+
+msgid "Deactivate persons"
+msgstr "Dezactivarea persoanelor"
+
+msgid "Delete cart persons"
+msgstr "Ștergeți persoanele din coș"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr ""
+"Chiar doriți să ștergeți din CRM toate persoanele aflate în prezent în coș?"
+
+msgid "This action cannot be undone."
+msgstr "Această acțiune nu poate fi anulată."
+
+msgid "Keep persons"
+msgstr "Păstrați persoanele"
+
+msgid "Delete persons"
+msgstr "Ștergeți persoanele"
+
+msgid "Add cart to event"
+msgstr "Adăugați coșul la eveniment"
+
+msgid "Select the event that should receive the current cart."
+msgstr "Selectați evenimentul care ar trebui să primească coșul curent."
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+"De asemenea, puteți crea mai întâi un eveniment nou, apoi reveniți aici "
+"pentru a atribui coșul."
+
+msgid "Event"
+msgstr "Eveniment"
+
+msgid "Choose one of the available events from the list below."
+msgstr "Alegeți unul dintre evenimentele disponibile din lista de mai jos."
+
+msgid "Create new event"
+msgstr "Crearea unui nou eveniment"
 
 msgid "Add to Event"
 msgstr "Adăugați la eveniment"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Puteți adăuga conținutul coșului la evenimentul selectat mai jos<br> - SAU - "
-"<br>Crearea mai întâi a unui eveniment și adăugarea lor după aceea."
 
 msgid "Register"
 msgstr "Înregistrare"
@@ -817,23 +876,22 @@ msgstr "Vezi toate"
 msgid "Your Cart is Empty"
 msgstr "Coșul dumneavoastră este gol"
 
+msgid "Software registration"
+msgstr "Înregistrare software"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"Revizuiți detaliile de înregistrare de mai jos înainte de a le trimite. "
+"Aceste informații sunt utilizate numai pentru a urmări utilizarea acestui "
+"software."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr "Dacă trebuie să faceți modificări la datele de înregistrare, accesați"
 
 msgid "Admin->Edit General Settings"
 msgstr "Admin->Editare setări generale"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Vă rugăm să vă înregistrați copia de CRM verificând aceste informații și "
-"apăsând butonul Trimite."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Aceste informații sunt utilizate doar pentru a urmări utilizarea acestui "
-"software."
 
 msgid "Church Name"
 msgstr "Numele bisericii"
@@ -871,14 +929,41 @@ msgstr "Software-ul dvs. este acum înregistrat. Vă mulțumim !"
 msgid "Select Volunteer Opportunity"
 msgstr "Selectați oportunitatea de voluntariat"
 
-msgid "Please select target volunteers for members"
-msgstr "Vă rugăm să selectați voluntarii țintă pentru membri"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr ""
+"Selectați oportunitatea de voluntariat care ar trebui să fie atribuită."
 
-msgid "Please select target group for members"
-msgstr "Vă rugăm să selectați grupul țintă pentru membri"
+msgid "This selection will be applied to the current members."
+msgstr "Această selecție va fi aplicată membrilor actuali."
 
-msgid "Please select target Role for members"
-msgstr "Vă rugăm să selectați Rolul țintă pentru membri"
+msgid "Volunteer opportunity"
+msgstr "Oportunitate de voluntariat"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr "Alegeți oportunitatea de voluntariat dorită din lista disponibilă."
+
+msgid "Choose the destination for the selected members."
+msgstr "Alegeți destinația pentru membrii selectați."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+"Utilizați câmpurile de mai jos pentru a selecta un grup, un rol sau ambele, "
+"în funcție de acțiune."
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "Select the target group for the selected members."
+msgstr "Selectați grupul țintă pentru membrii selectați."
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr ""
+"Selectați rolul care ar trebui să fie atribuit în cadrul grupului ales."
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroupID necesar pentru solicitarea de selectare a rolului"
@@ -886,11 +971,21 @@ msgstr "GroupID necesar pentru solicitarea de selectare a rolului"
 msgid "Select Group and Role"
 msgstr "Selectați grupul și rolul"
 
-msgid "Add A Group Name"
-msgstr "Adăugați un nume de grup"
+msgid "Select both the destination group and the role to apply."
+msgstr "Selectați atât grupul de destinație, cât și rolul de aplicat."
 
-msgid "Yes"
-msgstr "Da"
+msgid "Create a group"
+msgstr "Creați un grup"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr ""
+"Introduceți numele noului grup care ar trebui să fie creat din fluxul de "
+"lucru curent."
+
+msgid "Create group"
+msgstr "Crearea grupului"
 
 msgid "Calendar Event"
 msgstr "Eveniment calendaristic"
@@ -1020,6 +1115,9 @@ msgstr "salvat cu succes"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "Sunteți pe cale să vă trimiteți campania! Sunteți sigur?"
+
+msgid "Yes"
+msgstr "Da"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Sunteți pe cale să vă ștergeți campania! Sunteți sigur?"
@@ -1454,9 +1552,6 @@ msgstr "Istoricul de prezență aferent poate fi, de asemenea, afectat."
 msgid "Photo"
 msgstr "Fotografie"
 
-msgid "Action"
-msgstr "Acțiune"
-
 msgid "Attendance actions"
 msgstr "Acțiuni legate de prezență"
 
@@ -1518,9 +1613,6 @@ msgstr "Mutați unul în intervalul corect."
 
 msgid "Create one."
 msgstr "Creați unul."
-
-msgid "Group"
-msgstr "Grup"
 
 msgid "User"
 msgstr "Utilizator"
@@ -1844,9 +1936,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Dezactivarea proprietăților specifice grupului"
 
-msgid "Role"
-msgstr "Rol"
-
 msgid "Please enter a role name."
 msgstr "Vă rugăm să introduceți un nume de rol."
 
@@ -2022,6 +2111,18 @@ msgstr "Sunteți sigur că doriți să ștergeți toți managerii?"
 msgid "Appointment"
 msgstr "Programare"
 
+msgid "Pastoral Care"
+msgstr "Asistență pastorală"
+
+msgid "Open the pastoral care record"
+msgstr "Deschideți dosarul de îngrijire pastorală"
+
+msgid "No records found for this view."
+msgstr "Nu s-au găsit înregistrări pentru această vizualizare."
+
+msgid "No matching records found."
+msgstr "Nu s-au găsit înregistrări corespunzătoare."
+
 msgid "Never contacted"
 msgstr "Niciodată contactat"
 
@@ -2033,6 +2134,23 @@ msgstr "Vizite/apeluri"
 
 msgid "Last visit/call"
 msgstr "Ultima vizită/apel"
+
+msgid "Opening..."
+msgstr "Deschidere..."
+
+msgid "Selecting..."
+msgstr "Selectarea..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+"Nu a putut fi pregătită nicio înregistrare de îngrijire pastorală "
+"corespunzătoare în acest moment. Vă rugăm să încercați o altă categorie."
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr ""
+"Imposibilitatea de a începe o acțiune de îngrijire pastorală în acest moment."
 
 msgid "Delete Pastoral Care Type"
 msgstr "Ștergeți tipul de îngrijire pastorală"
@@ -2097,6 +2215,22 @@ msgstr ""
 "Nu toate familiile au fost ȘTERSE : Unele dintre ele au înregistrări de "
 "donații și NU pot fi șterse până când aceste donații nu sunt asociate cu o "
 "altă familie."
+
+msgid "Review family member information"
+msgstr "Revizuiți informațiile despre membrii familiei"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+"Verificați informațiile afișate și actualizați acest membru al familiei, "
+"dacă este necesar, înainte de a salva."
+
+msgid "Update family member details"
+msgstr "Actualizați datele membrilor familiei"
+
+msgid "Save changes"
+msgstr "Salvați modificările"
 
 msgid "Confirm Deactivation"
 msgstr "Confirmați dezactivarea"
@@ -2287,6 +2421,28 @@ msgstr ""
 "donații și NU pot fi șterse până când aceste donații nu sunt asociate cu o "
 "altă familie."
 
+msgid "Review personal information"
+msgstr "Revizuirea informațiilor personale"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+"Verificați valorile actuale și actualizați câmpurile care trebuie corectate "
+"înainte de a salva."
+
+msgid "Profile information"
+msgstr "Informații despre profil"
+
+msgid "Additional information"
+msgstr "Informații suplimentare"
+
+msgid "Update personal details"
+msgstr "Actualizarea datelor personale"
+
+msgid "Processing..."
+msgstr "Procesare..."
+
 msgid "Please confirm deactivation of person"
 msgstr "Vă rugăm să confirmați dezactivarea persoanei"
 
@@ -2309,8 +2465,29 @@ msgstr "Dezactivați"
 msgid "Activate"
 msgstr "Activați"
 
+msgid "Deactivating..."
+msgstr "Dezactivarea..."
+
+msgid "Activating..."
+msgstr "Activarea..."
+
+msgid "Unable to update this person status."
+msgstr "Imposibilitatea de a actualiza statutul acestei persoane."
+
+msgid "Deleting..."
+msgstr "Ștergerea..."
+
+msgid "Unable to delete the photo."
+msgstr "Nu se poate șterge fotografia."
+
+msgid "Preview the current profile photo."
+msgstr "Previzualizați fotografia de profil curentă."
+
 msgid "Property actions"
 msgstr "Acțiuni de proprietate"
+
+msgid "Please select a property first."
+msgstr "Vă rugăm să selectați mai întâi o proprietate."
 
 msgid "Assigning..."
 msgstr "Atribuirea..."
@@ -2318,31 +2495,217 @@ msgstr "Atribuirea..."
 msgid "Assign"
 msgstr "Atribuiți"
 
-msgid "Are you sure you want to remove this person's membership from"
+msgid "Unable to assign this property."
+msgstr "Imposibilitatea de a atribui această proprietate."
+
+msgid "Remove group assignment"
+msgstr "Eliminarea atribuirii grupului"
+
+msgid "Remove this person from the group"
+msgstr "Eliminați această persoană din grup"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
 msgstr ""
-"Sunteți sigur că doriți să eliminați calitatea de membru a acestei persoane "
-"din"
+"Calitatea de membru și orice rol legat de acest grup vor fi eliminate pentru "
+"această persoană."
+
+msgid "Remove from group"
+msgstr "Eliminați din grup"
+
+msgid "Keep assignment"
+msgstr "Păstrați sarcina"
+
+msgid "Share your document"
+msgstr "Partajați documentul dvs."
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+"Alegeți destinatarii, definiți accesul acestora și decideți dacă trebuie să "
+"primească o notificare prin e-mail."
+
+msgid "Current access"
+msgstr "Acces curent"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+"Selectați unul sau mai mulți destinatari pentru a le actualiza accesul sau "
+"pentru a-i elimina."
+
+msgid "Set rights"
+msgstr "Stabilirea drepturilor"
+
+msgid "Read and write"
+msgstr "Citire și scriere"
+
+msgid "Notification"
+msgstr "Notificare"
+
+msgid "Add people, families or groups"
+msgstr "Adăugați persoane, familii sau grupuri"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+"Căutați după nume pentru a acorda acces unei alte persoane, unei familii sau "
+"unui întreg grup."
+
+msgid "Please select at least one recipient first."
+msgstr "Vă rugăm să selectați mai întâi cel puțin un destinatar."
+
+msgid "Remove shared access"
+msgstr "Eliminarea accesului partajat"
+
+msgid "Remove access for the selected recipients?"
+msgstr "Eliminați accesul pentru destinatarii selectați?"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+"Doar destinatarii selectați vor fi eliminați. Documentul va rămâne partajat "
+"cu orice alți destinatari."
+
+msgid "Remove access"
+msgstr "Eliminarea accesului"
+
+msgid "Keep access"
+msgstr "Păstrați accesul"
+
+msgid "Stop sharing this document"
+msgstr "Nu mai partajați acest document"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "Nu mai partajați acest document cu toată lumea?"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+"Toți destinatarii actuali vor pierde accesul imediat. Documentul în sine va "
+"rămâne disponibil pentru dumneavoastră."
+
+msgid "Keep sharing"
+msgstr "Continuați să partajați"
 
 msgid "Share your Document"
 msgstr "Partajați documentul dvs."
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Ești sigur? Ești pe cale să ștergi această persoană?"
+msgid "Unassign property"
+msgstr "Dezasignarea proprietății"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Ești sigur? Sunteți pe cale să nu mai partajați documentul?"
+msgid "Remove this property from the current person?"
+msgstr "Eliminați această proprietate de la persoana actuală?"
+
+msgid "The property value will be removed from this profile."
+msgstr "Valoarea proprietății va fi eliminată din acest profil."
+
+msgid "Remove property"
+msgstr "Îndepărtați proprietatea"
+
+msgid "Keep property"
+msgstr "Păstrați proprietatea"
+
+msgid "Edit property value"
+msgstr "Editarea valorii proprietății"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+"Actualizează valoarea stocată pentru această proprietate pe profilul "
+"persoanei curente."
+
+msgid "Save property"
+msgstr "Salvați proprietatea"
 
 msgid "Change classification"
 msgstr "Modificarea clasificării"
 
-msgid "Change role"
-msgstr "Schimbarea rolului"
+msgid "Choose the classification that best matches this person profile."
+msgstr ""
+"Alegeți clasificarea care se potrivește cel mai bine profilului acestei "
+"persoane."
+
+msgid "Update classification"
+msgstr "Actualizarea clasificării"
+
+msgid "Change family role"
+msgstr "Schimbarea rolului familiei"
+
+msgid "Select the role this person should have inside the family record."
+msgstr ""
+"Selectați rolul pe care această persoană ar trebui să îl aibă în cadrul "
+"registrului de familie."
+
+msgid "Update role"
+msgstr "Actualizarea rolului"
 
 msgid "Volunteer actions"
 msgstr "Acțiuni de voluntariat"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "Confirmare Ștergeți voluntarul Oportunitate"
+msgid "Remove volunteer opportunity"
+msgstr "Eliminați oportunitatea de voluntariat"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Eliminați această oportunitate de voluntariat de la persoană?"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "Sarcina va fi eliminată doar din acest profil."
+
+msgid "Remove assignment"
+msgstr "Eliminarea atribuirii"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr ""
+"Vă rugăm să selectați mai întâi cel puțin o oportunitate de voluntariat."
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Imposibilitatea de a atribui oportunitățile de voluntariat selectate."
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Unele oportunități de voluntariat nu au putut fi atribuite."
+
+msgid "Delete automatic payment"
+msgstr "Ștergeți plata automată"
+
+msgid "Delete this automatic payment setup?"
+msgstr "Ștergeți această configurare de plată automată?"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+"Plățile recurente legate de această configurare se vor opri după ștergere."
+
+msgid "Delete payment"
+msgstr "Ștergeți plata"
+
+msgid "Keep payment"
+msgstr "Păstrați plata"
+
+msgid "Delete pledge or payment"
+msgstr "Ștergeți angajamentul sau plata"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "Ștergeți acest angajament sau această intrare de plată?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr ""
+"Această intrare va fi eliminată din istoricul contribuțiilor pentru această "
+"familie."
+
+msgid "Delete entry"
+msgstr "Ștergeți intrarea"
+
+msgid "Keep entry"
+msgstr "Păstrați intrarea"
+
+msgid "Share this secure verification link with the person."
+msgstr ""
+"Partajați această legătură de verificare securizată cu persoana respectivă."
 
 msgid "Comments"
 msgstr "Comentarii"
@@ -2356,14 +2719,29 @@ msgstr ""
 "Sunteți pe cale să ștergeți pluginurile selectate. Această acțiune nu poate "
 "fi anulată!"
 
-msgid "Select your zipped plugin file"
-msgstr "Selectați fișierul de plugin zippat"
+msgid "Update plugin"
+msgstr "Actualizare plugin"
 
-msgid "Download the zipped file of the plugin"
-msgstr "Descărcați fișierul zippat al plugin-ului"
+msgid "Add plugin"
+msgstr "Adăugați plugin"
 
-msgid "Plugin download manager"
-msgstr "Manager de descărcare a plugin-urilor"
+msgid "Choose the new zipped package to update this plugin."
+msgstr "Alegeți noul pachet zipat pentru a actualiza acest plugin."
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "Alegeți un pachet de plugin-uri zipat pentru a-l instala în CRM."
+
+msgid "Plugin archive"
+msgstr "Arhiva pluginului"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "Aici ar trebui selectate numai pachetele de pluginuri zipate."
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "Încărcarea începe imediat ce trimiteți acest formular."
+
+msgid "Plugin manager"
+msgstr "Manager de pluginuri"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Dosarul de imagini curente este acum dosarul public !!!"
@@ -2672,6 +3050,9 @@ msgstr ""
 "Selectați tipul de eveniment pe care doriți să îl utilizați pentru a crea "
 "prezența"
 
+msgid "Create First A New Event"
+msgstr "Creați mai întâi un eveniment nou"
+
 msgid "Create Event With Students"
 msgstr "Creați un eveniment cu studenții"
 
@@ -2774,9 +3155,6 @@ msgstr "Eveniment actual"
 
 msgid "No assignments for kiosk"
 msgstr "Nu există atribuții pentru chioșc"
-
-msgid "Event"
-msgstr "Eveniment"
 
 msgid "Kiosk Name"
 msgstr "Numele chioșcului"
@@ -2995,6 +3373,58 @@ msgid ""
 "altered."
 msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
 
+#~ msgid "ERROR"
+#~ msgstr "ERROR"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Selectați grupul la care doriți să adăugați coșul de cumpărături"
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "Trebuie să setați un nume de grup"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Da : dacă sunteți sigur"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "Puteți adăuga conținutul coșului la evenimentul selectat mai jos<br> - "
+#~ "SAU - <br>Crearea mai întâi a unui eveniment și adăugarea lor după aceea."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Vă rugăm să vă înregistrați copia de CRM verificând aceste informații și "
+#~ "apăsând butonul Trimite."
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Vă rugăm să selectați voluntarii țintă pentru membri"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Vă rugăm să selectați Rolul țintă pentru membri"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Adăugați un nume de grup"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr ""
+#~ "Sunteți sigur că doriți să eliminați calitatea de membru a acestei "
+#~ "persoane din"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Ești sigur? Ești pe cale să ștergi această persoană?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "Ești sigur? Sunteți pe cale să nu mai partajați documentul?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "Confirmare Ștergeți voluntarul Oportunitate"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Selectați fișierul de plugin zippat"
+
 #~ msgid "Personal"
 #~ msgstr "Personal"
 
@@ -3064,9 +3494,6 @@ msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați
 #~ msgid "Songs"
 #~ msgstr "Cântece"
 
-#~ msgid "Remove all"
-#~ msgstr "Eliminați toate"
-
 #~ msgid "Add all"
 #~ msgstr "Adăugați toate"
 
@@ -3097,9 +3524,6 @@ msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați
 
 #~ msgid "Share your File"
 #~ msgstr "Partajați fișierul dvs."
-
-#~ msgid "Members from group"
-#~ msgstr "Membri din grup"
 
 #~ msgid "Add person"
 #~ msgstr "Adăugați o persoană"

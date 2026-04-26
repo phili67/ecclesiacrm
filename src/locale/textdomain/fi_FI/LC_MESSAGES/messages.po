@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-25 18:26+0000\n"
+"POT-Creation-Date: 2026-04-26 18:38+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,7 @@ msgstr "Video"
 #: v2/templates/people/personPrint.php:403
 #: v2/templates/people/personPrint.php:659
 #: v2/templates/people/personPrint.php:718
-#: v2/templates/people/personview.php:1038
+#: v2/templates/people/personview.php:1098
 #: v2/templates/sundayschool/sundayschoolreports.php:66
 msgid "None"
 msgstr "Ei ole"
@@ -361,8 +361,8 @@ msgstr "Kaikki perheet"
 #: EcclesiaCRM/MenuBar/MenuBar.php:224
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:210
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:165
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:256
 #: v2/templates/people/lettersandlabels.php:228
 #: v2/templates/people/lettersandlabels.php:317
 #: v2/templates/people/personlist.php:19
@@ -377,8 +377,8 @@ msgstr "Henkilöt"
 #: EcclesiaCRM/MenuBar/MenuBar.php:197 EcclesiaCRM/MenuBar/MenuBar.php:231
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:139
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:215
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:261
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:50
 #: v2/templates/people/lettersandlabels.php:352
@@ -400,7 +400,9 @@ msgstr "Perheet"
 #: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:132
 #: v2/templates/pastoralcare/pastoralcareperson.php:160
 #: v2/templates/people/peopledashboard.php:170
-#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:133
+#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:92
+#: v2/templates/people/personview.php:154
+#: v2/templates/people/personview.php:440
 msgid "Groups"
 msgstr "Ryhmät"
 
@@ -492,7 +494,7 @@ msgstr "Lisätty ryhmään"
 #: v2/templates/calendar/eventnames.php:280
 #: v2/templates/cart/cartToFamily.php:224
 #: v2/templates/group/groupPropsEditor.php:235
-#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:50
+#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:97
 #: v2/templates/group/groupview.php:400
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
@@ -552,8 +554,9 @@ msgstr "Etunimi"
 #: v2/templates/fundraiser/batchWinnerEntry.php:104
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:103
-#: v2/templates/group/groupedit.php:68 v2/templates/group/grouplist.php:51
-#: v2/templates/group/grouplist.php:136 v2/templates/map/MapUsingGoogle.php:121
+#: v2/templates/group/groupedit.php:20 v2/templates/group/groupedit.php:118
+#: v2/templates/group/grouplist.php:51 v2/templates/group/grouplist.php:136
+#: v2/templates/map/MapUsingGoogle.php:121
 #: v2/templates/map/MapUsingGoogle.php:123
 #: v2/templates/map/MapUsingGoogle.php:157
 #: v2/templates/map/MapUsingGoogle.php:158
@@ -712,7 +715,8 @@ msgstr "Lupaukset"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:151
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: v2/templates/people/personview.php:670
+#: v2/templates/people/personview.php:713
+#: v2/templates/people/personview.php:1260
 #: v2/templates/volunteer/volunteeropportunity.php:102
 msgid "Volunteer Opportunities"
 msgstr "Vapaaehtoistoiminnan mahdollisuudet"
@@ -720,8 +724,8 @@ msgstr "Vapaaehtoistoiminnan mahdollisuudet"
 #: EcclesiaCRM/APIControllers/SearchController.php:319
 #: EcclesiaCRM/APIControllers/SearchController.php:322
 #: EcclesiaCRM/Search/FamilySearchRes.php:186
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:149
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:220
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:266
 #: v2/templates/people/peopledashboard.php:96
 #: v2/templates/people/peoplelist.php:22 v2/templates/people/peoplelist.php:54
 msgid "Singles"
@@ -848,7 +852,7 @@ msgstr "Ryhmän tyyppi"
 #: v2/templates/people/familyview.php:424
 #: v2/templates/people/personPrint.php:426
 #: v2/templates/people/personPrint.php:491
-#: v2/templates/people/personview.php:826
+#: v2/templates/people/personview.php:877
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:728 v2/templates/user/userseditor.php:796
@@ -964,7 +968,6 @@ msgid "Group Member Role"
 msgstr "Ryhmän jäsenen rooli"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:159
-#: v2/templates/group/groupedit.php:87
 #: v2/templates/system/optionManager.php:132
 msgid "Group Member Roles"
 msgstr "Ryhmän jäsenten roolit"
@@ -1041,7 +1044,7 @@ msgstr "Perheen mukautetun luettelon asetusten editori"
 #: v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:55
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:34
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:44
 msgid "Person"
 msgstr "Henkilö"
@@ -1069,13 +1072,13 @@ msgstr "Henkilö"
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:99
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:298
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:28
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:35
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:48
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:55
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:50
 #: v2/templates/people/UpdateAllLatLon.php:67
 #: v2/templates/people/familyview.php:85
 #: v2/templates/people/personPrint.php:316
-#: v2/templates/people/personview.php:621
+#: v2/templates/people/personview.php:664
 #: v2/templates/system/convertIndividualToAddress.php:106
 #: v2/templates/system/convertIndividualToAddress.php:149
 msgid "Family"
@@ -1224,9 +1227,9 @@ msgstr "Tili aktivoitu"
 #: v2/templates/people/familyview.php:960 v2/templates/people/personlist.php:93
 #: v2/templates/people/personlist.php:94 v2/templates/people/personlist.php:95
 #: v2/templates/people/personlist.php:96 v2/templates/people/personlist.php:97
-#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:162
-#: v2/templates/people/personview.php:365
-#: v2/templates/people/personview.php:1553
+#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:191
+#: v2/templates/people/personview.php:391
+#: v2/templates/people/personview.php:1699
 #: v2/templates/sundayschool/sundayschooldashboard.php:290
 #: v2/templates/sundayschool/sundayschooldashboard.php:291
 #: v2/templates/sundayschool/sundayschooldashboard.php:292
@@ -1452,19 +1455,20 @@ msgid "Home"
 msgstr "Etusivu"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:129
-#: v2/templates/people/personview.php:455
+#: v2/templates/people/personview.php:496
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "Vaihda salasana"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:122 Include/Header.php:131
-#: v2/templates/people/personview.php:453
+#: v2/templates/people/personview.php:494
 msgid "Change Settings"
 msgstr "Muuta asetuksia"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:123 v2/templates/people/familyview.php:574
 #: v2/templates/people/personPrint.php:612
-#: v2/templates/people/personview.php:715
+#: v2/templates/people/personview.php:758
+#: v2/templates/people/personview.php:1474
 msgid "Documents"
 msgstr "Asiakirjat"
 
@@ -1587,7 +1591,7 @@ msgstr "Luettelo Ryhmät"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:343
 #: v2/templates/deposit/electronicPaymentList.php:200
-#: v2/templates/group/groupedit.php:136 v2/templates/group/groupview.php:239
+#: v2/templates/group/groupedit.php:178 v2/templates/group/groupview.php:239
 #: v2/templates/volunteer/volunteerview.php:206
 msgid "Disabled"
 msgstr "Vammaiset"
@@ -1626,7 +1630,7 @@ msgstr "Mukautetut valikot"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:29
 #: v2/templates/people/familyview.php:305
-#: v2/templates/people/personview.php:485 v2/templates/user/userseditor.php:494
+#: v2/templates/people/personview.php:526 v2/templates/user/userseditor.php:494
 msgid "Pastoral Care"
 msgstr "Sielunhoito"
 
@@ -1824,7 +1828,7 @@ msgstr "Yhteensä"
 #: v2/templates/people/personEditor.php:1164
 #: v2/templates/people/personEditor.php:1310
 #: v2/templates/people/personEditor.php:1334
-#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:227
+#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:253
 #: v2/templates/system/csvExport.php:121 v2/templates/system/csvExport.php:127
 #: v2/templates/system/csvImport.php:185 v2/templates/system/csvImport.php:186
 msgid "Address"
@@ -1858,7 +1862,7 @@ msgstr "Kaupunki, osavaltio, postinumero"
 #: v2/templates/people/personEditor.php:1498
 #: v2/templates/people/personEditor.php:1502
 #: v2/templates/people/personPrint.php:246
-#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:290
+#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:316
 #: v2/templates/system/csvExport.php:169 v2/templates/system/csvImport.php:191
 #: v2/templates/system/eventAttendance.php:193 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1876,7 +1880,7 @@ msgstr "Kotipuhelin"
 #: v2/templates/people/familyEditor.php:932
 #: v2/templates/people/familyview.php:148
 #: v2/templates/people/personEditor.php:1585
-#: v2/templates/people/personview.php:297
+#: v2/templates/people/personview.php:323
 msgid "Send Newsletter"
 msgstr "Lähetä uutiskirje"
 
@@ -1944,9 +1948,9 @@ msgstr "Aikuinen/Lapsi"
 #: v2/templates/people/personEditor.php:1607
 #: v2/templates/people/personEditor.php:1611
 #: v2/templates/people/personPrint.php:361
-#: v2/templates/people/personview.php:304
-#: v2/templates/people/personview.php:438
-#: v2/templates/people/personview.php:828
+#: v2/templates/people/personview.php:330
+#: v2/templates/people/personview.php:479
+#: v2/templates/people/personview.php:879
 #: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:190 v2/templates/system/csvImport.php:194
@@ -1963,7 +1967,7 @@ msgstr "Sähköposti"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:168
 #: v2/templates/people/familyview.php:426
-#: v2/templates/people/personview.php:827
+#: v2/templates/people/personview.php:878
 msgid "Birthday"
 msgstr "Syntymäpäivä"
 
@@ -2003,7 +2007,7 @@ msgstr "Jäsen/ystävä"
 #: v2/templates/people/personEditor.php:1527
 #: v2/templates/people/personEditor.php:1531
 #: v2/templates/people/personPrint.php:251
-#: v2/templates/people/personview.php:318 v2/templates/system/csvExport.php:175
+#: v2/templates/people/personview.php:344 v2/templates/system/csvExport.php:175
 #: v2/templates/system/csvImport.php:192
 msgid "Work Phone"
 msgstr "Työpuhelin"
@@ -2052,7 +2056,7 @@ msgstr "Sivu"
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
 #: Reports/GroupReport.php:129
 #: external/templates/registration/family-register-members.php:104
-#: v2/templates/people/personview.php:332
+#: v2/templates/people/personview.php:358
 msgid "Work"
 msgstr "Työ"
 
@@ -2075,7 +2079,7 @@ msgstr "ja"
 #: EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 Reports/DirectoryReport.php:331
 #: v2/templates/pastoralcare/pastoralcareperson.php:330
-#: v2/templates/people/personview.php:325 v2/templates/system/csvExport.php:196
+#: v2/templates/people/personview.php:351 v2/templates/system/csvExport.php:196
 msgid "Work/Other Email"
 msgstr "Työ/muu sähköpostiosoite"
 
@@ -2163,8 +2167,8 @@ msgstr "Opiskelijat"
 #: v2/templates/people/familylist.php:96 v2/templates/people/familyview.php:99
 #: v2/templates/people/familyview.php:504
 #: v2/templates/people/familyview.php:666 v2/templates/people/personlist.php:74
-#: v2/templates/people/personview.php:168
-#: v2/templates/people/personview.php:894
+#: v2/templates/people/personview.php:197
+#: v2/templates/people/personview.php:945
 msgid "Edit"
 msgstr "Muokkaa"
 
@@ -2246,6 +2250,7 @@ msgid "group"
 msgstr "ryhmä"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:38
+#: v2/templates/people/personview.php:990
 msgid "groups"
 msgstr "ryhmät"
 
@@ -2268,7 +2273,7 @@ msgstr "Sunnuntai ryhmä"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:237
 #: v2/templates/people/familylist.php:93 v2/templates/people/personlist.php:71
-#: v2/templates/people/personview.php:964
+#: v2/templates/people/personview.php:1024
 msgid "View"
 msgstr "Näytä"
 
@@ -2378,9 +2383,9 @@ msgstr "Vuosipäivä"
 #: v2/templates/people/familyview.php:674
 #: v2/templates/people/familyview.php:991
 #: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:899
-#: v2/templates/people/personview.php:994
-#: v2/templates/people/personview.php:1582 v2/templates/plugins/plugins.php:58
+#: v2/templates/people/personview.php:950
+#: v2/templates/people/personview.php:1054
+#: v2/templates/people/personview.php:1728 v2/templates/plugins/plugins.php:58
 #: v2/templates/system/optionManager.php:443
 #: v2/templates/system/optionManager.php:445
 msgid "Delete"
@@ -2459,7 +2464,7 @@ msgstr "EI OLE"
 #: v2/templates/people/personEditor.php:1558
 #: v2/templates/people/personEditor.php:1562
 #: v2/templates/people/personPrint.php:256
-#: v2/templates/people/personview.php:278 v2/templates/system/csvExport.php:184
+#: v2/templates/people/personview.php:304 v2/templates/system/csvExport.php:184
 msgid "Mobile Phone"
 msgstr "Matkapuhelin"
 
@@ -2644,7 +2649,7 @@ msgstr " of the"
 
 #: EcclesiaCRM/Service/PersonService.php:51
 #: v2/templates/pastoralcare/pastoralcareperson.php:225
-#: v2/templates/people/personview.php:212
+#: v2/templates/people/personview.php:238
 msgid "(No assigned family)"
 msgstr "(Ei määriteltyä perhettä)"
 
@@ -2700,7 +2705,7 @@ msgstr "Muut"
 #: v2/templates/pastoralcare/pastoralcareperson.php:534
 #: v2/templates/people/familyEditor.php:82
 #: v2/templates/people/familyview.php:448
-#: v2/templates/people/personview.php:850
+#: v2/templates/people/personview.php:901
 msgid "Head of Household"
 msgstr "Kotitalouden päämies"
 
@@ -2710,7 +2715,7 @@ msgstr "Kotitalouden päämies"
 #: v2/templates/pastoralcare/pastoralcareperson.php:535
 #: v2/templates/people/familyEditor.php:84
 #: v2/templates/people/familyview.php:451
-#: v2/templates/people/personview.php:853
+#: v2/templates/people/personview.php:904
 msgid "Spouse"
 msgstr "Puoliso"
 
@@ -2720,7 +2725,7 @@ msgstr "Puoliso"
 #: v2/templates/pastoralcare/pastoralcareperson.php:537
 #: v2/templates/people/familyEditor.php:86
 #: v2/templates/people/familyview.php:454
-#: v2/templates/people/personview.php:856
+#: v2/templates/people/personview.php:907
 msgid "Child"
 msgstr "Lapsi"
 
@@ -3079,19 +3084,19 @@ msgid "Plugins"
 msgstr "Liitännäiset"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:45
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:65
 msgid "Pastoral care list of members for"
 msgstr "Sielunhoidon jäsenluettelo"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:124
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:187
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
 msgid "Period  from"
 msgstr "Ajanjakso alkaen"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:124
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:187
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
 msgid "to"
 msgstr "osoitteeseen"
 
@@ -6082,7 +6087,7 @@ msgstr ""
 
 #: Include/Header-function.php:90 Include/Header-function.php:152
 #: browser/browse.php:148 v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:31
+#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Sulje"
@@ -6174,7 +6179,7 @@ msgstr ""
 #: v2/templates/people/familyview.php:990
 #: v2/templates/people/lettersandlabels.php:297
 #: v2/templates/people/personEditor.php:1916
-#: v2/templates/people/personview.php:1581
+#: v2/templates/people/personview.php:1727
 #: v2/templates/people/reminderreport.php:50
 #: v2/templates/sundayschool/sundayschooldashboard.php:325
 #: v2/templates/user/userseditor.php:878 v2/templates/user/userseditor.php:879
@@ -6334,6 +6339,7 @@ msgstr "Tuotettu"
 #: Reports/AdvancedDeposit.php:829 Reports/AdvancedDeposit.php:843
 #: Reports/AdvancedDeposit.php:860
 #: v2/templates/fundraiser/batchWinnerEntry.php:70
+#: v2/templates/people/personview.php:1478
 msgid "items"
 msgstr "kohteet"
 
@@ -6599,8 +6605,8 @@ msgstr ""
 #: v2/templates/pastoralcare/pastoralcareperson.php:193
 #: v2/templates/people/familyview.php:957
 #: v2/templates/people/personPrint.php:239
-#: v2/templates/people/personview.php:182
-#: v2/templates/people/personview.php:1550
+#: v2/templates/people/personview.php:208
+#: v2/templates/people/personview.php:1696
 msgid "Informations"
 msgstr "Tietoja"
 
@@ -7000,7 +7006,7 @@ msgstr "Rekisteröi"
 #: v2/templates/people/familyEditor.php:1143
 #: v2/templates/people/familyview.php:400
 #: v2/templates/people/personPrint.php:421
-#: v2/templates/people/personview.php:825
+#: v2/templates/people/personview.php:94 v2/templates/people/personview.php:876
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "Perheenjäsenet"
@@ -7101,7 +7107,7 @@ msgstr "Vahvista uusi salasana"
 #: v2/templates/deposit/pledgeEditor.php:238
 #: v2/templates/fundraiser/donatedItemEditor.php:179
 #: v2/templates/fundraiser/fundRaiserEditor.php:179
-#: v2/templates/group/groupedit.php:147
+#: v2/templates/group/groupedit.php:78
 #: v2/templates/people/canvassEditor.php:277
 #: v2/templates/people/familyEditor.php:762
 #: v2/templates/people/familyEditor.php:860
@@ -7306,7 +7312,7 @@ msgstr "Tai kirjaudu sisään eri käyttäjänä"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:293
 #: v2/templates/pastoralcare/pastoralcareperson.php:253
 #: v2/templates/people/personPrint.php:311
-#: v2/templates/people/personview.php:248
+#: v2/templates/people/personview.php:274
 #: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/sundayschool/sundayschoolview.php:318
 #: v2/templates/system/csvImport.php:196
@@ -7542,6 +7548,7 @@ msgstr "Kaikki"
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:157
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/calendar/calendar.php:243
+#: v2/templates/people/personview.php:1588
 msgid "Shared"
 msgstr "Jaettu"
 
@@ -7686,7 +7693,7 @@ msgstr "Palaa tapahtumiin"
 #: v2/templates/group/groupPropsEditor.php:236
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
-#: v2/templates/group/groupedit.php:56 v2/templates/group/groupview.php:401
+#: v2/templates/group/groupedit.php:101 v2/templates/group/groupview.php:401
 #: v2/templates/plugins/plugins.php:90
 msgid "Description"
 msgstr "Kuvaus"
@@ -7696,7 +7703,7 @@ msgstr "Kuvaus"
 #: v2/templates/deposit/depositslipeditor.php:180
 #: v2/templates/deposit/electronicPaymentList.php:152
 #: v2/templates/people/familyEditor.php:1204
-#: v2/templates/people/personview.php:970
+#: v2/templates/people/personview.php:1030
 msgid "Action"
 msgstr "Toiminta"
 
@@ -8252,12 +8259,12 @@ msgstr "Tyhjä kori tapahtumaan"
 msgid "Map Cart"
 msgstr "Karttakori"
 
-#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:518
+#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:559
 msgid "Get the vCard of the person"
 msgstr "Hae henkilön vCard"
 
 #: v2/templates/cart/cartview.php:52 v2/templates/people/familyview.php:333
-#: v2/templates/people/personview.php:521
+#: v2/templates/people/personview.php:562
 msgid "vCard"
 msgstr "vCard"
 
@@ -8275,7 +8282,7 @@ msgstr "Sähköpostikoriin"
 
 #: v2/templates/cart/cartview.php:66 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:297
-#: v2/templates/people/personview.php:441
+#: v2/templates/people/personview.php:482
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
 #: v2/templates/volunteer/volunteerview.php:122
@@ -8373,7 +8380,7 @@ msgstr "Muokkaa sivua"
 
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:51
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:80
 #: v2/templates/plugins/plugins.php:110
 msgid "Settings"
 msgstr "Asetukset"
@@ -8575,7 +8582,7 @@ msgstr "Päättymispäivä:"
 #: v2/templates/deposit/electronicPaymentList.php:79
 #: v2/templates/deposit/finddepositslip.php:134
 #: v2/templates/people/familyview.php:981
-#: v2/templates/people/personview.php:1570
+#: v2/templates/people/personview.php:1716
 msgid "Confirm Delete"
 msgstr "Vahvista Poista"
 
@@ -8637,7 +8644,7 @@ msgstr "Vuosi"
 #: v2/templates/people/familyCustomFieldEditor.php:388
 #: v2/templates/people/familyview.php:428
 #: v2/templates/people/personCustomEditor.php:380
-#: v2/templates/people/personview.php:829
+#: v2/templates/people/personview.php:880
 #: v2/templates/system/optionManager.php:425 v2/templates/user/userlist.php:53
 #: v2/templates/volunteer/volunteerview.php:36
 msgid "Actions"
@@ -9021,10 +9028,10 @@ msgstr "Määritä alkaen #"
 
 #: v2/templates/deposit/manageEnvelopes.php:200
 #: v2/templates/group/groupview.php:359 v2/templates/people/familyview.php:732
-#: v2/templates/people/personview.php:1175
-#: v2/templates/people/personview.php:1177
-#: v2/templates/people/personview.php:1243
-#: v2/templates/people/personview.php:1245
+#: v2/templates/people/personview.php:1242
+#: v2/templates/people/personview.php:1244
+#: v2/templates/people/personview.php:1317
+#: v2/templates/people/personview.php:1319
 msgid "Assign"
 msgstr "Määritä"
 
@@ -9408,6 +9415,7 @@ msgid "New"
 msgstr "Uusi"
 
 #: v2/templates/fundraiser/donatedItemEditor.php:27
+#: v2/templates/group/groupedit.php:91
 msgid "Basic Information"
 msgstr "Perustiedot"
 
@@ -9647,7 +9655,7 @@ msgid "Special option"
 msgstr "Erityisvaihtoehto"
 
 #: v2/templates/group/groupPropsEditor.php:263
-#: v2/templates/group/groupedit.php:96
+#: v2/templates/group/groupedit.php:157
 #: v2/templates/people/familyCustomFieldEditor.php:425
 #: v2/templates/people/personCustomEditor.php:417
 msgid "Select a group"
@@ -9842,39 +9850,133 @@ msgstr "Merkin esikatselu"
 msgid "Generate a PDF using current group configuration."
 msgstr "PDF-tiedoston luominen käyttäen nykyistä ryhmäkokoonpanoa."
 
-#: v2/templates/group/groupedit.php:41
+#: v2/templates/group/groupedit.php:55
 msgid "Special Group Settings : Sunday School Type"
 msgstr "Erityisryhmäasetukset : Pyhäkoulu Tyyppi"
 
-#: v2/templates/group/groupedit.php:41
+#: v2/templates/group/groupedit.php:55
 msgid "Group Settings"
 msgstr "Ryhmäasetukset"
 
-#: v2/templates/group/groupedit.php:65
+#: v2/templates/group/groupedit.php:58
+msgid ""
+"Update the group identity, category and special options, then manage member "
+"roles below."
+msgstr ""
+"Päivitä ryhmän identiteetti, luokka ja erikoisasetukset ja hallinnoi sitten "
+"jäsenrooleja alla."
+
+#: v2/templates/group/groupedit.php:63 v2/templates/group/groupedit.php:214
+msgid "Roles"
+msgstr "Roolit"
+
+#: v2/templates/group/groupedit.php:64
+msgid "Properties enabled"
+msgstr "Ominaisuudet käytössä"
+
+#: v2/templates/group/groupedit.php:64
+msgid "Properties disabled"
+msgstr "Ominaisuudet pois käytöstä"
+
+#: v2/templates/group/groupedit.php:73
+msgid "Edit Group"
+msgstr "Muokkaa ryhmää"
+
+#: v2/templates/group/groupedit.php:74
+msgid ""
+"Keep the basic information clear so the group is easy to identify from menus "
+"and reports."
+msgstr ""
+"Pidä perustiedot selkeinä, jotta ryhmä on helppo tunnistaa valikoista ja "
+"raporteista."
+
+#: v2/templates/group/groupedit.php:86
+msgid ""
+"Changes to the group are saved from this form. Role names are managed "
+"separately and update instantly when edited."
+msgstr ""
+"Ryhmään tehdyt muutokset tallennetaan tästä lomakkeesta. Roolien nimiä "
+"hallitaan erikseen, ja ne päivittyvät heti, kun niitä muokataan."
+
+#: v2/templates/group/groupedit.php:92
+msgid "Name and description shown across the application."
+msgstr "Nimi ja kuvaus näkyvät koko sovelluksessa."
+
+#: v2/templates/group/groupedit.php:98
+msgid "Enter the group name"
+msgstr "Kirjoita ryhmän nimi"
+
+#: v2/templates/group/groupedit.php:102
+msgid "Describe the purpose of this group"
+msgstr "Kuvaile tämän ryhmän tarkoitus"
+
+#: v2/templates/group/groupedit.php:110
+msgid "Category and Navigation"
+msgstr "Luokka ja navigointi"
+
+#: v2/templates/group/groupedit.php:111
+msgid ""
+"This controls where the group appears in the left menu and how it is "
+"categorized."
+msgstr ""
+"Tämä määrittää, missä ryhmä näkyy vasemmassa valikossa ja miten se "
+"luokitellaan."
+
+#: v2/templates/group/groupedit.php:115
 msgid "Type of Group and Menu Category"
 msgstr "Ryhmän tyyppi ja valikkoluokka"
 
-#: v2/templates/group/groupedit.php:67
+#: v2/templates/group/groupedit.php:117
 msgid "This will include the group in a menu item in the left sidebar"
 msgstr "Tämä sisällyttää ryhmän vasemman sivupalkin valikkokohtaan."
 
-#: v2/templates/group/groupedit.php:89
-msgid "Clone roles"
-msgstr "Kloonausroolit"
+#: v2/templates/group/groupedit.php:131
+msgid "Current behavior"
+msgstr "Nykyinen käyttäytyminen"
 
-#: v2/templates/group/groupedit.php:94
-msgid "from group"
-msgstr "ryhmästä"
+#: v2/templates/group/groupedit.php:132
+msgid ""
+"Selecting a group type places this group in the related menu category and "
+"helps users find it faster."
+msgstr ""
+"Ryhmätyypin valitseminen sijoittaa ryhmän liittyvään valikkoluokkaan ja "
+"auttaa käyttäjiä löytämään sen nopeammin."
 
-#: v2/templates/group/groupedit.php:116
+#: v2/templates/group/groupedit.php:144
+msgid "Initial Member Roles"
+msgstr "Alkuperäiset jäsenroolit"
+
+#: v2/templates/group/groupedit.php:145
+msgid "Reuse an existing group structure to get started faster."
+msgstr ""
+"Käytä olemassa olevaa ryhmärakennetta uudelleen, jotta pääset nopeammin "
+"alkuun."
+
+#: v2/templates/group/groupedit.php:151
+msgid "Clone roles from another group"
+msgstr "Roolien kloonaaminen toisesta ryhmästä"
+
+#: v2/templates/group/groupedit.php:155
+msgid "Source group"
+msgstr "Lähderyhmä"
+
+#: v2/templates/group/groupedit.php:174
 msgid "Group Specific Properties"
 msgstr "Ryhmäkohtaiset ominaisuudet"
 
-#: v2/templates/group/groupedit.php:121
+#: v2/templates/group/groupedit.php:175
+msgid ""
+"Useful when you need custom answers, classifications or form-driven "
+"information for this group."
+msgstr ""
+"Hyödyllinen, kun tarvitset mukautettuja vastauksia, luokituksia tai "
+"lomakepohjaisia tietoja tälle ryhmälle."
+
+#: v2/templates/group/groupedit.php:178
 msgid "Enabled"
 msgstr "Käytössä"
 
-#: v2/templates/group/groupedit.php:125 v2/templates/group/groupedit.php:138
+#: v2/templates/group/groupedit.php:187 v2/templates/group/groupedit.php:199
 msgid ""
 "Group-specific properties are useful to classify your groups or to make a "
 "sort of Doodle"
@@ -9882,42 +9984,58 @@ msgstr ""
 "Ryhmäkohtaiset ominaisuudet ovat hyödyllisiä ryhmien luokittelussa tai "
 "eräänlaisen Doodlen tekemisessä."
 
-#: v2/templates/group/groupedit.php:126
+#: v2/templates/group/groupedit.php:188
 msgid "Disable Group Specific Properties"
 msgstr "Ryhmäkohtaisten ominaisuuksien poistaminen käytöstä"
 
-#: v2/templates/group/groupedit.php:130
+#: v2/templates/group/groupedit.php:192
 msgid "Group-specific properties are useful to make a sort of doodle"
 msgstr ""
 "Ryhmäkohtaiset ominaisuudet ovat hyödyllisiä eräänlaisen doodlen tekemiseksi."
 
-#: v2/templates/group/groupedit.php:130 v2/templates/group/groupview.php:433
+#: v2/templates/group/groupedit.php:192 v2/templates/group/groupview.php:433
 msgid "Edit Group-Specific Properties Form"
 msgstr "Muokkaa ryhmäkohtaisia ominaisuuksia -lomake"
 
-#: v2/templates/group/groupedit.php:138
+#: v2/templates/group/groupedit.php:199
 msgid "Enable Group Specific Properties"
 msgstr "Ota käyttöön ryhmäkohtaiset ominaisuudet"
 
-#: v2/templates/group/groupedit.php:157
+#: v2/templates/group/groupedit.php:210
 msgid "Group Roles"
 msgstr "Ryhmän roolit"
 
-#: v2/templates/group/groupedit.php:163
+#: v2/templates/group/groupedit.php:211
+msgid ""
+"Manage the labels used for memberships in this group, choose the default "
+"role and keep their order tidy."
+msgstr ""
+"Hallitse tässä ryhmässä jäsenyyksissä käytettäviä merkintöjä, valitse "
+"oletusrooli ja pidä niiden järjestys järjestyksessä."
+
+#: v2/templates/group/groupedit.php:221
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr ""
 "Ryhmän roolin nimen muutokset tallennetaan heti, kun ruutu menettää "
 "tarkennuksen."
 
-#: v2/templates/group/groupedit.php:171
+#: v2/templates/group/groupedit.php:229
+msgid "Add a new role"
+msgstr "Lisää uusi rooli"
+
+#: v2/templates/group/groupedit.php:230
+msgid "Create a role name that members and leaders will easily understand."
+msgstr "Luo roolin nimi, jonka jäsenet ja johtajat ymmärtävät helposti."
+
+#: v2/templates/group/groupedit.php:235
 msgid "New Role"
 msgstr "Uusi rooli"
 
-#: v2/templates/group/groupedit.php:172
+#: v2/templates/group/groupedit.php:236
 msgid "Enter a role name"
 msgstr "Syötä roolin nimi"
 
-#: v2/templates/group/groupedit.php:176
+#: v2/templates/group/groupedit.php:240
 msgid "Add New Role"
 msgstr "Lisää uusi rooli"
 
@@ -9994,14 +10112,14 @@ msgid "Map this group"
 msgstr "Kartoita tämä ryhmä"
 
 #: v2/templates/group/groupview.php:42 v2/templates/people/familyview.php:274
-#: v2/templates/people/personview.php:417
+#: v2/templates/people/personview.php:458
 msgid "Remove from Cart"
 msgstr "Poista korista"
 
 #: v2/templates/group/groupview.php:46 v2/templates/people/familyview.php:281
 #: v2/templates/people/familyview.php:493
-#: v2/templates/people/personview.php:427
-#: v2/templates/people/personview.php:886 v2/templates/query/queryview.php:172
+#: v2/templates/people/personview.php:468
+#: v2/templates/people/personview.php:937 v2/templates/query/queryview.php:172
 #: v2/templates/volunteer/volunteerview.php:44
 msgid "Add to Cart"
 msgstr "Lisää ostoskoriin"
@@ -10024,7 +10142,7 @@ msgstr "Poista tämä ryhmä"
 
 #: v2/templates/group/groupview.php:61
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:42
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:42
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:62
 #: v2/templates/pastoralcare/pastoralcarefamily.php:80
 #: v2/templates/pastoralcare/pastoralcareperson.php:81
 #: v2/templates/volunteer/volunteerview.php:62
@@ -10121,12 +10239,13 @@ msgstr "Lisää johtaja"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
 #: v2/templates/people/familyview.php:550
 #: v2/templates/people/personPrint.php:568
-#: v2/templates/people/personview.php:656
+#: v2/templates/people/personview.php:699
+#: v2/templates/people/personview.php:1189
 msgid "Assigned Properties"
 msgstr "Myönnetyt ominaisuudet"
 
 #: v2/templates/group/groupview.php:335 v2/templates/people/familyview.php:703
-#: v2/templates/people/personview.php:1146
+#: v2/templates/people/personview.php:1213
 msgid "Assign a New Property"
 msgstr "Uuden ominaisuuden määrittäminen"
 
@@ -10143,7 +10262,7 @@ msgid "Property"
 msgstr "Kiinteistö"
 
 #: v2/templates/group/groupview.php:342 v2/templates/people/familyview.php:713
-#: v2/templates/people/personview.php:1154 v2/templates/query/queryview.php:422
+#: v2/templates/people/personview.php:1221 v2/templates/query/queryview.php:422
 #: v2/templates/query/queryview.php:439
 msgid "select an option"
 msgstr "valitse vaihtoehto"
@@ -10263,7 +10382,7 @@ msgid "Filter by member types"
 msgstr "Suodata jäsentyyppien mukaan"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:41
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:61
 #: v2/templates/pastoralcare/pastoralcarefamily.php:79
 #: v2/templates/pastoralcare/pastoralcareperson.php:80
 msgid "Create an appointment"
@@ -10299,20 +10418,21 @@ msgstr "Työ / Muu sähköpostiosoite"
 #: v2/templates/pastoralcare/pastoralcareperson.php:136
 #: v2/templates/people/personEditor.php:1753
 #: v2/templates/people/personPrint.php:371
-#: v2/templates/people/personview.php:122 v2/templates/system/csvExport.php:205
+#: v2/templates/people/personview.php:140 v2/templates/system/csvExport.php:205
 #: v2/templates/system/csvExport.php:464 v2/templates/system/csvImport.php:197
 msgid "Membership Date"
 msgstr "Jäsenyys Päivämäärä"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:455
 #: v2/templates/people/personPrint.php:472
-#: v2/templates/people/personview.php:640
+#: v2/templates/people/personview.php:683
+#: v2/templates/people/personview.php:987
 msgid "Assigned Groups"
 msgstr "Määritetyt ryhmät"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
 #: v2/templates/people/personPrint.php:484
-#: v2/templates/people/personview.php:929
+#: v2/templates/people/personview.php:980
 msgid "No group assignments."
 msgstr "Ei ryhmätehtäviä."
 
@@ -10326,7 +10446,7 @@ msgstr "Arvo"
 
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
 #: v2/templates/people/personPrint.php:580
-#: v2/templates/people/personview.php:1130
+#: v2/templates/people/personview.php:1197
 msgid "No property assignments."
 msgstr "Ei omaisuuden luovutuksia."
 
@@ -10337,89 +10457,168 @@ msgstr "Ei omaisuuden luovutuksia."
 msgid "Entered:"
 msgstr "Ilmoittautui:"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:22
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:23
+msgid "Pastoral Care Dashboard"
+msgstr "Sielunhoidon mittaristo"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:24
+msgid ""
+"Track visits, launch quick pastoral actions and focus first on members who "
+"still need attention."
+msgstr ""
+"Seuraa käyntejä, käynnistä nopeat pastoraalitoimet ja keskity ensin "
+"jäseniin, jotka tarvitsevat vielä huomiota."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:28
+msgid "Persons pending"
+msgstr "Vireillä olevat henkilöt"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:29
+msgid "Families pending"
+msgstr "Perheet vireillä"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
 msgid "Visit/Call randomly"
 msgstr "Käynti/puhelu satunnaisesti"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:27
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:39
+msgid ""
+"Start a pastoral action in one click and quickly choose the profile type you "
+"want to reach."
+msgstr ""
+"Aloita pastoraalitoiminta yhdellä napsautuksella ja valitse nopeasti "
+"profiilityyppi, jonka haluat tavoittaa."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:47
 msgid ""
 "Pastoral care with a familly. You can validated all the persons together."
 msgstr "Sielunhoito perheen kanssa. Voit validoida kaikki henkilöt yhdessä."
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:36
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:159
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:225
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:56
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:195
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:271
 msgid "Retired"
 msgstr "Eläkkeellä"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:37
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 msgid "Young"
 msgstr "Nuori"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:58
 msgid "Single"
 msgstr "Single"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:66
 msgid "Lists"
 msgstr "Luettelot"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:50
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:73
+msgid "Quick guidance"
+msgstr "Nopea opastus"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:74
+msgid ""
+"Use Family when you want to validate several people at once, or pick a "
+"specific profile from the dropdown for a more focused outreach."
+msgstr ""
+"Käytä Perhe-toimintoa, kun haluat validoida useita henkilöitä kerralla, tai "
+"valitse pudotusvalikosta tietty profiili, jos haluat kohdentaa toimintaasi "
+"tarkemmin."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:79
 msgid "Pastoral care Settings."
 msgstr "Sielunhoito Asetukset."
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:64
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:94
 msgid "Not visited Persons"
 msgstr "Ei vierailtu Henkilöt"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:76
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:106
 msgid "Not visited Families"
 msgstr "Ei vierailtu Perheet"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:88
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:118
 msgid "Not visited Single Persons"
 msgstr "Ei vierailtu Yksinäiset henkilöt"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:99
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
 msgid "Not visited Retired Persons"
 msgstr "Ei vierailua Eläkeläiset"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:110
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:140
 msgid "Not visited Youngs"
 msgstr "Ei käynyt Youngs"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:127
-msgid "• Statistics about persons, families ... who remain to be contacted."
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:155
+msgid "Coverage Overview"
+msgstr "Kattavuuden yleiskatsaus"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:158
+msgid "Current period"
+msgstr "Kuluva kausi"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
+msgid ""
+"Statistics about persons, families and categories that still need to be "
+"contacted."
 msgstr ""
-"- Tilastotietoja henkilöistä, perheistä ... joihin ei ole vielä saatu "
+"Tilastotiedot henkilöistä, perheistä ja ryhmistä, joihin on vielä otettava "
 "yhteyttä."
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:169
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:230
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:205
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:276
 msgid "Young People"
 msgstr "Nuoret ihmiset"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:222
 msgid "Pastoral Care Members"
 msgstr "Sielunhoidon jäsenet"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:238
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:228
+msgid "Follow-up list"
+msgstr "Seurantaluettelo"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:247
+msgid "Members Still Not Reached"
+msgstr "Jäseniä ei ole vielä tavoitettu"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:248
+msgid ""
+"Switch by category to focus your follow-up list and start the next pastoral "
+"action faster."
+msgstr ""
+"Vaihda luokittain, jotta voit keskittää seurantaluettelosi ja aloittaa "
+"seuraavan pastoraalitoimen nopeammin."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:250
+msgid "Segmented view"
+msgstr "Segmentoitu näkymä"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:285
 msgid "Persons not reached"
 msgstr "Henkilöt, joita ei ole tavoitettu"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:242
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:286
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:293
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:300
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:307
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:314
+msgid "remaining"
+msgstr "jäljelle jäävä"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:292
 msgid "Families not reached"
 msgstr "Perheet, joita ei ole tavoitettu"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:246
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:299
 msgid "Single Persons not reached"
 msgstr "Yksinäiset henkilöt, joita ei ole tavoitettu"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:250
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:306
 msgid "Retired not reached"
 msgstr "Eläkkeelle jäänyt ei tavoitettu"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:254
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:313
 msgid "Young People not reached"
 msgstr "Nuoret, joita ei ole tavoitettu"
 
@@ -10463,14 +10662,14 @@ msgstr "Leveysaste/Pituusaste"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:205
 #: v2/templates/pastoralcare/pastoralcareperson.php:286
 #: v2/templates/people/familyview.php:186
-#: v2/templates/people/personview.php:281
+#: v2/templates/people/personview.php:307
 msgid "Text Message"
 msgstr "Tekstiviesti"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:207
 #: v2/templates/pastoralcare/pastoralcareperson.php:288
 #: v2/templates/people/familyview.php:188
-#: v2/templates/people/personview.php:283
+#: v2/templates/people/personview.php:309
 msgid "CRM text message"
 msgstr "CRM-tekstiviesti"
 
@@ -10480,20 +10679,20 @@ msgid "Return to Family View"
 msgstr "Paluu perheenäkymään"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:128
-#: v2/templates/people/personview.php:88 v2/templates/user/userlist.php:118
+#: v2/templates/people/personview.php:30 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "Määrittelemätön"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:140
 #: v2/templates/pastoralcare/pastoralcareperson.php:270
 #: v2/templates/people/personEditor.php:1779
-#: v2/templates/people/personview.php:126
-#: v2/templates/people/personview.php:265
+#: v2/templates/people/personview.php:144
+#: v2/templates/people/personview.php:291
 msgid "Friend Date"
 msgstr "Ystävän treffit"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:216
-#: v2/templates/people/personview.php:196
+#: v2/templates/people/personview.php:222
 msgid "Family:"
 msgstr "Perhe:"
 
@@ -10501,24 +10700,24 @@ msgstr "Perhe:"
 #: v2/templates/pastoralcare/pastoralcareperson.php:347
 #: v2/templates/people/personEditor.php:1654
 #: v2/templates/people/personEditor.php:1658
-#: v2/templates/people/personview.php:340
-#: v2/templates/people/personview.php:342
+#: v2/templates/people/personview.php:366
+#: v2/templates/people/personview.php:368
 msgid "Facebook"
 msgstr "Facebook"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:354
 #: v2/templates/pastoralcare/pastoralcareperson.php:355
 #: v2/templates/people/personEditor.php:1680
-#: v2/templates/people/personview.php:349
-#: v2/templates/people/personview.php:350
+#: v2/templates/people/personview.php:375
+#: v2/templates/people/personview.php:376
 msgid "Twitter"
 msgstr "Twitter"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:362
 #: v2/templates/pastoralcare/pastoralcareperson.php:363
 #: v2/templates/people/personEditor.php:1698
-#: v2/templates/people/personview.php:357
-#: v2/templates/people/personview.php:358
+#: v2/templates/people/personview.php:383
+#: v2/templates/people/personview.php:384
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
@@ -11325,6 +11524,7 @@ msgid "Browse, edit and manage family records from one place."
 msgstr "Selaa, muokkaa ja hallinnoi sukutietoja yhdestä paikasta."
 
 #: v2/templates/people/familylist.php:54
+#: v2/templates/people/personview.php:1342
 msgid "records"
 msgstr "tietueet"
 
@@ -11349,15 +11549,15 @@ msgstr "Poista kaikki"
 msgid " This Family is Deactivated"
 msgstr " Tämä perhe on poistettu käytöstä"
 
-#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:50
+#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:58
 msgid "View Photo"
 msgstr "Näytä kuva"
 
-#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:54
+#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:62
 msgid "Upload Photo"
 msgstr "Lataa kuva"
 
-#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:58
+#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:66
 msgid "Delete Photo"
 msgstr "Poista valokuva"
 
@@ -11366,6 +11566,7 @@ msgid "Emails"
 msgstr "Sähköpostit"
 
 #: v2/templates/people/familyview.php:251
+#: v2/templates/people/personview.php:435
 msgid "Overview"
 msgstr "Yleiskatsaus"
 
@@ -11374,10 +11575,12 @@ msgid "Reachable by email"
 msgstr "Tavoitettavissa sähköpostitse"
 
 #: v2/templates/people/familyview.php:256
+#: v2/templates/people/personview.php:441
 msgid "Private access granted"
 msgstr "Yksityinen käyttöoikeus myönnetty"
 
 #: v2/templates/people/familyview.php:256
+#: v2/templates/people/personview.php:441
 msgid "Private access restricted"
 msgstr "Yksityinen pääsy rajoitettu"
 
@@ -11396,14 +11599,14 @@ msgstr ""
 "tietoja."
 
 #: v2/templates/people/familyview.php:313
-#: v2/templates/people/personview.php:473
+#: v2/templates/people/personview.php:514
 msgid "Verify Info"
 msgstr "Tarkista tiedot"
 
 #: v2/templates/people/familyview.php:321
 #: v2/templates/people/familyview.php:322
-#: v2/templates/people/personview.php:496
-#: v2/templates/people/personview.php:497
+#: v2/templates/people/personview.php:537
+#: v2/templates/people/personview.php:538
 msgid "Create a document"
 msgstr "Luo asiakirja"
 
@@ -11412,13 +11615,13 @@ msgid "Get the vCard of the family"
 msgstr "Hanki perheen vCard"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:554 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:57
 #: v2/templates/plugins/plugins.php:113
 msgid "Deactivate"
 msgstr "Deaktivoi"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:554 v2/templates/plugins/plugins.php:56
+#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:113
 msgid "Activate"
 msgstr "Aktivoi"
@@ -11477,24 +11680,26 @@ msgid "N/A"
 msgstr "N/A"
 
 #: v2/templates/people/familyview.php:544
-#: v2/templates/people/personview.php:609
+#: v2/templates/people/personview.php:652
 msgid "Timeline"
 msgstr "Aikajana"
 
 #: v2/templates/people/familyview.php:559
-#: v2/templates/people/personview.php:688
+#: v2/templates/people/personview.php:731
+#: v2/templates/people/personview.php:1339
 msgid "Automatic Payments"
 msgstr "Automaattiset maksut"
 
 #: v2/templates/people/familyview.php:565
-#: v2/templates/people/personview.php:695
+#: v2/templates/people/personview.php:738
+#: v2/templates/people/personview.php:1383
 msgid "Pledges and Payments"
 msgstr "Lupaukset ja maksut"
 
 #: v2/templates/people/familyview.php:710
-#: v2/templates/people/personview.php:1152
-#: v2/templates/people/personview.php:1225
-#: v2/templates/people/personview.php:1367
+#: v2/templates/people/personview.php:1219
+#: v2/templates/people/personview.php:1299
+#: v2/templates/people/personview.php:1484
 msgid "Select"
 msgstr "Valitse"
 
@@ -11503,58 +11708,58 @@ msgid "No automatic payments configured yet."
 msgstr "Automaattisia maksuja ei ole vielä määritetty."
 
 #: v2/templates/people/familyview.php:766
-#: v2/templates/people/personview.php:1275
+#: v2/templates/people/personview.php:1364
 msgid "Add a new automatic payment"
 msgstr "Lisää uusi automaattinen maksu"
 
 #: v2/templates/people/familyview.php:775
-#: v2/templates/people/personview.php:1296
+#: v2/templates/people/personview.php:1399
 msgid "Show Pledges"
 msgstr "Näytä lupaukset"
 
 #: v2/templates/people/familyview.php:779
-#: v2/templates/people/personview.php:1300
+#: v2/templates/people/personview.php:1406
 msgid "Show Payments"
 msgstr "Näytä maksut"
 
 #: v2/templates/people/familyview.php:782
-#: v2/templates/people/personview.php:1303
+#: v2/templates/people/personview.php:1410
 msgid "From"
 msgstr "Osoitteesta"
 
 #: v2/templates/people/familyview.php:791
-#: v2/templates/people/personview.php:1312
+#: v2/templates/people/personview.php:1419
 msgid "To"
 msgstr "Osoitteeseen"
 
 #: v2/templates/people/familyview.php:814
-#: v2/templates/people/personview.php:1325
+#: v2/templates/people/personview.php:1436
 msgid "Add a new pledge"
 msgstr "Lisää uusi lupaus"
 
 #: v2/templates/people/familyview.php:816
-#: v2/templates/people/personview.php:1327
+#: v2/templates/people/personview.php:1438
 msgid "Add a new payment"
 msgstr "Lisää uusi maksu"
 
 #: v2/templates/people/familyview.php:824
-#: v2/templates/people/personview.php:1343
+#: v2/templates/people/personview.php:1456
 msgid " Canvass Entry"
 msgstr " Canvass Entry"
 
 #: v2/templates/people/familyview.php:986
-#: v2/templates/people/personview.php:1575
+#: v2/templates/people/personview.php:1721
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "Olet poistamassa profiilikuvaa, tämä toimenpide on peruuttamaton."
 
 #: v2/templates/people/familyview.php:987
-#: v2/templates/people/personview.php:1577
+#: v2/templates/people/personview.php:1723
 msgid "Do you want to proceed?"
 msgstr "Haluatteko jatkaa?"
 
 #: v2/templates/people/familyview.php:1002
-#: v2/templates/people/personview.php:1595
+#: v2/templates/people/personview.php:1741
 msgid "Request Family Info Verification"
 msgstr "Pyydä perheen tietojen vahvistusta"
 
@@ -11572,18 +11777,18 @@ msgstr ""
 
 #: v2/templates/people/familyview.php:1034
 #: v2/templates/people/familyview.php:1038
-#: v2/templates/people/personview.php:1609
-#: v2/templates/people/personview.php:1613
+#: v2/templates/people/personview.php:1755
+#: v2/templates/people/personview.php:1759
 msgid "Online Verification"
 msgstr "Verkkovarmennus"
 
 #: v2/templates/people/familyview.php:1045
-#: v2/templates/people/personview.php:1620
+#: v2/templates/people/personview.php:1766
 msgid "PDF Report"
 msgstr "PDF-raportti"
 
 #: v2/templates/people/familyview.php:1049
-#: v2/templates/people/personview.php:1624
+#: v2/templates/people/personview.php:1770
 msgid "Verified In Person"
 msgstr "Vahvistettu henkilökohtaisesti"
 
@@ -12103,7 +12308,7 @@ msgid "Red text"
 msgstr "Punainen teksti"
 
 #: v2/templates/people/personEditor.php:919
-#: v2/templates/people/personview.php:400
+#: v2/templates/people/personview.php:426
 msgid "indicates items inherited from the associated family record."
 msgstr "ilmaisee kohteet, jotka periytyvät siihen liittyvästä sukutietueesta."
 
@@ -12299,126 +12504,219 @@ msgstr ""
 msgid "Person Directory"
 msgstr "Henkilöhakemisto"
 
-#: v2/templates/people/personview.php:29
+#: v2/templates/people/personview.php:37
 msgid "This Person is Deactivated"
 msgstr "Tämä henkilö on poistettu käytöstä"
 
-#: v2/templates/people/personview.php:463
+#: v2/templates/people/personview.php:155
+#: v2/templates/people/personview.php:1192
+#: v2/templates/people/personview.php:1263
+msgid "assigned"
+msgstr "osoitettu"
+
+#: v2/templates/people/personview.php:185
+msgid "No group assignments yet."
+msgstr "Ei vielä ryhmätehtäviä."
+
+#: v2/templates/people/personview.php:444
+msgid ""
+"Use the quick actions to manage this profile, documents and assignments from "
+"one place."
+msgstr ""
+"Pikatoimintojen avulla voit hallita tätä profiilia, asiakirjoja ja tehtäviä "
+"yhdestä paikasta."
+
+#: v2/templates/people/personview.php:444
+msgid "Some sections remain hidden because this profile contains private data."
+msgstr ""
+"Jotkin kohdat pysyvät piilossa, koska tämä profiili sisältää yksityisiä "
+"tietoja."
+
+#: v2/templates/people/personview.php:504
 msgid "Printable Page"
 msgstr "Tulostettava sivu"
 
-#: v2/templates/people/personview.php:484
+#: v2/templates/people/personview.php:525
 msgid "Add a pastoral care note"
 msgstr "Lisää sielunhoidollinen huomautus"
 
-#: v2/templates/people/personview.php:506
+#: v2/templates/people/personview.php:547
 msgid "Assign this user to a group"
 msgstr "Määritä tämä käyttäjä ryhmään"
 
-#: v2/templates/people/personview.php:508
+#: v2/templates/people/personview.php:549
 msgid "Assign New Group"
 msgstr "Määritä uusi ryhmä"
 
-#: v2/templates/people/personview.php:533
+#: v2/templates/people/personview.php:574
 msgid "Create a CRM user"
 msgstr "Luo CRM-käyttäjä"
 
-#: v2/templates/people/personview.php:534
+#: v2/templates/people/personview.php:575
 msgid "Make User"
 msgstr "Tee käyttäjä"
 
-#: v2/templates/people/personview.php:542
+#: v2/templates/people/personview.php:583
 msgid "Add rights to this user"
 msgstr "Lisää oikeudet tälle käyttäjälle"
 
-#: v2/templates/people/personview.php:543
+#: v2/templates/people/personview.php:584
 msgid "Edit User"
 msgstr "Muokkaa käyttäjää"
 
-#: v2/templates/people/personview.php:554
+#: v2/templates/people/personview.php:595
 msgid " this Person"
 msgstr " tämä henkilö"
 
-#: v2/templates/people/personview.php:569
-#: v2/templates/people/personview.php:578
+#: v2/templates/people/personview.php:610
+#: v2/templates/people/personview.php:619
 msgid "Delete this Record"
 msgstr "Poista tämä tietue"
 
-#: v2/templates/people/personview.php:802
+#: v2/templates/people/personview.php:845
 msgid "click to download"
 msgstr "klikkaa ladataksesi"
 
-#: v2/templates/people/personview.php:961
+#: v2/templates/people/personview.php:867
+msgid "Family Circle"
+msgstr "Perhepiiri"
+
+#: v2/templates/people/personview.php:868
+msgid ""
+"See the rest of the household, their role and the fastest actions available."
+msgstr ""
+"Tutustu muuhun kotitalouteen, heidän rooliinsa ja käytettävissä oleviin "
+"nopeimpiin toimiin."
+
+#: v2/templates/people/personview.php:870
+msgid "other members"
+msgstr "muut jäsenet"
+
+#: v2/templates/people/personview.php:988
+msgid ""
+"Manage memberships, group-specific information and role changes from this "
+"section."
+msgstr ""
+"Hallitse jäsenyyksiä, ryhmäkohtaisia tietoja ja roolimuutoksia tästä osiosta."
+
+#: v2/templates/people/personview.php:1021
 msgid "Group actions"
 msgstr "Ryhmätoimet"
 
-#: v2/templates/people/personview.php:976
+#: v2/templates/people/personview.php:1036
 msgid "Change Role"
 msgstr "Vaihda rooli"
 
-#: v2/templates/people/personview.php:983
+#: v2/templates/people/personview.php:1043
 msgid "Update Properties"
 msgstr "Päivitä ominaisuudet"
 
-#: v2/templates/people/personview.php:1015
+#: v2/templates/people/personview.php:1075
 msgid "Group Informations"
 msgstr "Ryhmän tiedot"
 
-#: v2/templates/people/personview.php:1057
+#: v2/templates/people/personview.php:1117
 msgid "Person Informations"
 msgstr "Henkilötiedot"
 
-#: v2/templates/people/personview.php:1081
+#: v2/templates/people/personview.php:1141
 msgid "Modify Specific Properties"
 msgstr "Muokkaa tiettyjä ominaisuuksia"
 
-#: v2/templates/people/personview.php:1092
+#: v2/templates/people/personview.php:1152
 msgid "No specific group properties defined !"
 msgstr "Erityisiä ryhmän ominaisuuksia ei ole määritelty !"
 
-#: v2/templates/people/personview.php:1176
-#: v2/templates/people/personview.php:1244
+#: v2/templates/people/personview.php:1190
+msgid ""
+"Track the specific attributes already linked to this person and add new ones "
+"when needed."
+msgstr ""
+"Seuraa tähän henkilöön jo liitettyjä ominaisuuksia ja lisää tarvittaessa "
+"uusia."
+
+#: v2/templates/people/personview.php:1243
+#: v2/templates/people/personview.php:1318
 msgid "Assigning..."
 msgstr "Määrittäminen..."
 
-#: v2/templates/people/personview.php:1203
+#: v2/templates/people/personview.php:1261
+msgid ""
+"Keep volunteer assignments visible and assign new opportunities from the "
+"same place."
+msgstr ""
+"Pidä vapaaehtoistehtävät näkyvillä ja anna uusia mahdollisuuksia samasta "
+"paikasta."
+
+#: v2/templates/people/personview.php:1277
 msgid "No volunteer opportunity assignments."
 msgstr "Ei vapaaehtoistehtäviä."
 
-#: v2/templates/people/personview.php:1218
+#: v2/templates/people/personview.php:1292
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Määritä uusi vapaaehtoistoimintamahdollisuus"
 
-#: v2/templates/people/personview.php:1280
-#: v2/templates/people/personview.php:1332
+#: v2/templates/people/personview.php:1340
+msgid ""
+"Review recurring contributions and add a new payment setup when appropriate."
+msgstr "Tarkista toistuvat maksut ja lisää tarvittaessa uusi maksuasetus."
+
+#: v2/templates/people/personview.php:1357
+msgid "No automatic payments recorded for this person yet."
+msgstr "Tälle henkilölle ei ole vielä kirjattu automaattisia maksuja."
+
+#: v2/templates/people/personview.php:1370
+#: v2/templates/people/personview.php:1444
 msgid "You must set an address for this person"
 msgstr "Sinun on määritettävä tälle henkilölle osoite"
 
-#: v2/templates/people/personview.php:1368
+#: v2/templates/people/personview.php:1384
+msgid ""
+"Filter contributions by period and add a new pledge or payment directly from "
+"this tab."
+msgstr ""
+"Voit suodattaa maksuja jakson mukaan ja lisätä uuden lupauksen tai maksun "
+"suoraan tältä välilehdeltä."
+
+#: v2/templates/people/personview.php:1476
+msgid "Timeline Documents"
+msgstr "Aikajana Asiakirjat"
+
+#: v2/templates/people/personview.php:1480
+msgid "Filter notes, audio, video and shared documents from a single stream."
+msgstr ""
+"Suodata muistiinpanoja, ääntä, videota ja jaettuja asiakirjoja yhdestä "
+"virrasta."
+
+#: v2/templates/people/personview.php:1485
 msgid "Filter your documents by : "
 msgstr "Suodata asiakirjoja :"
 
-#: v2/templates/people/personview.php:1369
+#: v2/templates/people/personview.php:1486
 msgid "All type"
 msgstr "Kaikki tyypit"
 
-#: v2/templates/people/personview.php:1374
+#: v2/templates/people/personview.php:1491
 msgid "Shared documents"
 msgstr "Jaetut asiakirjat"
 
-#: v2/templates/people/personview.php:1425
+#: v2/templates/people/personview.php:1499
+msgid "No documents or notes available yet."
+msgstr "Asiakirjoja tai muistiinpanoja ei ole vielä saatavilla."
+
+#: v2/templates/people/personview.php:1556
 msgid "Share this document to another user"
 msgstr "Jaa tämä asiakirja toiselle käyttäjälle"
 
-#: v2/templates/people/personview.php:1434
+#: v2/templates/people/personview.php:1565
 msgid "Export this document to word Format"
 msgstr "Vie tämä asiakirja word-muotoon"
 
-#: v2/templates/people/personview.php:1478
+#: v2/templates/people/personview.php:1621
 msgid "Last modification by"
 msgstr "Viimeisin muutos"
 
-#: v2/templates/people/personview.php:1600
+#: v2/templates/people/personview.php:1746
 msgid "Select how do you want to request the person information to be verified"
 msgstr "Valitse, miten haluat pyytää henkilön tietoja tarkistettavaksi."
 
@@ -15491,6 +15789,12 @@ msgstr "Useita päiviä"
 msgid "Giving Report"
 msgstr "Antaminen Raportti"
 
+#~ msgid "Clone roles"
+#~ msgstr "Kloonausroolit"
+
+#~ msgid "from group"
+#~ msgstr "ryhmästä"
+
 #~ msgid "You have"
 #~ msgstr "Sinulla on"
 
@@ -15735,9 +16039,6 @@ msgstr "Antaminen Raportti"
 
 #~ msgid "Update Family Latitude or Longitude now."
 #~ msgstr "Päivitä perheen leveys- tai pituusaste nyt."
-
-#~ msgid "of members"
-#~ msgstr "jäsenistä"
 
 #~ msgid "to contact"
 #~ msgstr "ottaa yhteyttä"
@@ -16362,9 +16663,6 @@ msgstr "Antaminen Raportti"
 #~ msgid "Lonely"
 #~ msgstr "Yksinäinen"
 
-#~ msgid "Person not reached"
-#~ msgstr "Henkilö, jota ei ole tavoitettu"
-
 #~ msgid "Family not reached"
 #~ msgstr "Perhettä ei tavoitettu"
 
@@ -16421,9 +16719,6 @@ msgstr "Antaminen Raportti"
 
 #~ msgid "Attendees for Event ID:"
 #~ msgstr "Osallistujat tapahtuman ID:"
-
-#~ msgid "Toggle navigation"
-#~ msgstr "Toggle navigation"
 
 #~ msgid "Change Custom Settings"
 #~ msgstr "Muuta mukautettuja asetuksia"
@@ -17011,9 +17306,6 @@ msgstr "Antaminen Raportti"
 
 #~ msgid "Your Cart is Empty"
 #~ msgstr "Ostoskori on tyhjä"
-
-#~ msgid "assigned"
-#~ msgstr "osoitettu"
 
 #~ msgid "Please confirm reset failed login count"
 #~ msgstr "Vahvista nollaa epäonnistunut kirjautuminen"

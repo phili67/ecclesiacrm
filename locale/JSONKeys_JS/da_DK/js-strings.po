@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -668,8 +668,20 @@ msgstr "Fejltekst"
 msgid "Stack Trace"
 msgstr "Sporing af stakken"
 
-msgid "ERROR"
-msgstr "FEJL"
+msgid "The application could not complete this API request."
+msgstr "Programmet kunne ikke gennemføre denne API-anmodning."
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Please confirm"
+msgstr "Bekræft venligst"
+
+msgid "Update information"
+msgstr "Opdater information"
+
+msgid "Make a selection"
+msgstr "Foretag et valg"
 
 msgid "In progress"
 msgstr "Igangværende"
@@ -690,8 +702,18 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Der var et problem med at hente det ønskede objekt"
 
-msgid "Select the method to add to a group"
-msgstr "Vælg den metode, der skal tilføjes til en gruppe"
+msgid "Add cart to a group"
+msgstr "Tilføj indkøbskurv til en gruppe"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+"Vælg, om du vil føje vognen til en eksisterende gruppe eller oprette en ny "
+"direkte fra vognen."
+
+msgid "Action"
+msgstr "Handling"
 
 msgid "Select an existing Group"
 msgstr "Vælg en eksisterende gruppe"
@@ -699,14 +721,19 @@ msgstr "Vælg en eksisterende gruppe"
 msgid "or Create a new Group from the Cart"
 msgstr "eller Opret en ny gruppe fra indkøbskurven"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Vælg den gruppe, som du ønsker at tilføje din kurv til"
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr ""
+"Vælg destinationsgruppen og den rolle, der skal tildeles vognens medlemmer."
 
 msgid "Select Group"
 msgstr "Vælg gruppe"
 
 msgid "Select Role"
 msgstr "Vælg rolle"
+
+msgid "Create a new group and move the current cart into it."
+msgstr "Opret en ny gruppe, og flyt den nuværende vogn over i den."
 
 msgid "Group Name"
 msgstr "Gruppens navn"
@@ -717,43 +744,73 @@ msgstr "Standardnavn Gruppe"
 msgid "Add Cart to Group"
 msgstr "Tilføj kurv til gruppe"
 
-msgid "You have to select one group and a group role if you want"
-msgstr "Du skal vælge en gruppe og en rolle for en gruppe, hvis du vil"
+msgid "Missing selection"
+msgstr "Manglende udvælgelse"
 
-msgid "You have to set a Group Name"
-msgstr "Du skal angive et gruppenavn"
+msgid "You need to select both a group and a role before continuing."
+msgstr "Du skal vælge både en gruppe og en rolle, før du fortsætter."
 
-msgid "Do you really want to deactivate the persons?"
-msgstr "Ønsker du virkelig at deaktivere personerne?"
+msgid "Group name required"
+msgstr "Gruppenavn påkrævet"
 
-msgid "This action can be undone !!!!"
-msgstr "Denne handling kan annulleres !!!!"
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "Indtast et gruppenavn, før du opretter en ny gruppe fra indkøbskurven."
 
-msgid "Yes : if you're sure"
-msgstr "Ja : hvis du er sikker"
+msgid "Deactivate cart persons"
+msgstr "Deaktiver vognens personer"
 
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Ønsker du virkelig at slette personerne fra CRM?"
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr "Vil du virkelig deaktivere alle personer, der er i indkøbskurven?"
 
-msgid "This action cannot be undone !!!!"
-msgstr "Denne handling kan ikke fortrydes !!!!"
+msgid "This action can be undone later if needed."
+msgstr "Denne handling kan fortrydes senere, hvis det er nødvendigt."
 
-msgid "Select the event to which you would like to add your cart"
-msgstr "Vælg den begivenhed, som du ønsker at tilføje din kurv til"
+msgid "Keep active"
+msgstr "Hold dig aktiv"
 
-msgid "Create First A New Event"
-msgstr "Opret først en ny begivenhed"
+msgid "Deactivate persons"
+msgstr "Deaktiver personer"
+
+msgid "Delete cart persons"
+msgstr "Slet personer i vognen"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr ""
+"Vil du virkelig slette alle personer, der ligger i indkøbskurven, fra CRM?"
+
+msgid "This action cannot be undone."
+msgstr "Denne handling kan ikke fortrydes."
+
+msgid "Keep persons"
+msgstr "Behold personer"
+
+msgid "Delete persons"
+msgstr "Slet personer"
+
+msgid "Add cart to event"
+msgstr "Tilføj indkøbskurv til begivenhed"
+
+msgid "Select the event that should receive the current cart."
+msgstr "Vælg den begivenhed, der skal modtage den aktuelle vogn."
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+"Du kan også oprette en ny begivenhed først og derefter vende tilbage hertil "
+"for at tildele vognen."
+
+msgid "Event"
+msgstr "Begivenhed"
+
+msgid "Choose one of the available events from the list below."
+msgstr "Vælg en af de tilgængelige begivenheder fra listen nedenfor."
+
+msgid "Create new event"
+msgstr "Opret ny begivenhed"
 
 msgid "Add to Event"
 msgstr "Tilføj til begivenhed"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Du kan tilføje indholdet af indkøbskurven til den valgte begivenhed "
-"nedenfor<br> - ELLER - <br>Og først oprette en begivenhed og tilføje dem "
-"derefter."
 
 msgid "Register"
 msgstr "Registrer"
@@ -809,6 +866,16 @@ msgstr "Se alle"
 msgid "Your Cart is Empty"
 msgstr "Din indkøbskurv er tom"
 
+msgid "Software registration"
+msgstr "Registrering af software"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"Gennemgå registreringsoplysningerne nedenfor, før du sender dem. Disse "
+"oplysninger bruges kun til at spore brugen af denne software."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr ""
 "Hvis du har brug for at foretage ændringer i registreringsdata, skal du gå "
@@ -816,16 +883,6 @@ msgstr ""
 
 msgid "Admin->Edit General Settings"
 msgstr "Admin->Rediger generelle indstillinger"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Registrer venligst din kopi af CRM ved at tjekke disse oplysninger og trykke "
-"på Send-knappen."
-
-msgid "This information is used only to track the usage of this software."
-msgstr "Disse oplysninger bruges kun til at spore brugen af denne software."
 
 msgid "Church Name"
 msgstr "Kirkens navn"
@@ -863,14 +920,39 @@ msgstr "Din software er nu registreret. Tak!"
 msgid "Select Volunteer Opportunity"
 msgstr "Vælg mulighed for frivilligt arbejde"
 
-msgid "Please select target volunteers for members"
-msgstr "Vælg venligst målgruppe for frivillige medlemmer"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "Vælg den frivillige mulighed, der skal tildeles."
 
-msgid "Please select target group for members"
-msgstr "Vælg venligst målgruppe for medlemmer"
+msgid "This selection will be applied to the current members."
+msgstr "Dette valg vil blive anvendt på de nuværende medlemmer."
 
-msgid "Please select target Role for members"
-msgstr "Vælg venligst målrolle for medlemmer"
+msgid "Volunteer opportunity"
+msgstr "Mulighed for frivilligt arbejde"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr "Vælg den ønskede frivillige mulighed fra den tilgængelige liste."
+
+msgid "Choose the destination for the selected members."
+msgstr "Vælg destinationen for de valgte medlemmer."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+"Brug felterne nedenfor til at vælge en gruppe, en rolle eller begge dele "
+"afhængigt af handlingen."
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Select the target group for the selected members."
+msgstr "Vælg målgruppen for de valgte medlemmer."
+
+msgid "Role"
+msgstr "Rolle"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "Vælg den rolle, der skal tildeles i den valgte gruppe."
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroupID er påkrævet for at kunne vælge en rolle"
@@ -878,11 +960,21 @@ msgstr "GroupID er påkrævet for at kunne vælge en rolle"
 msgid "Select Group and Role"
 msgstr "Vælg gruppe og rolle"
 
-msgid "Add A Group Name"
-msgstr "Tilføj et gruppenavn"
+msgid "Select both the destination group and the role to apply."
+msgstr "Vælg både destinationsgruppen og den rolle, der skal anvendes."
 
-msgid "Yes"
-msgstr "Ja"
+msgid "Create a group"
+msgstr "Opret en gruppe"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr ""
+"Indtast navnet på den nye gruppe, der skal oprettes fra det aktuelle "
+"workflow."
+
+msgid "Create group"
+msgstr "Opret gruppe"
 
 msgid "Calendar Event"
 msgstr "Kalenderbegivenhed"
@@ -1011,6 +1103,9 @@ msgstr "gemt med succes"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "Du er ved at sende din kampagne! Er du sikker?"
+
+msgid "Yes"
+msgstr "Ja"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Du er ved at slette din kampagne! Er du sikker?"
@@ -1443,9 +1538,6 @@ msgstr "Den relaterede fremmødehistorik kan også blive påvirket."
 msgid "Photo"
 msgstr "Foto"
 
-msgid "Action"
-msgstr "Handling"
-
 msgid "Attendance actions"
 msgstr "Tilstedeværelseshandlinger"
 
@@ -1504,9 +1596,6 @@ msgstr "Flyt en i det rigtige område."
 
 msgid "Create one."
 msgstr "Opret en."
-
-msgid "Group"
-msgstr "Gruppe"
 
 msgid "User"
 msgstr "Bruger"
@@ -1826,9 +1915,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Deaktivere gruppespecifikke egenskaber"
 
-msgid "Role"
-msgstr "Rolle"
-
 msgid "Please enter a role name."
 msgstr "Indtast venligst et rollenavn."
 
@@ -2004,6 +2090,18 @@ msgstr "Er du sikker på, at du ønsker at slette alle ledere?"
 msgid "Appointment"
 msgstr "Udnævnelse"
 
+msgid "Pastoral Care"
+msgstr "Sjælesorg"
+
+msgid "Open the pastoral care record"
+msgstr "Åbn journalen for sjælesorg"
+
+msgid "No records found for this view."
+msgstr "Ingen optegnelser fundet for denne visning."
+
+msgid "No matching records found."
+msgstr "Ingen matchende optegnelser fundet."
+
 msgid "Never contacted"
 msgstr "Aldrig kontaktet"
 
@@ -2015,6 +2113,22 @@ msgstr "Besøg/samtaler"
 
 msgid "Last visit/call"
 msgstr "Sidste besøg/opkald"
+
+msgid "Opening..."
+msgstr "Åbning..."
+
+msgid "Selecting..."
+msgstr "At vælge..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+"Der kunne ikke udarbejdes nogen matchende sjælesorgsjournal lige nu. Prøv "
+"venligst en anden kategori."
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr "Det er ikke muligt at starte en sjælesorgsaktion i øjeblikket."
 
 msgid "Delete Pastoral Care Type"
 msgstr "Slet Pastoral Care Type"
@@ -2078,6 +2192,22 @@ msgstr ""
 "Ikke alle familierne er blevet SLEJTET : Nogle af dem har optegnelser over "
 "donationer og kan IKKE blive slettet, før disse donationer er knyttet til en "
 "anden familie."
+
+msgid "Review family member information"
+msgstr "Gennemgå oplysninger om familiemedlemmer"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+"Tjek de viste oplysninger, og opdater dette familiemedlem, hvis det er "
+"nødvendigt, før du gemmer."
+
+msgid "Update family member details"
+msgstr "Opdater oplysninger om familiemedlemmer"
+
+msgid "Save changes"
+msgstr "Gem ændringer"
 
 msgid "Confirm Deactivation"
 msgstr "Bekræft deaktivering"
@@ -2260,6 +2390,28 @@ msgstr ""
 "donationer og kan IKKE slettes, før disse donationer er knyttet til en anden "
 "familie."
 
+msgid "Review personal information"
+msgstr "Gennemgå personlige oplysninger"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+"Tjek de aktuelle værdier, og opdater de felter, der skal rettes, før du "
+"gemmer."
+
+msgid "Profile information"
+msgstr "Oplysninger om profilen"
+
+msgid "Additional information"
+msgstr "Yderligere information"
+
+msgid "Update personal details"
+msgstr "Opdater personlige oplysninger"
+
+msgid "Processing..."
+msgstr "Behandling..."
+
 msgid "Please confirm deactivation of person"
 msgstr "Bekræft venligst deaktivering af person"
 
@@ -2281,8 +2433,29 @@ msgstr "Deaktivere"
 msgid "Activate"
 msgstr "Aktivér"
 
+msgid "Deactivating..."
+msgstr "Deaktivering..."
+
+msgid "Activating..."
+msgstr "Aktiverer..."
+
+msgid "Unable to update this person status."
+msgstr "Kan ikke opdatere denne persons status."
+
+msgid "Deleting..."
+msgstr "Sletning..."
+
+msgid "Unable to delete the photo."
+msgstr "Det er ikke muligt at slette billedet."
+
+msgid "Preview the current profile photo."
+msgstr "Se et eksempel på det aktuelle profilbillede."
+
 msgid "Property actions"
 msgstr "Ejendomshandlinger"
+
+msgid "Please select a property first."
+msgstr "Vælg venligst en ejendom først."
 
 msgid "Assigning..."
 msgstr "Tildeling af..."
@@ -2290,29 +2463,209 @@ msgstr "Tildeling af..."
 msgid "Assign"
 msgstr "Tildel"
 
-msgid "Are you sure you want to remove this person's membership from"
-msgstr "Er du sikker på, at du ønsker at fjerne denne persons medlemskab fra"
+msgid "Unable to assign this property."
+msgstr "Det er ikke muligt at tildele denne egenskab."
+
+msgid "Remove group assignment"
+msgstr "Fjern gruppetildeling"
+
+msgid "Remove this person from the group"
+msgstr "Fjern denne person fra gruppen"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
+msgstr ""
+"Medlemskabet og enhver rolle, der er knyttet til denne gruppe, vil blive "
+"fjernet for denne person."
+
+msgid "Remove from group"
+msgstr "Fjern fra gruppen"
+
+msgid "Keep assignment"
+msgstr "Behold opgaven"
+
+msgid "Share your document"
+msgstr "Del dit dokument"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+"Vælg modtagere, definer deres adgang og bestem, om de skal modtage en e-"
+"mailnotifikation."
+
+msgid "Current access"
+msgstr "Aktuel adgang"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+"Vælg en eller flere modtagere for at opdatere deres adgang eller fjerne dem."
+
+msgid "Set rights"
+msgstr "Indstil rettigheder"
+
+msgid "Read and write"
+msgstr "Læse og skrive"
+
+msgid "Notification"
+msgstr "Meddelelse"
+
+msgid "Add people, families or groups"
+msgstr "Tilføj personer, familier eller grupper"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+"Søg på navn for at give adgang til en anden person, en familie eller en hel "
+"gruppe."
+
+msgid "Please select at least one recipient first."
+msgstr "Vælg venligst mindst én modtager først."
+
+msgid "Remove shared access"
+msgstr "Fjern delt adgang"
+
+msgid "Remove access for the selected recipients?"
+msgstr "Fjerne adgang for de valgte modtagere?"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+"Kun de valgte modtagere vil blive fjernet. Dokumentet vil fortsat blive delt "
+"med alle andre modtagere."
+
+msgid "Remove access"
+msgstr "Fjern adgang"
+
+msgid "Keep access"
+msgstr "Hold adgang"
+
+msgid "Stop sharing this document"
+msgstr "Stop med at dele dette dokument"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "Stop med at dele dette dokument med alle?"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+"Alle nuværende modtagere vil miste adgangen med det samme. Selve dokumentet "
+"vil fortsat være tilgængeligt for dig."
+
+msgid "Keep sharing"
+msgstr "Bliv ved med at dele"
 
 msgid "Share your Document"
 msgstr "Del dit dokument"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Er du sikker? Er du ved at slette denne person?"
+msgid "Unassign property"
+msgstr "Fjern tildeling af ejendom"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Er du sikker? Er du ved at stoppe med at dele dit dokument?"
+msgid "Remove this property from the current person?"
+msgstr "Fjerne denne egenskab fra den aktuelle person?"
+
+msgid "The property value will be removed from this profile."
+msgstr "Egenskabens værdi fjernes fra denne profil."
+
+msgid "Remove property"
+msgstr "Fjern ejendom"
+
+msgid "Keep property"
+msgstr "Behold din ejendom"
+
+msgid "Edit property value"
+msgstr "Rediger egenskabsværdi"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+"Opdater den værdi, der er gemt for denne egenskab på den aktuelle "
+"personprofil."
+
+msgid "Save property"
+msgstr "Gem ejendom"
 
 msgid "Change classification"
 msgstr "Ændring af klassifikation"
 
-msgid "Change role"
-msgstr "Ændre rolle"
+msgid "Choose the classification that best matches this person profile."
+msgstr "Vælg den klassifikation, der passer bedst til denne persons profil."
+
+msgid "Update classification"
+msgstr "Opdater klassificering"
+
+msgid "Change family role"
+msgstr "Ændre familiens rolle"
+
+msgid "Select the role this person should have inside the family record."
+msgstr "Vælg den rolle, denne person skal have i familieoptegnelsen."
+
+msgid "Update role"
+msgstr "Opdatering af rolle"
 
 msgid "Volunteer actions"
 msgstr "Frivillige handlinger"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "Bekræft Slet frivillig Mulighed"
+msgid "Remove volunteer opportunity"
+msgstr "Fjern mulighed for frivilligt arbejde"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Fjerne denne frivillige mulighed fra personen?"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "Opgaven vil kun blive fjernet fra denne profil."
+
+msgid "Remove assignment"
+msgstr "Fjern opgaven"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr "Vælg venligst mindst én frivillig mulighed først."
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Kan ikke tildele de valgte muligheder for frivilligt arbejde."
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Nogle muligheder for frivilligt arbejde kunne ikke tildeles."
+
+msgid "Delete automatic payment"
+msgstr "Slet automatisk betaling"
+
+msgid "Delete this automatic payment setup?"
+msgstr "Slet denne automatiske betalingsopsætning?"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+"Tilbagevendende betalinger, der er knyttet til denne opsætning, stopper "
+"efter sletning."
+
+msgid "Delete payment"
+msgstr "Slet betaling"
+
+msgid "Keep payment"
+msgstr "Behold betalingen"
+
+msgid "Delete pledge or payment"
+msgstr "Slet pant eller betaling"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "Slet dette tilsagn eller denne betalingspost?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr "Denne post vil blive fjernet fra bidragshistorikken for denne familie."
+
+msgid "Delete entry"
+msgstr "Slet post"
+
+msgid "Keep entry"
+msgstr "Behold posten"
+
+msgid "Share this secure verification link with the person."
+msgstr "Del dette sikre bekræftelseslink med personen."
 
 msgid "Comments"
 msgstr "Kommentarer"
@@ -2325,14 +2678,29 @@ msgid ""
 msgstr ""
 "Du er ved at slette de valgte plugins. Denne handling kan ikke fortrydes!"
 
-msgid "Select your zipped plugin file"
-msgstr "Vælg din komprimerede plugin-fil"
+msgid "Update plugin"
+msgstr "Opdater plugin"
 
-msgid "Download the zipped file of the plugin"
-msgstr "Download den komprimerede fil af plugin'et"
+msgid "Add plugin"
+msgstr "Tilføj plugin"
 
-msgid "Plugin download manager"
-msgstr "Plugin download manager"
+msgid "Choose the new zipped package to update this plugin."
+msgstr "Vælg den nye zippede pakke for at opdatere dette plugin."
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "Vælg en zippet plugin-pakke for at installere den i dit CRM."
+
+msgid "Plugin archive"
+msgstr "Plugin-arkiv"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "Kun zippede plugin-pakker bør vælges her."
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "Uploaden starter, så snart du har indsendt denne formular."
+
+msgid "Plugin manager"
+msgstr "Plugin-manager"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Den aktuelle mappe med billeder er nu den offentlige mappe !!!!"
@@ -2635,6 +3003,9 @@ msgstr "Tilføj lærere til indkøbskurv"
 msgid "Select the event Type you would like to use to create the Attendance"
 msgstr "Vælg den begivenhedstype, du vil bruge til at oprette fremmøde"
 
+msgid "Create First A New Event"
+msgstr "Opret først en ny begivenhed"
+
 msgid "Create Event With Students"
 msgstr "Opret begivenhed med studerende"
 
@@ -2736,9 +3107,6 @@ msgstr "Aktuel begivenhed"
 
 msgid "No assignments for kiosk"
 msgstr "Ingen opgaver til kiosk"
-
-msgid "Event"
-msgstr "Begivenhed"
 
 msgid "Kiosk Name"
 msgstr "Kioskens navn"
@@ -2955,6 +3323,58 @@ msgid ""
 msgstr ""
 "Alle medlemskaber vil blive ødelagt.  Medlemmerne selv vil ikke blive ændret."
 
+#~ msgid "ERROR"
+#~ msgstr "FEJL"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Vælg den gruppe, som du ønsker at tilføje din kurv til"
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "Du skal angive et gruppenavn"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Ja : hvis du er sikker"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "Du kan tilføje indholdet af indkøbskurven til den valgte begivenhed "
+#~ "nedenfor<br> - ELLER - <br>Og først oprette en begivenhed og tilføje dem "
+#~ "derefter."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Registrer venligst din kopi af CRM ved at tjekke disse oplysninger og "
+#~ "trykke på Send-knappen."
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Vælg venligst målgruppe for frivillige medlemmer"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Vælg venligst målrolle for medlemmer"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Tilføj et gruppenavn"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr ""
+#~ "Er du sikker på, at du ønsker at fjerne denne persons medlemskab fra"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Er du sikker? Er du ved at slette denne person?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "Er du sikker? Er du ved at stoppe med at dele dit dokument?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "Bekræft Slet frivillig Mulighed"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Vælg din komprimerede plugin-fil"
+
 #~ msgid "Personal"
 #~ msgstr "Personligt"
 
@@ -3023,9 +3443,6 @@ msgstr ""
 #~ msgid "Songs"
 #~ msgstr "Sange"
 
-#~ msgid "Remove all"
-#~ msgstr "Fjern alle"
-
 #~ msgid "Add all"
 #~ msgstr "Tilføj alle"
 
@@ -3055,9 +3472,6 @@ msgstr ""
 
 #~ msgid "Share your File"
 #~ msgstr "Del din fil"
-
-#~ msgid "Members from group"
-#~ msgstr "Medlemmer fra gruppen"
 
 #~ msgid "Add person"
 #~ msgstr "Tilføj person"

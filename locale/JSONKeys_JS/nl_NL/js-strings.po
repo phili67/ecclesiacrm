@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -683,8 +683,20 @@ msgstr "Fout tekst"
 msgid "Stack Trace"
 msgstr "Stack Trace"
 
-msgid "ERROR"
-msgstr "ERROR"
+msgid "The application could not complete this API request."
+msgstr "De applicatie kon dit API-verzoek niet voltooien."
+
+msgid "Information"
+msgstr "Informatie"
+
+msgid "Please confirm"
+msgstr "Bevestigen a.u.b."
+
+msgid "Update information"
+msgstr "Informatie bijwerken"
+
+msgid "Make a selection"
+msgstr "Maak een selectie"
 
 msgid "In progress"
 msgstr "In uitvoering"
@@ -705,8 +717,18 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Er was een probleem met het ophalen van het gevraagde object"
 
-msgid "Select the method to add to a group"
-msgstr "Selecteer de methode om aan een groep toe te voegen"
+msgid "Add cart to a group"
+msgstr "Winkelwagen toevoegen aan een groep"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+"Kies of u de winkelwagen wilt toevoegen aan een bestaande groep of direct "
+"vanuit de winkelwagen een nieuwe groep wilt aanmaken."
+
+msgid "Action"
+msgstr "Actie"
 
 msgid "Select an existing Group"
 msgstr "Selecteer een bestaande groep"
@@ -714,14 +736,20 @@ msgstr "Selecteer een bestaande groep"
 msgid "or Create a new Group from the Cart"
 msgstr "of Maak een nieuwe groep vanuit de Winkelwagen"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Selecteer de groep waaraan u uw winkelwagentje wilt toevoegen"
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr ""
+"Selecteer de bestemmingsgroep en de rol die moet worden toegewezen aan de "
+"leden van de wagen."
 
 msgid "Select Group"
 msgstr "Selecteer groep"
 
 msgid "Select Role"
 msgstr "Selecteer rol"
+
+msgid "Create a new group and move the current cart into it."
+msgstr "Maak een nieuwe groep en verplaats de huidige wagen daarheen."
 
 msgid "Group Name"
 msgstr "Naam van de groep"
@@ -732,43 +760,77 @@ msgstr "Standaard Naam Groep"
 msgid "Add Cart to Group"
 msgstr "Toevoegen aan groep"
 
-msgid "You have to select one group and a group role if you want"
-msgstr "U moet een groep en een groepsrol selecteren als u"
+msgid "Missing selection"
+msgstr "Ontbrekende selectie"
 
-msgid "You have to set a Group Name"
-msgstr "U moet een groepsnaam instellen"
+msgid "You need to select both a group and a role before continuing."
+msgstr ""
+"Je moet zowel een groep als een rol selecteren voordat je verder kunt gaan."
 
-msgid "Do you really want to deactivate the persons?"
-msgstr "Wil je echt de personen deactiveren?"
+msgid "Group name required"
+msgstr "Groepsnaam verplicht"
 
-msgid "This action can be undone !!!!"
-msgstr "Deze actie kan ongedaan worden gemaakt !!!!"
+msgid "Enter a group name before creating a new group from the cart."
+msgstr ""
+"Voer een groepsnaam in voordat u een nieuwe groep aanmaakt vanuit de "
+"winkelwagen."
 
-msgid "Yes : if you're sure"
-msgstr "Ja : als je zeker bent"
+msgid "Deactivate cart persons"
+msgstr "Wagen personen deactiveren"
 
-msgid "Do you really want to delete the persons from the CRM?"
-msgstr "Wilt u de personen echt uit het CRM verwijderen?"
+msgid "Do you really want to deactivate all persons currently in the cart?"
+msgstr "Wilt u echt alle personen in de winkelwagen deactiveren?"
 
-msgid "This action cannot be undone !!!!"
-msgstr "Deze actie kan niet ongedaan worden gemaakt !!!!"
+msgid "This action can be undone later if needed."
+msgstr "Deze actie kan later ongedaan worden gemaakt indien nodig."
 
-msgid "Select the event to which you would like to add your cart"
-msgstr "Selecteer het evenement waaraan u uw winkelwagen wilt toevoegen"
+msgid "Keep active"
+msgstr "Actief blijven"
 
-msgid "Create First A New Event"
-msgstr "Maak eerst een nieuw evenement"
+msgid "Deactivate persons"
+msgstr "Personen deactiveren"
+
+msgid "Delete cart persons"
+msgstr "Wagens verwijderen"
+
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
+msgstr ""
+"Wil je echt alle personen die zich momenteel in de winkelwagen bevinden uit "
+"het CRM verwijderen?"
+
+msgid "This action cannot be undone."
+msgstr "Deze actie kan niet ongedaan worden gemaakt."
+
+msgid "Keep persons"
+msgstr "Personen houden"
+
+msgid "Delete persons"
+msgstr "Personen verwijderen"
+
+msgid "Add cart to event"
+msgstr "Winkelwagen toevoegen aan evenement"
+
+msgid "Select the event that should receive the current cart."
+msgstr "Selecteer het evenement dat de huidige winkelwagen moet ontvangen."
+
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+"Je kunt ook eerst een nieuw evenement aanmaken en dan hier terugkeren om de "
+"winkelwagen toe te wijzen."
+
+msgid "Event"
+msgstr "Evenement"
+
+msgid "Choose one of the available events from the list below."
+msgstr "Kies een van de beschikbare evenementen uit de onderstaande lijst."
+
+msgid "Create new event"
+msgstr "Nieuw evenement maken"
 
 msgid "Add to Event"
 msgstr "Toevoegen aan evenement"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"U kunt de inhoud van de winkelwagen toevoegen aan de geselecteerde "
-"gebeurtenis hieronder<br> - OF - <br>Maak eerst een gebeurtenis en voeg ze "
-"daarna toe."
 
 msgid "Register"
 msgstr "Registreren"
@@ -824,24 +886,23 @@ msgstr "Bekijk alle"
 msgid "Your Cart is Empty"
 msgstr "Uw mandje is leeg"
 
+msgid "Software registration"
+msgstr "Software registratie"
+
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr ""
+"Controleer de onderstaande registratiegegevens voordat je ze verstuurt. Deze "
+"informatie wordt alleen gebruikt om het gebruik van deze software bij te "
+"houden."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr ""
 "Als u wijzigingen in de registratiegegevens wilt aanbrengen, ga dan naar"
 
 msgid "Admin->Edit General Settings"
 msgstr "Admin->Algemene instellingen bewerken"
-
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Registreer uw exemplaar van CRM door deze informatie te controleren en op de "
-"knop Verzenden te drukken."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Deze informatie wordt alleen gebruikt om het gebruik van deze software te "
-"volgen."
 
 msgid "Church Name"
 msgstr "Naam van de kerk"
@@ -879,14 +940,39 @@ msgstr "Uw software is nu geregistreerd. Dank U !"
 msgid "Select Volunteer Opportunity"
 msgstr "Selecteer Vrijwilligerswerk"
 
-msgid "Please select target volunteers for members"
-msgstr "Selecteer vrijwilligers voor leden"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "Selecteer de vrijwilligersmogelijkheid die moet worden toegewezen."
 
-msgid "Please select target group for members"
-msgstr "Selecteer de doelgroep voor leden"
+msgid "This selection will be applied to the current members."
+msgstr "Deze selectie wordt toegepast op de huidige leden."
 
-msgid "Please select target Role for members"
-msgstr "Selecteer de doelrol voor leden"
+msgid "Volunteer opportunity"
+msgstr "Vrijwilligerswerk"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr "Kies de gewenste vrijwilligersmogelijkheid uit de beschikbare lijst."
+
+msgid "Choose the destination for the selected members."
+msgstr "Kies de bestemming voor de geselecteerde leden."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+"Gebruik de onderstaande velden om een groep, een rol of beide te selecteren, "
+"afhankelijk van de actie."
+
+msgid "Group"
+msgstr "Groep"
+
+msgid "Select the target group for the selected members."
+msgstr "Selecteer de doelgroep voor de geselecteerde leden."
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "Selecteer de rol die moet worden toegewezen binnen de gekozen groep."
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroepID vereist voor rolselectie prompt"
@@ -894,11 +980,21 @@ msgstr "GroepID vereist voor rolselectie prompt"
 msgid "Select Group and Role"
 msgstr "Selecteer groep en rol"
 
-msgid "Add A Group Name"
-msgstr "Een groepsnaam toevoegen"
+msgid "Select both the destination group and the role to apply."
+msgstr "Selecteer zowel de bestemmingsgroep als de rol die je wilt toepassen."
 
-msgid "Yes"
-msgstr "Ja"
+msgid "Create a group"
+msgstr "Een groep maken"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr ""
+"Voer de naam in van de nieuwe groep die moet worden gemaakt van de huidige "
+"workflow."
+
+msgid "Create group"
+msgstr "Groep maken"
 
 msgid "Calendar Event"
 msgstr "Kalender"
@@ -1027,6 +1123,9 @@ msgstr "succesvol opgeslagen"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "U staat op het punt om uw campagne te versturen! Ben je zeker ?"
+
+msgid "Yes"
+msgstr "Ja"
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Je staat op het punt om je campagne te verwijderen! Ben je zeker ?"
@@ -1458,9 +1557,6 @@ msgstr "Gerelateerde aanwezigheidsgeschiedenis kan ook worden beïnvloed."
 msgid "Photo"
 msgstr "Foto"
 
-msgid "Action"
-msgstr "Actie"
-
 msgid "Attendance actions"
 msgstr "Aanwezigheidsacties"
 
@@ -1520,9 +1616,6 @@ msgstr "Verplaats er een in het juiste bereik."
 
 msgid "Create one."
 msgstr "Maak er een."
-
-msgid "Group"
-msgstr "Groep"
 
 msgid "User"
 msgstr "Gebruiker"
@@ -1846,9 +1939,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Groepsspecifieke eigenschappen uitschakelen"
 
-msgid "Role"
-msgstr "Rol"
-
 msgid "Please enter a role name."
 msgstr "Voer een rolnaam in."
 
@@ -2022,6 +2112,18 @@ msgstr "Weet je zeker dat je alle managers wilt verwijderen?"
 msgid "Appointment"
 msgstr "Afspraak"
 
+msgid "Pastoral Care"
+msgstr "Pastorale zorg"
+
+msgid "Open the pastoral care record"
+msgstr "Open het pastorale zorgdossier"
+
+msgid "No records found for this view."
+msgstr "Geen records gevonden voor deze weergave."
+
+msgid "No matching records found."
+msgstr "Geen overeenkomende records gevonden."
+
 msgid "Never contacted"
 msgstr "Nooit contact opgenomen"
 
@@ -2033,6 +2135,22 @@ msgstr "Bezoeken/oproepen"
 
 msgid "Last visit/call"
 msgstr "Laatste bezoek/oproep"
+
+msgid "Opening..."
+msgstr "Openen..."
+
+msgid "Selecting..."
+msgstr "Selecteren..."
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+"Er kan nu geen pastoraal zorgdossier worden voorbereid. Probeer een andere "
+"categorie."
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr "Ik kan op dit moment geen pastorale zorgactie starten."
 
 msgid "Delete Pastoral Care Type"
 msgstr "Verwijder Pastorale Zorg Type"
@@ -2097,6 +2215,22 @@ msgstr ""
 "Niet alle families zijn GEWIST : Sommige families hebben nog schenkingen en "
 "mogen NIET gewist worden totdat deze schenkingen aan een andere familie "
 "gekoppeld zijn."
+
+msgid "Review family member information"
+msgstr "Controleer informatie over familieleden"
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+"Controleer de weergegeven informatie en werk dit familielid bij als dat "
+"nodig is voordat je opslaat."
+
+msgid "Update family member details"
+msgstr "Gegevens van familieleden bijwerken"
+
+msgid "Save changes"
+msgstr "Wijzigingen opslaan"
 
 msgid "Confirm Deactivation"
 msgstr "Bevestig Deactivering"
@@ -2287,6 +2421,28 @@ msgstr ""
 "mogen NIET gewist worden zolang deze schenkingen niet aan een andere familie "
 "gekoppeld zijn."
 
+msgid "Review personal information"
+msgstr "Persoonlijke gegevens bekijken"
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+"Controleer de huidige waarden en werk de velden bij die moeten worden "
+"gecorrigeerd voordat u ze opslaat."
+
+msgid "Profile information"
+msgstr "Profiel informatie"
+
+msgid "Additional information"
+msgstr "Aanvullende informatie"
+
+msgid "Update personal details"
+msgstr "Persoonlijke gegevens bijwerken"
+
+msgid "Processing..."
+msgstr "Verwerking..."
+
 msgid "Please confirm deactivation of person"
 msgstr "Gelieve de deactivering van persoon te bevestigen"
 
@@ -2308,8 +2464,29 @@ msgstr "Deactiveer"
 msgid "Activate"
 msgstr "Activeer"
 
+msgid "Deactivating..."
+msgstr "Deactiveren..."
+
+msgid "Activating..."
+msgstr "Activeren..."
+
+msgid "Unable to update this person status."
+msgstr "Kan de status van deze persoon niet bijwerken."
+
+msgid "Deleting..."
+msgstr "Verwijderen..."
+
+msgid "Unable to delete the photo."
+msgstr "Kan de foto niet verwijderen."
+
+msgid "Preview the current profile photo."
+msgstr "Geef een voorbeeld van de huidige profielfoto."
+
 msgid "Property actions"
 msgstr "Vastgoed acties"
+
+msgid "Please select a property first."
+msgstr "Selecteer eerst een woning."
 
 msgid "Assigning..."
 msgstr "Toewijzen..."
@@ -2317,30 +2494,212 @@ msgstr "Toewijzen..."
 msgid "Assign"
 msgstr "toewijzen"
 
-msgid "Are you sure you want to remove this person's membership from"
+msgid "Unable to assign this property."
+msgstr "Kan deze eigenschap niet toewijzen."
+
+msgid "Remove group assignment"
+msgstr "Groepstoewijzing verwijderen"
+
+msgid "Remove this person from the group"
+msgstr "Verwijder deze persoon uit de groep"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
 msgstr ""
-"Weet u zeker dat u het lidmaatschap van deze persoon wilt verwijderen van"
+"Het lidmaatschap en alle rollen die aan deze groep zijn gekoppeld, worden "
+"voor deze persoon verwijderd."
+
+msgid "Remove from group"
+msgstr "Verwijderen uit groep"
+
+msgid "Keep assignment"
+msgstr "Bewaar opdracht"
+
+msgid "Share your document"
+msgstr "Je document delen"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+"Kies ontvangers, bepaal hun toegang en beslis of ze een e-mailnotificatie "
+"moeten ontvangen."
+
+msgid "Current access"
+msgstr "Huidige toegang"
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+"Selecteer een of meer ontvangers om hun toegang bij te werken of te "
+"verwijderen."
+
+msgid "Set rights"
+msgstr "Rechten instellen"
+
+msgid "Read and write"
+msgstr "Lezen en schrijven"
+
+msgid "Notification"
+msgstr "Melding"
+
+msgid "Add people, families or groups"
+msgstr "Mensen, families of groepen toevoegen"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+"Zoek op naam om toegang te verlenen aan een andere persoon, een familie of "
+"een hele groep."
+
+msgid "Please select at least one recipient first."
+msgstr "Selecteer eerst minstens één ontvanger."
+
+msgid "Remove shared access"
+msgstr "Gedeelde toegang verwijderen"
+
+msgid "Remove access for the selected recipients?"
+msgstr "Toegang verwijderen voor de geselecteerde ontvangers?"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+"Alleen de geselecteerde ontvangers worden verwijderd. Het document blijft "
+"gedeeld met alle andere ontvangers."
+
+msgid "Remove access"
+msgstr "Toegang verwijderen"
+
+msgid "Keep access"
+msgstr "Toegang houden"
+
+msgid "Stop sharing this document"
+msgstr "Stop het delen van dit document"
+
+msgid "Stop sharing this document with everyone?"
+msgstr "Stoppen met het delen van dit document met iedereen?"
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+"Alle huidige ontvangers verliezen onmiddellijk de toegang. Het document zelf "
+"blijft beschikbaar voor jou."
+
+msgid "Keep sharing"
+msgstr "Blijven delen"
 
 msgid "Share your Document"
 msgstr "Uw document delen"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Ben je zeker? Ga je deze persoon verwijderen?"
+msgid "Unassign property"
+msgstr "Eigenschap niet toewijzen"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Ben je zeker ? Ga je stoppen met het delen van je document?"
+msgid "Remove this property from the current person?"
+msgstr "Deze eigenschap verwijderen van de huidige persoon?"
+
+msgid "The property value will be removed from this profile."
+msgstr "De waarde van de eigenschap wordt verwijderd uit dit profiel."
+
+msgid "Remove property"
+msgstr "Eigendom verwijderen"
+
+msgid "Keep property"
+msgstr "Eigendom behouden"
+
+msgid "Edit property value"
+msgstr "Waarde van eigenschap bewerken"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+"Werk de waarde bij die is opgeslagen voor deze eigenschap op het huidige "
+"persoonsprofiel."
+
+msgid "Save property"
+msgstr "Eigendom opslaan"
 
 msgid "Change classification"
 msgstr "Wijziging classificatie"
 
-msgid "Change role"
-msgstr "Verander van rol"
+msgid "Choose the classification that best matches this person profile."
+msgstr ""
+"Kies de classificatie die het best bij het profiel van deze persoon past."
+
+msgid "Update classification"
+msgstr "Classificatie bijwerken"
+
+msgid "Change family role"
+msgstr "Verander de rol van het gezin"
+
+msgid "Select the role this person should have inside the family record."
+msgstr "Selecteer de rol die deze persoon moet hebben in het familiedossier."
+
+msgid "Update role"
+msgstr "Rol bijwerken"
 
 msgid "Volunteer actions"
 msgstr "Vrijwilligersacties"
 
-msgid "Confirm Delete volunteer Opportunity"
-msgstr "Bevestig Verwijderen Vrijwilligers Opportunity"
+msgid "Remove volunteer opportunity"
+msgstr "Vrijwilligerswerk verwijderen"
+
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Deze vrijwilligerskans van de persoon verwijderen?"
+
+msgid "The assignment will be removed from this profile only."
+msgstr "De opdracht wordt alleen van dit profiel verwijderd."
+
+msgid "Remove assignment"
+msgstr "Opdracht verwijderen"
+
+msgid "Please select at least one volunteer opportunity first."
+msgstr "Selecteer eerst minstens één vrijwilligersmogelijkheid."
+
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Kan de geselecteerde vrijwilligersmogelijkheden niet toewijzen."
+
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Sommige vrijwilligersmogelijkheden konden niet worden toegewezen."
+
+msgid "Delete automatic payment"
+msgstr "Automatische betaling verwijderen"
+
+msgid "Delete this automatic payment setup?"
+msgstr "Deze automatische betalingsinstelling verwijderen?"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+"Terugkerende betalingen die aan deze instelling zijn gekoppeld, stoppen na "
+"verwijdering."
+
+msgid "Delete payment"
+msgstr "Betaling verwijderen"
+
+msgid "Keep payment"
+msgstr "Betaling behouden"
+
+msgid "Delete pledge or payment"
+msgstr "Verpanding of betaling verwijderen"
+
+msgid "Delete this pledge or payment entry?"
+msgstr "Deze toezegging of betaling verwijderen?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr ""
+"Dit item wordt verwijderd uit de bijdragegeschiedenis voor deze familie."
+
+msgid "Delete entry"
+msgstr "Item verwijderen"
+
+msgid "Keep entry"
+msgstr "Toegang houden"
+
+msgid "Share this secure verification link with the person."
+msgstr "Deel deze beveiligde verificatielink met de persoon."
 
 msgid "Comments"
 msgstr "Opmerkingen"
@@ -2354,14 +2713,29 @@ msgstr ""
 "U staat op het punt om de geselecteerde plugins te verwijderen. Deze actie "
 "kan niet ongedaan worden gemaakt!"
 
-msgid "Select your zipped plugin file"
-msgstr "Selecteer uw gezipte plugin-bestand"
+msgid "Update plugin"
+msgstr "Plugin bijwerken"
 
-msgid "Download the zipped file of the plugin"
-msgstr "Download het gezipte bestand van de plugin"
+msgid "Add plugin"
+msgstr "Plugin toevoegen"
 
-msgid "Plugin download manager"
-msgstr "Plugin download manager"
+msgid "Choose the new zipped package to update this plugin."
+msgstr "Kies het nieuwe gezipte pakket om deze plugin bij te werken."
+
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr "Kies een gezipt pluginpakket om het te installeren in je CRM."
+
+msgid "Plugin archive"
+msgstr "Plugin archief"
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr "Alleen gezipte plugin-pakketten moeten hier worden geselecteerd."
+
+msgid "The upload starts as soon as you submit this form."
+msgstr "Het uploaden begint zodra je dit formulier verzendt."
+
+msgid "Plugin manager"
+msgstr "Plugin beheerder"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "De huidige afbeeldingen map is nu de openbare map !!!"
@@ -2668,6 +3042,9 @@ msgstr ""
 "Selecteer het gebeurtenistype dat u wilt gebruiken om de aanwezigheid te "
 "creëren"
 
+msgid "Create First A New Event"
+msgstr "Maak eerst een nieuw evenement"
+
 msgid "Create Event With Students"
 msgstr "Evenement met studenten creëren"
 
@@ -2767,9 +3144,6 @@ msgstr "Actueel"
 
 msgid "No assignments for kiosk"
 msgstr "Geen opdrachten voor kiosk"
-
-msgid "Event"
-msgstr "Evenement"
 
 msgid "Kiosk Name"
 msgstr "Kiosk Naam"
@@ -2986,6 +3360,58 @@ msgid ""
 "altered."
 msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
 
+#~ msgid "ERROR"
+#~ msgstr "ERROR"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Selecteer de groep waaraan u uw winkelwagentje wilt toevoegen"
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "U moet een groepsnaam instellen"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Ja : als je zeker bent"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "U kunt de inhoud van de winkelwagen toevoegen aan de geselecteerde "
+#~ "gebeurtenis hieronder<br> - OF - <br>Maak eerst een gebeurtenis en voeg "
+#~ "ze daarna toe."
+
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Registreer uw exemplaar van CRM door deze informatie te controleren en op "
+#~ "de knop Verzenden te drukken."
+
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Selecteer vrijwilligers voor leden"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Selecteer de doelrol voor leden"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Een groepsnaam toevoegen"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr ""
+#~ "Weet u zeker dat u het lidmaatschap van deze persoon wilt verwijderen van"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Ben je zeker? Ga je deze persoon verwijderen?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "Ben je zeker ? Ga je stoppen met het delen van je document?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr "Bevestig Verwijderen Vrijwilligers Opportunity"
+
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Selecteer uw gezipte plugin-bestand"
+
 #~ msgid "Personal"
 #~ msgstr "Persoonlijk"
 
@@ -3055,9 +3481,6 @@ msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
 #~ msgid "Songs"
 #~ msgstr "Liedjes"
 
-#~ msgid "Remove all"
-#~ msgstr "Verwijder alle"
-
 #~ msgid "Add all"
 #~ msgstr "Alles toevoegen"
 
@@ -3088,9 +3511,6 @@ msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
 
 #~ msgid "Share your File"
 #~ msgstr "Uw bestand delen"
-
-#~ msgid "Members from group"
-#~ msgstr "Leden van de groep"
 
 #~ msgid "Add person"
 #~ msgstr "Persoon toevoegen"

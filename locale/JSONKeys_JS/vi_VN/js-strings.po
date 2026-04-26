@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-25T16:13:31.131Z\n"
+"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -671,8 +671,23 @@ msgstr "Tin nhắn lỗi"
 msgid "Stack Trace"
 msgstr "Stack Trace"
 
-msgid "ERROR"
-msgstr "ERROR"
+msgid "The application could not complete this API request."
+msgstr ""
+
+#, fuzzy
+msgid "Information"
+msgstr "Địa điểm"
+
+#, fuzzy
+msgid "Please confirm"
+msgstr "Xin hãy cập nhật tình hình"
+
+#, fuzzy
+msgid "Update information"
+msgstr "Xác nhận Xóa Xóa"
+
+msgid "Make a selection"
+msgstr ""
 
 #, fuzzy
 msgid "In progress"
@@ -695,8 +710,17 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Có một vấn đề lấy lại được vật yêu cầu"
 
-msgid "Select the method to add to a group"
-msgstr "Chọn phương pháp để thêm vào một nhóm"
+#, fuzzy
+msgid "Add cart to a group"
+msgstr "Thêm Cart vào nhóm"
+
+msgid ""
+"Choose whether to add the cart to an existing group or create a new one "
+"directly from the cart."
+msgstr ""
+
+msgid "Action"
+msgstr "Diễn"
 
 msgid "Select an existing Group"
 msgstr "Chọn một nhóm đang tồn tại"
@@ -704,14 +728,19 @@ msgstr "Chọn một nhóm đang tồn tại"
 msgid "or Create a new Group from the Cart"
 msgstr "hoặc tạo ra một nhóm mới từ Cart"
 
-msgid "Select the group to which you would like to add your cart"
-msgstr "Chọn nhóm mà anh muốn thêm xe đẩy"
+msgid ""
+"Select the destination group and the role to assign to the cart members."
+msgstr ""
 
 msgid "Select Group"
 msgstr "Lựa chọn tập đoàn"
 
 msgid "Select Role"
 msgstr "Chọn Role đi"
+
+#, fuzzy
+msgid "Create a new group and move the current cart into it."
+msgstr "hoặc tạo ra một nhóm mới từ Cart"
 
 msgid "Group Name"
 msgstr "Tên nhóm"
@@ -722,42 +751,86 @@ msgstr "Default name Group"
 msgid "Add Cart to Group"
 msgstr "Thêm Cart vào nhóm"
 
-msgid "You have to select one group and a group role if you want"
+msgid "Missing selection"
+msgstr ""
+
+#, fuzzy
+msgid "You need to select both a group and a role before continuing."
 msgstr "Bạn phải chọn một nhóm và vai trò nhóm nếu bạn muốn"
 
-msgid "You have to set a Group Name"
-msgstr "Anh phải lập ra tên nhóm"
+#, fuzzy
+msgid "Group name required"
+msgstr "Tên nhóm"
 
-msgid "Do you really want to deactivate the persons?"
+#, fuzzy
+msgid "Enter a group name before creating a new group from the cart."
+msgstr "hoặc tạo ra một nhóm mới từ Cart"
+
+#, fuzzy
+msgid "Deactivate cart persons"
+msgstr "Tắt nhân viên ở Cart"
+
+#, fuzzy
+msgid "Do you really want to deactivate all persons currently in the cart?"
 msgstr "Anh có thực sự muốn vô hiệu hóa những người này không?"
 
-msgid "This action can be undone !!!!"
+#, fuzzy
+msgid "This action can be undone later if needed."
 msgstr "Hành động này có thể bị hủy bỏ ! !!!"
 
-msgid "Yes : if you're sure"
-msgstr "Vâng : Nếu anh chắc chắn"
+#, fuzzy
+msgid "Keep active"
+msgstr "Vô hiệu hóa"
 
-msgid "Do you really want to delete the persons from the CRM?"
+#, fuzzy
+msgid "Deactivate persons"
+msgstr "Tắt nhân viên ở Cart"
+
+#, fuzzy
+msgid "Delete cart persons"
+msgstr "Xóa người này?"
+
+#, fuzzy
+msgid ""
+"Do you really want to delete all persons currently in the cart from the CRM?"
 msgstr "Anh có thật sự muốn xóa những người từ CRM không?"
 
-msgid "This action cannot be undone !!!!"
+#, fuzzy
+msgid "This action cannot be undone."
 msgstr "Hành động này không thể bị phá huỷ ! !!!"
 
-msgid "Select the event to which you would like to add your cart"
+#, fuzzy
+msgid "Keep persons"
+msgstr "Thêm người"
+
+#, fuzzy
+msgid "Delete persons"
+msgstr "Xóa người này?"
+
+#, fuzzy
+msgid "Add cart to event"
+msgstr "Thêm vào Event"
+
+#, fuzzy
+msgid "Select the event that should receive the current cart."
 msgstr "Chọn sự kiện mà anh muốn thêm cái xe đẩy"
 
-msgid "Create First A New Event"
+msgid ""
+"You can also create a new event first, then return here to assign the cart."
+msgstr ""
+
+msgid "Event"
+msgstr "Chào"
+
+msgid "Choose one of the available events from the list below."
+msgstr ""
+
+#, fuzzy
+msgid "Create new event"
 msgstr "Tạo ra một sự kiện mới"
 
 msgid "Add to Event"
 msgstr "Thêm vào Event"
-
-msgid ""
-"You can add the content of the cart to the selected event below<br> - OR - "
-"<br>Create first an event and add them after."
-msgstr ""
-"Bạn có thể thêm nội dung của xe đẩy vào sự kiện được chọn dưới<br>- hoặc -"
-"<br>tạo ra đầu tiên một sự kiện và thêm vào sau đó."
 
 msgid "Register"
 msgstr "Đăng ký"
@@ -814,22 +887,21 @@ msgstr "Nhìn tất cả"
 msgid "Your Cart is Empty"
 msgstr "Xe của anh trống rỗng"
 
+#, fuzzy
+msgid "Software registration"
+msgstr "Đăng ký phần mềm"
+
+#, fuzzy
+msgid ""
+"Review the registration details below before sending them. This information "
+"is used only to track the usage of this software."
+msgstr "Thông tin này được sử dụng để theo dõi sự sử dụng của phần mềm này."
+
 msgid "If you need to make changes to registration data, go to "
 msgstr "Nếu bạn cần thay đổi dữ liệu đăng ký, hãy đi tới"
 
 msgid "Admin->Edit General Settings"
 msgstr "Admin-eGeneral Settings"
-
-#, fuzzy
-msgid ""
-"Please register your copy of CRM by checking over this information and "
-"pressing the Send button."
-msgstr ""
-"Xin hãy đăng ký bản copy EcclesiaCRM bằng cách kiểm tra thông tin này và "
-"nhấn nút gửi."
-
-msgid "This information is used only to track the usage of this software."
-msgstr "Thông tin này được sử dụng để theo dõi sự sử dụng của phần mềm này."
 
 msgid "Church Name"
 msgstr "Tên nhà thờ"
@@ -869,14 +941,42 @@ msgid "Select Volunteer Opportunity"
 msgstr "Thêm vào cơ hội tình nguyện mới"
 
 #, fuzzy
-msgid "Please select target volunteers for members"
-msgstr "Xin hãy chọn Role cho các thành viên"
+msgid "Select the volunteer opportunity that should be assigned."
+msgstr "Thêm vào cơ hội tình nguyện mới"
 
-msgid "Please select target group for members"
+msgid "This selection will be applied to the current members."
+msgstr ""
+
+#, fuzzy
+msgid "Volunteer opportunity"
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
+msgid "Choose the target volunteer opportunity from the available list."
+msgstr ""
+
+#, fuzzy
+msgid "Choose the destination for the selected members."
+msgstr "Xóa hết các thẻ cho những thành viên được chọn trong danh sách..."
+
+msgid ""
+"Use the fields below to select a group, a role, or both depending on the "
+"action."
+msgstr ""
+
+msgid "Group"
+msgstr "Tập đoàn"
+
+#, fuzzy
+msgid "Select the target group for the selected members."
 msgstr "Hãy chọn nhóm mục tiêu cho các thành viên"
 
-msgid "Please select target Role for members"
-msgstr "Xin hãy chọn Role cho các thành viên"
+#, fuzzy
+msgid "Role"
+msgstr "Tên Role"
+
+#, fuzzy
+msgid "Select the role that should be assigned inside the chosen group."
+msgstr "Chọn phương pháp để thêm vào một nhóm"
 
 msgid "GroupID required for role selection prompt"
 msgstr "Tập đoàn yêu cầu đúng giờ chọn lọc vai trò"
@@ -884,11 +984,21 @@ msgstr "Tập đoàn yêu cầu đúng giờ chọn lọc vai trò"
 msgid "Select Group and Role"
 msgstr "Chọn tập đoàn và Role"
 
-msgid "Add A Group Name"
-msgstr "Thêm một tên tập thể"
+msgid "Select both the destination group and the role to apply."
+msgstr ""
 
-msgid "Yes"
-msgstr "Vâng."
+#, fuzzy
+msgid "Create a group"
+msgstr "Xóa thẻ"
+
+msgid ""
+"Enter the name of the new group that should be created from the current "
+"workflow."
+msgstr ""
+
+#, fuzzy
+msgid "Create group"
+msgstr "Xóa thẻ"
 
 msgid "Calendar Event"
 msgstr "Lịch trình"
@@ -1023,6 +1133,9 @@ msgstr "cứu được một cách thành công"
 
 msgid "You're about to send your campaign! Are you sure ?"
 msgstr "Anh sắp gửi chiến dịch của mình đấy! Anh chắc chứ?"
+
+msgid "Yes"
+msgstr "Vâng."
 
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Anh sắp xóa chiến dịch của mình rồi! Anh chắc chứ?"
@@ -1477,9 +1590,6 @@ msgstr ""
 msgid "Photo"
 msgstr "Chụp ảnh."
 
-msgid "Action"
-msgstr "Diễn"
-
 #, fuzzy
 msgid "Attendance actions"
 msgstr "Các bá tước tham dự"
@@ -1541,9 +1651,6 @@ msgstr "Di chuyển một cái ở khoảng cách phải."
 
 msgid "Create one."
 msgstr "Tạo ra một cái."
-
-msgid "Group"
-msgstr "Tập đoàn"
 
 msgid "User"
 msgstr "Người dùng"
@@ -1874,10 +1981,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Tổ chức đặc biệt tài sản"
 
-#, fuzzy
-msgid "Role"
-msgstr "Tên Role"
-
 msgid "Please enter a role name."
 msgstr ""
 
@@ -2067,6 +2170,20 @@ msgstr "Anh có chắc là anh muốn xóa hết các quản lý không?"
 msgid "Appointment"
 msgstr "Đặt biển"
 
+#, fuzzy
+msgid "Pastoral Care"
+msgstr "Tạo vật mục sư Care Note"
+
+#, fuzzy
+msgid "Open the pastoral care record"
+msgstr "Xóa mục sư Care Type"
+
+msgid "No records found for this view."
+msgstr ""
+
+msgid "No matching records found."
+msgstr ""
+
 msgid "Never contacted"
 msgstr ""
 
@@ -2079,6 +2196,22 @@ msgstr "Đến thăm"
 
 msgid "Last visit/call"
 msgstr "Chuyến viếng thăm cuối cùng"
+
+#, fuzzy
+msgid "Opening..."
+msgstr "Phân công"
+
+#, fuzzy
+msgid "Selecting..."
+msgstr "Chọn 1 đi"
+
+msgid ""
+"No matching pastoral care record could be prepared right now. Please try "
+"another category."
+msgstr ""
+
+msgid "Unable to start a pastoral care action at the moment."
+msgstr ""
 
 msgid "Delete Pastoral Care Type"
 msgstr "Xóa mục sư Care Type"
@@ -2144,6 +2277,22 @@ msgstr ""
 "Không phải tất cả các gia đình đều bị DELETED : Một số trong họ có hồ sơ "
 "quyên góp và không được xóa cho đến khi những khoản quyên góp này liên quan "
 "đến gia đình khác."
+
+msgid "Review family member information"
+msgstr ""
+
+msgid ""
+"Check the displayed information and update this family member if needed "
+"before saving."
+msgstr ""
+
+#, fuzzy
+msgid "Update family member details"
+msgstr "Bao gồm tất cả những thành viên trong gia đình"
+
+#, fuzzy
+msgid "Save changes"
+msgstr "Cứu những mẫu"
 
 msgid "Confirm Deactivation"
 msgstr "Xác nhận là vô hiệu hóa"
@@ -2334,6 +2483,29 @@ msgstr ""
 "góp và không thể bị xóa cho đến khi những khoản quyên góp này liên quan đến "
 "gia đình khác."
 
+msgid "Review personal information"
+msgstr ""
+
+msgid ""
+"Check the current values and update the fields that need correction before "
+"saving."
+msgstr ""
+
+#, fuzzy
+msgid "Profile information"
+msgstr "Xác nhận Xóa Xóa"
+
+#, fuzzy
+msgid "Additional information"
+msgstr "Xác nhận hành động"
+
+msgid "Update personal details"
+msgstr ""
+
+#, fuzzy
+msgid "Processing..."
+msgstr "Phân công"
+
 msgid "Please confirm deactivation of person"
 msgstr "Xin xác nhận là vô hiệu hóa người"
 
@@ -2356,8 +2528,34 @@ msgid "Activate"
 msgstr "Kích hoạt"
 
 #, fuzzy
+msgid "Deactivating..."
+msgstr "Vô hiệu hóa"
+
+#, fuzzy
+msgid "Activating..."
+msgstr "Kích hoạt"
+
+msgid "Unable to update this person status."
+msgstr ""
+
+#, fuzzy
+msgid "Deleting..."
+msgstr "Chọn 1 đi"
+
+#, fuzzy
+msgid "Unable to delete the photo."
+msgstr "Không có sự kiện gì lúc này."
+
+msgid "Preview the current profile photo."
+msgstr ""
+
+#, fuzzy
 msgid "Property actions"
 msgstr "Tên tài sản"
+
+#, fuzzy
+msgid "Please select a property first."
+msgstr "Hãy chọn nhóm mục tiêu cho các thành viên"
 
 #, fuzzy
 msgid "Assigning..."
@@ -2367,32 +2565,233 @@ msgstr "Phân công"
 msgid "Assign"
 msgstr "Phân công"
 
-msgid "Are you sure you want to remove this person's membership from"
-msgstr "Anh có chắc là muốn loại bỏ thành viên của người này không?"
+#, fuzzy
+msgid "Unable to assign this property."
+msgstr "Anh có chắc là anh muốn từ bỏ tài sản này không?"
+
+#, fuzzy
+msgid "Remove group assignment"
+msgstr "Rời khỏi Cart"
+
+#, fuzzy
+msgid "Remove this person from the group"
+msgstr "Các thành viên từ nhóm"
+
+msgid ""
+"The membership and any role linked to this group will be removed for this "
+"person."
+msgstr ""
+
+#, fuzzy
+msgid "Remove from group"
+msgstr "Các thành viên từ nhóm"
+
+#, fuzzy
+msgid "Keep assignment"
+msgstr "Phân công"
+
+#, fuzzy
+msgid "Share your document"
+msgstr "Đặt tên của anh đi"
+
+msgid ""
+"Choose recipients, define their access and decide whether they should "
+"receive an email notification."
+msgstr ""
+
+msgid "Current access"
+msgstr ""
+
+msgid "Select one or more recipients to update their access or remove them."
+msgstr ""
+
+#, fuzzy
+msgid "Set rights"
+msgstr "Đặt quyền"
+
+msgid "Read and write"
+msgstr ""
+
+#, fuzzy
+msgid "Notification"
+msgstr "Ngày cải tiến"
+
+#, fuzzy
+msgid "Add people, families or groups"
+msgstr "Cộng thêm người/gia đình"
+
+msgid ""
+"Search by name to grant access to another person, a family or an entire "
+"group."
+msgstr ""
+
+#, fuzzy
+msgid "Please select at least one recipient first."
+msgstr "Xin hãy chọn Role cho các thành viên"
+
+#, fuzzy
+msgid "Remove shared access"
+msgstr "Giải tán mọi người"
+
+#, fuzzy
+msgid "Remove access for the selected recipients?"
+msgstr "Loại bỏ tất cả"
+
+msgid ""
+"Only the selected recipients will be removed. The document will remain "
+"shared with any other recipients."
+msgstr ""
+
+#, fuzzy
+msgid "Remove access"
+msgstr "Loại bỏ tất cả"
+
+#, fuzzy
+msgid "Keep access"
+msgstr "Xóa thẻ"
+
+#, fuzzy
+msgid "Stop sharing this document"
+msgstr "Đừng chia sẻ nữa"
+
+msgid "Stop sharing this document with everyone?"
+msgstr ""
+
+msgid ""
+"All current recipients will lose access immediately. The document itself "
+"will remain available to you."
+msgstr ""
+
+#, fuzzy
+msgid "Keep sharing"
+msgstr "Đừng chia sẻ nữa"
 
 #, fuzzy
 msgid "Share your Document"
 msgstr "Đặt tên của anh đi"
 
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Anh chắc chứ? Anh định xóa tên người này sao?"
+#, fuzzy
+msgid "Unassign property"
+msgstr "Không được phân công"
 
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Anh chắc chứ? Bạn sắp ngừng chia sẻ tài liệu của mình sao?"
+msgid "Remove this property from the current person?"
+msgstr ""
+
+msgid "The property value will be removed from this profile."
+msgstr ""
+
+#, fuzzy
+msgid "Remove property"
+msgstr "Rời khỏi Cart"
+
+#, fuzzy
+msgid "Keep property"
+msgstr "Tài sản"
+
+#, fuzzy
+msgid "Edit property value"
+msgstr "Tên tài sản"
+
+msgid ""
+"Update the value stored for this property on the current person profile."
+msgstr ""
+
+#, fuzzy
+msgid "Save property"
+msgstr "Tài sản"
 
 msgid "Change classification"
 msgstr "Thay đổi phân loại"
 
-msgid "Change role"
+msgid "Choose the classification that best matches this person profile."
+msgstr ""
+
+#, fuzzy
+msgid "Update classification"
+msgstr "Thay đổi phân loại"
+
+#, fuzzy
+msgid "Change family role"
 msgstr "Thay đổi vai trò"
+
+msgid "Select the role this person should have inside the family record."
+msgstr ""
+
+#, fuzzy
+msgid "Update role"
+msgstr "Cập nhật bởi"
 
 msgid "Volunteer actions"
 msgstr ""
 
-msgid "Confirm Delete volunteer Opportunity"
+#, fuzzy
+msgid "Remove volunteer opportunity"
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
+#, fuzzy
+msgid "Remove this volunteer opportunity from the person?"
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
+msgid "The assignment will be removed from this profile only."
 msgstr ""
-"Xác nhận cơ hội tình nguyện Xác nhận Xác nhận Xác nhận Xác nhận tình nguyện "
-"viên Xác nhận"
+
+#, fuzzy
+msgid "Remove assignment"
+msgstr "Phân công"
+
+#, fuzzy
+msgid "Please select at least one volunteer opportunity first."
+msgstr "Xin hãy chọn Role cho các thành viên"
+
+#, fuzzy
+msgid "Unable to assign the selected volunteer opportunities."
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
+#, fuzzy
+msgid "Some volunteer opportunities could not be assigned."
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
+#, fuzzy
+msgid "Delete automatic payment"
+msgstr "Xác nhận thanh toán tự động"
+
+#, fuzzy
+msgid "Delete this automatic payment setup?"
+msgstr "Xác nhận thanh toán tự động"
+
+msgid "Recurring payments linked to this setup will stop after deletion."
+msgstr ""
+
+#, fuzzy
+msgid "Delete payment"
+msgstr "Xóa Event đi"
+
+#, fuzzy
+msgid "Keep payment"
+msgstr "Tiền hay trả"
+
+#, fuzzy
+msgid "Delete pledge or payment"
+msgstr "Tiền hay trả"
+
+#, fuzzy
+msgid "Delete this pledge or payment entry?"
+msgstr "Xóa người này?"
+
+msgid ""
+"This entry will be removed from the contribution history for this family."
+msgstr ""
+
+#, fuzzy
+msgid "Delete entry"
+msgstr "Xóa Event đi"
+
+#, fuzzy
+msgid "Keep entry"
+msgstr "Xóa thẻ"
+
+msgid "Share this secure verification link with the person."
+msgstr ""
 
 msgid "Comments"
 msgstr "♪ Lời nói"
@@ -2406,13 +2805,29 @@ msgid ""
 msgstr "Anh muốn xóa người này không? Chuyện này không thể hủy được."
 
 #, fuzzy
-msgid "Select your zipped plugin file"
-msgstr "Chọn Role đi"
+msgid "Update plugin"
+msgstr "Cập nhật bởi"
 
-msgid "Download the zipped file of the plugin"
+#, fuzzy
+msgid "Add plugin"
+msgstr "Quỹ cộng"
+
+msgid "Choose the new zipped package to update this plugin."
 msgstr ""
 
-msgid "Plugin download manager"
+msgid "Choose a zipped plugin package to install it in your CRM."
+msgstr ""
+
+msgid "Plugin archive"
+msgstr ""
+
+msgid "Only zipped plugin packages should be selected here."
+msgstr ""
+
+msgid "The upload starts as soon as you submit this form."
+msgstr ""
+
+msgid "Plugin manager"
 msgstr ""
 
 msgid "The current images folder is now the public folder !!!"
@@ -2723,6 +3138,9 @@ msgstr "Thêm giáo viên vào Cart"
 msgid "Select the event Type you would like to use to create the Attendance"
 msgstr "Chọn sự kiện mà bạn muốn dùng để tạo ra sự tham dự"
 
+msgid "Create First A New Event"
+msgstr "Tạo ra một sự kiện mới"
+
 msgid "Create Event With Students"
 msgstr "Tạo dựng Event với các sinh viên"
 
@@ -2824,9 +3242,6 @@ msgstr ""
 
 msgid "No assignments for kiosk"
 msgstr "Không có nhiệm vụ cho Kiosk"
-
-msgid "Event"
-msgstr "Chào"
 
 msgid "Kiosk Name"
 msgstr "Kiosk tên"
@@ -3058,6 +3473,61 @@ msgstr ""
 "Tất cả các thành viên và tài sản của nhóm sẽ bị tiêu diệt. Các thành viên "
 "nhóm sẽ không bị thay đổi."
 
+#~ msgid "ERROR"
+#~ msgstr "ERROR"
+
+#~ msgid "Select the group to which you would like to add your cart"
+#~ msgstr "Chọn nhóm mà anh muốn thêm xe đẩy"
+
+#~ msgid "You have to set a Group Name"
+#~ msgstr "Anh phải lập ra tên nhóm"
+
+#~ msgid "Yes : if you're sure"
+#~ msgstr "Vâng : Nếu anh chắc chắn"
+
+#~ msgid ""
+#~ "You can add the content of the cart to the selected event below<br> - OR "
+#~ "- <br>Create first an event and add them after."
+#~ msgstr ""
+#~ "Bạn có thể thêm nội dung của xe đẩy vào sự kiện được chọn dưới<br>- hoặc -"
+#~ "<br>tạo ra đầu tiên một sự kiện và thêm vào sau đó."
+
+#, fuzzy
+#~ msgid ""
+#~ "Please register your copy of CRM by checking over this information and "
+#~ "pressing the Send button."
+#~ msgstr ""
+#~ "Xin hãy đăng ký bản copy EcclesiaCRM bằng cách kiểm tra thông tin này và "
+#~ "nhấn nút gửi."
+
+#, fuzzy
+#~ msgid "Please select target volunteers for members"
+#~ msgstr "Xin hãy chọn Role cho các thành viên"
+
+#~ msgid "Please select target Role for members"
+#~ msgstr "Xin hãy chọn Role cho các thành viên"
+
+#~ msgid "Add A Group Name"
+#~ msgstr "Thêm một tên tập thể"
+
+#~ msgid "Are you sure you want to remove this person's membership from"
+#~ msgstr "Anh có chắc là muốn loại bỏ thành viên của người này không?"
+
+#~ msgid "Are you sure ? You're about to delete this Person ?"
+#~ msgstr "Anh chắc chứ? Anh định xóa tên người này sao?"
+
+#~ msgid "Are you sure ? You are about to stop sharing your document ?"
+#~ msgstr "Anh chắc chứ? Bạn sắp ngừng chia sẻ tài liệu của mình sao?"
+
+#~ msgid "Confirm Delete volunteer Opportunity"
+#~ msgstr ""
+#~ "Xác nhận cơ hội tình nguyện Xác nhận Xác nhận Xác nhận Xác nhận tình "
+#~ "nguyện viên Xác nhận"
+
+#, fuzzy
+#~ msgid "Select your zipped plugin file"
+#~ msgstr "Chọn Role đi"
+
 #~ msgid "Personal"
 #~ msgstr "Cá nhân"
 
@@ -3113,9 +3583,6 @@ msgstr ""
 #~ msgid "Are you sure you want to remove the selected group members?"
 #~ msgstr "Anh có chắc là muốn loại bỏ các thành viên được chọn không?"
 
-#~ msgid "Remove all"
-#~ msgstr "Loại bỏ tất cả"
-
 #~ msgid "Add all"
 #~ msgstr "Cộng tất cả"
 
@@ -3136,9 +3603,6 @@ msgstr ""
 
 #~ msgid "Share your File"
 #~ msgstr "Chia sẻ hồ sơ của anh đi"
-
-#~ msgid "Members from group"
-#~ msgstr "Các thành viên từ nhóm"
 
 #~ msgid "Add person"
 #~ msgstr "Thêm người"
