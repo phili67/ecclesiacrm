@@ -89,21 +89,173 @@ window.CRM.DisplayErrorMessage = function (endpoint, error) {
   if (error.trace) {
     message += "</p>" + i18next.t("Stack Trace") + ": <pre>" + JSON.stringify(error.trace, undefined, 2) + "</pre>";
   }
-  bootbox.alert({
-    title: i18next.t("ERROR"),
-    message: message
+  window.CRM.openInfoDialog({
+    title: i18next.t("Error"),
+    lead: i18next.t("The application could not complete this API request."),
+    content: message,
+    okClass: 'btn-danger'
   });
 };
 
-window.CRM.DisplayAlert = function (title, message, callback) {
+window.CRM.buildBootboxMessage = function (options) {
+  var settings = options || {};
+  var content = '<div class="text-left">';
+
+  if (settings.lead) {
+    content += '<p class="mb-2 font-weight-bold">' + settings.lead + '</p>';
+  }
+
+  if (settings.details) {
+    content += '<div class="text-muted">' + settings.details + '</div>';
+  }
+
+  if (settings.content) {
+    content += '<div class="mt-3">' + settings.content + '</div>';
+  }
+
+  if (settings.warning) {
+    content += '<div class="alert alert-warning mt-3 mb-0">' + settings.warning + '</div>';
+  }
+
+  content += '</div>';
+  return content;
+};
+
+window.CRM.openInfoDialog = function (options) {
+  var settings = options || {};
+
   return bootbox.alert({
-    title: title,
-    message: message,
+    title: settings.title || i18next.t('Information'),
+    message: window.CRM.buildBootboxMessage(settings),
+    backdrop: settings.backdrop !== undefined ? settings.backdrop : true,
+    buttons: {
+      ok: {
+        label: settings.okLabel || i18next.t('Close'),
+        className: settings.okClass || 'btn-primary'
+      }
+    },
     callback: function () {
-      if (callback) {
-        callback()
+      if (settings.callback) {
+        settings.callback();
       }
     }
+  });
+};
+
+window.CRM.openConfirmDialog = function (options) {
+  var settings = options || {};
+
+  return bootbox.confirm({
+    title: settings.title || i18next.t('Please confirm'),
+    message: window.CRM.buildBootboxMessage(settings),
+    buttons: {
+      cancel: {
+        label: settings.cancelLabel || i18next.t('Cancel'),
+        className: settings.cancelClass || 'btn-primary'
+      },
+      confirm: {
+        label: settings.confirmLabel || i18next.t('Confirm'),
+        className: settings.confirmClass || 'btn-danger'
+      }
+    },
+    callback: function (result) {
+      if (result) {
+        if (settings.onConfirm) {
+          settings.onConfirm();
+        }
+      } else if (settings.onCancel) {
+        settings.onCancel();
+      }
+    }
+  });
+};
+
+window.CRM.buildPromptTitle = function (options) {
+  var settings = options || {};
+  var title = '<div class="text-left">';
+  title += '<div class="font-weight-bold">' + (settings.title || i18next.t('Update information')) + '</div>';
+
+  if (settings.details) {
+    title += '<div class="small text-muted mt-1">' + settings.details + '</div>';
+  }
+
+  title += '</div>';
+  return title;
+};
+
+window.CRM.openPromptDialog = function (options) {
+  var settings = options || {};
+
+  return bootbox.prompt({
+    title: window.CRM.buildPromptTitle(settings),
+    value: settings.value,
+    inputType: settings.inputType,
+    inputOptions: settings.inputOptions,
+    onEscape: settings.onEscape !== undefined ? settings.onEscape : true,
+    closeButton: settings.closeButton !== undefined ? settings.closeButton : true,
+    buttons: {
+      confirm: {
+        label: settings.confirmLabel || i18next.t('Save'),
+        className: settings.confirmClass || 'btn-primary'
+      },
+      cancel: {
+        label: settings.cancelLabel || i18next.t('Cancel'),
+        className: settings.cancelClass || 'btn-default'
+      }
+    },
+    callback: function (result) {
+      if (settings.onSubmit) {
+        settings.onSubmit(result);
+      }
+    }
+  });
+};
+
+window.CRM.buildSelectionDialogMessage = function (options) {
+  var settings = options || {};
+  var content = '<div class="container-fluid px-0">';
+
+  if (settings.hiddenInputId) {
+    content += '<input type="hidden" id="' + settings.hiddenInputId + '">';
+  }
+
+  content += '<div class="alert alert-light border mb-3">';
+  content += '  <div class="d-flex align-items-start">';
+  content += '    <i class="' + (settings.iconClass || 'fas fa-list-ul') + ' text-primary mr-2 mt-1"></i>';
+  content += '    <div>';
+  content += '      <div class="font-weight-bold">' + (settings.lead || i18next.t('Make a selection')) + '</div>';
+  if (settings.details) {
+    content += '      <div class="small text-muted">' + settings.details + '</div>';
+  }
+  content += '    </div>';
+  content += '  </div>';
+  content += '</div>';
+
+  if (settings.sections) {
+    settings.sections.forEach(function (section) {
+      content += '<div class="card card-outline ' + (section.cardClass || 'card-primary') + ' mb-3">';
+      content += '  <div class="card-body">';
+      if (section.label) {
+        content += '    <label class="small text-uppercase text-muted mb-2 d-block" for="' + section.selectId + '">' + section.label + '</label>';
+      }
+      if (section.helper) {
+        content += '    <div class="small text-muted mb-2">' + section.helper + '</div>';
+      }
+      content += '    <select name="' + section.selectId + '" id="' + section.selectId + '" class="bootbox-input bootbox-input-select form-control form-control-sm"' + (section.style ? ' style="' + section.style + '"' : '') + '></select>';
+      content += '  </div>';
+      content += '</div>';
+    });
+  }
+
+  content += '</div>';
+  return content;
+};
+
+window.CRM.DisplayAlert = function (title, message, callback) {
+  return window.CRM.openInfoDialog({
+    title: title,
+    content: message,
+    callback: callback
   });
 }
 
@@ -348,49 +500,49 @@ window.CRM.cart = {
     });
 
     const BootboxContentCartTogroup = () => {
-      var frm_str = '<form id="some-form">'
-        + '<table border=0 cellpadding=2 width="100%">'
-        + '<tr>'
-        + '<td>' + i18next.t('Select the method to add to a group') + '   </td>'
-        + '<td><select id="GroupSelector" class= "form-control form-control-sm">'
-        + '<option>' + i18next.t('Select an existing Group') + '</option>'
-        + '<option>' + i18next.t('or Create a new Group from the Cart') + '</option>'
-        + '</select>'
-        + '</td>'
-        + '</tr>'
-        + '</table>'
-        + '<hr/>'
-        + '<div id="GroupSelect">'
-        + '    <p align="center">' + i18next.t('Select the group to which you would like to add your cart') + ':</p>'
-        + '      <table align="center">'
-        + '        <tr>'
-        + '          <td class="LabelColumn">' + i18next.t('Select Group') + ':</td>'
-        + '          <td class="TextColumn">'
-        + '            <select id="PopupGroupID" name="PopupGroupID" style="width:100%" class= "form-control form-control-sm">'
-        + '            </select>'
-        + '          </td>'
-        + '        </tr>'
-        + '        <tr><td colspan="2">&nbsp;</td></tr>'
-        + '        <tr>'
-        + '          <td class="LabelColumn">' + i18next.t('Select Role') + ':</td>'
-        + '          <td class="TextColumn">'
-        + '            <select name="GroupRole" id="GroupRole" style="width:100%" class= "form-control form-control-sm">'
-        + '                <option>' + i18next.t('None') + '</option>'
-        + '            </select>'
-        + '          </td>'
-        + '        </tr>'
-        + '      </table>'
-        + '      <br>'
+      var frm_str = '<div class="container-fluid px-0">'
+        + '<div class="alert alert-light border mb-3">'
+        + '  <div class="d-flex align-items-start">'
+        + '    <i class="fas fa-layer-group text-primary mr-2 mt-1"></i>'
+        + '    <div>'
+        + '      <div class="font-weight-bold">' + i18next.t('Add cart to a group') + '</div>'
+        + '      <div class="small text-muted">' + i18next.t('Choose whether to add the cart to an existing group or create a new one directly from the cart.') + '</div>'
+        + '    </div>'
+        + '  </div>'
         + '</div>'
-        + '<div id="GroupCreation">'
-        + '      <p align="center">'
-        + '        <table border=0 cellpadding=2 width="100%">'
-        + '        <tr>'
-        + '           <td>' + i18next.t('Group Name') + ':</td>'
-        + '           <td><input type="text" id="GroupName" value="" size="30" maxlength="100" class= "form-control form-control-sm"  width="100%" style="width: 100%" placeholder="' + i18next.t("Default Name Group") + '" required></td>'
-        + '        </tr>'
-        + '        </table>'
-        + '      </p>'
+        + '<form id="some-form">'
+        + '  <div class="form-group">'
+        + '    <label class="small text-uppercase text-muted mb-2" for="GroupSelector">' + i18next.t('Action') + '</label>'
+        + '    <select id="GroupSelector" class="form-control form-control-sm">'
+        + '      <option>' + i18next.t('Select an existing Group') + '</option>'
+        + '      <option>' + i18next.t('or Create a new Group from the Cart') + '</option>'
+        + '    </select>'
+        + '  </div>'
+        + '  <div id="GroupSelect" class="card card-outline card-primary mb-3">'
+        + '    <div class="card-body">'
+        + '      <div class="small text-muted mb-3">' + i18next.t('Select the destination group and the role to assign to the cart members.') + '</div>'
+        + '      <div class="form-group">'
+        + '        <label class="small text-uppercase text-muted mb-2" for="PopupGroupID">' + i18next.t('Select Group') + '</label>'
+        + '        <select id="PopupGroupID" name="PopupGroupID" style="width:100%" class="form-control form-control-sm"></select>'
+        + '      </div>'
+        + '      <div class="form-group mb-0">'
+        + '        <label class="small text-uppercase text-muted mb-2" for="GroupRole">' + i18next.t('Select Role') + '</label>'
+        + '        <select name="GroupRole" id="GroupRole" style="width:100%" class="form-control form-control-sm">'
+        + '          <option>' + i18next.t('None') + '</option>'
+        + '        </select>'
+        + '      </div>'
+        + '    </div>'
+        + '  </div>'
+        + '  <div id="GroupCreation" class="card card-outline card-secondary mb-0">'
+        + '    <div class="card-body">'
+        + '      <div class="small text-muted mb-3">' + i18next.t('Create a new group and move the current cart into it.') + '</div>'
+        + '      <div class="form-group mb-0">'
+        + '        <label class="small text-uppercase text-muted mb-2" for="GroupName">' + i18next.t('Group Name') + '</label>'
+        + '        <input type="text" id="GroupName" value="" size="30" maxlength="100" class="form-control form-control-sm" width="100%" style="width: 100%" placeholder="' + i18next.t("Default Name Group") + '" required>'
+        + '      </div>'
+        + '    </div>'
+        + '  </div>'
+        + '</form>'
         + '</div>';
 
       var object = $('<div/>').html(frm_str).contents();
@@ -403,19 +555,19 @@ window.CRM.cart = {
       title: i18next.t("Add Cart to Group"),
       buttons: [
         {
-          label: i18next.t("Save"),
+          label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
           className: "btn btn-primary pull-left",
           callback: function () {
             var e = document.getElementById("GroupSelector");
             if (e.selectedIndex == 0) {
-              var e = document.getElementById("PopupGroupID");
+              e = document.getElementById("PopupGroupID");
 
               if (e.selectedIndex > 0) {
                 var option = e.options[e.selectedIndex];
                 var GroupID = option.value;
 
-                var e = document.getElementById("GroupRole");
-                var option = e.options[e.selectedIndex];
+                e = document.getElementById("GroupRole");
+                option = e.options[e.selectedIndex];
                 var RoleID = option.value;
 
                 window.CRM.APIRequest({
@@ -427,47 +579,52 @@ window.CRM.cart = {
                   location.href = window.CRM.root + '/v2/group/' + GroupID + '/view';
                 });
 
-                return true
-              } else {
-                var box = bootbox.dialog({ title: "<span style='color: red;'>" + i18next.t("Error") + "</span>", message: i18next.t("You have to select one group and a group role if you want") });
-
-                setTimeout(function () {
-                  // be careful not to call box.hide() here, which will invoke jQuery's hide method
-                  box.modal('hide');
-                }, 3000);
-
-                return false;
-              }
-            } else {
-
-              var newGroupName = document.getElementById("GroupName").value;
-
-              if (newGroupName) {
-                window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'cart/emptyToNewGroup',               //call the groups api handler located at window.CRM.root
-                  data: JSON.stringify({ 'groupName': newGroupName }),                      // stringify the object we created earlier, and add it to the data payload
-                }, function (data) {                               //yippie, we got something good back from the server
-                  window.CRM.cart.refresh();
-                  location.href = window.CRM.root + '/v2/group/' + data.Id + '/view';
-                });
-
                 return true;
-              } else {
-                var box = bootbox.dialog({ title: "<span style='color: red;'>" + i18next.t("Error") + "</span>", message: i18next.t("You have to set a Group Name") });
-
-                setTimeout(function () {
-                  // be careful not to call box.hide() here, which will invoke jQuery's hide method
-                  box.modal('hide');
-                }, 3000);
-
-                return false;
               }
+
+                var selectionBox = window.CRM.openInfoDialog({
+                  title: i18next.t("Missing selection"),
+                  lead: i18next.t("You need to select both a group and a role before continuing."),
+                  okClass: 'btn-warning'
+              });
+
+              setTimeout(function () {
+                selectionBox.modal('hide');
+              }, 3000);
+
+              return false;
             }
+
+            var newGroupName = document.getElementById("GroupName").value;
+
+            if (newGroupName) {
+              window.CRM.APIRequest({
+                method: 'POST',
+                path: 'cart/emptyToNewGroup',
+                data: JSON.stringify({ 'groupName': newGroupName })
+              }, function (data) {
+                window.CRM.cart.refresh();
+                location.href = window.CRM.root + '/v2/group/' + data.Id + '/view';
+              });
+
+              return true;
+            }
+
+            var nameBox = window.CRM.openInfoDialog({
+              title: i18next.t("Group name required"),
+              lead: i18next.t("Enter a group name before creating a new group from the cart."),
+              okClass: 'btn-warning'
+            });
+
+            setTimeout(function () {
+              nameBox.modal('hide');
+            }, 3000);
+
+            return false;
           }
         },
         {
-          label: i18next.t("Close"),
+          label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
           className: "btn btn-default pull-left",
           callback: function () {
             console.log("just do something on close");
@@ -530,35 +687,30 @@ window.CRM.cart = {
     addGroups();
   },
   'deactivate': function (callback) {
-    bootbox.confirm({
-      title: i18next.t("Do you really want to deactivate the persons?"),
-      message: i18next.t("This action can be undone !!!!"),
-      buttons: {
-        cancel: {
-          label: i18next.t('No'),
-          className: 'btn-primary'
-        },
-        confirm: {
-          label: i18next.t("Yes : if you're sure"),
-          className: 'btn-danger'
-        }
+    window.CRM.openConfirmDialog({
+      title: i18next.t("Deactivate cart persons"),
+      lead: i18next.t("Do you really want to deactivate all persons currently in the cart?"),
+      warning: i18next.t("This action can be undone later if needed."),
+      cancelLabel: i18next.t('Keep active'),
+      confirmLabel: i18next.t("Deactivate persons"),
+      confirmClass: 'btn-danger',
+      onConfirm: function () {
+        window.CRM.APIRequest({
+          method: "POST",
+          path: "cart/deactivate"
+        }, function (data) {
+          if (callback) {
+            callback(data);
+            window.CRM.cart.refresh();
+            window.CRM.cart.updateLocalePage();// sometimes we've to reload the page or something else
+          }
+          else {
+            window.CRM.cart.refresh();
+          }
+        });
       },
-      callback: function (result) {
-        if (result) {
-          window.CRM.APIRequest({
-            method: "POST",
-            path: "cart/deactivate"
-          }, function (data) {
-            if (callback) {
-              callback(data);
-              window.CRM.cart.refresh();
-              window.CRM.cart.updateLocalePage();// sometimes we've to reload the page or something else
-            }
-            else {
-              window.CRM.cart.refresh();
-            }
-          });
-        } else {
+      onCancel: function () {
+        if (callback) {
           callback('nothing was done');
         }
       }
@@ -566,35 +718,30 @@ window.CRM.cart = {
 
   },
   'delete': function (callback) {
-    bootbox.confirm({
-      title: i18next.t("Do you really want to delete the persons from the CRM?"),
-      message: i18next.t("This action cannot be undone !!!!"),
-      buttons: {
-        cancel: {
-          label: i18next.t('No'),
-          className: 'btn-primary'
-        },
-        confirm: {
-          label: i18next.t("Yes : if you're sure"),
-          className: 'btn-danger'
-        }
+    window.CRM.openConfirmDialog({
+      title: i18next.t("Delete cart persons"),
+      lead: i18next.t("Do you really want to delete all persons currently in the cart from the CRM?"),
+      warning: i18next.t("This action cannot be undone."),
+      cancelLabel: i18next.t('Keep persons'),
+      confirmLabel: i18next.t("Delete persons"),
+      confirmClass: 'btn-danger',
+      onConfirm: function () {
+        window.CRM.APIRequest({
+          method: "POST",
+          path: "cart/delete"
+        }, function (data) {
+          if (callback) {
+            callback(data);
+            window.CRM.cart.refresh();
+            window.CRM.cart.updateLocalePage();// sometimes we've to reload the page or something else
+          }
+          else {
+            window.CRM.cart.refresh();
+          }
+        });
       },
-      callback: function (result) {
-        if (result) {
-          window.CRM.APIRequest({
-            method: "POST",
-            path: "cart/delete"
-          }, function (data) {
-            if (callback) {
-              callback(data);
-              window.CRM.cart.refresh();
-              window.CRM.cart.updateLocalePage();// sometimes we've to reload the page or something else
-            }
-            else {
-              window.CRM.cart.refresh();
-            }
-          });
-        } else {
+      onCancel: function () {
+        if (callback) {
           callback('nothing was done');
         }
       }
@@ -627,11 +774,23 @@ window.CRM.cart = {
       var options = new Array();
 
       var boxOptions = {
-        title: i18next.t('Select the event to which you would like to add your cart'),
-        message: '<div class="modal-body">',
+        title: i18next.t('Add cart to event'),
+        message: window.CRM.buildSelectionDialogMessage({
+          iconClass: 'fas fa-calendar-plus',
+          lead: i18next.t('Select the event that should receive the current cart.'),
+          details: i18next.t('You can also create a new event first, then return here to assign the cart.'),
+          sections: [
+            {
+              selectId: 'eventChosen',
+              label: i18next.t('Event'),
+              helper: i18next.t('Choose one of the available events from the list below.'),
+              cardClass: 'card-primary'
+            }
+          ]
+        }),
         buttons: {
           addEvent: {
-            label: i18next.t('Create First A New Event'),
+            label: i18next.t('Create new event'),
             className: 'btn-info',
             callback: function () {
               location.href = window.CRM.root + '/v2/calendar';
@@ -643,7 +802,7 @@ window.CRM.cart = {
           },
           confirm: {
             label: i18next.t('Add to Event'),
-            className: 'btn btn-primary',
+            className: 'btn-primary',
             callback: function () {
               var e = document.getElementById("eventChosen");
               var EventID = e.options[e.selectedIndex].value;
@@ -662,14 +821,12 @@ window.CRM.cart = {
         }
       };
 
-      boxOptions.message += '<center>' + i18next.t('You can add the content of the cart to the selected event below<br> - OR - <br>Create first an event and add them after.') + '</center><br>';
-      boxOptions.message += '<select class="bootbox-input bootbox-input-select form-control form-control-sm" id="eventChosen">';
       for (i = 0; i < lenType; i++) {
-        boxOptions.message += '<option value="' + eventNames[i].eventTypeID + '">' + eventNames[i].name + '</option>';
+        boxOptions.message = boxOptions.message.replace(
+          '</select>',
+          '<option value="' + eventNames[i].eventTypeID + '">' + eventNames[i].name + '</option></select>'
+        );
       }
-
-      boxOptions.message += '</select>\
-                       </div>';
 
       bootbox.dialog(boxOptions).show();
     });
@@ -1040,30 +1197,40 @@ window.CRM.cart = {
 
 window.CRM.register = function () {
   const BootboxContentRegister = (data) => {
-    var frm_str = '<div class="card card-warning">'
-      + '  <div class="card-body">'
-      + '  ' + i18next.t('If you need to make changes to registration data, go to ') + '<a href="' + window.CRM.root + '/v2/systemsettings">' + i18next.t('Admin->Edit General Settings') + '</a>'
+    var frm_str = '<div class="container-fluid px-0">'
+      + '  <div class="alert alert-light border mb-3">'
+      + '    <div class="d-flex align-items-start">'
+      + '      <i class="fas fa-id-card text-primary mr-2 mt-1"></i>'
+      + '      <div>'
+      + '        <div class="font-weight-bold">' + i18next.t('Software registration') + '</div>'
+      + '        <div class="small text-muted">' + i18next.t('Review the registration details below before sending them. This information is used only to track the usage of this software.') + '</div>'
+      + '      </div>'
+      + '    </div>'
       + '  </div>'
-      + '</div>'
-      + '<div class="card card-primary">'
-      + '  <div class="card-header  border-1">'
-      + i18next.t('Please register your copy of CRM by checking over this information and pressing the Send button.')
-      + '  '
-      + i18next.t('This information is used only to track the usage of this software.')
+      + '  <div class="card card-warning mb-3">'
+      + '    <div class="card-body">'
+      + i18next.t('If you need to make changes to registration data, go to ') + '<a href="' + window.CRM.root + '/v2/systemsettings">' + i18next.t('Admin->Edit General Settings') + '</a>'
+      + '    </div>'
       + '  </div>'
-      + '  <div class="card-body">'
-      + i18next.t('Church Name') + ':' + data.ChurchName + '<br>'
-      + i18next.t('Version') + ':' + data.InstalledVersion + '<br>'
-      + i18next.t('Address') + ':' + data.ChurchAddress + '<br>'
-      + i18next.t('City') + ':' + data.ChurchCity + '<br>'
-      + i18next.t('State') + ':' + data.ChurchState + '<br>'
-      + i18next.t('Zip') + ':' + data.ChurchZip + '<br>'
-      + i18next.t('Country') + ':' + data.ChurchCountry + '<br>'
-      + i18next.t('Church Email') + ':' + data.ChurchEmail + '<br>'
-      + 'CRM ' + i18next.t('Base URL') + ':' + data.EcclesiaCRMURL + '<br>'
-      + '<br>' + i18next.t('Message')
-      + '<textarea class= "form-control form-control-sm" id="registeremailmessage" name="emailmessage" rows="10" cols="72">' + data.EmailMessage + '</textarea>'
-      + '<input type="hidden" name="EcclesiaCRMURL" value="' + data.EcclesiaCRMURL + '"/>'
+      + '  <div class="card card-outline card-primary mb-0">'
+      + '    <div class="card-body">'
+      + '      <dl class="row mb-3">'
+      + '        <dt class="col-sm-4">' + i18next.t('Church Name') + '</dt><dd class="col-sm-8">' + data.ChurchName + '</dd>'
+      + '        <dt class="col-sm-4">' + i18next.t('Version') + '</dt><dd class="col-sm-8">' + data.InstalledVersion + '</dd>'
+      + '        <dt class="col-sm-4">' + i18next.t('Address') + '</dt><dd class="col-sm-8">' + data.ChurchAddress + '</dd>'
+      + '        <dt class="col-sm-4">' + i18next.t('City') + '</dt><dd class="col-sm-8">' + data.ChurchCity + '</dd>'
+      + '        <dt class="col-sm-4">' + i18next.t('State') + '</dt><dd class="col-sm-8">' + data.ChurchState + '</dd>'
+      + '        <dt class="col-sm-4">' + i18next.t('Zip') + '</dt><dd class="col-sm-8">' + data.ChurchZip + '</dd>'
+      + '        <dt class="col-sm-4">' + i18next.t('Country') + '</dt><dd class="col-sm-8">' + data.ChurchCountry + '</dd>'
+      + '        <dt class="col-sm-4">' + i18next.t('Church Email') + '</dt><dd class="col-sm-8">' + data.ChurchEmail + '</dd>'
+      + '        <dt class="col-sm-4">CRM ' + i18next.t('Base URL') + '</dt><dd class="col-sm-8">' + data.EcclesiaCRMURL + '</dd>'
+      + '      </dl>'
+      + '      <div class="form-group mb-0">'
+      + '        <label class="small text-uppercase text-muted mb-2" for="registeremailmessage">' + i18next.t('Message') + '</label>'
+      + '        <textarea class="form-control form-control-sm" id="registeremailmessage" name="emailmessage" rows="10" cols="72">' + data.EmailMessage + '</textarea>'
+      + '      </div>'
+      + '      <input type="hidden" name="EcclesiaCRMURL" value="' + data.EcclesiaCRMURL + '"/>'
+      + '    </div>'
       + '  </div>'
       + '</div>';
 
@@ -1082,7 +1249,7 @@ window.CRM.register = function () {
       size: 'large',
       buttons: [
         {
-          label: i18next.t("Send"),
+          label: '<i class="fas fa-paper-plane"></i> ' + i18next.t("Send"),
           className: "btn btn-primary pull-left",
           callback: function () {
             window.CRM.APIRequest({
@@ -1097,7 +1264,7 @@ window.CRM.register = function () {
           }
         },
         {
-          label: i18next.t("Cancel"),
+          label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
           className: "btn btn-default pull-left",
           callback: function () {
             console.log("just do something on close");
@@ -1235,15 +1402,14 @@ window.CRM.volunteers = {
   },
   'promptSelection': function (selectOptions, selectionCallback) {
     var options = {
-      message: '<div class="modal-body">\
-            <input type="hidden" id="targetVolunteerAction">',
+      message: '',
       buttons: {
         cancel: {
-          label: '<i class="fas fa-times"></i>' + i18next.t('Cancel'),
+          label: '<i class="fas fa-times mr-1"></i>' + i18next.t('Cancel'),
           className: 'btn-default'
         },
         confirm: {
-          label: '<i class="fas fa-check"></i>' + i18next.t('OK'),
+          label: '<i class="fas fa-check mr-1"></i>' + i18next.t('OK'),
           className: 'btn-primary'
         }
       }
@@ -1251,14 +1417,26 @@ window.CRM.volunteers = {
     
     if (selectOptions.Type & window.CRM.volunteers.selectTypes.Volunteer) {
       options.title = i18next.t("Select Volunteer Opportunity");
-      options.message += '<div class="row"><div class="col-md-12"><span style="color: red">' + i18next.t('Please select target volunteers for members') + ':</span></div></div>\
-            <div class="row"><div class="col-md-12"><select name="targetVolunteerSelection" id="targetVolunteerSelection" class="bootbox-input bootbox-input-select form-control form-control-sm" style="width: 100%"></select></div></div>';
+      options.message = window.CRM.buildSelectionDialogMessage({
+        hiddenInputId: 'targetVolunteerAction',
+        iconClass: 'fas fa-hands-helping',
+        lead: i18next.t('Select the volunteer opportunity that should be assigned.'),
+        details: i18next.t('This selection will be applied to the current members.'),
+        sections: [
+          {
+            selectId: 'targetVolunteerSelection',
+            label: i18next.t('Volunteer opportunity'),
+            helper: i18next.t('Choose the target volunteer opportunity from the available list.'),
+            cardClass: 'card-primary',
+            style: 'width: 100%'
+          }
+        ]
+      });
       options.buttons.confirm.callback = function () {
         selectionCallback({ "VolID": $("#targetVolunteerSelection option:selected").val() });
       };
     }    
 
-    options.message += '</div>';
     bootbox.dialog(options).show();
 
     // this will ensure that image and table can be focused Philippe Logel
@@ -1310,33 +1488,44 @@ window.CRM.groups = {
   },
   'promptSelection': function (selectOptions, selectionCallback) {
     var options = {
-      message: '<div class="modal-body">\
-            <input type="hidden" id="targetGroupAction">',
+      message: '',
       buttons: {
         cancel: {
-          label: '<i class="fas fa-times"></i>' + i18next.t('Cancel'),
+          label: '<i class="fas fa-times mr-1"></i>' + i18next.t('Cancel'),
           className: 'btn-default'
         },
         confirm: {
-          label: '<i class="fas fa-check"></i>' + i18next.t('OK'),
+          label: '<i class="fas fa-check mr-1"></i>' + i18next.t('OK'),
           className: 'btn-primary'
         }
       }
     };
     initFunction = function () { };
+    var selectionSections = [];
+    var selectionLead = i18next.t('Choose the destination for the selected members.');
+    var selectionDetails = i18next.t('Use the fields below to select a group, a role, or both depending on the action.');
 
     if (selectOptions.Type & window.CRM.groups.selectTypes.Group) {
       options.title = i18next.t("Select Group");
-      options.message += '<div class="row"><div class="col-md-12"><span style="color: red">' + i18next.t('Please select target group for members') + ':</span></div></div>\
-            <div class="row"><div class="col-md-12"><select name="targetGroupSelection" id="targetGroupSelection" class="bootbox-input bootbox-input-select form-control form-control-sm" style="width: 100%"></select></div></div>';
+      selectionSections.push({
+        selectId: 'targetGroupSelection',
+        label: i18next.t('Group'),
+        helper: i18next.t('Select the target group for the selected members.'),
+        cardClass: 'card-primary',
+        style: 'width: 100%'
+      });
       options.buttons.confirm.callback = function () {
         selectionCallback({ "GroupID": $("#targetGroupSelection option:selected").val() });
       };
     }
     if (selectOptions.Type & window.CRM.groups.selectTypes.Role) {
       options.title = i18next.t("Select Role");
-      options.message += '<div class="row"><div class="col-md-12"><span style="color: red">' + i18next.t('Please select target Role for members') + ':</span></div></div>\
-            <div class="row"><div class="col-md-12"><select name="targetRoleSelection" id="targetRoleSelection" class="bootbox-input bootbox-input-select form-control form-control-sm"></select></div></div>';
+      selectionSections.push({
+        selectId: 'targetRoleSelection',
+        label: i18next.t('Role'),
+        helper: i18next.t('Select the role that should be assigned inside the chosen group.'),
+        cardClass: 'card-secondary'
+      });
       options.buttons.confirm.callback = function () {
         selectionCallback({ "RoleID": $("#targetRoleSelection option:selected").val() });
       };
@@ -1369,6 +1558,7 @@ window.CRM.groups = {
     }
     if (selectOptions.Type === (window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role)) {
       options.title = i18next.t("Select Group and Role");
+      selectionLead = i18next.t('Select both the destination group and the role to apply.');
       options.buttons.confirm.callback = function () {
         selection = {
           "RoleID": $("#targetRoleSelection option:selected").val(),
@@ -1378,7 +1568,13 @@ window.CRM.groups = {
         selectionCallback(selection);
       }
     }
-    options.message += '</div>';
+    options.message = window.CRM.buildSelectionDialogMessage({
+      hiddenInputId: 'targetGroupAction',
+      iconClass: 'fas fa-users-cog',
+      lead: selectionLead,
+      details: selectionDetails,
+      sections: selectionSections
+    });
     bootbox.dialog(options).init(initFunction).show();
 
     // this will ensure that image and table can be focused Philippe Logel
@@ -1434,22 +1630,13 @@ window.CRM.groups = {
     }, callback);
   },
   'addGroup': function (callbackM) {
-    bootbox.prompt({
-      title: i18next.t("Add A Group Name"),
+    window.CRM.openPromptDialog({
+      title: i18next.t("Create a group"),
+      details: i18next.t("Enter the name of the new group that should be created from the current workflow."),
       value: i18next.t("Default Name Group"),
-      onEscape: true,
-      closeButton: true,
-      buttons: {
-        confirm: {
-          label: i18next.t('Yes'),
-          className: 'btn-primary'
-        },
-        cancel: {
-          label: i18next.t('No'),
-          className: 'btn-danger'
-        }
-      },
-      callback: function (result) {
+      confirmLabel: i18next.t('Create group'),
+      cancelLabel: i18next.t('Cancel'),
+      onSubmit: function (result) {
         if (result) {
           var newGroup = { 'groupName': result };
 
