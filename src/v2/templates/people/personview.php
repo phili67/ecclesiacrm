@@ -21,6 +21,14 @@ use EcclesiaCRM\Theme;
 use EcclesiaCRM\dto\Cart;
 
 require $sRootDocument . '/Include/Header.php';
+
+$otherFamilyMembers = $PersonInfos['person']->getOtherFamilyMembers();
+$otherFamilyMembersCount = count($otherFamilyMembers);
+$assignedGroupCount = $ormAssignedGroups->count();
+$can_see_privatedata = ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() or SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
+
+$personRoleLabel = empty($PersonInfos['person']->getFamilyRoleName()) ? _('Undefined') : _($PersonInfos['person']->getFamilyRoleName());
+$personClassLabel = _($PersonInfos['person']->getClassName());
 ?>
 
 <?php if (!empty($PersonInfos['person']->getDateDeactivated())) {
@@ -46,7 +54,7 @@ require $sRootDocument . '/Include/Header.php';
                                 ?>
                                 <div class="after">
                                     <div class="buttons">
-                                        <a class="hide" id="view-larger-image-btn" href="#"
+                                        <a href="#" class="hide" id="view-larger-image-btn" href="#"
                                            title="<?= _("View Photo") ?>">
                                             <i class="fas fa-search-plus"></i>
                                         </a>&nbsp;
@@ -78,14 +86,22 @@ require $sRootDocument . '/Include/Header.php';
                             ?>
                             <?= $PersonInfos['person']->getFullName() ?>
                         </h3>
+                        <div class="text-center mb-3">
+                            <span class="badge badge-primary mr-1 mb-1"><i class="fas fa-user-tag mr-1"></i><?= $personRoleLabel ?></span>
+                            <span class="badge badge-info mr-1 mb-1"><i class="fas fa-layer-group mr-1"></i><?= $personClassLabel ?></span>
+                            <span class="badge badge-light mr-1 mb-1"><i class="fas fa-users mr-1"></i><?= $assignedGroupCount . ' ' . _('Groups') ?></span>
+                            <?php if ($otherFamilyMembersCount > 0) { ?>
+                                <span class="badge badge-light mb-1"><i class="fas fa-home mr-1"></i><?= ($otherFamilyMembersCount + 1) . ' ' . _('Family Members') ?></span>
+                            <?php } ?>
+                        </div>
 
                         <?php
                         if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
                             or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() 
                             or SessionUser::getUser()->isEditRecordsEnabled()) {
                             ?>
-                            <p class="text-muted text-center">
-                                <?= empty($PersonInfos['person']->getFamilyRoleName()) ? _('Undefined') : _($PersonInfos['person']->getFamilyRoleName()); ?>
+                            <p class="text-muted text-center mb-2">
+                                <?= $personRoleLabel ?>
                                 &nbsp;
                                 <a id="edit-role-btn" data-person_id="<?= $PersonInfos['person']->getId() ?>"
                                    data-family_role="<?= $PersonInfos['person']->getFamilyRoleName() ?>"
@@ -93,10 +109,10 @@ require $sRootDocument . '/Include/Header.php';
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </p>
-                            <p class="text-muted text-center">
+                            <p class="text-muted text-center mb-3">
                                 <b><img src="<?= $sRootPath . "/skin/icons/markers/" . $PersonInfos['person']->getClassIcon() ?>"
                                             width="18" alt="">
-                                        <?= _($PersonInfos['person']->getClassName()) ?>
+                                        <?= $personClassLabel ?>
                                     </b>
 
                                     
@@ -117,7 +133,9 @@ require $sRootDocument . '/Include/Header.php';
                                 or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
                             )) {
                             ?>
-                            <ul class="list-group list-group-unbordered mb-3">
+                            <div class="card border-0 bg-light mb-3">
+                                <div class="card-body py-2 px-3">
+                            <ul class="list-group list-group-unbordered mb-0 bg-transparent">
                                 <li class="list-group-item">
                                     <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDateOrUnknown($PersonInfos['person']->getMembershipDate()) ?></a>
                                 </li>
@@ -127,11 +145,17 @@ require $sRootDocument . '/Include/Header.php';
                                 </li>
                                 <?php endif ?>                                
                             </ul>
+                                </div>
+                            </div>
                             <?php
                         }
                         ?>
-                        <h5><?= _("Groups") ?></h5>
+                        <div class="d-flex justify-content-between align-items-center flex-wrap mb-2">
+                            <h5 class="mb-0"><?= _("Groups") ?></h5>
+                            <span class="badge badge-light border"><?= $assignedGroupCount . ' ' . _('assigned') ?></span>
+                        </div>
                         <?php if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() ) { ?>
+                            <?php if ($assignedGroupCount > 0) { ?>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <?php
                                 foreach ($ormAssignedGroups
@@ -156,6 +180,11 @@ require $sRootDocument . '/Include/Header.php';
                                 }
                                 ?>
                             </ul>                        
+                            <?php } else { ?>
+                                <div class="alert alert-light border mb-3">
+                                    <i class="fas fa-users mr-2 text-muted"></i><?= _('No group assignments yet.') ?>
+                                </div>
+                            <?php } ?>
                         <?php
                         } else {
                         ?>
@@ -173,9 +202,6 @@ require $sRootDocument . '/Include/Header.php';
                     <!-- /.card-body -->
                 </div>
                 <!-- About card -->
-                <?php
-                $can_see_privatedata = ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() or SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
-                ?>
                 <div class="card card-outline card-info shadow-sm">
                     <div class="card-header border-0">
                         <h3 class="card-title text-center"><i
@@ -403,16 +429,31 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <div class="col-md-9">
             <div class="card card-outline card-secondary shadow-sm mb-3">
-                <div class="card-body py-2">
-                    <div class="d-flex flex-wrap align-items-center" style="gap:.5rem;">
+                <div class="card-body py-3">
+                    <div class="row align-items-lg-center">
+                        <div class="col-lg-5 mb-3 mb-lg-0">
+                            <div class="text-muted text-uppercase small"><?= _('Overview') ?></div>
+                            <h2 class="h4 mb-2"><?= $PersonInfos['person']->getFullName() ?></h2>
+                            <div class="mb-2">
+                                <span class="badge badge-primary mr-1 mb-1"><i class="fas fa-user-tag mr-1"></i><?= $personRoleLabel ?></span>
+                                <span class="badge badge-info mr-1 mb-1"><i class="fas fa-layer-group mr-1"></i><?= $personClassLabel ?></span>
+                                <span class="badge badge-light mr-1 mb-1"><i class="fas fa-users mr-1"></i><?= $assignedGroupCount . ' ' . _('Groups') ?></span>
+                                <span class="badge badge-light mb-1"><i class="fas fa-shield-alt mr-1"></i><?= $can_see_privatedata ? _('Private access granted') : _('Private access restricted') ?></span>
+                            </div>
+                            <div class="text-muted small">
+                                <?= $can_see_privatedata ? _('Use the quick actions to manage this profile, documents and assignments from one place.') : _('Some sections remain hidden because this profile contains private data.') ?>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="d-flex flex-wrap align-items-center justify-content-lg-end">
                     <?php
                     $buttons = 0;
 
                     if (Cart::PersonInCart($PersonInfos['iPersonID']) and SessionUser::getUser()->isShowCartEnabled()) {
                         $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
-                                <a class="btn btn-sm btn-outline-info RemoveOneFromPeopleCart" id="AddPersonToCart"
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
+                            <a class="btn btn-sm btn-outline-info RemoveOneFromPeopleCart" id="AddPersonToCart"
                            data-onecartpersonid="<?= $PersonInfos['iPersonID'] ?>"> <i class="fas fa-times"></i> <span
                                 class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
                         </div>
@@ -420,8 +461,8 @@ require $sRootDocument . '/Include/Header.php';
                     } else if (SessionUser::getUser()->isShowCartEnabled()) {
                         $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
-                                <a class="btn btn-sm btn-outline-info AddOneToPeopleCart" id="AddPersonToCart"
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
+                            <a class="btn btn-sm btn-outline-info AddOneToPeopleCart" id="AddPersonToCart"
                            data-onecartpersonid="<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="fas fa-cart-plus"></i><span
                                 class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
@@ -432,7 +473,7 @@ require $sRootDocument . '/Include/Header.php';
                     if (SessionUser::getUser()->isEmailEnabled()) {
                         $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                 <a class="btn btn-sm btn-outline-success"
                            href="mailto:<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $PersonInfos['sEmail'])) ?>"  target="_blank"><i
                                 class="far fa-paper-plane"></i><?= _('Email') ?></a>
@@ -448,7 +489,7 @@ require $sRootDocument . '/Include/Header.php';
 
                             $buttons++;
                             ?>
-                            <div class="btn-group btn-group-sm" role="group">
+                            <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                 <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/users/settings"><i
                                     class="fas fa-cog"></i> <?= _("Change Settings") ?></a>
                                 <a class="btn btn-sm btn-outline-secondary" href="<?= $sRootPath ?>/v2/users/change/password/<?= $PersonInfos['iPersonID'] ?>"><i
@@ -457,7 +498,7 @@ require $sRootDocument . '/Include/Header.php';
                             <?php
                         }
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
+                            <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                 <a class="btn btn-sm btn-outline-primary"
                            href="<?= $sRootPath ?>/v2/people/person/print/<?= $PersonInfos['iPersonID'] ?>"><i
                                 class="fas fa-print"></i> <?= _("Printable Page") ?></a>
@@ -468,7 +509,7 @@ require $sRootDocument . '/Include/Header.php';
                     if (SessionUser::getUser()->isAdmin()) {
                         $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                             <a class="btn btn-sm btn-outline-primary" href="#" data-toggle="modal" data-target="#confirm-verify"><i
                                     class="fas fa-check-square"></i> <?= _("Verify Info") ?></a>
                         </div>
@@ -478,7 +519,7 @@ require $sRootDocument . '/Include/Header.php';
                     if (SessionUser::getUser()->isPastoralCareEnabled()) {
                         $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                 <a class="btn btn-sm btn-outline-secondary"
                            href="<?= $sRootPath ?>/v2/pastoralcare/person/<?= $PersonInfos['iPersonID'] ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Add a pastoral care note") ?>"><i
@@ -490,7 +531,7 @@ require $sRootDocument . '/Include/Header.php';
                     if (SessionUser::getUser()->isNotesEnabled() or (SessionUser::getUser()->isEditSelfEnabled() and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                         $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                 <a class="btn btn-sm btn-success" href="#" id="createDocument" data-toggle="tooltip"
                            data-placement="bottom"
                            title="<?= _("Create a document") ?>"><i
@@ -501,7 +542,7 @@ require $sRootDocument . '/Include/Header.php';
                     if ( SessionUser::getUser()->isManageGroups() ) {
                         $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                             <a class="btn btn-sm btn-outline-secondary addGroup" data-personid="<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Assign this user to a group") ?>"><i
                                     class="fas fa-users">
@@ -513,7 +554,7 @@ require $sRootDocument . '/Include/Header.php';
                     if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                          $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                             <a class="btn btn-sm btn-outline-warning <?= (mb_strlen($PersonInfos['person']->getAddress1()) == 0 or !is_null($PersonInfos['person']->getFamily()) and mb_strlen($PersonInfos['person']->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
                                href="<?= $sRootPath ?>/api/persons/addressbook/extract/<?= $PersonInfos['iPersonID'] ?>"><i
@@ -527,7 +568,7 @@ require $sRootDocument . '/Include/Header.php';
                         if (!$PersonInfos['person']->isUser()) {
                             $buttons++;
                             ?>
-                            <div class="btn-group btn-group-sm" role="group">
+                            <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                      <a class="btn btn-sm btn-outline-dark"
                                href="<?= $sRootPath ?>/v2/users/editor/new/<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Create a CRM user") ?>"><i
@@ -536,7 +577,7 @@ require $sRootDocument . '/Include/Header.php';
                             <?php
                         } else {
                             ?>
-                            <div class="btn-group btn-group-sm" role="group">
+                            <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                      <a class="btn btn-sm btn-outline-dark"
                                href="<?= $sRootPath ?>/v2/users/editor/<?= $PersonInfos['iPersonID'] ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Add rights to this user") ?>"><i
@@ -549,7 +590,7 @@ require $sRootDocument . '/Include/Header.php';
                     if ($bOkToEdit and SessionUser::getUser()->isDeleteRecordsEnabled() and $PersonInfos['iPersonID'] != 1) {// the super user can't be deactivated
                         $buttons++;
                         ?>
-                        <div class="btn-group btn-group-sm" role="group">
+                        <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                             <button class="btn btn-sm btn-warning" id="activateDeactivate">
                                 <i class="fa <?= (empty($PersonInfos['person']->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($PersonInfos['person']->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
                             </button>
@@ -562,7 +603,7 @@ require $sRootDocument . '/Include/Header.php';
 
                         if (count($PersonInfos['person']->getOtherFamilyMembers()) > 0 or is_null($PersonInfos['person']->getFamily())) {
                             ?>
-                            <div class="btn-group btn-group-sm" role="group">
+                            <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                      <a class="btn btn-sm btn-danger delete-person"
                                data-person_name="<?= $PersonInfos['person']->getFullName() ?>"
                                data-person_id="<?= $PersonInfos['iPersonID'] ?>"><i
@@ -572,7 +613,7 @@ require $sRootDocument . '/Include/Header.php';
                             <?php
                         } else {
                             ?>
-                            <div class="btn-group btn-group-sm" role="group">
+                            <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                      <a class="btn btn-sm btn-danger"
                                href="<?= $sRootPath ?>/v2/people/family/delete/<?= $PersonInfos['person']->getFamily()->getId() ?>"><i
                                     class="far fa-trash-alt"></i><?= _("Delete this Record") ?></a>
@@ -581,6 +622,8 @@ require $sRootDocument . '/Include/Header.php';
                         }
                     }
                     ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -595,7 +638,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="card card-outline card-secondary shadow-sm">
                 <div class="card-header border-0 card-header-custom">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-pills">
+                    <ul class="nav nav-tabs flex-wrap">
                         <?php
                         $activeTab = "";
                         if (($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()
@@ -819,7 +862,15 @@ require $sRootDocument . '/Include/Header.php';
                             <?php
                             if ($PersonInfos['person']->getFamId() != '') {
                                 ?>
-                                <table class="table table-sm table-hover table-borderless" width="100%">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                                    <div>
+                                        <h5 class="mb-1"><?= _('Family Circle') ?></h5>
+                                        <div class="small text-muted"><?= _('See the rest of the household, their role and the fastest actions available.') ?></div>
+                                    </div>
+                                    <span class="badge badge-light border"><?= $otherFamilyMembersCount . ' ' . _('other members') ?></span>
+                                </div>
+                                <div class="table-responsive">
+                                <table class="table table-sm table-hover table-borderless mb-0" width="100%">
                                     <thead>
                                     <tr class="border-bottom">
                                         <th class="text-muted small font-weight-bold"><i class="fas fa-users mr-2 text-info"></i><?= _('Family Members') ?></th>
@@ -910,6 +961,7 @@ require $sRootDocument . '/Include/Header.php';
                                     ?>
                                     </tbody>
                                 </table>
+                                </div>
                                 <?php
                             }
                             ?>
@@ -923,13 +975,21 @@ require $sRootDocument . '/Include/Header.php';
                                     $i = 1;
                                     if ($ormAssignedGroups->count() == 0) {
                                         ?>
-                                        <br>
-                                        <div class="alert alert-warning">
-                                            <i class="far fa-question-circle  fa-lg"></i>
+                                        <div class="alert alert-light border mb-3">
+                                            <i class="far fa-question-circle fa-lg mr-2 text-muted"></i>
                                             <span><?= _('No group assignments.') ?></span>
                                         </div>
                                         <?php
                                     } else {
+                                        ?>
+                                        <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                                            <div>
+                                                <h5 class="mb-1"><?= _('Assigned Groups') ?></h5>
+                                                <div class="small text-muted"><?= _('Manage memberships, group-specific information and role changes from this section.') ?></div>
+                                            </div>
+                                            <span class="badge badge-light border"><?= $assignedGroupCount . ' ' . _('groups') ?></span>
+                                        </div>
+                                        <?php
                                         ?>
                                         <?php
                                         // Loop through the rows
@@ -1124,6 +1184,13 @@ require $sRootDocument . '/Include/Header.php';
                          id="properties">
                         <div class="main-box clearfix">
                             <div class="main-box-body clearfix">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                                    <div>
+                                        <h5 class="mb-1"><?= _('Assigned Properties') ?></h5>
+                                        <div class="small text-muted"><?= _('Track the specific attributes already linked to this person and add new ones when needed.') ?></div>
+                                    </div>
+                                    <span class="badge badge-light border"><?= $ormAssignedProperties->count() . ' ' . _('assigned') ?></span>
+                                </div>
                                 <div class="alert alert-warning d-flex align-items-center mb-3"
                                      id="properties-warning" <?= ($ormAssignedProperties->count() > 0) ? 'style="display: none;"' : '' ?>>
                                     <i class="far fa-question-circle fa-lg mr-2"></i>
@@ -1188,6 +1255,13 @@ require $sRootDocument . '/Include/Header.php';
                          id="volunteer">
                         <div class="main-box clearfix">
                             <div class="main-box-body clearfix">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                                    <div>
+                                        <h5 class="mb-1"><?= _('Volunteer Opportunities') ?></h5>
+                                        <div class="small text-muted"><?= _('Keep volunteer assignments visible and assign new opportunities from the same place.') ?></div>
+                                    </div>
+                                    <span class="badge badge-light border"><?= $ormAssignedVolunteerOpps->count() . ' ' . _('assigned') ?></span>
+                                </div>
                                 <?php
 
                                 //Initialize row shading
@@ -1260,24 +1334,41 @@ require $sRootDocument . '/Include/Header.php';
                         <div role="tab-pane fade" class="tab-pane" id="finance">
                             <div class="main-box clearfix">
                                 <div class="main-box-body clearfix">
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                                        <div>
+                                            <h5 class="mb-1"><?= _('Automatic Payments') ?></h5>
+                                            <div class="small text-muted"><?= _('Review recurring contributions and add a new payment setup when appropriate.') ?></div>
+                                        </div>
+                                        <span class="badge badge-light border"><?= $ormAutoPayments->count() . ' ' . _('records') ?></span>
+                                    </div>
                                     <?php
                                     if (!is_null($PersonInfos['person']->getFamily())) {
                                         if ($ormAutoPayments->count() > 0) {
                                             ?>
-                                            <table class="table table-striped table-bordered"
-                                                   id="automaticPaymentsTable"
-                                                   cellpadding="5" cellspacing="0" width="100%"></table>
+                                            <div class="table-responsive mb-3">
+                                                <table class="table table-striped table-bordered"
+                                                       id="automaticPaymentsTable"
+                                                       cellpadding="5" cellspacing="0" width="100%"></table>
+                                            </div>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <div class="alert alert-light border mb-3">
+                                                <i class="far fa-credit-card mr-2 text-muted"></i><?= _('No automatic payments recorded for this person yet.') ?>
+                                            </div>
                                             <?php
                                         }
                                         ?>
-                                        <p class="text-center">
-                                                          <a class="btn btn-sm btn-outline-primary"
-                                               href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $PersonInfos['person']->getFamily()->getId() ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new automatic payment") ?></a>
-                                        </p>
+                                        <div class="text-center text-md-right">
+                                            <a class="btn btn-sm btn-outline-primary"
+                                               href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $PersonInfos['person']->getFamily()->getId() ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus mr-1"></i> <?= _("Add a new automatic payment") ?></a>
+                                        </div>
                                         <?php
                                     } else {
                                         ?>
-                                        <?= _("You must set an address for this person") ?>
+                                        <div class="alert alert-warning mb-0">
+                                            <i class="fas fa-map-marker-alt mr-2"></i><?= _("You must set an address for this person") ?>
+                                        </div>
                                         <?php
                                     }
                                     ?>
@@ -1287,49 +1378,71 @@ require $sRootDocument . '/Include/Header.php';
                         <div role="tab-pane fade" class="tab-pane" id="pledges">
                             <div class="main-box clearfix">
                                 <div class="main-box-body clearfix">
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                                        <div>
+                                            <h5 class="mb-1"><?= _('Pledges and Payments') ?></h5>
+                                            <div class="small text-muted"><?= _('Filter contributions by period and add a new pledge or payment directly from this tab.') ?></div>
+                                        </div>
+                                    </div>
                                     <?php
                                     $tog = 0;
 
                                     if (($_SESSION['sshowPledges'] or $_SESSION['sshowPayments']) and !is_null($PersonInfos['person']->getFamily())) {
                                         ?>
-                                        <input type="checkbox" name="ShowPledges" id="ShowPledges"
-                                               value="1" <?= ($_SESSION['sshowPledges']) ? " checked" : "" ?>><?= _("Show Pledges") ?>
-                                        <div class="row">
-                                            <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <input type="checkbox" name="ShowPayments" id="ShowPayments"
-                                                       value="1" <?= ($_SESSION['sshowPayments']) ? " checked" : "" ?>><?= _("Show Payments") ?>
-                                            </div>
-                                            <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <label for="ShowSinceDate"><?= _("From") ?>:</label>
-                                            </div>
-                                            <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <input class=" form-control  form-control-sm date-picker" type="text" id="Min"
-                                                       Name="ShowSinceDate"
-                                                       value="<?= SessionUser::getUser()->getShowSince()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                                       placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                                            </div>
-                                            <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <label for="ShowToDate"><?= _("To") ?>:</label>
-                                            </div>
-                                            <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <input class=" form-control  form-control-sm date-picker" type="text" id="Max"
-                                                       Name="ShowToDate"
-                                                       value="<?= SessionUser::getUser()->getShowTo()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                                       placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                        <div class="card border-0 bg-light mb-3">
+                                            <div class="card-body py-3">
+                                                <div class="row align-items-end">
+                                                    <div class="col-lg-2 col-md-3 col-sm-6 mb-2 mb-md-0">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" name="ShowPledges" id="ShowPledges"
+                                                                   value="1" <?= ($_SESSION['sshowPledges']) ? " checked" : "" ?>>
+                                                            <label class="custom-control-label" for="ShowPledges"><?= _("Show Pledges") ?></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-3 col-sm-6 mb-2 mb-md-0">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" name="ShowPayments" id="ShowPayments"
+                                                                   value="1" <?= ($_SESSION['sshowPayments']) ? " checked" : "" ?>>
+                                                            <label class="custom-control-label" for="ShowPayments"><?= _("Show Payments") ?></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-1 col-md-2 col-sm-6 mb-2 mb-md-0">
+                                                        <label class="mb-1" for="Min"><?= _("From") ?></label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-2 mb-md-0">
+                                                        <input class="form-control form-control-sm date-picker" type="text" id="Min"
+                                                               Name="ShowSinceDate"
+                                                               value="<?= SessionUser::getUser()->getShowSince()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
+                                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                                    </div>
+                                                    <div class="col-lg-1 col-md-2 col-sm-6 mb-2 mb-md-0">
+                                                        <label class="mb-1" for="Max"><?= _("To") ?></label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                                        <input class="form-control form-control-sm date-picker" type="text" id="Max"
+                                                               Name="ShowToDate"
+                                                               value="<?= SessionUser::getUser()->getShowTo()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
+                                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <table id="pledgePaymentTable" class="table table-striped table-bordered"
-                                               cellspacing="0" width="100%"></table>
-                                        <p class="text-center">
-                                                          <a class="btn btn-sm btn-outline-primary"
+                                        <div class="table-responsive mb-3">
+                                            <table id="pledgePaymentTable" class="table table-striped table-bordered"
+                                                   cellspacing="0" width="100%"></table>
+                                        </div>
+                                        <div class="text-center text-md-right">
+                                            <a class="btn btn-sm btn-outline-primary mb-2 mb-md-0"
                                                href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Pledge/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new pledge") ?></a>
-                                                          <a class="btn btn-sm btn-outline-secondary"
+                                            <a class="btn btn-sm btn-outline-secondary"
                                                href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Payment/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new payment") ?></a>
-                                        </p>
+                                        </div>
                                         <?php
                                     } else {
                                         ?>
-                                        <?= _("You must set an address for this person") ?>
+                                        <div class="alert alert-warning mb-3">
+                                            <i class="fas fa-map-marker-alt mr-2"></i><?= _("You must set an address for this person") ?>
+                                        </div>
                                         <?php
                                     }
                                     ?>
@@ -1338,10 +1451,10 @@ require $sRootDocument . '/Include/Header.php';
                                     <?php
                                     if (SessionUser::getUser()->isCanvasserEnabled() and !is_null($PersonInfos['person']->getFamily())) {
                                         ?>
-                                        <p class="text-center">
-                                                          <a class="btn btn-sm btn-outline-secondary"
+                                        <div class="text-center text-md-right mt-3">
+                                            <a class="btn btn-sm btn-outline-secondary"
                                                href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $PersonInfos['person']->getFamily()->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-eye"></i> <?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
-                                        </p>
+                                        </div>
                                         <?php
                                     }
                                     ?>
@@ -1353,32 +1466,40 @@ require $sRootDocument . '/Include/Header.php';
                     ?>
                     <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'notes') ? "active" : "" ?>"
                          id="notes">
-                        <div class="row filter-note-type card">
-                            <div class="col-md-1" style="line-height:27px">
-                                <table width=370px>
-                                    <tr>
-                                        <td>
-                                            <span class="time-line-head-yellow rounded-pill px-2 py-0">                                                
-                                              <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <select name="PropertyId" class="filter-timeline form-control form-control-sm" size="1"
-                                                    style="width:170px" data-placeholder="<?= _("Select") ?> ..."
-                                                    data-toggle="tooltip" data-placement="bottom" title="<?= _("Filter your documents by : ") ?>">
-                                                <option value="all"><?= _("All type") ?></option>
-                                                <option value="note"><?= MiscUtils::noteType("note") ?></option>
-                                                <option value="video"><?= MiscUtils::noteType("video") ?></option>
-                                                <option value="audio"><?= MiscUtils::noteType("audio") ?></option>
-                                                <option disabled="disabled">_____________________________</option>
-                                                <option value="shared"><?= _("Shared documents") ?></option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                </table>
+                        <?php $timelineNoteCount = count($timelineNotesServiceItems); ?>
+                        <div class="card border-0 bg-light mb-3">
+                            <div class="card-body py-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 mb-2 mb-md-0">
+                                        <div class="text-muted text-uppercase small"><?= _('Documents') ?></div>
+                                        <div class="d-flex align-items-center flex-wrap">
+                                            <h5 class="mb-0 mr-2"><?= _('Timeline Documents') ?></h5>
+                                            <span class="badge badge-warning"><?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?></span>
+                                            <span class="badge badge-light border ml-2"><?= $timelineNoteCount . ' ' . _('items') ?></span>
+                                        </div>
+                                        <div class="small text-muted mt-1"><?= _('Filter notes, audio, video and shared documents from a single stream.') ?></div>
+                                    </div>
+                                    <div class="col-md-4 ml-md-auto">
+                                        <select name="PropertyId" class="filter-timeline form-control form-control-sm" size="1"
+                                                data-placeholder="<?= _("Select") ?> ..."
+                                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Filter your documents by : ") ?>">
+                                            <option value="all"><?= _("All type") ?></option>
+                                            <option value="note"><?= MiscUtils::noteType("note") ?></option>
+                                            <option value="video"><?= MiscUtils::noteType("video") ?></option>
+                                            <option value="audio"><?= MiscUtils::noteType("audio") ?></option>
+                                            <option disabled="disabled">_____________________________</option>
+                                            <option value="shared"><?= _("Shared documents") ?></option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="timeline time-line-note">
+                        <?php if ($timelineNoteCount == 0) { ?>
+                            <div class="alert alert-light border">
+                                <i class="far fa-copy mr-2 text-muted"></i><?= _('No documents or notes available yet.') ?>
+                            </div>
+                        <?php } ?>
+                        <div class="timeline time-line-note<?= $timelineNoteCount == 0 ? ' d-none' : '' ?>">
                             <!-- note time label -->
                             <div class="time-label"></div>
                             <!-- /.note-label -->
@@ -1391,50 +1512,55 @@ require $sRootDocument . '/Include/Header.php';
                                 if ($note_content != $item['text'] and $item['type'] != 'file') {// this assume only the last note is visible
 
                                     $note_content = $item['text']; // this assume only the last note is visible
+                                    $noteTypeLabel = in_array($item['type'], ['note', 'video', 'audio']) ? MiscUtils::noteType($item['type']) : ucfirst($item['type']);
+                                    $noteTypeBadge = 'badge badge-secondary';
+
+                                    if ($item['type'] == 'note') {
+                                        $noteTypeBadge = 'badge badge-primary';
+                                    } elseif ($item['type'] == 'video') {
+                                        $noteTypeBadge = 'badge badge-danger';
+                                    } elseif ($item['type'] == 'audio') {
+                                        $noteTypeBadge = 'badge badge-info';
+                                    }
                                     ?>
-                                    <div class="type-<?= $item['type'] ?><?= (isset($item['style2']) ? " type-shared" : "") ?>">
+                                    <div class="type-<?= $item['type'] ?><?= (isset($item['style2']) ? " type-shared" : "") ?> mb-3">
                                         <!-- timeline icon -->
                                         <i class="fas <?= $item['style'] ?> icon-<?= $item['type'] ?><?= (isset($item['style2']) ? " icon-shared" : "") ?>"></i>
 
-                                        <div class="timeline-item">
-                                            <span class="time">
-                                                <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
+                                        <div class="timeline-item shadow-sm border-0">
+                                            <span class="time text-muted small">
+                                                <i class="fas fa-clock mr-1"></i><?= $item['datetime'] ?>
                                                 &nbsp;
                                                 <div class="btn-group btn-group-sm" role="group">
                                                     <?php
-                                                    if ($item['slim'] and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                    if ($item['slim']) {
                                                         if ($item['editLink'] != '' or (isset($item['sharePersonID']) and $item['shareRights'] == 2)) {
                                                             ?>                            
-                                                            <!--<a href="<?= $item['editLink'] ?>">-->
-                                                            <?= $item['editLink'] ?>
-                                                                <i class="fas fa-edit"></i>
-                                                            </a>
+                                                            <?= $item['editLink'] ?>                                                                                                                            
                                                             <?php
                                                         }
                                                         if ($item['deleteLink'] != '' and !isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
                                                             ?>
-                                                            <?= $item['deleteLink'] ?>
-                                                                <i class="fas fa-trash-alt"></i>
-                                                            </a>
+                                                            <?= $item['deleteLink'] ?>                                                                                                                        
                                                             <?php
                                                         }
                                                         if (!isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
                                                             ?>
-                                                            <a href="#" data-id="<?= $item['id'] ?>"
+                                                            <button data-id="<?= $item['id'] ?>"
                                                                 data-shared="<?= $item['isShared'] ?>" 
                                                                 data-toggle="tooltip" data-placement="bottom" title="<?= _("Share this document to another user") ?>"
-                                                                class="shareNote btn btn-<?= $item['isShared'] ? "success" : "default" ?> btn-sm">                                
+                                                                class="shareNote btn btn-<?= $item['isShared'] ? "success" : "secondary" ?> btn-sm">                                
                                                                 <i class="fas fa-share-square"></i>
-                                                            </a>                            
+                                                            </button>                            
                                                             <?php
                                                         }
                                                         if ($item['type'] == 'note' and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
                                                             ?>
-                                                            <a href="#" data-id="<?= $item['id'] ?>"
+                                                            <button data-id="<?= $item['id'] ?>"
                                                                 data-toggle="tooltip" data-placement="bottom" title="<?= _("Export this document to word Format") ?>"
-                                                                class="saveNoteAsWordFile btn btn-<?= $item['isShared'] ? "primary" : "default" ?> btn-sm">                                
+                                                                class="saveNoteAsWordFile btn btn-outline-<?= $item['isShared'] ? "primary" : "secondary" ?> btn-sm">                                
                                                                 <i class="fas fa-file-word"></i>
-                                                            </a>                           
+                                                            </button>                           
                                                             <?php
                                                         }                    
                                                     } ?>
@@ -1448,7 +1574,16 @@ require $sRootDocument . '/Include/Header.php';
                                                 <?php
                                             }
                                             ?>
-                                            <h3 class="timeline-header">
+                                            <div class="timeline-header border-0 pb-2">
+                                                <div class="d-flex justify-content-between align-items-start flex-wrap">
+                                                    <div class="mr-3 mb-2">
+                                                        <div class="mb-1">
+                                                            <span class="<?= $noteTypeBadge ?> mr-1"><?= $noteTypeLabel ?></span>
+                                                            <?php if ($item['isShared']) { ?>
+                                                                <span class="badge badge-light border"><?= _('Shared') ?></span>
+                                                            <?php } ?>
+                                                        </div>                                                        
+                                                        <h3 class="h6 mb-0 font-weight-bold">
 
                                                 <?php
                                                 if (array_key_exists('headerlink', $item) and !isset($item['sharePersonID'])) {
@@ -1461,51 +1596,45 @@ require $sRootDocument . '/Include/Header.php';
                                                     <?php
                                                 }
                                                 ?>
-                                            </h3>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
-                                            <div class="timeline-body">
+                                            <div class="timeline-body pt-0">
                                                 <?php
                                                 if (isset($item['currentUserName'])) {
                                                     ?>
-                                                    <p class="text-danger">
+                                                    <p class="text-danger mb-2">
                                                         <small><?= $item['currentUserName'] ?></small>
-                                                    </p><br>
+                                                    </p>
                                                     <?php
                                                 } else if (isset($item['lastEditedBy'])) {
                                                     ?>
-                                                    <p class="text-success">
+                                                    <p class="text-success mb-2">
                                                         <small><?= _("Last modification by") . " : " . $item['lastEditedBy'] ?></small>
-                                                    </p><br>
+                                                    </p>
                                                     <?php
                                                 }
                                                 ?>
-                                                <?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . $item['text'] ?>
+                                                <?php if (!empty($item['info'])) { ?>
+                                                    <div class="small text-muted mb-2"><?= $item['info'] ?></div>
+                                                <?php } ?>
+                                                <div><?= $item['text'] ?></div>
                                             </div>
 
                                             <?php
+                                            $toto = 32;
                                             if ((SessionUser::getUser()->isNotesEnabled()) and ($item['editLink'] != '' or $item['deleteLink'] != '')) {
                                                 ?>
                                                 <div class="timeline-footer">
                                                     <div class="btn-group btn-group-sm" role="group">
                                                         <?php
-                                                        if (!$item['slim']) {
-                                                            if ($item['editLink'] != '') {
-                                                                ?>
-                                                                <?= $item['editLink'] ?>
-                                                                    <i class="fas fa-edit"></i>
-                                                                </a>
-                                                                <?php
-                                                            }
-
-                                                            if ($item['deleteLink'] != '') {
-                                                                ?>
-                                                                <?= $item['deleteLink'] ?>
-                                                                    <i class="fas fa-trash-alt"></i></button>
-                                                                </a>
-                                                                <?php
-                                                            }
-
+                                                        if (!$item['slim']) {?>
+                                                            <?= $item['editLink'] ?>
+                                                            <?= $item['deleteLink'] ?>
+                                                            <?php
                                                             if (!isset($item['sharePersonID'])) {
                                                                 ?>
                                                                 <button type="button" data-id="<?= $item['id'] ?>"
