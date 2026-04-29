@@ -254,8 +254,8 @@ $(function() {
 
         var modal = bootbox.dialog({
             message: BootboxContent(),
-            title: dialogTitle,
-            size: 'large',
+            title: dialogTitle,            
+            size: 'extra-large',
             buttons: [
                 {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
