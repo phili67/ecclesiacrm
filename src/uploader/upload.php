@@ -8,8 +8,41 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Note;
+use EcclesiaCRM\Utils\DocumentSecurityUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
+
+header('Content-Type: application/json');
+
+function uploadErrorResponse(string $message, int $statusCode = 400): void
+{
+  http_response_code($statusCode);
+  echo json_encode([
+    'uploaded' => 0,
+    'error' => [
+      'message' => $message
+    ]
+  ], JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
+  exit;
+}
+
+function uploadSuccessResponse(string $fileName, string $url, ?string $warningMessage = null): void
+{
+  $payload = [
+    'uploaded' => 1,
+    'fileName' => $fileName,
+    'url' => $url
+  ];
+
+  if (!is_null($warningMessage)) {
+    $payload['error'] = [
+      'message' => $warningMessage
+    ];
+  }
+
+  echo json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
+  exit;
+}
 
 if ( ! (SessionUser::isActive() && SessionUser::getUser()->isEDrive()) ) {
   RedirectUtils::Redirect('members/404.php?type=Upload');
@@ -19,97 +52,129 @@ if ( ! (SessionUser::isActive() && SessionUser::getUser()->isEDrive()) ) {
 
 $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
 
+if (is_null($user)) {
+  uploadErrorResponse('User account not found.', 403);
+}
+
 $privateNoteDir = $userDir = $user->getUserRootDir();
 $publicNoteDir  = $user->getUserPublicDir();
 $userName       = $user->getUserName();
-$currentpath    = $user->getCurrentpath();
+$currentpath    = DocumentSecurityUtils::normalizeDirectoryPath($user->getCurrentpath());
+$rootPath       = rtrim(SystemURLs::getRootPath(), '/');
+$documentRoot   = SystemURLs::getDocumentRoot();
 
-$protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+if (is_null($currentpath)) {
+  uploadErrorResponse('Invalid target path.', 400);
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  uploadErrorResponse('Invalid request method.', 405);
+}
+
+if (!isset($_GET['type'])) {
+  uploadErrorResponse('Missing upload type.', 400);
+}
+
+if (!isset($_FILES['upload']) || !is_array($_FILES['upload'])) {
+  uploadErrorResponse('No uploaded file received.', 400);
+}
+
+$allowedTypes = ['privateImages', 'privateDocuments', 'publicImages', 'publicDocuments'];
+$uploadType = (string)$_GET['type'];
+
+if (!in_array($uploadType, $allowedTypes, true)) {
+  uploadErrorResponse('Invalid upload type.', 400);
+}
+
+$uploadFile = $_FILES['upload'];
+
+if (($uploadFile['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+  uploadErrorResponse('Upload problem !!!', 400);
+}
+
+if (empty($uploadFile['tmp_name']) || !is_uploaded_file($uploadFile['tmp_name'])) {
+  uploadErrorResponse('Invalid uploaded file.', 400);
+}
+
+$originalFileName = (string)($uploadFile['name'] ?? '');
+$fileName = DocumentSecurityUtils::sanitizeUploadFileName($originalFileName);
+
+if (is_null($fileName)) {
+  uploadErrorResponse('Invalid file name.', 400);
+}
+
+$extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+if (!DocumentSecurityUtils::isAllowedUpload($fileName, $uploadFile['tmp_name'])) {
+  uploadErrorResponse('This file type is not allowed.', 400);
+}
 
 $dropDir = $privateNoteDir;
-$fileName = $_FILES["upload"]["name"];
+$dropAddress = '';
+$targetDirectory = '';
+$notePath = $userName . $currentpath;
 
-switch ($_GET['type']) {
+switch ($uploadType) {
   case 'privateImages':
   case 'privateDocuments':
-    $dropDir = $privateNoteDir. "/". $userName . $currentpath ;
-    $dropAddress = $protocol."://".$_SERVER['HTTP_HOST']."/api/filemanager/getFile/".$user->getPersonId(). "/". $userName. $currentpath . $fileName;
+    $dropDir = trim($privateNoteDir, '/') . '/' . trim($userName, '/') . $currentpath;
+    $targetDirectory = DocumentSecurityUtils::resolveDirectoryFromRelativeBase($documentRoot, $privateNoteDir, '/' . trim($userName, '/') . $currentpath);
     break;
   case 'publicImages':
   case 'publicDocuments':
-    $dropDir = $publicNoteDir. "/" ;
-    $dropAddress = $protocol."://".$_SERVER['HTTP_HOST']."/". $publicNoteDir ."/" . $fileName;
+    $dropDir = trim($publicNoteDir, '/') . '/';
+    $targetDirectory = DocumentSecurityUtils::resolveDirectoryFromRelativeBase($documentRoot, $publicNoteDir);
     break;
 }
 
-//
-// the main part : storing the file
-//
-header('Content-Type: application/json');
-
-
-if (file_exists(SystemURLs::getDocumentRoot()."/".$dropDir."/" . $fileName))
-{
-  $path_parts = pathinfo($fileName);
-  $dirname = $path_parts['dirname'];
-  $basename = $path_parts['basename'];
-  $ext =  $path_parts['extension'];
-  $fileName = $path_parts['filename'];  
-
-  $newFileName = $fileName . MiscUtils::gen_uuid().".".$ext;
-  $dropAddress = $protocol."://".$_SERVER['HTTP_HOST']."/". $dropDir . $newFileName;
-
-  $ret = move_uploaded_file($_FILES["upload"]["tmp_name"], "../".$dropDir."/" . $newFileName);
-
-  echo json_encode([
-      "uploaded" => 1,
-      "fileName" =>  $fileName,
-      "url" => $dropAddress,
-      "error"=> [
-          "message"=> "A file with the same name already exists. The uploaded file was renamed to \"foo(2).jpg\"."
-      ]
-      ],JSON_UNESCAPED_SLASHES|JSON_NUMERIC_CHECK);
-
-    exit;
+if (is_null($targetDirectory)) {
+  uploadErrorResponse('Target directory is invalid.', 400);
 }
-else
-{
-    if ( move_uploaded_file($_FILES["upload"]["tmp_name"],"../".$dropDir."/" . $fileName) ){
-      $rec = ImageTreatment::imageCreateFromAny(dirname(__FILE__)."/../".$dropDir."/" . $fileName);
-      if ($rec != false) {
-        ImageTreatment::saveImageCreateFromAny($rec, "../".$dropDir."/" . $fileName);
-        imagedestroy($rec['image']);
-      }
 
-      // now we create the note
-      $note = new Note();
-      $note->setPerId($user->getPersonId());
-      $note->setFamId(0);
-      $note->setTitle($fileName);
-      $note->setPrivate(1);
-      $note->setText($userName . $currentpath . $fileName);
-      $note->setType('file');
-      $note->setEntered(SessionUser::getUser()->getPersonId());
-      $note->setInfo(gettext('Create file'));
+$targetFilePath = $targetDirectory . DIRECTORY_SEPARATOR . $fileName;
+$storedFileName = $fileName;
+$warningMessage = null;
 
-      $note->save();
+$targetDirectoryRelative = trim($dropDir, '/');
 
-      echo json_encode([
-          "uploaded" => 1,
-          "fileName" =>  $fileName,
-          "url" => $dropAddress
-      ],JSON_UNESCAPED_SLASHES|JSON_NUMERIC_CHECK);
+if (file_exists($targetFilePath)) {
+  $pathParts = pathinfo($fileName);
+  $baseName = $pathParts['filename'];
+  $newFileName = $baseName . '-' . MiscUtils::gen_uuid();
 
-      exit;
+  if ($extension !== '') {
+    $newFileName .= '.' . $extension;
+  }
 
-    } else {
-      echo json_encode([
-        "uploaded" => 0,
-        "error"=> [
-            "message"=> "Upload problem !!!"
-        ]
-      ],JSON_UNESCAPED_SLASHES|JSON_NUMERIC_CHECK);
-
-      exit;
-    }
+  $storedFileName = $newFileName;
+  $targetFilePath = $targetDirectory . DIRECTORY_SEPARATOR . $storedFileName;
+  $warningMessage = 'A file with the same name already exists. The uploaded file was renamed automatically.';
 }
+
+if (!move_uploaded_file($uploadFile['tmp_name'], $targetFilePath)) {
+  uploadErrorResponse('Upload problem !!!', 500);
+}
+
+$rec = ImageTreatment::imageCreateFromAny($targetFilePath);
+if ($rec != false) {
+  ImageTreatment::saveImageCreateFromAny($rec, $targetFilePath);
+}
+
+$note = new Note();
+$note->setPerId($user->getPersonId());
+$note->setFamId(0);
+$note->setTitle($storedFileName);
+$note->setPrivate(1);
+$note->setText($notePath . $storedFileName);
+$note->setType('file');
+$note->setEntered(SessionUser::getUser()->getPersonId());
+$note->setInfo(gettext('Create file'));
+$note->save();
+
+if ($uploadType === 'privateImages' || $uploadType === 'privateDocuments') {
+  $dropAddress = $rootPath . '/api/filemanager/getFile/' . $user->getPersonId() . '/' . DocumentSecurityUtils::encodeUrlPath($notePath . $storedFileName);
+} else {
+  $dropAddress = $rootPath . '/' . DocumentSecurityUtils::encodeUrlPath($targetDirectoryRelative . '/' . $storedFileName);
+}
+
+uploadSuccessResponse($storedFileName, $dropAddress, $warningMessage);
