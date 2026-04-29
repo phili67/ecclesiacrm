@@ -27,6 +27,38 @@ $(function () {
     var uploadWindow = null;
     var oldTextField = null;
 
+    const openShareDialog = function (id) {
+        $('.filmanager-right').show();
+        
+        ///$('.preview').html("");
+
+        $('.preview-title').html(i18next.t("preview currently being created"));
+
+        let h2 = document.createElement('h2');            
+
+        //$('.preview').append(h2);           
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'filemanager/getPreview',
+            data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
+        }, function (data) {
+            if (data && data.success) {                    
+                $('.preview-title').html(data.name);
+                if (data.link) {
+                    $('.share-part').hide();
+                    $('.share-part-another-user').show();
+                    sharedByPersonsSabre();
+                } else {
+                    $('.share-part').show();             
+                    $('.share-part-another-user').hide();       
+                    addSharedPersonsSabre();
+                }
+                
+            }
+        }); 
+    }
+
     const openFilePreviewDialog = function (id) {
         var dialog = bootbox.dialog({
             title: `<span class="d-inline-flex align-items-center"><span class="badge badge-primary badge-pill mr-2">EDrive</span><span class="font-weight-bold">${i18next.t('Preview')}</span></span>`,
@@ -146,7 +178,7 @@ $(function () {
    <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
 </div>`;
                         return ret;
-                    } else if (!full.link && full.name != '/public') {
+                    } else if (!full.link && !(full.name == '/public' && full.currentpath == '/')) {
                         var ret = `<div class="btn-group">
    <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
 </div>`;
@@ -368,22 +400,28 @@ $(function () {
         let id = data['name'];
         let clickedCellIndex = $(event.target).closest('td').index();
 
-        if (clickedCellIndex === 0
-            && $(event.target).closest('.change-folder').length == 0 
-            && $(event.target).closest('.fa-download').length == 0 
-            && $(event.target).closest('.shareFile').length == 0 && id != '/public') {
-            // not click on a folder link : ie click on the line to select and show preview and not click on the line to open the folder    
-            openFilePreviewDialog(id);
-            return;        
-        }
-        
-        let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment
-        
         let ctrlKey = event.ctrlKey;// on pc        
         let altKey = event.altKey;
         let shiftKey = event.shiftKey;
         let optionKey = event.metaKey;// on mac
 
+
+        if (clickedCellIndex === 0
+            && $(event.target).closest('.change-folder').length == 0 
+            && $(event.target).closest('.fa-download').length == 0 
+            && $(event.target).closest('.shareFile').length == 0 
+            && !shiftKey && !ctrlKey && !optionKey && !altKey) {
+            // not click on a folder link : ie click on the line to select and show preview and not click on the line to open the folder    
+            openFilePreviewDialog(id);
+            return;        
+        }
+
+        if (clickedCellIndex > 0 && $(event.target).closest('.shareFile').length > 0) {
+            openShareDialog(id);
+            return;
+        }
+
+        let column = window.CRM.dataEDriveTable.column( this ).index();//unusefull at this moment        
         var selectedRows = window.CRM.dataEDriveTable.rows({ selected: true }).data().length;
 
         let clickedRowIsSelected = true;
@@ -430,38 +468,8 @@ $(function () {
             $("#trash-drop").addClass('disabled');            
         }
 
-        if (selectedRows != 1 || window.CRM.dblclick || id == '/public' || clickedCellIndex !== 2) {
+        if (selectedRows != 1 || window.CRM.dblclick || clickedCellIndex !== 2) {
             $('.filmanager-right').hide();
-        } else if (!window.CRM.dblclick){   
-            $('.filmanager-right').show();
-
-            ///$('.preview').html("");
-
-            $('.preview-title').html(i18next.t("preview currently being created"));
-
-            let h2 = document.createElement('h2');            
-
-            //$('.preview').append(h2);                        
-            
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'filemanager/getPreview',
-                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": id })
-            }, function (data) {
-                if (data && data.success) {                    
-                    $('.preview-title').html(data.name);
-                    if (data.link) {
-                        $('.share-part').hide();
-                        $('.share-part-another-user').show();
-                        sharedByPersonsSabre();
-                    } else {
-                        $('.share-part').show();             
-                        $('.share-part-another-user').hide();       
-                        addSharedPersonsSabre();
-                    }
-                    
-                }
-            });        
         }
 
         window.CRM.dblclick = false;
