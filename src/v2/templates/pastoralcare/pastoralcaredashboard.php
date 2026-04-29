@@ -16,14 +16,34 @@ use EcclesiaCRM\SessionUser;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
+<div class="card card-outline card-primary shadow-sm mb-3">
+    <div class="card-body py-3 px-4">
+        <div class="d-flex flex-wrap align-items-start justify-content-between">
+            <div class="pr-3">
+                <h2 class="h4 mb-1"><i class="fas fa-hands-helping mr-2 text-primary"></i><?= _('Pastoral Care Dashboard') ?></h2>
+                <div class="text-muted small mb-0"><?= _('Track visits, launch quick pastoral actions and focus first on members who still need attention.') ?></div>
+            </div>
+            <div class="mt-2 mt-md-0 text-md-right">
+                <span class="badge badge-primary mr-1 mb-1"><i class="fas fa-calendar-alt mr-1"></i><?= $Stats['startPeriod'] . ' - ' . $Stats['endPeriod'] ?></span>
+                <span class="badge badge-info mr-1 mb-1"><i class="fas fa-user mr-1"></i><?= $Stats['CountNotViewPersons'] . ' ' . _('Persons pending') ?></span>
+                <span class="badge badge-warning mb-1"><i class="fas fa-home mr-1"></i><?= $Stats['CountNotViewFamilies'] . ' ' . _('Families pending') ?></span>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="card card-outline card-primary shadow-sm mb-3">
-    <div class="card-header py-2 d-flex justify-content-between align-items-center">
-        <h3 class="card-title mb-0"><i class="fas fa-heart mr-1"></i><?= _("Visit/Call randomly") ?></h3>
+    <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+        <div>
+            <h3 class="card-title mb-1"><i class="fas fa-heart mr-1"></i><?= _("Visit/Call randomly") ?></h3>
+            <div class="small text-muted"><?= _('Start a pastoral action in one click and quickly choose the profile type you want to reach.') ?></div>
+        </div>
     </div>
     <div class="card-body py-3">
-        <div class="d-flex flex-wrap gap-2 align-items-center">
-            <div class="btn-group" role="group">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-3 mb-lg-0">
+                <div class="d-flex flex-wrap align-items-center">
+                    <div class="btn-group mr-2 mb-2" role="group">
                 <button type="button" class="btn btn-sm btn-primary newPastorCare" data-typeid="2" data-toggle="tooltip" data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>">
                     <i class="fas fa-sticky-note mr-1"></i><?= _("Family") ?>
                 </button>
@@ -38,26 +58,36 @@ require $sRootDocument . '/Include/Header.php';
                     <a class="dropdown-item newPastorCare" href="#" data-typeid="5"><i class="fas fa-user-circle mr-2"></i><?= _("Single") ?></a>
                 </div>
             </div>
-            <button type="button" class="btn btn-sm btn-warning" id="add-event" data-toggle="tooltip" data-placement="bottom" title="<?= _("Create an appointment") ?>">
+            <button type="button" class="btn btn-sm btn-warning mr-2 mb-2" id="add-event" data-toggle="tooltip" data-placement="bottom" title="<?= _("Create an appointment") ?>">
                 <i class="far fa-calendar-plus mr-1"></i><?= _("Appointment") ?>
             </button>
             <?php if ( !(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) && SessionUser::getId() == $currentPastorId) { ?>
-                <a href="<?= $sRootPath ?>/v2/pastoralcare/listforuser/<?= $currentPastorId ?>" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>">
+                <a href="<?= $sRootPath ?>/v2/pastoralcare/listforuser/<?= $currentPastorId ?>" class="btn btn-sm btn-success mb-2" data-toggle="tooltip" data-placement="bottom" title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>">
                     <i class="fas fa-list mr-1"></i><?= _("Lists") ?>
                 </a>
             <?php } ?>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="alert alert-light border mb-0">
+                    <div class="font-weight-bold mb-1"><?= _('Quick guidance') ?></div>
+                    <div class="small text-muted mb-0"><?= _('Use Family when you want to validate several people at once, or pick a specific profile from the dropdown for a more focused outreach.') ?></div>
+                </div>
+            </div>
             <?php if ( SessionUser::getUser()->isAdmin() ) { ?>
-                <a href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" class="btn btn-sm btn-outline-secondary ml-auto" data-toggle="tooltip" data-placement="bottom" title="<?= _("Pastoral care Settings.") ?>">
-                    <i class="fas fa-cog mr-1"></i><?= _("Settings") ?>
-                </a>
+                <div class="col-12 mt-3 text-lg-right">
+                    <a href="<?= $sRootPath ?>/v2/systemsettings/pastoralcare" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" data-placement="bottom" title="<?= _("Pastoral care Settings.") ?>">
+                        <i class="fas fa-cog mr-1"></i><?= _("Settings") ?>
+                    </a>
+                </div>
             <?php } ?>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <div class="info-box bg-gradient-<?= $Stats['personGradientColor'] ?>">
+    <div class="col-lg col-md-4 col-sm-6 col-12">
+        <div class="info-box bg-gradient-<?= $Stats['personGradientColor'] ?> shadow-sm">
             <span class="info-box-icon"><i class="fas fa-user"></i></span>
 
             <div class="info-box-content">
@@ -68,8 +98,8 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <div class="info-box bg-gradient-<?= $Stats['familyGradientColor'] ?>">
+    <div class="col-lg col-md-4 col-sm-6 col-12">
+        <div class="info-box bg-gradient-<?= $Stats['familyGradientColor'] ?> shadow-sm">
             <span class="info-box-icon"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small></span>
 
             <div class="info-box-content">
@@ -80,8 +110,8 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <div class="info-box bg-gradient-<?= $Stats['singleGradientColor'] ?>">
+    <div class="col-lg col-md-4 col-sm-6 col-12">
+        <div class="info-box bg-gradient-<?= $Stats['singleGradientColor'] ?> shadow-sm">
             <span class="info-box-icon"><i class="fas fa-user"></i></span>
 
             <div class="info-box-content">
@@ -92,8 +122,8 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <div class="info-box bg-gradient-<?= $Stats['retiredGradientColor'] ?>">
+    <div class="col-lg col-md-4 col-sm-6 col-12">
+        <div class="info-box bg-gradient-<?= $Stats['retiredGradientColor'] ?> shadow-sm">
             <span class="info-box-icon"><i class="fas fa-user"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _("Not visited Retired Persons") ?></span>
@@ -103,8 +133,8 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <div class="info-box bg-gradient-<?= $Stats['youngGradientColor'] ?>">
+    <div class="col-lg col-md-4 col-sm-6 col-12">
+        <div class="info-box bg-gradient-<?= $Stats['youngGradientColor'] ?> shadow-sm">
             <span class="info-box-icon"><i class="fas fa-child"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _("Not visited Youngs") ?></span>
@@ -119,12 +149,18 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
     <div class="col-md-6">
-        <div class="card card-primary card-outline h-100">
-            <div class="card-header border-1 py-2">
-                <div class="card-title small"><i class="fa-solid fa-clock"></i> <?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
+        <div class="card card-primary card-outline h-100 shadow-sm">
+            <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+                <div>
+                    <div class="card-title mb-1"><i class="fas fa-chart-line mr-2"></i><?= _('Coverage Overview') ?></div>
+                    <div class="small text-muted"><?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
+                </div>
+                <span class="badge badge-light mt-2 mt-md-0"><i class="fas fa-clock mr-1"></i><?= _('Current period') ?></span>
             </div>
-            <div class="card-body p-2">
-                <p class="text-info small mb-2"><i class="fas fa-info-circle"></i> <?= _("• Statistics about persons, families ... who remain to be contacted.") ?></p>
+            <div class="card-body p-3">
+                <div class="alert alert-light border py-2 px-3 small mb-3">
+                    <i class="fas fa-info-circle text-info mr-1"></i><?= _("Statistics about persons, families and categories that still need to be contacted.") ?>
+                </div>
                 <div class="d-flex align-items-center mb-1">
                     <div class="small text-nowrap" style="width:120px"><i class="fas fa-user fa-fw"></i> <?= _("Persons") ?></div>
                     <div class="flex-grow-1 mx-2">
@@ -179,16 +215,19 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <?php if (SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) { ?>
         <div class="col-md-6">
-            <div class="card card-primary card-outline h-100 d-flex flex-column">
-                <div class="card-header border-1 py-2">
-                    <div class="card-title small">
-                        <i class="fa-solid fa-people-group"></i> <?= _("Pastoral Care Members") ?>
+            <div class="card card-primary card-outline h-100 d-flex flex-column shadow-sm">
+                <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+                    <div>
+                        <div class="card-title mb-1">
+                            <i class="fas fa-people-arrows mr-2"></i> <?= _("Pastoral Care Members") ?>
+                        </div>
                         <?php if (SystemConfig::getBooleanValue("bPastoralcareStats")) { ?>
-                            <span class="text-muted">(<?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?>)</span>
+                            <div class="small text-muted"><?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
                         <?php } ?>
                     </div>
+                    <span class="badge badge-info mt-2 mt-md-0"><i class="fas fa-user-check mr-1"></i><?= _('Follow-up list') ?></span>
                 </div>
-                <div class="card-body p-2 flex-grow-1" style="overflow-y:auto;">
+                <div class="card-body p-3 flex-grow-1" style="overflow-y:auto;">
                     <table class="dataTable table table-striped table-condensed" id="pastoralcareMembers" width="100%"></table>
                 </div>
             </div>
@@ -202,8 +241,15 @@ require $sRootDocument . '/Include/Header.php';
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-warning">
-                <div class="card-header border-1">
+            <div class="card card-warning shadow-sm">
+                <div class="card-header border-0 d-flex justify-content-between align-items-start flex-wrap">
+                    <div>
+                        <h3 class="card-title mb-1"><i class="fas fa-exclamation-circle mr-2"></i><?= _('Members Still Not Reached') ?></h3>
+                        <div class="small text-muted"><?= _('Switch by category to focus your follow-up list and start the next pastoral action faster.') ?></div>
+                    </div>
+                    <span class="badge badge-warning mt-2 mt-md-0"><i class="fas fa-filter mr-1"></i><?= _('Segmented view') ?></span>
+                </div>
+                <div class="card-header border-0 pt-0">
                     <ul class="nav nav-tabs card-header-tabs" id="notReachedTabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="tab-persons" data-toggle="tab" href="#pane-persons" role="tab" aria-controls="pane-persons" aria-selected="true">
@@ -232,26 +278,41 @@ require $sRootDocument . '/Include/Header.php';
                         </li>
                     </ul>
                 </div>
-                <div class="card-body">
+                <div class="card-body pt-2">
                     <div class="tab-content" id="notReachedTabsContent">
                         <div class="tab-pane fade show active" id="pane-persons" role="tabpanel" aria-labelledby="tab-persons">
-                            <h6 class="mt-2 mb-2 text-muted"><?= _("Persons not reached") ?></h6>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 mb-2">
+                                <h6 class="mb-0 text-muted"><?= _("Persons not reached") ?></h6>
+                                <span class="badge badge-light"><?= $Stats['CountNotViewPersons'] . ' ' . _('remaining') ?></span>
+                            </div>
                             <table class="dataTable table table-striped table-condensed" id="personNeverBeenContacted" width="100%"></table>
                         </div>
                         <div class="tab-pane fade" id="pane-families" role="tabpanel" aria-labelledby="tab-families">
-                            <h6 class="mt-2 mb-2 text-muted"><?= _("Families not reached") ?></h6>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 mb-2">
+                                <h6 class="mb-0 text-muted"><?= _("Families not reached") ?></h6>
+                                <span class="badge badge-light"><?= $Stats['CountNotViewFamilies'] . ' ' . _('remaining') ?></span>
+                            </div>
                             <table class="dataTable table table-striped table-condensed" id="familyNeverBeenContacted" width="100%"></table>
                         </div>
                         <div class="tab-pane fade" id="pane-singles" role="tabpanel" aria-labelledby="tab-singles">
-                            <h6 class="mt-2 mb-2 text-muted"><?= _("Single Persons not reached") ?></h6>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 mb-2">
+                                <h6 class="mb-0 text-muted"><?= _("Single Persons not reached") ?></h6>
+                                <span class="badge badge-light"><?= $Stats['CountPersonSingle'] . ' ' . _('remaining') ?></span>
+                            </div>
                             <table class="dataTable table table-striped table-condensed" id="singleNeverBeenContacted" width="100%"></table>
                         </div>
                         <div class="tab-pane fade" id="pane-retired" role="tabpanel" aria-labelledby="tab-retired">
-                            <h6 class="mt-2 mb-2 text-muted"><?= _("Retired not reached") ?></h6>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 mb-2">
+                                <h6 class="mb-0 text-muted"><?= _("Retired not reached") ?></h6>
+                                <span class="badge badge-light"><?= $Stats['CountNotViewRetired'] . ' ' . _('remaining') ?></span>
+                            </div>
                             <table class="dataTable table table-striped table-condensed" id="retiredNeverBeenContacted" width="100%"></table>
                         </div>
                         <div class="tab-pane fade" id="pane-young" role="tabpanel" aria-labelledby="tab-young">
-                            <h6 class="mt-2 mb-2 text-muted"><?= _("Young People not reached") ?></h6>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap mt-2 mb-2">
+                                <h6 class="mb-0 text-muted"><?= _("Young People not reached") ?></h6>
+                                <span class="badge badge-light"><?= $Stats['CountNotViewYoung'] . ' ' . _('remaining') ?></span>
+                            </div>
                             <table class="dataTable table table-striped table-condensed" id="youngNeverBeenContacted" width="100%"></table>
                         </div>
                     </div>
