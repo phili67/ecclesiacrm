@@ -139,26 +139,42 @@ $(function() {
     });
 
     function BootboxContent(type, name = null) {
-        var frm_str = '<section class="content">\n' +
+        var actionLabel = type === 'upgrade' ? i18next.t("Update plugin") : i18next.t("Add plugin");
+        var helperText = type === 'upgrade'
+            ? i18next.t("Choose the new zipped package to update this plugin.")
+            : i18next.t("Choose a zipped plugin package to install it in your CRM.");
+
+        var frm_str = '<div class="container-fluid px-0">\n' +
             '<form id="restoredatabase" action="' + window.CRM.root + '/api/plugins/' + type + '" method="POST" enctype="multipart/form-data">\n' +
-            '<div class="card card-gray">\n' +
-            '    <div class="card-header">\n' +
-            '        <h3 class="card-title">' + i18next.t("Select your zipped plugin file") + '</h3>\n' +
+            '<div class="alert alert-light border mb-3">\n' +
+            '  <div class="d-flex align-items-start">\n' +
+            '    <i class="fas fa-puzzle-piece text-primary mr-2 mt-1"></i>\n' +
+            '    <div>\n' +
+            '      <div class="font-weight-bold">' + actionLabel + '</div>\n' +
+            '      <div class="small text-muted">' + helperText + '</div>\n' +
             '    </div>\n' +
-            '    <div class="card-body">\n' +
-            '            <input type="file" name="pluginFile" id="pluginFile" multiple="">\n';
+            '  </div>\n' +
+            '</div>\n' +
+            '<div class="card card-outline card-primary mb-0">\n' +
+            '  <div class="card-body">\n' +
+            '    <div class="form-group mb-0">\n' +
+            '      <label class="small text-uppercase text-muted mb-2" for="pluginFile">' + i18next.t("Plugin archive") + '</label>\n' +
+            '      <input type="file" name="pluginFile" id="pluginFile" class="form-control-file" multiple="">\n' +
+            '      <small class="form-text text-muted">' + i18next.t("Only zipped plugin packages should be selected here.") + '</small>\n';
 
         if (name !== null) {
             frm_str += '            <input type="hidden" name="name" value="' + name + '" />';
         }
 
         frm_str +=  '    </div>\n' +
-            '    <div class="card-footer"">' +
-            '            <button type="submit" class="btn btn-primary btn-small">' + i18next.t("Download the zipped file of the plugin") + '</button>\n' +
-            '    </div>'
+            '  </div>\n' +
+            '  <div class="card-footer d-flex justify-content-between align-items-center">\n' +
+            '    <span class="small text-muted">' + i18next.t("The upload starts as soon as you submit this form.") + '</span>\n' +
+            '    <button type="submit" class="btn btn-primary">' + actionLabel + '</button>\n' +
+            '  </div>\n' +
             '</div>\n' +
             '</form>\n' +
-            '</section>';
+            '</div>';
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -167,7 +183,7 @@ $(function() {
 
     $('#add-plugin').on('click', function () {
         var modal = bootbox.dialog({
-            title:i18next.t("Plugin download manager"),
+            title:i18next.t("Plugin manager"),
             message: BootboxContent('add'),
             size: 'large',
             show: true,
@@ -182,7 +198,7 @@ $(function() {
         var name = $(this).data("name");
 
         var modal = bootbox.dialog({
-            title:i18next.t("Plugin download manager") + " : " + name,
+            title:i18next.t("Plugin manager") + " : " + name,
             message: BootboxContent('upgrade', name),
             size: 'large',
             show: true,
