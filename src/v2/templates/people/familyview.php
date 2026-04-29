@@ -64,7 +64,7 @@ $sFamilyEmails = [];
                             ?>
                                 <div class="after">
                                     <div class="buttons">
-                                        <a class="hide" id="view-larger-image-btn" href="#"
+                                        <a href="#" class="hide" id="view-larger-image-btn" href="#"
                                             title="<?= _("View Photo") ?>">
                                             <i class="fas fa-search-plus"></i>
                                         </a>&nbsp;
@@ -859,21 +859,20 @@ $sFamilyEmails = [];
                                                                 if ($item['slim']) {
                                                                     if ($item['editLink'] != '') {
                                                                 ?>
-                                                                        <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
+                                                                        <button data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
                                                                             data-famid="<?= $item['famID'] ?>" class="btn btn-primary btn-sm editDocument">
                                                                             <i class="fas fa-edit"></i>
-                                                                        </a>
-                                                        </span>
-                                                        </a>
+                                                                        </button>
+                                                        </span>                                                        
                                                     <?php
                                                                     }
 
                                                                     if ($item['deleteLink'] != '') {
                                                     ?>
-                                                        <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
+                                                        <button data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
                                                             data-famid="<?= $item['famID'] ?>" class="btn btn-danger btn-sm deleteDocument">
                                                             <i class="fas fa-trash-alt"></i>
-                                                        </a>
+                                                        </button>
                                                 <?php
                                                                     }
                                                                 }
