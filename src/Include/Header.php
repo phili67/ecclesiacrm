@@ -232,7 +232,16 @@ Header_system_notifications();
         <!-- Main content -->
         <section class="content">
             <div class="main-box-body clearfix" style="display:none" id="globalMessage">
-                <div class="alert alert-success" role="alert" id="globalMessageAlert">
-                    <i class="fas fa-exclamation-triangle"></i><span id="globalMessageText"></span>
+                <div class="alert alert-success crm-global-message" role="status" aria-live="polite" id="globalMessageAlert">
+                    <div class="crm-global-message__icon" aria-hidden="true">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="crm-global-message__content">
+                        <div class="crm-global-message__title"><?= _('Notification') ?></div>
+                        <div class="crm-global-message__text" id="globalMessageText"></div>
+                    </div>
+                    <button type="button" class="crm-global-message__close" aria-label="<?= _('Close') ?>" onclick="document.getElementById('globalMessage').style.display='none';">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
             </div>
