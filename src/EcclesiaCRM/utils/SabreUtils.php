@@ -345,6 +345,12 @@ class SabreUtils {
         return SPlugin::ACCESS_NOTSHARED;
     }
 
+    public static function removeDoubleSlashes($string)
+    {
+        // Remplace tous les doubles slashs (hors début d'URL) par un seul slash
+        return preg_replace('#(?<!:)//+#', '/', $string);
+    }
+
     /**
      * move shared file or Folder from an old path to a new
      * 
@@ -354,6 +360,8 @@ class SabreUtils {
      */
     public static function moveSharedFileOrCollection ($principalURI, $oldPath, $newPath)
     {
+        $oldPath = self::removeDoubleSlashes($oldPath);
+        $newPath = self::removeDoubleSlashes($newPath);
         $userName = explode("/", $principalURI)[1];// now we get the username
         $user = UserQuery::create()->findOneByUserName($userName);
 

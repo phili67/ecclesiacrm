@@ -11,8 +11,10 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\ImageTreatment;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\Utils\DocumentSecurityUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
@@ -44,6 +46,105 @@ class DocumentFileManagerController
         return $file_ary;
     }
 
+    private static function isNotPublicPath(string $currentPath, string $file): bool
+    {
+        return $currentPath == "/" && ($file == "public" or $file == "public/" or $file == "public\\");
+    }
+
+    private function buildUploadErrorResponse(Response $response, string $message, int $statusCode = 400): Response
+    {
+        $payload = json_encode([
+            'success' => false,
+            'message' => $message
+        ], JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
+
+        $response = $response->withStatus($statusCode)->withHeader('Content-Type', 'application/json');
+        $response->getBody()->write($payload === false ? '{"success":false,"message":"Unexpected error."}' : $payload);
+
+        return $response;
+    }
+
+    private function getUserRootStorageDirectory($user): ?string
+    {
+        return DocumentSecurityUtils::resolveDirectoryFromRelativeBase(SystemURLs::getDocumentRoot(), $user->getUserRootDir());
+    }
+
+    private function getUserOwnedStorageDirectory($user): ?string
+    {
+        return DocumentSecurityUtils::resolveDirectoryFromRelativeBase(SystemURLs::getDocumentRoot(), $user->getUserRootDir(), '/' . trim($user->getUserName(), '/'));
+    }
+
+    private function getNormalizedCurrentPath($user): ?string
+    {
+        return DocumentSecurityUtils::normalizeDirectoryPath($user->getCurrentpath());
+    }
+
+    private function buildRelativePath(string $currentPath, string $leaf = ''): string
+    {
+        $relativePath = trim($currentPath, '/');
+        if ($relativePath !== '') {
+            $relativePath .= '/';
+        }
+
+        return $relativePath . ltrim($leaf, '/');
+    }
+
+    private function getParentDirectoryPath(string $currentPath): string
+    {
+        $trimmedPath = trim($currentPath, '/');
+        if ($trimmedPath === '') {
+            return '/';
+        }
+
+        $segments = explode('/', $trimmedPath);
+        array_pop($segments);
+
+        if (empty($segments)) {
+            return '/';
+        }
+
+        return '/' . implode('/', $segments) . '/';
+    }
+
+    private function resolvePathInOwnedStorage($user, string $relativePath, bool $mustExist = true): ?string
+    {
+        $baseDirectory = $this->getUserOwnedStorageDirectory($user);
+        if (is_null($baseDirectory)) {
+            return null;
+        }
+
+        $resolvedPath = DocumentSecurityUtils::resolvePathWithinBase($baseDirectory, $relativePath, $mustExist);
+        if (!is_null($resolvedPath)) {
+            return $resolvedPath;
+        }
+
+        $normalizedRelativePath = DocumentSecurityUtils::normalizeRelativePath($relativePath);
+        if (is_null($normalizedRelativePath)) {
+            return null;
+        }
+
+        $legacyBaseDirectory = $this->getUserRootStorageDirectory($user);
+        if (is_null($legacyBaseDirectory)) {
+            return null;
+        }
+
+        return DocumentSecurityUtils::resolvePathWithinBase(
+            $legacyBaseDirectory,
+            trim($user->getUserName(), '/') . ($normalizedRelativePath !== '' ? '/' . $normalizedRelativePath : ''),
+            $mustExist
+        );
+    }
+
+    private function resolveCurrentDirectory($user, ?string $currentPath = null, bool $mustExist = true): ?string
+    {
+        $resolvedCurrentPath = is_null($currentPath) ? $this->getNormalizedCurrentPath($user) : $currentPath;
+        if (is_null($resolvedCurrentPath)) {
+            return null;
+        }
+
+        return $this->resolvePathInOwnedStorage($user, trim($resolvedCurrentPath, '/'), $mustExist);
+    }
+
     private function numberOfFiles($personID)
     {
         $user = UserQuery::create()->findPk($personID);
@@ -61,7 +162,7 @@ class DocumentFileManagerController
         $files = array_diff(scandir($currentNoteDir), array('.', '..', '.DS_Store', '._.DS_Store'));
 
         return count($files);
-    }
+    }    
 
     public function getAllFileNoteForPerson(ServerRequest $request, Response $response, array $args): Response
     {
@@ -128,13 +229,17 @@ class DocumentFileManagerController
                 $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png"; 
                 $item['type'] = _("Folder");
                 $size = 34;
-            } else if (is_link("$currentNoteDir/$file")) {
+                if (is_link("$currentNoteDir/$file") and !self::isNotPublicPath($currentpath, $file)) {
+                    $item['link'] = true;
+                }
+            }
+             
+            if (is_link("$currentNoteDir/$file") and !self::isNotPublicPath($currentpath, $file)) {
                 $item['link'] = true;
-            } else {
-                $item['locked'] = false;
             }
 
             $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';
+            $item['currentpath'] = $currentpath;
 
             $result[] = $item;
         }
@@ -226,7 +331,7 @@ class DocumentFileManagerController
 
                 $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath;
                 $sabrepath = $realNoteDir . "/" . $userName . $currentpath;
-        
+
 
                 $realNoteDir = $user->getUserRootDir();
                 
@@ -259,7 +364,9 @@ class DocumentFileManagerController
                     $item['icon'] = SystemURLs::getRootPath() . "/Images/Icons/FOLDER.png";
                     $item['type'] = _("Folder");
                     $size = 34;
-                } else if (is_link("$currentNoteDir/$file")) {
+                } 
+                
+                if (is_link("$currentNoteDir/$file")) {
                     $item['link'] = true;
                 }                
 
@@ -452,7 +559,7 @@ class DocumentFileManagerController
                 $sabrePath = "home/".$user->getUserName().$currentpath.MiscUtils::convertUTF8AccentuedString2Unicode($params->file);
                 
                 if (SabreUtils::fileOrCollectionACL($principalUri, $sabrePath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
-                    return $response->withJson(['success' => false, "message" => _("Right of access to folder problem")]);
+                        return $response->withJson(['success' => false, "message" => _("Right of access to folder problem")]);
                 }
 
                 SabreUtils::removeSharedFileOrCollection($principalUri, $sabrePath);
@@ -798,7 +905,7 @@ class DocumentFileManagerController
 
                 $principalUri = "principals/".$user->getUserName();
                 $oldPath = "home/".$user->getUserName().$currentpath.$params->oldName;
-                $newPath = "home/".$user->getUserName().$currentpath.$params->newName.".".$extension;
+                $newPath = "home/".$user->getUserName().$currentpath.$params->newName.(($params->type == 'file') ? ".".$extension : "");
 
                 if (SabreUtils::fileOrCollectionACL($principalUri, $oldPath) != 3) {// 3 : SPlugin::ACCESS_READWRITE;
                     return $response->withJson(['success' => false, "message" => _("Right of access to the file or folder the prohibited recording")]);
@@ -846,55 +953,92 @@ class DocumentFileManagerController
 
     public function uploadFile(ServerRequest $request, Response $response, array $args): Response
     {
-        if (SessionUser::getUser()->isEDriveEnabled() and SessionUser::getId() != $args['personID']) {
+        if (!SessionUser::getUser()->isEDriveEnabled() || SessionUser::getId() != $args['personID']) {
             return $response->withStatus(401);
         }
 
         $user = UserQuery::create()->findPk($args['personID']);
 
-        $realNoteDir = $userDir = $user->getUserRootDir();
-        $publicNoteDir = $user->getUserPublicDir();
-        $userName = $user->getUserName();
-        $currentpath = $user->getCurrentpath();
-
-        if (!isset($_FILES['noteInputFile'])) {
-            return $response->withJson(['success' => "failed"]);
+        if (is_null($user)) {
+            return $this->buildUploadErrorResponse($response, _('User account not found.'), 404);
         }
 
-        $currentNoteDir = SystemURLs::getDocumentRoot() . "/" . $realNoteDir . "/" . $userName . $currentpath;
+        $realNoteDir = $userDir = $user->getUserRootDir();
+        $userName = $user->getUserName();
+        $currentpath = DocumentSecurityUtils::normalizeDirectoryPath($user->getCurrentpath());
+
+        if (is_null($currentpath)) {
+            return $this->buildUploadErrorResponse($response, _('Invalid target path.'));
+        }
+
+        if (!isset($_FILES['noteInputFile']) || !is_array($_FILES['noteInputFile'])) {
+            return $this->buildUploadErrorResponse($response, _('No uploaded file received.'));
+        }
 
         $file = $_FILES['noteInputFile'];
 
-        
-        $fileName = basename($file["name"]);
-        $real_extension = pathinfo($fileName, PATHINFO_EXTENSION);
-        /*if (str_starts_with(  $currentpath, '/public/' )) {
-            $extension = MiscUtils::SanitizeExtension(pathinfo($fileName, PATHINFO_EXTENSION));
-        } else {*/
-            $extension = $real_extension;
-        //}
-
-        if ($real_extension != $extension) {
-            $fileName = str_replace(".".$real_extension, ".".$extension, $fileName);
-        }
-        $target_file = $currentNoteDir . $fileName;
-
-        if (move_uploaded_file($file['tmp_name'], $target_file)) {
-            // now we create the note
-            $note = new Note();
-            $note->setPerId($args['personID']);
-            $note->setFamId(0);
-            $note->setTitle($fileName);
-            $note->setPrivate(1);
-            $note->setText($userName . $currentpath . $fileName);
-            $note->setType('file');
-            $note->setEntered(SessionUser::getUser()->getPersonId());
-            $note->setInfo(_('Create file'));
-
-            $note->save();
+        if (($file['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+            return $this->buildUploadErrorResponse($response, _('Upload problem !!!'));
         }
 
-        return $response->withJson(['success' => true, "numberOfFiles" => $this->numberOfFiles($args['personID'])]);
+        if (empty($file['tmp_name']) || !is_uploaded_file($file['tmp_name'])) {
+            return $this->buildUploadErrorResponse($response, _('Invalid uploaded file.'));
+        }
+
+        $fileName = DocumentSecurityUtils::sanitizeUploadFileName((string)($file['name'] ?? ''));
+        if (is_null($fileName)) {
+            return $this->buildUploadErrorResponse($response, _('Invalid file name.'));
+        }
+
+        $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+        if (!DocumentSecurityUtils::isAllowedUpload($fileName, $file['tmp_name'])) {
+            return $this->buildUploadErrorResponse($response, _('This file type is not allowed.'));
+        }
+
+        $targetDirectory = DocumentSecurityUtils::resolveDirectoryFromRelativeBase(SystemURLs::getDocumentRoot(), $realNoteDir, '/' . trim($userName, '/') . $currentpath);
+        if (is_null($targetDirectory)) {
+            return $this->buildUploadErrorResponse($response, _('Target directory is invalid.'));
+        }
+
+        $targetFile = $targetDirectory . DIRECTORY_SEPARATOR . $fileName;
+        $storedFileName = $fileName;
+        $warningMessage = null;
+
+        if (file_exists($targetFile)) {
+            $pathParts = pathinfo($fileName);
+            $storedFileName = $pathParts['filename'] . '-' . MiscUtils::gen_uuid() . '.' . $extension;
+            $targetFile = $targetDirectory . DIRECTORY_SEPARATOR . $storedFileName;
+            $warningMessage = _('A file with the same name already exists. The uploaded file was renamed automatically.');
+        }
+
+        if (!move_uploaded_file($file['tmp_name'], $targetFile)) {
+            return $this->buildUploadErrorResponse($response, _('Upload problem !!!'), 500);
+        }
+
+        $rec = ImageTreatment::imageCreateFromAny($targetFile);
+        if ($rec != false) {
+            ImageTreatment::saveImageCreateFromAny($rec, $targetFile);
+            imagedestroy($rec['image']);
+        }
+
+        $note = new Note();
+        $note->setPerId($args['personID']);
+        $note->setFamId(0);
+        $note->setTitle($storedFileName);
+        $note->setPrivate(1);
+        $note->setText($userName . $currentpath . $storedFileName);
+        $note->setType('file');
+        $note->setEntered(SessionUser::getUser()->getPersonId());
+        $note->setInfo(_('Create file'));
+        $note->save();
+
+        return $response->withJson([
+            'success' => true,
+            'fileName' => $storedFileName,
+            'warning' => $warningMessage,
+            'numberOfFiles' => $this->numberOfFiles($args['personID'])
+        ]);
     }
 
     public function getRealLink(ServerRequest $request, Response $response, array $args): Response
