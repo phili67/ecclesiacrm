@@ -88,8 +88,15 @@ $(function() {
 
         $("#view-larger-image-btn").on('click', function () {
           bootbox.alert({
-            title: i18next.t("Family Photo"),
-            message: '<img class="img-rounded img-responsive center-block" src="' + window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/photo" />',
+            title: '<div class="d-flex align-items-center justify-content-center mb-2"><i class="fas fa-image fa-lg mr-2 text-info"></i>' + i18next.t("Family Photo") + '</div>',
+            message: `
+              <div class="text-center p-2 bg-dark rounded">
+                <img src="${window.CRM.root}/api/families/${window.CRM.currentFamily}/photo" 
+                     alt="Family Photo" 
+                     class="img-fluid rounded shadow border border-light" 
+                     style="max-width: 100%; max-height: 60vh; background: #fff;" />
+              </div>
+            `,
             backdrop: true
           });
         });
