@@ -246,26 +246,7 @@ class TimelineService
               $title = $dbNote->getTitle();
             }
 
-            if ($dbNote->getCurrentEditedBy() > 0) {
-              $currentDate = new DateTime();
-
-              $since_start = $currentDate->diff($dbNote->getCurrentEditedDate());
-
-              $min = $since_start->days * 24 * 60;
-              $min += $since_start->h * 60;
-              $min += $since_start->i;
-
-              if ( $min < SystemConfig::getValue('iDocumentTimeLeft') ) {
-                $editor = PersonQuery::create()->findPk($dbNote->getCurrentEditedBy());
-                if ($editor != null) {
-                    $currentUserName = _("This document is opened by")." : ".$editor->getFullName()." (".(SystemConfig::getValue('iDocumentTimeLeft')-$min)." "._("Minutes left").")";
-                }
-              } else {// we reset the count
-                 $dbNote->setCurrentEditedDate(null);
-                 $dbNote->setCurrentEditedBy(0);
-                 $dbNote->save();
-              }
-            }
+            $currentUserName = $dbNote->currentEditbyUserName();            
 
             if ($dbNote->getType() == 'video' || $dbNote->getType() == 'audio' || $dbNote->getType() == 'note' || $dbNote->getType() == 'document' ){
               // only in this case : the header title in the timeline should be in function of the note owner
