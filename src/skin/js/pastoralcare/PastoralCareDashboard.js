@@ -8,6 +8,91 @@ $(function() {
 
     window.CRM.neverDate = moment('1900-01-01 00:00').format( window.CRM.fmt );
 
+    function setBusyState($element, isBusy, busyHtml, defaultHtml) {
+        if (!$element || $element.length === 0) {
+            return;
+        }
+
+        if (isBusy) {
+            if ($element.is('button')) {
+                $element.data('default-html', $element.html());
+            }
+            $element.prop('disabled', true).addClass('disabled');
+            if (busyHtml) {
+                $element.html(busyHtml);
+            }
+            return;
+        }
+
+        $element.prop('disabled', false).removeClass('disabled');
+
+        if ($element.is('button')) {
+            $element.html(defaultHtml || $element.data('default-html') || $element.html());
+        }
+    }
+
+    function showActionError(message) {
+        bootbox.alert({
+            title: '<i class="fas fa-exclamation-triangle text-warning mr-2"></i>' + i18next.t('Pastoral Care'),
+            message: '<div class="alert alert-light border mb-0">' + message + '</div>'
+        });
+    }
+
+    function enhanceTableRows(tableSelector) {
+        var $table = $(tableSelector);
+        $table.find('tbody tr').attr('title', i18next.t('Open the pastoral care record'));
+    }
+
+    function appendTabBadge(tabSelector, count) {
+        var $tab = $(tabSelector);
+        $tab.find('.pc-tab-count').remove();
+        $tab.append(' <span class="badge badge-light pc-tab-count">' + count + '</span>');
+    }
+
+    function buildTableOptions(customOptions) {
+        return $.extend(true, {
+            bSort : true,
+            pageLength: 5,
+            dom: 'rtip',
+            processing: true,
+            language: {
+                url: window.CRM.plugin.dataTable.language.url,
+                emptyTable: i18next.t('No records found for this view.'),
+                zeroRecords: i18next.t('No matching records found.'),
+                processing: i18next.t('Loading...')
+            },
+            responsive: true,
+            createdRow : function (row) {
+                $(row).addClass('menuLinksRow');
+            },
+            drawCallback: function () {
+                enhanceTableRows('#' + this.api().table().node().id);
+            }
+        }, customOptions);
+    }
+
+    function initNeverContactedTable(selector, ajaxUrl, dataSrc, columns, tabSelector) {
+        var table = $(selector).DataTable(buildTableOptions({
+            ajax: {
+                url: window.CRM.root + ajaxUrl,
+                type: 'POST',
+                contentType: 'application/json',
+                dataSrc: dataSrc,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' +  window.CRM.jwtToken);
+                }
+            },
+            columns: columns,
+            drawCallback: function () {
+                var api = this.api();
+                appendTabBadge(tabSelector, api.data().count());
+                enhanceTableRows(selector);
+            }
+        }));
+
+        return table;
+    }
+
     function toPhoneLink(value) {
         if (value === null || value === undefined) {
             return '';
@@ -19,10 +104,10 @@ $(function() {
         }
 
         var telValue = display.replace(/\s+/g, '');
-        return '<a href="tel:' + telValue + '" class="d-inline-flex align-items-center">'
-            + '<span class="badge badge-light border mr-2"><i class="fas fa-phone-alt text-success"></i></span>'
-            + '<span>' + display + '</span>'
-            + '</a>';
+        return `<a href="tel:${telValue}" class="d-inline-flex align-items-center">
+            <span class="badge badge-light border mr-2"><i class="fas fa-phone-alt text-success"></i></span>
+            <span>${display}</span>
+            </a>`;
     }
 
     function buildIdentityLink(options) {
@@ -32,22 +117,21 @@ $(function() {
         var secondary = options.secondary || '';
         var fallbackIcon = options.fallbackIcon || 'fa-user';
 
-        return '<div class="d-flex align-items-center">'
-            + image
-            + '<div class="ml-2">'
-            + '<div class="font-weight-bold"><a href="' + href + '">' + primary + '</a></div>'
-            + (secondary !== '' ? '<div class="small text-muted"><i class="fas ' + fallbackIcon + ' mr-1"></i>' + secondary + '</div>' : '')
-            + '</div>'
-            + '</div>';
+        return `<div class="d-flex align-items-center">${image}
+            <div class="ml-2">
+            <div class="font-weight-bold"><a href="${href}">${primary}</a></div>
+                ${secondary !== '' ? `<div class="small text-muted"><i class="fas ${fallbackIcon} mr-1"></i>${secondary}</div>` : ''}
+            </div>
+            </div>`;
     }
 
     function buildThumbnail(full, id, type) {
         if (window.CRM.bThumbnailIconPresence) {
-            return '<img src="' + window.CRM.root + '/api/' + type + '/' + id + '/thumbnail" alt="User Image" class="user-image initials-image-24">';
+            return `<img src="${window.CRM.root}/api/${type}/${id}/thumbnail" alt="User Image" class="user-image initials-image-24">`;
         }
 
         var fallback = type === 'families' ? 'Family.png' : 'Person.png';
-        return '<img src="' + window.CRM.root + '/Images/' + fallback + '" class="initials-image direct-chat-img-24">';
+        return `<img src="${window.CRM.root}/Images/${fallback}" class="initials-image direct-chat-img-24">`;
     }
 
     function getBestPhone(full) {
@@ -77,21 +161,21 @@ $(function() {
         if (address === '') {
             return '';
         }
-        return '<div class="d-inline-flex align-items-start">'
-            + '<span class="badge badge-light border mr-2"><i class="fas fa-map-marker-alt text-danger"></i></span>'
-            + '<span>' + window.CRM.tools.getLinkMapFromAddress(address) + '</span>'
-            + '</div>';
+        return `<div class="d-inline-flex align-items-start">
+            <span class="badge badge-light border mr-2"><i class="fas fa-map-marker-alt text-danger"></i></span>
+            <span>${window.CRM.tools.getLinkMapFromAddress(address)}</span>
+            </div>`;
     }
 
     function formatCareDate(data) {
         if (data === null || data === undefined) {
-            return '<span class="text-muted"><i class="fas fa-ban mr-1"></i>' + i18next.t("Never contacted") + '</span>';
+            return `<span class="text-muted"><i class="fas fa-ban mr-1"></i>${i18next.t("Never contacted")}</span>`;
         }
         var date = moment(data).format(fmt);
         if (date === window.CRM.neverDate) {
-            return '<span class="badge badge-light border text-muted"><i class="fas fa-ban mr-1"></i>' + i18next.t("Never contacted") + '</span>';
+            return `<span class="badge badge-light border text-muted"><i class="fas fa-ban mr-1"></i>${i18next.t("Never contacted")}</span>`;
         }
-        return '<span class="badge badge-light border text-dark"><i class="far fa-calendar-check mr-1 text-success"></i>' + date + '</span>';
+        return `<span class="badge badge-light border text-dark"><i class="far fa-calendar-check mr-1 text-success"></i>${date}</span>`;
     }
 
     columnsPastoralCareMembers = [
@@ -114,7 +198,7 @@ $(function() {
             title:i18next.t("First Name"),
             data:'FirstName',
             render: function(data, type, full, meta) {
-                return '<a href="' + window.CRM.root + "/v2/people/person/view/" + full.PersonID + '">'+ data + '</a>';
+                return `<a href="${window.CRM.root}/v2/people/person/view/${full.PersonID}">${data}</a>`;
             }
         }
     ];
@@ -126,56 +210,31 @@ $(function() {
                 title:i18next.t("Visits/calls"),
                 data:'Visits',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/listforuser/" + full.UserID + '">'+ data + '</a>';
+                    return `<a href="${window.CRM.root}/v2/pastoralcare/listforuser/${full.UserID}">${data}</a>`;
                 }
             }
         )
     }
 
-    window.CRM.dataPastoralcareMembers = $("#pastoralcareMembers").DataTable({
+    window.CRM.dataPastoralcareMembers = $("#pastoralcareMembers").DataTable(buildTableOptions({
         ajax:{
             url: window.CRM.root + "/api/pastoralcare/members",
             type: 'POST',
             contentType: "application/json",
             dataSrc: "Pastors",
-            "beforeSend": function (xhr) {
-                xhr.setRequestHeader('Authorization',
-                    "Bearer " +  window.CRM.jwtToken
-                );
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', "Bearer " +  window.CRM.jwtToken);
             }
         },
-        bSort : true,
         pageLength: 4,
-        dom: 'rtip',
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-        columns: columnsPastoralCareMembers,
-        responsive: true,
-        createdRow : function (row,data,index) {
-            $(row).addClass("menuLinksRow");
-        }
-    });
+        columns: columnsPastoralCareMembers
+    }));
 
-    window.CRM.personNeverBeenContacted = $("#personNeverBeenContacted").DataTable({
-        ajax:{
-            url: window.CRM.root + "/api/pastoralcare/personNeverBeenContacted",
-            type: 'POST',
-            contentType: "application/json",
-            dataSrc: "PersonNeverBeenContacted",
-            "beforeSend": function (xhr) {
-                xhr.setRequestHeader('Authorization',
-                    "Bearer " +  window.CRM.jwtToken
-                );
-            }
-        },
-        bSort : true,
-        pageLength: 5,
-        dom: 'rtip',
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-        columns: [
+    window.CRM.personNeverBeenContacted = initNeverContactedTable(
+        "#personNeverBeenContacted",
+        "/api/pastoralcare/personNeverBeenContacted",
+        "PersonNeverBeenContacted",
+        [
             {
                 width: 'auto',
                 title:i18next.t("Name"),
@@ -195,7 +254,7 @@ $(function() {
                 title:i18next.t("First Name"),
                 data:'FirstName',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return `<a href="${window.CRM.root}/v2/pastoralcare/person/${full.Id}">${data}</a>`;
                 }
             },
             {
@@ -223,31 +282,14 @@ $(function() {
                 }
             }
         ],
-        responsive: true,
-        createdRow : function (row,data,index) {
-            $(row).addClass("menuLinksRow");
-        }
-    });
+        '#tab-persons'
+    );
 
-    window.CRM.familyNeverBeenContacted = $("#familyNeverBeenContacted").DataTable({
-        ajax:{
-            url: window.CRM.root + "/api/pastoralcare/familyNeverBeenContacted",
-            type: 'POST',
-            contentType: "application/json",
-            dataSrc: "FamilyNeverBeenContacted",
-            "beforeSend": function (xhr) {
-                xhr.setRequestHeader('Authorization',
-                    "Bearer " +  window.CRM.jwtToken
-                );
-            }
-        },
-        bSort : true,
-        pageLength: 5,
-        dom: 'rtip',
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-        columns: [
+    window.CRM.familyNeverBeenContacted = initNeverContactedTable(
+        "#familyNeverBeenContacted",
+        "/api/pastoralcare/familyNeverBeenContacted",
+        "FamilyNeverBeenContacted",
+        [
             {
                 width: 'auto',
                 title:i18next.t("Name"),
@@ -287,31 +329,14 @@ $(function() {
                 }
             }
         ],
-        responsive: true,
-        createdRow : function (row,data,index) {
-            $(row).addClass("menuLinksRow");
-        }
-    });
+        '#tab-families'
+    );
 
-    window.CRM.singleNeverBeenContacted = $("#singleNeverBeenContacted").DataTable({
-        ajax:{
-            url: window.CRM.root + "/api/pastoralcare/singleNeverBeenContacted",
-            type: 'POST',
-            contentType: "application/json",
-            dataSrc: "SingleNeverBeenContacted",
-            "beforeSend": function (xhr) {
-                xhr.setRequestHeader('Authorization',
-                    "Bearer " +  window.CRM.jwtToken
-                );
-            }
-        },
-        bSort : true,
-        pageLength: 5,
-        dom: 'rtip',
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-        columns: [
+    window.CRM.singleNeverBeenContacted = initNeverContactedTable(
+        "#singleNeverBeenContacted",
+        "/api/pastoralcare/singleNeverBeenContacted",
+        "SingleNeverBeenContacted",
+        [
             {
                 width: 'auto',
                 title:i18next.t("Name"),
@@ -323,7 +348,7 @@ $(function() {
                     } else {
                         res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
                     }
-                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.PersonID + '">'+ data + "</a>";
+                    return `${res}<a href="${window.CRM.root}/v2/pastoralcare/person/${full.PersonID}">${data}</a>`;
                 }
             },
             {
@@ -331,7 +356,7 @@ $(function() {
                 title:i18next.t("First Name"),
                 data:'FirstName',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.PersonID + '">'+ data + "</a>";
+                    return `<a href="${window.CRM.root}/v2/pastoralcare/person/${full.PersonID}">${data}</a>`;
                 }
             },
             {
@@ -359,31 +384,14 @@ $(function() {
                 }
             }
         ],
-        responsive: true,
-        createdRow : function (row,data,index) {
-            $(row).addClass("menuLinksRow");
-        }
-    });
+        '#tab-singles'
+    );
 
-    window.CRM.retiredNeverBeenContacted = $("#retiredNeverBeenContacted").DataTable({
-        ajax:{
-            url: window.CRM.root + "/api/pastoralcare/retiredNeverBeenContacted",
-            type: 'POST',
-            contentType: "application/json",
-            dataSrc: "RetiredNeverBeenContacted",
-            "beforeSend": function (xhr) {
-                xhr.setRequestHeader('Authorization',
-                    "Bearer " +  window.CRM.jwtToken
-                );
-            }
-        },
-        bSort : true,
-        pageLength: 5,
-        dom: 'rtip',
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-        columns: [
+    window.CRM.retiredNeverBeenContacted = initNeverContactedTable(
+        "#retiredNeverBeenContacted",
+        "/api/pastoralcare/retiredNeverBeenContacted",
+        "RetiredNeverBeenContacted",
+        [
             {
                 width: 'auto',
                 title:i18next.t("Name"),
@@ -391,11 +399,11 @@ $(function() {
                 render: function(data, type, full, meta) {
                     let res = '';
                     if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image-24"> ';
+                        res += `<img src="${window.CRM.root}/api/persons/${full.Id}/thumbnail" alt="User Image" class="user-image initials-image-24"> `;
                     } else {
-                        res += '<img src="' + window.CRM.root + '/Images/Person.png" class="initials-image direct-chat-img-24"> ';
+                        res += `<img src="${window.CRM.root}/Images/Person.png" class="initials-image direct-chat-img-24"> `;
                     }
-                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return `${res}<a href="${window.CRM.root}/v2/pastoralcare/person/${full.Id}">${data}</a>`;
                 }
             },
             {
@@ -403,7 +411,7 @@ $(function() {
                 title:i18next.t("First Name"),
                 data:'FirstName',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return `<a href="${window.CRM.root}/v2/pastoralcare/person/${full.Id}">${data}</a>`;
                 }
             },
             {
@@ -431,31 +439,14 @@ $(function() {
                 }
             }
         ],
-        responsive: true,
-        createdRow : function (row,data,index) {
-            $(row).addClass("menuLinksRow");
-        }
-    });
+        '#tab-retired'
+    );
 
-    window.CRM.youngNeverBeenContacted = $("#youngNeverBeenContacted").DataTable({
-        ajax:{
-            url: window.CRM.root + "/api/pastoralcare/youngNeverBeenContacted",
-            type: 'POST',
-            contentType: "application/json",
-            dataSrc: "YoungNeverBeenContacted",
-            "beforeSend": function (xhr) {
-                xhr.setRequestHeader('Authorization',
-                    "Bearer " +  window.CRM.jwtToken
-                );
-            }
-        },
-        bSort : true,
-        pageLength: 5,
-        dom: 'rtip',
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-        columns: [
+    window.CRM.youngNeverBeenContacted = initNeverContactedTable(
+        "#youngNeverBeenContacted",
+        "/api/pastoralcare/youngNeverBeenContacted",
+        "YoungNeverBeenContacted",
+        [
             {
                 width: 'auto',
                 title:i18next.t("Name"),
@@ -475,7 +466,7 @@ $(function() {
                 title:i18next.t("First Name"),
                 data:'FirstName',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    return `<a href="${window.CRM.root}/v2/pastoralcare/person/${full.Id}">${data}</a>`;
                 }
             },
             {
@@ -503,29 +494,56 @@ $(function() {
                 }
             }
         ],
-        responsive: true,
-        createdRow : function (row,data,index) {
-            $(row).addClass("menuLinksRow");
-        }
+        '#tab-young'
+    );
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function () {
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
     });
 
     $('#add-event').on('click', function (e) {
+        e.preventDefault();
         var fmt = 'YYYY-MM-DD HH:mm:ss';
+        var $button = $(this);
 
         var dateStart = moment().format(fmt);
         var dateEnd = moment().format(fmt);
 
+        setBusyState($button, true, '<i class="fas fa-spinner fa-spin mr-1"></i>' + i18next.t('Opening...'));
         addEvent(dateStart,dateEnd,i18next.t("Appointment"),sPageTitle);
+        window.setTimeout(function () {
+            setBusyState($button, false, null, '<i class="far fa-calendar-plus mr-1"></i>' + i18next.t('Appointment'));
+        }, 600);
     });
 
-    $( ".newPastorCare" ).on('click',function() {
+    $( ".newPastorCare" ).on('click',function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
         var typeID   = $(this).data('typeid');
+        var $trigger = $(this);
+        var isButton = $trigger.is('button');
+        var defaultHtml = isButton ? $trigger.html() : null;
+
+        if ($trigger.data('busy') === true) {
+            return;
+        }
+
+        $trigger.data('busy', true);
+        if (isButton) {
+            setBusyState($trigger, true, '<i class="fas fa-spinner fa-spin mr-1"></i>' + i18next.t('Selecting...'));
+        }
 
         window.CRM.APIRequest({
             method: 'POST',
             path: 'pastoralcare/createRandomly',
             data: JSON.stringify({"typeID":typeID})
         },function(data) {
+            $trigger.data('busy', false);
+            if (isButton) {
+                setBusyState($trigger, false, null, defaultHtml);
+            }
+
             if (data.status == "success") {
                 switch (typeID) {
                     case 1:case 3:case 4:case 5:// person, old person or Young or single
@@ -534,8 +552,15 @@ $(function() {
                     default:// a family
                         location.href = window.CRM.root + '/v2/pastoralcare/family/' + data.familyID;
                 }
-
+            } else {
+                showActionError(i18next.t('No matching pastoral care record could be prepared right now. Please try another category.'));
             }
+        }, function () {
+            $trigger.data('busy', false);
+            if (isButton) {
+                setBusyState($trigger, false, null, defaultHtml);
+            }
+            showActionError(i18next.t('Unable to start a pastoral care action at the moment.'));
         });
     });
 });

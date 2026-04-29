@@ -764,11 +764,11 @@ class PeoplePersonController
             $email = new PersonVerificationEmail($emails, $person->getFirstName(), $person->getLastName(), $token->getToken(), $emails, $password);
             if ($email->send()) {
                 $person->createTimeLineNote("verify-link");
-                $response = $response->withStatus(200);
+                return $response->withJson(['status' => true]);                
             } else {
                 $logger = $this->container->get('Logger');
                 $logger->error($email->getError());
-                throw new \Exception($email->getError());
+                return $response->withJson(['status' => false]);                
             }
         } else {
             throw new HttpNotFoundException($request, "personId: " . $personId . " not found");            
@@ -796,9 +796,9 @@ class PeoplePersonController
         $person = PersonQuery::create()->findPk($personId);
         if ($person != null) {
             $person->verify();
-            $response = $response->withStatus(200);
+            return $response->withJson(['status' => true]);
         } else {
-            throw new HttpNotFoundException($request, "personId: " . $personId . " not found");            
+            return $response->withJson(['status' => false, 'message' => "personId: " . $personId . " not found"]);   
         }
         return $response;
     }

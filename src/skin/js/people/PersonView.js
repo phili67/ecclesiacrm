@@ -1,4 +1,168 @@
 $(function () {
+  function showActionFeedback(message, level) {
+    if (window.CRM.showGlobalMessage) {
+      window.CRM.showGlobalMessage(message, level || 'danger');
+      return;
+    }
+
+    openInfoDialog({
+      title: i18next.t('Error'),
+      lead: message,
+      okClass: 'btn-danger'
+    });
+  }
+
+  function setButtonBusy(button, isBusy, options) {
+    if (!button || !button.length) {
+      return;
+    }
+
+    const settings = options || {};
+    const defaultHtml = settings.defaultHtml || button.data('original-html') || button.html();
+    const loadingHtml = settings.loadingHtml || '<i class="fas fa-spinner fa-spin mr-1"></i>' + i18next.t('Processing...');
+
+    if (!button.data('original-html')) {
+      button.data('original-html', defaultHtml);
+    }
+
+    button.prop('disabled', isBusy);
+    button.toggleClass('disabled', isBusy);
+    button.html(isBusy ? loadingHtml : button.data('original-html'));
+  }
+
+  function refreshVisibleTables() {
+    [
+      '#assigned-properties-table',
+      '#assigned-volunteer-opps-table',
+      '#automaticPaymentsTable',
+      '#pledgePaymentTable'
+    ].forEach(function (selector) {
+      if ($.fn.DataTable.isDataTable(selector)) {
+        $(selector).DataTable().columns.adjust().responsive.recalc();
+      }
+    });
+  }
+
+  function buildConfirmMessage(options) {
+    const settings = options || {};
+    let content = '<div class="text-left">';
+
+    if (settings.lead) {
+      content += '<p class="mb-2 font-weight-bold">' + settings.lead + '</p>';
+    }
+
+    if (settings.details) {
+      content += '<p class="text-muted mb-0">' + settings.details + '</p>';
+    }
+
+    if (settings.warning) {
+      content += '<div class="alert alert-warning mt-3 mb-0">' + settings.warning + '</div>';
+    }
+
+    content += '</div>';
+    return content;
+  }
+
+  function openConfirmDialog(options) {
+    const settings = options || {};
+
+    bootbox.confirm({
+      title: settings.title || i18next.t('Please confirm'),
+      message: buildConfirmMessage(settings),
+      buttons: {
+        cancel: {
+          label: settings.cancelLabel || i18next.t('Cancel'),
+          className: settings.cancelClass || 'btn-primary'
+        },
+        confirm: {
+          label: settings.confirmLabel || i18next.t('Confirm'),
+          className: settings.confirmClass || 'btn-danger'
+        }
+      },
+      callback: function (result) {
+        if (result && typeof settings.onConfirm === 'function') {
+          settings.onConfirm();
+        }
+      }
+    });
+  }
+
+  function buildInfoMessage(options) {
+    const settings = options || {};
+    let content = '<div class="text-left">';
+
+    if (settings.lead) {
+      content += '<p class="mb-2 font-weight-bold">' + settings.lead + '</p>';
+    }
+
+    if (settings.details) {
+      content += '<div class="text-muted">' + settings.details + '</div>';
+    }
+
+    if (settings.content) {
+      content += '<div class="mt-3">' + settings.content + '</div>';
+    }
+
+    content += '</div>';
+    return content;
+  }
+
+  function openInfoDialog(options) {
+    const settings = options || {};
+
+    bootbox.alert({
+      title: settings.title || i18next.t('Information'),
+      message: buildInfoMessage(settings),
+      backdrop: settings.backdrop !== undefined ? settings.backdrop : true,
+      buttons: {
+        ok: {
+          label: settings.okLabel || i18next.t('Close'),
+          className: settings.okClass || 'btn-primary'
+        }
+      }
+    });
+  }
+
+  function buildPromptTitle(options) {
+    const settings = options || {};
+    let title = '<div class="text-left">';
+    title += '<div class="font-weight-bold">' + (settings.title || i18next.t('Update information')) + '</div>';
+
+    if (settings.details) {
+      title += '<div class="small text-muted mt-1">' + settings.details + '</div>';
+    }
+
+    title += '</div>';
+    return title;
+  }
+
+  function openPromptDialog(options) {
+    const settings = options || {};
+
+    bootbox.prompt({
+      title: buildPromptTitle(settings),
+      inputType: settings.inputType,
+      inputOptions: settings.inputOptions,
+      value: settings.value,
+      size: settings.size || 'large',
+      buttons: {
+        confirm: {
+          label: settings.confirmLabel || i18next.t('Save'),
+          className: settings.confirmClass || 'btn-primary'
+        },
+        cancel: {
+          label: settings.cancelLabel || i18next.t('Cancel'),
+          className: settings.cancelClass || 'btn-default'
+        }
+      },
+      callback: function (result) {
+        if (typeof settings.onSubmit === 'function') {
+          settings.onSubmit(result);
+        }
+      }
+    });
+  }
+
   // mailChimp management
   if (window.CRM.normalMail != undefined) {
     window.CRM.APIRequest({
@@ -50,8 +214,9 @@ $(function () {
   // end mailChimp management
 
   $("#activateDeactivate").on('click', function () {
-    console.log("click activateDeactivate");
-    popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t('Confirm Activation'));
+    const actionButton = $(this);
+    const popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t('Confirm Activation'));
+    let popupMessage = '';
     if (window.CRM.currentActive == true) {
       popupMessage = i18next.t("Please confirm deactivation of person") + ': ' + window.CRM.personFullName;
     }
@@ -59,41 +224,53 @@ $(function () {
       popupMessage = i18next.t("Please confirm activation of person") + ': ' + window.CRM.personFullName;
     }
 
-    popupWarning = i18next.t("Be carefull with the GDPR, when a person is de-activated, you have to ask the person first, if you want to reactivate the account !<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!");
+    const popupWarning = i18next.t("Be carefull with the GDPR, when a person is de-activated, you have to ask the person first, if you want to reactivate the account !<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!");
 
-    bootbox.confirm({
+    openConfirmDialog({
       title: popupTitle,
-      message: '<p style="color: red">' + popupWarning + '</p><br><p>' + popupMessage + '</p>',
-      buttons: {
-        cancel: {
-          className: 'btn-primary',
-          label: '<i class="fas fa-times"></i>' + i18next.t("Cancel")
-        },
-        confirm: {
-          className: 'btn-danger',
-          label: '<i class="far fa-trash-alt"></i>' + ((window.CRM.currentActive == true) ? i18next.t("Deactivate") : i18next.t("Activate"))
-        }
-      },
-      callback: function (result) {
-        if (result) {
-          window.CRM.APIRequest({
-            method: 'POST',
-            path: 'persons/' + window.CRM.currentPersonID + "/activate/" + !window.CRM.currentActive
-          }, function (data) {    
-            if (data.success == true) {
-              window.location.href = window.CRM.root + "/v2/people/person/view/" + window.CRM.currentPersonID;
-            }
-          });
-        }
+      lead: popupMessage,
+      warning: popupWarning,
+      confirmLabel: '<i class="far fa-trash-alt mr-1"></i>' + ((window.CRM.currentActive == true) ? i18next.t("Deactivate") : i18next.t("Activate")),
+      confirmClass: 'btn-danger',
+      cancelLabel: '<i class="fas fa-times mr-1"></i>' + i18next.t('Cancel'),
+      cancelClass: 'btn-primary',
+      onConfirm: function () {
+        setButtonBusy(actionButton, true, {
+          loadingHtml: '<i class="fas fa-spinner fa-spin mr-1"></i>' + ((window.CRM.currentActive == true) ? i18next.t('Deactivating...') : i18next.t('Activating...'))
+        });
+
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'persons/' + window.CRM.currentPersonID + "/activate/" + !window.CRM.currentActive
+        }, function (data) {
+          if (data.success == true) {
+            window.location.href = window.CRM.root + "/v2/people/person/view/" + window.CRM.currentPersonID;
+            return;
+          }
+
+          setButtonBusy(actionButton, false);
+          showActionFeedback(i18next.t('Unable to update this person status.'));
+        });
       }
     });
   });
 
   $("#deletePhoto").on('click', function () {
+    const deleteButton = $(this);
+    setButtonBusy(deleteButton, true, {
+      loadingHtml: '<i class="fas fa-spinner fa-spin mr-1"></i>' + i18next.t('Deleting...')
+    });
+
     window.CRM.APIRequest({
       method: 'DELETE',
       path: 'persons/' + window.CRM.currentPersonID + "/photo"
-    }, function (data) {  
+    }, function (data) {
+      if (!data || data.success === false) {
+        setButtonBusy(deleteButton, false);
+        showActionFeedback(i18next.t('Unable to delete the photo.'));
+        return;
+      }
+
       location.reload();
     });
   });
@@ -134,10 +311,17 @@ $(function () {
         $("#view-larger-image-btn").removeClass('hide');
 
         $("#view-larger-image-btn").on('click', function () {
-          bootbox.alert({
-            title: i18next.t("Photo"),
-            message: '<img class="img-rounded img-responsive center-block" src="' + window.CRM.root + '/api/persons/' + window.CRM.currentPersonID + '/photo" />',
-            backdrop: true
+          openInfoDialog({
+            title: '<div class="d-flex align-items-center justify-content-center mb-2"><i class="fas fa-user-circle fa-lg mr-2 text-info"></i>' + i18next.t("Photo") + '</div>',
+            lead: i18next.t('Preview the current profile photo.'),
+            content: `
+              <div class="text-center p-2 bg-dark rounded">
+                <img src="${window.CRM.root}/api/persons/${window.CRM.currentPersonID}/photo"
+                     alt="Profile Photo"
+                     class="img-fluid rounded shadow border border-light"
+                     style="max-width: 100%; max-height: 60vh; background: #fff;" />
+              </div>
+            `
           });
         });
       }
@@ -210,11 +394,14 @@ $(function () {
     const property_pro_value = $('.property-value').val();
 
     if (!property_id) {
+      showActionFeedback(i18next.t('Please select a property first.'), 'warning');
       return;
     }
 
-    assignButton.prop('disabled', true);
-    assignButton.html('<i class="fas fa-spinner fa-spin mr-1"></i>' + (assignButton.data('loading-text') || i18next.t('Assigning...')));
+    setButtonBusy(assignButton, true, {
+      loadingHtml: '<i class="fas fa-spinner fa-spin mr-1"></i>' + (assignButton.data('loading-text') || i18next.t('Assigning...')),
+      defaultHtml: '<i class="fas fa-plus-circle mr-1"></i>' + (assignButton.data('default-text') || i18next.t('Assign'))
+    });
 
     window.CRM.APIRequest({
       method: 'POST',
@@ -230,9 +417,13 @@ $(function () {
           $("#properties-warning").hide();
           $("#properties-table").show();
         }
+      } else {
+        showActionFeedback(i18next.t('Unable to assign this property.'));
       }
-      assignButton.prop('disabled', false);
-      assignButton.html('<i class="fas fa-plus-circle mr-1"></i>' + (assignButton.data('default-text') || i18next.t('Assign')));
+
+      setButtonBusy(assignButton, false, {
+        defaultHtml: '<i class="fas fa-plus-circle mr-1"></i>' + (assignButton.data('default-text') || i18next.t('Assign'))
+      });
     });
   });
 
@@ -250,25 +441,18 @@ $(function () {
     var targetGroupID = event.currentTarget.dataset.groupid;
     var targetGroupName = event.currentTarget.dataset.groupname;
 
-    bootbox.confirm({
-      message: i18next.t("Are you sure you want to remove this person's membership from") + " " + targetGroupName + "?",
-      buttons: {
-        confirm: {
-          label: i18next.t('Yes'),
-          className: 'btn-danger'
-        },
-        cancel: {
-          label: i18next.t('No'),
-          className: 'btn-primary'
-        }
-      },
-      callback: function (result) {
-        if (result) {
-          window.CRM.groups.removePerson(targetGroupID, window.CRM.currentPersonID, function () {
-            window.location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '/Group';
-          }
-          );
-        }
+    openConfirmDialog({
+      title: i18next.t('Remove group assignment'),
+      lead: i18next.t("Remove this person from the group") + ' ' + targetGroupName + ' ?',
+      details: i18next.t('The membership and any role linked to this group will be removed for this person.'),
+      confirmLabel: i18next.t('Remove from group'),
+      confirmClass: 'btn-danger',
+      cancelLabel: i18next.t('Keep assignment'),
+      cancelClass: 'btn-primary',
+      onConfirm: function () {
+        window.CRM.groups.removePerson(targetGroupID, window.CRM.currentPersonID, function () {
+          window.location.href = window.CRM.root + '/v2/people/person/view/' + window.CRM.currentPersonID + '/Group';
+        });
       }
     });
   });
@@ -300,49 +484,121 @@ $(function () {
   }
 
   // the share files
-  window.CRM.BootboxContentShareFiles = function (){
-    var frm_str = '<div>'
+  window.CRM.BootboxContentShareFiles = function () {
+    var frm_str = '<div class="container-fluid px-0">'
+            +'<div class="alert alert-light border mb-3">'
+              +'<div class="d-flex align-items-start">'
+                +'<i class="fas fa-share-alt text-primary mr-2 mt-1"></i>'
+                +'<div>'
+                  +'<div class="font-weight-bold">' + i18next.t("Share your document") + '</div>'
+                  +'<div class="small text-muted">' + i18next.t("Choose recipients, define their access and decide whether they should receive an email notification.") + '</div>'
+                +'</div>'
+              +'</div>'
+            +'</div>'
+            +'<div class="form-group">'
+              +'<label class="small text-uppercase text-muted mb-2" for="select-share-persons">' + i18next.t("Current access") + '</label>'
+              +'<select size="6" class="form-control" style="width:100%" id="select-share-persons" multiple></select>'
+              +'<small class="form-text text-muted">' + i18next.t("Select one or more recipients to update their access or remove them.") + '</small>'
+            +'</div>'
             +'<div class="row">'
-              +'<div class="col-md-4">'
-              + '<span style="color: red">*</span>' + i18next.t("With") + ":"
+              +'<div class="col-md-6">'
+                +'<div class="form-group mb-md-0">'
+                  +'<label class="small text-uppercase text-muted mb-2" for="person-group-rights">' + i18next.t("Set rights") + '</label>'
+                  +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm" style="width:100%" data-placeholder="text to place">'
+                    +'<option value="0">' + i18next.t("Select your rights") + ' -- </option>'
+                    +'<option value="1">' + i18next.t("Read only") + ' [R]</option>'
+                    +'<option value="2">' + i18next.t("Read and write") + ' [RW]</option>'
+                  +'</select>'
+                +'</div>'
               +'</div>'
-              +'<div class="col-md-8">'
-              +'<select size="6" class="form-control" style="width:100%" id="select-share-persons" multiple>'
-              +'</select>'
-             +'</div>'
-            +'</div>'
-            +'<br/>'
-            +'<div class="row">'
-              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
-              +'<div class="col-md-8">'
-                +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm"'
-                    +'style="width:100%" data-placeholder="text to place">'
-                    +'<option value="0">'+i18next.t("Select your rights")+" [👀  ]"+i18next.t("or")+"[👀 ✐]"+' -- </option>'
-                    +'<option value="1">'+i18next.t("[👀  ]")+' -- '+i18next.t("[R ]")+'</option>'
-                    +'<option value="2">'+i18next.t("[👀 ✐]")+' -- '+i18next.t("[RW]")+'</option>'
-                +'</select>'
-              +'</div>'
-            +'</div>'
-            +'<br/>'
-            +'<div class="row div-title">'
-              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Send email notification") + ":</div>"
-              +'<div class="col-md-8">'
-                +'<input id="sendEmail" type="checkbox">'
+              +'<div class="col-md-6">'
+                +'<div class="form-group mb-0">'
+                  +'<label class="small text-uppercase text-muted d-block mb-2">' + i18next.t("Notification") + '</label>'
+                  +'<div class="custom-control custom-checkbox pt-1">'
+                    +'<input id="sendEmail" type="checkbox" class="custom-control-input">'
+                    +'<label class="custom-control-label" for="sendEmail">' + i18next.t("Send email notification") + '</label>'
+                  +'</div>'
+                +'</div>'
               +'</div>'
             +'</div>'
-            +'<div class="row div-title">'
-              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
-              +'<div class="col-md-8">'
-                +'<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
-                    +'style="width:100%">'
-                +'</select>'
-              +'</div>'
+            +'<hr class="my-3">'
+            +'<div class="form-group mb-0">'
+              +'<label class="small text-uppercase text-muted mb-2" for="person-group-Id">' + i18next.t("Add people, families or groups") + '</label>'
+              +'<select name="person-group-Id" id="person-group-Id" class="form-control select2" style="width:100%"></select>'
+              +'<small class="form-text text-muted">' + i18next.t("Search by name to grant access to another person, a family or an entire group.") + '</small>'
             +'</div>'
           +'</div>';
 
           var object = $('<div/>').html(frm_str).contents();
 
         return object
+  }
+
+  function confirmRemoveSharedRecipients(noteId, button, state) {
+    const selectedRecipients = $('#select-share-persons :selected');
+
+    if (!selectedRecipients.length) {
+      showActionFeedback(i18next.t('Please select at least one recipient first.'), 'warning');
+      return;
+    }
+
+    openConfirmDialog({
+      title: i18next.t('Remove shared access'),
+      lead: i18next.t('Remove access for the selected recipients?'),
+      details: i18next.t('Only the selected recipients will be removed. The document will remain shared with any other recipients.'),
+      confirmLabel: i18next.t('Remove access'),
+      confirmClass: 'btn-warning',
+      cancelLabel: i18next.t('Keep access'),
+      cancelClass: 'btn-primary',
+      onConfirm: function () {
+        selectedRecipients.each(function (i, sel) {
+          var personID = $(sel).val();
+
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'sharedocument/deleteperson',
+            data: JSON.stringify({ "noteId": noteId, "personID": personID })
+          }, function (data) {
+            $("#select-share-persons option[value='" + personID + "']").remove();
+
+            if (data.count == 0) {
+              $(state).css('color', '#777');
+              $(button).data('shared', 0);
+            }
+
+            $("#person-group-Id").val("").trigger("change");
+          });
+        });
+      }
+    });
+  }
+
+  function confirmStopSharing(noteId, button, state, modal, onComplete) {
+    openConfirmDialog({
+      title: i18next.t('Stop sharing this document'),
+      lead: i18next.t('Stop sharing this document with everyone?'),
+      details: i18next.t('All current recipients will lose access immediately. The document itself will remain available to you.'),
+      confirmLabel: i18next.t('Stop sharing'),
+      confirmClass: 'btn-danger',
+      cancelLabel: i18next.t('Keep sharing'),
+      cancelClass: 'btn-primary',
+      onConfirm: function () {
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'sharedocument/cleardocument',
+          data: JSON.stringify({ "noteId": noteId })
+        }, function () {
+          addPersonsFromNotes(noteId);
+          $(state).css('color', '#777');
+          $(button).data('shared', 0);
+          modal.modal('hide');
+
+          if (typeof onComplete === 'function') {
+            onComplete();
+          }
+        });
+      }
+    });
   }
 
   // share your notes
@@ -469,28 +725,7 @@ $(function () {
          label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
          className: "btn btn-warning",
          callback: function() {
-            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){
-              if (result) {
-                $('#select-share-persons :selected').each(function(i, sel){
-                  var personID = $(sel).val();
-
-                  window.CRM.APIRequest({
-                     method: 'POST',
-                     path: 'sharedocument/deleteperson',
-                     data: JSON.stringify({"noteId":noteId,"personID": personID})
-                  }, function(data) {
-                    $("#select-share-persons option[value='"+personID+"']").remove();
-
-                    if (data.count == 0) {
-                      $(state).css('color', '#777');
-                      $(button).data('shared',0);
-                    }
-
-                    $("#person-group-Id").val("").trigger("change");
-                  });
-                });
-              }
-            });
+            confirmRemoveSharedRecipients(noteId, button, state);
             return false;
          }
         },
@@ -498,20 +733,8 @@ $(function () {
          label: '<i class="fa fa-stop-circle-o"></i> ' + i18next.t("Stop sharing"),
          className: "btn btn-danger",
          callback: function() {
-          bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){
-            if (result) {
-              window.CRM.APIRequest({
-                 method: 'POST',
-                 path: 'sharedocument/cleardocument',
-                 data: JSON.stringify({"noteId":noteId})
-              }, function(data) {
-                addPersonsFromNotes(noteId);
-                $(state).css('color', '#777');
-                $(button).data('shared',0);
-                modal.modal("hide");
-                window.CRM.reloadEDriveTable();
-              });
-            }
+          confirmStopSharing(noteId, button, state, modal, function () {
+            window.CRM.reloadEDriveTable();
           });
           return false;
          }
@@ -555,28 +778,7 @@ $(function () {
           label: '<i class="fas fa-times"></i> ' + i18next.t("Delete"),
           className: "btn btn-warning",
           callback: function () {
-            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function (result) {
-              if (result) {
-                $('#select-share-persons :selected').each(function (i, sel) {
-                  var personID = $(sel).val();
-
-                  window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'sharedocument/deleteperson',
-                    data: JSON.stringify({ "noteId": noteId, "personID": personID })
-                  }, function (data) {
-                    $("#select-share-persons option[value='" + personID + "']").remove();
-
-                    if (data.count == 0) {
-                      $(state).css('color', '#777');
-                      $(button).data('shared', 0);
-                    }
-
-                    $("#person-group-Id").val("").trigger("change");
-                  });
-                });
-              }
-            });
+            confirmRemoveSharedRecipients(noteId, button, state);
             return false;
           }
         },
@@ -584,20 +786,7 @@ $(function () {
           label: '<i class="far fa-stop-circle"></i> ' + i18next.t("Stop sharing"),
           className: "btn btn-danger",
           callback: function () {
-            bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function (result) {
-              if (result) {
-                window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'sharedocument/cleardocument',
-                  data: JSON.stringify({ "noteId": noteId })
-                }, function (data) {
-                  addPersonsFromNotes(noteId);
-                  $(state).css('color', '#777');
-                  $(button).data('shared', 0);
-                  modal.modal("hide");
-                });
-              }
-            });
+            confirmStopSharing(noteId, button, state, modal);
             return false;
           }
         },
@@ -728,39 +917,33 @@ $(function () {
     event.preventDefault();
     var thisLink = $(this);
   
-    bootbox.confirm({
-      buttons: {
-        confirm: {
-          label: i18next.t('OK'),
-          className: 'btn btn-danger'
-        },
-        cancel: {
-          label: i18next.t('Cancel'),
-          className: 'btn btn-primary'
-        }
-      },
-      title: i18next.t('Are you sure you want to unassign this property?'),
-      message: i18next.t('This action can never be undone !!!!'),
-      callback: function (result) {
-        if (result) {
-          window.CRM.APIRequest({
-            method: 'DELETE',
-            path: 'properties/persons/unassign',
-            data: JSON.stringify({ 
-              PersonId: thisLink.data('person_id'),
-              PropertyId: thisLink.data('property_id')
-           })
-          }, function (data) {
-              if (data && data.success) {
-                window.CRM.dataPropertiesTable.ajax.reload();
+    openConfirmDialog({
+      title: i18next.t('Unassign property'),
+      lead: i18next.t('Remove this property from the current person?'),
+      details: i18next.t('The property value will be removed from this profile.'),
+      warning: i18next.t('This action cannot be undone.'),
+      confirmLabel: i18next.t('Remove property'),
+      confirmClass: 'btn-danger',
+      cancelLabel: i18next.t('Keep property'),
+      cancelClass: 'btn-primary',
+      onConfirm: function () {
+        window.CRM.APIRequest({
+          method: 'DELETE',
+          path: 'properties/persons/unassign',
+          data: JSON.stringify({
+            PersonId: thisLink.data('person_id'),
+            PropertyId: thisLink.data('property_id')
+         })
+        }, function (data) {
+            if (data && data.success) {
+              window.CRM.dataPropertiesTable.ajax.reload();
 
-                if (data.count == 0) {
-                  $("#properties-warning").show();
-                  $("#properties-table").hide();
-                }
+              if (data.count == 0) {
+                $("#properties-warning").show();
+                $("#properties-table").hide();
               }
-          });
-        }
+            }
+        });
       }
     });
   });
@@ -772,20 +955,13 @@ $(function () {
     var property_id = thisLink.data('property_id');
     var property_name = thisLink.data('property_name');
 
-    bootbox.prompt({
-      buttons: {
-        confirm: {
-          label: i18next.t('OK'),
-          className: 'btn btn-primary'
-        },
-        cancel: {
-          label: i18next.t('Cancel'),
-          className: 'btn btn-default'
-        }
-      },
-      title: i18next.t('Are you sure you want to change this property?'),
+    openPromptDialog({
+      title: i18next.t('Edit property value'),
+      details: i18next.t('Update the value stored for this property on the current person profile.'),
+      inputType: 'textarea',
       value: property_name,
-      callback: function (result) {
+      confirmLabel: i18next.t('Save property'),
+      onSubmit: function (result) {
         if (result) {
           window.CRM.APIRequest({
             method: 'POST',
@@ -825,11 +1001,13 @@ $(function () {
           };
         }
 
-        bootbox.prompt({
+        openPromptDialog({
           title: i18next.t('Change classification'),
+          details: i18next.t('Choose the classification that best matches this person profile.'),
           inputType: 'select',
           inputOptions: classifications,
-          callback: function (result) {
+          confirmLabel: i18next.t('Update classification'),
+          onSubmit: function (result) {
             if (result) {
               window.CRM.APIRequest({
                 method: 'POST',
@@ -875,11 +1053,13 @@ $(function () {
             };
           }
 
-          bootbox.prompt({
-            title: i18next.t('Change role'),
+          openPromptDialog({
+            title: i18next.t('Change family role'),
+            details: i18next.t('Select the role this person should have inside the family record.'),
             inputType: 'select',
             inputOptions: roles,
-            callback: function (result) {
+            confirmLabel: i18next.t('Update role'),
+            onSubmit: function (result) {
               if (result) {
                 window.CRM.APIRequest({
                   method: 'POST',
@@ -893,7 +1073,7 @@ $(function () {
                         location.reload();
                       }
                 });
-                }
+              }
             }
           });
         }
@@ -1013,8 +1193,15 @@ $(function () {
   $(document).on("click", ".delete-volunteerOpportunityId", function () {
     var volunteerOpportunityId = $(this).data("volunteeropportunityid");
 
-    bootbox.confirm(i18next.t("Confirm Delete volunteer Opportunity"), function (confirmed) {
-      if (confirmed) {
+    openConfirmDialog({
+      title: i18next.t('Remove volunteer opportunity'),
+      lead: i18next.t('Remove this volunteer opportunity from the person?'),
+      details: i18next.t('The assignment will be removed from this profile only.'),
+      confirmLabel: i18next.t('Remove assignment'),
+      confirmClass: 'btn-danger',
+      cancelLabel: i18next.t('Keep assignment'),
+      cancelClass: 'btn-primary',
+      onConfirm: function () {
         window.CRM.APIRequest({
           method: 'POST',
           path: 'persons/volunteers/delete',
@@ -1040,11 +1227,14 @@ $(function () {
     const volIDs = $('#input-volunteer-opportunities').val();
 
     if (!volIDs || volIDs.length === 0) {
+      showActionFeedback(i18next.t('Please select at least one volunteer opportunity first.'), 'warning');
       return;
     }
 
-    assignButton.prop('disabled', true);
-    assignButton.html('<i class="fas fa-spinner fa-spin mr-1"></i>' + (assignButton.data('loading-text') || i18next.t('Assigning...')));
+    setButtonBusy(assignButton, true, {
+      loadingHtml: '<i class="fas fa-spinner fa-spin mr-1"></i>' + (assignButton.data('loading-text') || i18next.t('Assigning...')),
+      defaultHtml: '<i class="fas fa-plus-circle mr-1"></i>' + (assignButton.data('default-text') || i18next.t('Assign'))
+    });
 
     const requests = volIDs.map(function (volID) {
       return new Promise(function (resolve) {
@@ -1064,15 +1254,25 @@ $(function () {
       const hasSuccess = results.some(function (data) {
         return data && data.success;
       });
+      const hasFailure = results.some(function (data) {
+        return !data || data.success === false;
+      });
 
       if (hasSuccess) {
         $("#input-volunteer-opportunities").val('').trigger('change');
         $("#volunter-warning").hide();
         $("#volunter-table").show();
       }
+
+      if (hasFailure && !hasSuccess) {
+        showActionFeedback(i18next.t('Unable to assign the selected volunteer opportunities.'));
+      } else if (hasFailure) {
+        showActionFeedback(i18next.t('Some volunteer opportunities could not be assigned.'), 'warning');
+      }
     }).finally(function () {
-      assignButton.prop('disabled', false);
-      assignButton.html('<i class="fas fa-plus-circle mr-1"></i>' + (assignButton.data('default-text') || i18next.t('Assign')));
+      setButtonBusy(assignButton, false, {
+        defaultHtml: '<i class="fas fa-plus-circle mr-1"></i>' + (assignButton.data('default-text') || i18next.t('Assign'))
+      });
     });
   });
 
@@ -1189,8 +1389,16 @@ $(function () {
     clickedButton = $(this);
     var autoPaymentId = clickedButton.data("id");
 
-    bootbox.confirm(i18next.t("Confirm Delete Automatic payment"), function (confirmed) {
-      if (confirmed) {
+    openConfirmDialog({
+      title: i18next.t('Delete automatic payment'),
+      lead: i18next.t('Delete this automatic payment setup?'),
+      details: i18next.t('Recurring payments linked to this setup will stop after deletion.'),
+      warning: i18next.t('This action cannot be undone.'),
+      confirmLabel: i18next.t('Delete payment'),
+      confirmClass: 'btn-danger',
+      cancelLabel: i18next.t('Keep payment'),
+      cancelClass: 'btn-primary',
+      onConfirm: function () {
         window.CRM.APIRequest({
           method: 'POST',
           path: 'payments/delete',
@@ -1366,8 +1574,16 @@ $(function () {
     clickedButton = $(this);
     var paymentId = clickedButton.data("id");
 
-    bootbox.confirm('<span style="color:red">' + i18next.t("Confirm Delete") + '</span>', function (confirmed) {
-      if (confirmed) {
+    openConfirmDialog({
+      title: i18next.t('Delete pledge or payment'),
+      lead: i18next.t('Delete this pledge or payment entry?'),
+      details: i18next.t('This entry will be removed from the contribution history for this family.'),
+      warning: i18next.t('This action cannot be undone.'),
+      confirmLabel: i18next.t('Delete entry'),
+      confirmClass: 'btn-danger',
+      cancelLabel: i18next.t('Keep entry'),
+      cancelClass: 'btn-primary',
+      onConfirm: function () {
         window.CRM.APIRequest({
           method: 'POST',
           path: 'pledges/delete',
@@ -1389,6 +1605,10 @@ $(function () {
 
   $("#date-picker-period").on('change', function () {
     alert($('#date-picker-period').val());
+  });
+
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function () {
+    refreshVisibleTables();
   });
 
   /* Custom filtering function which will search data in column four between two values */
@@ -1447,9 +1667,11 @@ $(function () {
       data: JSON.stringify({ "perId": window.CRM.currentPersonID })
     }, function (data) {
       $('#confirm-verify').modal('hide');
-      bootbox.alert({
+      openInfoDialog({
         title: i18next.t("Verification URL"),
-        message: i18next.t("Password") + ': ' + data.password + "<br>url : <a href='" + window.CRM.root + "/" + data.url + "'>" + window.CRM.root + "/" + data.url + "</a>"
+        lead: i18next.t('Share this secure verification link with the person.'),
+        details: i18next.t("Password") + ': <span class="font-weight-bold">' + data.password + '</span>',
+        content: '<div class="mt-2"><a href="' + window.CRM.root + '/' + data.url + '" target="_blank">' + window.CRM.root + '/' + data.url + '</a></div>'
       });
     });
   });

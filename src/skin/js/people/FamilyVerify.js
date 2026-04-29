@@ -59,12 +59,27 @@ $(function() {
     });
 
     const BootboxContent = (data, custom) => {
-        var frm_str = '<form id="some-form">';
+        var frm_str = `<div class="container-fluid px-0">
+            <div class="alert alert-light border mb-3">
+                <div class="d-flex align-items-start">
+                    <i class="fas fa-users text-primary mr-2 mt-1"></i>
+                    <div>
+                        <div class="font-weight-bold">${i18next.t("Review family member information")}</div>
+                        <div class="small text-muted">${i18next.t("Check the displayed information and update this family member if needed before saving.")}</div>
+                    </div>
+                </div>
+            </div>
+            <form id="some-form">
+                <div class="card card-outline card-primary mb-0">
+                    <div class="card-body">`;
 
         frm_str += data
-            + '<br>'
-            + custom
-            + '</form>';
+            + `<hr class="my-3">
+            ${custom}
+            </div>
+            </div>
+            </form>
+            </div>`;
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -73,17 +88,17 @@ $(function() {
 
     const PersonWindow = (data, personId) => {
         var modal = bootbox.dialog({
-            title: i18next.t("Message"),
+            title: i18next.t("Update family member details"),
             message: BootboxContent(data),
             buttons: [
                 {
-                    label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
                     className: "btn btn-default",
                     callback: function () {
                     }
                 },
                 {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Save changes"),
                     className: "btn btn-primary",
                     callback: function () {
                         var FirstName = $('form #FirstName').val();

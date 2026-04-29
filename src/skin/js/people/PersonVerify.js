@@ -59,16 +59,41 @@ $(function() {
     });
 
     const BootboxContent = (data, custom) => {
-        var frm_str = '<form id="some-form">'
-                + '  <div class="row">'
-                + '     <div class="col-md-6">';
+        var frm_str = '<div class="container-fluid px-0">'
+            + '  <div class="alert alert-light border mb-3">'
+            + '    <div class="d-flex align-items-start">'
+            + '      <i class="fas fa-user-check text-primary mr-2 mt-1"></i>'
+            + '      <div>'
+            + '        <div class="font-weight-bold">' + i18next.t("Review personal information") + '</div>'
+            + '        <div class="small text-muted">' + i18next.t("Check the current values and update the fields that need correction before saving.") + '</div>'
+            + '      </div>'
+            + '    </div>'
+            + '  </div>'
+            + '  <form id="some-form">'
+            + '    <div class="row">'
+            + '      <div class="col-md-6 mb-3 mb-md-0">'
+            + '        <div class="card card-outline card-primary h-100 mb-0">'
+            + '          <div class="card-header py-2">'
+            + '            <h3 class="card-title">' + i18next.t("Profile information") + '</h3>'
+            + '          </div>'
+            + '          <div class="card-body">';
                             frm_str += data;
-        frm_str +=  '  </div>'
-                + '    <div class="col-md-6">';
+        frm_str +=  '          </div>'
+            + '        </div>'
+            + '      </div>'
+            + '      <div class="col-md-6">'
+            + '        <div class="card card-outline card-secondary h-100 mb-0">'
+            + '          <div class="card-header py-2">'
+            + '            <h3 class="card-title">' + i18next.t("Additional information") + '</h3>'
+            + '          </div>'
+            + '          <div class="card-body">';
                             frm_str += custom;
-        frm_str += '    </div>'
-                + '  </div>'
-                + '</form>';
+        frm_str += '          </div>'
+            + '        </div>'
+            + '      </div>'
+            + '    </div>'
+            + '  </form>'
+            + '</div>';
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -79,18 +104,18 @@ $(function() {
         var _fields = fields;
 
         var modal = bootbox.dialog({
-            title: i18next.t("Message"),
+            title: i18next.t("Update personal details"),
             message: BootboxContent(data, custom),
             size: 'xl',
             buttons: [
                 {
-                    label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
                     className: "btn btn-default",
                     callback: function () {
                     }
                 },
                 {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Save changes"),
                     className: "btn btn-primary",
                     callback: function () {
                         var fields = _fields;

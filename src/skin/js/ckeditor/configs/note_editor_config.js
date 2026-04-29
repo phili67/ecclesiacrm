@@ -53,41 +53,22 @@ CKEDITOR.editorConfig = function (config) {
         documentTools = ['Source', '-', 'Preview', 'Print'];
     }
 
-    var templates = ['-', 'ApplyTemplateButton', 'ManageTemplateButton', 'SaveTemplateButton', '-', ((window.CRM.bEDrive) ? 'SaveAsWordFileButton' : 'none')];
-    var clipboard = ['-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'];
+    var templates = ['ApplyTemplateButton', 'ManageTemplateButton', 'SaveTemplateButton'];
+    var clipboard = ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', 'Undo', 'Redo'];
 
     config.toolbar = [
-        {name: 'document', items: documentTools.concat(templates,clipboard)},
-        {name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll']},
-        '/',
-        {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
-        {name: 'colors', items: ['TextColor', 'BGColor']},
-        '/',
-        {
-            name: 'basicstyles',
-            items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat']
-        },
-        {
-            name: 'paragraph',
-            items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-']
-        },
-        '/',
-        {
-            name: 'textmanagement',
-            items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language']
-        },
-        {
-            name: 'links',
-            items: ['Link', 'Unlink', 'Anchor']
-        },
-        {
-            name: 'insert',
-            items: ['Image', 'Table', 'Html5video','HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']
-        },
-        {
-            name: 'tools',
-            items: ['Maximize']
-        }
+        { name: 'document', items: documentTools.concat(templates, (window.CRM.bEDrive ? ['SaveAsWordFileButton'] : [])) },
+        { name: 'clipboard', items: clipboard },
+        { name: 'editing', items: ['Find', 'Replace', 'SelectAll'] },
+        { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+        { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'CopyFormatting', 'RemoveFormat'] },
+        { name: 'colors', items: ['TextColor', 'BGColor'] },
+        { name: 'paragraph', items: ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv'] },
+        { name: 'alignment', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+        { name: 'direction', items: ['BidiLtr', 'BidiRtl', 'Language'] },
+        { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
+        { name: 'insert', items: ['Image', 'Table', 'Html5video', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'] },
+        { name: 'tools', items: ['Maximize'] }
     ];
 
     config.plugins =
