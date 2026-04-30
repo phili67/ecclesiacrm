@@ -11,7 +11,11 @@ use Slim\Middleware\ContentLengthMiddleware;
 use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
-use Tuupola\Middleware\JwtAuthentication;
+use JimTools\JwtAuth\Middleware\JwtAuthentication;
+use JimTools\JwtAuth\Options;
+use JimTools\JwtAuth\Rules\RequestPathRule;
+use JimTools\JwtAuth\Decoder\FirebaseDecoder;
+use JimTools\JwtAuth\Secret;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\PluginQuery;
@@ -45,32 +49,37 @@ $app->setBasePath($rootPath . "/api");
 
 $app->add( new VersionMiddleware() );
 
-$app->add(new JwtAuthentication([
-    "secret" => SessionUser::getUser()->getJwtSecretForApi(),
-    //"cookie" => SessionUser::getUser()->getUserNameForApi(),
-    "ignore" => [SystemURLs::getRootPath()."/api/families", 
-        SystemURLs::getRootPath(). "/api/persons/", 
-        SystemURLs::getRootPath(). "/api/system/csp-report", 
-        SystemURLs::getRootPath(). "/api/systemupgrade/isUpdateRequired", 
-        SystemURLs::getRootPath(). "/api/filemanager/getFile/", 
-        SystemURLs::getRootPath(). "/api/synchronize/page",
-        SystemURLs::getRootPath(). "/api/database",
-        SystemURLs::getRootPath(). "/api/plugins",
-        SystemURLs::getRootPath(). "/api/groups/addressbook/extract/",
-        SystemURLs::getRootPath(). "/api/volunteeropportunity/addressbook/extract/",
-        SystemURLs::getRootPath(). "/api/cart/addressbook/extract",
-        SystemURLs::getRootPath(). "/api/filemanager/getPreview",
-        SystemURLs::getRootPath(). "/api/deposits"
-    ],
-    "algorithm" => "HS256",
-    "error" => function ($response, $arguments) {
-        $data["status"] = "error";
-        $data["message"] = $arguments["message"];
-        return $response
-            ->getBody()
-            ->write( json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) );
-    }
-]));
+
+// Liste des routes à ignorer pour l'authentification JWT (RequestPathRule)
+$jwtIgnoreRoutes = [
+    SystemURLs::getRootPath()."/api/families",
+    SystemURLs::getRootPath()."/api/persons/",
+    SystemURLs::getRootPath()."/api/system/csp-report",
+    SystemURLs::getRootPath()."/api/systemupgrade/isUpdateRequired",
+    SystemURLs::getRootPath()."/api/filemanager/getFile/",
+    SystemURLs::getRootPath()."/api/synchronize/page",
+    SystemURLs::getRootPath()."/api/database",
+    SystemURLs::getRootPath()."/api/plugins",
+    SystemURLs::getRootPath()."/api/groups/addressbook/extract/",
+    SystemURLs::getRootPath()."/api/volunteeropportunity/addressbook/extract/",
+    SystemURLs::getRootPath()."/api/cart/addressbook/extract",
+    SystemURLs::getRootPath()."/api/filemanager/getPreview",
+    SystemURLs::getRootPath()."/api/deposits"
+];
+
+$jwtOptions = new Options();
+$jwtDecoder = new FirebaseDecoder(
+    new Secret(
+        SessionUser::getUser()->getJwtSecretForApi(),
+        'HS256'
+    )
+);
+
+$app->add(new JwtAuthentication(
+    $jwtOptions,
+    $jwtDecoder,
+    [new RequestPathRule(paths: [SystemURLs::getRootPath().'/api'], ignore: $jwtIgnoreRoutes)]
+));
 
 // Set up
 dependencies::install($container);
