@@ -44,7 +44,7 @@
         "mustache/mustache": "~2.14.2",
         "phpoffice/phpword": "^1.4.0",
         "phpoffice/phppresentation": "dev-master",
-        "phpoffice/phpspreadsheet": "5.4.0",
+        "phpoffice/phpspreadsheet": "5.7.0",
         "defuse/php-encryption": "^2.4.0",
         "endroid/qr-code": "4.*",
         "ext-gettext": "*",
