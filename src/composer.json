@@ -57,7 +57,7 @@
         "tecnickcom/tcpdf": "^6.10.0",
         "dompdf/dompdf": "3.1.*",        
         "robthree/twofactorauth": "^1.8.2",
-        "jimtools/jwt-auth": "^1.1.0"        
+        "jimtools/jwt-auth": "^3.0.1"        
     },
     "autoload": {
         "classmap": [
