@@ -508,42 +508,81 @@ class VIEWPeopleController {
 
         // Assign the values locally, after selecting whether to display the family or person information
 
-        if (!is_null($person->getFamily())) {
-            $famAddress1 = $person->getFamily()->getAddress1();
-            $famAddress2 = $person->getFamily()->getAddress2();
-            $famCity = $person->getFamily()->getCity();
-            $famSate = $person->getFamily()->getState();
-            $famZip = $person->getFamily()->getZip();
-            $famCountry = $person->getFamily()->getCountry();
-            $famHompePhone = $person->getFamily()->getHomePhone();
-            $famWorkPhone = $person->getFamily()->getWorkPhone();
-            $famCellPhone = $person->getFamily()->getCellPhone();
-            $famEmail = $person->getFamily()->getEmail();
+        // Optimisation : récupération unique de la famille
+        $family = $person->getFamily();
+        if ($family) {
+            $famId        = $family->getId();
+            $famAddress1  = $family->getAddress1();
+            $famAddress2  = $family->getAddress2();
+            $famCity      = $family->getCity();
+            $famState     = $family->getState();
+            $famZip       = $family->getZip();
+            $famCountry   = $family->getCountry();
+            $famHomePhone = $family->getHomePhone();
+            $famWorkPhone = $family->getWorkPhone();
+            $famCellPhone = $family->getCellPhone();
+            $famEmail     = $family->getEmail();
+        } else {
+            $famAddress1 = $famAddress2 = $famCity = $famState = $famZip = $famCountry = $famHomePhone = $famWorkPhone = $famCellPhone = $famEmail = null;
         }
 
         //Get an unformatted mailing address to pass as a parameter to a google maps search
-        MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, false);
-        $plaintextMailingAddress = $person->getAddress();
 
-        //Get a formatted mailing address to use as display to the user.
-        MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, true);
+        // Adresse brute et formatée
+
+        // Utilisation de variables locales pour éviter les accès multiples
+        $personAddress1 = $person->getAddress1();
+        $personAddress2 = $person->getAddress2();
+
+        MiscUtils::SelectWhichAddress($Address1, $Address2, $personAddress1, $personAddress2, $famAddress1 ?? '', $famAddress2 ?? '', false);
+        $plaintextMailingAddress = $person->getAddress();
+        MiscUtils::SelectWhichAddress($Address1, $Address2, $personAddress1, $personAddress2, $famAddress1 ?? '', $famAddress2 ?? '', true);
         $formattedMailingAddress = $person->getAddress();
 
-        $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, false);
-        $sHomePhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
-            MiscUtils::ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), true);
-        $sHomePhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
-            MiscUtils::ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), false);
-        $sWorkPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
-            MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), true);
-        $sWorkPhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
-            MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), false);
-        $sCellPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
-            MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), true);
-        $sCellPhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
-            MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), false);
-        $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, true);
-        $sUnformattedEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, false);
+        // Pays pour le formatage des numéros
+        $personCountry = $person->getCountry();
+        $sPhoneCountry = MiscUtils::SelectWhichInfo($personCountry, $famCountry ?? '', false);
+
+        // Téléphones formatés et non formatés
+        $personHomePhone = $person->getHomePhone();
+        $personWorkPhone = $person->getWorkPhone();
+        $personCellPhone = $person->getCellPhone();
+
+        $sHomePhone = MiscUtils::SelectWhichInfo(
+            MiscUtils::ExpandPhoneNumber($personHomePhone, $sPhoneCountry, $dummy),
+            $famHomePhone ? MiscUtils::ExpandPhoneNumber($famHomePhone, $famCountry ?? '', $dummy) : '',
+            true
+        );
+        $sHomePhoneUnformatted = MiscUtils::SelectWhichInfo(
+            MiscUtils::ExpandPhoneNumber($personHomePhone, $sPhoneCountry, $dummy),
+            $famHomePhone ? MiscUtils::ExpandPhoneNumber($famHomePhone, $famCountry ?? '', $dummy) : '',
+            false
+        );
+        $sWorkPhone = MiscUtils::SelectWhichInfo(
+            MiscUtils::ExpandPhoneNumber($personWorkPhone, $sPhoneCountry, $dummy),
+            $famWorkPhone ? MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry ?? '', $dummy) : '',
+            true
+        );
+        $sWorkPhoneUnformatted = MiscUtils::SelectWhichInfo(
+            MiscUtils::ExpandPhoneNumber($personWorkPhone, $sPhoneCountry, $dummy),
+            $famWorkPhone ? MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry ?? '', $dummy) : '',
+            false
+        );
+        $sCellPhone = MiscUtils::SelectWhichInfo(
+            MiscUtils::ExpandPhoneNumber($personCellPhone, $sPhoneCountry, $dummy),
+            $famCellPhone ? MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry ?? '', $dummy) : '',
+            true
+        );
+        $sCellPhoneUnformatted = MiscUtils::SelectWhichInfo(
+            MiscUtils::ExpandPhoneNumber($personCellPhone, $sPhoneCountry, $dummy),
+            $famCellPhone ? MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry ?? '', $dummy) : '',
+            false
+        );
+
+        // Emails
+        $personEmail = $person->getEmail();
+        $sEmail = MiscUtils::SelectWhichInfo($personEmail, $famEmail ?? '', true);
+        $sUnformattedEmail = MiscUtils::SelectWhichInfo($personEmail, $famEmail ?? '', false);
 
         $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
             (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId()) ||
@@ -699,8 +738,26 @@ class VIEWPeopleController {
             ],
             'PersonInfos'   => [
                 'iPersonID'             => $iPersonID,
+                'famId'                 => $famId ?? null,
                 'singlePerson'          => $singlePerson,
-                'person'                => $person,            
+                'person'                => $person,  
+                'address1'              => $famAddress1 ?? $personAddress1,
+                'address2'              => $famAddress2 ?? $personAddress2,
+                'Country'               => $famCountry,
+                'FamilyRoleName'        => $person->getFamilyRoleName(),
+                'FamilyRoleId'          => $person->getFmrId(),
+                'ClassIcon'             => $person->getClassIcon(),
+                'ClassID'               => $person->getClsId(),
+                'ClassName'             => $person->getClassName(),
+                'FamilyRoleName'        => $person->getFamilyRoleName(),
+                'OtherFamilyMembers'    => $person->getOtherFamilyMembers(),
+                'FullName'              => $person->getFullName(),
+                'BirthDate'             => $person->getBirthDate(),
+                'FriendDate'            => $person->getFriendDate(),
+                'DateDeactivated'       => $person->getDateDeactivated(),
+                'City'                  => $famCity,
+                'State'                 => $famState,
+                'Zip'                   => $famZip,     
                 'sPhoneCountry'         => $sPhoneCountry,
                 'sHomePhone'            => $sHomePhone,
                 'sHomePhoneUnformatted' => $sHomePhoneUnformatted,
@@ -709,9 +766,14 @@ class VIEWPeopleController {
                 'sCellPhone'            => $sCellPhone,
                 'sCellPhoneUnformatted' => $sCellPhoneUnformatted,
                 'sEmail'                => $sEmail,
+                'WorkEmail'             => $person->getWorkEmail(),
                 'plaintextMailingAddress' => $plaintextMailingAddress,
                 'formattedMailingAddress' => $formattedMailingAddress,
                 'sUnformattedEmail'     => $sUnformattedEmail,
+                'FacebookID'            => $person->getFacebookID(),
+                'Twitter'               => $person->getTwitter(),
+                'LinkedIn'              => $person->getLinkedIn(),
+                'MembershipDate'        => $person->getMembershipDate(),
                 'user'                  => $user,
                 'location_available'    => $location_available,
                 'lat'                   => $lat,
@@ -1010,6 +1072,10 @@ class VIEWPeopleController {
             'sCSPNonce'                 => $sCSPNonce,
             'iFamilyID'                 => $iFamilyID,
             'family'                    => $family,
+            'email'                     => $family->getEmail(),  
+            'DateDeactivated'           => $family->getDateDeactivated(),
+            'Name'                      => $family->getName(),
+            'Weddingdate'               => $family->getWeddingDate(),
             'iCurrentUserFamID'         => $iCurrentUserFamID,
             'maxMainTimeLineItems'      => $maxMainTimeLineItems,
             'timelineService'           => $timelineService,

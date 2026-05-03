@@ -22,16 +22,53 @@ use EcclesiaCRM\dto\Cart;
 
 require $sRootDocument . '/Include/Header.php';
 
-$otherFamilyMembers = $PersonInfos['person']->getOtherFamilyMembers();
+$otherFamilyMembers = $PersonInfos['OtherFamilyMembers'];
 $otherFamilyMembersCount = count($otherFamilyMembers);
 $assignedGroupCount = $ormAssignedGroups->count();
-$can_see_privatedata = ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() or SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
+$can_see_privatedata = ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() or SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
 
-$personRoleLabel = empty($PersonInfos['person']->getFamilyRoleName()) ? _('Undefined') : _($PersonInfos['person']->getFamilyRoleName());
-$personClassLabel = _($PersonInfos['person']->getClassName());
+$personRoleLabel = empty($PersonInfos['FamilyRoleName']) ? _('Undefined') : _($PersonInfos['FamilyRoleName']);
+$personClassLabel = _($PersonInfos['ClassName']);
+
+// --- OPTIMISATION : préchargement des propriétés de groupe et des valeurs personnalisées ---
+$groupIds = [];
+foreach ($ormAssignedGroups as $group) {
+    $groupIds[] = $group->getGroupId();
+}
+
+// Précharger toutes les propriétés spéciales pour tous les groupes
+$allProps = GroupPropMasterQuery::create()
+    ->filterByGroupId($groupIds)
+    ->orderByPropId()
+    ->find();
+
+$propsByGroup = [];
+foreach ($allProps as $prop) {
+    $gid = $prop->getGroupId();
+    $display = $prop->getPersonDisplay() ? 'true' : 'false';
+    $propsByGroup[$gid][$display][] = $prop;
+}
+
+// Précharger toutes les valeurs personnalisées pour la personne sur tous les groupes
+$aPersonPropsByGroup = [];
+foreach ($groupIds as $gid) {
+    // Vérifie si la table existe avant de requêter
+    $sSQLCheck = "SHOW TABLES LIKE 'groupprop_" . $gid . "'";
+    $statementCheck = $connection->prepare($sSQLCheck);
+    $statementCheck->execute();
+    if ($statementCheck->fetch()) {
+        $sSQL = 'SELECT * FROM groupprop_' . $gid . ' WHERE per_ID = ' . $PersonInfos['iPersonID'];
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+        $aPersonPropsByGroup[$gid] = $statement->fetch(PDO::FETCH_BOTH);
+    } else {
+        $aPersonPropsByGroup[$gid] = null;
+    }
+}
+// --- FIN OPTIMISATION ---
 ?>
 
-<?php if (!empty($PersonInfos['person']->getDateDeactivated())) {
+<?php if (!empty($PersonInfos['DateDeactivated'])) {
     ?>
     <div class="alert alert-warning">
         <strong><?= _("This Person is Deactivated") ?> </strong>
@@ -47,7 +84,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                     <div class="card-body box-profile">
                         <div class="text-center">
                             <img
-                                src="<?= $sRootPath . '/api/persons/' . $PersonInfos['person']->getId() . '/photo' ?>"
+                                src="<?= $sRootPath . '/api/persons/' . $PersonInfos['iPersonID'] . '/photo' ?>"
                                 class="initials-image profile-user-img img-responsive img-rounded img-circle" alt="">
                             <?php
                             if ($bOkToEdit) {
@@ -84,7 +121,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                 <?php
                             }
                             ?>
-                            <?= $PersonInfos['person']->getFullName() ?>
+                            <?= $PersonInfos['FullName'] ?>
                         </h3>
                         <div class="text-center mb-3">
                             <span class="badge badge-primary mr-1 mb-1"><i class="fas fa-user-tag mr-1"></i><?= $personRoleLabel ?></span>
@@ -96,52 +133,52 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         </div>
 
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
-                            or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() 
+                        if ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() 
+                            or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() 
                             or SessionUser::getUser()->isEditRecordsEnabled()) {
                             ?>
                             <p class="text-muted text-center mb-2">
                                 <?= $personRoleLabel ?>
                                 &nbsp;
-                                <a id="edit-role-btn" data-person_id="<?= $PersonInfos['person']->getId() ?>"
-                                   data-family_role="<?= $PersonInfos['person']->getFamilyRoleName() ?>"
-                                   data-family_role_id="<?= $PersonInfos['person']->getFmrId() ?>" class="btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
+                                <a id="edit-role-btn" data-person_id="<?= $PersonInfos['iPersonID'] ?>"
+                                   data-family_role="<?= $PersonInfos['FamilyRoleName'] ?>"
+                                   data-family_role_id="<?= $PersonInfos['FamilyRoleId'] ?>" class="btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </p>
                             <p class="text-muted text-center mb-3">
-                                <b><img src="<?= $sRootPath . "/skin/icons/markers/" . $PersonInfos['person']->getClassIcon() ?>"
+                                <b><img src="<?= $sRootPath . "/skin/icons/markers/" . $PersonInfos['ClassIcon'] ?>"
                                             width="18" alt="">
                                         <?= $personClassLabel ?>
                                     </b>
 
                                     
                                         <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
-                                           data-person_id="<?= $PersonInfos['person']->getId() ?>"
-                                           data-classification_id="<?= $PersonInfos['person']->getClassID() ?>"
-                                           data-classification_role="<?= $PersonInfos['person']->getClassName() ?>">
+                                           data-person_id="<?= $PersonInfos['iPersonID'] ?>"
+                                           data-classification_id="<?= $PersonInfos['ClassID'] ?>"
+                                           data-classification_role="<?= $PersonInfos['ClassName'] ?>">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                     
                             </p>
                             <?php
                         }
-                        if ($PersonInfos['person']->getMembershipDate() 
+                        if ($PersonInfos['MembershipDate'] 
                             and (
                                 SessionUser::getUser()->isSeePrivacyDataEnabled()
-                                or $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
-                                or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
+                                or $PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() 
+                                or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId()
                             )) {
                             ?>
                             <div class="card border-0 bg-light mb-3">
                                 <div class="card-body py-2 px-3">
                             <ul class="list-group list-group-unbordered mb-0 bg-transparent">
                                 <li class="list-group-item">
-                                    <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDateOrUnknown($PersonInfos['person']->getMembershipDate()) ?></a>
+                                    <b><?= _('Membership Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDateOrUnknown($PersonInfos['MembershipDate']) ?></a>
                                 </li>
-                                <?php if (!is_null($PersonInfos['person']->getFriendDate()) and $PersonInfos['person']->getFriendDate()->format('Y-m-d') != '1900-01-01'): ?>
+                                <?php if (!is_null($PersonInfos['FriendDate']) and $PersonInfos['FriendDate']->format('Y-m-d') != '1900-01-01'): ?>
                                 <li class="list-group-item">
-                                    <b><?= _('Friend Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDateOrUnknown($PersonInfos['person']->getFriendDate()) ?></a>
+                                    <b><?= _('Friend Date') ?></b> <a class="float-right"><?= OutputUtils::FormatDateOrUnknown($PersonInfos['FriendDate']) ?></a>
                                 </li>
                                 <?php endif ?>                                
                             </ul>
@@ -154,7 +191,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                             <h5 class="mb-0"><?= _("Groups") ?></h5>
                             <span class="badge badge-light border"><?= $assignedGroupCount . ' ' . _('assigned') ?></span>
                         </div>
-                        <?php if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() ) { ?>
+                        <?php if ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled() ) { ?>
                             <?php if ($assignedGroupCount > 0) { ?>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <?php
@@ -193,7 +230,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         }
                         if ($bOkToEdit) {
                             ?>
-                                     <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $PersonInfos['person']->getId() ?>"
+                                     <a href="<?= $sRootPath ?>/v2/people/person/editor/<?= $PersonInfos['iPersonID'] ?>"
                                          class="btn btn-sm btn-outline-primary btn-block"><i class="fas fa-pen mr-1"></i><?php echo _('Edit'); ?></a>
                             <?php
                         }
@@ -216,16 +253,15 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         <ul class="fa-ul">
                             <?php
                             if ($can_see_privatedata) {
-                            if (count($PersonInfos['person']->getOtherFamilyMembers()) > 0) {
+                            if (count($PersonInfos['OtherFamilyMembers']) > 0) {
                                 ?>
-                                <li style="left:-28px"><strong><i class="fas fa-male"></i><i class="fas fa-female"></i><i
-                                            class="fas fa-child"></i> <?php echo _('Family:'); ?></strong>
+                                <li style="left:-28px"><strong><i class="fa-solid fa-people-roof"></i> <?php echo _('Family:'); ?></strong>
                                     <span>
             <?php
-            if (!is_null($PersonInfos['person']->getFamily()) and $PersonInfos['person']->getFamily()->getId() != '') {
+            if ($PersonInfos['famId'] != '') {
                 ?>
-                <a href="<?= $sRootPath ?>/v2/people/family/view/<?= $PersonInfos['person']->getFamily()->getId() ?>"><?= $PersonInfos['person']->getFamily()->getName() ?> </a>
-                <a href="<?= $sRootPath ?>/v2/people/family/editor/<?= $PersonInfos['person']->getFamily()->getId() ?>"
+                <a href="<?= $sRootPath ?>/v2/people/family/view/<?= $PersonInfos['famId'] ?>"><?= $PersonInfos['person']->getFamily()->getName() ?> </a>
+                <a href="<?= $sRootPath ?>/v2/people/family/editor/<?= $PersonInfos['famId'] ?>"
                    class="table-link">
                   <span class="fa-stack">
                     <i class="fas fa-square fa-stack-2x"></i>
@@ -264,7 +300,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                 <?php
                             }
 
-                            $personBirthDate = $PersonInfos['person']->getBirthDate();
+                            $personBirthDate = $PersonInfos['BirthDate'];
                             $birthDateUnknown = $personBirthDate instanceof DateTimeInterface
                                 && $personBirthDate->format('Y-m-d') === '1901-01-01';
 
@@ -278,7 +314,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                         if (!$birthDateUnknown && !$PersonInfos['person']->hideAge()) {
                                             ?>
                                             (<span
-                                                data-birth-date="<?= $PersonInfos['person']->getBirthDate()->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($PersonInfos['person']->getBirthDate(), $PersonInfos['person']->getFlags()) ?>)
+                                                data-birth-date="<?= $PersonInfos['BirthDate']->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($PersonInfos['BirthDate'], $PersonInfos['person']->getFlags()) ?>)
                                             <?php
                                         }
                                         ?>
@@ -286,10 +322,10 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                 </li>
                                 <?php
                             }
-                            if (!SystemConfig::getValue('bHideFriendDate') and $PersonInfos['person']->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
+                            if (!SystemConfig::getValue('bHideFriendDate') and $PersonInfos['FriendDate'] != '') { /* Friend Date can be hidden - General Settings */
                                 ?>
                                 <li><strong><i class="fa-li fas fa-tasks"></i><?= _('Friend Date') ?>:</strong>
-                                    <span><?= OutputUtils::FormatDateOrUnknown($PersonInfos['person']->getFriendDate()) ?></span>
+                                    <span><?= OutputUtils::FormatDateOrUnknown($PersonInfos['FriendDate']) ?></span>
                                 </li>
                                 <?php
                             }
@@ -346,11 +382,11 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                 <?php
                             }
 
-                            if ($PersonInfos['person']->getWorkEmail() != '') {
+                            if ($PersonInfos['WorkEmail'] != '') {
                                 ?>
                                 <li><strong><i class="fa-li far fa-envelope"></i><?= _('Work/Other Email') ?>:</strong>
                                     <span><a
-                                            href="mailto:<?= $PersonInfos['person']->getWorkEmail() ?>"  target="_blank"><?= $PersonInfos['person']->getWorkEmail() ?></a></span>
+                                            href="mailto:<?= $PersonInfos['WorkEmail'] ?>"  target="_blank"><?= $PersonInfos['WorkEmail'] ?></a></span>
                                 </li>
                                 <?php
                                 if ($isMailChimpActive) {
@@ -361,27 +397,27 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                 }
                             }
 
-                            if ($PersonInfos['person']->getFacebookID() > 0) {
+                            if ($PersonInfos['FacebookID'] > 0) {
                                 ?>
                                 <li><strong><i class="fa-li fab fa-facebook"></i><?= _('Facebook') ?>:</strong>
                                     <span><a
-                                            href="https://www.facebook.com/<?= InputUtils::FilterInt($PersonInfos['person']->getFacebookID()) ?>"><?= _('Facebook') ?></a></span>
+                                            href="https://www.facebook.com/<?= InputUtils::FilterInt($PersonInfos['FacebookID']) ?>"><?= _('Facebook') ?></a></span>
                                 </li>
                                 <?php
                             }
 
-                            if (strlen($PersonInfos['person']->getTwitter()) > 0) {
+                            if (strlen($PersonInfos['Twitter']) > 0) {
                                 ?>
                                 <li><strong><i class="fa-li fas fa-twitter"></i><?= _('Twitter') ?>:</strong> <span><a
-                                            href="https://www.twitter.com/<?= InputUtils::FilterString($PersonInfos['person']->getTwitter()) ?>"><?= _('Twitter') ?></a></span>
+                                            href="https://www.twitter.com/<?= InputUtils::FilterString($PersonInfos['Twitter']) ?>"><?= _('Twitter') ?></a></span>
                                 </li>
                                 <?php
                             }
 
-                            if (strlen($PersonInfos['person']->getLinkedIn()) > 0) {
+                            if (strlen($PersonInfos['LinkedIn']) > 0) {
                                 ?>
                                 <li><strong><i class="fa-li fab fa-linkedin"></i><?= _('LinkedIn') ?>:</strong> <span><a
-                                            href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($PersonInfos['person']->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span>
+                                            href="https://www.linkedin.com/in/<?= InputUtils::FilterString($PersonInfos['LinkedIn']) ?>"><?= _('LinkedIn') ?></a></span>
                                 </li>
                                 <?php
                             }
@@ -433,7 +469,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                     <div class="row align-items-lg-center">
                         <div class="col-lg-5 mb-3 mb-lg-0">
                             <div class="text-muted text-uppercase small"><?= _('Overview') ?></div>
-                            <h2 class="h4 mb-2"><?= $PersonInfos['person']->getFullName() ?></h2>
+                            <h2 class="h4 mb-2"><?= $PersonInfos['FullName'] ?></h2>
                             <div class="mb-2">
                                 <span class="badge badge-primary mr-1 mb-1"><i class="fas fa-user-tag mr-1"></i><?= $personRoleLabel ?></span>
                                 <span class="badge badge-info mr-1 mb-1"><i class="fas fa-layer-group mr-1"></i><?= $personClassLabel ?></span>
@@ -484,8 +520,8 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         <?php
                     }
 
-                    if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
+                    if ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId()) {
 
                             $buttons++;
                             ?>
@@ -528,7 +564,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         <?php
                     }
 
-                    if (SessionUser::getUser()->isNotesEnabled() or (SessionUser::getUser()->isEditSelfEnabled() and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
+                    if (SessionUser::getUser()->isNotesEnabled() or (SessionUser::getUser()->isEditSelfEnabled() and $PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId())) {
                         $buttons++;
                         ?>
                         <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
@@ -555,7 +591,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                          $buttons++;
                         ?>
                         <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
-                            <a class="btn btn-sm btn-outline-warning <?= (mb_strlen($PersonInfos['person']->getAddress1()) == 0 or !is_null($PersonInfos['person']->getFamily()) and mb_strlen($PersonInfos['person']->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
+                            <a class="btn btn-sm btn-outline-warning <?= (mb_strlen($PersonInfos['PersonInfos']['address1']) == 0 or mb_strlen($PersonInfos['PersonInfos']['address2']) == 0)?'disabled':'' ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
                                href="<?= $sRootPath ?>/api/persons/addressbook/extract/<?= $PersonInfos['iPersonID'] ?>"><i
                                     class="far fa-id-card">
@@ -592,7 +628,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         ?>
                         <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                             <button class="btn btn-sm btn-warning" id="activateDeactivate">
-                                <i class="fa <?= (empty($PersonInfos['person']->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($PersonInfos['person']->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
+                                <i class="fa <?= (empty($PersonInfos['DateDeactivated']) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($PersonInfos['DateDeactivated']) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
                             </button>
                         </div>
                         <?php
@@ -601,11 +637,11 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                     if (SessionUser::getUser()->isDeleteRecordsEnabled() and $PersonInfos['iPersonID'] != 1) {// the super user can't be deleted
                         $buttons++;
 
-                        if (count($PersonInfos['person']->getOtherFamilyMembers()) > 0 or is_null($PersonInfos['person']->getFamily())) {
+                        if (count($PersonInfos['OtherFamilyMembers']) > 0 or is_null($PersonInfos['Family'])) {
                             ?>
                             <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                      <a class="btn btn-sm btn-danger delete-person"
-                               data-person_name="<?= $PersonInfos['person']->getFullName() ?>"
+                               data-person_name="<?= $PersonInfos['FullName'] ?>"
                                data-person_id="<?= $PersonInfos['iPersonID'] ?>"><i
                                     class="far fa-trash-alt"></i> <?= _("Delete this Record") ?>
                             </a>
@@ -615,7 +651,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                             ?>
                             <div class="btn-group btn-group-sm mr-2 mb-2" role="group">
                                      <a class="btn btn-sm btn-danger"
-                               href="<?= $sRootPath ?>/v2/people/family/delete/<?= $PersonInfos['person']->getFamily()->getId() ?>"><i
+                               href="<?= $sRootPath ?>/v2/people/family/delete/<?= $PersonInfos['famId'] ?>"><i
                                     class="far fa-trash-alt"></i><?= _("Delete this Record") ?></a>
                             </div>
                             <?php
@@ -631,8 +667,8 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
             <?php
             if (SessionUser::getUser()->isManageGroupsEnabled()                 
                 or (SessionUser::getUser()->isEditSelfEnabled() 
-                    and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
-                    or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() 
+                    and $PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() 
+                    or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() 
                     or SessionUser::getUser()->isSeePrivacyDataEnabled())) {
             ?>
             <div class="card card-outline card-secondary shadow-sm">
@@ -641,8 +677,8 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                     <ul class="nav nav-tabs flex-wrap">
                         <?php
                         $activeTab = "";
-                        if (($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()
-                            or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
+                        if (($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId()
+                            or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId()
                             or SessionUser::getUser()->isSeePrivacyDataEnabled())) {
                             $activeTab = "timeline";
                             ?>
@@ -654,14 +690,14 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         }
                         ?>
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or count($PersonInfos['person']->getOtherFamilyMembers()) > 0 and SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() or count($PersonInfos['OtherFamilyMembers']) > 0 and SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
                                    href="#family"
                                    aria-controls="family"
                                    role="tab"
-                                   data-toggle="tab"><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i> <?= _('Family') ?></a>
+                                   data-toggle="tab"><i class="fa-solid fa-people-roof"></i> <?= _('Family') ?></a>
                             </li>
                             <?php
                             if (empty($activeTab)) {
@@ -671,8 +707,8 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         ?>
                         <?php
                         if (SessionUser::getUser()->isManageGroupsEnabled() 
-                            or $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
-                            or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId()) {
+                            or $PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() 
+                            or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId()) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= ($bGroup) ? 'active' : '' ?>"
@@ -689,7 +725,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         ?>
 
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -704,8 +740,8 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
 
                         <?php
                         if (SystemConfig::getBooleanValue("bEnabledVolunteers") && 
-                            ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() 
-                            or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isCanvasserEnabled())) {
+                            ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() 
+                            or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isCanvasserEnabled())) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link"
@@ -720,7 +756,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         }
                         ?>
                         <?php
-                        if (count($PersonInfos['person']->getOtherFamilyMembers()) == 0 and SessionUser::getUser()->isFinanceEnabled() and SystemConfig::getBooleanValue('bEnabledFinance')) {
+                        if (count($PersonInfos['OtherFamilyMembers']) == 0 and SessionUser::getUser()->isFinanceEnabled() and SystemConfig::getBooleanValue('bEnabledFinance')) {
                             ?>
                             <li class="nav-item">
                                 <a class="nav-link <?= (empty($activeTab)) ? 'active' : '' ?>"
@@ -746,7 +782,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         }
                         ?>
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isNotesEnabled()) {
+                        if ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isNotesEnabled()) {
                             if ($bDocuments) $activeTab = 'notes';
                             ?>
                             <li class="nav-item">
@@ -766,7 +802,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <?php
-                        if ($PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId() or $PersonInfos['person']->getFamId() == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                        if ($PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId() or $PersonInfos['famId'] == SessionUser::getUser()->getPerson()->getFamId() or SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                             ?>
                             <div role="tabpanel" class="tab-pane fade <?= ($activeTab == 'timeline') ? "show active" : "" ?>" id="timeline">
                                 <div class="timeline time-line-main">
@@ -860,7 +896,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                         <div role="tabpanel" class="tab-pane fade <?= ($activeTab == 'family') ? "show active" : "" ?>"
                              id="family">
                             <?php
-                            if ($PersonInfos['person']->getFamId() != '') {
+                            if ($PersonInfos['famId'] != '') {
                                 ?>
                                 <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
                                     <div>
@@ -882,7 +918,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                     </thead>
                                     <tbody>
                                     <?php
-                                    foreach ($PersonInfos['person']->getOtherFamilyMembers() as $familyMember) {
+                                    foreach ($PersonInfos['OtherFamilyMembers'] as $familyMember) {
                                         $tmpPersonId = $familyMember->getId();
                                         ?>
                                         <tr class="align-middle border-bottom">
@@ -1066,15 +1102,15 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                                         }
                                                         // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
                                                         if ($ormAssignedGroup->getHasSpecialProps()) {
-                                                            // Get the special properties for this group only for the group
-                                                            $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('false')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+                                                            // Utilisation des propriétés préchargées
+                                                            $ormPropLists = $propsByGroup[$ormAssignedGroup->getGroupId()]['false'] ?? [];
                                                             ?>
 
                                                             <div class="row small">
                                                                     <div class="col-md-6 mb-3 mb-md-0">
                                                                         <h6 class="text-uppercase text-muted mb-2"><?= _("Group Informations") ?></h6>
                                                                         <?php
-                                                                            if ($ormPropLists->count() > 0) {
+                                                                            if (count($ormPropLists) > 0) {
                                                                             ?>
                                                                         <ul class="list-group list-group-flush mb-0">
                                                                             <?php
@@ -1103,16 +1139,12 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                                                     <div class="col-md-6">
                                                                         <?php
 
-                                                                    // now we add only the personnal group prop
-                                                                    $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
 
-                                                                    $sSQL = 'SELECT * FROM groupprop_' . $ormAssignedGroup->getGroupId() . ' WHERE per_ID = ' . $PersonInfos['iPersonID'];
+                                                                    // Propriétés personnalisées préchargées
+                                                                    $ormPropLists = $propsByGroup[$ormAssignedGroup->getGroupId()]['true'] ?? [];
+                                                                    $aPersonProps = $aPersonPropsByGroup[$ormAssignedGroup->getGroupId()] ?? [];
 
-                                                                    $statement = $connection->prepare($sSQL);
-                                                                    $statement->execute();
-                                                                    $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
-
-                                                                    if ($ormPropLists->count() > 0) {
+                                                                    if (count($ormPropLists) > 0) {
                                                                         ?>
                                                                         <h6 class="text-uppercase text-muted mb-2"><?= _("Person Informations") ?></h6>
                                                                         <ul class="list-group list-group-flush mb-2">
@@ -1361,7 +1393,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                         ?>
                                         <div class="text-center text-md-right">
                                             <a class="btn btn-sm btn-outline-primary"
-                                               href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $PersonInfos['person']->getFamily()->getId() ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus mr-1"></i> <?= _("Add a new automatic payment") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $PersonInfos['famId'] ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus mr-1"></i> <?= _("Add a new automatic payment") ?></a>
                                         </div>
                                         <?php
                                     } else {
@@ -1433,9 +1465,9 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                         </div>
                                         <div class="text-center text-md-right">
                                             <a class="btn btn-sm btn-outline-primary mb-2 mb-md-0"
-                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Pledge/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new pledge") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['famId'] ?>/Pledge/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new pledge") ?></a>
                                             <a class="btn btn-sm btn-outline-secondary"
-                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['person']->getFamily()->getId() ?>/Payment/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new payment") ?></a>
+                                               href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $PersonInfos['famId'] ?>/Payment/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-plus"></i> <?= _("Add a new payment") ?></a>
                                         </div>
                                         <?php
                                     } else {
@@ -1453,7 +1485,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                         ?>
                                         <div class="text-center text-md-right mt-3">
                                             <a class="btn btn-sm btn-outline-secondary"
-                                               href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $PersonInfos['person']->getFamily()->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-eye"></i> <?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                               href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $PersonInfos['famId'] ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-person-view-<?= $PersonInfos['iPersonID'] ?>"><i class="fa fa-eye"></i> <?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                         </div>
                                         <?php
                                     }
@@ -1539,12 +1571,12 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                                             <?= $item['editLink'] ?>                                                                                                                            
                                                             <?php
                                                         }
-                                                        if ($item['deleteLink'] != '' and !isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                        if ($item['deleteLink'] != '' and !isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['FullName'])) {
                                                             ?>
                                                             <?= $item['deleteLink'] ?>                                                                                                                        
                                                             <?php
                                                         }
-                                                        if (!isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['person']->getFullName())) {
+                                                        if (!isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['FullName'])) {
                                                             ?>
                                                             <button data-id="<?= $item['id'] ?>"
                                                                 data-shared="<?= $item['isShared'] ?>" 
@@ -1554,7 +1586,7 @@ $personClassLabel = _($PersonInfos['person']->getClassName());
                                                             </button>                            
                                                             <?php
                                                         }
-                                                        if ($item['type'] == 'note' and $PersonInfos['person']->getId() == SessionUser::getUser()->getPersonId()) {
+                                                        if ($item['type'] == 'note' and $PersonInfos['iPersonID'] == SessionUser::getUser()->getPersonId()) {
                                                             ?>
                                                             <button data-id="<?= $item['id'] ?>"
                                                                 data-toggle="tooltip" data-placement="bottom" title="<?= _("Export this document to word Format") ?>"
@@ -1790,10 +1822,10 @@ if ($sMapProvider == 'OpenStreetMap') {
     window.CRM.docType = 'person';
     window.CRM.iPhotoHeight = <?= SystemConfig::getValue("iPhotoHeight") ?>;
     window.CRM.iPhotoWidth = <?= SystemConfig::getValue("iPhotoWidth") ?>;
-    window.CRM.currentActive = <?= (empty($PersonInfos['person']->getDateDeactivated()) ? 'true' : 'false') ?>;
-    window.CRM.personFullName = "<?= $PersonInfos['person']->getFullName() ?>";
+    window.CRM.currentActive = <?= (empty($PersonInfos['DateDeactivated']) ? 'true' : 'false') ?>;
+    window.CRM.personFullName = "<?= $PersonInfos['FullName'] ?>";
     window.CRM.normalMail = "<?= $PersonInfos['sEmail'] ?>";
-    window.CRM.workMail = "<?= $PersonInfos['person']->getWorkEmail() ?>";
+    window.CRM.workMail = "<?= $PersonInfos['WorkEmail'] ?>";
 
     window.CRM.contentsExternalCssFont = '<?= $contentsExternalCssFont ?>';
     window.CRM.extraFont = '<?= $extraFont ?>';
@@ -1811,7 +1843,7 @@ if ($sMapProvider == 'OpenStreetMap') {
         };
         window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
 
-        initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', "<?= $PersonInfos['person']->getFullName() ?>", '');
+        initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', "<?= $PersonInfos['FullName'] ?>", '');
     <?php } ?>
 </script>
 
