@@ -19,7 +19,7 @@ $plugin = PluginQuery::create()
                    href="#custom-tabs-latest-families" role="tab"
                    aria-controls="custom-tabs-latest-families"
                    aria-selected="true">
-                    <i class="fas fa-users me-1"></i> <?= dgettext("messages-FamilyInfosDashboard", 'Latest Families') ?>
+                    <i class="fa-solid fa-people-roof me-1"></i> <?= dgettext("messages-FamilyInfosDashboard", 'Latest Families') ?>
                 </a>
             </li>
             <li class="nav-item">
@@ -27,8 +27,7 @@ $plugin = PluginQuery::create()
                    href="#custom-tabs-updated-families" role="tab"
                    aria-controls="custom-tabs-updated-families"
                    aria-selected="false">
-                    <i class="fas fa-female"></i><i class="fas fa-child"></i><i
-                        class="fas fa-check"></i> <?= dgettext("messages-FamilyInfosDashboard",'Updated Families') ?>
+                    <i class="fa-solid fa-people-roof"></i><i class="fas fa-check"></i> <?= dgettext("messages-FamilyInfosDashboard",'Updated Families') ?>
                 </a>
             </li>
         </ul>
