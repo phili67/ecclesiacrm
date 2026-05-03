@@ -1,3 +1,16 @@
+<!-- En-tête moderne convivial pour impression -->
+<div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #4a90e2; margin-bottom: 2em; padding-bottom: 0.5em; background: #fff; border-radius: 0 0 16px 16px;">
+  <div style="flex:0 0 auto;">
+    <img src="<?= isset($sRootPath) ? $sRootPath : '' ?>/icon-small.png" alt="Logo" style="height: 60px; border-radius: 12px; background: #f5f7fa; padding: 6px; vertical-align: middle;" />
+  </div>
+  <div style="flex:1 1 auto; text-align: center; font-size: 2em; font-weight: bold; color: #2a3b4d; letter-spacing: 1px;">
+    🕊️ <?=  _("Pastoral Care") ?>
+  </div>
+  <!--<div style="flex:0 0 auto; text-align: right; font-size: 1.1em; color: #4a90e2; font-style: italic; max-width: 40%; line-height: 1.3; opacity: 0.85;">
+    <span>🤝 <?= _("Accompagnement, écoute<br>et bienveillance") ?></span>
+  </div>-->
+</div>
+
 <?php
 /*******************************************************************************
  *
