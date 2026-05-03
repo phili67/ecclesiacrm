@@ -78,7 +78,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 </div>
 
                 <div class="card card-outline card-primary shadow-sm mb-3">
-                    <div class="card-header py-2 bg-primary">
+                    <div class="card-header py-2">
                         <h5 class="card-title mb-0"><i class="fas fa-home mr-2"></i><?= _('Family') ?></h5>
                     </div>
                     <div class="list-group list-group-flush">
@@ -104,7 +104,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 </div>
 
                 <div class="card card-outline card-info shadow-sm mb-3">
-                    <div class="card-header py-2 bg-info">
+                    <div class="card-header py-2">
                         <h5 class="card-title mb-0"><i class="fas fa-user mr-2"></i><?= _('Person') ?></h5>
                     </div>
                     <div class="list-group list-group-flush">
@@ -130,7 +130,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 </div>
 
                 <div class="card card-outline card-warning shadow-sm mb-3">
-                    <div class="card-header py-2 bg-warning">
+                    <div class="card-header py-2">
                         <h5 class="card-title mb-0"><i class="fas fa-users mr-2"></i><?= _('Group') ?></h5>
                     </div>
                     <div class="list-group list-group-flush">
@@ -160,7 +160,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
                 </div>
 
                 <div class="card card-outline card-secondary shadow-sm mb-0">
-                    <div class="card-header py-2 bg-secondary">
+                    <div class="card-header py-2">
                         <h5 class="card-title mb-0"><i class="fas fa-cogs mr-2"></i><?= _('Other') ?></h5>
                     </div>
                     <div class="list-group list-group-flush">
@@ -224,7 +224,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
                 <div class="card card-outline card-danger shadow-sm mb-3">
-                    <div class="card-header py-2 bg-danger">
+                    <div class="card-header py-2">
                         <h5 class="card-title mb-0"><i class="fas fa-wrench mr-2"></i><?= _('Administration') ?></h5>
                     </div>
                     <div class="list-group list-group-flush">
@@ -262,7 +262,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
                 <div class="card card-outline card-success shadow-sm mb-0">
-                    <div class="card-header py-2 bg-success">
+                    <div class="card-header py-2">
                         <h5 class="card-title mb-0"><i class="fas fa-tools mr-2"></i><?= _('Maintenance') ?></h5>
                     </div>
                     <div class="list-group list-group-flush">
