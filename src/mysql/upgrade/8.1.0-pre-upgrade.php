@@ -17,5 +17,7 @@ unlink(SystemURLs::getDocumentRoot() . "/v2/templates/map/MapUsingGoogle.php");
 
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/jquery.steps/");
 
+unlink(SystemURLs::getDocumentRoot() . "/Images/jitsi_logo.png");
+
 
 $logger->info("End of delete :  all unusefull files");
