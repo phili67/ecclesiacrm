@@ -100,7 +100,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-lg col-md-4 col-sm-6 col-12">
         <div class="info-box bg-gradient-<?= $Stats['familyGradientColor'] ?> shadow-sm">
-            <span class="info-box-icon"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small></span>
+            <span class="info-box-icon"><i class="fa-solid fa-people-roof"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _("Not visited Families") ?></span>
@@ -124,7 +124,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-lg col-md-4 col-sm-6 col-12">
         <div class="info-box bg-gradient-<?= $Stats['retiredGradientColor'] ?> shadow-sm">
-            <span class="info-box-icon"><i class="fas fa-user"></i></span>
+            <span class="info-box-icon"><i class="fas fa-user-tie"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _("Not visited Retired Persons") ?></span>
                 <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"><?= $Stats['CountNotViewRetired'] ?> / <?= $Stats['CountAllRetired'] ?></span>
@@ -135,7 +135,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-lg col-md-4 col-sm-6 col-12">
         <div class="info-box bg-gradient-<?= $Stats['youngGradientColor'] ?> shadow-sm">
-            <span class="info-box-icon"><i class="fas fa-child"></i></span>
+            <span class="info-box-icon"><i class="fas fa-children"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _("Not visited Youngs") ?></span>
                 <span class="info-box-number" id="sundaySchoolMaleKidsCNTDasBoard"><?= $Stats['CountNotViewYoung'] ?> / <?= $Stats['CountAllYoung'] ?></span>
@@ -172,7 +172,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <br>
                 <div class="d-flex align-items-center mb-1">
-                    <div class="small text-nowrap" style="width:120px"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small> <?= _("Families") ?></div>
+                    <div class="small text-nowrap" style="width:120px"><i class="fa-solid fa-people-roof"></i> <?= _("Families") ?></div>
                     <div class="flex-grow-1 mx-2">
                         <div class="progress" style="height:20px;">
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['familyColor'] ?>" role="progressbar" style="width:<?= round($Stats['PercentViewFamilies']) ?>%;" aria-valuenow="<?= $Stats['PercentViewFamilies'] ?>" aria-valuemin="0" aria-valuemax="100"><?= round($Stats['PercentViewFamilies']) ?>%</div>
@@ -192,7 +192,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <br>
                 <div class="d-flex align-items-center mb-1">
-                    <div class="small text-nowrap" style="width:120px"><i class="fas fa-user fa-fw"></i> <?= _("Retired") ?></div>
+                    <div class="small text-nowrap" style="width:120px"><i class="fas fa-user-tie fa-fw"></i> <?= _("Retired") ?></div>
                     <div class="flex-grow-1 mx-2">
                         <div class="progress" style="height:20px;">
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['retiredColor'] ?>" role="progressbar" style="width:<?= round($Stats['PercentRetiredViewPersons']) ?>%;" aria-valuenow="<?= $Stats['PercentRetiredViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= round($Stats['PercentRetiredViewPersons']) ?>%</div>
@@ -202,7 +202,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <br>
                 <div class="d-flex align-items-center mb-0">
-                    <div class="small text-nowrap" style="width:120px"><i class="fas fa-child fa-fw"></i> <?= _("Young People") ?></div>
+                    <div class="small text-nowrap" style="width:120px"><i class="fas fa-children fa-fw"></i> <?= _("Young People") ?></div>
                     <div class="flex-grow-1 mx-2">
                         <div class="progress" style="height:20px;">
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['youngColor'] ?>" role="progressbar" style="width:<?= round($Stats['PercentViewYoung']) ?>%;" aria-valuenow="<?= $Stats['PercentViewYoung'] ?>" aria-valuemin="0" aria-valuemax="100"><?= round($Stats['PercentViewYoung']) ?>%</div>
@@ -258,7 +258,7 @@ require $sRootDocument . '/Include/Header.php';
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="tab-families" data-toggle="tab" href="#pane-families" role="tab" aria-controls="pane-families" aria-selected="false">
-                                <small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small> <?= _("Families") ?>
+                                <i class="fa-solid fa-people-roof"></i> <?= _("Families") ?>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -268,12 +268,12 @@ require $sRootDocument . '/Include/Header.php';
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="tab-retired" data-toggle="tab" href="#pane-retired" role="tab" aria-controls="pane-retired" aria-selected="false">
-                                <i class="fas fa-user"></i> <?= _("Retired") ?>
+                                <i class="fas fa-user-tie"></i> <?= _("Retired") ?>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="tab-young" data-toggle="tab" href="#pane-young" role="tab" aria-controls="pane-young" aria-selected="false">
-                                <i class="fas fa-child"></i> <?= _("Young People") ?>
+                                <i class="fas fa-children"></i> <?= _("Young People") ?>
                             </a>
                         </li>
                     </ul>
