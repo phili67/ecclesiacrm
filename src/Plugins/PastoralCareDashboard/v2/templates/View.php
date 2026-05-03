@@ -90,10 +90,10 @@ function getPastoralAlertConfig($alertTypeButton) {
 function renderStatsTable($Stats) {
     $statsData = [
         ['icon' => 'fas fa-user', 'label' => _("Persons"), 'percent' => $Stats['PercentNotViewPersons'], 'count' => $Stats['CountNotViewPersons'], 'color' => $Stats['personColor']],
-        ['icon' => 'fas fa-users', 'label' => _("Families"), 'percent' => $Stats['PercentViewFamilies'], 'count' => $Stats['CountNotViewFamilies'], 'color' => $Stats['familyColor']],
-        ['icon' => 'fas fa-user', 'label' => _("Singles"), 'percent' => $Stats['PercentPersonSingle'], 'count' => $Stats['CountPersonSingle'], 'color' => $Stats['singleColor']],
+        ['icon' => 'fas fa-people-roof', 'label' => _("Families"), 'percent' => $Stats['PercentViewFamilies'], 'count' => $Stats['CountNotViewFamilies'], 'color' => $Stats['familyColor']],
+        ['icon' => 'fas fa-male', 'label' => _("Singles"), 'percent' => $Stats['PercentPersonSingle'], 'count' => $Stats['CountPersonSingle'], 'color' => $Stats['singleColor']],
         ['icon' => 'fas fa-user-clock', 'label' => _("Retired"), 'percent' => $Stats['PercentRetiredViewPersons'], 'count' => $Stats['CountNotViewRetired'], 'color' => $Stats['retiredColor']],
-        ['icon' => 'fas fa-child', 'label' => _("Young People"), 'percent' => $Stats['PercentViewYoung'], 'count' => $Stats['CountNotViewYoung'], 'color' => $Stats['youngColor']],
+        ['icon' => 'fas fa-children', 'label' => _("Young People"), 'percent' => $Stats['PercentViewYoung'], 'count' => $Stats['CountNotViewYoung'], 'color' => $Stats['youngColor']],
     ];
 
     echo '<table class="table table-borderless mb-0">
@@ -152,7 +152,7 @@ function renderStatsTable($Stats) {
 
                         <br>
                         <h6 class="text-black mb-3">
-                            <i class="fas fa-users"></i> <?= dgettext("messages-PastoralCareDashboard", "Last") ?> <?= dgettext("messages-PastoralCareDashboard", "Family Pastoral Care") ?>
+                            <i class="fas fa-people-roof"></i> <?= dgettext("messages-PastoralCareDashboard", "Last") ?> <?= dgettext("messages-PastoralCareDashboard", "Family Pastoral Care") ?>
                         </h6>
                         <?php renderCareList($caresFamilies, 'family'); ?>
                     </div>
