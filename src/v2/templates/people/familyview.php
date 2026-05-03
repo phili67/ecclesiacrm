@@ -42,7 +42,7 @@ $sFamilyEmails = [];
 ?>
 
 
-<?php if (!is_null($family->getDateDeactivated())) {
+<?php if (!is_null($DateDeactivated)) {
 ?>
     <div class="alert alert-warning">
         <strong><?= _(" This Family is Deactivated") ?> </strong>
@@ -57,7 +57,7 @@ $sFamilyEmails = [];
                 <div class="card card-outline card-primary shadow-sm">
                     <div class="card-body">
                         <div class="text-center">
-                            <img src="<?= $sRootPath ?>/api/families/<?= $family->getId() ?>/photo"
+                            <img src="<?= $sRootPath ?>/api/families/<?= $iFamilyID ?>/photo"
                                 class="initials-image profile-user-img img-responsive img-rounded img-circle" />
                             <?php
                             if ($bOkToEdit) {
@@ -82,20 +82,20 @@ $sFamilyEmails = [];
                             }
                             ?>
                         </div>
-                        <h3 class="profile-username text-center"><?= _('Family') . ': ' . $family->getName() ?></h3>
+                        <h3 class="profile-username text-center"><?= _('Family') . ': ' . $Name ?></h3>
                         <div class="text-center mb-3">
                             <span class="badge badge-primary mr-1 mb-1"><i class="fas fa-users mr-1"></i><?= $familyMemberCount . ' ' . _('Members') ?></span>
                             <?php if ($familyEmailCount > 0) { ?>
                                 <span class="badge badge-light mr-1 mb-1"><i class="far fa-envelope mr-1"></i><?= $familyEmailCount . ' ' . _('Emails') ?></span>
                             <?php } ?>
-                            <?php if (!is_null($family->getDateDeactivated())) { ?>
+                            <?php if (!is_null($DateDeactivated)) { ?>
                                 <span class="badge badge-warning mb-1"><i class="fas fa-user-slash mr-1"></i><?= _('Deactivated') ?></span>
                             <?php } ?>
                         </div>
                         <?php
                         if ($bOkToEdit) {
                         ?>
-                            <a href="<?= $sRootPath ?>/v2/people/family/editor/<?= $family->getId() ?>"
+                            <a href="<?= $sRootPath ?>/v2/people/family/editor/<?= $iFamilyID ?>"
                                 class="btn btn-sm btn-outline-primary btn-block"><i class="fas fa-pen mr-1"></i><?= _("Edit") ?></a>
                         <?php
                         }
@@ -121,10 +121,10 @@ $sFamilyEmails = [];
                                     <br>
 
                                     <?php
-                                    if ($family->getLatitude() && $family->getLongitude()) {
+                                    if ($lat && $lng) {
                                         if (SystemConfig::getValue("iEntityLatitude") && SystemConfig::getValue("iEntityLongitude")) {
-                                            $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iEntityLatitude"), SystemConfig::getValue("iEntityLongitude"), $family->getLatitude(), $family->getLongitude());
-                                            $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iEntityLatitude"), SystemConfig::getValue("iEntityLongitude"), $family->getLatitude(), $family->getLongitude());
+                                            $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iEntityLatitude"), SystemConfig::getValue("iEntityLongitude"), $lat, $lng);
+                                            $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iEntityLatitude"), SystemConfig::getValue("iEntityLongitude"), $lat, $lng);
                                             echo OutputUtils::number_localized($sDistance) . " " . _(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . _($sDirection) . " " . _(" of church<br>");
                                         }
                                     } else {
@@ -134,7 +134,7 @@ $sFamilyEmails = [];
                                     <?php
                                     if (!$bHideLatLon && !SystemConfig::getBooleanValue('bHideLatLon')) { /* Lat/Lon can be hidden - General Settings */ ?>
                                 <li><strong><i class="fa-li far fa-compass"></i><?= _("Latitude/Longitude") ?></strong>
-                                    <span><?= $family->getLatitude() . " / " . $family->getLongitude() ?></span>
+                                    <span><?= $lat . " / " . $lng ?></span>
                                 </li>
                             <?php
                                     }
@@ -151,11 +151,11 @@ $sFamilyEmails = [];
                             <?php
                                 }
 
-                                if (!SystemConfig::getBooleanValue("bHideWeddingDate") && $family->getWeddingdate() != "") { /* Wedding Date can be hidden - General Settings */
+                                if (!SystemConfig::getBooleanValue("bHideWeddingDate") && $Weddingdate != "") { /* Wedding Date can be hidden - General Settings */
                             ?>
                                 <li>
                                     <strong><i class="fa-li fas fa-magic"></i><?= _("Wedding Date") ?>:</strong>
-                                    <span><?= OutputUtils::FormatDateOrUnknown($family->getWeddingdate()) ?></span>
+                                    <span><?= OutputUtils::FormatDateOrUnknown($Weddingdate) ?></span>
                                 </li>
                             <?php
                                 }
@@ -190,10 +190,10 @@ $sFamilyEmails = [];
 
                             <?php
                                 }
-                                if ($family->getEmail() != "") {
+                                if ($email != "") {
                             ?>
                                 <li><strong><i class="fa-li far fa-envelope"></i><?= _("Email") ?>:</strong>
-                                    <a href="mailto:<?= $family->getEmail() ?>"><span><?= $family->getEmail() ?></span></a>
+                                    <a href="mailto:<?= $email ?>"><span><?= $email ?></span></a>
                                 </li>
                                 <?php
                                     if ($isMailChimpActive) {
@@ -249,7 +249,7 @@ $sFamilyEmails = [];
                     <div class="row align-items-lg-center">
                         <div class="col-lg-5 mb-3 mb-lg-0">
                             <div class="text-muted text-uppercase small"><?= _('Overview') ?></div>
-                            <h2 class="h4 mb-2"><?= $family->getName() ?></h2>
+                            <h2 class="h4 mb-2"><?= $Name ?></h2>
                             <div class="mb-2">
                                 <span class="badge badge-primary mr-1 mb-1"><i class="fas fa-users mr-1"></i><?= $familyMemberCount . ' ' . _('Members') ?></span>
                                 <span class="badge badge-light mr-1 mb-1"><i class="far fa-envelope mr-1"></i><?= $familyEmailCount . ' ' . _('Reachable by email') ?></span>
@@ -285,7 +285,7 @@ $sFamilyEmails = [];
                                 if (SessionUser::getUser()->isEmailEnabled()) {
                                     $buttons++;
                                     $emails = "";
-                                    foreach ($family->getActivatedPeople() as $person) {
+                                    foreach ($familyMembers as $person) {
                                         $emails .= $person->getEmail() . SessionUser::getUser()->MailtoDelimiter();
                                     }
 
@@ -338,7 +338,7 @@ $sFamilyEmails = [];
                                     $buttons++;
                                 ?>
                                     <button class="btn btn-sm btn-warning mr-2 mb-2" id="activateDeactivate">
-                                        <i class="fa <?= (is_null($family->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo ((is_null($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
+                                        <i class="fa <?= (is_null($DateDeactivated) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo ((is_null($DateDeactivated) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
                                     </button>
                                 <?php
                                 }
@@ -763,7 +763,7 @@ $sFamilyEmails = [];
                                                     ?>
                                                     <p class="text-center">
                                                         <a class="btn btn-sm btn-primary"
-                                                            href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $family->getId() ?>/v2-people-family-view-<?= $iFamilyID ?>"><i class="fas fa-plus mr-1"></i> <?= _("Add a new automatic payment") ?></a>
+                                                            href="<?= $sRootPath ?>/v2/deposit/autopayment/editor/-1/<?= $iFamilyID ?>/v2-people-family-view-<?= $iFamilyID ?>"><i class="fas fa-plus mr-1"></i> <?= _("Add a new automatic payment") ?></a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -811,9 +811,9 @@ $sFamilyEmails = [];
 
                                                     <p class="text-center">
                                                         <a class="btn btn-sm btn-primary"
-                                                            href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Pledge/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-plus"></i> <?= _("Add a new pledge") ?></a>
+                                                            href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $iFamilyID ?>/Pledge/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-plus"></i> <?= _("Add a new pledge") ?></a>
                                                         <a class="btn btn-sm btn-outline-secondary"
-                                                            href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $family->getId() ?>/Payment/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-plus"></i> <?= _("Add a new payment") ?></a>
+                                                            href="<?= $sRootPath ?>/v2/deposit/pledge/editor/family/<?= $iFamilyID ?>/Payment/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-plus"></i> <?= _("Add a new payment") ?></a>
                                                     </p>
 
                                                     <?php
@@ -821,7 +821,7 @@ $sFamilyEmails = [];
                                                     ?>
                                                         <p class="text-center">
                                                             <a class="btn btn-sm btn-outline-secondary"
-                                                                href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $family->getId() ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-eye"></i> <?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                                                href="<?= $sRootPath ?>/v2/people/canvass/editor/<?= $iFamilyID ?>/<?= $_SESSION['idefaultFY'] ?>/v2-people-family-view-<?= $iFamilyID ?>"><i class="fa fa-eye"></i> <?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                                                         </p>
                                                     <?php
                                                     }
@@ -1081,11 +1081,11 @@ if ($sMapProvider == 'OpenStreetMap') {
     window.CRM.currentPersonID = 0;
     window.CRM.currentFamily = <?= $iFamilyID ?>;
     window.CRM.docType = 'family';
-    window.CRM.currentActive = <?= (is_null($family->getDateDeactivated()) ? 'true' : 'false') ?>;
-    window.CRM.fam_Name = "<?= $family->getName() ?>";
+    window.CRM.currentActive = <?= (is_null($DateDeactivated) ? 'true' : 'false') ?>;
+    window.CRM.fam_Name = "<?= $Name ?>";
     window.CRM.iPhotoHeight = <?= SystemConfig::getValue("iPhotoHeight") ?>;
     window.CRM.iPhotoWidth = <?= SystemConfig::getValue("iPhotoWidth") ?>;
-    window.CRM.familyMail = "<?= $family->getEmail() ?>";
+    window.CRM.familyMail = "<?= $email ?>";
 
     var dataT = 0;
     var dataPaymentTable = 0;
@@ -1099,7 +1099,7 @@ if ($sMapProvider == 'OpenStreetMap') {
         };
         window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
 
-        initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, "<?= $family->getName() ?>", '', '');
+        initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, "<?= $Name ?>", '', '');
     <?php } ?>
 </script>
 
