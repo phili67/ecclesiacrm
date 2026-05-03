@@ -114,7 +114,7 @@ $sFamilyEmails = [];
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" title="<?= _("View Family Members") ?>" data-widget="chat-pane-toggle"
                             data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("View Family Members") ?>">
-                        <i class="fas fa-users"></i>
+                        <i class="fa-solid fa-people-roof"></i>
                     </button>
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
@@ -357,7 +357,7 @@ $sFamilyEmails = [];
         <!-- Contacts are loaded here -->
         <div class="card direct-chat direct-chat-warning  card-primary card-outline">
             <div class="card-header">
-                <h3 class="card-title"><?= _("Family Members") ?></h3>
+                <h3 class="card-title"><i class="fa-solid fa-people-roof"></i> <?= _("Family Members") ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
