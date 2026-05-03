@@ -24,7 +24,7 @@ require $sRootDocument . '/Include/Header.php';
                     <small class="text-muted"><?= dgettext("messages-MeetingJitsi", "Configure your meeting provider and API access") ?></small>
                 </div>
                 <a href="https://jitsi.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="28" alt="Jitsi">
+                    <img src="<?= $sRootPath ?>/Plugins/MeetingJitsi/skin/jitsi_logo.png" height="28" alt="Jitsi">
                 </a>
             </div>
 
