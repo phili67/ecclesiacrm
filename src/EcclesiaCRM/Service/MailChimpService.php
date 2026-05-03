@@ -45,8 +45,12 @@ class MailChimpService
     {
         if ( !empty(SystemConfig::getValue('sMailChimpApiKey')) ) {
             $this->isActive = true;
-            $this->myMailchimp = new MailChimp(SystemConfig::getValue('sMailChimpApiKey'));
-            $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
+
+            if (!isset($_SESSION['MailChimpConnectionStatus']))  {
+                $_SESSION['myMailchimp'] = new MailChimp(SystemConfig::getValue('sMailChimpApiKey'));
+                $_SESSION['MailChimpConnectionStatus'] = $_SESSION['myMailchimp']->post("authorized-apps");
+            }
+            $this->myMailchimp = $_SESSION['myMailchimp'];            
         }
     }
 
