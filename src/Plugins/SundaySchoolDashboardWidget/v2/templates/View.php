@@ -21,7 +21,7 @@ $dashboardCounts = $dshiS->getAllItems();
             <div class="d-flex align-items-center justify-content-between mb-2">
                 <span class="text-uppercase text-muted" style="font-size:.7rem;font-weight:700;letter-spacing:.05em;"><?= dgettext("messages-SundaySchoolDashboardWidget",'Sunday School') ?></span>
                 <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:36px;height:36px;background:rgba(246,194,62,.15);">
-                    <i class="fas fa-child" style="color:#f6c23e;font-size:16px;"></i>
+                    <i class="fas fa-children" style="color:#f6c23e;font-size:16px;"></i>
                 </div>
             </div>
             <div class="h2 mb-0 font-weight-bold" id="groupStatsSundaySchool"><?= $dashboardCounts['SundaySchoolCount'] ?></div>
