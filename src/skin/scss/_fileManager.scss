@@ -138,11 +138,11 @@
     border: 2px solid rgb(98, 190, 255);
 }
 
-@media (max-width: 890px) {
+@media (max-width: 1300px) {
     .filmanager-right {
         margin-top:0px;
-       -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
+       -ms-flex: 0 0 100% !important;
+       flex: 0 0 100% !important;
     } 
     
     .file-image-preview {
