@@ -103,7 +103,7 @@ $name = $lastEntry->getName();
 
 <div class="card card-primary card-outline shadow-sm mb-4">
     <div class="card-header border-0">
-        <h3 class="card-title mb-0"><i class="fas fa-users me-2"></i><?= _("Family") . " ID" ?></h3>
+        <h3 class="card-title mb-0"><i class="fa-solid fa-people-roof"></i> <?= _("Family") . " ID" ?></h3>
     </div>
     <div class="card-body">
         <?php
