@@ -27,10 +27,12 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
 
     public function buildSearch(string $qry)
     {
-        if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
+        $currentUser = SessionUser::getUser();
+
+        if ($currentUser->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
             // now we search the families
             try {
-                $searchLikeString = '%'.$qry.'%';
+                $searchLikeString = '%' . str_replace('*', '%', $qry) . '%';
                 $cares = PastoralCareQuery::Create();
 
                 if (SystemConfig::getBooleanValue('bGDPR')) {
@@ -56,32 +58,44 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                     ->_or()->filterByPastorName($searchLikeString, Criteria::LIKE)
                     ->orderByDate(Criteria::DESC);
 
-                if ( $this->isQuickSearch() ) {
+                $quickSearch = $this->isQuickSearch();
+
+                if ($quickSearch) {
                     $cares->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
                 }
 
-                if ( SessionUser::getUser()->isAdmin() ) {
-                    $cares->find();
+                if ($currentUser->isAdmin()) {
+                    $cares = $cares->find();
                 } else {
-                    $cares->findByPastorId(SessionUser::getUser()->getPerson()->getId());
+                    $cares = $cares->findByPastorId($currentUser->getPerson()->getId());
                 }
 
-                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
+                $shouldShowCart = $currentUser->isShowCartEnabled();
                 $rootPath = SystemURLs::getRootPath();
-                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();
+                $shouldSeePrivacyData = $currentUser->isSeePrivacyDataEnabled();
+                $includeFamilyHoh = SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH");
+                $familiesInCart = $shouldShowCart ? array_fill_keys(Cart::FamiliesInCart(), true) : [];
                 
 
                 if ( $cares->count() > 0 ) {
                     $id=1;
 
                     foreach ($cares as $care) {
-                        if ( $this->isQuickSearch() ) {
+                        $family = $care->getFamily();
+
+                        if ($family === null) {
+                            continue;
+                        }
+
+                        $familyId = $family->getId();
+
+                        if ($quickSearch) {
                             $elt = ['id' => "family-pastoral-care-id-" . $id++,
-                                'text' => $care->getPastoralCareType()->getTitle() . " : " . $care->getFamily()->getName(),
+                                'text' => $care->getPastoralCareType()->getTitle() . " : " . $family->getName(),
                                 'uri' => $rootPath . "/v2/pastoralcare/family/" . $care->getFamilyId()];
                         } else {
 
-                            $members = $care->getFamily()->getPeopleSorted();
+                            $members = $family->getPeopleSorted();
 
                             $res_members = [];
                             $globalMembers = "";
@@ -91,11 +105,11 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                                 $globalMembers .= '• <a href="' . $rootPath . '/v2/people/person/view/' . $member->getId() . '">' . $member->getFirstName() . " " . $member->getLastName() . "</a><br>";
                             }
 
-                            $inCart = Cart::FamilyInCart($care->getFamily()->getId());
+                            $inCart = isset($familiesInCart[$familyId]);
 
                             $res = "";
                             if ($shouldShowCart) {
-                                $res .= '<a href="' . $rootPath . '/v2/pastoralcare/family/' . $care->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                $res .= '<a href="' . $rootPath . '/v2/pastoralcare/family/' . $familyId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fas fa-square fa-stack-2x"></i>'
@@ -107,7 +121,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
 
                             if ($inCart == false) {
                                 if ($shouldShowCart) {
-                                    $res .= '<a class="AddToFamilyCart" data-cartfamilyid="' . $care->getFamily()->getId() . '">';
+                                    $res .= '<a class="AddToFamilyCart" data-cartfamilyid="' . $familyId . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     . '                <i class="fas fa-square fa-stack-2x"></i>'
@@ -118,7 +132,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                                 }
                             } else {
                                 if ($shouldShowCart) {
-                                    $res .= '<a class="RemoveFromFamilyCart" data-cartfamilyid="' . $care->getFamily()->getId() . '">';
+                                    $res .= '<a class="RemoveFromFamilyCart" data-cartfamilyid="' . $familyId . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     . '                <i class="fas fa-square fa-stack-2x"></i>'
@@ -130,10 +144,10 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                             }
 
                             $elt = [
-                                "id" => $care->getFamily()->getId(),
-                                "img" => $care->getFamily()->getJPGPhotoDatas(),
-                                "searchresult" => _("Family Pastoral Care") . ' : <a href="' . $rootPath . '/v2/people/family/view/' . $care->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $care->getFamily()->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
-                                "address" => (!$shouldSeePrivacyData) ? _('Private Data') : $care->getFamily()->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                "id" => $familyId,
+                                "img" => $family->getJPGPhotoDatas(),
+                                "searchresult" => _("Family Pastoral Care") . ' : <a href="' . $rootPath . '/v2/people/family/view/' . $familyId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
+                                "address" => (!$shouldSeePrivacyData) ? _('Private Data') : $family->getFamilyString($includeFamilyHoh),
                                 "type" => " " . _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",

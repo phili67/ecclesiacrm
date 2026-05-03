@@ -31,9 +31,11 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
 
     public function buildSearch(string $qry)
     {
-        if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
+        $currentUser = SessionUser::getUser();
+
+        if ($currentUser->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
             try {
-                $searchLikeString = '%' . $qry . '%';
+                $searchLikeString = '%' . str_replace('*', '%', $qry) . '%';
                 $cares = PastoralCareQuery::Create();
 
                 if (SystemConfig::getBooleanValue('bGDPR')) {
@@ -61,41 +63,44 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                     ->_or()->filterByPastorName($searchLikeString, Criteria::LIKE)
                     ->orderByDate(Criteria::DESC);
 
-                if ( $this->isQuickSearch() ) {
+                $quickSearch = $this->isQuickSearch();
+
+                if ($quickSearch) {
                     $cares->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
                 }
 
 
-                if (SessionUser::getUser()->isAdmin()) {
-                    $cares->find();
+                if ($currentUser->isAdmin()) {
+                    $cares = $cares->find();
                 } else {
-                    $cares->findByPastorId(SessionUser::getUser()->getPerson()->getId());
+                    $cares = $cares->findByPastorId($currentUser->getPerson()->getId());
                 }
 
-                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
+                $shouldShowCart = $currentUser->isShowCartEnabled();
                 $rootPath = SystemURLs::getRootPath();
-                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();                
+                $shouldSeePrivacyData = $currentUser->isSeePrivacyDataEnabled();
+                $peopleInCart = $shouldShowCart ? array_fill_keys(Cart::PeopleInCart(), true) : [];
 
                 if ( $cares->count() > 0 ) {
                     $id=1;
 
                     foreach ($cares as $care) {
-                        if ( $this->isQuickSearch() ) {
+                        if ($quickSearch) {
                             $elt = ['id' => "person-pastoralcare-id-" . $id++,
                                 'text' => $care->getPastoralCareType()->getTitle() . " : " . $care->getPersonRelatedByPersonId()->getFullName(),
-                                'uri' => SystemURLs::getRootPath() . "/v2/pastoralcare/person/" . $care->getPersonId()];
+                                'uri' => $rootPath . "/v2/pastoralcare/person/" . $care->getPersonId()];
                         } else {
                             $per = $care->getPersonRelatedByPersonId();
                             $fam = $per->getFamily();
 
                             $address = "";
                             if (!is_null($fam)) {
-                                $address = '<a href="'.SystemURLs::getRootPath().'/v2/people/family/view/'.$fam->getID().'">'.
-                                    $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
+                                $address = '<a href="'.$rootPath.'/v2/people/family/view/'.$fam->getID().'">'.
+                                    $fam->getName().MiscUtils::FormatAddressLine($fam->getAddress1(), $fam->getCity(), $fam->getState()).
                                     "</a>";
                             }
 
-                            $inCart = Cart::PersonInCart($per->getId());
+                            $inCart = isset($peopleInCart[$per->getId()]);
 
                             $res = "";
                             if ($shouldShowCart) {

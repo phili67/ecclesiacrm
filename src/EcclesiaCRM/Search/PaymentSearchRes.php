@@ -10,9 +10,6 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Service\FinancialService;
-use EcclesiaCRM\Search\SearchLevel;
-
-
 class PaymentSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
@@ -28,7 +25,9 @@ class PaymentSearchRes extends BaseSearchRes
 
     public function buildSearch(string $qry)
     {
-        if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )
+        $currentUser = SessionUser::getUser();
+
+        if ( $currentUser->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )
         {
             //Search Payments
             if (SystemConfig::getBooleanValue("bSearchIncludePayments"))
@@ -39,7 +38,10 @@ class PaymentSearchRes extends BaseSearchRes
 
                     $id = 1;
 
-                    $rootPath = SystemURLs::getRootPath();                    
+                    $rootPath = SystemURLs::getRootPath();
+                    $isGlobalSearch = $this->isGlobalSearch();
+                    $maxResults = (int) SystemConfig::getValue("iSearchIncludePaymentsMax");
+                    $resultsCount = 0;
 
                     if (!is_null($Payments))
                     {
@@ -48,9 +50,9 @@ class PaymentSearchRes extends BaseSearchRes
                                 'text'=>$Payment['displayName'],
                                 'uri'=>$Payment['uri']];
 
-                            if ($this->isGlobalSearch()) {
+                            if ($isGlobalSearch) {
                                 $elt = [
-                                    "id" => -1,
+                                    "id" => 'payment-' . $Payment['dep_ID'],
                                     "img" => '<i class="fas fa-university fa-2x"></i>',
                                     "searchresult" => '<a href="'.$rootPath.'/v2/deposit/slipeditor/'.$Payment['dep_ID'].'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$Payment['displayName'].'</a>',
                                     "address" => "",
@@ -63,14 +65,14 @@ class PaymentSearchRes extends BaseSearchRes
                                     "members" => "",
                                     "actions" => ""
                                 ];
-
-                                if ($id > SystemConfig::getValue("iSearchIncludePaymentsMax")) {
-                                    break;
-                                }
                             }
 
+                            $this->results[] = $elt;
+                            $resultsCount++;
 
-                            array_push($this->results, $elt);
+                            if ($resultsCount >= $maxResults) {
+                                break;
+                            }
                         }
                     }
                 } catch (\Exception $e) {
