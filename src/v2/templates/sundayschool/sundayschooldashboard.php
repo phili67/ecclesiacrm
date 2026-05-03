@@ -45,7 +45,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
         <div class="info-box bg-gradient-orange shadow-sm">
-            <span class="info-box-icon"><i class="fas fa-child"></i></span>
+            <span class="info-box-icon"><i class="fa-solid fa-children"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Students') ?></span>
                 <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"> <?= $sundaySchoolCountStats['kidsCNT'] ?> </span>
@@ -56,7 +56,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
         <div class="info-box bg-gradient-lime shadow-sm">
-            <span class="info-box-icon"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small></span>
+            <span class="info-box-icon"><i class="fa-solid fa-people-roof"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Families') ?></span>
@@ -68,7 +68,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
         <div class="info-box bg-gradient-blue shadow-sm">
-            <span class="info-box-icone"><i class="fas fa-male"></i></span>
+            <span class="info-box-icon"><i class="fas fa-male"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Boys') ?></span>
