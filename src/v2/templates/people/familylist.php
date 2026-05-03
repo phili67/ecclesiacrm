@@ -1,3 +1,4 @@
+ 
 <?php
 /*******************************************************************************
  *
@@ -39,15 +40,15 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 
-<div class="card shadow-sm border-0">
-  <div class="card-header border-0 bg-body py-3">
+<div class="card card-outline card-primary shadow-sm mb-3">
+  <div class="card-header border-1 bg-body py-3">
     <div class="d-flex flex-wrap align-items-center justify-content-between" style="gap:.75rem;">
       <div>
         <?php if ($sMode == 'Single') { ?>
           <h3 class="card-title mb-1"><i class="fas fa-male mr-2 text-primary"></i><?= _('People') ?></h3>
           <p class="text-muted small mb-0"><?= _('Browse households and family records from a single list.') ?></p>
         <?php } else { ?>
-          <h3 class="card-title mb-1"><i class="fas fa-male mr-1 text-primary"></i><i class="fas fa-female mr-1 text-primary"></i><i class="fas fa-child mr-2 text-primary"></i><?= _('Families') ?></h3>
+          <h3 class="card-title mb-1"><i class="fa-solid fa-people-roof mr-1 text-primary"></i><?= _('Families') ?></h3>
           <p class="text-muted small mb-0"><?= _('Browse, edit and manage family records from one place.') ?></p>
         <?php } ?>
       </div>
