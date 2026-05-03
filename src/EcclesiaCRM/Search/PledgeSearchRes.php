@@ -26,7 +26,9 @@ class PledgeSearchRes extends BaseSearchRes
 
     public function buildSearch(string $qry)
     {
-        if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )
+        $currentUser = SessionUser::getUser();
+
+        if ( $currentUser->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )
         {
             //Pledges Search
             if (SystemConfig::getBooleanValue("bSearchIncludePledges"))
@@ -34,7 +36,8 @@ class PledgeSearchRes extends BaseSearchRes
                 try {
                     $searchLikeString = '%'.$qry.'%';
 
-                    $Pledges = PledgeQuery::create();
+                    $Pledges = PledgeQuery::create()
+                        ->leftJoinWithFamily();
 
                     if (SystemConfig::getBooleanValue('bGDPR') && !SystemConfig::getBooleanValue('bSearchFinancesGDPR')) {// normally gdpr is more important than finances ??? Plogel, a deposit can always be seen but not a pledge
                         $Pledges
@@ -52,53 +55,60 @@ class PledgeSearchRes extends BaseSearchRes
                         ->withColumn('Deposit.Id', 'DepositId')
                         ->groupByDepositId();
 
-                    if ( $this->isQuickSearch() ) {
+                    $quickSearch = $this->isQuickSearch();
+
+                    if ($quickSearch) {
                         $Pledges->limit(SystemConfig::getValue("iSearchIncludePledgesMax"));
                     }
 
-                    $Pledges->find();
+                    $Pledges = $Pledges->find();
+
+                    $shouldShowCart = $currentUser->isShowCartEnabled();
+                    $rootPath = SystemURLs::getRootPath();
 
                     if ( $Pledges->count() > 0 )
                     {
                         $id=1;
 
                         foreach ($Pledges as $Pledge) {
-                            $uri = SystemURLs::getRootPath() . "/v2/deposit/pledge/editor/GroupKey/".$Pledge->getGroupkey()."/v2-deposit-slipeditor-" . $Pledge->getDepositId();
-                            if ( $this->isQuickSearch() ) {
+                            if (is_null($Pledge->getDepositId())) {
+                                continue;
+                            }
+
+                            $uri = $rootPath . "/v2/deposit/pledge/editor/GroupKey/".$Pledge->getGroupkey()."/v2-deposit-slipeditor-" . $Pledge->getDepositId();
+                            if ($quickSearch) {
                                 $elt = ['id' => 'pledges-' . $id++,
                                     'text' => $Pledge->getFamily()->getName() . " (" . _("Deposit") . " #" . $Pledge->getDepositId() . ")",
                                     'uri' => $uri];
                             } else {
-                                if (!is_null($Pledge->getDepositId())) {
-                                    $res = "";
-                                    if (SessionUser::getUser()->isShowCartEnabled()) {
-                                        $res = '<a href="' . $uri . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
-                                    }
-
-                                    $res .= '<span class="fa-stack">'
-                                        .'<i class="fas fa-square fa-stack-2x"></i>'
-                                        .'<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
-                                        .'</span>';
-
-                                    if (SessionUser::getUser()->isShowCartEnabled()) {
-                                        $res .= '</a>&nbsp;';
-                                    }
-
-                                    $elt = [
-                                        'id' => $Pledge->getDepositId(),
-                                        'img' => '<i class="fas fa-university fa-2x"></i>',
-                                        'searchresult' => '<a href="'.SystemURLs::getRootPath()."/v2/deposit/pledge/editor/GroupKey/".$Pledge->getGroupkey()."/v2-deposit-slipeditor-".$Pledge->getDepositId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")".'</a>',
-                                        'address' => "",
-                                        'type' => " "._($this->getGlobalSearchType()),
-                                        'realType' => $this->getGlobalSearchType(),
-                                        'Gender' => "",
-                                        'Classification' => "",
-                                        'ProNames' => "",
-                                        'FamilyRole' => "",
-                                        "members" => "",
-                                        'actions' => $res
-                                    ];
+                                $res = "";
+                                if ($shouldShowCart) {
+                                    $res = '<a href="' . $uri . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                                 }
+
+                                $res .= '<span class="fa-stack">'
+                                    .'<i class="fas fa-square fa-stack-2x"></i>'
+                                    .'<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
+                                    .'</span>';
+
+                                if ($shouldShowCart) {
+                                    $res .= '</a>&nbsp;';
+                                }
+
+                                $elt = [
+                                    'id' => $Pledge->getDepositId(),
+                                    'img' => '<i class="fas fa-university fa-2x"></i>',
+                                    'searchresult' => '<a href="'.$rootPath."/v2/deposit/pledge/editor/GroupKey/".$Pledge->getGroupkey()."/v2-deposit-slipeditor-".$Pledge->getDepositId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")".'</a>',
+                                    'address' => "",
+                                    'type' => " "._($this->getGlobalSearchType()),
+                                    'realType' => $this->getGlobalSearchType(),
+                                    'Gender' => "",
+                                    'Classification' => "",
+                                    'ProNames' => "",
+                                    'FamilyRole' => "",
+                                    "members" => "",
+                                    'actions' => $res
+                                ];
                             }
 
                             array_push($this->results, $elt);

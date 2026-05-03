@@ -38,16 +38,25 @@ class PersonPropsSearchRes extends BaseSearchRes
     {
         if (SystemConfig::getBooleanValue("bSearchIncludePersons")) {
             try {
+                $currentUser = SessionUser::getUser();
+                $shouldShowCart = $currentUser->isShowCartEnabled();
+                $rootPath = SystemURLs::getRootPath();
+                $shouldSeePrivacyData = $currentUser->isSeePrivacyDataEnabled();
+                $quickSearch = $this->isQuickSearch();
+                $peopleInCart = $shouldShowCart ? array_fill_keys(Cart::PeopleInCart(), true) : [];
+                $normalizedQuery = str_replace('*', '%', $qry);
 
                 // it's possible to include the properties not
                 $not_like = "";
                 if ($qry[0] == "!") {
                     $qry = substr($qry,1);
                     $not_like = "NOT ";
+                    $normalizedQuery = str_replace('*', '%', $qry);
                 }
-                $searchLikeString = '%'.$qry.'%';
+                $searchLikeString = '%' . $normalizedQuery . '%';
 
-                $person_Props = PersonQuery::create();
+                $person_Props = PersonQuery::create()
+                    ->leftJoinWithFamily();
 
                 if (SystemConfig::getBooleanValue('bGDPR')) {
                     $person_Props->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
@@ -62,20 +71,16 @@ class PersonPropsSearchRes extends BaseSearchRes
                     ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
                     ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
                     ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
-                    ->where(PropertyTableMap::COL_PRO_CLASS."='p' AND (".PropertyTableMap::COL_PRO_NAME." ".$not_like."LIKE '".$searchLikeString."'  OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '%".$qry."%' )"
-                    . " OR " . PersonTableMap::COL_PER_FIRSTNAME . " LIKE '%".$qry."%' OR " . PersonTableMap::COL_PER_LASTNAME . " LIKE '%".$qry."%'") //NOT LIKE 'a%';
+                    ->where(PropertyTableMap::COL_PRO_CLASS."='p' AND (".PropertyTableMap::COL_PRO_NAME." ".$not_like."LIKE '".$searchLikeString."'  OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '" . $searchLikeString . "' )"
+                    . " OR " . PersonTableMap::COL_PER_FIRSTNAME . " LIKE '" . $searchLikeString . "' OR " . PersonTableMap::COL_PER_LASTNAME . " LIKE '" . $searchLikeString . "'") //NOT LIKE 'a%';
                     ->addAscendingOrderByColumn('ProName')
                     ->addAscendingOrderByColumn('ProTypeName');
 
-                if ( $this->isQuickSearch() ) {
+                if ($quickSearch) {
                     $person_Props->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
-                $person_Props->find();
-
-                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
-                $rootPath = SystemURLs::getRootPath();
-                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();
+                $person_Props = $person_Props->find();
                     
 
                 if ( $person_Props->count() > 0 )
@@ -85,7 +90,9 @@ class PersonPropsSearchRes extends BaseSearchRes
                     
 
                     foreach ($person_Props as $per) {
-                        if ( $this->isQuickSearch() ) {
+                                            $personId = $per->getId();
+
+                                            if ($quickSearch) {
                             $elt = ['id' => 'person-props-id-' . $id++,
                                 'text' => $per->getFullName() . " (" . $per->getProName() . ")",
                                 'uri' => $per->getViewURI()
@@ -96,11 +103,11 @@ class PersonPropsSearchRes extends BaseSearchRes
                             $address = "";
                             if (!is_null($fam)) {
                                 $address = '<a href="'.$rootPath.'/v2/people/family/view/'.$fam->getID().'">'.
-                                    $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
+                                    $fam->getName().MiscUtils::FormatAddressLine($fam->getAddress1(), $fam->getCity(), $fam->getState()).
                                     "</a>";
                             }
 
-                            $inCart = Cart::PersonInCart($per->getId());
+                            $inCart = isset($peopleInCart[$personId]);
 
                             $res = "";
 
@@ -117,7 +124,7 @@ class PersonPropsSearchRes extends BaseSearchRes
 
                             if ($inCart == false) {
                                 if ($shouldShowCart) {
-                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $personId . '">';
                                 }
 
                                 $res .= "                <span class=\"fa-stack\">\n"
@@ -129,7 +136,7 @@ class PersonPropsSearchRes extends BaseSearchRes
                                 }
                             } else {
                                 if ($shouldShowCart) {
-                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $personId . '">';
                                 }
                                 $res .= "                <span class=\"fa-stack\">"
                                     ."                <i class=\"fas fa-square fa-stack-2x\"></i>"
@@ -141,7 +148,7 @@ class PersonPropsSearchRes extends BaseSearchRes
                             }
 
                             if ($shouldShowCart) {
-                                $res .= '&nbsp;<a href="' . $rootPath . '/v2/people/person/print/' . $per->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
+                                $res .= '&nbsp;<a href="' . $rootPath . '/v2/people/person/print/' . $personId . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'
@@ -152,9 +159,9 @@ class PersonPropsSearchRes extends BaseSearchRes
                             }
 
                             $elt = [
-                                "id" => $per->getId(),
+                                "id" => $personId,
                                 "img" => $per->getJPGPhotoDatas(),
-                                "searchresult" => '<a href="'.$rootPath.'/v2/people/person/view/'.$per->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a>',
+                                "searchresult" => '<a href="'.$rootPath.'/v2/people/person/view/'.$personId.'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a>',
                                 "address" => (!$shouldSeePrivacyData)?_('Private Data'):$address,
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),

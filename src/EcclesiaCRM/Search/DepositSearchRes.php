@@ -53,7 +53,9 @@ class DepositSearchRes extends BaseSearchRes
 
     public function buildSearch(string $qry)
     {
-        if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )
+        $currentUser = SessionUser::getUser();
+
+        if ( $currentUser->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )
         {
             //Deposits Search
             if (SystemConfig::getBooleanValue("bSearchIncludeDeposits"))
@@ -67,6 +69,8 @@ class DepositSearchRes extends BaseSearchRes
                 $searchLikeString = '%'.$qry.'%';
 
                 $sRootPath = SystemURLs::getRootPath();
+                $isQuickSearch = $this->isQuickSearch();
+                $isGlobalSearch = $this->isGlobalSearch();
 
                 try {
                     $Deposits = DepositQuery::create();
@@ -82,11 +86,11 @@ class DepositSearchRes extends BaseSearchRes
                         ->leftJoinPledge()
                         ->where( DepositTableMap::COL_DEP_COMMENT." LIKE  '".$searchLikeString."' OR ".DepositTableMap::COL_DEP_ID." = '".$qry."' OR ".PledgeTableMap::COL_PLG_CHECKNO." LIKE  '".$searchLikeString."'");
 
-                    if ( $this->isQuickSearch() ) {
+                    if ($isQuickSearch) {
                         $Deposits->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"));
                     }
 
-                    $Deposits->find();
+                    $Deposits = $Deposits->find();
 
                     if ( $Deposits->count() > 0)
                     {
@@ -97,7 +101,7 @@ class DepositSearchRes extends BaseSearchRes
                                 'text'=>$Deposit->getComment(),
                                 'uri'=> $sRootPath . "/v2/deposit/slipeditor/".$Deposit->getId()];
 
-                            if ($this->isGlobalSearch()) {
+                            if ($isGlobalSearch) {
                                 $res = $this->buildEditAction($elt['uri']);
 
                                 $elt = [
@@ -139,6 +143,8 @@ class DepositSearchRes extends BaseSearchRes
                             ->endUse()
                             ->find()
                             ->toArray();
+
+                        $seenDepositIds = [];
                     
                     
                         foreach ($Pledges as $Pledge) {
@@ -147,7 +153,7 @@ class DepositSearchRes extends BaseSearchRes
                                 'uri'=> $sRootPath . "/v2/deposit/slipeditor/".$Pledge['depId']];      
                                 
                                 
-                            if ($this->isGlobalSearch()) {
+                            if ($isGlobalSearch) {
                                 $res = $this->buildEditAction($elt['uri']);
 
                                 $uriFamily = '<a href="'.$sRootPath . "/v2/people/family/view/".$Pledge['famID'].'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Pledge['FamilyString'].'</a>';
@@ -169,8 +175,9 @@ class DepositSearchRes extends BaseSearchRes
                                 ];
                             }
 
-                            if (!in_array($elt['id'], array_column($this->results, 'id'))) {                                
-                                array_push($this->results, $elt);
+                            if (!isset($seenDepositIds[$elt['id']])) {
+                                $this->results[] = $elt;
+                                $seenDepositIds[$elt['id']] = true;
                             }                            
                         }                                
                         
@@ -195,6 +202,26 @@ class DepositSearchRes extends BaseSearchRes
                             ->endUse()
                             ->find()
                             ->toArray();
+
+                        $singleFamilyIds = [];
+
+                        foreach ($Pledges as $Pledge) {
+                            $singleFamilyIds[] = (int) $Pledge['famID'];
+                        }
+
+                        $familiesById = [];
+
+                        if (!empty($singleFamilyIds)) {
+                            $singleFamilies = FamilyQuery::create()
+                                ->setDistinct()
+                                ->leftJoinWithPerson()
+                                ->filterById(array_values(array_unique($singleFamilyIds)), Criteria::IN)
+                                ->find();
+
+                            foreach ($singleFamilies as $family) {
+                                $familiesById[$family->getId()] = $family;
+                            }
+                        }
                     
                     
                         foreach ($Pledges as $Pledge) {
@@ -203,12 +230,16 @@ class DepositSearchRes extends BaseSearchRes
                                 'uri'=> $sRootPath . "/v2/deposit/slipeditor/".$Pledge['depId']];      
                                 
                                 
-                            if ($this->isGlobalSearch()) {
+                            if ($isGlobalSearch) {
                                 $res = $this->buildEditAction($elt['uri']);
 
-                                $family = FamilyQuery::create()->findOneById($Pledge['famID']);
+                                $family = $familiesById[(int) $Pledge['famID']] ?? null;
 
-                                $address .= $family->getFamilyString();
+                                if ($family === null) {
+                                    continue;
+                                }
+
+                                $address = $family->getFamilyString();
                                 $persons = $family->getPeople();
 
                                 $personId = null;
@@ -240,8 +271,9 @@ class DepositSearchRes extends BaseSearchRes
                                 ];
                             }
 
-                            if (!in_array($elt['id'], array_column($this->results, 'id'))) {                                
-                                array_push($this->results, $elt);
+                            if (!isset($seenDepositIds[$elt['id']])) {
+                                $this->results[] = $elt;
+                                $seenDepositIds[$elt['id']] = true;
                             }                            
                         }   
                     }

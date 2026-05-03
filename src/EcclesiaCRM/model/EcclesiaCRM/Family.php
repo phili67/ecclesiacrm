@@ -153,10 +153,14 @@ class Family extends BaseFamily implements iPhoto
 
 
   public function getPeopleSorted() {
-    $familyMembersParents = array_merge($this->getHeadPeople(), $this->getSpousePeople());
-    $familyMembersChildren = $this->getChildPeople();
-    $familyMembersOther = $this->getOtherPeople();
-    return array_merge($familyMembersParents, $familyMembersChildren, $familyMembersOther);
+    $groupedPeople = $this->getGroupedActivePeople();
+
+    return array_merge(
+      $groupedPeople['heads'],
+      $groupedPeople['spouses'],
+      $groupedPeople['children'],
+      $groupedPeople['others']
+    );
   }
 
   public function getHeadPeople() {
@@ -168,7 +172,9 @@ class Family extends BaseFamily implements iPhoto
   }
 
   public function getAdults() {
-    return array_merge($this->getHeadPeople(),$this->getSpousePeople());
+    $groupedPeople = $this->getGroupedActivePeople();
+
+    return array_merge($groupedPeople['heads'], $groupedPeople['spouses']);
   }
 
   public function getChildPeople() {
@@ -176,27 +182,64 @@ class Family extends BaseFamily implements iPhoto
   }
 
   public function getOtherPeople() {
-    $roleIds = array_merge (explode(",", SystemConfig::getValue("sDirRoleHead")), explode(",",
-      SystemConfig::getValue("sDirRoleSpouse")),
-      explode(",", SystemConfig::getValue("sDirRoleChild")));
-    $foundPeople = array();
-    foreach ($this->getPeople() as $person) {
-      if (!in_array($person->getFmrId(), $roleIds) && is_null($person->getDateDeactivated())) {
-        array_push($foundPeople, $person);
-      }
-    }
-    return $foundPeople;
+    return $this->getGroupedActivePeople()['others'];
   }
 
   private function getPeopleByRole($roleConfigName) {
-    $roleIds = explode(",", SystemConfig::getValue($roleConfigName));
+    $roleIds = $this->getRoleIdsForConfig($roleConfigName);
     $foundPeople = array();
+
     foreach ($this->getPeople() as $person) {
-      if (in_array($person->getFmrId(), $roleIds) && is_null($person->getDateDeactivated())) {
+      if (is_null($person->getDateDeactivated()) && isset($roleIds[(string) $person->getFmrId()])) {
           array_push($foundPeople, $person);
       }
     }
+
     return $foundPeople;
+  }
+
+  private function getGroupedActivePeople() {
+    $headRoleIds = $this->getRoleIdsForConfig("sDirRoleHead");
+    $spouseRoleIds = $this->getRoleIdsForConfig("sDirRoleSpouse");
+    $childRoleIds = $this->getRoleIdsForConfig("sDirRoleChild");
+
+    $groupedPeople = [
+      'heads' => [],
+      'spouses' => [],
+      'children' => [],
+      'others' => []
+    ];
+
+    foreach ($this->getPeople() as $person) {
+      if (!is_null($person->getDateDeactivated())) {
+        continue;
+      }
+
+      $familyRoleId = (string) $person->getFmrId();
+
+      if (isset($headRoleIds[$familyRoleId])) {
+        $groupedPeople['heads'][] = $person;
+      } elseif (isset($spouseRoleIds[$familyRoleId])) {
+        $groupedPeople['spouses'][] = $person;
+      } elseif (isset($childRoleIds[$familyRoleId])) {
+        $groupedPeople['children'][] = $person;
+      } else {
+        $groupedPeople['others'][] = $person;
+      }
+    }
+
+    return $groupedPeople;
+  }
+
+  private function getRoleIdsForConfig($roleConfigName) {
+    static $roleConfigCache = [];
+
+    if (!isset($roleConfigCache[$roleConfigName])) {
+      $roleIds = array_filter(explode(",", SystemConfig::getValue($roleConfigName)), 'strlen');
+      $roleConfigCache[$roleConfigName] = array_fill_keys($roleIds, true);
+    }
+
+    return $roleConfigCache[$roleConfigName];
   }
 
   public function containsMember($person_id) {

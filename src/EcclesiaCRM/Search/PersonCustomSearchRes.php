@@ -34,117 +34,152 @@ class PersonCustomSearchRes extends BaseSearchRes
     {
         if (SystemConfig::getBooleanValue("bSearchIncludePersons")) {
             try {
+                $currentUser = SessionUser::getUser();
+                $searchNeedle = mb_strtolower($qry);
+                $matchAll = str_contains($qry, '*') && trim(str_replace('*', '', $qry)) === '';
                 $ormPerCustomFields = PersonCustomMasterQuery::Create()
                     ->orderByCustomOrder()
                     ->find();
-                
-                $res = [];
+
+                if ($ormPerCustomFields->count() === 0) {
+                    return;
+                }
+
                 $id = 1;
 
-                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
+                $shouldShowCart = $currentUser->isShowCartEnabled();
                 $rootPath = SystemURLs::getRootPath();
-                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();
-                
-                
-                foreach ($ormPerCustomFields as $customfield) {
-                    $perCustoms = PersonCustomQuery::Create()
-                        ->usePersonQuery()
-                            ->filterByDateDeactivated(null)
-                        ->endUse()
-                        ->withcolumn($customfield->getCustomField())
-                        ->find();
+                $shouldSeePrivacyData = $currentUser->isSeePrivacyDataEnabled();
+                $isQuickSearch = $this->isQuickSearch();
+                $peopleInCart = $shouldShowCart ? array_fill_keys(Cart::PeopleInCart(), true) : [];
 
-                    foreach ($perCustoms as $per) {
-                        if (!is_null($per->getVirtualColumn($customfield->getCustomField()))) {
-                            $currentFieldData = OutputUtils::displayCustomField($customfield->getTypeId(), trim($per->getVirtualColumn($customfield->getCustomField())), $customfield->getCustomSpecial(), false);
-                            if (strstr(strtolower($currentFieldData), strtolower($qry))) {
-                                if ( $this->isQuickSearch() ) {
-                                    $elt = ['id' => 'person-custom-id-' . $id++,
-                                        'text' => $per->getPerson()->getFullName(),
-                                        'uri' => $per->getPerson()->getViewURI()
-                                    ];
-                                } else  {
-                                    $fam = $per->getPerson()->getFamily();
-    
-                                    $address = "";
-                                    if (!is_null($fam)) {
-                                        $address = '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $fam->getID() . '">' .
-                                            $fam->getName() . MiscUtils::FormatAddressLine($per->getPerson()->getFamily()->getAddress1(), $per->getPerson()->getFamily()->getCity(), $per->getPerson()->getFamily()->getState()) .
-                                            "</a>";
-                                    }
-    
-                                    $inCart = Cart::PersonInCart($per->getPerson()->getId());
-    
-                                    $res = "";
-                                    if ($shouldShowCart) {
-                                        $res = '<a href="' . $rootPath . '/v2/people/person/editor/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
-                                    }
-    
-                                    $res .= '<span class="fa-stack">'
-                                        . '<i class="fas fa-square fa-stack-2x"></i>'
-                                        . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
-                                        . '</span>';
-    
-                                    if ($shouldShowCart) {
-                                        $res .= '</a>&nbsp;';
-                                    }
-    
-                                    if ($inCart == false) {
-                                        if ($shouldShowCart) {
-                                            $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getPerson()->getId() . '">';
-                                        }
-                                        $res .= "                <span class=\"fa-stack\">\n"
-                                            . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
-                                            . "                <i class=\"fas fa-stack-1x fa-inverse fa-cart-plus\"></i>"
-                                            . "                </span>\n";
-                                        if ($shouldShowCart) {
-                                            $res .= "                </a>  ";
-                                        }
-                                    } else {
-                                        if ($shouldShowCart) {
-                                            $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getPerson()->getId() . '">';
-                                        }
-                                        $res .= "                <span class=\"fa-stack\">\n"
-                                            . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
-                                            . "                <i class=\"fas fa-times fa-stack-1x fa-inverse\"></i>\n"
-                                            . "                </span>\n";
-                                        if ($shouldShowCart) {
-                                            $res .= "                </a>  ";
-                                        }
-                                    }
-                                    if ($shouldShowCart) {
-                                        $res .= '&nbsp;<a href="' . $rootPath . '/v2/people/person/print/' . $per->getPerson()->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
-                                    }
-                                    $res .= '<span class="fa-stack">'
-                                        . '<i class="fas fa-square fa-stack-2x"></i>'
-                                        . '<i class="fas fa-print fa-stack-1x fa-inverse"></i>'
-                                        . '</span>';
-                                    if ($shouldShowCart) {
-                                        $res .= '</a>';
-                                    }
-    
-                                    $elt = [
-                                        "id" => $per->getPerson()->getId(),
-                                        "img" => $per->getPerson()->getJPGPhotoDatas(),
-                                        "searchresult" => '<a href="' . $rootPath . '/v2/people/person/view/' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(), $per->getPerson()->getSuffix(), 3) . '</a>',
-                                        "address" => (!$shouldSeePrivacyData) ? _('Private Data') : $address,
-                                        "type" => " " . _($this->getGlobalSearchType()),
-                                        "realType" => $this->getGlobalSearchType(),
-                                        "Gender" => "",
-                                        "Classification" => "",
-                                        "ProNames" => "",
-                                        "FamilyRole" => "",
-                                        "members" => "",
-                                        "actions" => $res
-                                    ];
-    
-                                }
-    
-                                array_push($this->results, $elt);
-                            }
-                        }
+                $perCustoms = PersonCustomQuery::Create()
+                    ->setDistinct()
+                    ->leftJoinWithPerson()
+                    ->usePersonQuery()
+                        ->filterByDateDeactivated(null)
+                        ->leftJoinWithFamily()
+                    ->endUse();
+
+                foreach ($ormPerCustomFields as $customfield) {
+                    $perCustoms->withColumn($customfield->getCustomField());
+                }
+
+                $perCustoms = $perCustoms->find();
+
+                foreach ($perCustoms as $per) {
+                    $person = $per->getPerson();
+
+                    if ($person === null) {
+                        continue;
                     }
-                }                
+
+                    foreach ($ormPerCustomFields as $customfield) {
+                        $customFieldName = $customfield->getCustomField();
+                        $fieldValue = $per->getVirtualColumn($customFieldName);
+
+                        if (is_null($fieldValue)) {
+                            continue;
+                        }
+
+                        $currentFieldData = OutputUtils::displayCustomField($customfield->getTypeId(), trim($fieldValue), $customfield->getCustomSpecial(), false);
+
+                        if ($currentFieldData === null) {
+                            continue;
+                        }
+
+                        $normalizedFieldData = mb_strtolower((string) $currentFieldData);
+
+                        if (!$matchAll && mb_strpos($normalizedFieldData, $searchNeedle) === false) {
+                            continue;
+                        }
+
+                        $personId = $person->getId();
+
+                        if ($isQuickSearch) {
+                            $elt = ['id' => 'person-custom-id-' . $id++,
+                                'text' => $person->getFullName(),
+                                'uri' => $person->getViewURI()
+                            ];
+                        } else  {
+                            $fam = $person->getFamily();
+
+                            $address = "";
+                            if (!is_null($fam)) {
+                                $address = '<a href="' . $rootPath . '/v2/people/family/view/' . $fam->getID() . '">' .
+                                    $fam->getName() . MiscUtils::FormatAddressLine($fam->getAddress1(), $fam->getCity(), $fam->getState()) .
+                                    "</a>";
+                            }
+
+                            $inCart = isset($peopleInCart[$personId]);
+
+                            $res = "";
+                            if ($shouldShowCart) {
+                                $res = '<a href="' . $rootPath . '/v2/people/person/editor/' . $personId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            }
+
+                            $res .= '<span class="fa-stack">'
+                                . '<i class="fas fa-square fa-stack-2x"></i>'
+                                . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
+                                . '</span>';
+
+                            if ($shouldShowCart) {
+                                $res .= '</a>&nbsp;';
+                            }
+
+                            if (!$inCart) {
+                                if ($shouldShowCart) {
+                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $personId . '">';
+                                }
+                                $res .= "                <span class=\"fa-stack\">\n"
+                                    . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
+                                    . "                <i class=\"fas fa-stack-1x fa-inverse fa-cart-plus\"></i>"
+                                    . "                </span>\n";
+                                if ($shouldShowCart) {
+                                    $res .= "                </a>  ";
+                                }
+                            } else {
+                                if ($shouldShowCart) {
+                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $personId . '">';
+                                }
+                                $res .= "                <span class=\"fa-stack\">\n"
+                                    . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
+                                    . "                <i class=\"fas fa-times fa-stack-1x fa-inverse\"></i>\n"
+                                    . "                </span>\n";
+                                if ($shouldShowCart) {
+                                    $res .= "                </a>  ";
+                                }
+                            }
+                            if ($shouldShowCart) {
+                                $res .= '&nbsp;<a href="' . $rootPath . '/v2/people/person/print/' . $personId . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
+                            }
+                            $res .= '<span class="fa-stack">'
+                                . '<i class="fas fa-square fa-stack-2x"></i>'
+                                . '<i class="fas fa-print fa-stack-1x fa-inverse"></i>'
+                                . '</span>';
+                            if ($shouldShowCart) {
+                                $res .= '</a>';
+                            }
+
+                            $elt = [
+                                "id" => $personId,
+                                "img" => $person->getJPGPhotoDatas(),
+                                "searchresult" => '<a href="' . $rootPath . '/v2/people/person/view/' . $personId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) . '</a>',
+                                "address" => (!$shouldSeePrivacyData) ? _('Private Data') : $address,
+                                "type" => " " . _($this->getGlobalSearchType()),
+                                "realType" => $this->getGlobalSearchType(),
+                                "Gender" => "",
+                                "Classification" => "",
+                                "ProNames" => "",
+                                "FamilyRole" => "",
+                                "members" => "",
+                                "actions" => $res
+                            ];
+                        }
+
+                        array_push($this->results, $elt);
+                    }
+                }
             } catch (\Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
             }

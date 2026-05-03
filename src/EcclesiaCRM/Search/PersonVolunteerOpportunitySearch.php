@@ -34,8 +34,15 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
     {
         if ( SystemConfig::getBooleanValue("bSearchIncludePersons") ) {
             try {
-                $searchLikeString = '%' . $qry . '%';
-                $pers = PersonQuery::create();
+                $currentUser = SessionUser::getUser();
+                $searchLikeString = '%' . str_replace('*', '%', $qry) . '%';
+                $rootPath = SystemURLs::getRootPath();
+                $quickSearch = $this->isQuickSearch();
+                $showCart = $currentUser->isShowCartEnabled();
+                $showPrivacyData = $currentUser->isSeePrivacyDataEnabled();
+                $peopleInCart = $showCart ? array_fill_keys(Cart::PeopleInCart(), true) : [];
+                $pers = PersonQuery::create()
+                    ->leftJoinWithFamily();
 
 
                 if (SystemConfig::getBooleanValue('bGDPR')) {
@@ -60,74 +67,76 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                         ->endUse();
                 }
 
-                if ( $this->isQuickSearch() ) {
+                if ($quickSearch) {
                     $pers->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
-                $pers->find();
+                $pers = $pers->find();
 
 
                 if ( $pers->count() > 0) {
                     $id=1;
 
                     foreach ($pers as $per) {
-                        if ( $this->isQuickSearch() ) {
+                        $personId = $per->getId();
+
+                        if ($quickSearch) {
                             $elt = ['id' => "person-vol-id-" . $id++,
                                 'text' => $per->getTitle() . " : " . $per->getLastName() . " " . $per->getFirstName(),
-                                'uri' => SystemURLs::getRootPath() . "/v2/people/person/view/" . $per->getId()];
+                                'uri' => $rootPath . "/v2/people/person/view/" . $personId];
                         } else {
                             $fam = $per->getFamily();
 
                             $address = "";
                             if (!is_null($fam)) {
-                                $address = '<a href="'.SystemURLs::getRootPath().'/v2/people/family/view/'.$fam->getId().'">'.
-                                    $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
+                                $address = '<a href="'.$rootPath.'/v2/people/family/view/'.$fam->getId().'">'.
+                                    $fam->getName().MiscUtils::FormatAddressLine($fam->getAddress1(), $fam->getCity(), $fam->getState()).
                                     "</a>";
                             }
 
-                            $inCart = Cart::PersonInCart($per->getId());
+                            $inCart = isset($peopleInCart[$personId]);
 
                             $res = "";
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                            if ($showCart) {
+                                $res .= '<a href="' . $rootPath . '/v2/people/person/view/' . $personId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'
                                 .'<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
                                 .'</span>';
-                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                            if ($showCart) {
                                 $res .= '</a>&nbsp;';
                             }
 
                             if ($inCart == false) {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                if ($showCart) {
+                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $personId . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     .'                <i class="fas fa-square fa-stack-2x"></i>'
                                     .'                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
                                     .'                </span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($showCart) {
                                     $res .= '                </a>  ';
                                 }
                             } else {
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                if ($showCart) {
+                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $personId . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     .'                <i class="fas fa-square fa-stack-2x"></i>'
                                     .'                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
                                     .'                </span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($showCart) {
                                     $res .= '                </a>  ';
                                 }
                             }
 
                             $elt = [
-                                "id" => $per->getId(),
+                                "id" => $personId,
                                 "img" => $per->getJPGPhotoDatas(),
-                                "searchresult" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3) . '</a>',
-                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
+                                "searchresult" => '<a href="' . $rootPath . '/v2/people/person/view/' . $personId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3) . '</a>',
+                                "address" => (!$showPrivacyData)?_('Private Data'):$address,
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
@@ -147,6 +156,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                     $volunteerPersons->filterByLastName($searchLikeString, Criteria::LIKE)
                             ->_or()->filterByFirstName($searchLikeString, Criteria::LIKE);
                     $volunteerPersons->setDistinct();
+                    $volunteerPersons->leftJoinWithFamily();
 
                     if (SystemConfig::getBooleanValue('bGDPR')) {
                         $volunteerPersons->filterByDateDeactivated(null);
@@ -159,7 +169,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                             ->endUse()
                         ->endUse();
 
-                    if ($this->isQuickSearch()) {
+                    if ($quickSearch) {
                         $volunteerPersons->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                     }
 
@@ -168,55 +178,57 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                     if ($volunteerPersons->count() > 0) {
                         $id = 1;
 
-                        foreach ($volunteerPersons as $per) {                            
-                            if ($this->isQuickSearch()) {
+                        foreach ($volunteerPersons as $per) {
+                            $personId = $per->getId();
+
+                            if ($quickSearch) {
                                 $elt = ['id' => "person-vol-id-" . $id++,
                                     'text' => $per->getTitle() . " : " . $per->getLastName() . " " . $per->getFirstName(),
-                                    'uri' => SystemURLs::getRootPath() . "/v2/people/person/view/" . $per->getId()];
+                                    'uri' => $rootPath . "/v2/people/person/view/" . $personId];
                             } else {
                                 $fam = $per->getFamily();
 
                                 $address = "";
                                 if (!is_null($fam)) {
-                                    $address = '<a href="'.SystemURLs::getRootPath().'/v2/people/family/view/'.$fam->getId().'">'.
-                                        $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
+                                    $address = '<a href="'.$rootPath.'/v2/people/family/view/'.$fam->getId().'">'.
+                                        $fam->getName().MiscUtils::FormatAddressLine($fam->getAddress1(), $fam->getCity(), $fam->getState()).
                                         "</a>";
                                 }
 
-                                $inCart = Cart::PersonInCart($per->getId());
+                                $inCart = isset($peopleInCart[$personId]);
 
                                 $res = "";
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                if ($showCart) {
+                                    $res .= '<a href="' . $rootPath . '/v2/people/person/view/' . $personId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                                 }
                                 $res .= '<span class="fa-stack">'
                                     .'<i class="fas fa-square fa-stack-2x"></i>'
                                     .'<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
                                     .'</span>';
-                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                if ($showCart) {
                                     $res .= '</a>&nbsp;';
                                 }
 
                                 if ($inCart == false) {
-                                    if (SessionUser::getUser()->isShowCartEnabled()) {
-                                        $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                    if ($showCart) {
+                                        $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $personId . '">';
                                     }
                                     $res .= '                <span class="fa-stack">'
                                         .'                <i class="fas fa-square fa-stack-2x"></i>'
                                         .'                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
                                         .'                </span>';
-                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    if ($showCart) {
                                         $res .= '                </a>  ';
                                     }
                                 } else {
-                                    if (SessionUser::getUser()->isShowCartEnabled()) {
-                                        $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                    if ($showCart) {
+                                        $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $personId . '">';
                                     }
                                     $res .= '                <span class="fa-stack">'
                                         .'                <i class="fas fa-square fa-stack-2x"></i>'
                                         .'                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
                                         .'                </span>';
-                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    if ($showCart) {
                                         $res .= '                </a>  ';
                                     }
                                 }

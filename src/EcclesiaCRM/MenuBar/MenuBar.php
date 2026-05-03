@@ -191,6 +191,18 @@ class MenuBar extends Menu
         return;
     }
 
+    private function addMetaSeachEngineMenu() : void
+    {
+        // the People menu
+        $menu = new Menu (_("Meta Search Engine"), "fas fa-search", "#", true);
+        $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/people/list/none", true, $menu);
+        
+
+        $this->addPluginMenus('SEARCH_ENGINE', $menu, 'inside_category_menu');
+        $this->addMenu($menu);       
+        $this->addPluginMenus('SEARCH_ENGINE', $menu, 'after_category_menu');
+    }
+
     private function addPeopleMenu() : void
     {
         // the People menu
@@ -211,7 +223,6 @@ class MenuBar extends Menu
         $menuItem->addLink("v2/system/USISTAddress/Verification");
 
 
-        $menuItem = new Menu (_("Meta Search Engine"), "fas fa-search", "v2/people/list/none", true, $menu);
         if (SessionUser::getUser()->isShowMapEnabled()) {
             $menuItem = new Menu (_("View on Map"), "far fa-map", "v2/map/-1", true, $menu);
         }
@@ -965,6 +976,7 @@ class MenuBar extends Menu
         $this->addGDPRMenu();        
         $this->addEventMenu();
         $this->addMediasMenu();
+        $this->addMetaSeachEngineMenu();
         $this->addPeopleMenu();   
         $this->addVolunteerMenu(); 
         $this->addGroups();

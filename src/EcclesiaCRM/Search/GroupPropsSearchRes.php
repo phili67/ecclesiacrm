@@ -36,9 +36,14 @@ class GroupPropsSearchRes extends BaseSearchRes
     {
         if (SystemConfig::getBooleanValue("bSearchIncludeGroups")) {
             try {
+                $currentUser = SessionUser::getUser();
+                $shouldShowCart = $currentUser->isShowCartEnabled();
+                $rootPath = SystemURLs::getRootPath();
+                $quickSearch = $this->isQuickSearch();
+                $groupsInCart = $shouldShowCart ? array_fill_keys(Cart::GroupsInCart(), true) : [];
                 $groups = GroupQuery::create();
 
-                if ( $this->isQuickSearch() ) {
+                if ($quickSearch) {
                     $groups->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"));
                 }
 
@@ -56,35 +61,45 @@ class GroupPropsSearchRes extends BaseSearchRes
                     ->where(PropertyTableMap::COL_PRO_CLASS . "='g' AND (" . PropertyTableMap::COL_PRO_NAME . " LIKE '%".$qry."%' OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '%".$qry."%' )");
 
 
-                $groups->find();
-
-                $shouldShowCart = SessionUser::getUser()->isShowCartEnabled();
-                $rootPath = SystemURLs::getRootPath();
-                $shouldSeePrivacyData = SessionUser::getUser()->isSeePrivacyDataEnabled();
+                $groups = $groups->find();
                 
 
                 if ( $groups->count() > 0 ) {
                     $id = 1;
+                    $membersByGroupId = [];
 
-                    foreach ($groups as $group) {
-                        if ( $this->isQuickSearch() ) {
-                            $elt = ['id' => 'group-props-' . $id++,
-                                'text' => $group->getName(),
-                                'uri' => "/v2/group/" . $group->getId() . "/view"];
-                        } else  {
-                            $members = Person2group2roleP2g2rQuery::create()->findByGroupId($group->getId());
+                    if (!$quickSearch) {
+                        $groupIds = [];
 
-                            $res_members = [];
+                        foreach ($groups as $group) {
+                            $groupIds[] = $group->getId();
+                        }
+
+                        if (!empty($groupIds)) {
+                            $members = Person2group2roleP2g2rQuery::create()
+                                ->filterByGroupId($groupIds, Criteria::IN)
+                                ->find();
 
                             foreach ($members as $member) {
-                                $res_members[] = $member->getPersonId();
+                                $membersByGroupId[$member->getGroupId()][] = $member->getPersonId();
                             }
+                        }
+                    }
 
-                            $inCart = Cart::GroupInCart($group->getId());
+                    foreach ($groups as $group) {
+                        $groupId = $group->getId();
+
+                        if ($quickSearch) {
+                            $elt = ['id' => 'group-props-' . $id++,
+                                'text' => $group->getName(),
+                                'uri' => "/v2/group/" . $groupId . "/view"];
+                        } else  {
+                            $res_members = $membersByGroupId[$groupId] ?? [];
+                            $inCart = isset($groupsInCart[$groupId]);
 
                             $res = "";
                             if ($shouldShowCart) {
-                                $res .= '<a href="' . $rootPath . '/v2/group/editor/' . $group->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                $res .= '<a href="' . $rootPath . '/v2/group/editor/' . $groupId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'
@@ -96,7 +111,7 @@ class GroupPropsSearchRes extends BaseSearchRes
 
                             if ($inCart === false) {
                                 if ($shouldShowCart) {
-                                    $res .= '<a class="AddToGroupCart" data-cartgroupid="' . $group->getId() . '">';
+                                    $res .= '<a class="AddToGroupCart" data-cartgroupid="' . $groupId . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     .'                <i class="fas fa-square fa-stack-2x"></i>'
@@ -107,7 +122,7 @@ class GroupPropsSearchRes extends BaseSearchRes
                                 }
                             } else {
                                 if ($shouldShowCart) {
-                                    $res .= '<a class="RemoveFromGroupCart" data-cartgroupid="' . $group->getId() . '">';
+                                    $res .= '<a class="RemoveFromGroupCart" data-cartgroupid="' . $groupId . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
                                     .'                <i class="fas fa-square fa-stack-2x"></i>'
@@ -119,7 +134,7 @@ class GroupPropsSearchRes extends BaseSearchRes
                             }
 
                             if ($shouldShowCart) {
-                                $res .= '<a href="' . $rootPath . '/v2/group/' . $group->getId() . '/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                $res .= '<a href="' . $rootPath . '/v2/group/' . $groupId . '/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fas fa-square fa-stack-2x"></i>'
@@ -130,9 +145,9 @@ class GroupPropsSearchRes extends BaseSearchRes
                             }
 
                             $elt = [
-                                "id" => $group->getId(),
+                                "id" => $groupId,
                                 "img" => '<i class="fas fa-users fa-2x"></i>',
-                                "searchresult" => '<a href="'.$rootPath.'/v2/group/'.$group->getId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$group->getName().'</a>',
+                                "searchresult" => '<a href="'.$rootPath.'/v2/group/'.$groupId.'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$group->getName().'</a>',
                                 "address" => "",
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
