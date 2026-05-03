@@ -212,8 +212,7 @@ $sFamilyEmails = [];
                         if ($can_see_privatedata) {
                         if (count($person->getOtherFamilyMembers()) > 0) {
                             ?>
-                            <li style="left:-28px"><strong><i class="fas fa-male"></i><i class="fas fa-female"></i><i
-                                        class="fas fa-child"></i> <?php echo _('Family:'); ?></strong>
+                            <li style="left:-28px"><strong><i class="fa-solid fa-people-roof"></i> <?php echo _('Family:'); ?></strong>
                                 <span>
             <?php
             if (!is_null($person->getFamily()) && $person->getFamily()->getId() != '') {
@@ -498,7 +497,7 @@ $sFamilyEmails = [];
         <!-- Contacts are loaded here -->
         <div class="card direct-chat direct-chat-warning  card-primary card-outline">
             <div class="card-header">
-                <h3 class="card-title"><?= _("Family Members") ?></h3>
+                <h3 class="card-title"><i class="fa-solid fa-people-roof"></i> <?= _("Family Members") ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
