@@ -1047,7 +1047,8 @@ $(function () {
 
     $("#set-right-read").on('click', function () {
         var rightAccess = 2;
-        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
+        let data = realRows.data();
         var rows = [];
         for (let i = 0; i < data.length; i++) {
             rows.push(data[i]);
@@ -1074,13 +1075,18 @@ $(function () {
                     res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
                 }
                 $(selection).text(res);
+
+                window.CRM.reloadEDriveTable(function () {
+                    realRows.select();
+                });
             })
         });
     });
 
     $("#set-right-read-write").on('click', function () {
         var rightAccess = 3;
-        let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
+        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
+        let data = realRows.data();
         var rows = [];
         for (let i = 0; i < data.length; i++) {
             rows.push(data[i]);
@@ -1107,6 +1113,10 @@ $(function () {
                     res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
                 }
                 $(selection).text(res);
+
+                window.CRM.reloadEDriveTable(function () {
+                    realRows.select();
+                });
             })
         });
     });
