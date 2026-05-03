@@ -206,7 +206,7 @@ class MenuBar extends Menu
     private function addPeopleMenu() : void
     {
         // the People menu
-        $menu = new Menu (_("People") . " & " . _("Families"), ["fas fa-male", "fas fa-female", "fas fa-child"], "#", true);
+        $menu = new Menu (_("People") . " & " . _("Families"), ["fa-solid fa-male", " ", "fa-solid fa-people-roof"], "#", true);
 
         $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/people/dashboard", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
 
@@ -243,6 +243,7 @@ class MenuBar extends Menu
             $menuItemItem = new Menu (_("Add New Family"), "fas fa-tachometer-alt", "v2/people/family/editor", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
             $menuItemItem = new Menu (_("View Active Families"), "fas fa-user-friends", "v2/people/list/family", true, $menuItem);
             $menuItemItem->addLink("v2/familylist");
+            
             $menuItemItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/inactive", true, $menuItem);
 
             $menuItem = new Menu (_("Empty Addresses"), "fas fa-angle-double-right", "v2/familylist/empty", true, $menu);
@@ -513,7 +514,7 @@ class MenuBar extends Menu
 
     private function addSundayGroupHeadMenus(bool $mainDashboard = true): Menu
     {
-        $menu = new Menu (_("Sunday School"), "fas fa-child", "#", true);
+        $menu = new Menu (_("Sunday School"), "fa-solid fa-children", "#", true);
 
         if ($mainDashboard) {
             $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/sundayschool/dashboard", true, $menu);
