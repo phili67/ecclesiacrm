@@ -1150,7 +1150,7 @@ window.CRM.cart = {
               </a>\
               <div class="dropdown-divider"></div>\
               <a href="' + window.CRM.root + '/v2/cart/to/family" class="dropdown-item">\
-                  <i class="fas fa-users text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
+                  <i class="fa-solid fa-people-roof text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
               </a>\
               <div class="dropdown-divider"></div>\
               <a href="#" id="emptyCartToEvent" class="dropdown-item">\
