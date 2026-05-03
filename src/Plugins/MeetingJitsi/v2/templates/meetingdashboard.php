@@ -27,7 +27,7 @@ require $sRootDocument . '/Include/Header.php';
                     <small class="text-muted"><?= dgettext("messages-MeetingJitsi", "Create, select and launch your rooms") ?></small>
                 </div>
                 <a href="https://jitsi.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="28" alt="Jitsi">
+                    <img src="<?= $sRootPath ?>/Plugins/MeetingJitsi/skin/jitsi_logo.png" height="28" alt="Jitsi">
                 </a>
             </div>
 
@@ -72,7 +72,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div id="meetingIframe" style="width:100%;height:600px;background:#f4f6f9;">
                         <?php if ($roomName == '') { ?>
                             <div class="h-100 d-flex flex-column justify-content-center align-items-center text-center" style="min-height:600px;">
-                                <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="90" alt="Jitsi" class="mb-3"/>
+                                <img src="<?= $sRootPath ?>/Plugins/MeetingJitsi/skin/jitsi_logo.png" height="90" alt="Jitsi" class="mb-3"/>
                                 <p class="mb-1"><?= dgettext("messages-MeetingJitsi", "First create a Jitsi room with the button above !") ?></p>
                                 <small class="text-muted"><?= dgettext("messages-MeetingJitsi", "Then choose a room from the dropdown to launch the meeting") ?></small>
                             </div>
