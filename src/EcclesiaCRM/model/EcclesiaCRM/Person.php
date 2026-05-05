@@ -830,7 +830,7 @@ class Person extends BasePerson implements iPhoto
     /* Philippe Logel 2017 */
     public function getFullNameWithAge()
     {
-       return htmlspecialchars($this->getFullName(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8').' <b>'.$this->getAge() . '</b>';
+       return '<small>' . htmlspecialchars($this->getFullName(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . ' <br><b>' . $this->getAge() . '</b> </small>';
     }
 
     public function getVCard()
