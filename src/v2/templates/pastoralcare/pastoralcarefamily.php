@@ -430,6 +430,7 @@ $sFamilyEmails = [];
     window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
+<script src="<?= $sRootPath ?>/skin/js/pastoralcare/PastoralCareBootboxContent.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/pastoralcare/PastoralCareFamily.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
 
