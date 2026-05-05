@@ -570,6 +570,7 @@ $sFamilyEmails = [];
 
 <script nonce="<?= $sCSPNonce ?>">
     var currentPersonID = <?= $currentPersonID ?>;
+    var currentFamilyID = <?= (!is_null($person->getFamily()) && $person->getFamily()->getId() != '') ? (int)$person->getFamily()->getId() : 0 ?>;
     var currentPastorId = <?= $currentPastorId ?>;
     var sPageTitle = "<?= str_replace('"', "'", $sPageTitle) ?>";
 
@@ -580,6 +581,7 @@ $sFamilyEmails = [];
     window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
+<script src="<?= $sRootPath ?>/skin/js/pastoralcare/PastoralCareBootboxContent.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/pastoralcare/PastoralCarePerson.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
 

@@ -125,57 +125,18 @@ $(function() {
     });
 
     function BootboxContent(type, visible) {
-        var frm_str = '<form id="some-form">'
-            + window.CRM.buildDialogNotice('fa-hands-helping text-primary', i18next.t('Pastoral care note'), i18next.t('Review the note type, write the content and define who can see it.'), 'alert-light border')
-            + '<div class="card card-outline card-secondary shadow-sm mt-3 mb-3">'
-            + '<div class="card-body">'
-            + '<div class="form-group mb-0">'
-            + '<label class="font-weight-bold mb-1"><i class="fas fa-tag text-primary mr-1"></i>' + i18next.t('Type') + '</label>'
-            + '<div class="form-control form-control-sm bg-light">' + type + '</div>'
-            + '</div>'
-            + '</div>'
-            + '</div>'
-            + '<div class="card card-outline card-secondary shadow-sm mb-3">'
-            + '<div class="card-body">'
-            + '<div class="d-flex align-items-center mb-2">'
-            + '<i class="fas fa-align-left text-info mr-2"></i>'
-            + '<div>'
-            + '<div class="font-weight-bold">' + i18next.t('Note') + '</div>'
-            + '<div class="small text-muted">' + i18next.t('Write the pastoral care message associated with this family.') + '</div>'
-            + '</div>'
-            + '</div>'
-            + '<textarea name="NoteText" cols="80" class="form-control form-control-sm NoteText" id="NoteText" width="100%" style="width: 100%;height: 4em;"></textarea>'
-            + '</div>'
-            + '</div>'
-            + '<div class="card card-outline card-secondary shadow-sm mb-0">'
-            + '<div class="card-body">'
-            + '<div class="row">'
-            + '<div class="col-md-6 mb-3 mb-md-0">'
-            + '<div class="font-weight-bold mb-2"><span style="color: red">*</span>' + i18next.t("For every administrator") + '</div>'
-            + '<div class="custom-control custom-radio mb-2">'
-            + '<input class="custom-control-input" type="radio" id="visibilityShow" name="visibilityStatus" value="1"' + ((visible) ? ' checked' : '') + '>'
-            + '<label class="custom-control-label" for="visibilityShow">' + i18next.t("Show") + '</label>'
-            + '</div>'
-            + '<div class="custom-control custom-radio">'
-            + '<input class="custom-control-input" type="radio" id="visibilityHide" name="visibilityStatus" value="0"' + ((!visible) ? ' checked' : '') + '>'
-            + '<label class="custom-control-label" for="visibilityHide">' + i18next.t("Hide") + '</label>'
-            + '</div>'
-            + '</div>'
-            + '<div class="col-md-6">'
-            + '<div class="font-weight-bold mb-2"><span style="color: red">*</span>' + i18next.t("Include all the family members") + '</div>'
-            + '<div class="custom-control custom-checkbox">'
-            + '<input class="custom-control-input" type="checkbox" id="includeFamilyMembers" name="includeFamilyMembers">'
-            + '<label class="custom-control-label" for="includeFamilyMembers">' + i18next.t("Include") + '</label>'
-            + '</div>'
-            + '</div>'
-            + '</div>'
-            + '</div>'
-            + '</div>'
-            + '</form>';
-
-        var object = $('<div/>').html(frm_str).contents();
-
-        return object
+        return window.CRM.buildPastoralCareBootboxContent({
+            formId: 'some-form',
+            typeDesc: type,
+            visible: visible,
+            noteHelpKey: i18next.t('Write the pastoral care message associated with this family.'),
+            includeFamilyMembers: true,
+            includeFamilyMembersLayout: 'split',
+            visibilityIdPrefix: 'visibility',
+            noteTextId: 'NoteText',
+            noteTextClass: 'form-control form-control-sm NoteText',
+            noteTextAttributes: 'width="100%" style="width: 100%;height: 4em;"'
+        });
     }
 
     function createPastoralCareWindow(typeID, typeDesc, visible, id) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
