@@ -88,7 +88,7 @@ msgid "Close"
 msgstr "Fermer"
 
 msgid "Save"
-msgstr "Économiser"
+msgstr "Enregistrer"
 
 msgid "Unable to load the pastoral follow-up editor."
 msgstr "Impossible de charger l'éditeur de suivi pastoral."
