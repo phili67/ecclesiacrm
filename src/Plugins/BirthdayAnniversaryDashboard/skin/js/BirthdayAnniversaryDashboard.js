@@ -57,7 +57,7 @@ $(function () {
             showWholeFamilyCheckbox: entityType === 'person' && canApplyToWholeFamily,
             wholeFamilyCheckboxId: 'birthdayApplyToWholeFamily',
             wholeFamilyCheckboxName: 'birthdayApplyToWholeFamily',
-            wholeFamilyCheckboxLabelKey: 'Record this pastoral follow-up for the whole family',
+            wholeFamilyCheckboxLabelKey: i18next.t('Record this pastoral follow-up for the whole family', {ns: 'BirthdayAnniversaryDashboard'}),
             visibilityIdPrefix: 'birthdayVisibility',
             noteTextId: 'NoteText',
             noteTextClass: 'form-control form-control-sm',

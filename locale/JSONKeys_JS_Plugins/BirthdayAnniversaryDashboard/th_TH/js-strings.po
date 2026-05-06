@@ -1,0 +1,77 @@
+msgid "Record this pastoral follow-up for the whole family"
+msgstr ""
+
+msgid "Pastoral follow-up recorded"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Unable to record pastoral follow-up."
+msgstr ""
+
+msgid "Confirm Deactivation"
+msgstr ""
+
+msgid "Confirm Activation"
+msgstr ""
+
+msgid "You are about to deactivate this person:"
+msgstr ""
+
+msgid "You are about to deactivate this family:"
+msgstr ""
+
+msgid "You are about to reactivate this person:"
+msgstr ""
+
+msgid "You are about to reactivate this family:"
+msgstr ""
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+
+msgid "Privacy reminder"
+msgstr ""
+
+msgid "Also deactivate the whole family"
+msgstr ""
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Confirm deactivation"
+msgstr ""
+
+msgid "Confirm activation"
+msgstr ""
+
+msgid "Unable to update this person status."
+msgstr ""
+
+msgid "Unable to update this family status."
+msgstr ""
+
+msgid "Pastoral Care Note Creation"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr ""

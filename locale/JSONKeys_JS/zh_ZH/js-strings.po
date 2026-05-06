@@ -3440,6 +3440,9 @@ msgstr "提交本表后，上传工作即刻开始。"
 msgid "Plugin manager"
 msgstr "插件管理器"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "为整个家庭记录下这一牧养后续行动"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

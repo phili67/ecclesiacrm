@@ -1,1 +1,26 @@
-{}
+{
+    "Record this pastoral follow-up for the whole family": "Vegye fel ezt a lelkipásztori nyomon követést az egész család számára",
+    "Pastoral follow-up recorded": "Lelkipásztori nyomon követés",
+    "Error": "Hiba",
+    "Unable to record pastoral follow-up.": "Nem lehet rögzíteni a lelkipásztori nyomon követést.",
+    "Confirm Deactivation": "Hatályon kívül helyezés megerősítése",
+    "Confirm Activation": "Aktiválás megerősítése",
+    "You are about to deactivate this person:": "Ezt a személyt most fogod deaktiválni:",
+    "You are about to deactivate this family:": "Ezt a családot készül kikapcsolni:",
+    "You are about to reactivate this person:": "Ezt a személyt hamarosan újra aktiválja:",
+    "You are about to reactivate this family:": "Most fogod újraindítani ezt a családot:",
+    "For GDPR reasons, make sure you have the person's agreement before reactivating their record.": "A GDPR miatt győződjön meg róla, hogy az érintett beleegyezését adta, mielőtt újra aktiválná a nyilvántartását.",
+    "For GDPR reasons, make sure you have the agreement of the family members before reactivating their record.": "A GDPR miatt győződjön meg róla, hogy a családtagok beleegyezésével rendelkezik, mielőtt újra aktiválná a nyilvántartásukat.",
+    "Privacy reminder": "Adatvédelmi emlékeztető",
+    "Also deactivate the whole family": "Az egész családot is deaktiválja",
+    "Use this if the entire household should be marked as inactive at the same time.": "Ezt akkor használja, ha az egész háztartást egyszerre inaktívnak kell jelölni.",
+    "Cancel": "Törölje",
+    "Confirm deactivation": "Hatályon kívül helyezés megerősítése",
+    "Confirm activation": "Aktiválás megerősítése",
+    "Unable to update this person status.": "Nem lehet frissíteni a személy státuszát.",
+    "Unable to update this family status.": "Nem lehet frissíteni ezt a családi állapotot.",
+    "Pastoral Care Note Creation": "Lelkipásztori gondozás Megjegyzés létrehozása",
+    "Close": "Zárja be a",
+    "Save": "Mentés",
+    "Unable to load the pastoral follow-up editor.": "Nem sikerült betölteni a lelkipásztori nyomon követési szerkesztőt."
+}

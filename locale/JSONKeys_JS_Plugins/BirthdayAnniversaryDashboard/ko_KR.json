@@ -1,1 +1,26 @@
-{}
+{
+    "Record this pastoral follow-up for the whole family": "온 가족을 위한 목회적 후속 조치를 기록하세요.",
+    "Pastoral follow-up recorded": "목회자 후속 조치 기록",
+    "Error": "오류",
+    "Unable to record pastoral follow-up.": "목회자 후속 조치를 기록할 수 없습니다.",
+    "Confirm Deactivation": "비활성화 확인",
+    "Confirm Activation": "활성화 확인",
+    "You are about to deactivate this person:": "이 사용자를 비활성화하려고 합니다:",
+    "You are about to deactivate this family:": "이 패밀리를 비활성화하려고 합니다:",
+    "You are about to reactivate this person:": "이 사람을 다시 활성화하려고 합니다:",
+    "You are about to reactivate this family:": "이 가족을 다시 활성화하려고 합니다:",
+    "For GDPR reasons, make sure you have the person's agreement before reactivating their record.": "GDPR의 이유로 기록을 다시 활성화하기 전에 당사자의 동의를 받아야 합니다.",
+    "For GDPR reasons, make sure you have the agreement of the family members before reactivating their record.": "GDPR의 이유로 기록을 재활성화하기 전에 가족 구성원의 동의를 얻어야 합니다.",
+    "Privacy reminder": "개인정보 보호 알림",
+    "Also deactivate the whole family": "또한 온 가족을 비활성화하세요.",
+    "Use this if the entire household should be marked as inactive at the same time.": "전체 가구를 동시에 비활성 상태로 표시해야 하는 경우 이 옵션을 사용합니다.",
+    "Cancel": "취소",
+    "Confirm deactivation": "비활성화 확인",
+    "Confirm activation": "활성화 확인",
+    "Unable to update this person status.": "이 사용자 상태를 업데이트할 수 없습니다.",
+    "Unable to update this family status.": "이 가족 상태를 업데이트할 수 없습니다.",
+    "Pastoral Care Note Creation": "목회자 케어 노트 작성",
+    "Close": "닫기",
+    "Save": "저장",
+    "Unable to load the pastoral follow-up editor.": "목회자 후속 조치 편집기를 로드할 수 없습니다."
+}

@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:21:01.387Z\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Vegye fel ezt a lelkipásztori nyomon követést az egész család számára"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Lelkipásztori nyomon követés"
+
+msgid "Error"
+msgstr "Hiba"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Nem lehet rögzíteni a lelkipásztori nyomon követést."
+
+msgid "Confirm Deactivation"
+msgstr "Hatályon kívül helyezés megerősítése"
+
+msgid "Confirm Activation"
+msgstr "Aktiválás megerősítése"
+
+msgid "You are about to deactivate this person:"
+msgstr "Ezt a személyt most fogod deaktiválni:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Ezt a családot készül kikapcsolni:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Ezt a személyt hamarosan újra aktiválja:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Most fogod újraindítani ezt a családot:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"A GDPR miatt győződjön meg róla, hogy az érintett beleegyezését adta, "
+"mielőtt újra aktiválná a nyilvántartását."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"A GDPR miatt győződjön meg róla, hogy a családtagok beleegyezésével "
+"rendelkezik, mielőtt újra aktiválná a nyilvántartásukat."
+
+msgid "Privacy reminder"
+msgstr "Adatvédelmi emlékeztető"
+
+msgid "Also deactivate the whole family"
+msgstr "Az egész családot is deaktiválja"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Ezt akkor használja, ha az egész háztartást egyszerre inaktívnak kell "
+"jelölni."
+
+msgid "Cancel"
+msgstr "Törölje"
+
+msgid "Confirm deactivation"
+msgstr "Hatályon kívül helyezés megerősítése"
+
+msgid "Confirm activation"
+msgstr "Aktiválás megerősítése"
+
+msgid "Unable to update this person status."
+msgstr "Nem lehet frissíteni a személy státuszát."
+
+msgid "Unable to update this family status."
+msgstr "Nem lehet frissíteni ezt a családi állapotot."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Lelkipásztori gondozás Megjegyzés létrehozása"
+
+msgid "Close"
+msgstr "Zárja be a"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Nem sikerült betölteni a lelkipásztori nyomon követési szerkesztőt."

@@ -2,29 +2,94 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:27+0000\n"
+"POT-Creation-Date: 2026-05-05 18:02+0000\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:42
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:112
 msgid "Remove"
-msgstr ""
+msgstr "Αφαιρέστε το"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:43
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:113
 msgid "Collapse"
-msgstr ""
+msgstr "Κατάρρευση"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:70
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:200
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:296
+msgid "Pastoral follow-up recorded"
+msgstr "Καταγραφή της ποιμαντικής παρακολούθησης"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:201
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:297
+msgid "No pastoral follow-up yet"
+msgstr "Καμία ποιμαντική παρακολούθηση ακόμη"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:218
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:221
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:313
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:316
+msgid "Call"
+msgstr "Καλέστε"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:220
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:315
+msgid "No phone number available"
+msgstr "Δεν υπάρχει διαθέσιμος αριθμός τηλεφώνου"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:225
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:226
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:229
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:320
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:321
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:324
+msgid "Pastoral follow-up"
+msgstr "Ποιμαντική παρακολούθηση"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:253
+msgid "Deactivate this Person"
+msgstr "Απενεργοποιήστε αυτό το άτομο"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:253
+msgid "Activate this Person"
+msgstr "Ενεργοποιήστε αυτό το άτομο"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:255
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:349
+msgid "Deactivate"
+msgstr "Απενεργοποίηση"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:255
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:349
+msgid "Activate"
+msgstr "Ενεργοποίηση"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:270
+msgid "No calls since"
+msgstr "Καμία κλήση από τότε"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:347
+msgid "Deactivate this Family"
+msgstr "Απενεργοποιήστε αυτή την οικογένεια"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:347
+msgid "Activate this Family"
+msgstr "Ενεργοποιήστε αυτή την Οικογένεια"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:366
+msgid "Last call"
+msgstr "Τελευταία κλήση"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:376
 msgid "Birthdates of the day"
 msgstr "Ημερομηνίες γέννησης της ημέρας"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:84
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:390
 msgid "Anniversaries of the day"
 msgstr "Επέτειοι της ημέρας"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:108
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:404
 msgid "Unclassified birthdates"
-msgstr ""
+msgstr "Μη ταξινομημένες ημερομηνίες γέννησης"

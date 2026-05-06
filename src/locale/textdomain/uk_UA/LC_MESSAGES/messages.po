@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-26 18:38+0000\n"
+"POT-Creation-Date: 2026-05-05 20:20+0000\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,17 +66,17 @@ msgstr "Відео"
 #: v2/templates/deposit/autaPaymentEditor.php:381
 #: v2/templates/group/groupbadge.php:160 v2/templates/group/groupreports.php:45
 #: v2/templates/group/groupreports.php:156
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:621
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:634
 #: v2/templates/pastoralcare/pastoralcarefamily.php:340
-#: v2/templates/pastoralcare/pastoralcareperson.php:480
-#: v2/templates/pastoralcare/pastoralcareperson.php:552
+#: v2/templates/pastoralcare/pastoralcareperson.php:479
+#: v2/templates/pastoralcare/pastoralcareperson.php:551
 #: v2/templates/people/lettersandlabels.php:246
-#: v2/templates/people/personPrint.php:287
-#: v2/templates/people/personPrint.php:348
-#: v2/templates/people/personPrint.php:403
-#: v2/templates/people/personPrint.php:659
-#: v2/templates/people/personPrint.php:718
-#: v2/templates/people/personview.php:1098
+#: v2/templates/people/personPrint.php:299
+#: v2/templates/people/personPrint.php:360
+#: v2/templates/people/personPrint.php:415
+#: v2/templates/people/personPrint.php:671
+#: v2/templates/people/personPrint.php:730
+#: v2/templates/people/personview.php:1134
 #: v2/templates/sundayschool/sundayschoolreports.php:66
 msgid "None"
 msgstr "Ні."
@@ -187,91 +187,132 @@ msgid "No person found for preview"
 msgstr "Не знайдено жодної людини для попереднього перегляду"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:174
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:892
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:279
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1033
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:701
-#: uploader/upload.php:93
+#: uploader/upload.php:171
 msgid "Create file"
 msgstr "Створити файл"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:261
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:37
 msgid "This document is opened by"
 msgstr "Цей документ відкривається за допомогою"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
-#: EcclesiaCRM/Service/TimelineService.php:261
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:37
 msgid "Minutes left"
 msgstr "Залишилися лічені хвилини"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:129
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:260
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:230
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:365
 #: EcclesiaCRM/utils/MiscUtils.php:780
 msgid "Folder"
 msgstr "Папка"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:194
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:208
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:299
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:313
 msgid "Document not found"
 msgstr "Документ не знайдено"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:416
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:455
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:523
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:562
 msgid "Right of access to folder problem"
 msgstr "Проблема з правом доступу до папки"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:481
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:844
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:588
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:951
 msgid "Contact error at api"
 msgstr "Помилка контакту в api"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:508
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:615
 msgid "You can't erase the public folder !"
 msgstr "Ви не можете стерти спільну папку!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:516
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:548
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:620
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:692
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:804
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:623
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:655
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:727
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:799
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:911
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr "Право доступу до файлу або папки, в якій знаходиться заборонений запис"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:602
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:750
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:709
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:857
 msgid "A Folder"
 msgstr "Папка"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:602
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:670
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:750
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:709
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:777
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:857
 msgid "already exists at this place."
 msgstr "вже існує на цьому місці."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:650
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:757
 msgid "Folder modification"
 msgstr "Модифікація папки"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:652
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:719
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:759
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:826
 msgid "File modification"
 msgstr "Модифікація файлів"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:670
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:777
 msgid "A File"
 msgstr "Файл"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:762
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:869
 msgid "New Folder"
 msgstr "Нова папка"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:786
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:893
 msgid "can't rename public folder"
 msgstr "не вдається перейменувати спільну папку"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:808
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:915
 msgid "The file or folder name already exists!!!"
 msgstr "Ім'я файлу або папки вже існує!!!"
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:963
+msgid "User account not found."
+msgstr "Обліковий запис користувача не знайдено."
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:971
+msgid "Invalid target path."
+msgstr "Неправильний шлях до цілі."
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:975
+msgid "No uploaded file received."
+msgstr "Не отримано жодного завантаженого файлу."
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:981
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1016
+msgid "Upload problem !!!"
+msgstr "Проблема із завантаженням!!!"
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:985
+msgid "Invalid uploaded file."
+msgstr "Неправильно завантажений файл."
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:990
+msgid "Invalid file name."
+msgstr "Неправильне ім'я файлу."
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:996
+msgid "This file type is not allowed."
+msgstr "Цей тип файлу не допускається."
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1001
+msgid "Target directory is invalid."
+msgstr "Цільовий каталог є невірним."
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1012
+msgid ""
+"A file with the same name already exists. The uploaded file was renamed "
+"automatically."
+msgstr ""
+"Файл з такою назвою вже існує. Завантажений файл було перейменовано "
+"автоматично."
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
@@ -340,7 +381,7 @@ msgid "newsletter"
 msgstr "інформаційний бюлетень"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:77
-#: EcclesiaCRM/Search/FamilySearchRes.php:51 v2/templates/cart/cartview.php:163
+#: EcclesiaCRM/Search/FamilySearchRes.php:61 v2/templates/cart/cartview.php:163
 msgid "families"
 msgstr "сім'ї"
 
@@ -356,7 +397,7 @@ msgstr "Всі сім'ї"
 #: EcclesiaCRM/APIControllers/PeopleController.php:186
 #: EcclesiaCRM/APIControllers/PeopleController.php:239
 #: EcclesiaCRM/APIControllers/SearchController.php:55
-#: EcclesiaCRM/MenuBar/MenuBar.php:224
+#: EcclesiaCRM/MenuBar/MenuBar.php:235
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/email/mailchimp/managelist.php:76
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:165
@@ -372,13 +413,13 @@ msgstr "Люди"
 #: EcclesiaCRM/APIControllers/SearchController.php:97
 #: EcclesiaCRM/APIControllers/SearchController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:317
-#: EcclesiaCRM/MenuBar/MenuBar.php:197 EcclesiaCRM/MenuBar/MenuBar.php:231
+#: EcclesiaCRM/MenuBar/MenuBar.php:209 EcclesiaCRM/MenuBar/MenuBar.php:242
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: v2/templates/email/mailchimp/managelist.php:76
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:261
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
-#: v2/templates/people/familylist.php:50
+#: v2/templates/people/familylist.php:51
 #: v2/templates/people/lettersandlabels.php:352
 #: v2/templates/people/peopledashboard.php:114
 #: v2/templates/people/peoplelist.php:20 v2/templates/people/peoplelist.php:54
@@ -391,16 +432,16 @@ msgstr "Сім'ї"
 #: EcclesiaCRM/APIControllers/SearchController.php:121
 #: EcclesiaCRM/APIControllers/SearchController.php:340
 #: EcclesiaCRM/APIControllers/SearchController.php:343
-#: EcclesiaCRM/MenuBar/MenuBar.php:253 EcclesiaCRM/Search/GroupSearchRes.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:265 EcclesiaCRM/Search/GroupSearchRes.php:20
 #: EcclesiaCRM/Service/ConfirmReportService.php:102
 #: EcclesiaCRM/Service/ConfirmReportService.php:343
 #: EcclesiaCRM/Service/ConfirmReportService.php:524
 #: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:132
 #: v2/templates/pastoralcare/pastoralcareperson.php:160
 #: v2/templates/people/peopledashboard.php:170
-#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:92
-#: v2/templates/people/personview.php:154
-#: v2/templates/people/personview.php:440
+#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:129
+#: v2/templates/people/personview.php:191
+#: v2/templates/people/personview.php:476
 msgid "Groups"
 msgstr "Групи"
 
@@ -494,15 +535,15 @@ msgstr "Додано до групи"
 #: v2/templates/group/groupPropsEditor.php:235
 #: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:97
 #: v2/templates/group/groupview.php:400
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:405
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:568
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:418
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:581
 #: v2/templates/people/familyCustomFieldEditor.php:326
 #: v2/templates/people/familyCustomFieldEditor.php:390
-#: v2/templates/people/familylist.php:62 v2/templates/people/geopage.php:186
+#: v2/templates/people/familylist.php:63 v2/templates/people/geopage.php:186
 #: v2/templates/people/personCustomEditor.php:318
 #: v2/templates/people/personCustomEditor.php:382
-#: v2/templates/people/personPrint.php:424
-#: v2/templates/people/personPrint.php:586
+#: v2/templates/people/personPrint.php:436
+#: v2/templates/people/personPrint.php:598
 #: v2/templates/people/personlist.php:46
 #: v2/templates/system/eventAttendance.php:191
 #: v2/templates/system/optionManager.php:426 v2/templates/user/userlist.php:54
@@ -538,10 +579,10 @@ msgstr "Ім'я та прізвище"
 #: EcclesiaCRM/APIControllers/SearchController.php:476
 #: EcclesiaCRM/APIControllers/SearchController.php:484
 #: EcclesiaCRM/APIControllers/SearchController.php:489
-#: EcclesiaCRM/MenuBar/MenuBar.php:324 EcclesiaCRM/MenuBar/MenuBar.php:576
+#: EcclesiaCRM/MenuBar/MenuBar.php:336 EcclesiaCRM/MenuBar/MenuBar.php:588
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1086
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1098
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1152
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1164
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:90
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/utils/OutputUtils.php:387 EcclesiaCRM/utils/OutputUtils.php:448
@@ -562,14 +603,14 @@ msgstr "Ім'я та прізвище"
 #: v2/templates/map/MapUsingLeaflet.php:107
 #: v2/templates/map/MapUsingLeaflet.php:142
 #: v2/templates/map/MapUsingLeaflet.php:143
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:300
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:305
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:313
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:318
 #: v2/templates/people/directoryreport.php:87
 #: v2/templates/people/familyEditor.php:1356
 #: v2/templates/people/personEditor.php:1042
 #: v2/templates/people/personEditor.php:1736
-#: v2/templates/people/personPrint.php:318
-#: v2/templates/people/personPrint.php:323
+#: v2/templates/people/personPrint.php:330
+#: v2/templates/people/personPrint.php:335
 #: v2/templates/people/selectDelete.php:205
 #: v2/templates/sidebar/systemsettings.php:374
 #: v2/templates/system/csvImport.php:346
@@ -675,7 +716,7 @@ msgid "Group assignments"
 msgstr "Групові завдання"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:103
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:23
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:20
 msgid "Family Custom Field"
 msgstr "Користувацьке поле \"Сім'я"
 
@@ -700,7 +741,7 @@ msgid "Deposits"
 msgstr "Депозити"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:139
-#: EcclesiaCRM/Search/PaymentSearchRes.php:20 Reports/PledgeSummary.php:252
+#: EcclesiaCRM/Search/PaymentSearchRes.php:17 Reports/PledgeSummary.php:252
 #: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
 msgid "Payments"
 msgstr "Платежі"
@@ -713,15 +754,15 @@ msgstr "Початківці"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:151
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: v2/templates/people/personview.php:713
-#: v2/templates/people/personview.php:1260
+#: v2/templates/people/personview.php:749
+#: v2/templates/people/personview.php:1292
 #: v2/templates/volunteer/volunteeropportunity.php:102
 msgid "Volunteer Opportunities"
 msgstr "Можливості для волонтерів"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:319
 #: EcclesiaCRM/APIControllers/SearchController.php:322
-#: EcclesiaCRM/Search/FamilySearchRes.php:186
+#: EcclesiaCRM/Search/FamilySearchRes.php:196
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:185
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:266
 #: v2/templates/people/peopledashboard.php:96
@@ -731,7 +772,7 @@ msgstr "Одиночки"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:324
 #: EcclesiaCRM/APIControllers/SearchController.php:327
-#: EcclesiaCRM/MenuBar/MenuBar.php:933
+#: EcclesiaCRM/MenuBar/MenuBar.php:945
 #: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:47
 #: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:124
 #: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:126
@@ -742,56 +783,55 @@ msgstr "Волонтери"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:345
 #: EcclesiaCRM/APIControllers/SearchController.php:349
-#: EcclesiaCRM/Search/GroupSearchRes.php:148
-#: EcclesiaCRM/Search/GroupSearchRes.php:252
+#: EcclesiaCRM/Search/GroupSearchRes.php:38
 #: v2/templates/people/peoplelist.php:54
 msgid "Sunday Groups"
 msgstr "Недільні групи"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:351
 #: EcclesiaCRM/APIControllers/SearchController.php:354
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:47
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:53
 #: v2/templates/people/peoplelist.php:54
 msgid "groupmasters"
 msgstr "групмейстери"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:453
-#: EcclesiaCRM/Search/PersonSearchRes.php:362
+#: EcclesiaCRM/Search/PersonSearchRes.php:385
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:143
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
 #: external/templates/registration/family-register-members.php:65
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:288
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:437
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:301
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:450
 #: v2/templates/people/familyEditor.php:1250
 #: v2/templates/people/personEditor.php:950
-#: v2/templates/people/personPrint.php:306
-#: v2/templates/people/personPrint.php:456
+#: v2/templates/people/personPrint.php:318
+#: v2/templates/people/personPrint.php:468
 #: v2/templates/system/csvExport.php:428 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Чоловік"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:453
-#: EcclesiaCRM/Search/PersonSearchRes.php:362
+#: EcclesiaCRM/Search/PersonSearchRes.php:385
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:146
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
 #: external/templates/registration/family-register-members.php:66
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:288
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:437
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:301
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:450
 #: v2/templates/people/familyEditor.php:1253
 #: v2/templates/people/personEditor.php:951
-#: v2/templates/people/personPrint.php:306
-#: v2/templates/people/personPrint.php:456
+#: v2/templates/people/personPrint.php:318
+#: v2/templates/people/personPrint.php:468
 #: v2/templates/system/csvExport.php:429 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Жінка"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:509
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:284
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:406
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:297
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:419
 #: v2/templates/people/familyEditor.php:1198
 #: v2/templates/people/personEditor.php:946
-#: v2/templates/people/personPrint.php:302
-#: v2/templates/people/personPrint.php:425
+#: v2/templates/people/personPrint.php:314
+#: v2/templates/people/personPrint.php:437
 #: v2/templates/sundayschool/sundayschoolview.php:224
 #: v2/templates/sundayschool/sundayschoolview.php:319
 #: v2/templates/system/csvExport.php:415 v2/templates/system/csvImport.php:183
@@ -805,12 +845,12 @@ msgstr "Стать"
 #: EcclesiaCRM/Service/ConfirmReportService.php:339
 #: Reports/ConfirmReport.php:548 v2/templates/deposit/financialReports.php:152
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:357
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:370
 #: v2/templates/people/familyEditor.php:1203
 #: v2/templates/people/familyview.php:425
 #: v2/templates/people/peopledashboard.php:353
 #: v2/templates/people/personEditor.php:1734
-#: v2/templates/people/personPrint.php:376
+#: v2/templates/people/personPrint.php:388
 #: v2/templates/system/csvExport.php:226 v2/templates/system/csvExport.php:358
 #: v2/templates/system/csvImport.php:359
 #: v2/templates/system/optionManager.php:98 queryparameters_qrp.php:19
@@ -819,8 +859,8 @@ msgstr "Класифікація"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:511
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:303
-#: v2/templates/people/personPrint.php:321
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:316
+#: v2/templates/people/personPrint.php:333
 #: v2/templates/system/csvExport.php:232 v2/templates/system/csvExport.php:385
 #: v2/templates/system/optionManager.php:91 queryparameters_qrp.php:5
 msgid "Family Role"
@@ -842,15 +882,15 @@ msgstr "Тип групи"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:157
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:407
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:474
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:420
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:487
 #: v2/templates/pastoralcare/pastoralcarefamily.php:374
-#: v2/templates/pastoralcare/pastoralcareperson.php:516
+#: v2/templates/pastoralcare/pastoralcareperson.php:515
 #: v2/templates/people/familyEditor.php:1199
 #: v2/templates/people/familyview.php:424
-#: v2/templates/people/personPrint.php:426
-#: v2/templates/people/personPrint.php:491
-#: v2/templates/people/personview.php:877
+#: v2/templates/people/personPrint.php:438
+#: v2/templates/people/personPrint.php:503
+#: v2/templates/people/personview.php:913
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
 #: v2/templates/user/userseditor.php:728 v2/templates/user/userseditor.php:796
@@ -932,9 +972,9 @@ msgstr "Редактор групових типів"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:149
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
-#: EcclesiaCRM/Search/GroupSearchRes.php:76
-#: EcclesiaCRM/Search/GroupSearchRes.php:188
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:148
+#: EcclesiaCRM/Search/GroupSearchRes.php:97
+#: EcclesiaCRM/Search/GroupSearchRes.php:211
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:165
 #: EcclesiaCRM/Service/CalendarService.php:1567
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
@@ -1035,7 +1075,7 @@ msgstr "Редактор параметрів користувацьких сп�
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:37
 #: EcclesiaCRM/Service/ConfirmReportService.php:132
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1449
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1515
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
 #: Include/Footer.php:108 Reports/GDPR/GDPRDataStructureExport.php:84
 #: v2/templates/deposit/autaPaymentEditor.php:279
@@ -1053,9 +1093,9 @@ msgstr "Людина"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:39
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:37
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:148
-#: EcclesiaCRM/Search/FamilySearchRes.php:184
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:173
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:158
+#: EcclesiaCRM/Search/FamilySearchRes.php:194
 #: EcclesiaCRM/Service/ConfirmReportService.php:636
 #: EcclesiaCRM/Service/TimelineService.php:222
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
@@ -1069,14 +1109,14 @@ msgstr "Людина"
 #: v2/templates/deposit/manageEnvelopes.php:224
 #: v2/templates/deposit/pledgeEditor.php:40
 #: v2/templates/gdpr/gdprdatastructure.php:99
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:298
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:311
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:48
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:55
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:50
 #: v2/templates/people/UpdateAllLatLon.php:67
 #: v2/templates/people/familyview.php:85
-#: v2/templates/people/personPrint.php:316
-#: v2/templates/people/personview.php:664
+#: v2/templates/people/personPrint.php:328
+#: v2/templates/people/personview.php:700
 #: v2/templates/system/convertIndividualToAddress.php:106
 #: v2/templates/system/convertIndividualToAddress.php:149
 msgid "Family"
@@ -1193,41 +1233,40 @@ msgstr "Обліковий запис активовано"
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:397
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:398
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:399
-#: EcclesiaCRM/Search/AddressSearchRes.php:150
-#: EcclesiaCRM/Search/AddressSearchRes.php:263
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:135
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:136
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:149
-#: EcclesiaCRM/Search/FamilySearchRes.php:185
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:152
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:130
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:150
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:140
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:158
-#: EcclesiaCRM/Search/PersonSearchRes.php:359
-#: EcclesiaCRM/Search/PersonSearchRes.php:363
-#: EcclesiaCRM/Search/PersonSearchRes.php:364
-#: EcclesiaCRM/Search/PersonSearchRes.php:365
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:130
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:228
-#: EcclesiaCRM/Service/MailChimpService.php:236
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:611
+#: EcclesiaCRM/Search/AddressSearchRes.php:153
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:174
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:150
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:159
+#: EcclesiaCRM/Search/FamilySearchRes.php:195
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:167
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:168
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:167
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:145
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:165
+#: EcclesiaCRM/Search/PersonSearchRes.php:382
+#: EcclesiaCRM/Search/PersonSearchRes.php:386
+#: EcclesiaCRM/Search/PersonSearchRes.php:387
+#: EcclesiaCRM/Search/PersonSearchRes.php:388
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:139
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:240
+#: EcclesiaCRM/Service/MailChimpService.php:240
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:624
 #: v2/templates/pastoralcare/pastoralcarefamily.php:229
-#: v2/templates/pastoralcare/pastoralcareperson.php:370
-#: v2/templates/pastoralcare/pastoralcareperson.php:438
-#: v2/templates/people/familylist.php:114
+#: v2/templates/pastoralcare/pastoralcareperson.php:369
+#: v2/templates/pastoralcare/pastoralcareperson.php:437
 #: v2/templates/people/familylist.php:115
 #: v2/templates/people/familylist.php:116
 #: v2/templates/people/familylist.php:117
 #: v2/templates/people/familylist.php:118
 #: v2/templates/people/familylist.php:119
+#: v2/templates/people/familylist.php:120
 #: v2/templates/people/familyview.php:209
-#: v2/templates/people/familyview.php:960 v2/templates/people/personlist.php:93
+#: v2/templates/people/familyview.php:959 v2/templates/people/personlist.php:93
 #: v2/templates/people/personlist.php:94 v2/templates/people/personlist.php:95
 #: v2/templates/people/personlist.php:96 v2/templates/people/personlist.php:97
-#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:191
-#: v2/templates/people/personview.php:391
-#: v2/templates/people/personview.php:1699
+#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:228
+#: v2/templates/people/personview.php:427
+#: v2/templates/people/personview.php:1714
 #: v2/templates/sundayschool/sundayschooldashboard.php:290
 #: v2/templates/sundayschool/sundayschooldashboard.php:291
 #: v2/templates/sundayschool/sundayschooldashboard.php:292
@@ -1294,6 +1333,7 @@ msgid "Family Name"
 msgstr "Ім'я сім'ї"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
+#: Include/Header.php:240
 msgid "Notification"
 msgstr "Повідомлення"
 
@@ -1454,20 +1494,20 @@ msgid "Home"
 msgstr "Головна"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:129
-#: v2/templates/people/personview.php:496
+#: v2/templates/people/personview.php:532
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "Змінити пароль"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:122 Include/Header.php:131
-#: v2/templates/people/personview.php:494
+#: v2/templates/people/personview.php:530
 msgid "Change Settings"
 msgstr "Змінити налаштування"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:123 v2/templates/people/familyview.php:574
-#: v2/templates/people/personPrint.php:612
-#: v2/templates/people/personview.php:758
-#: v2/templates/people/personview.php:1474
+#: v2/templates/people/personPrint.php:624
+#: v2/templates/people/personview.php:794
+#: v2/templates/people/personview.php:1506
 msgid "Documents"
 msgstr "Документи"
 
@@ -1479,15 +1519,16 @@ msgstr "Документи"
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:199
-#: EcclesiaCRM/MenuBar/MenuBar.php:508 EcclesiaCRM/MenuBar/MenuBar.php:762
-#: EcclesiaCRM/MenuBar/MenuBar.php:775 EcclesiaCRM/MenuBar/MenuBar.php:800
-#: EcclesiaCRM/MenuBar/MenuBar.php:858 EcclesiaCRM/MenuBar/MenuBar.php:884
-#: EcclesiaCRM/MenuBar/MenuBar.php:935 EcclesiaCRM/MenuBar/MenuBar.php:958
+#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:198
+#: EcclesiaCRM/MenuBar/MenuBar.php:211 EcclesiaCRM/MenuBar/MenuBar.php:520
+#: EcclesiaCRM/MenuBar/MenuBar.php:774 EcclesiaCRM/MenuBar/MenuBar.php:787
+#: EcclesiaCRM/MenuBar/MenuBar.php:812 EcclesiaCRM/MenuBar/MenuBar.php:870
+#: EcclesiaCRM/MenuBar/MenuBar.php:896 EcclesiaCRM/MenuBar/MenuBar.php:947
+#: EcclesiaCRM/MenuBar/MenuBar.php:970
 #: v2/templates/dashboard/maindashboard.php:108
 #: v2/templates/pastoralcare/pastoralcarefamily.php:349
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:72
-#: v2/templates/pastoralcare/pastoralcareperson.php:489
+#: v2/templates/pastoralcare/pastoralcareperson.php:488
 msgid "Dashboard"
 msgstr "Приладова панель"
 
@@ -1495,11 +1536,11 @@ msgstr "Приладова панель"
 msgid "Data Structure"
 msgstr "Структура даних"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:142 EcclesiaCRM/MenuBar/MenuBar.php:229
+#: EcclesiaCRM/MenuBar/MenuBar.php:142 EcclesiaCRM/MenuBar/MenuBar.php:240
 msgid "View Inactive Persons"
 msgstr "Переглянути неактивних осіб"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:143 EcclesiaCRM/MenuBar/MenuBar.php:235
+#: EcclesiaCRM/MenuBar/MenuBar.php:143 EcclesiaCRM/MenuBar/MenuBar.php:247
 msgid "View Inactive Families"
 msgstr "Переглянути неактивні сім'ї"
 
@@ -1518,7 +1559,7 @@ msgstr "Події"
 msgid "Calendar"
 msgstr "Календар"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:165 EcclesiaCRM/MenuBar/MenuBar.php:216
+#: EcclesiaCRM/MenuBar/MenuBar.php:165 EcclesiaCRM/MenuBar/MenuBar.php:227
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Переглянути на мапі"
@@ -1542,137 +1583,138 @@ msgstr "Дзвони в Реєстр."
 msgid "Medias"
 msgstr "Медіа"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:197 v2/templates/people/familylist.php:47
+#: EcclesiaCRM/MenuBar/MenuBar.php:197
+msgid "Meta Search Engine"
+msgstr "Мета пошукова система"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:209 v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "Люди"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:214
-msgid "Meta Search Engine"
-msgstr "Мета пошукова система"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:220
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1253
+#: EcclesiaCRM/MenuBar/MenuBar.php:231
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1319
 msgid "Directory reports"
 msgstr "Звіти по каталогам"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:225 v2/templates/people/personlist.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:236 v2/templates/people/personlist.php:22
 msgid "Add New Person"
 msgstr "Додати нову особу"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:226
+#: EcclesiaCRM/MenuBar/MenuBar.php:237
 msgid "View Single Persons"
 msgstr "Переглянути одиноких людей"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:227
+#: EcclesiaCRM/MenuBar/MenuBar.php:238
 msgid "View Active Persons"
 msgstr "Перегляд активних осіб"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:232
+#: EcclesiaCRM/MenuBar/MenuBar.php:243
 msgid "Add New Family"
 msgstr "Додати нову сім'ю"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:233
+#: EcclesiaCRM/MenuBar/MenuBar.php:244
 msgid "View Active Families"
 msgstr "Переглянути активні сім'ї"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:237
+#: EcclesiaCRM/MenuBar/MenuBar.php:249
 msgid "Empty Addresses"
 msgstr "Порожні адреси"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:240
+#: EcclesiaCRM/MenuBar/MenuBar.php:252
 msgid "Convert Individual to Address"
 msgstr "Перетворити особу на адресу"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:256
+#: EcclesiaCRM/MenuBar/MenuBar.php:268
 msgid "List Groups"
 msgstr "Список груп"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:343
+#: EcclesiaCRM/MenuBar/MenuBar.php:355
 #: v2/templates/deposit/electronicPaymentList.php:200
 #: v2/templates/group/groupedit.php:178 v2/templates/group/groupview.php:239
 #: v2/templates/volunteer/volunteerview.php:206
 msgid "Disabled"
 msgstr "Інваліди"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:352
+#: EcclesiaCRM/MenuBar/MenuBar.php:364
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "Помічник з призначення груп"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:397 EcclesiaCRM/MenuBar/MenuBar.php:631
+#: EcclesiaCRM/MenuBar/MenuBar.php:409 EcclesiaCRM/MenuBar/MenuBar.php:643
 msgid "Group manager"
 msgstr "Керівник групи"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:463 EcclesiaCRM/MenuBar/MenuBar.php:695
+#: EcclesiaCRM/MenuBar/MenuBar.php:475 EcclesiaCRM/MenuBar/MenuBar.php:707
 msgid "Personal groups"
 msgstr "Персональні групи"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:505
+#: EcclesiaCRM/MenuBar/MenuBar.php:517
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 #: v2/templates/people/peopledashboard.php:151
 msgid "Sunday School"
 msgstr "Недільна школа"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:743 EcclesiaCRM/MenuBar/MenuBar.php:750
+#: EcclesiaCRM/MenuBar/MenuBar.php:755 EcclesiaCRM/MenuBar/MenuBar.php:762
 #: Include/Footer.php:192
 msgid "Global Custom Menus"
 msgstr "Глобальні користувацькі меню"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:761
+#: EcclesiaCRM/MenuBar/MenuBar.php:773
 msgid "Custom Menus"
 msgstr "Користувацькі меню"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/dto/SystemConfig.php:300
+#: EcclesiaCRM/MenuBar/MenuBar.php:785 EcclesiaCRM/dto/SystemConfig.php:300
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:140
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:595
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:7
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:608
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:29
 #: v2/templates/people/familyview.php:305
-#: v2/templates/people/personview.php:526 v2/templates/user/userseditor.php:494
+#: v2/templates/people/personview.php:562 v2/templates/user/userseditor.php:494
 msgid "Pastoral Care"
 msgstr "Душпастирська опіка"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:776
+#: EcclesiaCRM/MenuBar/MenuBar.php:788
 msgid "By Classifications"
 msgstr "За класифікаціями"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:793
+#: EcclesiaCRM/MenuBar/MenuBar.php:805
 msgid "Communication"
 msgstr "Комунікація"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:798
+#: EcclesiaCRM/MenuBar/MenuBar.php:810
 #: v2/templates/pastoralcare/pastoralcarefamily.php:220
 #: v2/templates/people/familyview.php:201 v2/templates/user/userseditor.php:472
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:806
+#: EcclesiaCRM/MenuBar/MenuBar.php:818
 msgid "Email Lists"
 msgstr "Списки електронної пошти"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:838
-#: EcclesiaCRM/Search/PledgeSearchRes.php:69
-#: EcclesiaCRM/Search/PledgeSearchRes.php:90 Reports/AdvancedDeposit.php:269
+#: EcclesiaCRM/MenuBar/MenuBar.php:850
+#: EcclesiaCRM/Search/PledgeSearchRes.php:81
+#: EcclesiaCRM/Search/PledgeSearchRes.php:101 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
 #: Reports/AdvancedDeposit.php:432 Reports/AdvancedDeposit.php:523
 #: v2/templates/deposit/financialReports.php:445
 msgid "Deposit"
 msgstr "Депозит"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:852
+#: EcclesiaCRM/MenuBar/MenuBar.php:864
 msgid "Current"
 msgstr "Течія"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:858
+#: EcclesiaCRM/MenuBar/MenuBar.php:870
 msgid "View All Deposits"
 msgstr "Переглянути всі депозити"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:859
+#: EcclesiaCRM/MenuBar/MenuBar.php:871
 msgid "Edit Deposit Slip"
 msgstr "Редагувати квитанцію про поповнення рахунку"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:861
+#: EcclesiaCRM/MenuBar/MenuBar.php:873
 #: v2/templates/people/peopledashboard.php:209
 #: v2/templates/people/peopledashboard.php:252
 #: v2/templates/people/peopledashboard.php:262
@@ -1680,67 +1722,67 @@ msgstr "Редагувати квитанцію про поповнення ра
 msgid "Reports"
 msgstr "Звіти"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:862 v2/templates/system/reportlist.php:39
+#: EcclesiaCRM/MenuBar/MenuBar.php:874 v2/templates/system/reportlist.php:39
 msgid "Deposit Reports"
 msgstr "Звіти по депозитам"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:863
+#: EcclesiaCRM/MenuBar/MenuBar.php:875
 #: v2/templates/deposit/financialReports.php:74
 msgid "Giving Report (Tax Statements)"
 msgstr "Подання звіту (податкова звітність)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:865 v2/templates/group/groupbadge.php:236
+#: EcclesiaCRM/MenuBar/MenuBar.php:877 v2/templates/group/groupbadge.php:236
 msgid "Others"
 msgstr "Інші"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:866
+#: EcclesiaCRM/MenuBar/MenuBar.php:878
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:196
 msgid "Envelope Manager"
 msgstr "Менеджер конвертів"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:867
+#: EcclesiaCRM/MenuBar/MenuBar.php:879
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:377
 msgid "Electronic Payment Listing"
 msgstr "Електронний список платежів"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:882 v2/templates/user/userseditor.php:297
+#: EcclesiaCRM/MenuBar/MenuBar.php:894 v2/templates/user/userseditor.php:297
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:895
+#: EcclesiaCRM/MenuBar/MenuBar.php:907
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "Збір коштів"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:897
+#: EcclesiaCRM/MenuBar/MenuBar.php:909
 msgid "Create New Fundraiser"
 msgstr "Створити новий фандрайзер"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:898
+#: EcclesiaCRM/MenuBar/MenuBar.php:910
 msgid "View All Fundraisers"
 msgstr "Переглянути всі фандрайзери"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:900
+#: EcclesiaCRM/MenuBar/MenuBar.php:912
 msgid "Edit Last Fundraiser"
 msgstr "Редагувати останній збір коштів"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:981
+#: EcclesiaCRM/MenuBar/MenuBar.php:994
 msgid "Data/Reports"
 msgstr "Дані/Звіти"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:983
+#: EcclesiaCRM/MenuBar/MenuBar.php:996
 msgid "Reports Menu"
 msgstr "Меню Звіти"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:986 v2/templates/user/userseditor.php:462
+#: EcclesiaCRM/MenuBar/MenuBar.php:999 v2/templates/user/userseditor.php:462
 msgid "Query Menu"
 msgstr "Меню запитів"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: EcclesiaCRM/dto/CanvassUtilities.php:100
 #: EcclesiaCRM/dto/CanvassUtilities.php:136
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:473
-#: v2/templates/people/personPrint.php:490
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:486
+#: v2/templates/people/personPrint.php:502
 msgid "Group Name"
 msgstr "Назва групи"
 
@@ -1763,9 +1805,9 @@ msgid "Birthdate"
 msgstr "Дата народження"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 Reports/CanvassReports.php:278
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:408
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:421
 #: v2/templates/people/peopledashboard.php:594
-#: v2/templates/people/personPrint.php:427
+#: v2/templates/people/personPrint.php:439
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
 msgid "Age"
 msgstr "Вік"
@@ -1815,19 +1857,19 @@ msgstr "Підсумки"
 #: v2/templates/deposit/autaPaymentEditor.php:424
 #: v2/templates/group/groupreports.php:120
 #: v2/templates/pastoralcare/pastoralcarefamily.php:133
-#: v2/templates/pastoralcare/pastoralcareperson.php:238
+#: v2/templates/pastoralcare/pastoralcareperson.php:237
 #: v2/templates/people/UpdateAllLatLon.php:74
 #: v2/templates/people/directoryreport.php:160
 #: v2/templates/people/directoryreport.php:287
 #: v2/templates/people/familyEditor.php:779
 #: v2/templates/people/familyEditor.php:813
-#: v2/templates/people/familylist.php:63 v2/templates/people/familyview.php:112
+#: v2/templates/people/familylist.php:64 v2/templates/people/familyview.php:112
 #: v2/templates/people/geopage.php:187
 #: v2/templates/people/personEditor.php:1158
 #: v2/templates/people/personEditor.php:1164
 #: v2/templates/people/personEditor.php:1310
 #: v2/templates/people/personEditor.php:1334
-#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:253
+#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:289
 #: v2/templates/system/csvExport.php:121 v2/templates/system/csvExport.php:127
 #: v2/templates/system/csvImport.php:185 v2/templates/system/csvImport.php:186
 msgid "Address"
@@ -1853,15 +1895,15 @@ msgstr "Місто, штат, індекс"
 #: v2/templates/calendar/eventattendeesedit.php:56
 #: v2/templates/cart/cartToFamily.php:422
 #: v2/templates/group/groupreports.php:121
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:230
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:243
 #: v2/templates/pastoralcare/pastoralcarefamily.php:190
-#: v2/templates/pastoralcare/pastoralcareperson.php:295
+#: v2/templates/pastoralcare/pastoralcareperson.php:294
 #: v2/templates/people/familyEditor.php:871
-#: v2/templates/people/familylist.php:64 v2/templates/people/familyview.php:171
+#: v2/templates/people/familylist.php:65 v2/templates/people/familyview.php:171
 #: v2/templates/people/personEditor.php:1498
 #: v2/templates/people/personEditor.php:1502
-#: v2/templates/people/personPrint.php:246
-#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:316
+#: v2/templates/people/personPrint.php:258
+#: v2/templates/people/personlist.php:49 v2/templates/people/personview.php:352
 #: v2/templates/system/csvExport.php:169 v2/templates/system/csvImport.php:191
 #: v2/templates/system/eventAttendance.php:193 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1875,11 +1917,11 @@ msgstr "Домашній телефон"
 #: EcclesiaCRM/Service/ConfirmReportService.php:797
 #: Reports/ConfirmReport.php:300 Reports/ConfirmReport.php:539
 #: v2/templates/pastoralcare/pastoralcarefamily.php:167
-#: v2/templates/pastoralcare/pastoralcareperson.php:302
+#: v2/templates/pastoralcare/pastoralcareperson.php:301
 #: v2/templates/people/familyEditor.php:932
 #: v2/templates/people/familyview.php:148
 #: v2/templates/people/personEditor.php:1585
-#: v2/templates/people/personview.php:323
+#: v2/templates/people/personview.php:359
 msgid "Send Newsletter"
 msgstr "Надіслати інформаційний бюлетень"
 
@@ -1937,19 +1979,19 @@ msgstr "Дорослий/Дитина"
 #: v2/templates/cart/cartToFamily.php:470
 #: v2/templates/deposit/autaPaymentEditor.php:472
 #: v2/templates/group/groupreports.php:124
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:342
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:355
 #: v2/templates/pastoralcare/pastoralcarefamily.php:214
-#: v2/templates/pastoralcare/pastoralcareperson.php:309
+#: v2/templates/pastoralcare/pastoralcareperson.php:308
 #: v2/templates/people/familyEditor.php:919
 #: v2/templates/people/familyview.php:195
 #: v2/templates/people/familyview.php:295
 #: v2/templates/people/familyview.php:427
 #: v2/templates/people/personEditor.php:1607
 #: v2/templates/people/personEditor.php:1611
-#: v2/templates/people/personPrint.php:361
-#: v2/templates/people/personview.php:330
-#: v2/templates/people/personview.php:479
-#: v2/templates/people/personview.php:879
+#: v2/templates/people/personPrint.php:373
+#: v2/templates/people/personview.php:366
+#: v2/templates/people/personview.php:515
+#: v2/templates/people/personview.php:915
 #: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
 #: v2/templates/system/csvExport.php:190 v2/templates/system/csvImport.php:194
@@ -1966,7 +2008,7 @@ msgstr "Електронна пошта"
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
 #: Reports/ConfirmReport.php:496 v2/templates/people/directoryreport.php:168
 #: v2/templates/people/familyview.php:426
-#: v2/templates/people/personview.php:878
+#: v2/templates/people/personview.php:914
 msgid "Birthday"
 msgstr "День народження"
 
@@ -1977,7 +2019,7 @@ msgstr "День народження"
 #: EcclesiaCRM/Service/ConfirmReportService.php:762
 #: EcclesiaCRM/Service/ConfirmReportService.php:772
 #: Reports/CanvassReports.php:280 v2/templates/group/groupreports.php:123
-#: v2/templates/people/familylist.php:65 v2/templates/people/personlist.php:50
+#: v2/templates/people/familylist.php:66 v2/templates/people/personlist.php:50
 #: v2/templates/system/csvImport.php:193
 msgid "Cell Phone"
 msgstr "Мобільний телефон"
@@ -1998,15 +2040,15 @@ msgstr "Учасник/Друг"
 #: EcclesiaCRM/Service/ConfirmReportService.php:753
 #: Reports/ConfirmReport.php:501 v2/templates/cart/cartToFamily.php:438
 #: v2/templates/group/groupreports.php:122
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:235
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:248
 #: v2/templates/pastoralcare/pastoralcarefamily.php:196
-#: v2/templates/pastoralcare/pastoralcareperson.php:323
+#: v2/templates/pastoralcare/pastoralcareperson.php:322
 #: v2/templates/people/familyEditor.php:884
 #: v2/templates/people/familyview.php:177
 #: v2/templates/people/personEditor.php:1527
 #: v2/templates/people/personEditor.php:1531
-#: v2/templates/people/personPrint.php:251
-#: v2/templates/people/personview.php:344 v2/templates/system/csvExport.php:175
+#: v2/templates/people/personPrint.php:263
+#: v2/templates/people/personview.php:380 v2/templates/system/csvExport.php:175
 #: v2/templates/system/csvImport.php:192
 msgid "Work Phone"
 msgstr "Робочий телефон"
@@ -2055,7 +2097,7 @@ msgstr "Сторінка"
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
 #: Reports/GroupReport.php:129
 #: external/templates/registration/family-register-members.php:104
-#: v2/templates/people/personview.php:358
+#: v2/templates/people/personview.php:394
 msgid "Work"
 msgstr "Робота"
 
@@ -2077,8 +2119,8 @@ msgstr "і"
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 Reports/DirectoryReport.php:331
-#: v2/templates/pastoralcare/pastoralcareperson.php:330
-#: v2/templates/people/personview.php:351 v2/templates/system/csvExport.php:196
+#: v2/templates/pastoralcare/pastoralcareperson.php:329
+#: v2/templates/people/personview.php:387 v2/templates/system/csvExport.php:196
 msgid "Work/Other Email"
 msgstr "Робоча/інша електронна пошта"
 
@@ -2105,89 +2147,84 @@ msgstr "Трактор."
 msgid "Students"
 msgstr "Студенти"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:82
-#: EcclesiaCRM/Search/AddressSearchRes.php:121
-#: EcclesiaCRM/Search/AddressSearchRes.php:149
-#: EcclesiaCRM/Search/AddressSearchRes.php:195
-#: EcclesiaCRM/Search/AddressSearchRes.php:234
-#: EcclesiaCRM/Search/AddressSearchRes.php:262
+#: EcclesiaCRM/Search/AddressSearchRes.php:97
+#: EcclesiaCRM/Search/AddressSearchRes.php:122
+#: EcclesiaCRM/Search/AddressSearchRes.php:152
 #: EcclesiaCRM/Search/DepositSearchRes.php:39
-#: EcclesiaCRM/Search/DepositSearchRes.php:106
-#: EcclesiaCRM/Search/DepositSearchRes.php:153
-#: EcclesiaCRM/Search/DepositSearchRes.php:154
-#: EcclesiaCRM/Search/DepositSearchRes.php:222
-#: EcclesiaCRM/Search/DepositSearchRes.php:225
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:84
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:121
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:98
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:135
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:100
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:135
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:148
-#: EcclesiaCRM/Search/FamilySearchRes.php:116
-#: EcclesiaCRM/Search/FamilySearchRes.php:151
-#: EcclesiaCRM/Search/FamilySearchRes.php:184
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:87
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:122
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:135
-#: EcclesiaCRM/Search/GroupSearchRes.php:98
-#: EcclesiaCRM/Search/GroupSearchRes.php:133
-#: EcclesiaCRM/Search/GroupSearchRes.php:146
-#: EcclesiaCRM/Search/GroupSearchRes.php:202
-#: EcclesiaCRM/Search/GroupSearchRes.php:250
-#: EcclesiaCRM/Search/PaymentSearchRes.php:55
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:101
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:150
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:151
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:80
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:129
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:99
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:148
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:149
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:102
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:139
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:108
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:157
-#: EcclesiaCRM/Search/PersonSearchRes.php:284
-#: EcclesiaCRM/Search/PersonSearchRes.php:358
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:92
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:129
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:190
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:227
-#: EcclesiaCRM/Search/PledgeSearchRes.php:75
-#: EcclesiaCRM/Search/PledgeSearchRes.php:90
+#: EcclesiaCRM/Search/DepositSearchRes.php:110
+#: EcclesiaCRM/Search/DepositSearchRes.php:159
+#: EcclesiaCRM/Search/DepositSearchRes.php:160
+#: EcclesiaCRM/Search/DepositSearchRes.php:253
+#: EcclesiaCRM/Search/DepositSearchRes.php:256
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:123
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:160
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:173
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:112
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:149
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:110
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:145
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:158
+#: EcclesiaCRM/Search/FamilySearchRes.php:125
+#: EcclesiaCRM/Search/FamilySearchRes.php:160
+#: EcclesiaCRM/Search/FamilySearchRes.php:194
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:102
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:137
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:150
+#: EcclesiaCRM/Search/GroupSearchRes.php:112
+#: EcclesiaCRM/Search/GroupSearchRes.php:147
+#: EcclesiaCRM/Search/GroupSearchRes.php:160
+#: EcclesiaCRM/Search/GroupSearchRes.php:225
+#: EcclesiaCRM/Search/GroupSearchRes.php:273
+#: EcclesiaCRM/Search/PaymentSearchRes.php:57
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:116
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:165
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:166
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:118
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:167
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:116
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:165
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:166
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:107
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:144
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:115
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:164
+#: EcclesiaCRM/Search/PersonSearchRes.php:307
+#: EcclesiaCRM/Search/PersonSearchRes.php:381
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:101
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:138
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:202
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:239
+#: EcclesiaCRM/Search/PledgeSearchRes.php:86
+#: EcclesiaCRM/Search/PledgeSearchRes.php:101
 #: EcclesiaCRM/Service/CalendarService.php:1400
 #: v2/templates/calendar/eventnames.php:318
 #: v2/templates/calendar/eventnames.php:320
 #: v2/templates/fundraiser/donatedItemEditor.php:22
 #: v2/templates/fundraiser/fundRaiserEditor.php:139
 #: v2/templates/pastoralcare/pastoralcareperson.php:184
-#: v2/templates/people/familylist.php:96 v2/templates/people/familyview.php:99
+#: v2/templates/people/familylist.php:97 v2/templates/people/familyview.php:99
 #: v2/templates/people/familyview.php:504
 #: v2/templates/people/familyview.php:666 v2/templates/people/personlist.php:74
-#: v2/templates/people/personview.php:197
-#: v2/templates/people/personview.php:945
+#: v2/templates/people/personview.php:234
+#: v2/templates/people/personview.php:981
 msgid "Edit"
 msgstr "Редагувати"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:149
-#: EcclesiaCRM/Search/AddressSearchRes.php:262
+#: EcclesiaCRM/Search/AddressSearchRes.php:152
 msgid "Addresse"
 msgstr "Адреса"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:149
-#: EcclesiaCRM/Search/AddressSearchRes.php:262
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:135
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:148
-#: EcclesiaCRM/Search/FamilySearchRes.php:184
+#: EcclesiaCRM/Search/AddressSearchRes.php:152
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:173
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:149
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:158
+#: EcclesiaCRM/Search/FamilySearchRes.php:194
 #: ident/templates/verify/login-info.php:17
 #: v2/templates/cart/cartToFamily.php:188
 #: v2/templates/pastoralcare/pastoralcarefamily.php:373
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:28
-#: v2/templates/pastoralcare/pastoralcareperson.php:515
+#: v2/templates/pastoralcare/pastoralcareperson.php:514
 #: v2/templates/people/familyEditor.php:1147
 #: v2/templates/people/familyEditor.php:1457
 #: v2/templates/people/familyview.php:87 v2/templates/people/familyview.php:254
@@ -2196,8 +2233,8 @@ msgstr "Адреса"
 msgid "Members"
 msgstr "Члени"
 
-#: EcclesiaCRM/Search/DepositSearchRes.php:159
-#: EcclesiaCRM/Search/DepositSearchRes.php:230
+#: EcclesiaCRM/Search/DepositSearchRes.php:165
+#: EcclesiaCRM/Search/DepositSearchRes.php:261
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:305
 #: Reports/AdvancedDeposit.php:318 Reports/AdvancedDeposit.php:327
 #: Reports/AdvancedDeposit.php:336 Reports/FundRaiserStatement.php:129
@@ -2209,12 +2246,12 @@ msgstr "Члени"
 msgid "Amount"
 msgstr "Сума"
 
-#: EcclesiaCRM/Search/DepositSearchRes.php:159
-#: EcclesiaCRM/Search/DepositSearchRes.php:230
+#: EcclesiaCRM/Search/DepositSearchRes.php:165
+#: EcclesiaCRM/Search/DepositSearchRes.php:261
 msgid "Check number"
 msgstr "Номер чека"
 
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:135
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:149
 msgid "Family Pastoral Care"
 msgstr "Душпастирство сім'ї"
 
@@ -2222,21 +2259,21 @@ msgstr "Душпастирство сім'ї"
 msgid "Families Properties"
 msgstr "Сімейна нерухомість"
 
-#: EcclesiaCRM/Search/FamilySearchRes.php:51
+#: EcclesiaCRM/Search/FamilySearchRes.php:61
 #: EcclesiaCRM/Service/PersonService.php:49
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1451
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1517
 msgid "family"
 msgstr "сім'я"
 
-#: EcclesiaCRM/Search/FamilySearchRes.php:52
-#: EcclesiaCRM/Search/FamilySearchRes.php:65
-#: EcclesiaCRM/Search/FamilySearchRes.php:186
+#: EcclesiaCRM/Search/FamilySearchRes.php:62
+#: EcclesiaCRM/Search/FamilySearchRes.php:75
+#: EcclesiaCRM/Search/FamilySearchRes.php:196
 msgid "single"
 msgstr "неодружений"
 
-#: EcclesiaCRM/Search/FamilySearchRes.php:52
-#: EcclesiaCRM/Search/FamilySearchRes.php:65
-#: EcclesiaCRM/Search/FamilySearchRes.php:186
+#: EcclesiaCRM/Search/FamilySearchRes.php:62
+#: EcclesiaCRM/Search/FamilySearchRes.php:75
+#: EcclesiaCRM/Search/FamilySearchRes.php:196
 msgid "singles"
 msgstr "Одиночки"
 
@@ -2245,34 +2282,32 @@ msgid "Groups Properties"
 msgstr "Властивості груп"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:38
-msgid "group"
-msgstr "група"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:38
-#: v2/templates/people/personview.php:990
-msgid "groups"
-msgstr "групи"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:41
-#: EcclesiaCRM/Search/GroupSearchRes.php:148
-#: EcclesiaCRM/Search/GroupSearchRes.php:252
+#: EcclesiaCRM/Search/GroupSearchRes.php:45
 msgid "sunday group"
 msgstr "недільна група"
 
-#: EcclesiaCRM/Search/GroupSearchRes.php:41
-#: EcclesiaCRM/Search/GroupSearchRes.php:148
-#: EcclesiaCRM/Search/GroupSearchRes.php:252
+#: EcclesiaCRM/Search/GroupSearchRes.php:38
+#: EcclesiaCRM/Search/GroupSearchRes.php:45
 msgid "sunday groups"
 msgstr "недільні групи"
 
-#: EcclesiaCRM/Search/GroupSearchRes.php:73
-#: EcclesiaCRM/Search/GroupSearchRes.php:185
+#: EcclesiaCRM/Search/GroupSearchRes.php:42
+msgid "group"
+msgstr "група"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:42
+#: v2/templates/people/personview.php:1026
+msgid "groups"
+msgstr "групи"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:94
+#: EcclesiaCRM/Search/GroupSearchRes.php:208
 msgid "Sunday Group"
 msgstr "Недільна група"
 
-#: EcclesiaCRM/Search/GroupSearchRes.php:237
-#: v2/templates/people/familylist.php:93 v2/templates/people/personlist.php:71
-#: v2/templates/people/personview.php:1024
+#: EcclesiaCRM/Search/GroupSearchRes.php:260
+#: v2/templates/people/familylist.php:94 v2/templates/people/personlist.php:71
+#: v2/templates/people/personview.php:1060
 msgid "View"
 msgstr "Вигляд"
 
@@ -2280,19 +2315,19 @@ msgstr "Вигляд"
 msgid "Person Group role assignments"
 msgstr "Особа Групові призначення ролей"
 
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:39
 msgid "Teacher"
 msgstr "Учитель"
 
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:44
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:45
 msgid "Student"
 msgstr "Студент"
 
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:116
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:135
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:144
-#: EcclesiaCRM/Search/PersonSearchRes.php:323 Include/Header-function.php:228
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:152
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:154
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:152
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:151
+#: EcclesiaCRM/Search/PersonSearchRes.php:346 Include/Header-function.php:228
 #: v2/templates/pastoralcare/pastoralcareperson.php:78
 msgid "Print"
 msgstr "Друк"
@@ -2301,23 +2336,23 @@ msgstr "Друк"
 msgid "Group Manager"
 msgstr "Керівник групи"
 
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:47
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:53
 msgid "groupmaster"
 msgstr "групмейстер"
 
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:48
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:54
 msgid "groupmanagers"
 msgstr "менеджери груп"
 
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:48
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:54
 msgid "groupmanager"
 msgstr "керівник групи"
 
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:45
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:52
 msgid "volunteers"
 msgstr "волонтери"
 
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:45
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:52
 msgid "volunteer"
 msgstr "волонтер"
 
@@ -2375,16 +2410,16 @@ msgstr "Ювілей"
 #: v2/templates/group/groupbadge.php:156
 #: v2/templates/pastoralcare/pastoralcarefamily.php:311
 #: v2/templates/pastoralcare/pastoralcarefamily.php:320
-#: v2/templates/pastoralcare/pastoralcareperson.php:451
-#: v2/templates/pastoralcare/pastoralcareperson.php:460
+#: v2/templates/pastoralcare/pastoralcareperson.php:450
+#: v2/templates/pastoralcare/pastoralcareperson.php:459
 #: v2/templates/people/familyCustomFieldEditor.php:410
 #: v2/templates/people/familyview.php:511
 #: v2/templates/people/familyview.php:674
-#: v2/templates/people/familyview.php:991
+#: v2/templates/people/familyview.php:990
 #: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:950
-#: v2/templates/people/personview.php:1054
-#: v2/templates/people/personview.php:1728 v2/templates/plugins/plugins.php:58
+#: v2/templates/people/personview.php:986
+#: v2/templates/people/personview.php:1090
+#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:58
 #: v2/templates/system/optionManager.php:443
 #: v2/templates/system/optionManager.php:445
 msgid "Delete"
@@ -2455,15 +2490,15 @@ msgstr "НІ"
 #: EcclesiaCRM/Service/ConfirmReportService.php:566
 #: EcclesiaCRM/Service/ConfirmReportService.php:759
 #: v2/templates/cart/cartToFamily.php:454
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:240
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:253
 #: v2/templates/pastoralcare/pastoralcarefamily.php:203
-#: v2/templates/pastoralcare/pastoralcareperson.php:283
+#: v2/templates/pastoralcare/pastoralcareperson.php:282
 #: v2/templates/people/familyEditor.php:898
 #: v2/templates/people/familyview.php:184
 #: v2/templates/people/personEditor.php:1558
 #: v2/templates/people/personEditor.php:1562
-#: v2/templates/people/personPrint.php:256
-#: v2/templates/people/personview.php:304 v2/templates/system/csvExport.php:184
+#: v2/templates/people/personPrint.php:268
+#: v2/templates/people/personview.php:340 v2/templates/system/csvExport.php:184
 msgid "Mobile Phone"
 msgstr "Мобільний телефон"
 
@@ -2487,9 +2522,9 @@ msgstr "Гаразд."
 #: v2/templates/fundraiser/donatedItemEditor.php:35
 #: v2/templates/fundraiser/fundRaiserEditor.php:161
 #: v2/templates/people/personEditor.php:955
-#: v2/templates/people/personPrint.php:641
-#: v2/templates/people/personPrint.php:698
-#: v2/templates/people/personPrint.php:756 v2/templates/system/csvExport.php:91
+#: v2/templates/people/personPrint.php:653
+#: v2/templates/people/personPrint.php:710
+#: v2/templates/people/personPrint.php:768 v2/templates/system/csvExport.php:91
 #: v2/templates/system/csvImport.php:178
 msgid "Title"
 msgstr "Назва"
@@ -2557,7 +2592,7 @@ msgstr "Користувацькі поля особи"
 #: ident/templates/verify/verify-family-info.php:48
 #: ident/templates/verify/verify-person-info.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:307
-#: v2/templates/pastoralcare/pastoralcareperson.php:447
+#: v2/templates/pastoralcare/pastoralcareperson.php:446
 msgid "Modify"
 msgstr "Змінити"
 
@@ -2647,8 +2682,8 @@ msgid " of the"
 msgstr " з"
 
 #: EcclesiaCRM/Service/PersonService.php:51
-#: v2/templates/pastoralcare/pastoralcareperson.php:225
-#: v2/templates/people/personview.php:238
+#: v2/templates/pastoralcare/pastoralcareperson.php:224
+#: v2/templates/people/personview.php:274
 msgid "(No assigned family)"
 msgstr "(Без закріпленої сім'ї)"
 
@@ -2672,21 +2707,21 @@ msgstr "Самостійна реєстрація"
 msgid "Self Verification"
 msgstr "Самоперевірка"
 
-#: EcclesiaCRM/Service/TimelineService.php:272
-#: EcclesiaCRM/Service/TimelineService.php:275
-#: v2/templates/people/personPrint.php:651
-#: v2/templates/people/personPrint.php:708
-#: v2/templates/people/personPrint.php:757
-#: v2/templates/people/personPrint.php:762
+#: EcclesiaCRM/Service/TimelineService.php:253
+#: EcclesiaCRM/Service/TimelineService.php:256
+#: v2/templates/people/personPrint.php:663
+#: v2/templates/people/personPrint.php:720
+#: v2/templates/people/personPrint.php:769
+#: v2/templates/people/personPrint.php:774
 msgid "by"
 msgstr "до"
 
-#: EcclesiaCRM/Service/TimelineService.php:336
+#: EcclesiaCRM/Service/TimelineService.php:317
 #: EcclesiaCRM/utils/MiscUtils.php:780 EcclesiaCRM/utils/MiscUtils.php:1038
 msgid "File"
 msgstr "Файл"
 
-#: EcclesiaCRM/Service/TimelineService.php:371
+#: EcclesiaCRM/Service/TimelineService.php:352
 msgid "Shared by"
 msgstr "Поділіться з нами"
 
@@ -2701,30 +2736,30 @@ msgstr "Інше"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:157
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
 #: v2/templates/pastoralcare/pastoralcarefamily.php:391
-#: v2/templates/pastoralcare/pastoralcareperson.php:534
+#: v2/templates/pastoralcare/pastoralcareperson.php:533
 #: v2/templates/people/familyEditor.php:82
 #: v2/templates/people/familyview.php:448
-#: v2/templates/people/personview.php:901
+#: v2/templates/people/personview.php:937
 msgid "Head of Household"
 msgstr "Голова домогосподарства"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:160
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
 #: v2/templates/pastoralcare/pastoralcarefamily.php:392
-#: v2/templates/pastoralcare/pastoralcareperson.php:535
+#: v2/templates/pastoralcare/pastoralcareperson.php:534
 #: v2/templates/people/familyEditor.php:84
 #: v2/templates/people/familyview.php:451
-#: v2/templates/people/personview.php:904
+#: v2/templates/people/personview.php:940
 msgid "Spouse"
 msgstr "Чоловік"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:163
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
 #: v2/templates/pastoralcare/pastoralcarefamily.php:394
-#: v2/templates/pastoralcare/pastoralcareperson.php:537
+#: v2/templates/pastoralcare/pastoralcareperson.php:536
 #: v2/templates/people/familyEditor.php:86
 #: v2/templates/people/familyview.php:454
-#: v2/templates/people/personview.php:907
+#: v2/templates/people/personview.php:943
 msgid "Child"
 msgstr "Дитинко."
 
@@ -2743,7 +2778,7 @@ msgid "Single Persons"
 msgstr "Одинокі особи"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:984
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1046
 #: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:16
 #: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:26
 msgid "Family List"
@@ -2766,93 +2801,94 @@ msgstr "Список осіб"
 msgid "Person Editor"
 msgstr "Редактор персоналій"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:601
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:664
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:640
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:703
+#: v2/templates/people/personPrint.php:6
 msgid "Person Profile"
 msgstr "Профіль особи"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:604
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:643
 msgid "Previous Person"
 msgstr "Попередня особа"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:611
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:650
 #: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
 #: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
 #: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:26
 msgid "Person List"
 msgstr "Список осіб"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:618
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:657
 msgid "Next Person"
 msgstr "Наступна особа"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:974
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1036
 msgid "Family View"
 msgstr "Сімейний вид"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:977
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1039
 msgid "Previous Family"
 msgstr "Попередня сім'я"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:991
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1053
 msgid "Next Family"
 msgstr "Наступна сім'я"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1058
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1124
 msgid "Update Latitude & Longitude"
 msgstr "Оновити широту та довготу"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1212
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1278
 msgid "Family Geographic Utilities"
 msgstr "Сімейні географічні утиліти"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1277
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1343
 #: v2/templates/people/peopledashboard.php:241
 msgid "Letters and mailing labels for data confirmations"
 msgstr "Листи та поштові етикетки для підтвердження даних"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1300
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1366
 #: v2/templates/people/peopledashboard.php:234
 msgid "Pledge Reminder Report"
 msgstr "Звіт про нагадування про внески"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1326
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1392
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:580
 msgid "Printable View"
 msgstr "Перегляд для друку"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1355
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1421
 msgid "Family Editor"
 msgstr "Сімейний редактор"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1377
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1443
 msgid "Custom Person Fields Editor"
 msgstr "Редактор користувацьких полів особи"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1398
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1464
 msgid "Custom Family Fields Editor"
 msgstr "Редактор користувацьких сімейних полів"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1449
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1451
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1515
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1517
 msgid "Canvass Input for the"
 msgstr "Збір даних для опитування для"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1479
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1545
 #: v2/templates/people/canvassAutomation.php:110
 #: v2/templates/system/reportlist.php:46
 msgid "Canvass Automation"
 msgstr "Автоматизація опитувань"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1573
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1639
 msgid "Family Delete Confirmation"
 msgstr "Підтвердження видалення сім'ї"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1575
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1641
 msgid "Person Delete Confirmation"
 msgstr "Підтвердження видалення особи"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1577
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1643
 msgid "Remove Address"
 msgstr "Видалити адресу"
 
@@ -5453,40 +5489,40 @@ msgstr "Анонім"
 msgid "Witness"
 msgstr "Свідок"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:238
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:281
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:411
-#: v2/templates/people/familylist.php:67 v2/templates/people/personlist.php:52
+#: v2/templates/people/familylist.php:68 v2/templates/people/personlist.php:52
 msgid "Created"
 msgstr "Створено"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:243
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:286
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:416
 msgid "Updated"
 msgstr "Оновлено"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:248
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:291
 msgid "Family Data Verified"
 msgstr "Перевірка даних про сім'ю"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:252
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:295
 msgid "Family Data Verified by url"
 msgstr "Дані про сім'ю Перевірено за посиланням"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:256
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:299
 msgid "Family Data Verification reset"
 msgstr "Скидання перевірки даних сім'ї"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:260
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:303
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:433
 msgid "Verification email sent"
 msgstr "Підтвердження надіслано електронною поштою"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:358
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:401
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:618
 msgid "Profile Image Deleted"
 msgstr "Видалено зображення профілю"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:374
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:417
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:645
 msgid "Profile Image uploaded"
 msgstr "Завантажено зображення профілю"
@@ -5497,11 +5533,11 @@ msgstr "Завантажено зображення профілю"
 msgid "Member"
 msgstr "Учасник"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:41
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:63
 msgid "Edit this document"
 msgstr "Відредагуйте цей документ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:50
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:85
 msgid "Delete this document"
 msgstr "Видаліть цей документ"
 
@@ -6096,7 +6132,8 @@ msgstr ""
 "розглянути і відтворити."
 
 #: Include/Header-function.php:90 Include/Header-function.php:152
-#: browser/browse.php:148 v2/templates/deposit/finddepositslip.php:141
+#: Include/Header.php:243 browser/browse.php:148
+#: v2/templates/deposit/finddepositslip.php:141
 #: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
@@ -6190,10 +6227,10 @@ msgstr ""
 #: v2/templates/people/canvassEditor.php:281
 #: v2/templates/people/directoryreport.php:339
 #: v2/templates/people/familyEditor.php:1400
-#: v2/templates/people/familyview.php:990
+#: v2/templates/people/familyview.php:989
 #: v2/templates/people/lettersandlabels.php:297
 #: v2/templates/people/personEditor.php:1916
-#: v2/templates/people/personview.php:1727
+#: v2/templates/people/personview.php:1742
 #: v2/templates/people/reminderreport.php:50
 #: v2/templates/sundayschool/sundayschooldashboard.php:325
 #: v2/templates/user/userseditor.php:878 v2/templates/user/userseditor.php:879
@@ -6241,7 +6278,7 @@ msgstr "ГАРАЗД."
 msgid "Change columns"
 msgstr "Змінити стовпці"
 
-#: Include/Header.php:84 v2/templates/people/familylist.php:164
+#: Include/Header.php:84 v2/templates/people/familylist.php:165
 #: v2/templates/people/lettersandlabels.php:235
 #: v2/templates/people/peoplelist.php:110 queryparameters_qrp.php:9
 msgid "Search"
@@ -6355,7 +6392,7 @@ msgstr "Згенеровано на"
 #: Reports/AdvancedDeposit.php:829 Reports/AdvancedDeposit.php:843
 #: Reports/AdvancedDeposit.php:860
 #: v2/templates/fundraiser/batchWinnerEntry.php:70
-#: v2/templates/people/personview.php:1478
+#: v2/templates/people/personview.php:1510
 msgid "items"
 msgstr "пункти"
 
@@ -6616,13 +6653,13 @@ msgstr ""
 #: v2/templates/gdpr/gdprdatastructure.php:39
 #: v2/templates/group/groupbadge.php:212 v2/templates/group/groupbadge.php:216
 #: v2/templates/group/groupbadge.php:218
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:223
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:236
 #: v2/templates/pastoralcare/pastoralcarefamily.php:113
 #: v2/templates/pastoralcare/pastoralcareperson.php:193
-#: v2/templates/people/familyview.php:957
-#: v2/templates/people/personPrint.php:239
-#: v2/templates/people/personview.php:208
-#: v2/templates/people/personview.php:1696
+#: v2/templates/people/familyview.php:956
+#: v2/templates/people/personPrint.php:251
+#: v2/templates/people/personview.php:245
+#: v2/templates/people/personview.php:1711
 msgid "Informations"
 msgstr "Інформація"
 
@@ -7020,13 +7057,14 @@ msgid "Register"
 msgstr "Зареєструватися"
 
 #: external/templates/registration/family-register-members.php:19
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:402
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:415
 #: v2/templates/pastoralcare/pastoralcarefamily.php:360
-#: v2/templates/pastoralcare/pastoralcareperson.php:501
+#: v2/templates/pastoralcare/pastoralcareperson.php:500
 #: v2/templates/people/familyEditor.php:1143
 #: v2/templates/people/familyview.php:400
-#: v2/templates/people/personPrint.php:421
-#: v2/templates/people/personview.php:94 v2/templates/people/personview.php:876
+#: v2/templates/people/personPrint.php:433
+#: v2/templates/people/personview.php:131
+#: v2/templates/people/personview.php:912
 #: v2/templates/people/selectDelete.php:339
 msgid "Family Members"
 msgstr "Члени сім'ї"
@@ -7330,10 +7368,10 @@ msgid "Or sign in as a different user"
 msgstr "Або увійдіть як інший користувач"
 
 #: sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:293
-#: v2/templates/pastoralcare/pastoralcareperson.php:253
-#: v2/templates/people/personPrint.php:311
-#: v2/templates/people/personview.php:274
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:306
+#: v2/templates/pastoralcare/pastoralcareperson.php:252
+#: v2/templates/people/personPrint.php:323
+#: v2/templates/people/personview.php:310
 #: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/sundayschool/sundayschoolview.php:318
 #: v2/templates/system/csvImport.php:196
@@ -7568,7 +7606,7 @@ msgstr "Усе."
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:157
 #: v2/templates/calendar/calendar.php:207
 #: v2/templates/calendar/calendar.php:243
-#: v2/templates/people/personview.php:1588
+#: v2/templates/people/personview.php:1615
 msgid "Shared"
 msgstr "Спільне"
 
@@ -7723,7 +7761,7 @@ msgstr "Опис"
 #: v2/templates/deposit/depositslipeditor.php:180
 #: v2/templates/deposit/electronicPaymentList.php:152
 #: v2/templates/people/familyEditor.php:1204
-#: v2/templates/people/personview.php:1030
+#: v2/templates/people/personview.php:1066
 msgid "Action"
 msgstr "Дія"
 
@@ -7996,7 +8034,7 @@ msgid "Color"
 msgstr "Колір"
 
 #: v2/templates/calendar/eventtypesedit.php:268
-#: v2/templates/people/familylist.php:76 v2/templates/people/familylist.php:131
+#: v2/templates/people/familylist.php:77 v2/templates/people/familylist.php:132
 #: v2/templates/people/personlist.php:56 v2/templates/people/personlist.php:106
 #: v2/templates/system/optionManager.php:485
 msgid "Remove"
@@ -8278,12 +8316,12 @@ msgstr "Порожній кошик на подію"
 msgid "Map Cart"
 msgstr "Карта Карта"
 
-#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:559
+#: v2/templates/cart/cartview.php:51 v2/templates/people/personview.php:595
 msgid "Get the vCard of the person"
 msgstr "Отримайте візитну картку людини"
 
 #: v2/templates/cart/cartview.php:52 v2/templates/people/familyview.php:333
-#: v2/templates/people/personview.php:562
+#: v2/templates/people/personview.php:598
 msgid "vCard"
 msgstr "vCard"
 
@@ -8301,7 +8339,7 @@ msgstr "Email кошик"
 
 #: v2/templates/cart/cartview.php:66 v2/templates/group/groupview.php:147
 #: v2/templates/people/familyview.php:297
-#: v2/templates/people/personview.php:482
+#: v2/templates/people/personview.php:518
 #: v2/templates/sundayschool/sundayschooldashboard.php:117
 #: v2/templates/sundayschool/sundayschoolview.php:52
 #: v2/templates/volunteer/volunteerview.php:122
@@ -8598,8 +8636,8 @@ msgstr "Дата закінчення:"
 
 #: v2/templates/deposit/electronicPaymentList.php:79
 #: v2/templates/deposit/finddepositslip.php:134
-#: v2/templates/people/familyview.php:981
-#: v2/templates/people/personview.php:1716
+#: v2/templates/people/familyview.php:980
+#: v2/templates/people/personview.php:1731
 msgid "Confirm Delete"
 msgstr "Підтвердити Видалити"
 
@@ -8661,7 +8699,7 @@ msgstr "Рік"
 #: v2/templates/people/familyCustomFieldEditor.php:388
 #: v2/templates/people/familyview.php:428
 #: v2/templates/people/personCustomEditor.php:380
-#: v2/templates/people/personview.php:880
+#: v2/templates/people/personview.php:916
 #: v2/templates/system/optionManager.php:425 v2/templates/user/userlist.php:53
 #: v2/templates/volunteer/volunteerview.php:36
 msgid "Actions"
@@ -9046,10 +9084,10 @@ msgstr "Призначати, починаючи з #."
 
 #: v2/templates/deposit/manageEnvelopes.php:200
 #: v2/templates/group/groupview.php:359 v2/templates/people/familyview.php:732
-#: v2/templates/people/personview.php:1242
-#: v2/templates/people/personview.php:1244
-#: v2/templates/people/personview.php:1317
-#: v2/templates/people/personview.php:1319
+#: v2/templates/people/personview.php:1274
+#: v2/templates/people/personview.php:1276
+#: v2/templates/people/personview.php:1349
+#: v2/templates/people/personview.php:1351
 msgid "Assign"
 msgstr "Призначити"
 
@@ -10137,14 +10175,14 @@ msgid "Map this group"
 msgstr "Позначте цю групу на карті"
 
 #: v2/templates/group/groupview.php:42 v2/templates/people/familyview.php:274
-#: v2/templates/people/personview.php:458
+#: v2/templates/people/personview.php:494
 msgid "Remove from Cart"
 msgstr "Видалити з кошика"
 
 #: v2/templates/group/groupview.php:46 v2/templates/people/familyview.php:281
 #: v2/templates/people/familyview.php:493
-#: v2/templates/people/personview.php:468
-#: v2/templates/people/personview.php:937 v2/templates/query/queryview.php:172
+#: v2/templates/people/personview.php:504
+#: v2/templates/people/personview.php:973 v2/templates/query/queryview.php:172
 #: v2/templates/volunteer/volunteerview.php:44
 msgid "Add to Cart"
 msgstr "Додати в кошик"
@@ -10261,16 +10299,16 @@ msgid "Add Manager"
 msgstr "Додати менеджера"
 
 #: v2/templates/group/groupview.php:322 v2/templates/group/groupview.php:384
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:551
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:564
 #: v2/templates/people/familyview.php:550
-#: v2/templates/people/personPrint.php:568
-#: v2/templates/people/personview.php:699
-#: v2/templates/people/personview.php:1189
+#: v2/templates/people/personPrint.php:580
+#: v2/templates/people/personview.php:735
+#: v2/templates/people/personview.php:1221
 msgid "Assigned Properties"
 msgstr "Призначені властивості"
 
 #: v2/templates/group/groupview.php:335 v2/templates/people/familyview.php:703
-#: v2/templates/people/personview.php:1213
+#: v2/templates/people/personview.php:1245
 msgid "Assign a New Property"
 msgstr "Призначити новий об'єкт нерухомості"
 
@@ -10280,15 +10318,15 @@ msgstr ""
 "Виберіть властивість, заповніть значення, якщо потрібно, а потім призначте."
 
 #: v2/templates/group/groupview.php:340
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:513
-#: v2/templates/people/personPrint.php:530
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:526
+#: v2/templates/people/personPrint.php:542
 #: v2/templates/sidebar/propertylist.php:25
 #: v2/templates/user/usersettings.php:333 queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Власність"
 
 #: v2/templates/group/groupview.php:342 v2/templates/people/familyview.php:713
-#: v2/templates/people/personview.php:1221 v2/templates/query/queryview.php:422
+#: v2/templates/people/personview.php:1253 v2/templates/query/queryview.php:422
 #: v2/templates/query/queryview.php:439
 msgid "select an option"
 msgstr "виберіть опцію"
@@ -10416,7 +10454,7 @@ msgstr "Створіть зустріч"
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:54
 #: v2/templates/pastoralcare/pastoralcarefamily.php:352
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:75
-#: v2/templates/pastoralcare/pastoralcareperson.php:492
+#: v2/templates/pastoralcare/pastoralcareperson.php:491
 msgid "Members List"
 msgstr "Список учасників"
 
@@ -10432,53 +10470,57 @@ msgstr "Всі особи"
 msgid "Only visited/called persons"
 msgstr "Тільки відвідані/викликані особи"
 
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:347
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:10
+msgid "Accompagnement, écoute<br>et bienveillance"
+msgstr "Супровід, навчання та спостереження"
+
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:360
 #: v2/templates/people/personEditor.php:1630
-#: v2/templates/people/personPrint.php:366
+#: v2/templates/people/personPrint.php:378
 #: v2/templates/system/csvImport.php:195
 msgid "Work / Other Email"
 msgstr "Робоча / інша електронна пошта"
 
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:352
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:365
 #: v2/templates/pastoralcare/pastoralcareperson.php:136
 #: v2/templates/people/personEditor.php:1753
-#: v2/templates/people/personPrint.php:371
-#: v2/templates/people/personview.php:140 v2/templates/system/csvExport.php:205
+#: v2/templates/people/personPrint.php:383
+#: v2/templates/people/personview.php:177 v2/templates/system/csvExport.php:205
 #: v2/templates/system/csvExport.php:464 v2/templates/system/csvImport.php:197
 msgid "Membership Date"
 msgstr "Дата набуття членства"
 
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:455
-#: v2/templates/people/personPrint.php:472
-#: v2/templates/people/personview.php:683
-#: v2/templates/people/personview.php:987
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:468
+#: v2/templates/people/personPrint.php:484
+#: v2/templates/people/personview.php:719
+#: v2/templates/people/personview.php:1023
 msgid "Assigned Groups"
 msgstr "Призначені групи"
 
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:467
-#: v2/templates/people/personPrint.php:484
-#: v2/templates/people/personview.php:980
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:480
+#: v2/templates/people/personPrint.php:496
+#: v2/templates/people/personview.php:1016
 msgid "No group assignments."
 msgstr "Ніяких групових завдань."
 
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:514
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:569
-#: v2/templates/people/personPrint.php:531
-#: v2/templates/people/personPrint.php:587
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:527
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:582
+#: v2/templates/people/personPrint.php:543
+#: v2/templates/people/personPrint.php:599
 #: v2/templates/sidebar/systemsettings.php:284
 msgid "Value"
 msgstr "Значення"
 
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:562
-#: v2/templates/people/personPrint.php:580
-#: v2/templates/people/personview.php:1197
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:575
+#: v2/templates/people/personPrint.php:592
+#: v2/templates/people/personview.php:1229
 msgid "No property assignments."
 msgstr "Ніяких майнових перерозподілів."
 
-#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:615
-#: v2/templates/people/personPrint.php:646
-#: v2/templates/people/personPrint.php:703
-#: v2/templates/people/personPrint.php:759
+#: v2/templates/pastoralcare/pastoralcarePersonPrint.php:628
+#: v2/templates/people/personPrint.php:658
+#: v2/templates/people/personPrint.php:715
+#: v2/templates/people/personPrint.php:771
 msgid "Entered:"
 msgstr "Заходьте:"
 
@@ -10684,16 +10726,16 @@ msgid "Latitude/Longitude"
 msgstr "Широта/довгота"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:205
-#: v2/templates/pastoralcare/pastoralcareperson.php:286
+#: v2/templates/pastoralcare/pastoralcareperson.php:285
 #: v2/templates/people/familyview.php:186
-#: v2/templates/people/personview.php:307
+#: v2/templates/people/personview.php:343
 msgid "Text Message"
 msgstr "СМС-повідомлення"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:207
-#: v2/templates/pastoralcare/pastoralcareperson.php:288
+#: v2/templates/pastoralcare/pastoralcareperson.php:287
 #: v2/templates/people/familyview.php:188
-#: v2/templates/people/personview.php:309
+#: v2/templates/people/personview.php:345
 msgid "CRM text message"
 msgstr "SMS-повідомлення CRM"
 
@@ -10708,44 +10750,44 @@ msgid "Undefined"
 msgstr "Не визначено"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:140
-#: v2/templates/pastoralcare/pastoralcareperson.php:270
+#: v2/templates/pastoralcare/pastoralcareperson.php:269
 #: v2/templates/people/personEditor.php:1779
-#: v2/templates/people/personview.php:144
-#: v2/templates/people/personview.php:291
+#: v2/templates/people/personview.php:181
+#: v2/templates/people/personview.php:327
 msgid "Friend Date"
 msgstr "Дружнє побачення"
 
-#: v2/templates/pastoralcare/pastoralcareperson.php:216
-#: v2/templates/people/personview.php:222
+#: v2/templates/pastoralcare/pastoralcareperson.php:215
+#: v2/templates/people/personview.php:258
 msgid "Family:"
 msgstr "Сім'я:"
 
-#: v2/templates/pastoralcare/pastoralcareperson.php:345
-#: v2/templates/pastoralcare/pastoralcareperson.php:347
+#: v2/templates/pastoralcare/pastoralcareperson.php:344
+#: v2/templates/pastoralcare/pastoralcareperson.php:346
 #: v2/templates/people/personEditor.php:1654
 #: v2/templates/people/personEditor.php:1658
-#: v2/templates/people/personview.php:366
-#: v2/templates/people/personview.php:368
+#: v2/templates/people/personview.php:402
+#: v2/templates/people/personview.php:404
 msgid "Facebook"
 msgstr "Facebook"
 
+#: v2/templates/pastoralcare/pastoralcareperson.php:353
 #: v2/templates/pastoralcare/pastoralcareperson.php:354
-#: v2/templates/pastoralcare/pastoralcareperson.php:355
 #: v2/templates/people/personEditor.php:1680
-#: v2/templates/people/personview.php:375
-#: v2/templates/people/personview.php:376
+#: v2/templates/people/personview.php:411
+#: v2/templates/people/personview.php:412
 msgid "Twitter"
 msgstr "Twitter"
 
+#: v2/templates/pastoralcare/pastoralcareperson.php:361
 #: v2/templates/pastoralcare/pastoralcareperson.php:362
-#: v2/templates/pastoralcare/pastoralcareperson.php:363
 #: v2/templates/people/personEditor.php:1698
-#: v2/templates/people/personview.php:383
-#: v2/templates/people/personview.php:384
+#: v2/templates/people/personview.php:419
+#: v2/templates/people/personview.php:420
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: v2/templates/pastoralcare/pastoralcareperson.php:486
+#: v2/templates/pastoralcare/pastoralcareperson.php:485
 #: v2/templates/people/selectDelete.php:172
 msgid "Return to Person View"
 msgstr "Повернутися до перегляду особи"
@@ -11524,11 +11566,11 @@ msgstr "Детальна інформація про роль особи в ан
 msgid "Save and Add Person To Family"
 msgstr "Зберегти та додати особу до родини"
 
-#: v2/templates/people/familylist.php:23
+#: v2/templates/people/familylist.php:24
 msgid "Add Family"
 msgstr "Додати родину"
 
-#: v2/templates/people/familylist.php:34
+#: v2/templates/people/familylist.php:35
 msgid ""
 "WARNING: Some families may have some records of donations and may NOT be "
 "deleted until these donations are associated with another person or Family."
@@ -11536,37 +11578,37 @@ msgstr ""
 "УВАГА: Деякі сім'ї можуть мати записи про пожертви, які НЕ можуть бути "
 "видалені, поки ці пожертви не будуть пов'язані з іншою особою або Сім'єю."
 
-#: v2/templates/people/familylist.php:35 v2/templates/people/personlist.php:32
+#: v2/templates/people/familylist.php:36 v2/templates/people/personlist.php:32
 #: v2/templates/people/selectDelete.php:201
 msgid "WARNING: This action can not be undone and may have legal implications!"
 msgstr "УВАГА: Ця дія не може бути скасована і може мати юридичні наслідки!"
 
-#: v2/templates/people/familylist.php:48
+#: v2/templates/people/familylist.php:49
 msgid "Browse households and family records from a single list."
 msgstr "Переглядайте домогосподарства та сімейні записи з одного списку."
 
-#: v2/templates/people/familylist.php:51
+#: v2/templates/people/familylist.php:52
 msgid "Browse, edit and manage family records from one place."
 msgstr "Переглядайте, редагуйте та керуйте сімейними записами з одного місця."
 
-#: v2/templates/people/familylist.php:54
-#: v2/templates/people/personview.php:1342
+#: v2/templates/people/familylist.php:55
+#: v2/templates/people/personview.php:1374
 msgid "records"
 msgstr "записи"
 
-#: v2/templates/people/familylist.php:66 v2/templates/people/personlist.php:51
+#: v2/templates/people/familylist.php:67 v2/templates/people/personlist.php:51
 msgid "email"
 msgstr "електронна пошта"
 
-#: v2/templates/people/familylist.php:68 v2/templates/people/personlist.php:53
+#: v2/templates/people/familylist.php:69 v2/templates/people/personlist.php:53
 msgid "Edited"
 msgstr "Відредаговано"
 
-#: v2/templates/people/familylist.php:71 v2/templates/people/personlist.php:55
+#: v2/templates/people/familylist.php:72 v2/templates/people/personlist.php:55
 msgid "Deactivation date"
 msgstr "Дата деактивації"
 
-#: v2/templates/people/familylist.php:144
+#: v2/templates/people/familylist.php:145
 #: v2/templates/people/personlist.php:120
 msgid "Remove All"
 msgstr "Видалити все"
@@ -11575,15 +11617,15 @@ msgstr "Видалити все"
 msgid " This Family is Deactivated"
 msgstr " Ця сім'я деактивована"
 
-#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:58
+#: v2/templates/people/familyview.php:68 v2/templates/people/personview.php:95
 msgid "View Photo"
 msgstr "Переглянути фото"
 
-#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:62
+#: v2/templates/people/familyview.php:72 v2/templates/people/personview.php:99
 msgid "Upload Photo"
 msgstr "Завантажити фото"
 
-#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:66
+#: v2/templates/people/familyview.php:76 v2/templates/people/personview.php:103
 msgid "Delete Photo"
 msgstr "Видалити фотографію"
 
@@ -11592,7 +11634,7 @@ msgid "Emails"
 msgstr "Електронні листи"
 
 #: v2/templates/people/familyview.php:251
-#: v2/templates/people/personview.php:435
+#: v2/templates/people/personview.php:471
 msgid "Overview"
 msgstr "Огляд"
 
@@ -11601,12 +11643,12 @@ msgid "Reachable by email"
 msgstr "Зв'язатися по електронній пошті"
 
 #: v2/templates/people/familyview.php:256
-#: v2/templates/people/personview.php:441
+#: v2/templates/people/personview.php:477
 msgid "Private access granted"
 msgstr "Приватний доступ надано"
 
 #: v2/templates/people/familyview.php:256
-#: v2/templates/people/personview.php:441
+#: v2/templates/people/personview.php:477
 msgid "Private access restricted"
 msgstr "Приватний доступ обмежений"
 
@@ -11625,14 +11667,14 @@ msgstr ""
 "дані."
 
 #: v2/templates/people/familyview.php:313
-#: v2/templates/people/personview.php:514
+#: v2/templates/people/personview.php:550
 msgid "Verify Info"
 msgstr "Підтвердити інформацію"
 
 #: v2/templates/people/familyview.php:321
 #: v2/templates/people/familyview.php:322
-#: v2/templates/people/personview.php:537
-#: v2/templates/people/personview.php:538
+#: v2/templates/people/personview.php:573
+#: v2/templates/people/personview.php:574
 msgid "Create a document"
 msgstr "Створіть документ"
 
@@ -11641,13 +11683,13 @@ msgid "Get the vCard of the family"
 msgstr "Отримайте візитну картку сім'ї"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:57
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:57
 #: v2/templates/plugins/plugins.php:113
 msgid "Deactivate"
 msgstr "Деактивувати"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:595 v2/templates/plugins/plugins.php:56
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:56
 #: v2/templates/plugins/plugins.php:113
 msgid "Activate"
 msgstr "Активувати"
@@ -11706,26 +11748,26 @@ msgid "N/A"
 msgstr "Н/Д"
 
 #: v2/templates/people/familyview.php:544
-#: v2/templates/people/personview.php:652
+#: v2/templates/people/personview.php:688
 msgid "Timeline"
 msgstr "Хронологія"
 
 #: v2/templates/people/familyview.php:559
-#: v2/templates/people/personview.php:731
-#: v2/templates/people/personview.php:1339
+#: v2/templates/people/personview.php:767
+#: v2/templates/people/personview.php:1371
 msgid "Automatic Payments"
 msgstr "Автоматичні платежі"
 
 #: v2/templates/people/familyview.php:565
-#: v2/templates/people/personview.php:738
-#: v2/templates/people/personview.php:1383
+#: v2/templates/people/personview.php:774
+#: v2/templates/people/personview.php:1415
 msgid "Pledges and Payments"
 msgstr "Внески та платежі"
 
 #: v2/templates/people/familyview.php:710
-#: v2/templates/people/personview.php:1219
-#: v2/templates/people/personview.php:1299
-#: v2/templates/people/personview.php:1484
+#: v2/templates/people/personview.php:1251
+#: v2/templates/people/personview.php:1331
+#: v2/templates/people/personview.php:1516
 msgid "Select"
 msgstr "Виберіть"
 
@@ -11734,66 +11776,66 @@ msgid "No automatic payments configured yet."
 msgstr "Автоматичні платежі ще не налаштовані."
 
 #: v2/templates/people/familyview.php:766
-#: v2/templates/people/personview.php:1364
+#: v2/templates/people/personview.php:1396
 msgid "Add a new automatic payment"
 msgstr "Додати новий автоматичний платіж"
 
 #: v2/templates/people/familyview.php:775
-#: v2/templates/people/personview.php:1399
+#: v2/templates/people/personview.php:1431
 msgid "Show Pledges"
 msgstr "Показати обіцянки"
 
 #: v2/templates/people/familyview.php:779
-#: v2/templates/people/personview.php:1406
+#: v2/templates/people/personview.php:1438
 msgid "Show Payments"
 msgstr "Показати платежі"
 
 #: v2/templates/people/familyview.php:782
-#: v2/templates/people/personview.php:1410
+#: v2/templates/people/personview.php:1442
 msgid "From"
 msgstr "Від"
 
 #: v2/templates/people/familyview.php:791
-#: v2/templates/people/personview.php:1419
+#: v2/templates/people/personview.php:1451
 msgid "To"
 msgstr "До"
 
 #: v2/templates/people/familyview.php:814
-#: v2/templates/people/personview.php:1436
+#: v2/templates/people/personview.php:1468
 msgid "Add a new pledge"
 msgstr "Додати нову обіцянку"
 
 #: v2/templates/people/familyview.php:816
-#: v2/templates/people/personview.php:1438
+#: v2/templates/people/personview.php:1470
 msgid "Add a new payment"
 msgstr "Додати новий платіж"
 
 #: v2/templates/people/familyview.php:824
-#: v2/templates/people/personview.php:1456
+#: v2/templates/people/personview.php:1488
 msgid " Canvass Entry"
 msgstr " Участь в опитуванні"
 
-#: v2/templates/people/familyview.php:986
-#: v2/templates/people/personview.php:1721
+#: v2/templates/people/familyview.php:985
+#: v2/templates/people/personview.php:1736
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "Ви збираєтеся видалити фотографію профілю, ця процедура є незворотною."
 
-#: v2/templates/people/familyview.php:987
-#: v2/templates/people/personview.php:1723
+#: v2/templates/people/familyview.php:986
+#: v2/templates/people/personview.php:1738
 msgid "Do you want to proceed?"
 msgstr "Хочете продовжити?"
 
-#: v2/templates/people/familyview.php:1002
-#: v2/templates/people/personview.php:1741
+#: v2/templates/people/familyview.php:1001
+#: v2/templates/people/personview.php:1756
 msgid "Request Family Info Verification"
 msgstr "Запит на перевірку інформації про сім'ю"
 
-#: v2/templates/people/familyview.php:1007
+#: v2/templates/people/familyview.php:1006
 msgid "Select how do you want to request the family information to be verified"
 msgstr "Виберіть, як ви хочете запросити перевірку інформації про сім'ю"
 
-#: v2/templates/people/familyview.php:1012
+#: v2/templates/people/familyview.php:1011
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -11801,20 +11843,20 @@ msgstr ""
 "Ви збираєтеся надіслати копію інформації про сім'ю у форматі pdf на наступні "
 "адреси електронної пошти"
 
-#: v2/templates/people/familyview.php:1034
-#: v2/templates/people/familyview.php:1038
-#: v2/templates/people/personview.php:1755
-#: v2/templates/people/personview.php:1759
+#: v2/templates/people/familyview.php:1033
+#: v2/templates/people/familyview.php:1037
+#: v2/templates/people/personview.php:1770
+#: v2/templates/people/personview.php:1774
 msgid "Online Verification"
 msgstr "Онлайн-верифікація"
 
-#: v2/templates/people/familyview.php:1045
-#: v2/templates/people/personview.php:1766
+#: v2/templates/people/familyview.php:1044
+#: v2/templates/people/personview.php:1781
 msgid "PDF Report"
 msgstr "PDF Звіт"
 
-#: v2/templates/people/familyview.php:1049
-#: v2/templates/people/personview.php:1770
+#: v2/templates/people/familyview.php:1048
+#: v2/templates/people/personview.php:1785
 msgid "Verified In Person"
 msgstr "Перевірено особисто"
 
@@ -12332,7 +12374,7 @@ msgid "Red text"
 msgstr "Червоний текст"
 
 #: v2/templates/people/personEditor.php:919
-#: v2/templates/people/personview.php:426
+#: v2/templates/people/personview.php:462
 msgid "indicates items inherited from the associated family record."
 msgstr "вказує на елементи, успадковані з відповідного сімейного запису."
 
@@ -12502,17 +12544,21 @@ msgstr ""
 "Перед збереженням перегляньте наведену вище інформацію. Ви можете "
 "повернутися пізніше, щоб заповнити відсутні деталі."
 
-#: v2/templates/people/personPrint.php:651
-#: v2/templates/people/personPrint.php:708
-#: v2/templates/people/personPrint.php:762
+#: v2/templates/people/personPrint.php:9
+msgid "Your community,<br>your story in all simplicity"
+msgstr "Ваша спільнота, ваша історія у всій її простоті"
+
+#: v2/templates/people/personPrint.php:663
+#: v2/templates/people/personPrint.php:720
+#: v2/templates/people/personPrint.php:774
 msgid "Last Edited"
 msgstr "Останнє редагування"
 
-#: v2/templates/people/personPrint.php:670
+#: v2/templates/people/personPrint.php:682
 msgid "Files & folders"
 msgstr "Файли та папки"
 
-#: v2/templates/people/personPrint.php:725
+#: v2/templates/people/personPrint.php:737
 msgid "Account modifications"
 msgstr "Зміни облікового запису"
 
@@ -12529,22 +12575,22 @@ msgstr ""
 msgid "Person Directory"
 msgstr "Довідник осіб"
 
-#: v2/templates/people/personview.php:37
+#: v2/templates/people/personview.php:74
 msgid "This Person is Deactivated"
 msgstr "Ця особа деактивована"
 
-#: v2/templates/people/personview.php:155
-#: v2/templates/people/personview.php:1192
-#: v2/templates/people/personview.php:1263
+#: v2/templates/people/personview.php:192
+#: v2/templates/people/personview.php:1224
+#: v2/templates/people/personview.php:1295
 #, fuzzy
 msgid "assigned"
 msgstr "Не призначено"
 
-#: v2/templates/people/personview.php:185
+#: v2/templates/people/personview.php:222
 msgid "No group assignments yet."
 msgstr "Ще немає групових завдань."
 
-#: v2/templates/people/personview.php:444
+#: v2/templates/people/personview.php:480
 msgid ""
 "Use the quick actions to manage this profile, documents and assignments from "
 "one place."
@@ -12552,108 +12598,108 @@ msgstr ""
 "Використовуйте швидкі дії, щоб керувати цим профілем, документами та "
 "завданнями з одного місця."
 
-#: v2/templates/people/personview.php:444
+#: v2/templates/people/personview.php:480
 msgid "Some sections remain hidden because this profile contains private data."
 msgstr ""
 "Деякі розділи залишаються прихованими, оскільки цей профіль містить приватні "
 "дані."
 
-#: v2/templates/people/personview.php:504
+#: v2/templates/people/personview.php:540
 msgid "Printable Page"
 msgstr "Сторінка для друку"
 
-#: v2/templates/people/personview.php:525
+#: v2/templates/people/personview.php:561
 msgid "Add a pastoral care note"
 msgstr "Додайте записку про душпастирську опіку"
 
-#: v2/templates/people/personview.php:547
+#: v2/templates/people/personview.php:583
 msgid "Assign this user to a group"
 msgstr "Призначити цього користувача до групи"
 
-#: v2/templates/people/personview.php:549
+#: v2/templates/people/personview.php:585
 msgid "Assign New Group"
 msgstr "Призначити нову групу"
 
-#: v2/templates/people/personview.php:574
+#: v2/templates/people/personview.php:610
 msgid "Create a CRM user"
 msgstr "Створіть користувача CRM"
 
-#: v2/templates/people/personview.php:575
+#: v2/templates/people/personview.php:611
 msgid "Make User"
 msgstr "Створити користувача"
 
-#: v2/templates/people/personview.php:583
+#: v2/templates/people/personview.php:619
 msgid "Add rights to this user"
 msgstr "Додайте права цьому користувачеві"
 
-#: v2/templates/people/personview.php:584
+#: v2/templates/people/personview.php:620
 msgid "Edit User"
 msgstr "Редагувати користувача"
 
-#: v2/templates/people/personview.php:595
+#: v2/templates/people/personview.php:631
 msgid " this Person"
 msgstr " ця Людина"
 
-#: v2/templates/people/personview.php:610
-#: v2/templates/people/personview.php:619
+#: v2/templates/people/personview.php:646
+#: v2/templates/people/personview.php:655
 msgid "Delete this Record"
 msgstr "Видалити цей запис"
 
-#: v2/templates/people/personview.php:845
+#: v2/templates/people/personview.php:881
 msgid "click to download"
 msgstr "натисніть, щоб завантажити"
 
-#: v2/templates/people/personview.php:867
+#: v2/templates/people/personview.php:903
 msgid "Family Circle"
 msgstr "Родинне коло"
 
-#: v2/templates/people/personview.php:868
+#: v2/templates/people/personview.php:904
 msgid ""
 "See the rest of the household, their role and the fastest actions available."
 msgstr ""
 "Дізнайтеся про інших членів домогосподарства, їхню роль та найшвидші "
 "доступні дії."
 
-#: v2/templates/people/personview.php:870
+#: v2/templates/people/personview.php:906
 msgid "other members"
 msgstr "інші учасники"
 
-#: v2/templates/people/personview.php:988
+#: v2/templates/people/personview.php:1024
 msgid ""
 "Manage memberships, group-specific information and role changes from this "
 "section."
 msgstr ""
 "Керуйте членством, інформацією про групу та змінами ролей у цьому розділі."
 
-#: v2/templates/people/personview.php:1021
+#: v2/templates/people/personview.php:1057
 msgid "Group actions"
 msgstr "Групові дії"
 
-#: v2/templates/people/personview.php:1036
+#: v2/templates/people/personview.php:1072
 msgid "Change Role"
 msgstr "Змінити роль"
 
-#: v2/templates/people/personview.php:1043
+#: v2/templates/people/personview.php:1079
 msgid "Update Properties"
 msgstr "Оновлення властивостей"
 
-#: v2/templates/people/personview.php:1075
+#: v2/templates/people/personview.php:1111
 msgid "Group Informations"
 msgstr "Інформація про групу"
 
-#: v2/templates/people/personview.php:1117
+#: v2/templates/people/personview.php:1149
 msgid "Person Informations"
 msgstr "Інформація про особу"
 
-#: v2/templates/people/personview.php:1141
+#: v2/templates/people/personview.php:1173
 msgid "Modify Specific Properties"
 msgstr "Змінити певні властивості"
 
-#: v2/templates/people/personview.php:1152
+#: v2/templates/people/personview.php:1184
 msgid "No specific group properties defined !"
 msgstr "Специфічні властивості групи не визначені!"
 
-#: v2/templates/people/personview.php:1190
+#: v2/templates/people/personview.php:1222
 msgid ""
 "Track the specific attributes already linked to this person and add new ones "
 "when needed."
@@ -12661,12 +12707,12 @@ msgstr ""
 "Відстежуйте конкретні атрибути, які вже пов'язані з цією особою, і додавайте "
 "нові за потреби."
 
-#: v2/templates/people/personview.php:1243
-#: v2/templates/people/personview.php:1318
+#: v2/templates/people/personview.php:1275
+#: v2/templates/people/personview.php:1350
 msgid "Assigning..."
 msgstr "Присвоєння..."
 
-#: v2/templates/people/personview.php:1261
+#: v2/templates/people/personview.php:1293
 msgid ""
 "Keep volunteer assignments visible and assign new opportunities from the "
 "same place."
@@ -12674,31 +12720,31 @@ msgstr ""
 "Тримайте завдання волонтерів на видноті і призначайте нові можливості з того "
 "ж місця."
 
-#: v2/templates/people/personview.php:1277
+#: v2/templates/people/personview.php:1309
 msgid "No volunteer opportunity assignments."
 msgstr "Ніяких волонтерських завдань."
 
-#: v2/templates/people/personview.php:1292
+#: v2/templates/people/personview.php:1324
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Призначити нову можливість для волонтера"
 
-#: v2/templates/people/personview.php:1340
+#: v2/templates/people/personview.php:1372
 msgid ""
 "Review recurring contributions and add a new payment setup when appropriate."
 msgstr ""
 "Перегляньте періодичні внески та додайте нові налаштування платежів, якщо це "
 "необхідно."
 
-#: v2/templates/people/personview.php:1357
+#: v2/templates/people/personview.php:1389
 msgid "No automatic payments recorded for this person yet."
 msgstr "Автоматичні платежі для цієї людини ще не зафіксовані."
 
-#: v2/templates/people/personview.php:1370
-#: v2/templates/people/personview.php:1444
+#: v2/templates/people/personview.php:1402
+#: v2/templates/people/personview.php:1476
 msgid "You must set an address for this person"
 msgstr "Ви повинні вказати адресу цієї особи"
 
-#: v2/templates/people/personview.php:1384
+#: v2/templates/people/personview.php:1416
 msgid ""
 "Filter contributions by period and add a new pledge or payment directly from "
 "this tab."
@@ -12706,43 +12752,43 @@ msgstr ""
 "Відфільтруйте внески за періодами і додайте новий внесок або платіж "
 "безпосередньо з цієї вкладки."
 
-#: v2/templates/people/personview.php:1476
+#: v2/templates/people/personview.php:1508
 msgid "Timeline Documents"
 msgstr "Документи про хронологію подій"
 
-#: v2/templates/people/personview.php:1480
+#: v2/templates/people/personview.php:1512
 msgid "Filter notes, audio, video and shared documents from a single stream."
 msgstr "Фільтруйте нотатки, аудіо, відео та спільні документи з одного потоку."
 
-#: v2/templates/people/personview.php:1485
+#: v2/templates/people/personview.php:1517
 msgid "Filter your documents by : "
 msgstr "Відфільтруйте документи за :"
 
-#: v2/templates/people/personview.php:1486
+#: v2/templates/people/personview.php:1518
 msgid "All type"
 msgstr "Всі типи"
 
-#: v2/templates/people/personview.php:1491
+#: v2/templates/people/personview.php:1523
 msgid "Shared documents"
 msgstr "Спільні документи"
 
-#: v2/templates/people/personview.php:1499
+#: v2/templates/people/personview.php:1531
 msgid "No documents or notes available yet."
 msgstr "Наразі немає жодних документів чи нотаток."
 
-#: v2/templates/people/personview.php:1556
+#: v2/templates/people/personview.php:1583
 msgid "Share this document to another user"
 msgstr "Поділіться цим документом з іншим користувачем"
 
-#: v2/templates/people/personview.php:1565
+#: v2/templates/people/personview.php:1592
 msgid "Export this document to word Format"
 msgstr "Експортуйте цей документ у формат Word"
 
-#: v2/templates/people/personview.php:1621
+#: v2/templates/people/personview.php:1648
 msgid "Last modification by"
 msgstr "Останнє редагування від"
 
-#: v2/templates/people/personview.php:1746
+#: v2/templates/people/personview.php:1761
 msgid "Select how do you want to request the person information to be verified"
 msgstr "Виберіть спосіб запиту інформації про особу для перевірки"
 
@@ -16264,9 +16310,6 @@ msgstr "Надання звіту"
 
 #~ msgid "Debug"
 #~ msgstr "Налагодження"
-
-#~ msgid "Upload a file in EDrive"
-#~ msgstr "Завантажте файл в EDrive"
 
 #~ msgid "All Files"
 #~ msgstr "Всі файли"

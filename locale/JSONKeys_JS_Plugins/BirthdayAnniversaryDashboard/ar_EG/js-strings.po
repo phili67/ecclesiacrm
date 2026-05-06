@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:20:00.003Z\n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "سجّل هذه المتابعة الرعوية لجميع أفراد الأسرة"
+
+msgid "Pastoral follow-up recorded"
+msgstr "المتابعة الرعوية المسجلة"
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "غير قادر على تسجيل المتابعة الرعوية"
+
+msgid "Confirm Deactivation"
+msgstr "تأكيد التعطيل"
+
+msgid "Confirm Activation"
+msgstr "تأكيد التفعيل"
+
+msgid "You are about to deactivate this person:"
+msgstr "أنت على وشك إلغاء تنشيط هذا الشخص:"
+
+msgid "You are about to deactivate this family:"
+msgstr "أنت على وشك إلغاء تنشيط هذه العائلة:"
+
+msgid "You are about to reactivate this person:"
+msgstr "أنت على وشك إعادة تنشيط هذا الشخص:"
+
+msgid "You are about to reactivate this family:"
+msgstr "أنت على وشك إعادة تنشيط هذه العائلة:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"لأسباب تتعلق باللائحة العامة لحماية البيانات، تأكد من حصولك على موافقة الشخص "
+"قبل إعادة تنشيط سجله."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"لأسباب تتعلق باللائحة العامة لحماية البيانات، تأكد من حصولك على موافقة أفراد "
+"العائلة قبل إعادة تنشيط سجلهم."
+
+msgid "Privacy reminder"
+msgstr "تذكير بالخصوصية"
+
+msgid "Also deactivate the whole family"
+msgstr "قم أيضًا بإلغاء تنشيط العائلة بأكملها"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"استخدم هذا إذا كان يجب وضع علامة على الأسرة بأكملها على أنها غير نشطة في نفس "
+"الوقت."
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Confirm deactivation"
+msgstr "تأكيد التعطيل"
+
+msgid "Confirm activation"
+msgstr "تأكيد التفعيل"
+
+msgid "Unable to update this person status."
+msgstr "غير قادر على تحديث حالة هذا الشخص."
+
+msgid "Unable to update this family status."
+msgstr "غير قادر على تحديث حالة هذه العائلة."
+
+msgid "Pastoral Care Note Creation"
+msgstr "إنشاء مذكرة الرعاية الرعوية"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Save"
+msgstr "الحفظ"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "تعذر تحميل محرر المتابعة الرعوية."

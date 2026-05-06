@@ -1,1 +1,26 @@
-{}
+{
+    "Record this pastoral follow-up for the whole family": "Zapisz tę duszpasterską obserwację dla całej rodziny",
+    "Pastoral follow-up recorded": "Rejestrowane duszpasterskie działania następcze",
+    "Error": "Błąd",
+    "Unable to record pastoral follow-up.": "Brak możliwości zarejestrowania obserwacji duszpasterskiej.",
+    "Confirm Deactivation": "Potwierdź dezaktywację",
+    "Confirm Activation": "Potwierdź aktywację",
+    "You are about to deactivate this person:": "Zamierzasz dezaktywować tę osobę:",
+    "You are about to deactivate this family:": "Zamierzasz dezaktywować tę rodzinę:",
+    "You are about to reactivate this person:": "Zamierzasz reaktywować tę osobę:",
+    "You are about to reactivate this family:": "Zamierzasz reaktywować tę rodzinę:",
+    "For GDPR reasons, make sure you have the person's agreement before reactivating their record.": "Ze względu na RODO, przed ponowną aktywacją rekordu należy upewnić się, że dana osoba wyraziła na to zgodę.",
+    "For GDPR reasons, make sure you have the agreement of the family members before reactivating their record.": "Ze względu na RODO, przed ponowną aktywacją rekordu upewnij się, że masz zgodę członków rodziny.",
+    "Privacy reminder": "Przypomnienie o ochronie prywatności",
+    "Also deactivate the whole family": "Dezaktywuj również całą rodzinę",
+    "Use this if the entire household should be marked as inactive at the same time.": "Użyj tej opcji, jeśli całe gospodarstwo domowe powinno zostać oznaczone jako nieaktywne w tym samym czasie.",
+    "Cancel": "Anuluj",
+    "Confirm deactivation": "Potwierdzenie dezaktywacji",
+    "Confirm activation": "Potwierdź aktywację",
+    "Unable to update this person status.": "Nie można zaktualizować statusu tej osoby.",
+    "Unable to update this family status.": "Nie można zaktualizować statusu tej rodziny.",
+    "Pastoral Care Note Creation": "Tworzenie notatek dotyczących opieki duszpasterskiej",
+    "Close": "Zamknij",
+    "Save": "Zapisz",
+    "Unable to load the pastoral follow-up editor.": "Nie można załadować edytora dalszych działań duszpasterskich."
+}

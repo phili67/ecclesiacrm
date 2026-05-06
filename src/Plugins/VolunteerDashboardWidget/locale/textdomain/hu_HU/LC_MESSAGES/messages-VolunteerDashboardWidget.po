@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:27+0000\n"
+"POT-Creation-Date: 2026-05-05 20:36+0000\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,9 +10,8 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: ../src/Plugins/VolunteerDashboardWidget/v2/templates/View.php:22
-#, fuzzy
 msgid "Volunteers"
-msgstr "Önkéntes lehetőségek"
+msgstr "Önkéntesek"
 
 #: ../src/Plugins/VolunteerDashboardWidget/v2/templates/View.php:31
 msgid "More info"

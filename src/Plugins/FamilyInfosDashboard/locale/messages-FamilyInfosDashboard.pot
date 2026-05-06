@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-26 18:40+0000\n"
+"POT-Creation-Date: 2026-05-05 20:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,24 +21,24 @@ msgstr ""
 msgid "Latest Families"
 msgstr ""
 
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:31
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:30
 msgid "Updated Families"
+msgstr ""
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:52
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:68
+msgid "Family Name"
 msgstr ""
 
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:53
 #: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:69
-msgid "Family Name"
-msgstr ""
-
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:54
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:70
 msgid "Address"
 msgstr ""
 
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:55
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:54
 msgid "Created"
 msgstr ""
 
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:71
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:70
 msgid "Updated"
 msgstr ""

@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:20:20.815Z\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Leg deze pastorale follow-up vast voor het hele gezin"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Pastorale follow-up vastgelegd"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Kan pastorale follow-up niet vastleggen."
+
+msgid "Confirm Deactivation"
+msgstr "Deactivering bevestigen"
+
+msgid "Confirm Activation"
+msgstr "Activering bevestigen"
+
+msgid "You are about to deactivate this person:"
+msgstr "Je staat op het punt deze persoon te deactiveren:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Je staat op het punt deze familie te deactiveren:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Je staat op het punt om deze persoon te reactiveren:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Je staat op het punt om deze familie te reactiveren:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"Zorg er om GDPR-redenen voor dat je de toestemming van de persoon hebt "
+"voordat je zijn of haar dossier opnieuw activeert."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"Zorg er om GDPR-redenen voor dat je de toestemming van de gezinsleden hebt "
+"voordat je hun gegevens opnieuw activeert."
+
+msgid "Privacy reminder"
+msgstr "Privacy herinnering"
+
+msgid "Also deactivate the whole family"
+msgstr "Deactiveer ook de hele familie"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Gebruik dit als het hele huishouden tegelijkertijd als inactief moet worden "
+"gemarkeerd."
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Confirm deactivation"
+msgstr "Deactivering bevestigen"
+
+msgid "Confirm activation"
+msgstr "Activering bevestigen"
+
+msgid "Unable to update this person status."
+msgstr "Kan de status van deze persoon niet bijwerken."
+
+msgid "Unable to update this family status."
+msgstr "Kan deze familiestatus niet bijwerken."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Pastorale Zorg Notitie Creatie"
+
+msgid "Close"
+msgstr "Sluit"
+
+msgid "Save"
+msgstr "Sla"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Kan de editor voor pastorale follow-up niet laden."

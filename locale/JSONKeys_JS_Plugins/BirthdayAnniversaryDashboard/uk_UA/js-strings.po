@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:24:34.598Z\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Запишіть цей душпастирський супровід для всієї родини"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Зафіксовано душпастирський супровід"
+
+msgid "Error"
+msgstr "Помилка."
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Неможливо зафіксувати душпастирський супровід."
+
+msgid "Confirm Deactivation"
+msgstr "Підтвердити деактивацію"
+
+msgid "Confirm Activation"
+msgstr "Підтвердити активацію"
+
+msgid "You are about to deactivate this person:"
+msgstr "Ви зараз деактивуєте цю особу:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Ви зараз деактивуєте цю сім'ю:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Ви збираєтеся активувати цю людину:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Ви збираєтеся відновити цю сім'ю:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"З міркувань GDPR переконайтеся, що у вас є згода особи, перш ніж "
+"реактивувати її запис."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"З міркувань GDPR переконайтеся, що у вас є згода членів сім'ї, перш ніж "
+"активувати їхній запис."
+
+msgid "Privacy reminder"
+msgstr "Нагадування про конфіденційність"
+
+msgid "Also deactivate the whole family"
+msgstr "Також деактивуйте всю сім'ю"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Використовуйте цю опцію, якщо все домогосподарство має бути позначене як "
+"неактивне одночасно."
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Confirm deactivation"
+msgstr "Підтвердити деактивацію"
+
+msgid "Confirm activation"
+msgstr "Підтвердити активацію"
+
+msgid "Unable to update this person status."
+msgstr "Не вдалося оновити статус цієї особи."
+
+msgid "Unable to update this family status."
+msgstr "Не вдалося оновити цей статус сім'ї."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Створення записки про душпастирську опіку"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Save"
+msgstr "Зберегти"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Не вдалося завантажити редактор душпастирського супроводу."

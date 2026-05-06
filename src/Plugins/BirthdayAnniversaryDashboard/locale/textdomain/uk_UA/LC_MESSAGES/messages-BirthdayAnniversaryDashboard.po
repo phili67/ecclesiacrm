@@ -2,29 +2,94 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:29+0000\n"
+"POT-Creation-Date: 2026-05-05 18:11+0000\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:42
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:112
 msgid "Remove"
-msgstr ""
+msgstr "Видалити"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:43
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:113
 msgid "Collapse"
-msgstr ""
+msgstr "Колапс"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:70
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:200
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:296
+msgid "Pastoral follow-up recorded"
+msgstr "Зафіксовано душпастирський супровід"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:201
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:297
+msgid "No pastoral follow-up yet"
+msgstr "Душпастирського супроводу ще немає"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:218
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:221
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:313
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:316
+msgid "Call"
+msgstr "Дзвони."
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:220
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:315
+msgid "No phone number available"
+msgstr "Номер телефону недоступний"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:225
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:226
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:229
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:320
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:321
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:324
+msgid "Pastoral follow-up"
+msgstr "Душпастирський супровід"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:253
+msgid "Deactivate this Person"
+msgstr "Деактивувати цю особу"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:253
+msgid "Activate this Person"
+msgstr "Активувати цю особу"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:255
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:349
+msgid "Deactivate"
+msgstr "Деактивувати"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:255
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:349
+msgid "Activate"
+msgstr "Активувати"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:270
+msgid "No calls since"
+msgstr "Ніяких дзвінків з тих пір."
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:347
+msgid "Deactivate this Family"
+msgstr "Деактивуйте цю родину"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:347
+msgid "Activate this Family"
+msgstr "Активуйте цю родину"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:366
+msgid "Last call"
+msgstr "Останній дзвінок"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:376
 msgid "Birthdates of the day"
 msgstr "Іменинники дня"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:84
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:390
 msgid "Anniversaries of the day"
 msgstr "Ювілейні дати"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:108
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:404
 msgid "Unclassified birthdates"
-msgstr ""
+msgstr "Некласифіковані дати народження"

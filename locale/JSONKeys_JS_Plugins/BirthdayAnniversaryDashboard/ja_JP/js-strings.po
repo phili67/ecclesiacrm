@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:21:16.497Z\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "家族全員のために、この牧会的フォローアップを記録する。"
+
+msgid "Pastoral follow-up recorded"
+msgstr "牧会的フォローアップの記録"
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "牧師のフォローアップを記録できない。"
+
+msgid "Confirm Deactivation"
+msgstr "非アクティブ化の確認"
+
+msgid "Confirm Activation"
+msgstr "アクティベーションの確認"
+
+msgid "You are about to deactivate this person:"
+msgstr "あなたはこの人物の活動を停止しようとしています："
+
+msgid "You are about to deactivate this family:"
+msgstr "このファミリーを停止しようとしています："
+
+msgid "You are about to reactivate this person:"
+msgstr "あなたはこの人物を再活性化しようとしている："
+
+msgid "You are about to reactivate this family:"
+msgstr "あなたはこの家族を再活性化させようとしている："
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"GDPRの理由から、記録を再アクティブ化する前に本人の同意があることを確認してく"
+"ださい。"
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"GDPRの理由から、家族の記録を再開する前に家族の同意があることを確認してくださ"
+"い。"
+
+msgid "Privacy reminder"
+msgstr "プライバシーに関する注意事項"
+
+msgid "Also deactivate the whole family"
+msgstr "家族全員の活動も停止させる"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr "世帯全員が同時に非アクティブとしてマークされるべき場合に使用します。"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Confirm deactivation"
+msgstr "非アクティブ化の確認"
+
+msgid "Confirm activation"
+msgstr "アクティベーションの確認"
+
+msgid "Unable to update this person status."
+msgstr "この人物のステータスを更新できません。"
+
+msgid "Unable to update this family status."
+msgstr "この家族のステータスを更新できません。"
+
+msgid "Pastoral Care Note Creation"
+msgstr "パストラルケア・ノート作成"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Save"
+msgstr "セーブ"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "パストラル・フォローアップ・エディタをロードできません。"

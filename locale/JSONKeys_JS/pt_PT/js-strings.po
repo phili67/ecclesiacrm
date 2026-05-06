@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1678,6 +1678,9 @@ msgstr "Eliminar tipo de evento"
 msgid "This action can never be undone !!!!"
 msgstr "Esta acção nunca poderá ser desfeita !!!!"
 
+msgid "preview currently being created"
+msgstr "visualização que está sendo criada atualmente"
+
 msgid "Preview"
 msgstr "Pré-visualização"
 
@@ -1687,9 +1690,6 @@ msgstr "Título do documento"
 
 msgid "Read only"
 msgstr ""
-
-msgid "preview currently being created"
-msgstr "visualização que está sendo criada atualmente"
 
 #, fuzzy
 msgid "Please wait"
@@ -2162,6 +2162,35 @@ msgstr "Tem a certeza, quer apagar todos os gestores?"
 msgid "Appointment"
 msgstr "Nomeação"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr ""
+
+msgid "For every administrator"
+msgstr "Para cada administrador"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "Hide"
+msgstr "Esconder"
+
+msgid "Include all the family members"
+msgstr "Incluir todos os membros da família"
+
+msgid "Include"
+msgstr "Incluir"
+
+#, fuzzy
+msgid "Pastoral care note"
+msgstr "Criação da Nota de Cuidados Pastorais"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+
+#, fuzzy
+msgid "Note"
+msgstr "Notas"
+
 #, fuzzy
 msgid "Pastoral Care"
 msgstr "Criação da Nota de Cuidados Pastorais"
@@ -2214,34 +2243,8 @@ msgstr ""
 msgid "Keep note"
 msgstr ""
 
-#, fuzzy
-msgid "Pastoral care note"
-msgstr "Criação da Nota de Cuidados Pastorais"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-
-#, fuzzy
-msgid "Note"
-msgstr "Notas"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr ""
-
-msgid "For every administrator"
-msgstr "Para cada administrador"
-
-msgid "Show"
-msgstr "Mostrar"
-
-msgid "Hide"
-msgstr "Esconder"
-
-msgid "Include all the family members"
-msgstr "Incluir todos os membros da família"
-
-msgid "Include"
-msgstr "Incluir"
 
 msgid "Pastoral Care Note Creation"
 msgstr "Criação da Nota de Cuidados Pastorais"
