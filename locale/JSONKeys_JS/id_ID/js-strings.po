@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1629,6 +1629,9 @@ msgstr "Hapus Event Tipe"
 msgid "This action can never be undone !!!!"
 msgstr "Tindakan ini tidak akan pernah bisa dibatalkan! !\" Ugh!"
 
+msgid "preview currently being created"
+msgstr "pratinjau yang sedang dibuat"
+
 msgid "Preview"
 msgstr "Preview"
 
@@ -1637,9 +1640,6 @@ msgstr "Pratinjau dokumen"
 
 msgid "Read only"
 msgstr "Hanya baca"
-
-msgid "preview currently being created"
-msgstr "pratinjau yang sedang dibuat"
 
 msgid "Please wait"
 msgstr "Silakan tunggu."
@@ -2096,6 +2096,34 @@ msgstr "Apakah Anda yakin, Anda ingin menghapus semua manajer?"
 msgid "Appointment"
 msgstr "Penampilan"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Catatlah tindak lanjut pastoral ini untuk seluruh keluarga"
+
+msgid "For every administrator"
+msgstr "Untuk setiap administrator"
+
+msgid "Show"
+msgstr "Tunjukkan"
+
+msgid "Hide"
+msgstr "Sembunyi."
+
+msgid "Include all the family members"
+msgstr "Termasuk semua anggota keluarga"
+
+msgid "Include"
+msgstr "Termasuk"
+
+msgid "Pastoral care note"
+msgstr "Catatan perawatan pastoral"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+"Tinjau jenis catatan, tulis konten, dan tentukan siapa yang dapat melihatnya."
+
+msgid "Note"
+msgstr "Catatan"
+
 msgid "Pastoral Care"
 msgstr "Perawatan Pastoral"
 
@@ -2145,33 +2173,8 @@ msgstr "Tindakan yang tidak dapat diubah"
 msgid "Keep note"
 msgstr "Perlu diperhatikan"
 
-msgid "Pastoral care note"
-msgstr "Catatan perawatan pastoral"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-"Tinjau jenis catatan, tulis konten, dan tentukan siapa yang dapat melihatnya."
-
-msgid "Note"
-msgstr "Catatan"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr "Tulislah pesan perawatan pastoral yang terkait dengan keluarga ini."
-
-msgid "For every administrator"
-msgstr "Untuk setiap administrator"
-
-msgid "Show"
-msgstr "Tunjukkan"
-
-msgid "Hide"
-msgstr "Sembunyi."
-
-msgid "Include all the family members"
-msgstr "Termasuk semua anggota keluarga"
-
-msgid "Include"
-msgstr "Termasuk"
 
 msgid "Pastoral Care Note Creation"
 msgstr "Pendeta Perawatan Pastor"

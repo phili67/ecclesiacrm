@@ -1,1 +1,26 @@
-{}
+{
+    "Record this pastoral follow-up for the whole family": "سجّل هذه المتابعة الرعوية لجميع أفراد الأسرة",
+    "Pastoral follow-up recorded": "المتابعة الرعوية المسجلة",
+    "Error": "خطأ",
+    "Unable to record pastoral follow-up.": "غير قادر على تسجيل المتابعة الرعوية",
+    "Confirm Deactivation": "تأكيد التعطيل",
+    "Confirm Activation": "تأكيد التفعيل",
+    "You are about to deactivate this person:": "أنت على وشك إلغاء تنشيط هذا الشخص:",
+    "You are about to deactivate this family:": "أنت على وشك إلغاء تنشيط هذه العائلة:",
+    "You are about to reactivate this person:": "أنت على وشك إعادة تنشيط هذا الشخص:",
+    "You are about to reactivate this family:": "أنت على وشك إعادة تنشيط هذه العائلة:",
+    "For GDPR reasons, make sure you have the person's agreement before reactivating their record.": "لأسباب تتعلق باللائحة العامة لحماية البيانات، تأكد من حصولك على موافقة الشخص قبل إعادة تنشيط سجله.",
+    "For GDPR reasons, make sure you have the agreement of the family members before reactivating their record.": "لأسباب تتعلق باللائحة العامة لحماية البيانات، تأكد من حصولك على موافقة أفراد العائلة قبل إعادة تنشيط سجلهم.",
+    "Privacy reminder": "تذكير بالخصوصية",
+    "Also deactivate the whole family": "قم أيضًا بإلغاء تنشيط العائلة بأكملها",
+    "Use this if the entire household should be marked as inactive at the same time.": "استخدم هذا إذا كان يجب وضع علامة على الأسرة بأكملها على أنها غير نشطة في نفس الوقت.",
+    "Cancel": "إلغاء",
+    "Confirm deactivation": "تأكيد التعطيل",
+    "Confirm activation": "تأكيد التفعيل",
+    "Unable to update this person status.": "غير قادر على تحديث حالة هذا الشخص.",
+    "Unable to update this family status.": "غير قادر على تحديث حالة هذه العائلة.",
+    "Pastoral Care Note Creation": "إنشاء مذكرة الرعاية الرعوية",
+    "Close": "إغلاق",
+    "Save": "الحفظ",
+    "Unable to load the pastoral follow-up editor.": "تعذر تحميل محرر المتابعة الرعوية."
+}

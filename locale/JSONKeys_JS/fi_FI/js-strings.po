@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1618,6 +1618,9 @@ msgstr "Poista tapahtumatyyppi"
 msgid "This action can never be undone !!!!"
 msgstr "Tätä toimenpidettä ei voi koskaan perua !!!!"
 
+msgid "preview currently being created"
+msgstr "esikatselu parhaillaan luodaan"
+
 msgid "Preview"
 msgstr "Esikatselu"
 
@@ -1626,9 +1629,6 @@ msgstr "Asiakirjan esikatselu"
 
 msgid "Read only"
 msgstr "Vain luku"
-
-msgid "preview currently being created"
-msgstr "esikatselu parhaillaan luodaan"
 
 msgid "Please wait"
 msgstr "Odota"
@@ -2087,6 +2087,35 @@ msgstr "Oletko varma, että haluat poistaa kaikki managerit?"
 msgid "Appointment"
 msgstr "Nimitys"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Kirjaa tämä pastoraalinen seuranta koko perheelle"
+
+msgid "For every administrator"
+msgstr "Jokaisen järjestelmänvalvojan osalta"
+
+msgid "Show"
+msgstr "Näytä"
+
+msgid "Hide"
+msgstr "Piilota"
+
+msgid "Include all the family members"
+msgstr "Ota mukaan kaikki perheenjäsenet"
+
+msgid "Include"
+msgstr "Sisällytä"
+
+msgid "Pastoral care note"
+msgstr "Sielunhoidon muistio"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+"Tarkista muistion tyyppi, kirjoita sisältö ja määritä, kuka voi nähdä "
+"muistion."
+
+msgid "Note"
+msgstr "Huomautus"
+
 msgid "Pastoral Care"
 msgstr "Sielunhoito"
 
@@ -2136,34 +2165,8 @@ msgstr "Peruuttamaton toiminta"
 msgid "Keep note"
 msgstr "Pidä muistiinpano"
 
-msgid "Pastoral care note"
-msgstr "Sielunhoidon muistio"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-"Tarkista muistion tyyppi, kirjoita sisältö ja määritä, kuka voi nähdä "
-"muistion."
-
-msgid "Note"
-msgstr "Huomautus"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr "Kirjoita tähän perheeseen liittyvä sielunhoitoviesti."
-
-msgid "For every administrator"
-msgstr "Jokaisen järjestelmänvalvojan osalta"
-
-msgid "Show"
-msgstr "Näytä"
-
-msgid "Hide"
-msgstr "Piilota"
-
-msgid "Include all the family members"
-msgstr "Ota mukaan kaikki perheenjäsenet"
-
-msgid "Include"
-msgstr "Sisällytä"
 
 msgid "Pastoral Care Note Creation"
 msgstr "Sielunhoito Muistion luominen"

@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:20:15.655Z\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Optag denne pastorale opfølgning for hele familien"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Pastoral opfølgning registreret"
+
+msgid "Error"
+msgstr "Fejl"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Kan ikke registrere pastoral opfølgning."
+
+msgid "Confirm Deactivation"
+msgstr "Bekræft deaktivering"
+
+msgid "Confirm Activation"
+msgstr "Bekræft aktivering"
+
+msgid "You are about to deactivate this person:"
+msgstr "Du er ved at deaktivere denne person:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Du er ved at deaktivere denne familie:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Du er ved at genaktivere denne person:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Du er ved at genaktivere denne familie:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"Af hensyn til GDPR skal du sikre dig, at du har personens samtykke, før du "
+"genaktiverer vedkommendes journal."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"Af hensyn til GDPR skal du sørge for at have familiemedlemmernes samtykke, "
+"før du genaktiverer deres optegnelser."
+
+msgid "Privacy reminder"
+msgstr "Påmindelse om privatlivets fred"
+
+msgid "Also deactivate the whole family"
+msgstr "Deaktiver også hele familien"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Brug denne funktion, hvis hele husstanden skal markeres som inaktiv på samme "
+"tid."
+
+msgid "Cancel"
+msgstr "Annuller"
+
+msgid "Confirm deactivation"
+msgstr "Bekræft deaktivering"
+
+msgid "Confirm activation"
+msgstr "Bekræft aktivering"
+
+msgid "Unable to update this person status."
+msgstr "Kan ikke opdatere denne persons status."
+
+msgid "Unable to update this family status."
+msgstr "Kan ikke opdatere denne familiestatus."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Sjælesorg Note Oprettelse"
+
+msgid "Close"
+msgstr "Luk"
+
+msgid "Save"
+msgstr "Gemme"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Det er ikke muligt at indlæse editoren til pastoral opfølgning."

@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:23:25.616Z\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Înregistrați această monitorizare pastorală pentru întreaga familie"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Urmărire pastorală înregistrată"
+
+msgid "Error"
+msgstr "Eroare"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Imposibilitatea de a înregistra urmărirea pastorală."
+
+msgid "Confirm Deactivation"
+msgstr "Confirmați dezactivarea"
+
+msgid "Confirm Activation"
+msgstr "Confirmați activarea"
+
+msgid "You are about to deactivate this person:"
+msgstr "Sunteți pe cale să dezactivați această persoană:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Sunteți pe cale să dezactivați această familie:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Sunteți pe cale să reactivați această persoană:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Sunteți pe cale să reactivați această familie:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"Din motive GDPR, asigurați-vă că aveți acordul persoanei înainte de "
+"reactivarea înregistrării sale."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"Din motive GDPR, asigurați-vă că aveți acordul membrilor familiei înainte de "
+"reactivarea înregistrării lor."
+
+msgid "Privacy reminder"
+msgstr "Memento privind confidențialitatea"
+
+msgid "Also deactivate the whole family"
+msgstr "De asemenea, dezactivați întreaga familie"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Utilizați această opțiune dacă întreaga gospodărie trebuie marcată ca "
+"inactivă în același timp."
+
+msgid "Cancel"
+msgstr "Anulează"
+
+msgid "Confirm deactivation"
+msgstr "Confirmați dezactivarea"
+
+msgid "Confirm activation"
+msgstr "Confirmați activarea"
+
+msgid "Unable to update this person status."
+msgstr "Imposibilitatea de a actualiza statutul acestei persoane."
+
+msgid "Unable to update this family status."
+msgstr "Imposibilitatea de a actualiza statutul acestei familii."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Îngrijire pastorală Notă Creație"
+
+msgid "Close"
+msgstr "Închidere"
+
+msgid "Save"
+msgstr "Salvați"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Nu se poate încărca editorul de monitorizare pastorală."

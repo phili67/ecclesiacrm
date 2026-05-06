@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:21:06.370Z\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Catatlah tindak lanjut pastoral ini untuk seluruh keluarga"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Tindak lanjut pastoral dicatat"
+
+msgid "Error"
+msgstr "Kesalahan"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Tidak dapat mencatat tindak lanjut pastoral."
+
+msgid "Confirm Deactivation"
+msgstr "Konfirmasi Penonaktifan"
+
+msgid "Confirm Activation"
+msgstr "Konfirmasi Aktivasi"
+
+msgid "You are about to deactivate this person:"
+msgstr "Anda akan menonaktifkan orang ini:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Anda akan menonaktifkan keluarga ini:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Anda akan mengaktifkan kembali orang ini:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Anda akan mengaktifkan kembali keluarga ini:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"Untuk alasan GDPR, pastikan Anda mendapatkan persetujuan dari orang tersebut "
+"sebelum mengaktifkan kembali catatan mereka."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"Untuk alasan GDPR, pastikan Anda mendapatkan persetujuan dari anggota "
+"keluarga sebelum mengaktifkan kembali catatan mereka."
+
+msgid "Privacy reminder"
+msgstr "Pengingat privasi"
+
+msgid "Also deactivate the whole family"
+msgstr "Juga menonaktifkan seluruh keluarga"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Gunakan ini jika seluruh rumah tangga harus ditandai sebagai tidak aktif "
+"pada saat yang sama."
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Confirm deactivation"
+msgstr "Konfirmasi penonaktifan"
+
+msgid "Confirm activation"
+msgstr "Konfirmasi aktivasi"
+
+msgid "Unable to update this person status."
+msgstr "Tidak dapat memperbarui status orang ini."
+
+msgid "Unable to update this family status."
+msgstr "Tidak dapat memperbarui status keluarga ini."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Pembuatan Catatan Perawatan Pastoral"
+
+msgid "Close"
+msgstr "Tutup"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Tidak dapat memuat editor tindak lanjut pastoral."

@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:24:14.432Z\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Spela in denna pastorala uppföljning för hela familjen"
+
+msgid "Pastoral follow-up recorded"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Unable to record pastoral follow-up."
+msgstr ""
+
+msgid "Confirm Deactivation"
+msgstr ""
+
+msgid "Confirm Activation"
+msgstr ""
+
+msgid "You are about to deactivate this person:"
+msgstr ""
+
+msgid "You are about to deactivate this family:"
+msgstr ""
+
+msgid "You are about to reactivate this person:"
+msgstr ""
+
+msgid "You are about to reactivate this family:"
+msgstr ""
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+
+msgid "Privacy reminder"
+msgstr ""
+
+msgid "Also deactivate the whole family"
+msgstr ""
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Confirm deactivation"
+msgstr ""
+
+msgid "Confirm activation"
+msgstr ""
+
+msgid "Unable to update this person status."
+msgstr ""
+
+msgid "Unable to update this family status."
+msgstr ""
+
+msgid "Pastoral Care Note Creation"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr ""

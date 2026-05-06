@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1592,6 +1592,9 @@ msgstr "이벤트 유형 삭제"
 msgid "This action can never be undone !!!!"
 msgstr "이 작업은 절대 취소할 수 없습니다 !!!!"
 
+msgid "preview currently being created"
+msgstr "현재 생성 중인 미리보기"
+
 msgid "Preview"
 msgstr "미리보기"
 
@@ -1600,9 +1603,6 @@ msgstr "문서 미리 보기"
 
 msgid "Read only"
 msgstr "읽기 전용"
-
-msgid "preview currently being created"
-msgstr "현재 생성 중인 미리보기"
 
 msgid "Please wait"
 msgstr "잠시만 기다려주세요."
@@ -2057,6 +2057,33 @@ msgstr "정말 모든 관리자를 삭제하시겠습니까?"
 msgid "Appointment"
 msgstr "약속"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "온 가족을 위한 목회적 후속 조치를 기록하세요."
+
+msgid "For every administrator"
+msgstr "모든 관리자를 위한"
+
+msgid "Show"
+msgstr "표시"
+
+msgid "Hide"
+msgstr "숨기기"
+
+msgid "Include all the family members"
+msgstr "모든 가족 구성원 포함"
+
+msgid "Include"
+msgstr "포함"
+
+msgid "Pastoral care note"
+msgstr "목회자 케어 노트"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr "노트 유형을 검토하고, 콘텐츠를 작성하고, 누가 볼 수 있는지 정의하세요."
+
+msgid "Note"
+msgstr "참고"
+
 msgid "Pastoral Care"
 msgstr "사목 관리"
 
@@ -2106,32 +2133,8 @@ msgstr "되돌릴 수 없는 조치"
 msgid "Keep note"
 msgstr "참고 사항"
 
-msgid "Pastoral care note"
-msgstr "목회자 케어 노트"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr "노트 유형을 검토하고, 콘텐츠를 작성하고, 누가 볼 수 있는지 정의하세요."
-
-msgid "Note"
-msgstr "참고"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr "이 가족과 관련된 목회적 돌봄 메시지를 작성합니다."
-
-msgid "For every administrator"
-msgstr "모든 관리자를 위한"
-
-msgid "Show"
-msgstr "표시"
-
-msgid "Hide"
-msgstr "숨기기"
-
-msgid "Include all the family members"
-msgstr "모든 가족 구성원 포함"
-
-msgid "Include"
-msgstr "포함"
 
 msgid "Pastoral Care Note Creation"
 msgstr "목회자 케어 노트 작성"

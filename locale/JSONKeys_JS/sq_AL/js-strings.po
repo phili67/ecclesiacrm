@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1681,6 +1681,9 @@ msgstr "Fshije Eventet Tip"
 msgid "This action can never be undone !!!!"
 msgstr "Ky aksion nuk mund të bëhet kurrë! !!!!"
 
+msgid "preview currently being created"
+msgstr ""
+
 msgid "Preview"
 msgstr "Previetni"
 
@@ -1689,9 +1692,6 @@ msgid "Document preview"
 msgstr "Titull i dokumenteve"
 
 msgid "Read only"
-msgstr ""
-
-msgid "preview currently being created"
 msgstr ""
 
 #, fuzzy
@@ -2175,6 +2175,35 @@ msgstr "Je i sigurt që dëshiron t'i fshish menaxheret?"
 msgid "Appointment"
 msgstr "Takimi."
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr ""
+
+msgid "For every administrator"
+msgstr "Për çdo administrator"
+
+msgid "Show"
+msgstr "Tregoje."
+
+msgid "Hide"
+msgstr "Fshihu!"
+
+msgid "Include all the family members"
+msgstr "Përfshirë të gjithë anëtarët e familjes"
+
+msgid "Include"
+msgstr "Përfshirë"
+
+#, fuzzy
+msgid "Pastoral care note"
+msgstr "Pastoria \"Care\" Shëndimi"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+
+#, fuzzy
+msgid "Note"
+msgstr "- Jo."
+
 #, fuzzy
 msgid "Pastoral Care"
 msgstr "Pastoria \"Care\" Shëndimi"
@@ -2227,34 +2256,8 @@ msgstr ""
 msgid "Keep note"
 msgstr ""
 
-#, fuzzy
-msgid "Pastoral care note"
-msgstr "Pastoria \"Care\" Shëndimi"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-
-#, fuzzy
-msgid "Note"
-msgstr "- Jo."
-
 msgid "Write the pastoral care message associated with this family."
 msgstr ""
-
-msgid "For every administrator"
-msgstr "Për çdo administrator"
-
-msgid "Show"
-msgstr "Tregoje."
-
-msgid "Hide"
-msgstr "Fshihu!"
-
-msgid "Include all the family members"
-msgstr "Përfshirë të gjithë anëtarët e familjes"
-
-msgid "Include"
-msgstr "Përfshirë"
 
 msgid "Pastoral Care Note Creation"
 msgstr "Pastoria \"Care\" Shëndimi"

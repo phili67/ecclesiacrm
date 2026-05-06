@@ -1,1 +1,26 @@
-{}
+{
+    "Record this pastoral follow-up for the whole family": "Leg deze pastorale follow-up vast voor het hele gezin",
+    "Pastoral follow-up recorded": "Pastorale follow-up vastgelegd",
+    "Error": "Fout",
+    "Unable to record pastoral follow-up.": "Kan pastorale follow-up niet vastleggen.",
+    "Confirm Deactivation": "Deactivering bevestigen",
+    "Confirm Activation": "Activering bevestigen",
+    "You are about to deactivate this person:": "Je staat op het punt deze persoon te deactiveren:",
+    "You are about to deactivate this family:": "Je staat op het punt deze familie te deactiveren:",
+    "You are about to reactivate this person:": "Je staat op het punt om deze persoon te reactiveren:",
+    "You are about to reactivate this family:": "Je staat op het punt om deze familie te reactiveren:",
+    "For GDPR reasons, make sure you have the person's agreement before reactivating their record.": "Zorg er om GDPR-redenen voor dat je de toestemming van de persoon hebt voordat je zijn of haar dossier opnieuw activeert.",
+    "For GDPR reasons, make sure you have the agreement of the family members before reactivating their record.": "Zorg er om GDPR-redenen voor dat je de toestemming van de gezinsleden hebt voordat je hun gegevens opnieuw activeert.",
+    "Privacy reminder": "Privacy herinnering",
+    "Also deactivate the whole family": "Deactiveer ook de hele familie",
+    "Use this if the entire household should be marked as inactive at the same time.": "Gebruik dit als het hele huishouden tegelijkertijd als inactief moet worden gemarkeerd.",
+    "Cancel": "Annuleren",
+    "Confirm deactivation": "Deactivering bevestigen",
+    "Confirm activation": "Activering bevestigen",
+    "Unable to update this person status.": "Kan de status van deze persoon niet bijwerken.",
+    "Unable to update this family status.": "Kan deze familiestatus niet bijwerken.",
+    "Pastoral Care Note Creation": "Pastorale Zorg Notitie Creatie",
+    "Close": "Sluit",
+    "Save": "Sla",
+    "Unable to load the pastoral follow-up editor.": "Kan de editor voor pastorale follow-up niet laden."
+}

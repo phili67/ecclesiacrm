@@ -1,1 +1,26 @@
-{}
+{
+    "Record this pastoral follow-up for the whole family": "Catatlah tindak lanjut pastoral ini untuk seluruh keluarga",
+    "Pastoral follow-up recorded": "Tindak lanjut pastoral dicatat",
+    "Error": "Kesalahan",
+    "Unable to record pastoral follow-up.": "Tidak dapat mencatat tindak lanjut pastoral.",
+    "Confirm Deactivation": "Konfirmasi Penonaktifan",
+    "Confirm Activation": "Konfirmasi Aktivasi",
+    "You are about to deactivate this person:": "Anda akan menonaktifkan orang ini:",
+    "You are about to deactivate this family:": "Anda akan menonaktifkan keluarga ini:",
+    "You are about to reactivate this person:": "Anda akan mengaktifkan kembali orang ini:",
+    "You are about to reactivate this family:": "Anda akan mengaktifkan kembali keluarga ini:",
+    "For GDPR reasons, make sure you have the person's agreement before reactivating their record.": "Untuk alasan GDPR, pastikan Anda mendapatkan persetujuan dari orang tersebut sebelum mengaktifkan kembali catatan mereka.",
+    "For GDPR reasons, make sure you have the agreement of the family members before reactivating their record.": "Untuk alasan GDPR, pastikan Anda mendapatkan persetujuan dari anggota keluarga sebelum mengaktifkan kembali catatan mereka.",
+    "Privacy reminder": "Pengingat privasi",
+    "Also deactivate the whole family": "Juga menonaktifkan seluruh keluarga",
+    "Use this if the entire household should be marked as inactive at the same time.": "Gunakan ini jika seluruh rumah tangga harus ditandai sebagai tidak aktif pada saat yang sama.",
+    "Cancel": "Batal",
+    "Confirm deactivation": "Konfirmasi penonaktifan",
+    "Confirm activation": "Konfirmasi aktivasi",
+    "Unable to update this person status.": "Tidak dapat memperbarui status orang ini.",
+    "Unable to update this family status.": "Tidak dapat memperbarui status keluarga ini.",
+    "Pastoral Care Note Creation": "Pembuatan Catatan Perawatan Pastoral",
+    "Close": "Tutup",
+    "Save": "Simpan",
+    "Unable to load the pastoral follow-up editor.": "Tidak dapat memuat editor tindak lanjut pastoral."
+}

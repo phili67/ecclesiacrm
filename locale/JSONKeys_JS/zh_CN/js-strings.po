@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1645,6 +1645,9 @@ msgstr "删除事件类型"
 msgid "This action can never be undone !!!!"
 msgstr "这一行动永远不能被撤销 !!!!"
 
+msgid "preview currently being created"
+msgstr "正在创建预览"
+
 msgid "Preview"
 msgstr "预览"
 
@@ -1654,9 +1657,6 @@ msgstr "文件标题"
 
 msgid "Read only"
 msgstr ""
-
-msgid "preview currently being created"
-msgstr "正在创建预览"
 
 #, fuzzy
 msgid "Please wait"
@@ -2118,6 +2118,35 @@ msgstr "你确定你要删除所有的管理人员吗？"
 msgid "Appointment"
 msgstr "任命"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr ""
+
+msgid "For every administrator"
+msgstr "对于每个管理员来说"
+
+msgid "Show"
+msgstr "显示"
+
+msgid "Hide"
+msgstr "隐藏"
+
+msgid "Include all the family members"
+msgstr "包括所有的家庭成员"
+
+msgid "Include"
+msgstr "包括"
+
+#, fuzzy
+msgid "Pastoral care note"
+msgstr "牧民关怀笔记创作"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+
+#, fuzzy
+msgid "Note"
+msgstr "笔记"
+
 #, fuzzy
 msgid "Pastoral Care"
 msgstr "牧民关怀笔记创作"
@@ -2170,34 +2199,8 @@ msgstr ""
 msgid "Keep note"
 msgstr ""
 
-#, fuzzy
-msgid "Pastoral care note"
-msgstr "牧民关怀笔记创作"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-
-#, fuzzy
-msgid "Note"
-msgstr "笔记"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr ""
-
-msgid "For every administrator"
-msgstr "对于每个管理员来说"
-
-msgid "Show"
-msgstr "显示"
-
-msgid "Hide"
-msgstr "隐藏"
-
-msgid "Include all the family members"
-msgstr "包括所有的家庭成员"
-
-msgid "Include"
-msgstr "包括"
 
 msgid "Pastoral Care Note Creation"
 msgstr "牧民关怀笔记创作"

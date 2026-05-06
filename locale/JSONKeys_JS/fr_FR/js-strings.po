@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1652,6 +1652,9 @@ msgstr "Supprimer ce type d'événement"
 msgid "This action can never be undone !!!!"
 msgstr "Cette action ne peut être annulée !!!!"
 
+msgid "preview currently being created"
+msgstr "aperçu en cours de création"
+
 msgid "Preview"
 msgstr "Aperçu"
 
@@ -1660,9 +1663,6 @@ msgstr "Aperçu du document"
 
 msgid "Read only"
 msgstr "En lecture seule"
-
-msgid "preview currently being created"
-msgstr "aperçu en cours de création"
 
 msgid "Please wait"
 msgstr "Veuillez patienter"
@@ -2126,6 +2126,34 @@ msgstr "Etes-vous sûr de vouloir supprimer tous les managers ?"
 msgid "Appointment"
 msgstr "Rendez-vous"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Enregistrez ce suivi pastoral pour toute la famille"
+
+msgid "For every administrator"
+msgstr "Pour tous les administrateurs"
+
+msgid "Show"
+msgstr "Afficher"
+
+msgid "Hide"
+msgstr "Masquer"
+
+msgid "Include all the family members"
+msgstr "Inclure tous les membres de la famille"
+
+msgid "Include"
+msgstr "Inclure"
+
+msgid "Pastoral care note"
+msgstr "Note sur les soins pastoraux"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+"Révisez le type de note, écrivez le contenu et définissez qui peut le voir."
+
+msgid "Note"
+msgstr "Note"
+
 msgid "Pastoral Care"
 msgstr "Soins pastoraux"
 
@@ -2175,33 +2203,8 @@ msgstr "Action irréversible"
 msgid "Keep note"
 msgstr "Prendre note"
 
-msgid "Pastoral care note"
-msgstr "Note sur les soins pastoraux"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-"Révisez le type de note, écrivez le contenu et définissez qui peut le voir."
-
-msgid "Note"
-msgstr "Note"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr "Rédigez le message pastoral associé à cette famille."
-
-msgid "For every administrator"
-msgstr "Pour tous les administrateurs"
-
-msgid "Show"
-msgstr "Afficher"
-
-msgid "Hide"
-msgstr "Masquer"
-
-msgid "Include all the family members"
-msgstr "Inclure tous les membres de la famille"
-
-msgid "Include"
-msgstr "Inclure"
 
 msgid "Pastoral Care Note Creation"
 msgstr "Création d'une note de suivi pastoral"

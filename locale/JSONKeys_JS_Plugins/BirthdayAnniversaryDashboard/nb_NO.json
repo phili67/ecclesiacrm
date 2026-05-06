@@ -1,1 +1,26 @@
-{}
+{
+    "Record this pastoral follow-up for the whole family": "Ta opp denne pastorale oppfølgingen for hele familien",
+    "Pastoral follow-up recorded": "Pastoral oppfølging registreres",
+    "Error": "Feil",
+    "Unable to record pastoral follow-up.": "Kan ikke registrere pastoral oppfølging.",
+    "Confirm Deactivation": "Bekreft deaktivering",
+    "Confirm Activation": "Bekreft aktivering",
+    "You are about to deactivate this person:": "Du er i ferd med å deaktivere denne personen:",
+    "You are about to deactivate this family:": "Du er i ferd med å deaktivere denne familien:",
+    "You are about to reactivate this person:": "Du er i ferd med å reaktivere denne personen:",
+    "You are about to reactivate this family:": "Du er i ferd med å reaktivere denne familien:",
+    "For GDPR reasons, make sure you have the person's agreement before reactivating their record.": "Av GDPR-hensyn må du sørge for at du har personens samtykke før du reaktiverer posten deres.",
+    "For GDPR reasons, make sure you have the agreement of the family members before reactivating their record.": "Av GDPR-hensyn må du sørge for at du har familiemedlemmenes samtykke før du reaktiverer oppføringen deres.",
+    "Privacy reminder": "Påminnelse om personvern",
+    "Also deactivate the whole family": "Deaktiver også hele familien",
+    "Use this if the entire household should be marked as inactive at the same time.": "Bruk denne funksjonen hvis hele husstanden skal markeres som inaktiv samtidig.",
+    "Cancel": "Avbryt",
+    "Confirm deactivation": "Bekreft deaktivering",
+    "Confirm activation": "Bekreft aktivering",
+    "Unable to update this person status.": "Det er ikke mulig å oppdatere denne personens status.",
+    "Unable to update this family status.": "Det er ikke mulig å oppdatere denne familiestatusen.",
+    "Pastoral Care Note Creation": "Pastoral omsorg Notat om opprettelse",
+    "Close": "Lukk",
+    "Save": "Spar",
+    "Unable to load the pastoral follow-up editor.": "Kunne ikke laste inn redigeringsprogrammet for pastoral oppfølging."
+}

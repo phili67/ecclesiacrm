@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1632,6 +1632,9 @@ msgstr "Ta bort händelsetyp"
 msgid "This action can never be undone !!!!"
 msgstr "Denna åtgärd kan aldrig göras ogjord !!!!"
 
+msgid "preview currently being created"
+msgstr "förhandsvisning håller på att skapas"
+
 msgid "Preview"
 msgstr "Förhandsgranska"
 
@@ -1640,9 +1643,6 @@ msgstr "Förhandsgranskning av dokument"
 
 msgid "Read only"
 msgstr "Endast läsning"
-
-msgid "preview currently being created"
-msgstr "förhandsvisning håller på att skapas"
 
 msgid "Please wait"
 msgstr "Vänligen vänta"
@@ -2101,6 +2101,34 @@ msgstr "Är du säker på att du vill radera alla chefer?"
 msgid "Appointment"
 msgstr "Utnämning"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Spela in denna pastorala uppföljning för hela familjen"
+
+msgid "For every administrator"
+msgstr "För varje administratör"
+
+msgid "Show"
+msgstr "Visa"
+
+msgid "Hide"
+msgstr "Dölj"
+
+msgid "Include all the family members"
+msgstr "Inkludera alla familjemedlemmar"
+
+msgid "Include"
+msgstr "Inkludera"
+
+msgid "Pastoral care note"
+msgstr "Anteckning om pastoral vård"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+"Granska anteckningstypen, skriv innehållet och definiera vem som kan se det."
+
+msgid "Note"
+msgstr "Notera"
+
 msgid "Pastoral Care"
 msgstr "Pastoral vård"
 
@@ -2150,33 +2178,8 @@ msgstr "Irreversibel åtgärd"
 msgid "Keep note"
 msgstr "Håll anteckningar"
 
-msgid "Pastoral care note"
-msgstr "Anteckning om pastoral vård"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-"Granska anteckningstypen, skriv innehållet och definiera vem som kan se det."
-
-msgid "Note"
-msgstr "Notera"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr "Skriv det själavårdsmeddelande som är kopplat till denna familj."
-
-msgid "For every administrator"
-msgstr "För varje administratör"
-
-msgid "Show"
-msgstr "Visa"
-
-msgid "Hide"
-msgstr "Dölj"
-
-msgid "Include all the family members"
-msgstr "Inkludera alla familjemedlemmar"
-
-msgid "Include"
-msgstr "Inkludera"
 
 msgid "Pastoral Care Note Creation"
 msgstr "Pastoralvård Anteckningar Skapande"

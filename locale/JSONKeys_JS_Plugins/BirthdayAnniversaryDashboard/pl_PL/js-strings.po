@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:21:26.568Z\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Zapisz tę duszpasterską obserwację dla całej rodziny"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Rejestrowane duszpasterskie działania następcze"
+
+msgid "Error"
+msgstr "Błąd"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Brak możliwości zarejestrowania obserwacji duszpasterskiej."
+
+msgid "Confirm Deactivation"
+msgstr "Potwierdź dezaktywację"
+
+msgid "Confirm Activation"
+msgstr "Potwierdź aktywację"
+
+msgid "You are about to deactivate this person:"
+msgstr "Zamierzasz dezaktywować tę osobę:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Zamierzasz dezaktywować tę rodzinę:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Zamierzasz reaktywować tę osobę:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Zamierzasz reaktywować tę rodzinę:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"Ze względu na RODO, przed ponowną aktywacją rekordu należy upewnić się, że "
+"dana osoba wyraziła na to zgodę."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"Ze względu na RODO, przed ponowną aktywacją rekordu upewnij się, że masz "
+"zgodę członków rodziny."
+
+msgid "Privacy reminder"
+msgstr "Przypomnienie o ochronie prywatności"
+
+msgid "Also deactivate the whole family"
+msgstr "Dezaktywuj również całą rodzinę"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Użyj tej opcji, jeśli całe gospodarstwo domowe powinno zostać oznaczone jako "
+"nieaktywne w tym samym czasie."
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Confirm deactivation"
+msgstr "Potwierdzenie dezaktywacji"
+
+msgid "Confirm activation"
+msgstr "Potwierdź aktywację"
+
+msgid "Unable to update this person status."
+msgstr "Nie można zaktualizować statusu tej osoby."
+
+msgid "Unable to update this family status."
+msgstr "Nie można zaktualizować statusu tej rodziny."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Tworzenie notatek dotyczących opieki duszpasterskiej"
+
+msgid "Close"
+msgstr "Zamknij"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Nie można załadować edytora dalszych działań duszpasterskich."

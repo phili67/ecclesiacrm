@@ -2,29 +2,94 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-08 14:26+0000\n"
+"POT-Creation-Date: 2026-05-05 18:01+0000\n"
 "Language: ar_EG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:42
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:112
 msgid "Remove"
-msgstr ""
+msgstr "إزالة"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:43
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:113
 msgid "Collapse"
-msgstr ""
+msgstr "انهيار"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:70
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:200
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:296
+msgid "Pastoral follow-up recorded"
+msgstr "المتابعة الرعوية المسجلة"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:201
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:297
+msgid "No pastoral follow-up yet"
+msgstr "لا توجد متابعة رعوية بعد"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:218
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:221
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:313
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:316
+msgid "Call"
+msgstr "اتصل بنا"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:220
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:315
+msgid "No phone number available"
+msgstr "لا يوجد رقم هاتف متاح"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:225
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:226
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:229
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:320
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:321
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:324
+msgid "Pastoral follow-up"
+msgstr "المتابعة الرعوية"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:253
+msgid "Deactivate this Person"
+msgstr "إلغاء تنشيط هذا الشخص"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:253
+msgid "Activate this Person"
+msgstr "تفعيل هذا الشخص"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:255
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:349
+msgid "Deactivate"
+msgstr "إلغاء التنشيط"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:255
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:349
+msgid "Activate"
+msgstr "تفعيل"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:270
+msgid "No calls since"
+msgstr "لا توجد مكالمات منذ"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:347
+msgid "Deactivate this Family"
+msgstr "إلغاء تنشيط هذه العائلة"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:347
+msgid "Activate this Family"
+msgstr "تفعيل هذه العائلة"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:366
+msgid "Last call"
+msgstr "آخر مكالمة"
+
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:376
 msgid "Birthdates of the day"
 msgstr "تواريخ الميلاد اليوم"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:84
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:390
 msgid "Anniversaries of the day"
 msgstr "الذكرى السنوية لليوم"
 
-#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:108
+#: ../src/Plugins/BirthdayAnniversaryDashboard/v2/templates/View.php:404
 msgid "Unclassified birthdates"
-msgstr ""
+msgstr "تواريخ الميلاد غير المصنفة"

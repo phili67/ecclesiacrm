@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:20:25.872Z\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Kirjaa tämä pastoraalinen seuranta koko perheelle"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Pastoraalinen seuranta kirjattu"
+
+msgid "Error"
+msgstr "Virhe"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Ei pysty kirjaamaan pastoraalista seurantaa."
+
+msgid "Confirm Deactivation"
+msgstr "Vahvista deaktivointi"
+
+msgid "Confirm Activation"
+msgstr "Vahvista aktivointi"
+
+msgid "You are about to deactivate this person:"
+msgstr "Olet poistamassa tämän henkilön käytöstä:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Olet poistamassa tätä perhettä käytöstä:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Olet aikeissa aktivoida tämän henkilön uudelleen:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Olet aikeissa aktivoida tämän perheen uudelleen:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"Varmista GDPR-syistä, että sinulla on henkilön suostumus, ennen kuin "
+"aktivoit hänen tietonsa uudelleen."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"GDPR-syistä varmista, että sinulla on perheenjäsenten suostumus, ennen kuin "
+"aktivoit heidän tietonsa uudelleen."
+
+msgid "Privacy reminder"
+msgstr "Muistutus yksityisyyden suojasta"
+
+msgid "Also deactivate the whole family"
+msgstr "Poista myös koko perhe käytöstä"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Käytä tätä vaihtoehtoa, jos koko kotitalous halutaan merkitä samanaikaisesti "
+"passiiviseksi."
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "Confirm deactivation"
+msgstr "Vahvista deaktivointi"
+
+msgid "Confirm activation"
+msgstr "Vahvista aktivointi"
+
+msgid "Unable to update this person status."
+msgstr "Tämän henkilön tilaa ei voida päivittää."
+
+msgid "Unable to update this family status."
+msgstr "Tätä perhetilaa ei voida päivittää."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Sielunhoito Muistion luominen"
+
+msgid "Close"
+msgstr "Sulje"
+
+msgid "Save"
+msgstr "Tallenna"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Pastoraalisen seurannan editoria ei pystytä lataamaan."

@@ -1,1 +1,26 @@
-{}
+{
+    "Record this pastoral follow-up for the whole family": "Înregistrați această monitorizare pastorală pentru întreaga familie",
+    "Pastoral follow-up recorded": "Urmărire pastorală înregistrată",
+    "Error": "Eroare",
+    "Unable to record pastoral follow-up.": "Imposibilitatea de a înregistra urmărirea pastorală.",
+    "Confirm Deactivation": "Confirmați dezactivarea",
+    "Confirm Activation": "Confirmați activarea",
+    "You are about to deactivate this person:": "Sunteți pe cale să dezactivați această persoană:",
+    "You are about to deactivate this family:": "Sunteți pe cale să dezactivați această familie:",
+    "You are about to reactivate this person:": "Sunteți pe cale să reactivați această persoană:",
+    "You are about to reactivate this family:": "Sunteți pe cale să reactivați această familie:",
+    "For GDPR reasons, make sure you have the person's agreement before reactivating their record.": "Din motive GDPR, asigurați-vă că aveți acordul persoanei înainte de reactivarea înregistrării sale.",
+    "For GDPR reasons, make sure you have the agreement of the family members before reactivating their record.": "Din motive GDPR, asigurați-vă că aveți acordul membrilor familiei înainte de reactivarea înregistrării lor.",
+    "Privacy reminder": "Memento privind confidențialitatea",
+    "Also deactivate the whole family": "De asemenea, dezactivați întreaga familie",
+    "Use this if the entire household should be marked as inactive at the same time.": "Utilizați această opțiune dacă întreaga gospodărie trebuie marcată ca inactivă în același timp.",
+    "Cancel": "Anulează",
+    "Confirm deactivation": "Confirmați dezactivarea",
+    "Confirm activation": "Confirmați activarea",
+    "Unable to update this person status.": "Imposibilitatea de a actualiza statutul acestei persoane.",
+    "Unable to update this family status.": "Imposibilitatea de a actualiza statutul acestei familii.",
+    "Pastoral Care Note Creation": "Îngrijire pastorală Notă Creație",
+    "Close": "Închidere",
+    "Save": "Salvați",
+    "Unable to load the pastoral follow-up editor.": "Nu se poate încărca editorul de monitorizare pastorală."
+}

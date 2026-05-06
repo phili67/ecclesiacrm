@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1676,6 +1676,9 @@ msgstr "Xóa Event Type"
 msgid "This action can never be undone !!!!"
 msgstr "Hành động này không thể nào bị phá hủy ! !!!"
 
+msgid "preview currently being created"
+msgstr ""
+
 msgid "Preview"
 msgstr "Preview"
 
@@ -1684,9 +1687,6 @@ msgid "Document preview"
 msgstr "Tài liệu Title"
 
 msgid "Read only"
-msgstr ""
-
-msgid "preview currently being created"
 msgstr ""
 
 #, fuzzy
@@ -2170,6 +2170,35 @@ msgstr "Anh có chắc là anh muốn xóa hết các quản lý không?"
 msgid "Appointment"
 msgstr "Đặt biển"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr ""
+
+msgid "For every administrator"
+msgstr "Cho tất cả các nhà quản lý"
+
+msgid "Show"
+msgstr "Hiển thị đi"
+
+msgid "Hide"
+msgstr "Trốn đi."
+
+msgid "Include all the family members"
+msgstr "Bao gồm tất cả những thành viên trong gia đình"
+
+msgid "Include"
+msgstr "Bao gồm cả"
+
+#, fuzzy
+msgid "Pastoral care note"
+msgstr "Tạo vật mục sư Care Note"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+
+#, fuzzy
+msgid "Note"
+msgstr "Ghi chú"
+
 #, fuzzy
 msgid "Pastoral Care"
 msgstr "Tạo vật mục sư Care Note"
@@ -2222,34 +2251,8 @@ msgstr ""
 msgid "Keep note"
 msgstr ""
 
-#, fuzzy
-msgid "Pastoral care note"
-msgstr "Tạo vật mục sư Care Note"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-
-#, fuzzy
-msgid "Note"
-msgstr "Ghi chú"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr ""
-
-msgid "For every administrator"
-msgstr "Cho tất cả các nhà quản lý"
-
-msgid "Show"
-msgstr "Hiển thị đi"
-
-msgid "Hide"
-msgstr "Trốn đi."
-
-msgid "Include all the family members"
-msgstr "Bao gồm tất cả những thành viên trong gia đình"
-
-msgid "Include"
-msgstr "Bao gồm cả"
 
 msgid "Pastoral Care Note Creation"
 msgstr "Tạo vật mục sư Care Note"

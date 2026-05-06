@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1621,6 +1621,9 @@ msgstr "Slet hændelsestype"
 msgid "This action can never be undone !!!!"
 msgstr "Denne handling kan aldrig gøres om igen !!!!"
 
+msgid "preview currently being created"
+msgstr "forhåndsvisning, der er ved at blive oprettet"
+
 msgid "Preview"
 msgstr "Forhåndsvisning"
 
@@ -1629,9 +1632,6 @@ msgstr "Forhåndsvisning af dokument"
 
 msgid "Read only"
 msgstr "Læs kun"
-
-msgid "preview currently being created"
-msgstr "forhåndsvisning, der er ved at blive oprettet"
 
 msgid "Please wait"
 msgstr "Vær venlig at vente"
@@ -2090,6 +2090,33 @@ msgstr "Er du sikker på, at du ønsker at slette alle ledere?"
 msgid "Appointment"
 msgstr "Udnævnelse"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Optag denne pastorale opfølgning for hele familien"
+
+msgid "For every administrator"
+msgstr "For hver administrator"
+
+msgid "Show"
+msgstr "Vis"
+
+msgid "Hide"
+msgstr "Skjul"
+
+msgid "Include all the family members"
+msgstr "Medtag alle familiemedlemmer"
+
+msgid "Include"
+msgstr "Inkluder"
+
+msgid "Pastoral care note"
+msgstr "Notat om sjælesorg"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr "Gennemgå notetypen, skriv indholdet, og definer, hvem der kan se det."
+
+msgid "Note"
+msgstr "Bemærk"
+
 msgid "Pastoral Care"
 msgstr "Sjælesorg"
 
@@ -2139,32 +2166,8 @@ msgstr "Irreversibel handling"
 msgid "Keep note"
 msgstr "Hold øje med"
 
-msgid "Pastoral care note"
-msgstr "Notat om sjælesorg"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr "Gennemgå notetypen, skriv indholdet, og definer, hvem der kan se det."
-
-msgid "Note"
-msgstr "Bemærk"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr "Skriv det sjælesørgeriske budskab, der knytter sig til denne familie."
-
-msgid "For every administrator"
-msgstr "For hver administrator"
-
-msgid "Show"
-msgstr "Vis"
-
-msgid "Hide"
-msgstr "Skjul"
-
-msgid "Include all the family members"
-msgstr "Medtag alle familiemedlemmer"
-
-msgid "Include"
-msgstr "Inkluder"
 
 msgid "Pastoral Care Note Creation"
 msgstr "Pastoral Care Note Creation"

@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:20:31.022Z\n"
+"Language: fr_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Enregistrez ce suivi pastoral pour toute la famille"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Suivi pastoral enregistré"
+
+msgid "Error"
+msgstr "Erreur"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Impossible d'enregistrer le suivi pastoral."
+
+msgid "Confirm Deactivation"
+msgstr "Confirmer la désactivation"
+
+msgid "Confirm Activation"
+msgstr "Confirmer l'activation"
+
+msgid "You are about to deactivate this person:"
+msgstr "Vous êtes sur le point de désactiver cette personne :"
+
+msgid "You are about to deactivate this family:"
+msgstr "Vous êtes sur le point de désactiver cette famille :"
+
+msgid "You are about to reactivate this person:"
+msgstr "Vous êtes sur le point de réactiver cette personne :"
+
+msgid "You are about to reactivate this family:"
+msgstr "Vous êtes sur le point de réactiver cette famille :"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"Pour des raisons liées au GDPR, assurez-vous d'avoir l'accord de la personne "
+"avant de réactiver son dossier."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"Pour des raisons liées au GDPR, assurez-vous d'avoir l'accord des membres de "
+"la famille avant de réactiver leur dossier."
+
+msgid "Privacy reminder"
+msgstr "Rappel sur la protection de la vie privée"
+
+msgid "Also deactivate the whole family"
+msgstr "Désactivez également toute la famille"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Utilisez cette option si l'ensemble du ménage doit être marqué comme inactif "
+"en même temps."
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Confirm deactivation"
+msgstr "Confirmer la désactivation"
+
+msgid "Confirm activation"
+msgstr "Confirmer l'activation"
+
+msgid "Unable to update this person status."
+msgstr "Impossible de mettre à jour le statut de cette personne."
+
+msgid "Unable to update this family status."
+msgstr "Impossible de mettre à jour cette situation familiale."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Note sur les soins pastoraux Création"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Save"
+msgstr "Économiser"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Impossible de charger l'éditeur de suivi pastoral."

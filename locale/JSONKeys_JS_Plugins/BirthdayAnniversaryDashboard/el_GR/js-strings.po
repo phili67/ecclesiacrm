@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:20:51.263Z\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Καταγράψτε αυτή την ποιμαντική παρακολούθηση για όλη την οικογένεια"
+
+msgid "Pastoral follow-up recorded"
+msgstr "Καταγραφή της ποιμαντικής παρακολούθησης"
+
+msgid "Error"
+msgstr "Σφάλμα"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "Αδυναμία καταγραφής ποιμαντικής παρακολούθησης."
+
+msgid "Confirm Deactivation"
+msgstr "Επιβεβαίωση απενεργοποίησης"
+
+msgid "Confirm Activation"
+msgstr "Επιβεβαίωση ενεργοποίησης"
+
+msgid "You are about to deactivate this person:"
+msgstr "Πρόκειται να απενεργοποιήσετε αυτό το άτομο:"
+
+msgid "You are about to deactivate this family:"
+msgstr "Πρόκειται να απενεργοποιήσετε αυτή την οικογένεια:"
+
+msgid "You are about to reactivate this person:"
+msgstr "Πρόκειται να ενεργοποιήσετε ξανά αυτό το άτομο:"
+
+msgid "You are about to reactivate this family:"
+msgstr "Πρόκειται να ενεργοποιήσετε ξανά αυτή την οικογένεια:"
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr ""
+"Για λόγους GDPR, βεβαιωθείτε ότι έχετε τη συγκατάθεση του ατόμου προτού "
+"ενεργοποιήσετε εκ νέου το αρχείο του."
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"Για λόγους GDPR, βεβαιωθείτε ότι έχετε τη συγκατάθεση των μελών της "
+"οικογένειας πριν ενεργοποιήσετε εκ νέου το αρχείο τους."
+
+msgid "Privacy reminder"
+msgstr "Υπενθύμιση απορρήτου"
+
+msgid "Also deactivate the whole family"
+msgstr "Απενεργοποιήστε επίσης ολόκληρη την οικογένεια"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr ""
+"Χρησιμοποιήστε το εάν ολόκληρο το νοικοκυριό πρέπει να χαρακτηριστεί ως "
+"ανενεργό ταυτόχρονα."
+
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+msgid "Confirm deactivation"
+msgstr "Επιβεβαίωση απενεργοποίησης"
+
+msgid "Confirm activation"
+msgstr "Επιβεβαίωση ενεργοποίησης"
+
+msgid "Unable to update this person status."
+msgstr "Δεν είναι δυνατή η ενημέρωση της κατάστασης αυτού του ατόμου."
+
+msgid "Unable to update this family status."
+msgstr "Δεν είναι δυνατή η ενημέρωση αυτής της οικογενειακής κατάστασης."
+
+msgid "Pastoral Care Note Creation"
+msgstr "Ποιμαντική Φροντίδα Δημιουργία σημειώματος"
+
+msgid "Close"
+msgstr "Κλείστε το"
+
+msgid "Save"
+msgstr "Αποθήκευση"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "Δεν είναι δυνατή η φόρτωση του επεξεργαστή ποιμαντικής παρακολούθησης."

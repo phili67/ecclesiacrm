@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-05T18:20:05.183Z\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "为整个家庭记录下这一牧养后续行动"
+
+msgid "Pastoral follow-up recorded"
+msgstr "牧灵后续行动记录"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Unable to record pastoral follow-up."
+msgstr "无法记录牧师的后续行动。"
+
+msgid "Confirm Deactivation"
+msgstr "确认停用"
+
+msgid "Confirm Activation"
+msgstr "确认激活"
+
+msgid "You are about to deactivate this person:"
+msgstr "您即将停用此人："
+
+msgid "You are about to deactivate this family:"
+msgstr "您即将停用此家族："
+
+msgid "You are about to reactivate this person:"
+msgstr "您将重新激活此人："
+
+msgid "You are about to reactivate this family:"
+msgstr "你将重新激活这个家庭："
+
+msgid ""
+"For GDPR reasons, make sure you have the person's agreement before "
+"reactivating their record."
+msgstr "出于 GDPR 原因，在重新激活个人记录前，请确保您已征得其同意。"
+
+msgid ""
+"For GDPR reasons, make sure you have the agreement of the family members "
+"before reactivating their record."
+msgstr ""
+"出于 GDPR 的原因，在重新激活家庭成员的记录之前，请确保您已征得他们的同意。"
+
+msgid "Privacy reminder"
+msgstr "隐私提醒"
+
+msgid "Also deactivate the whole family"
+msgstr "同时停用整个家庭"
+
+msgid ""
+"Use this if the entire household should be marked as inactive at the same "
+"time."
+msgstr "如果整个家庭同时被标记为不活动，请使用此选项。"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Confirm deactivation"
+msgstr "确认停用"
+
+msgid "Confirm activation"
+msgstr "确认激活"
+
+msgid "Unable to update this person status."
+msgstr "无法更新此人状态。"
+
+msgid "Unable to update this family status."
+msgstr "无法更新此家庭状况。"
+
+msgid "Pastoral Care Note Creation"
+msgstr "牧灵关怀》创作说明"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Save"
+msgstr "节省"
+
+msgid "Unable to load the pastoral follow-up editor."
+msgstr "无法加载牧区跟踪编辑器。"

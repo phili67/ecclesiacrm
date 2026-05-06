@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-04-26T16:34:47.925Z\n"
+"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1630,6 +1630,9 @@ msgstr "Eseménytípus törlése"
 msgid "This action can never be undone !!!!"
 msgstr "Ezt a műveletet soha nem lehet visszacsinálni !!!!"
 
+msgid "preview currently being created"
+msgstr "előnézet jelenleg létrehozás alatt"
+
 msgid "Preview"
 msgstr "Előnézet"
 
@@ -1638,9 +1641,6 @@ msgstr "Dokumentum előnézet"
 
 msgid "Read only"
 msgstr "Csak olvasás"
-
-msgid "preview currently being created"
-msgstr "előnézet jelenleg létrehozás alatt"
 
 msgid "Please wait"
 msgstr "Kérjük, várjon"
@@ -2100,6 +2100,35 @@ msgstr "Biztos, hogy az összes menedzsert törölni akarja?"
 msgid "Appointment"
 msgstr "Időpontkérés"
 
+msgid "Record this pastoral follow-up for the whole family"
+msgstr "Vegye fel ezt a lelkipásztori nyomon követést az egész család számára"
+
+msgid "For every administrator"
+msgstr "Minden rendszergazda számára"
+
+msgid "Show"
+msgstr "Mutasd meg a"
+
+msgid "Hide"
+msgstr "Rejtsd el"
+
+msgid "Include all the family members"
+msgstr "A család összes tagjának bevonása"
+
+msgid "Include"
+msgstr "Tartalmazza a  címet."
+
+msgid "Pastoral care note"
+msgstr "Lelkipásztori jegyzet"
+
+msgid "Review the note type, write the content and define who can see it."
+msgstr ""
+"Tekintse át a jegyzet típusát, írja meg a tartalmat, és határozza meg, hogy "
+"ki láthatja azt."
+
+msgid "Note"
+msgstr "Megjegyzés:"
+
 msgid "Pastoral Care"
 msgstr "Lelkipásztori gondozás"
 
@@ -2149,34 +2178,8 @@ msgstr "Visszafordíthatatlan cselekvés"
 msgid "Keep note"
 msgstr "Tartsa meg a jegyzetet"
 
-msgid "Pastoral care note"
-msgstr "Lelkipásztori jegyzet"
-
-msgid "Review the note type, write the content and define who can see it."
-msgstr ""
-"Tekintse át a jegyzet típusát, írja meg a tartalmat, és határozza meg, hogy "
-"ki láthatja azt."
-
-msgid "Note"
-msgstr "Megjegyzés:"
-
 msgid "Write the pastoral care message associated with this family."
 msgstr "Írja le az ehhez a családhoz kapcsolódó lelkigondozói üzenetet."
-
-msgid "For every administrator"
-msgstr "Minden rendszergazda számára"
-
-msgid "Show"
-msgstr "Mutasd meg a"
-
-msgid "Hide"
-msgstr "Rejtsd el"
-
-msgid "Include all the family members"
-msgstr "A család összes tagjának bevonása"
-
-msgid "Include"
-msgstr "Tartalmazza a  címet."
 
 msgid "Pastoral Care Note Creation"
 msgstr "Lelkipásztori gondozás Megjegyzés létrehozása"
