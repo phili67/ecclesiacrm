@@ -3,18 +3,27 @@
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\Service\SystemService;
 
 // Set the page title and include HTML header
 $sPageTitle = _("Family Registration");
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
+
+$sessionLogoPath = SystemURLs::getRootPath() . "/icon-large.png";
 ?>
 <form action="<?= SystemURLs::getRootPath() ?>/external/register/confirm" method="post">
-    <div class="register-box register-box-custom blur">
-        <div class="register-logo">
-            <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?>
+    <div class="register-box register-box-custom blur external-auth-box external-auth-box--wide">
+        <div class="card external-auth-card">
+            <div class="card-header register-logo external-auth-header">
+                <div class="external-auth-brand">
+                    <img src="<?= $sessionLogoPath ?>" alt="<?= Bootstrapper::getSoftwareName() ?>" class="external-auth-brand__logo">
+                    <span class="external-auth-brand__version"><?= SystemService::getDBMainVersion() ?></span>
+                </div>
+            </div>
 
-        <div class="register-box-body">
-            <div class="card card-primary blur">
+        <div class="register-box-body external-auth-body">
+            <div class="external-auth-stack">
+            <div class="card blur">
                 <div class="card-header border-1">
                     <h3 class="card-title"><?= _('Register') . ' <b>"' . $family->getName() . '"</b> ' . $familyCount . ' ' . _('Family Members') ?></h3>
                     <input id="famId" name="famId" type="hidden" value="<?= $family->getId() ?>">
@@ -155,7 +164,9 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     <button type="submit" class="btn btn-primary btn-block"><?= _('Next'); ?></button>
                 </div>
             </div>
+            </div>
         </div>
+    </div>
     </div>
 
 </form>
