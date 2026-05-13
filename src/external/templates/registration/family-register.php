@@ -4,15 +4,18 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\Service\SystemService;
 
 // Set the page title and include HTML header
 $sPageTitle = _("Family Registration");
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
+
+$sessionLogoPath = SystemURLs::getRootPath() . "/icon-large.png";
 ?>
 
-    <div class="login-box register-box register-box-custom">
-        <div class="card card-outline card-success register-box-body blur">
-            <div class="card-header register-logo">
+    <div class="login-box register-box register-box-custom external-auth-box external-auth-box--narrow">
+        <div class="card card-outline card-success register-box-body blur external-auth-card">
+            <div class="card-header register-logo external-auth-header">
                 <?php
                 $headerHTML = Bootstrapper::getSoftwareName();
                 $sHeader = SystemConfig::getValue("sHeader");
@@ -23,10 +26,13 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     $headerHTML = $sEntityName;
                 }
                 ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/"><?= $headerHTML ?></a>
+                <div class="external-auth-brand">
+                    <img src="<?= $sessionLogoPath ?>" alt="<?= Bootstrapper::getSoftwareName() ?>" class="external-auth-brand__logo">
+                    <span class="external-auth-brand__version"><?= SystemService::getDBMainVersion() ?></span>
+                </div>
             </div>
-            <div class="card-body">
-                <p class="login-box-msg"><?= _('Register your family') ?></p>
+            <div class="card-body external-auth-body">
+                <p class="login-box-msg external-auth-title"><b><?= $headerHTML ?></b><?= _('Register your family') ?></p>
 
                 <form action="<?= SystemURLs::getRootPath() ?>/external/register/" method="post">
                     <div class="form-group has-feedback">

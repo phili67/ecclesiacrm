@@ -199,14 +199,21 @@ if (empty($person)) {
     $_SESSION['iLoginType'] = "";
 }
 
+$sessionLogoPath = $sRootPath . '/icon-large.png';
+
 ?>
+
+
 
 <!-- login-box -->
 <div class="login-box" id="Login" <?= ($_SESSION['iLoginType'] != "Lock") ? "" : 'style="display: none;"' ?>>
     <!-- /.login-logo -->
-    <div class="card login-box-body card-outline card-primary blur">
+    <div class="card login-box-body card-outline blur">
         <div class="card-header login-logo">
-            <?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?>
+            <div class="session-login-brand">
+                <img src="<?= $sessionLogoPath ?>" alt="<?= Bootstrapper::getSoftwareName() ?>" class="session-login-brand__logo">
+                <span class="session-login-version"><?= SystemService::getDBMainVersion() ?></span>
+            </div>
         </div>
         <div class="card-body login-card-body">
 
@@ -268,7 +275,7 @@ if (empty($person)) {
                                 class="fas fa-sign-in-alt"></i> <?= _('Login') ?></button>
                     </div>
                 </div>
-                <p class="mb-1">
+                <p class="mb-1 session-login-links">
                     <?php if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
                         ?>
                         <span class="text-right"><a
@@ -299,7 +306,10 @@ if (empty($person)) {
 <!-- lockscreen-wrapper -->
 <div class="lockscreen-wrapper" id="Lock"  <?= ($_SESSION['iLoginType'] == "Lock") ? "" : 'style="display: none;"' ?>>
     <div class="login-logo">
-        <?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?>
+        <div class="session-login-brand">
+            <img src="<?= $sessionLogoPath ?>" alt="<?= Bootstrapper::getSoftwareName() ?>" class="session-login-brand__logo">
+            <span class="session-login-version"><?= SystemService::getDBMainVersion() ?></span>
+        </div>
     </div>
 
     <p class="login-box-msg">
@@ -347,7 +357,6 @@ if (empty($person)) {
 
                     <input type="password" name="Password" class= "form-control form-control-sm"
                         placeholder="<?= _('Password') ?>" value="<?= $urlPassword ?>" >
-
                     <div class="input-group-append"><button type="submit" class="btn btn-default"><i class="fas fa-arrow-right text-muted"></i></button></div>
                 </div>
             </div>

@@ -2,22 +2,27 @@
 
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\SystemService;
 
 // Set the page title and include HTML header
 $sPageTitle = _("Family Registration");
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
+
+$sessionLogoPath = SystemURLs::getRootPath() . "/icon-large.png";
 ?>
 
     <form action="<?= SystemURLs::getRootPath() ?>/external/register/done" method="post">
-        <div class="register-box register-box-custom">
-            <div class="register-logo">
-                <a href="<?= SystemURLs::getRootPath() ?>/"><?= Bootstrapper::getSoftwareName() ?></a>
-            </div>
-
-            <div class="register-box-body blur">
-                <div class="text-center">
-                    <h4><?= _('Registration Complete') ?></h4>
+        <div class="register-box register-box-custom external-auth-box external-auth-box--narrow">
+            <div class="card register-box-body blur external-auth-card">
+                <div class="card-header register-logo external-auth-header">
+                    <div class="external-auth-brand">
+                        <img src="<?= $sessionLogoPath ?>" alt="<?= Bootstrapper::getSoftwareName() ?>" class="external-auth-brand__logo">
+                        <span class="external-auth-brand__version"><?= SystemService::getDBMainVersion() ?></span>
+                    </div>
                 </div>
+
+            <div class="register-box-body blur external-auth-body">
+                <p class="external-auth-title text-center"><b><?= Bootstrapper::getSoftwareName() ?></b><?= _('Registration Complete') ?></p>
 
                 <div class="card card-success">
                     <div class="card-header border-1">
@@ -49,6 +54,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     </div>
                 </div>
 
+            </div>
             </div>
 
             <!-- /.form-box -->
