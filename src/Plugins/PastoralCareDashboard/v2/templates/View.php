@@ -133,10 +133,10 @@ function renderStatsTable($Stats) {
                 (<?= dgettext("messages-PastoralCareDashboard", "Period from") ?> <?= $pastoralServiceStats['startPeriod'] ?> <?= dgettext("messages-PastoralCareDashboard", "to") ?> <?= $pastoralServiceStats['endPeriod'] ?>)
             </h5>
             <div class="card-tools">
-                <button type="button" class="btn btn-sm text-white" data-card-widget="remove">
+                <button type="button" class="btn btn-sm text-muted" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                 </button>
-                <button type="button" class="btn btn-sm text-white" data-card-widget="collapse" title="Collapse">
+                <button type="button" class="btn btn-sm text-muted" data-card-widget="collapse" title="Collapse">
                     <i class="fas <?= $Card_collapsed_button ?>"></i>
                 </button>
             </div>

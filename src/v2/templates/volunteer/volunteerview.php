@@ -256,9 +256,9 @@ $emailExportStateClass = $isEmailExportEnabled ? '' : 'disabled';
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
                 <div class="card-tools pull-right">
-                    <button class="btn btn-sm btn-primary" type="button">
-                        <?= _('Total Members') ?> <span class="badge  bg-body" id="iTotalMembers"></span>
-                    </button>
+                    <span class="badge badge-primary" type="button">
+                        <?= _('Total Members') ?> : <span class="" id="iTotalMembers"></span>
+                    </span>
                 </div>
             </div>
             <div class="card-body">
