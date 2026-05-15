@@ -87,6 +87,7 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                            data-placement="bottom" title="" data-original-title="<?= _("Check all boxes") ?>">
                 </th>
                 <th><?= _('Plugin') ?></th>
+                <th><?= _('Category') ?></th>
                 <th><?= _('Description') ?></th>
                 <th><?= _('Status') ?></th>
                 <th><?= _('Update') ?></th>
@@ -115,6 +116,17 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                                                                          class="js-updraftplus-tour btn btn-outline-info btn-xs mb-1"><?= _("Guided tour") ?></a>
                             </span>
                         </div>
+                    </td>
+                    <td class="align-middle">
+                        <?php if ($plugin->getCategory() == 'Dashboard' and $plugin->getDashboardDefaultOrientation() != 'widget') : ?>
+                            <i class="fas fa-columns text-muted mr-2"></i> <?= _("Dashboard") ?>
+                        <?php elseif ($plugin->getCategory() == 'Dashboard' and $plugin->getDashboardDefaultOrientation() == 'widget') : ?>
+                            <i class="fas fa-th text-muted mr-2"></i> <?= _("Widget") ?>
+                        <?php else : ?>
+                            <i class="fas fa-puzzle-piece text-muted mr-2"></i> <?= _("Plugin") ?>
+                        <?php endif; ?>
+
+                        
                     </td>
                     <td class="align-middle">
                         <div class="plugin-description">
