@@ -290,7 +290,7 @@ $sessionLogoPath = $sRootPath . '/icon-large.png';
                 <div class="row  mb-3">
                     <!-- /.col -->
                     <div class="col-12">
-                        <a href="<?= $RootPath ?>/external/register/" class="btn btn-primary btn-block bg-olive"><i
+                        <a href="<?= $RootPath ?>/external/register/" class="btn btn-primary btn-block bg-olive btn-register-family"><i
                                 class="fas fa-user-plus"></i> <?= _('Register a new Family'); ?></a><br>
                     </div>
                 </div>

@@ -215,18 +215,18 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             if (!is_null($defaultPastoralTypeCare)) {
                 if ($callablePhoneHref !== '') {
                     $pastoralActions .= '<a class="btn btn-outline-primary" href="tel:'. htmlspecialchars($callablePhoneHref, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '" title="'. htmlspecialchars($callablePhoneNumber, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '">'
-                        . '<i class="fas fa-phone-alt mr-1"></i>' . _('Call') . '</a>';
+                        . '<i class="fas fa-phone-alt mr-1"></i>' . dgettext("messages-BirthdayAnniversaryDashboard",'Call') . '</a>';
                 } else {
-                    $pastoralActions .= '<button type="button" class="btn btn-outline-secondary" disabled title="'. _('No phone number available') . '">'
-                        . '<i class="fas fa-phone-alt mr-1"></i>' . _('Call') . '</button>';
+                    $pastoralActions .= '<button type="button" class="btn btn-outline-secondary" disabled title="'. dgettext("messages-BirthdayAnniversaryDashboard",'No phone number available') . '">'
+                        . '<i class="fas fa-phone-alt mr-1"></i>' . dgettext("messages-BirthdayAnniversaryDashboard",'Call') . '</button>';
                 }
 
                 if (count($pastoralTypeCareOptions) > 1) {
-                    $pastoralActions .= '<button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="'. _('Pastoral follow-up') . '" aria-label="'. _('Pastoral follow-up') . '">'
-                        . '<span class="sr-only">'. _('Pastoral follow-up') . '</span>'
+                    $pastoralActions .= '<button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="'. dgettext("messages-BirthdayAnniversaryDashboard",'Pastoral follow-up') . '" aria-label="'. dgettext("messages-BirthdayAnniversaryDashboard",'Pastoral follow-up') . '">'
+                        . '<span class="sr-only">'. dgettext("messages-BirthdayAnniversaryDashboard",'Pastoral follow-up') . '</span>'
                         . '</button>'
                         . '<div class="dropdown-menu dropdown-menu-right birthday-pastoral-dropdown-menu">'
-                        . '<span class="dropdown-header">'. _('Pastoral follow-up') . '</span>';
+                        . '<span class="dropdown-header">'. dgettext("messages-BirthdayAnniversaryDashboard",'Pastoral follow-up') . '</span>';
 
                     foreach ($pastoralTypeCareOptions as $pastoralTypeCareOption) {
                         $pastoralActions .= '<a class="dropdown-item birthday-pastoral-care" href="#"'
@@ -250,9 +250,9 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
                     . ' data-person-id="'. $personId . '"'
                     . ' data-entity-name="'. htmlspecialchars($personName, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '"'
                     . ' data-current-active="'. ($isCurrentlyActive ? '1' : '0') . '"'
-                    . ' title="'. ($isCurrentlyActive ? _('Deactivate this Person') : _('Activate this Person')) . '">'
+                    . ' title="'. ($isCurrentlyActive ? dgettext("messages-BirthdayAnniversaryDashboard",'Deactivate this Person') : dgettext("messages-BirthdayAnniversaryDashboard",'Activate this Person')) . '">'
                     . '<i class="fa '. ($isCurrentlyActive ? 'fa-times-circle' : 'fa-check-circle') . ' mr-1"></i>'
-                    . ($isCurrentlyActive ? _('Deactivate') : _('Activate'))
+                    . ($isCurrentlyActive ? dgettext("messages-BirthdayAnniversaryDashboard",'Deactivate') : dgettext("messages-BirthdayAnniversaryDashboard",'Activate'))
                     . '</button>';
             }
 
@@ -267,7 +267,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             . '</a>'
             . '<span class="badge '. $statusClass . ' birthday-pastoral-status text-nowrap" style="white-space:nowrap;" data-state="'. ($isPastoralCareRecorded ? 'recorded' : 'pending') . '">'. $statusText . '</span>'
             . '</div>'
-            . '<div class="small text-muted mt-2 birthday-pastoral-date'. ($lastPastoralCareDate === '' ? ' d-none' : '') . '"><i class="far fa-clock mr-1"></i><span>' . _('No calls since') . ' ' . htmlspecialchars($lastPastoralCareDate, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</span></div>'
+            . '<div class="small text-muted mt-2 birthday-pastoral-date'. ($lastPastoralCareDate === '' ? ' d-none' : '') . '"><i class="far fa-clock mr-1"></i><span>' . dgettext("messages-BirthdayAnniversaryDashboard",'No calls since') . ' ' . htmlspecialchars($lastPastoralCareDate, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</span></div>'
             . $pastoralActions
             . '</div>'
             . '</div>';
@@ -282,8 +282,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
         $callablePhoneNumber = $getCallablePhoneNumber($anniversary);
         $callablePhoneHref = $formatPhoneHref($callablePhoneNumber);
         $isCurrentlyActive = is_null($anniversary->getDateDeactivated());
-        $canToggleActivation = ($currentUser->isEditRecordsEnabled() || ($currentUser->isEditSelfEnabled() && $familyId === $currentUserFamilyId))
-            && $currentUser->isGdrpDpoEnabled();
+        $canToggleActivation = $currentUser->isEditRecordsEnabled() && $currentUser->isDeleteRecordsEnabled();
 
         $lastPastoralCareDateValue = $lastPastoralCareFamilyDates[$familyId] ?? null;
         $isPastoralCareRecorded = $hasRecentPastoralCare($lastPastoralCareDateValue);
@@ -310,18 +309,18 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             if (!is_null($defaultPastoralTypeCare)) {
                 if ($callablePhoneHref !== '') {
                     $pastoralActions .= '<a class="btn btn-outline-primary" href="tel:'. htmlspecialchars($callablePhoneHref, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '" title="'. htmlspecialchars($callablePhoneNumber, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '">'
-                        . '<i class="fas fa-phone-alt mr-1"></i>' . _('Call') . '</a>';
+                        . '<i class="fas fa-phone-alt mr-1"></i>' . dgettext("messages-BirthdayAnniversaryDashboard",'Call') . '</a>';
                 } else {
-                    $pastoralActions .= '<button type="button" class="btn btn-outline-secondary" disabled title="'. _('No phone number available') . '">'
-                        . '<i class="fas fa-phone-alt mr-1"></i>' . _('Call') . '</button>';
+                    $pastoralActions .= '<button type="button" class="btn btn-outline-secondary" disabled title="'. dgettext("messages-BirthdayAnniversaryDashboard",'No phone number available') . '">'
+                        . '<i class="fas fa-phone-alt mr-1"></i>' . dgettext("messages-BirthdayAnniversaryDashboard",'Call') . '</button>';
                 }
 
                 if (count($pastoralTypeCareOptions) > 1) {
-                    $pastoralActions .= '<button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="'. _('Pastoral follow-up') . '" aria-label="'. _('Pastoral follow-up') . '">'
-                        . '<span class="sr-only">'. _('Pastoral follow-up') . '</span>'
+                    $pastoralActions .= '<button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="'. dgettext("messages-BirthdayAnniversaryDashboard",'Pastoral follow-up') . '" aria-label="'. dgettext("messages-BirthdayAnniversaryDashboard",'Pastoral follow-up') . '">'
+                        . '<span class="sr-only">'. dgettext("messages-BirthdayAnniversaryDashboard",'Pastoral follow-up') . '</span>'
                         . '</button>'
                         . '<div class="dropdown-menu dropdown-menu-right birthday-pastoral-dropdown-menu">'
-                        . '<span class="dropdown-header">'. _('Pastoral follow-up') . '</span>';
+                        . '<span class="dropdown-header">'. dgettext("messages-BirthdayAnniversaryDashboard",'Pastoral follow-up') . '</span>';
 
                     foreach ($pastoralTypeCareOptions as $pastoralTypeCareOption) {
                         $pastoralActions .= '<a class="dropdown-item birthday-pastoral-care" href="#"'
@@ -344,9 +343,9 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
                     . ' data-family-id="'. $familyId . '"'
                     . ' data-entity-name="'. $familyName . '"'
                     . ' data-current-active="'. ($isCurrentlyActive ? '1' : '0') . '"'
-                    . ' title="'. ($isCurrentlyActive ? _('Deactivate this Family') : _('Activate this Family')) . '">'
+                    . ' title="'. ($isCurrentlyActive ? dgettext("messages-BirthdayAnniversaryDashboard",'Deactivate this Family') : dgettext("messages-BirthdayAnniversaryDashboard",'Activate this Family')) . '">'
                     . '<i class="fa '. ($isCurrentlyActive ? 'fa-times-circle' : 'fa-check-circle') . ' mr-1"></i>'
-                    . ($isCurrentlyActive ? _('Deactivate') : _('Activate'))
+                    . ($isCurrentlyActive ? dgettext("messages-BirthdayAnniversaryDashboard",'Deactivate') : dgettext("messages-BirthdayAnniversaryDashboard",'Activate'))
                     . '</button>';
             }
 
@@ -363,7 +362,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             . '</a>'
             . '<span class="badge '. $statusClass . ' birthday-pastoral-status text-nowrap" style="white-space:nowrap;" data-state="'. ($isPastoralCareRecorded ? 'recorded' : 'pending') . '">'. $statusText . '</span>'
             . '</div>'
-            . '<div class="small text-muted mt-2 birthday-pastoral-date'. ($lastPastoralCareDate === '' ? ' d-none' : '') . '"><i class="far fa-clock mr-1"></i><span>' . _('Last call') . ' ' . htmlspecialchars($lastPastoralCareDate, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</span></div>'
+            . '<div class="small text-muted mt-2 birthday-pastoral-date'. ($lastPastoralCareDate === '' ? ' d-none' : '') . '"><i class="far fa-clock mr-1"></i><span>' . dgettext("messages-BirthdayAnniversaryDashboard","Last call") . ' ' . htmlspecialchars($lastPastoralCareDate, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</span></div>'
             . $pastoralActions
             . '</div>'
             . '</div>';

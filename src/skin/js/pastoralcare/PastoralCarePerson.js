@@ -144,7 +144,7 @@ $(function() {
       showWholeFamilyCheckbox: currentFamilyID > 0,
       wholeFamilyCheckboxId: 'personApplyToWholeFamily',
       wholeFamilyCheckboxName: 'personApplyToWholeFamily',
-      wholeFamilyCheckboxLabelKey: 'Record this pastoral follow-up for the whole family',
+      wholeFamilyCheckboxLabelKey: i18next.t('Record this pastoral follow-up for the whole family'),
       visibilityIdPrefix: 'visibility',
       noteTextId: 'NoteText',
       noteTextClass: 'form-control form-control-sm NoteText',
