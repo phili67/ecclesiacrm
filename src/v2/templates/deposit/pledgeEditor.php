@@ -248,7 +248,7 @@ require $sRootDocument . '/Include/Header.php';
                             } ?>
                             <button type="button" class="btn btn-sm btn-secondary" name="PledgeCancel"
                                 onclick="document.location='<?= $sRootPath ?>/<?= $linkBack ? $linkBack : 'v2/dashboard' ?>'">
-                                <i class="fas fa-times mr-1"></i><?= _($cancelText) ?>
+                                <i class="fas fa-times mr-1"></i><?= $cancelText ?>
                             </button>
                         </div>
                     </div>
@@ -278,7 +278,7 @@ require $sRootDocument . '/Include/Header.php';
                         foreach ($fundId2Name as $fun_id => $fun_name) {
                             ?>
                             <tr>
-                                <td><label class="mb-0"><?= _($fun_name) ?></label></td>
+                                <td><label class="mb-0"><?= $fun_name ?></label></td>
                                 <td>
                                     <input class="form-control form-control-sm FundAmount" type="number" step="any"
                                            name="<?= $fun_id ?>_Amount" id="<?= $fun_id ?>_Amount"
