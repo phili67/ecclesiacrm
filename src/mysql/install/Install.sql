@@ -2010,6 +2010,23 @@ CREATE TABLE `plugin` (
 -- Dumping data for table `plugin`
 --
 
+--
+-- Table structure for table `plugin_dependencies`
+--
+
+CREATE TABLE `plugin_dependencies` (
+  `plgn_dep_ID` mediumint(8) unsigned NOT NULL auto_increment,
+  `plgn_dep_plugin_ID` mediumint(8) unsigned NOT NULL default '0',
+  `plgn_dep_url` varchar(255) DEFAULT '',
+  `plgn_dep_extension` varchar(255) DEFAULT '' COMMENT 'extension of the file to download js or php',
+  CONSTRAINT fk_plgn_dep_plugin_id FOREIGN KEY (plgn_dep_plugin_ID) REFERENCES plugin(plgn_ID) ON DELETE CASCADE,
+  PRIMARY KEY  (`plgn_dep_ID`)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `plugin_dependencies`
+--
+
 
 --
 -- Table structure for table `plugin_menu_bar`
@@ -2023,6 +2040,7 @@ CREATE TABLE `plugin_menu_bar` (
   `plgn_bm_icon` varchar(255) DEFAULT '' COMMENT 'Icon MenuBar',
   `plgn_bm_grp_sec` varchar(255) DEFAULT '' COMMENT 'In lower case : usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_EDrive, usr_MenuOptions, usr_ManageGroups, usr_ManageCalendarResources, usr_HtmlSourceEditor, usr_Finance, usr_Notes, usr_EditSelf, usr_Canvasser, usr_Admin, usr_showMenuQuery, usr_CanSendEmail, usr_ExportCSV, usr_CreateDirectory, usr_ExportSundaySchoolPDF, usr_ExportSundaySchoolCSV, usr_MainDashboard, usr_SeePrivacyData, usr_MailChimp, usr_GDRP_DPO, usr_PastoralCare',
   `plgn_mb_parent_ID` mediumint(8) unsigned DEFAULT NULL COMMENT 'in the case of a link : the parent is plgn_mb_ID',
+  `plgn_mb_special_classes` text DEFAULT '' COMMENT 'special classe(s) for the menu bar link',
   PRIMARY KEY  (`plgn_mb_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
