@@ -1508,6 +1508,22 @@
         </vendor>
     </table>
 
+    <table name="plugin_dependencies" idMethod="native" phpName="PluginDependencies">
+      <column name="plgn_dep_ID" phpName="Id" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+      <column name="plgn_dep_plugin_ID" phpName="PluginId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0"/>
+      <column name="plgn_dep_url" phpName="Url" type="VARCHAR" size="255" defaultValue=""/>
+      <column name="plgn_dep_extension" phpName="Extension" type="VARCHAR" size="255" description="extension of the file to download js or php" defaultValue=""/>
+      <foreign-key foreignTable="plugin" name="fk_plgn_dep_plugin_id" onDelete="CASCADE">
+        <reference local="plgn_dep_plugin_ID" foreign="plgn_ID"/>
+      </foreign-key>
+      <index name="fk_plgn_dep_plugin_id">
+        <index-column name="plgn_dep_plugin_ID"/>
+      </index>
+      <vendor type="mysql">
+        <parameter name="Engine" value="InnoDB"/>
+      </vendor>
+    </table>
+
     <table name="plugin_menu_bar" idMethod="native" phpName="PluginMenuBar">
         <column name="plgn_mb_ID" phpName="Id" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="plgn_mb_plugin_name" phpName="Name" type="VARCHAR" size="255" defaultValue=""/>
@@ -1516,6 +1532,7 @@
         <column name="plgn_bm_grp_sec" phpName="GrpSec" type="VARCHAR" size="255" description="In lower case : usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_EDrive, usr_MenuOptions, usr_ManageGroups, usr_ManageCalendarResources, usr_HtmlSourceEditor, usr_Finance, usr_Notes, usr_EditSelf, usr_Canvasser, usr_Admin, usr_showMenuQuery, usr_CanSendEmail, usr_ExportCSV, usr_CreateDirectory, usr_ExportSundaySchoolPDF, usr_ExportSundaySchoolCSV, usr_MainDashboard, usr_SeePrivacyData, usr_MailChimp, usr_GDRP_DPO, usr_PastoralCare" defaultValue=""/>
         <column name="plgn_bm_icon" phpName="Icon" type="VARCHAR" size="255" description="Icon MenuBar" defaultValue=""/>
         <column name="plgn_mb_parent_ID" phpName="LinkParentId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" description="in the case of a link : the parent is plgn_mb_ID"/>
+        <column name="plgn_mb_special_classes" phpName="SpecialClasses" type="LONGVARCHAR" description="special classe(s) for the menu bar link"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
