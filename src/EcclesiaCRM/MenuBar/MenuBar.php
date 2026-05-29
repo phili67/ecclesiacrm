@@ -58,7 +58,7 @@ class MenuBar extends Menu
             $name = $plugin->getName();
 
             if ( !( SessionUser::getUser()->isEnableForPlugin($plugin->getName())
-                or SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) ) break;
+                or SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) ) continue;
 
             $isPluginEnabledForuser = true;
 
@@ -86,11 +86,11 @@ class MenuBar extends Menu
                     }
 
                     /*if ($menu_count > 1 and $plugin->getCategoryPosition() != 'after_category_menu') {
-                        $menuItem = new Menu (_($menuBarItem->getDisplayName()), "fas fa-tachometer-alt", $menuBarItem->getURL(), true, $menu);
+                        $menuItem = new Menu (_($menuBarItem->getDisplayName()), "fas fa-tachometer-alt", $menuBarItem->getURL(), true, $menu, $menuBarItem->getSpecialClasses());
                     }*/
                     $first_One = false;
                 } else {
-                    $menuItem = new Menu (dgettext("messages-".$name, $menuBarItem->getDisplayName()), $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec, $menu);
+                    $menuItem = new Menu (dgettext("messages-".$name, $menuBarItem->getDisplayName()), $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec, $menu, $menuBarItem->getSpecialClasses());
                 }
 
                 $menuLinks = PluginMenuBarQuery::create()->findByLinkParentId($menuBarItem->getId());
@@ -800,11 +800,13 @@ class MenuBar extends Menu
 
     private function addCommunicationMenu()
     {
+        $menu = new Menu (_("Communication"), "fas fa-envelope", "#", true);
+        
         if ( SystemConfig::getBooleanValue("bEnabledEmail") and SessionUser::getUser()->isEmailEnabled() ) {        
             // the Email
-            $menu = new Menu (_("Communication"), "fas fa-envelope", "#", true);
+            
 
-            if (SessionUser::getUser()->isMailChimpEnabled()) {
+            /*if (SessionUser::getUser()->isMailChimpEnabled()) {
                 $mailchimp = new MailChimpService();
 
                 $menuMain = new Menu (_("MailChimp"), "fab fa-mailchimp", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
@@ -821,7 +823,7 @@ class MenuBar extends Menu
                     $mcLists = $mailchimp->getLists();
 
                     foreach ($mcLists as $list) {
-                        $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/, "fas fa-mail-bulk", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
+                        $menuItemItemItem = new Menu ($list['name'], "fas fa-mail-bulk", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
 
                         $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
 
@@ -837,12 +839,13 @@ class MenuBar extends Menu
                 }
 
                 
-            }   
+            }   */
             
-            $this->addPluginMenus('Communication', $menu, 'inside_category_menu');
-            $this->addMenu($menu);       
-            $this->addPluginMenus('Communication', $menu, 'after_category_menu');
         }
+
+        $this->addPluginMenus('Communication', $menu, 'inside_category_menu');
+        $this->addMenu($menu);       
+        $this->addPluginMenus('Communication', $menu, 'after_category_menu');
     }
 
     private function addDepositMenu()

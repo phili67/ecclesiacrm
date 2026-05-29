@@ -304,6 +304,8 @@ class Menu {
         //echo '<nav class="mt-2"></nav><ul class="nav nav-pills nav-sidebar flex-column" data-widget="tree" role="menu" data-accordion="false">';
         $ret = '';
         foreach ($this->_menus as $menu) {
+            if (is_null($menu)) continue;
+            
             $is_active = $this->is_link_active($menu->getLinks(),false,$menu->getClass())?'active':'';
 
             if (count($menu->subMenu()) == 0) {
