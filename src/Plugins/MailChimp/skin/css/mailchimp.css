@@ -1,0 +1,409 @@
+.card-mailchimp {
+    box-shadow: none !important;
+    margin-bottom: 0rem !important;
+    background-color: #fff0 !important;
+}
+
+
+.shadow-mailchimp {
+    box-shadow: 0 .3rem 0.3rem rgba(0, 0, 0, .15) !important;
+}
+
+.btn-app-mailchimp {
+    background-color: #e0e4e7 !important;
+}
+
+.alert-mailchimp {
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+    margin-top: -10px !important;
+}
+
+.col-lg-mailchimp {
+    margin-left: 10px !important;
+    margin-right: -10px !important;
+    border-right: 1px solid #e3e1e1 !important;
+}
+
+.hr-mailchimp {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.mailchimp-h3 {
+    color: #007c89;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+
+.mailchimp-h2 {
+    color: #111;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: 200;
+}
+
+.mailchimp-campaign-main-send-infos {
+    background-color: #fbfbfb;
+    padding: 10px;
+    margin: 10px;
+}
+
+.mailchimp-campaign-main-send-infos-sub {
+    border: 1px solid #dddddd;
+}
+
+.mailchimp-campaign-main-send-infos-sub-cell {
+    border-right: 1px solid #dddddd;
+}
+
+.leaders {
+    overflow-x: hidden;
+}
+
+.leaders li {
+    margin-bottom: 12px;
+    background: url(/Images/bg-leaders.png) transparent 0 17px repeat-x;
+}
+
+.leaders li>span:first-child {
+    padding-right: 12px;
+}
+
+.leaders li>span {
+    background-color: #fbfbfb;
+}
+
+.leaders li>span+span {
+    float: right;
+    padding-left: 12px;
+}
+
+.fwb {
+    font-weight: 500;
+}
+
+.size1of2 {
+    width: 50%;
+}
+
+.lastUnit,
+.unit {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 30px;
+    float: left;
+}
+
+@media (prefers-color-scheme: dark) {
+    .btn-app-mailchimp {
+        background-color: #555 !important;
+    }
+
+    .col-lg-mailchimp {
+        border-right: 1px solid #eee !important;
+    }
+}
+
+
+:root {
+    --mc-ink: #1f1d16;
+    --mc-muted: #6a6148;
+    --mc-line: rgba(31, 29, 22, 0.12);
+    --mc-surface: #fffdf7;
+    --mc-surface-strong: #ffffff;
+    --mc-success: #2e7d32;
+    --mc-success-bg: rgba(46, 125, 50, 0.1);
+    --mc-chip-bg: rgba(31, 29, 22, 0.06);
+    --mc-hero-glow: rgba(255, 224, 27, 0.45);
+    --mc-hero-start: #fffef9;
+    --mc-hero-end: #fff4bf;
+    --mc-soft-card-start: rgba(255, 224, 27, 0.25);
+    --mc-soft-card-end: rgba(255, 255, 255, 0.9);
+    --mc-panel-bg: rgba(255, 255, 255, 0.8);
+    --mc-meta-bg: rgba(255, 255, 255, 0.72);
+    --mc-tip-bg: rgba(255, 255, 255, 0.8);
+    --mc-save-bg: rgba(255, 255, 255, 0.86);
+    --mc-shadow: 0 18px 42px rgba(31, 29, 22, 0.08);
+}
+
+.dark-mode .mailchimp-settings-page {
+    --mc-ink: #f7f3e8;
+    --mc-muted: #c8c0aa;
+    --mc-line: rgba(255, 244, 210, 0.14);
+    --mc-surface: #17130b;
+    --mc-surface-strong: #20190d;
+    --mc-success: #7ed089;
+    --mc-success-bg: rgba(126, 208, 137, 0.16);
+    --mc-chip-bg: rgba(255, 244, 210, 0.09);
+    --mc-hero-glow: rgba(255, 224, 27, 0.16);
+    --mc-hero-start: #231a08;
+    --mc-hero-end: #3a2c05;
+    --mc-soft-card-start: rgba(255, 224, 27, 0.12);
+    --mc-soft-card-end: rgba(23, 19, 11, 0.96);
+    --mc-panel-bg: rgba(32, 25, 13, 0.88);
+    --mc-meta-bg: rgba(32, 25, 13, 0.82);
+    --mc-tip-bg: rgba(32, 25, 13, 0.88);
+    --mc-save-bg: rgba(23, 19, 11, 0.94);
+    --mc-shadow: 0 20px 44px rgba(0, 0, 0, 0.36);
+}
+
+@media (prefers-color-scheme: dark) {
+    .mailchimp-settings-page {
+        --mc-ink: #f7f3e8;
+        --mc-muted: #c8c0aa;
+        --mc-line: rgba(255, 244, 210, 0.14);
+        --mc-surface: #17130b;
+        --mc-surface-strong: #20190d;
+        --mc-success: #7ed089;
+        --mc-success-bg: rgba(126, 208, 137, 0.16);
+        --mc-chip-bg: rgba(255, 244, 210, 0.09);
+        --mc-hero-glow: rgba(255, 224, 27, 0.16);
+        --mc-hero-start: #231a08;
+        --mc-hero-end: #3a2c05;
+        --mc-soft-card-start: rgba(255, 224, 27, 0.12);
+        --mc-soft-card-end: rgba(23, 19, 11, 0.96);
+        --mc-panel-bg: rgba(32, 25, 13, 0.88);
+        --mc-meta-bg: rgba(32, 25, 13, 0.82);
+        --mc-tip-bg: rgba(32, 25, 13, 0.88);
+        --mc-save-bg: rgba(23, 19, 11, 0.94);
+        --mc-shadow: 0 20px 44px rgba(0, 0, 0, 0.36);
+    }
+}
+
+.mailchimp-settings-page {
+    color: var(--mc-ink);
+}
+
+.mailchimp-settings-page .hero-panel {
+    background:
+        radial-gradient(circle at top right, var(--mc-hero-glow), transparent 34%),
+        linear-gradient(135deg, var(--mc-hero-start) 0%, var(--mc-hero-end) 100%);
+    border: 1px solid var(--mc-line);
+    border-radius: 28px;
+    box-shadow: var(--mc-shadow);
+    overflow: hidden;
+}
+
+.mailchimp-settings-page .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+    gap: 1.5rem;
+}
+
+.mailchimp-settings-page .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    border-radius: 999px;
+    background: var(--mc-chip-bg);
+    color: var(--mc-muted);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    padding: .45rem .85rem;
+    text-transform: uppercase;
+}
+
+.mailchimp-settings-page .hero-title {
+    font-size: clamp(2.1rem, 4vw, 3.4rem);
+    line-height: .98;
+    letter-spacing: -0.04em;
+    margin: 1rem 0 .8rem;
+    font-weight: 800;
+}
+
+.mailchimp-settings-page .hero-copy,
+.mailchimp-settings-page .meta-copy,
+.mailchimp-settings-page .field-help,
+.mailchimp-settings-page .save-note {
+    color: var(--mc-muted);
+}
+
+.mailchimp-settings-page .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .6rem 1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    background: var(--mc-success-bg);
+    color: var(--mc-success);
+}
+
+.mailchimp-settings-page .status-pill.is-off {
+    background: var(--mc-chip-bg);
+    color: var(--mc-muted);
+}
+
+.mailchimp-settings-page .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 1.3rem;
+}
+
+.mailchimp-settings-page .settings-card {
+    background: var(--mc-surface);
+    border: 1px solid var(--mc-line);
+    border-radius: 24px;
+    box-shadow: var(--mc-shadow);
+}
+
+.mailchimp-settings-page .settings-card.soft {
+    background: linear-gradient(180deg, var(--mc-soft-card-start) 0%, var(--mc-soft-card-end) 100%);
+}
+
+.mailchimp-settings-page .section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--mc-muted);
+    margin-bottom: .7rem;
+}
+
+.mailchimp-settings-page .section-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: .35rem;
+}
+
+.mailchimp-settings-page .field-label {
+    font-weight: 700;
+    margin-bottom: .35rem;
+}
+
+.mailchimp-settings-page .field-shell {
+    background: var(--mc-surface-strong);
+    border: 1px solid var(--mc-line);
+    border-radius: 18px;
+    padding: .35rem;
+}
+
+.mailchimp-settings-page .field-shell input,
+.mailchimp-settings-page .field-shell textarea,
+.mailchimp-settings-page .field-shell .input-group-text,
+.mailchimp-settings-page .field-shell .btn {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: var(--mc-ink);
+}
+
+.mailchimp-settings-page .field-shell input,
+.mailchimp-settings-page .field-shell textarea,
+.mailchimp-settings-page .field-shell .input-group-text {
+    color: var(--mc-ink);
+}
+
+.mailchimp-settings-page .field-shell input::placeholder,
+.mailchimp-settings-page .field-shell textarea::placeholder {
+    color: var(--mc-muted);
+    opacity: 1;
+}
+
+.mailchimp-settings-page textarea.form-control {
+    min-height: 144px;
+    resize: vertical;
+}
+
+.mailchimp-settings-page .switch-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: var(--mc-panel-bg);
+    border: 1px solid var(--mc-line);
+    border-radius: 20px;
+    padding: 1rem 1.1rem;
+}
+
+.mailchimp-settings-page .switch-panel .custom-control-label::before,
+.mailchimp-settings-page .switch-panel .custom-control-label::after {
+    top: .2rem;
+}
+
+.mailchimp-settings-page .switch-panel .custom-control-label::before {
+    background-color: var(--mc-surface-strong);
+    border-color: var(--mc-line);
+}
+
+.mailchimp-settings-page .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .85rem;
+    margin-top: 1.25rem;
+}
+
+.mailchimp-settings-page .meta-box {
+    background: var(--mc-meta-bg);
+    border: 1px solid var(--mc-line);
+    border-radius: 18px;
+    padding: .95rem 1rem;
+}
+
+.mailchimp-settings-page .meta-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: .35rem;
+}
+
+.mailchimp-settings-page .tips-list {
+    display: grid;
+    gap: .9rem;
+}
+
+.mailchimp-settings-page .tip-item {
+    background: var(--mc-tip-bg);
+    border: 1px solid var(--mc-line);
+    border-radius: 18px;
+    padding: 1rem;
+}
+
+.mailchimp-settings-page .save-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--mc-line);
+    padding: 1.25rem 1.5rem;
+    background: var(--mc-save-bg);
+}
+
+.mailchimp-settings-page .save-state[data-dirty="true"] {
+    color: #c67a00;
+}
+
+@media (max-width: 991.98px) {
+    .mailchimp-settings-page .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mailchimp-settings-page .meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mailchimp-settings-page .save-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .btn-app-mailchimp {
+        background-color: #555 !important;
+    }
+
+    .col-lg-mailchimp {
+        border-right: 1px solid #eee !important;
+    }
+}
