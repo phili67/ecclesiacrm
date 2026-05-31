@@ -62,7 +62,8 @@
     "autoload": {
         "classmap": [
             "EcclesiaCRM/",
-            "EcclesiaCRM/sabre"
+            "EcclesiaCRM/sabre",
+            "Plugins/"
         ],
         "psr-4": {
             "\\": "bin/",
