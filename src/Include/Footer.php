@@ -21,6 +21,8 @@ use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
+use EcclesiaCRM\PluginDependenciesQuery;
+
 ?>
 </section><!-- /.content -->
 
@@ -485,6 +487,17 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
         <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
     <?php    
 }
+
+// global dependencies for plugins
+$dependencies = PluginDependenciesQuery::create()->filterByExtension('js')->find();
+foreach ($dependencies as $dependency) {
+    $path = SystemURLs::getDocumentRoot() . "/" . $dependency->getUrl();
+    if (file_exists($path)) {// we write the code directely in the footer.php
+        ?>
+        <script src="<?= SystemURLs::getRootPath() ?>/<?= $dependency->getUrl() ?>"></script>
+        <?php
+    }
+} 
 ?>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-validator/validator.min.js"></script>
