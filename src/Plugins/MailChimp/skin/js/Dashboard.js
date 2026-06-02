@@ -23,7 +23,7 @@ $(function () {
 
             window.CRM.APIRequest({
                 method: 'GET',
-                path: 'mailchimp2/lists'
+                path: 'mailchimp/lists'
             }, function (data) {
 
                 if (data.MailChimpLists == null) {
@@ -97,7 +97,7 @@ $(function () {
                         listViews += `<tr>
                                                         <td class="align-middle">
                                                             <i class="fas ${status === 'sent' ? 'fa-paper-plane text-success' : 'fa-edit text-secondary'} mr-2"></i>
-                                                            <a href="${window.CRM.root}/v2/mailchimp2/campaign/${data.MailChimpCampaigns[i][send_campaigns][j].id}" class="text-decoration-none">${data.MailChimpCampaigns[i][send_campaigns][j].settings.title}</a>
+                                                            <a href="${window.CRM.root}/v2/mailchimp/campaign/${data.MailChimpCampaigns[i][send_campaigns][j].id}" class="text-decoration-none">${data.MailChimpCampaigns[i][send_campaigns][j].settings.title}</a>
                                                         </td>
                             <td class="align-middle"><span class="badge badge-${badgeClass}">${i18next.t(status, {ns: 'MailChimp'})}</span></td>
                             </tr>`;
@@ -110,7 +110,7 @@ $(function () {
                         let status = data.MailChimpCampaigns[i][saved_campaigns][j].status;
                         let badgeClass = (status === 'sent') ? 'success' : 'secondary';
                         listViews += `<tr>
-                            <td class="align-middle">• <a href="${window.CRM.root}/v2/mailchimp2/campaign/${data.MailChimpCampaigns[i][saved_campaigns][j].id}" class="text-decoration-none">${data.MailChimpCampaigns[i][saved_campaigns][j].settings.title}</a></td>
+                            <td class="align-middle">• <a href="${window.CRM.root}/v2/mailchimp/campaign/${data.MailChimpCampaigns[i][saved_campaigns][j].id}" class="text-decoration-none">${data.MailChimpCampaigns[i][saved_campaigns][j].settings.title}</a></td>
                             <td class="align-middle"><span class="badge badge-${badgeClass}">${i18next.t(status, {ns: 'MailChimp'})}</span></td>
                             </tr>`;
                     }
@@ -155,7 +155,7 @@ $(function () {
                     listViews += '      </div>' +
                         '</div>'
                         + '<div class="card-footer">'
-                        + '<a class="btn btn btn-primary" href="' + window.CRM.root + '/v2/mailchimp2/managelist/' + list.id + '" style="float:right"> <i class="fas fa-pencil-alt"></i> ' + i18next.t('Modify', {ns: 'MailChimp'}) + '</a>'
+                        + '<a class="btn btn btn-primary" href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" style="float:right"> <i class="fas fa-pencil-alt"></i> ' + i18next.t('Modify', {ns: 'MailChimp'}) + '</a>'
                         + '</div>'
                         + '    </div>';
 
@@ -286,7 +286,7 @@ $(function () {
 
                             window.CRM.APIRequest({
                                 method: 'POST',
-                                path: 'mailchimp2/createlist',
+                                path: 'mailchimp/createlist',
                                 data: JSON.stringify({
                                     "ListTitle": ListTitle,
                                     "Subject": Subject,
@@ -355,7 +355,7 @@ $(function () {
                     window.CRM.dialogLoadingFunction(i18next.t("Deleting tag", {ns: 'MailChimp'}), function() {
                         window.CRM.APIRequest({
                             method: 'POST',
-                            path: 'mailchimp2/list/removeTag',
+                            path: 'mailchimp/list/removeTag',
                             data: JSON.stringify({"list_id": listID, "tag_ID": tagID})
                         }, function (data) {
                             // On recharge la vue

@@ -27,7 +27,7 @@ spl_autoload_register(function ($className) {
 
 use Plugins\APIControllers\MailchimpController;
 
-$app->group('/mailchimp2', function (RouteCollectorProxy $group) {
+$app->group('/mailchimp', function (RouteCollectorProxy $group) {
 
     /*
     * @! Search in the list field : *, family name, group, etc ...

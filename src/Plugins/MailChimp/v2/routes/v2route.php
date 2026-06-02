@@ -21,7 +21,7 @@ spl_autoload_register(function ($className) {
 
 use Plugins\VIEWControllers\VIEWMailchimpController;
 
-$app->group('/mailchimp2', function (RouteCollectorProxy $group) {
+$app->group('/mailchimp', function (RouteCollectorProxy $group) {
     $group->get('', VIEWMailchimpController::class . ':renderMailChimpDashboard');
     $group->get('/dashboard', VIEWMailchimpController::class . ':renderMailChimpDashboard');
     $group->get('/campaign/{campaignId}', VIEWMailchimpController::class . ':renderMailChimpCampaign');
@@ -31,6 +31,4 @@ $app->group('/mailchimp2', function (RouteCollectorProxy $group) {
     $group->get('/notinmailchimpemailsfamilies', VIEWMailchimpController::class . ':renderMailChimpNotInMailchimpEmailsFamilies');
     $group->get('/settings', VIEWMailchimpController::class . ':renderSettings');
     $group->post('/settings', VIEWMailchimpController::class . ':renderSettings');
-
-
 });

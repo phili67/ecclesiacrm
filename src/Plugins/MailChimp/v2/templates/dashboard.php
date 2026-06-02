@@ -64,13 +64,13 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
                     <a class="btn btn-outline-secondary mr-2 mb-2 mb-md-0" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
                         <i class="fas fa-table mr-1"></i><?= dgettext("messages-MailChimp", 'Generate CSV') ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp2/duplicateemails" class="btn btn-outline-warning mr-2 mb-2 mb-md-0">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/duplicateemails" class="btn btn-outline-warning mr-2 mb-2 mb-md-0">
                         <i class="fas fa-exclamation-triangle mr-1"></i><?= dgettext("messages-MailChimp", 'Find Duplicate Emails') ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp2/notinmailchimpemailspersons" class="btn btn-outline-info mr-2 mb-2 mb-md-0">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailspersons" class="btn btn-outline-info mr-2 mb-2 mb-md-0">
                         <i class="far fa-bell-slash mr-1"></i><?= dgettext("messages-MailChimp", 'Persons Not In MailChimp') ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp2/notinmailchimpemailsfamilies" class="btn btn-outline-info mb-2 mb-md-0">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-outline-info mb-2 mb-md-0">
                         <i class="far fa-bell-slash mr-1"></i><?= dgettext("messages-MailChimp", 'Families Not In MailChimp') ?>
                     </a>
                 </div>

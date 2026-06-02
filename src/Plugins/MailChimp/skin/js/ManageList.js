@@ -18,7 +18,7 @@ $(function() {
 
         window.CRM.APIRequest({
             method: 'POST',
-            path: 'mailchimp2/list/getAllTags',
+            path: 'mailchimp/list/getAllTags',
             data: JSON.stringify({"list_id": window.CRM.list_ID})
         }, function (data) {
             $("#allTags").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fas fa-plus"></i> <i class="fas fa-tag"></i> ' + i18next.t("Add a new tag", {ns: 'MailChimp'}) + '</a>');
@@ -54,7 +54,7 @@ $(function() {
         if (window.CRM.mailchimpIsActive) {
             window.CRM.APIRequest({
                 method: 'GET',
-                path: 'mailchimp2/list/' + window.CRM.list_ID
+                path: 'mailchimp/list/' + window.CRM.list_ID
             }, function (data) {
                 window.CRM.closeDialogLoadingFunction();
 
@@ -114,7 +114,7 @@ $(function() {
                             ? '<i class="fas fa-paper-plane text-success me-2"></i>'
                             : '<i class="fas fa-edit text-secondary me-2"></i>';
                         var badgeStatus = '<span class="badge ' + (data.MailChimpCampaign[save_campaigns][j].status == 'sent' ? 'bg-success' : 'bg-secondary') + ' ms-2">' + i18next.t(data.MailChimpCampaign[save_campaigns][j].status, {ns: 'MailChimp'}) + '</span>';
-                        var editBtn = '<a href="' + window.CRM.root + '/v2/mailchimp2/campaign/' + data.MailChimpCampaign[save_campaigns][j].id + '" class="btn btn-outline-primary btn-sm rounded-circle ms-2" title="' + i18next.t('Edit', {ns: 'MailChimp'}) + '"><i class="fas fa-pencil-alt"></i></a>';
+                        var editBtn = '<a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[save_campaigns][j].id + '" class="btn btn-outline-primary btn-sm rounded-circle ms-2" title="' + i18next.t('Edit', {ns: 'MailChimp'}) + '"><i class="fas fa-pencil-alt"></i></a>';
                         listView += '<tr><td colspan="3"><div class="d-flex align-items-center justify-content-between flex-wrap py-1 px-2 mb-1 bg-light rounded shadow-sm">' + icon + '<span class="fw-bold">' + data.MailChimpCampaign[save_campaigns][j].settings.title + '</span>' + badgeStatus + editBtn + '</div></td></tr>';
                     }
                 }
@@ -137,7 +137,7 @@ $(function() {
                             ? '<i class="fas fa-paper-plane text-success me-2"></i>'
                             : '<i class="fas fa-edit text-secondary me-2"></i>';
                         var badgeStatus = '<span class="badge ' + (data.MailChimpCampaign[send_campaigns][j].status == 'sent' ? 'bg-success' : 'bg-secondary') + ' ms-2">' + i18next.t(data.MailChimpCampaign[send_campaigns][j].status, {ns: 'MailChimp'}) + '</span>';
-                        var editBtn = '<a href="' + window.CRM.root + '/v2/mailchimp2/campaign/' + data.MailChimpCampaign[send_campaigns][j].id + '" class="btn btn-outline-primary btn-sm rounded-circle ms-2" title="' + i18next.t('Edit', {ns: 'MailChimp'}) + '"><i class="fas fa-pencil-alt"></i></a>';
+                        var editBtn = '<a href="' + window.CRM.root + '/v2/mailchimp/campaign/' + data.MailChimpCampaign[send_campaigns][j].id + '" class="btn btn-outline-primary btn-sm rounded-circle ms-2" title="' + i18next.t('Edit', {ns: 'MailChimp'}) + '"><i class="fas fa-pencil-alt"></i></a>';
                         listView += '<tr><td colspan="3"><div class="d-flex align-items-center justify-content-between flex-wrap py-1 px-2 mb-1 bg-light rounded shadow-sm">' + icon + '<span class="fw-bold">' + data.MailChimpCampaign[send_campaigns][j].settings.title + '</span>' + badgeStatus + editBtn + '</div></td></tr>';
                     }
                 }
@@ -188,7 +188,7 @@ $(function() {
                 listView += '      </div>'
                     + '    </div>';
 
-                listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp2/managelist/' + list.id + '"><i class="far fa-circle"></i>' + list.name + '</a>';
+                listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="far fa-circle"></i>' + list.name + '</a>';
 
                 $("#container").html(listView);
             });
@@ -312,7 +312,7 @@ $(function() {
 
         var dataTableConfig = {
             ajax: {
-                url: window.CRM.root + "/api/mailchimp2/listmembers/" + window.CRM.list_ID,
+                url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
                 type: 'GET',
                 contentType: "application/json",
                 dataSrc: "MailChimpMembers",
@@ -414,7 +414,7 @@ $(function() {
                         window.CRM.dialogLoadingFunction(i18next.t('Adding tag...', {ns: 'MailChimp'}), function () {
                             window.CRM.APIRequest({
                                 method: 'POST',
-                                path: 'mailchimp2/list/addTag',
+                                path: 'mailchimp/list/addTag',
                                 data: JSON.stringify({
                                     "list_id": window.CRM.list_ID,
                                     "tag": tag,
@@ -457,7 +457,7 @@ $(function() {
                             window.CRM.dialogLoadingFunction(i18next.t('Adding tag...', {ns: 'MailChimp'}), function() {
                                 window.CRM.APIRequest({
                                     method: 'POST',
-                                    path: 'mailchimp2/list/addTag',
+                                    path: 'mailchimp/list/addTag',
                                     data: JSON.stringify({
                                         "list_id": window.CRM.list_ID,
                                         "tag": tag,
@@ -502,7 +502,7 @@ $(function() {
 
             window.CRM.APIRequest({
                 method: 'POST',
-                path: 'mailchimp2/list/getAllTags',
+                path: 'mailchimp/list/getAllTags',
                 data: JSON.stringify({"list_id": window.CRM.list_ID})
             }, function (data) {
                 var len = data.result.length;
@@ -527,7 +527,7 @@ $(function() {
                             window.CRM.dialogLoadingFunction(i18next.t('Removing tags...', {ns: 'MailChimp'}), function() {
                                 window.CRM.APIRequest({
                                     method: 'POST',
-                                    path: 'mailchimp2/list/removeTagForMembers',
+                                    path: 'mailchimp/list/removeTagForMembers',
                                     data: JSON.stringify({
                                         "list_id": window.CRM.list_ID,
                                         "tag": tag,
@@ -552,7 +552,7 @@ $(function() {
                             window.CRM.dialogLoadingFunction(i18next.t('Deleting all tags for the selected members in the list...', {ns: 'MailChimp'}), function() {
                                 window.CRM.APIRequest({
                                     method: 'POST',
-                                    path: 'mailchimp2/list/removeAllTagsForMembers',
+                                    path: 'mailchimp/list/removeAllTagsForMembers',
                                     data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
                                 }, function (data) {
                                     window.CRM.dataListTable.ajax.reload(function (json) {
@@ -581,7 +581,7 @@ $(function() {
                     window.CRM.dialogLoadingFunction(i18next.t("Deleting tag", {ns: 'MailChimp'}), function() {
                         window.CRM.APIRequest({
                             method: 'POST',
-                            path: 'mailchimp2/list/removeTag',
+                            path: 'mailchimp/list/removeTag',
                             data: JSON.stringify({"list_id": listID, "tag_ID": tagID})
                         }, function (data) {
                             window.CRM.dataListTable.ajax.reload(function () {
@@ -649,7 +649,7 @@ $(function() {
         allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params) {
-                return window.CRM.root + "/api/mailchimp2/search/" + params.term;
+                return window.CRM.root + "/api/mailchimp/search/" + params.term;
             },
             dataType: 'json',
             delay: 50,
@@ -672,7 +672,7 @@ $(function() {
             window.CRM.dialogLoadingFunction(i18next.t("Loading subscriber", {ns: 'MailChimp'}), function() {
                 window.CRM.APIRequest({
                     method: 'POST',
-                    path: 'mailchimp2/addperson',
+                    path: 'mailchimp/addperson',
                     data: JSON.stringify({"list_id": list_id, "personID": e.params.data.personID})
                 }, function (data) {
                     if (data.success) {
@@ -690,7 +690,7 @@ $(function() {
             window.CRM.dialogLoadingFunction(i18next.t("Loading subscribers from Group", {ns: 'MailChimp'}), function() {
                 window.CRM.APIRequest({
                     method: 'POST',
-                    path: 'mailchimp2/addgroup',
+                    path: 'mailchimp/addgroup',
                     data: JSON.stringify({"list_id": list_id, "groupID": e.params.data.groupID})
                 }, function (data) {
                     if (data.success) {
@@ -707,7 +707,7 @@ $(function() {
             window.CRM.dialogLoadingFunction(i18next.t("Loading subscribers from family", {ns: 'MailChimp'}), function() {
                 window.CRM.APIRequest({
                     method: 'POST',
-                    path: 'mailchimp2/addfamily',
+                    path: 'mailchimp/addfamily',
                     data: JSON.stringify({"list_id": list_id, "familyID": e.params.data.familyID})
                 }, function (data) {
                     if (data.success) {
@@ -727,7 +727,7 @@ $(function() {
                 function() {
                     window.CRM.APIRequest({
                         method: 'POST',
-                        path: 'mailchimp2/addallpersons',
+                        path: 'mailchimp/addallpersons',
                         data: JSON.stringify({"list_id": list_id})
                     }, function (data) {
                         if (data.success) {
@@ -749,7 +749,7 @@ $(function() {
                 function() {
                     window.CRM.APIRequest({
                         method: 'POST',
-                        path: 'mailchimp2/addallnewsletterpersons',
+                        path: 'mailchimp/addallnewsletterpersons',
                         data: JSON.stringify({"list_id": list_id})
                     }, function (data) {
                         if (data.success) {
@@ -771,7 +771,7 @@ $(function() {
                 function() {
                     window.CRM.APIRequest({
                         method: 'POST',
-                        path: 'mailchimp2/addAllFamilies',
+                        path: 'mailchimp/addAllFamilies',
                         data: JSON.stringify({"list_id": list_id})
                     }, function (data) {
                         if (data.success) {
@@ -813,7 +813,7 @@ $(function() {
                     window.CRM.dialogLoadingFunction(i18next.t("Changing status ...", {ns: 'MailChimp'}), function() {
                         window.CRM.APIRequest({
                             method: 'POST',
-                            path: 'mailchimp2/status',
+                            path: 'mailchimp/status',
                             data: JSON.stringify({"list_id": window.CRM.list_ID, "status": status, "email": email})
                         }, function (data) {
                             if (data.success) {
@@ -843,7 +843,7 @@ $(function() {
                     window.CRM.dialogLoadingFunction(i18next.t('Deleting Subscriber...', {ns: 'MailChimp'}), function() {
                         window.CRM.APIRequest({
                             method: 'POST',
-                            path: 'mailchimp2/suppress',
+                            path: 'mailchimp/suppress',
                             data: JSON.stringify({"list_id": window.CRM.list_ID, "email": email})
                         }, function (data) {
                             if (data.success) {
@@ -873,11 +873,11 @@ $(function() {
                 if (result) {
                     window.CRM.APIRequest({
                         method: 'POST',
-                        path: 'mailchimp2/deletelist',
+                        path: 'mailchimp/deletelist',
                         data: JSON.stringify({"list_id": window.CRM.list_ID})
                     }, function (data) {
                         if (data.success) {
-                            window.location.href = window.CRM.root + "/v2/mailchimp2/dashboard";
+                            window.location.href = window.CRM.root + "/v2/mailchimp/dashboard";
                         } else if (data.error) {
                             window.CRM.DisplayAlert(i18next.t("Error", {ns: 'MailChimp'}), i18next.t(data.error.detail, {ns: 'MailChimp'}));
                         }
@@ -901,7 +901,7 @@ $(function() {
                     function() {
                         window.CRM.APIRequest({
                             method: 'POST',
-                            path: 'mailchimp2/deleteallsubscribers',
+                            path: 'mailchimp/deleteallsubscribers',
                             data: JSON.stringify({"list_id": window.CRM.list_ID})
                         }, function (data) {
                             if (data.success) {
@@ -1032,7 +1032,7 @@ $(function() {
                             window.CRM.dialogLoadingFunction(i18next.t("Adding Campaign ...", {ns: 'MailChimp'}), function() {
                                 window.CRM.APIRequest({
                                     method: 'POST',
-                                    path: 'mailchimp2/campaign/actions/create',
+                                    path: 'mailchimp/campaign/actions/create',
                                     data: JSON.stringify({
                                         "list_id": window.CRM.list_ID,
                                         "tagId": tagId,
@@ -1050,7 +1050,7 @@ $(function() {
                                             callback: function (result) {
                                                 render_container();
                                                 if (result) {
-                                                    window.location.href = window.CRM.root + "/v2/mailchimp2/campaign/" + data.result[0].id;
+                                                    window.location.href = window.CRM.root + "/v2/mailchimp/campaign/" + data.result[0].id;
                                                 }
                                             }
                                         });
@@ -1110,7 +1110,7 @@ $(function() {
 
                     window.CRM.APIRequest({
                         method: 'POST',
-                        path: 'mailchimp2/modifylist',
+                        path: 'mailchimp/modifylist',
                         data: JSON.stringify({
                             "list_id": window.CRM.list_ID,
                             "name": name,
@@ -1204,7 +1204,7 @@ $(function() {
 
                 window.CRM.APIRequest({
                     method: 'POST',
-                    path: 'mailchimp2/status',
+                    path: 'mailchimp/status',
                     data: JSON.stringify({"list_id": window.CRM.list_ID, "status": status, "email": email})
                 }, function (data) {
                     if (data.success) {
@@ -1240,7 +1240,7 @@ $(function() {
                     window.CRM.dialogLoadingFunction(i18next.t('Deleting Subscribers...', {ns: 'MailChimp'}));
                     window.CRM.APIRequest({
                         method: 'POST',
-                        path: 'mailchimp2/suppressMembers',
+                        path: 'mailchimp/suppressMembers',
                         data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
                     }, function (data) {
                         if (data.success) {

@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.CRM.dialogLoadingFunction('Save MailChimp settings...', function () {
             window.CRM.APIRequest({
                 method: 'POST',
-                path: 'mailchimp2/settings',
+                path: 'mailchimp/settings',
                 data: JSON.stringify(getPayload())
             }, function (data) {
                 window.CRM.closeDialogLoadingFunction();
