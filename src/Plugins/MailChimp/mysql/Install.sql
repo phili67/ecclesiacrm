@@ -3,26 +3,27 @@ VALUES ('MailChimp', 'Plugin for MailChimp', 'Communication', NULL, '', '0', '1.
 
 
 INSERT INTO `plugin_dependencies` ( `plgn_dep_plugin_ID`, `plgn_dep_url`, `plgn_dep_extension`) VALUES
-(LAST_INSERT_ID(), 'Plugin\Synchronize\MailchimpDashboardItemPlugin', 'synchronize'),
-(LAST_INSERT_ID(), 'Plugins/MailChimp/skin/js/synchronize/MailChimpDashboardItem.js ', 'js');
+(LAST_INSERT_ID(), 'Plugin\\Synchronize\\MailchimpDashboardItemPlugin', 'synchronize'),
+(LAST_INSERT_ID(), 'Plugins/MailChimp/skin/js/synchronize/MailChimpDashboardItem.js', 'js'),
+(LAST_INSERT_ID(), 'Plugins\\Service\\MailChimpService', 'service');
 
 
 -- insert the menu item
 -- the first one is the main menu !!!
 INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
-('MailChimp', 'MailChimp', 'v2/mailchimp2/dashboard', 'fab fa-mailchimp', ''),
-('MailChimp', 'Dashboard', 'v2/mailchimp2/dashboard', 'fas fa-tachometer-alt', '');
+('MailChimp', 'MailChimp', 'v2/mailchimp/dashboard', 'fab fa-mailchimp', ''),
+('MailChimp', 'Dashboard', 'v2/mailchimp/dashboard', 'fas fa-tachometer-alt', '');
 
 -- we insert the rest of the links
 INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_grp_sec`, `plgn_mb_parent_ID`) VALUES
-('MailChimp', 'Persons Not In MailChimp', 'v2/mailchimp2/notinmailchimpemailspersons', '', LAST_INSERT_ID()),
-('MailChimp', 'Families Not In MailChimp', 'v2/mailchimp2/notinmailchimpemailsfamilies', '', LAST_INSERT_ID()),
-('MailChimp', 'Duplicate Emails', 'v2/mailchimp2/duplicateemails', '', LAST_INSERT_ID());
+('MailChimp', 'Persons Not In MailChimp', 'v2/mailchimp/notinmailchimpemailspersons', '', LAST_INSERT_ID()),
+('MailChimp', 'Families Not In MailChimp', 'v2/mailchimp/notinmailchimpemailsfamilies', '', LAST_INSERT_ID()),
+('MailChimp', 'Duplicate Emails', 'v2/mailchimp/duplicateemails', '', LAST_INSERT_ID());
 
 
 INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`, `plgn_mb_special_classes`) VALUES
-('MailChimp', 'Email Lists', 'v2/mailchimp2/dashboard', 'fas fa-list', '', 'lists_class_menu'),
-('MailChimp', 'Settings', 'v2/mailchimp2/settings', 'fas fa-cogs', 'usr_admin', '');
+('MailChimp', 'Email Lists', 'v2/mailchimp/dashboard', 'fas fa-list', '', 'lists_class_menu'),
+('MailChimp', 'Settings', 'v2/mailchimp/settings', 'fas fa-cogs', 'usr_admin', '');
 
 --
 -- Table structure for table `mc_params`
