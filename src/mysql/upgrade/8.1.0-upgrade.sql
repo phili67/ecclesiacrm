@@ -21,3 +21,8 @@ CREATE TABLE `plugin_dependencies` (
 --
 -- Dumping data for table `plugin_dependencies`
 --
+
+
+-- 2026-07-01 12:00:00
+ALTER TABLE user_usr DROP COLUMN usr_MailChimp;
+
