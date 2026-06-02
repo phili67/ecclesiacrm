@@ -88,7 +88,7 @@ class PeopleFamilyController
         $input = (object)$request->getParsedBody();
 
         // we get the MailChimp Service
-        $mailchimp = $this->container->get('MailChimpService');
+        $mailchimp = $this->container->get('MailService');
 
         if ( isset ($input->familyId) && isset ($input->email) ){
 

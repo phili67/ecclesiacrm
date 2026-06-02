@@ -17,7 +17,7 @@ use EcclesiaCRM\MyPDO\CardDavPDO;
 
 use EcclesiaCRM\Utils\LoggerUtils;
 
-use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\Service\MailService;
 
 use DateTime;
 
@@ -104,28 +104,16 @@ class Person extends BasePerson implements iPhoto
 
     // this part is use in mailchimp to know which people shoud be added or deleted
     public function setSendNewsletter($v, $avoidMC = false)
-    {
-        
+    {        
         $id = $this->getId();
+        $sEmail = $this->getEmailForNewsLetter();
 
-        if ( !$avoidMC && $this->getEmailForNewsLetter() ) {
+        if ( !$avoidMC && !empty($sEmail) ) {
           // to get a newletter : you must have an email
-          $mailchimp = new MailChimpService();
-
-          if ( $mailchimp->isActive() ) {
-            $sEmail = $this->getEmailForNewsLetter();
-
-            if (mb_strlen($sEmail) > 0) {
-                $lists = $mailchimp->getLists();
-                if (!is_null($lists) && count($lists) == 1) {// now at this time only one list can be manage, you've to manage other the members manually
-                  #TODO : terminer le cas de plusieurs listes
-                  if ( $v == "TRUE") {
-                    $res = $mailchimp->postMember($lists[0]['id'],32,$this->getFirstName(),$this->getLastName(),$this->getEmailForNewsLetter(),$this->getAddressForMailChimp(), $this->getHomePhone(), 'subscribed');
-                  } else {
-                    $res = $mailchimp->deleteMember($lists[0]['id'],$this->getEmailForNewsLetter());
-                  }
-                }
-            } 
+          $mailService = new MailService();
+          
+          if ( $mailService->isActive() and $v != "TRUE") {
+                  $res = $mailService->deleteMemberEmail($sEmail);
           } elseif ( !is_null($id) ) {
             $snl = SendNewsLetterUserUpdateQuery::create()->findOneByPersonId($this->getId());
 
@@ -151,7 +139,7 @@ class Person extends BasePerson implements iPhoto
 
         // we filter only the Mail plugins
         $plugins = PluginQuery::create()
-          ->filterByCategory('Mail')
+          ->filterByCategory('Communication')
           ->find();
 
         foreach($plugins as $plugin) {
@@ -192,7 +180,7 @@ class Person extends BasePerson implements iPhoto
 
     public function setNewEmail ($oldEmail, $sEmail)
     {
-        $mailchimp = new MailChimpService();
+        /*$mailchimp = new MailChimpService();
 
         if ( $mailchimp->isActive() ) {
             if (mb_strlen($sEmail) > 0) {
@@ -202,7 +190,7 @@ class Person extends BasePerson implements iPhoto
             } elseif ($this->getSendNewsletter()) {
                 $mailchimp->deleteMemberEmail($oldEmail);
             }
-        }
+        }*/
 
         $this->setEmail($sEmail);
     }
