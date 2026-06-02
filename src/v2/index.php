@@ -90,10 +90,6 @@ if (Bootstrapper::isDBCurrent() and SessionUser::getUser()->getNeedPasswordChang
     require_once __DIR__ . '/routes/BackupRestore/backup.php';
     require_once __DIR__ . '/routes/BackupRestore/restore.php';
 
-    // email routes
-    // mailchimp
-    require_once __DIR__ . '/routes/email/mailchimp/mailchimp.php';
-
     // sunday school route
     require_once __DIR__ . '/routes/sundayschool/sundayschool.php';
 
