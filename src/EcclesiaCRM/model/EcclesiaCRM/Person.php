@@ -180,17 +180,17 @@ class Person extends BasePerson implements iPhoto
 
     public function setNewEmail ($oldEmail, $sEmail)
     {
-        /*$mailchimp = new MailChimpService();
+        $mailService = new MailService();
 
-        if ( $mailchimp->isActive() ) {
+        if ( $mailService->isActive() ) {
             if (mb_strlen($sEmail) > 0) {
                 if ($this->getSendNewsletter() && $oldEmail != $sEmail) {// in any cases we've to update the Lists
-                    $mailchimp->updateMemberEmail($oldEmail, $sEmail);
+                    $mailService->updateMemberEmail($oldEmail, $sEmail);
                 }
             } elseif ($this->getSendNewsletter()) {
-                $mailchimp->deleteMemberEmail($oldEmail);
+                $mailService->deleteMemberEmail($oldEmail);
             }
-        }*/
+        }
 
         $this->setEmail($sEmail);
     }
