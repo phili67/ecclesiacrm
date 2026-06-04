@@ -220,7 +220,7 @@ class MailchimpController
 
     public function oneList (ServerRequest $request, Response $response, array $args): Response
     {        
-        $mailchimp = new MailChimpService();;
+        $mailchimp = new MailChimpService();
 
         $list      = $mailchimp->getListFromListId ($args['listID']);
         $campaign  = $mailchimp->getCampaignsFromListId($args['listID']);
@@ -230,7 +230,7 @@ class MailchimpController
 
     public function lists (ServerRequest $request, Response $response, array $args): Response
     {
-        $mailchimp = new MailChimpService();;
+        $mailchimp = new MailChimpService();
 
         $isActive = $mailchimp->isActive();
 
@@ -253,7 +253,7 @@ class MailchimpController
 
     public function listmembers (ServerRequest $request, Response $response, array $args): Response
     {
-        $mailchimp = new MailChimpService();;
+        $mailchimp = new MailChimpService();
 
         return $response->withJSON(['MailChimpMembers' => $mailchimp->getListMembersFromListId($args['listID']), 'id' => $args['listID']]);
     }
@@ -263,7 +263,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->ListTitle) && isset ($input->Subject) && isset ($input->PermissionReminder) && isset ($input->ArchiveBars) && isset ($input->Status) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
                 $res = $mailchimp->createList($input->ListTitle, $input->Subject, $input->PermissionReminder, $input->ArchiveBars, $input->Status);
@@ -309,7 +309,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->name) && isset ($input->subject) && isset ($input->permission_reminder) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
                 $res = $mailchimp->changeListName($input->list_id, $input->name, $input->subject, $input->permission_reminder);
@@ -329,7 +329,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
                 $res = $mailchimp->deleteAllMembers($input->list_id);
@@ -349,7 +349,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
                 $res = $mailchimp->deleteList($input->list_id);
@@ -370,7 +370,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->name) && isset ($input->emails) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ($input->tag != -1) {
                 $res = $mailchimp->addMembersToSegment($input->list_id, $input->tag, $input->emails);
@@ -397,7 +397,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $list = $mailchimp->getListFromListId ($input->list_id);
             if ( !array_key_exists ('title',$list) ) {
@@ -414,7 +414,7 @@ class MailchimpController
         $res = "";
 
         if ( isset ($input->list_id) && isset ($input->tag_ID) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $res = $mailchimp->deleteSegment($input->list_id, $input->tag_ID);
 
@@ -432,7 +432,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->emails) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $res = $mailchimp->removeMembersFromSegment($input->list_id, $input->tag, $input->emails);
 
@@ -450,7 +450,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->emails) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $res = $mailchimp->removeMembersFromAllSegments($input->list_id, $input->emails);
 
@@ -471,7 +471,7 @@ class MailchimpController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->subject) && isset ($input->title) && isset ($input->htmlBody) && isset ($input->tagId) ){
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
 
@@ -498,7 +498,7 @@ class MailchimpController
 
         if ( isset ($input->campaign_id) ){
 
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $res = $mailchimp->deleteCampaign ($input->campaign_id);
 
@@ -518,7 +518,7 @@ class MailchimpController
 
         if ( isset ($input->campaign_id) ){
 
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $res = $mailchimp->sendCampaign ($input->campaign_id);
 
@@ -539,7 +539,7 @@ class MailchimpController
             && isset ($input->content)
             && isset ($input->oldStatus) ) {
 
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !empty(SystemConfig::getValue('bMailServiceContentsExternalCssFont')) && !mb_strpos($input->content, "text/css") ) {
                 $input->content = '<link rel="stylesheet" type="text/css" href="' . SystemConfig::getValue('bMailServiceContentsExternalCssFont') . '"/>' . $input->content;
@@ -572,7 +572,7 @@ class MailchimpController
 
     public function campaignContent(ServerRequest $request, Response $response, array $args): Response
     {
-        $mailchimp = new MailChimpService();;
+        $mailchimp = new MailChimpService();
 
         $campaignContent = $mailchimp->getCampaignContent ($args['campaignID']);
 
@@ -595,7 +595,7 @@ class MailchimpController
         if ( isset ($input->status) && isset ($input->list_id) && isset ($input->email) ){
 
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $res = $mailchimp->updateMember($input->list_id,"","",$input->email,$input->status);
 
@@ -627,7 +627,7 @@ class MailchimpController
         if ( isset ($input->list_id) && isset ($input->email) ){
 
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $res = $mailchimp->deleteMember($input->list_id,$input->email);
 
@@ -652,7 +652,7 @@ class MailchimpController
         if ( isset ($input->list_id) && isset ($input->emails) ){
 
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             foreach ($input->emails as $email) {
                 $res = $mailchimp->deleteMember($input->list_id,$email);
@@ -674,7 +674,7 @@ class MailchimpController
         if ( isset ($input->list_id) ){
 
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() /*&& !is_null($person) && $mailchimp->getListNameFromEmail($person->getEmail()) == ''*/ ) {
                 $list           = $mailchimp->getListFromListId($input->list_id);
@@ -739,7 +739,7 @@ class MailchimpController
         if ( isset ($input->list_id) ){
 
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() /*&& !is_null($person) && $mailchimp->getListNameFromEmail($person->getEmail()) == ''*/ ) {
                 $persons = PersonQuery::create()
@@ -777,7 +777,7 @@ class MailchimpController
         if ( isset ($input->personID) && isset ($input->list_id) ){
 
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
             $person = PersonQuery::create()->findPk($input->personID);
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() /*&& !is_null($person) && $mailchimp->getListNameFromEmail($person->getEmail()) == ''*/ ) {
@@ -800,7 +800,7 @@ class MailchimpController
         if ( isset ($input->familyID) && isset ($input->list_id) ){
 
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
                 $family = FamilyQuery::create()->findPk($input->familyID);
@@ -825,7 +825,7 @@ class MailchimpController
 
         if ( isset ($input->list_id) ) {
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             $list           = $mailchimp->getListFromListId($input->list_id);
             $listID         = $input->list_id;

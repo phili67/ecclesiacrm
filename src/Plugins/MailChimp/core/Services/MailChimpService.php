@@ -13,6 +13,9 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\SessionUser;
 
+use EcclesiaCRM\PluginMenuBarQuery;
+use EcclesiaCRM\PluginMenuBar;
+
 spl_autoload_register(function ($className) {
     include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../model', '/'), $className) . '.php';    
 });
@@ -126,10 +129,45 @@ class MailChimpService
                     $nlsDel->delete();
                 }
             }
+
+            PluginMenuBarQuery::create()
+                ->filterByName('MailChimp')
+                ->where('PluginMenuBar.LinkParentId IS NOT NULL')
+                ->delete();
+            
+            $dashBoardId = PluginMenuBarQuery::create()
+                ->filterByName('MailChimp')
+                ->filterByDisplayName('Email Lists')
+                ->findOne()
+                ->getId(); 
+
             foreach ($lists as &$list) {
                 $listmembers = $this->getMembersFromList($list['id'], $this->iMailChimpRequestTimeOut);
                 $list['members'] = $listmembers['members'];
                 $list['tags'] = $this->getAllSegments($list['id'])[1];
+
+                /* include the links */ 
+                $menuBarLink = new PluginMenuBar();
+                $menuBarLink->setURL('v2/mailchimp/managelist/'.$list['id']);
+                $menuBarLink->setName('MailChimp');
+                $menuBarLink->setDisplayName($list['name']);
+                $menuBarLink->setIcon('');
+                $menuBarLink->setLinkParentId($dashBoardId);
+                $menuBarLink->save();
+
+                $linkID = $menuBarLink->getId();
+
+                $campaigns = $this->getCampaignsFromListId($list['id']);
+
+                foreach ($campaigns[0] as $campaign) {
+                    $menuBarLink = new PluginMenuBar();
+                    $menuBarLink->setURL('v2/mailchimp/campaign/'.$campaign['id']);
+                    $menuBarLink->setName('MailChimp');
+                    $menuBarLink->setDisplayName($campaign['settings']['title']);
+                    $menuBarLink->setIcon('');
+                    $menuBarLink->setLinkParentId($dashBoardId);
+                    $menuBarLink->save();
+                }
             }
             $_SESSION['MailChimpLists'] = $lists;
         }
@@ -804,7 +842,7 @@ class MailChimpService
         });
         $res_save = array_filter($res, function ($var) {
             return ($var['status'] == 'save' or $var['status'] == 'paused' or $var['status'] == 'schedule');
-        });;
+        });
 
         $your_date_field_name = 'send_time';
         usort($res_sent, function ($a, $b) use (&$your_date_field_name) {
