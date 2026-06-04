@@ -102,7 +102,7 @@ class Person extends BasePerson implements iPhoto
       }
     }
 
-    // this part is use in mailchimp to know which people shoud be added or deleted
+    // this part is use in mail service to know which people shoud be added or deleted
     public function setSendNewsletter($v, $avoidMC = false)
     {        
         $id = $this->getId();
@@ -485,7 +485,7 @@ class Person extends BasePerson implements iPhoto
         return "";
     }
 
-    public function getAddressForMailChimp()
+    public function getAddressForMailService()
     {
        if (!empty($this->getAddress1()) && SystemConfig::getBooleanValue("bHidePersonAddress") == false) {
             $address['addr1'] = $this->getAddress1();
