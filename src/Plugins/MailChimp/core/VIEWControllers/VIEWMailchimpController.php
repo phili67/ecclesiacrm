@@ -81,9 +81,9 @@ class VIEWMailchimpController {
 
         $campaignId = $args['campaignId'];
 
-        $mailchimp       = new MailChimpService();
+        $mailchimp = new MailChimpService();
 
-        if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
+        if ( !$mailchimp->isActive() ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
@@ -109,7 +109,7 @@ class VIEWMailchimpController {
             'contentsExternalCssFont' => SystemConfig::getValue("sMailChimpContentsExternalCssFont"),
             'extraFont' => SystemConfig::getValue("sMailChimpExtraFont"),
             'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
-            'isMenuOption'      => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()),
+            'isMenuOption'      => !$mailchimp->isActive(),
             'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailChimpWithAddressPhone'),
             'sDateFormatLong'   => SystemConfig::getValue('sDateFormatLong'),
             'reports'           => $reports
@@ -125,7 +125,7 @@ class VIEWMailchimpController {
 
         $mailchimp       = new MailChimpService();
 
-        if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
+        if ( !$mailchimp->isActive() ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
@@ -153,7 +153,7 @@ class VIEWMailchimpController {
             'extraFont'         => SystemConfig::getValue("sMailChimpExtraFont"),
             'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
             'getSupportURL'     => SystemURLs::getSupportURL(),
-            'isMenuOption'      => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()),
+            'isMenuOption'      => !$mailchimp->isActive(),
             'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailChimpWithAddressPhone'),
             'sDateFormatLong'  => SystemConfig::getValue('sDateFormatLong')
         ];
@@ -167,7 +167,7 @@ class VIEWMailchimpController {
 
         $mailchimp       = new MailChimpService();
 
-        if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
+        if ( !$mailchimp->isActive() ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
@@ -193,7 +193,7 @@ class VIEWMailchimpController {
 
         $mailchimp       = new MailChimpService();
 
-        if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
+        if ( !$mailchimp->isActive() ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
@@ -218,7 +218,7 @@ class VIEWMailchimpController {
 
         $mailchimp       = new MailChimpService();
 
-        if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
+        if ( !$mailchimp->isActive() ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 

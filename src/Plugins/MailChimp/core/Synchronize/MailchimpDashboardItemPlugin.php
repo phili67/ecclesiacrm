@@ -42,7 +42,11 @@ class MailchimpDashboardItemPlugin implements DashboardItemInterface {
     public static function shouldInclude($PageName) {
         $mailchimp = new MailChimpService();
 
-        return (SessionUser::getUser()->isMailChimpEnabled())?true:false;
+        if ($PageName == "/v2/dashboard" && !$mailchimp->isLoaded()) {
+            return false;
+        }
+
+        return $mailchimp->isActive();
     }
 
 }

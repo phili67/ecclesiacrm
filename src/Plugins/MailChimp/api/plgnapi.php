@@ -203,4 +203,18 @@ $app->group('/mailchimp', function (RouteCollectorProxy $group) {
 
     $group->post('/settings', MailchimpController::class . ':changeSettings' );
 
+
+/**
+ * A method that review dup emails in the db and returns families and people where that email is used.
+ */
+
+    /*
+     * @! duplicate emails in mailchimp
+     */
+    $group->get('/duplicate/emails', MailchimpController::class . ":duplicateEmails" );
+    /*
+     * @! not in email for mailchimp
+     */
+    $group->get('/NotInMailChimp/emails/{type}', MailchimpController::class . ":notInMailChimpEmails" );
+
 });

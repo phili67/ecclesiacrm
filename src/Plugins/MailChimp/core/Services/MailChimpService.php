@@ -58,7 +58,7 @@ class MailChimpService
         $this->iMailChimpRequestTimeOut = $params->getRequestTimeout();
         $this->sMailChimpEmailSender = $params->getEmailSender();
         $this->bMailChimpWithAddressPhone = $params->getWithAddressPhone();
-
+        
         if ( !empty($this->apiKey) ) {
             $this->isActive = true;
 
@@ -72,7 +72,7 @@ class MailChimpService
 
     public function isActive()
     {
-        return $this->isActive && !is_null(SessionUser::getUser()) && SessionUser::getUser()->isMailChimpEnabled();
+        return $this->isActive && !is_null(SessionUser::getUser()) && SessionUser::getUser()->isEnableForPlugin('MailChimp');
     }
 
     public function isLoaded()
@@ -125,9 +125,6 @@ class MailChimpService
             }
             $_SESSION['MailChimpLists'] = $lists;
         }
-        /*else{
-          LoggerUtils::getAppLogger()->info("Using cached MailChimp List");
-        }*/
         return $_SESSION['MailChimpLists'];
     }
 
@@ -1255,6 +1252,19 @@ class MailChimpService
 
         if ( !(is_array($result) and array_key_exists('title', $result)) ) {
             $res = $this->update_list_member($list_id, $mail, $status);
+        }
+
+        return $result;
+    }
+
+    public function updateGlobalMember($first_name, $last_name, $mail, $status) // status : Unsubscribed , Subscribed
+    {
+        $memberLists = $this->getListNameAndStatus($mail);
+
+        $result = NULL;
+
+        foreach ($memberLists as $memberList) {
+            $result = $this->updateMember($memberList[2], $first_name, $last_name, $mail, $status);
         }
 
         return $result;

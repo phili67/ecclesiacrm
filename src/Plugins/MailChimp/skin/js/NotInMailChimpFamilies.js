@@ -10,7 +10,7 @@
 $(function() {
   window.CRM.dataFundTable = $("#familiesWithoutEmailTable").DataTable({
     ajax:{
-      url: window.CRM.root + "/api/persons/NotInMailChimp/emails/families",
+      url: window.CRM.root + "/api/mailchimp/NotInMailChimp/emails/families",
       type: 'GET',
       contentType: "application/json",
       dataSrc: "emails",

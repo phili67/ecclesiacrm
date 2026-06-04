@@ -219,11 +219,7 @@ class MailchimpController
     }
 
     public function oneList (ServerRequest $request, Response $response, array $args): Response
-    {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
+    {        
         $mailchimp = new MailChimpService();;
 
         $list      = $mailchimp->getListFromListId ($args['listID']);
@@ -234,10 +230,6 @@ class MailchimpController
 
     public function lists (ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withJSON(['isActive' => false]);
-        }
-
         $mailchimp = new MailChimpService();;
 
         $isActive = $mailchimp->isActive();
@@ -261,20 +253,12 @@ class MailchimpController
 
     public function listmembers (ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $mailchimp = new MailChimpService();;
 
         return $response->withJSON(['MailChimpMembers' => $mailchimp->getListMembersFromListId($args['listID']), 'id' => $args['listID']]);
     }
 
     public function createList (ServerRequest $request, Response $response, array $args): Response {
-
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
 
         $input = (object)$request->getParsedBody();
 
@@ -297,10 +281,6 @@ class MailchimpController
 
     public function changeSettings(ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (array) $request->getParsedBody();
 
         try {
@@ -325,11 +305,7 @@ class MailchimpController
         }
     }
 
-    public function modifyList (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
+    public function modifyList (ServerRequest $request, Response $response, array $args): Response {        
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->name) && isset ($input->subject) && isset ($input->permission_reminder) ){
@@ -350,10 +326,6 @@ class MailchimpController
     }
 
     public function deleteallsubscribers (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ){
@@ -374,10 +346,6 @@ class MailchimpController
     }
 
     public function deleteList (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ){
@@ -399,10 +367,6 @@ class MailchimpController
 
     // tags managements
     public function addTag (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->name) && isset ($input->emails) ){
@@ -430,10 +394,6 @@ class MailchimpController
     }
 
     public function getAllTags (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ){
@@ -449,10 +409,6 @@ class MailchimpController
     }
 
     public function removeTag (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         $res = "";
@@ -473,10 +429,6 @@ class MailchimpController
     }
 
     public function removeTagForMembers (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->emails) ){
@@ -495,10 +447,6 @@ class MailchimpController
     }
 
     public function removeAllTagsForMembers (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->emails) ){
@@ -519,11 +467,7 @@ class MailchimpController
 
     // Campaigns
     public function campaignCreate (ServerRequest $request, Response $response, array $args): Response
-    {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
+    {        
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->subject) && isset ($input->title) && isset ($input->htmlBody) && isset ($input->tagId) ){
@@ -550,10 +494,6 @@ class MailchimpController
 
     public function campaignDelete (ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->campaign_id) ){
@@ -574,10 +514,6 @@ class MailchimpController
 
     public function campaignSend (ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->campaign_id) ){
@@ -596,10 +532,6 @@ class MailchimpController
 
     public function campaignSave (ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->campaign_id)
@@ -640,10 +572,6 @@ class MailchimpController
 
     public function campaignContent(ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $mailchimp = new MailChimpService();;
 
         $campaignContent = $mailchimp->getCampaignContent ($args['campaignID']);
@@ -662,10 +590,6 @@ class MailchimpController
 
     public function statusList(ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->status) && isset ($input->list_id) && isset ($input->email) ){
@@ -698,10 +622,6 @@ class MailchimpController
 
     // members management
     public function suppress (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->email) ){
@@ -727,10 +647,6 @@ class MailchimpController
     }
 
     public function suppressMembers (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) && isset ($input->emails) ){
@@ -753,10 +669,6 @@ class MailchimpController
     }
 
     public function addallnewsletterpersons (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ){
@@ -822,10 +734,6 @@ class MailchimpController
     }
 
     public function addallpersons (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ){
@@ -864,10 +772,6 @@ class MailchimpController
     }
 
     public function addPerson (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personID) && isset ($input->list_id) ){
@@ -891,10 +795,6 @@ class MailchimpController
     }
 
     public function addFamily (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->familyID) && isset ($input->list_id) ){
@@ -921,10 +821,6 @@ class MailchimpController
 
     public function addAllFamilies (ServerRequest $request, Response $response, array $args): Response
     {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->list_id) ) {
@@ -974,16 +870,12 @@ class MailchimpController
     }
 
     public function addGroup (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->groupID) && isset ($input->list_id) ){
 
             // we get the MailChimp Service
-            $mailchimp = new MailChimpService();;
+            $mailchimp = new MailChimpService();
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
                 $members = Person2group2roleP2g2rQuery::create()
@@ -1006,4 +898,81 @@ class MailchimpController
 
         return $response->withJson(['success' => false]);
     }    
+
+    public function duplicateEmails(ServerRequest $request, Response $response, array $args): Response {
+        $connection = Propel::getConnection();
+        $dupEmailsSQL = "SELECT email, total FROM email_count where total > 1";
+        $statement = $connection->prepare($dupEmailsSQL);
+        $statement->execute();
+        $dupEmails = $statement->fetchAll();
+        $emails = [];
+        foreach ($dupEmails as $dbEmail) {
+            $email = $dbEmail['email'];
+            $dbPeople = PersonQuery::create()->filterByEmail($email)->_or()->filterByWorkEmail($email)->find();
+            $people = [];
+            foreach ($dbPeople as $person) {
+                array_push($people, ["id" => $person->getId(), "name" => $person->getFullName()]);
+            }
+            $families = [];
+            $dbFamilies = FamilyQuery::create()->findByEmail($email);
+            foreach ($dbFamilies as $family) {
+                array_push($families, ["id" => $family->getId(), "name" => $family->getName()]);
+            }
+            array_push($emails, [
+                "email" => $email,
+                "people" => $people,
+                "families" => $families
+            ]);
+        }
+        return $response->withJson(["emails" => $emails]);
+    }
+
+    public function notInMailChimpEmails (ServerRequest $request, Response $response, array $args): Response {
+        $mailchimp = new MailChimpService();
+
+        /*if ( !is_null ($mailchimp) && $mailchimp->isActive() ) 
+        {
+            return $response->withRedirect(SystemURLs::getRootPath() . "/email/Dashboard.php");
+        }*/
+
+        if ($args['type'] == "families") {
+            $families = FamilyQuery::create()
+                ->filterByDateDeactivated(null)
+                ->find();
+
+
+            $missingEmailInMailChimp = array();
+            foreach ($families as $family) {
+                $persons = $family->getHeadPeople();
+                foreach ($persons as $Person) {
+                    $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
+                    if ($mailchimpList == '') {
+                        array_push($missingEmailInMailChimp, 
+                            ["id" => $Person->getId(), 
+                            "img" => $Person->getJPGPhotoDatas(),
+                            "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '">' . $family->getSaluation() . '</a>', "email" => $Person->getEmail()]);
+                    }
+                }
+            }
+        } else if ($args['type'] == "persons") {
+            $People = PersonQuery::create()
+                ->filterByDateDeactivated(null)
+                ->filterByEmail(null, Criteria::NOT_EQUAL)
+                ->orderByDateLastEdited(Criteria::DESC)
+                ->find();
+
+            $missingEmailInMailChimp = array();
+            foreach ($People as $Person) {
+                $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
+                if ($mailchimpList == '') {
+                    array_push($missingEmailInMailChimp, 
+                        ["id" => $Person->getId(), 
+                        "img" => $Person->getJPGPhotoDatas(),
+                        "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $Person->getId() . '">' . $Person->getFullName() . '</a>', "email" => $Person->getEmail()]);
+                }
+            }
+        }
+
+        return $response->withJson(["emails" => $missingEmailInMailChimp]);
+    }
 }

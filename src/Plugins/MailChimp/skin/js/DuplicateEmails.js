@@ -11,7 +11,7 @@ $(function() {
 
   window.CRM.dataFundTable = $("#duplicateTable").DataTable({
     ajax:{
-      url: window.CRM.root + "/api/persons/duplicate/emails",
+      url: window.CRM.root + "/api/mailchimp/duplicate/emails",
       type: 'GET',
       contentType: "application/json",
       dataSrc: "emails",
