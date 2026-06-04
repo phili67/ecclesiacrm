@@ -1,0 +1,18 @@
+<!-- in plugin.schema.xml -->
+<database package="MailChimp" name="pluginstore" nameSpace="PluginStore">
+    <table name="mc_params" idMethod="native" phpName="MailChimpParams">
+    <column name="mc_p_id" phpName="Id" type="SMALLINT" size="9" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="mc_p_api_key" phpName="ApiKey" type="VARCHAR" size="255" description="MailChimp api key" required="true" defaultValue=""/>
+    <column name="mc_p_request_timeout" phpName="RequestTimeout" type="INTEGER" description="MailChimp Request TimeOut" required="true" defaultValue="3600"/>
+    <column name="mc_p_with_address_phone" phpName="WithAddressPhone" type="BOOLEAN" size="1" description="MailChimp With Address Phone" required="true" defaultValue="false"/>
+    <column name="mc_p_email_sender" phpName="EmailSender" type="VARCHAR" size="255" description="MailChimp Email Sender" required="true" defaultValue=""/>
+    <column name="mc_p_contents_external_css_font" phpName="ContentsExternalCssFont" type="LONGVARCHAR" description="MailChimp Contents External Css Font"/>
+    <column name="mc_p_extra_font" phpName="ExtraFont" type="LONGVARCHAR" description="MailChimp Extra Font"/>
+    <unique name="mc_p_id">
+      <unique-column name="mc_p_id"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>

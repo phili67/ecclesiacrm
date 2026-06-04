@@ -15,11 +15,11 @@ $app->group('/families', function (RouteCollectorProxy $group) {
  */
     $group->post('/familyproperties/{familyID:[0-9]+}', PeopleFamilyController::class . ":postfamilyproperties" );
 /*
- * @! Return if mailchimp is activated for family
+ * @! Return if mail service is activated for family
  * #! param: id->int   :: familyId as id
  * #! param: ref->string :: email as ref
  */
-    $group->post('/isMailChimpActive', PeopleFamilyController::class . ":isMailChimpActiveFamily" );
+    $group->post('/isMailServiceActive', PeopleFamilyController::class . ":isMailServiceActiveFamily" );
 /*
  * @! Return the family as json
  * #! param: id->int   :: familyId as id

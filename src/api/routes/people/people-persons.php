@@ -70,11 +70,11 @@ $app->group('/persons', function (RouteCollectorProxy $group) {
     $group->post('/volunteers/add', PeoplePersonController::class . ":volunteersAdd" );
 
     /*
-     * @! Return if MailChimp is activated
+     * @! Return if Mail Service is activated
      * #! param: id->int :: personId as id
      * #! param: ref->string :: email as ref
      */
-    $group->post('/isMailChimpActive', PeoplePersonController::class . ":isMailChimpActivePerson" );
+    $group->post('/isMailServiceActive', PeoplePersonController::class . ":isMailServiceActivePerson" );
 
 /**
  * Update the person status to activated or deactivated with :familyId and :status true/false.
@@ -82,7 +82,7 @@ $app->group('/persons', function (RouteCollectorProxy $group) {
  */
 
     /*
-     * @! Return if MailChimp is activated
+     * @! Return if Mail Service is activated
      * #! param: id->int :: personId as id
      * #! param: ref->string :: email as ref
      */
@@ -155,18 +155,6 @@ $app->group('/persons', function (RouteCollectorProxy $group) {
      */
     $group->post('/downactionfield', PeoplePersonController::class . ":downactionPersonfield" );
 
-/**
- * A method that review dup emails in the db and returns families and people where that email is used.
- */
-
-    /*
-     * @! duplicate emails in mailchimp
-     */
-    $group->get('/duplicate/emails', PeoplePersonController::class . ":duplicateEmails" );
-    /*
-     * @! not in email for mailchimp
-     */
-    $group->get('/NotInMailChimp/emails/{type}', PeoplePersonController::class . ":notInMailChimpEmails" );
 
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.

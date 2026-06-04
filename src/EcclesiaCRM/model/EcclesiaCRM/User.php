@@ -27,14 +27,14 @@ use DateTime;
 use DateTimeZone;
 use EcclesiaCRM\Service\VolunteerService;
 
-// to define new plugin add the securities to : 2+4=6 for example to have pastoral + mailchimp security options
+// to define new plugin add the securities to : 2+4=6 for example to have pastoral
 
 abstract class SecurityOptions
 {
     const bNoDashBordItem = 0;
     const bAdmin = 1; // bit 0
     const bPastoralCare = 2; // bit 1
-    const bMailChimp = 4; // bit 2
+    const bMailChimp = 4; // bit 2 is now deprecated
     const bGdrpDpo = 8; // bit 3
     const bMainDashboard = 16; // bit 4 is now deprecated
     const bSeePrivacyData = 32; // bit 5
@@ -405,9 +405,6 @@ class User extends BaseUser
                     case 'SeePrivacyData':
                         $this->setSeePrivacyData($res[1]);
                         break;
-                    case 'MailChimp':
-                        $this->setMailChimp($res[1]);
-                        break;
                     case 'GdrpDpo':
                         $this->setGdrpDpo($res[1]);
                         break;
@@ -667,12 +664,6 @@ class User extends BaseUser
     public function isPastoralCareEnabled()
     {
         return ($this->isAdmin() || $this->isPastoralCare()) and SystemConfig::getBooleanValue('bEnabledPastoralCare');
-    }
-
-    public function isMailChimpEnabled()
-    {
-        // an administrator shouldn't be an mailchimp manager
-        return /*$this->isAdmin() || */ $this->isMailChimp();
     }
 
     public function isHtmlSourceEditorEnabled()
@@ -1112,7 +1103,6 @@ class User extends BaseUser
 
         $_SESSION['bAdmin'] = $this->isAdmin();                             //ok
         $_SESSION['bPastoralCare'] = $this->isPastoralCareEnabled();        //ok
-        $_SESSION['bMailChimp'] = $this->isMailChimpEnabled();              //ok
         $_SESSION['bGdrpDpo'] = $this->isGdrpDpoEnabled();                  //ok
         $_SESSION['bMainDashboard'] = $this->isMainDashboardEnabled();      //ok is now deprecated
         $_SESSION['bSeePrivacyData'] = $this->isSeePrivacyDataEnabled();    //ok
@@ -1282,9 +1272,6 @@ class User extends BaseUser
         if ($this->isPastoralCareEnabled()) { // bit 1
             $bits |= SecurityOptions::bPastoralCare;
         }
-        if ($this->isMailChimpEnabled()) { // bit 2
-            $bits |= SecurityOptions::bMailChimp;
-        }
         if ($this->isGdrpDpoEnabled()) { // bit 3
             $bits |= SecurityOptions::bGdrpDpo;
         }
@@ -1355,8 +1342,6 @@ class User extends BaseUser
                     return $this->isAdmin();
                 case 2: // bPastoralCare bit 1
                     return $this->isPastoralCareEnabled();
-                case 4: // see : SecurityOptions bit 2
-                    return $this->isMailChimpEnabled();
                 case 8: // bit 3
                     return $this->isGdrpDpoEnabled();
                 case 16: // bit 4

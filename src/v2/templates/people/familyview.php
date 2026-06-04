@@ -196,10 +196,10 @@ $sFamilyEmails = [];
                                     <a href="mailto:<?= $email ?>"><span><?= $email ?></span></a>
                                 </li>
                                 <?php
-                                    if ($isMailChimpActive) {
+                                    if ($isMailServiceActive) {
                                 ?>
-                                    <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("MailChimp") ?>:</strong>
-                                        <span id="mailChimpUserNormal"></span>
+                                    <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("Mail Lists") ?>:</strong>
+                                        <span id="mailServiceUserNormal"></span>
                                     </li>
                             <?php
                                     }
@@ -1061,6 +1061,8 @@ cocuou
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/document.js"></script>
 <!-- !Document editor -->
+
+<script src="<?= $sRootPath ?>/skin/js/people/PeopleMailServices.js"></script>
 
 <?php
 if ($sMapProvider == 'OpenStreetMap') {

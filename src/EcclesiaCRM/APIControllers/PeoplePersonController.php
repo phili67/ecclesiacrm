@@ -288,23 +288,33 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function isMailChimpActivePerson (ServerRequest $request, Response $response, array $args): Response {
+    public function isMailServiceActivePerson (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
-        // we get the MailChimp Service
-        $mailchimp = $this->container->get('MailChimpService');
+        // we get the mail Service
+        $mailService = $this->container->get('MailService');
 
         if ( isset ($input->personId) && isset ($input->email) ){
+            $sEmail = $input->email;
             $person = PersonQuery::create()->findPk($input->personId);
 
-            if ($mailchimp->isLoaded()) {
-                if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
-                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'statusLists' => $mailchimp->getListNameAndStatus($input->email)]);
+            if ($mailService->isLoaded()) {
+                if ( !is_null ($mailService) && $mailService->isActive() ) {
+                    return $response->withJson(['success' => true,
+                        'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 
+                        'mailServiceActive' => true, 
+                        'mailingList' => $mailService->getListNameFromEmail($sEmail)]);
                 } else {
-                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
+                    return $response->withJson(['success' => true,
+                        'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 
+                        'mailServiceActive' => false, 
+                        'mailingList' => null]);
                 }
             } else {
-                return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
+                return $response->withJson(['success' => true,
+                    'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 
+                    'mailServiceActive' => false, 
+                    'mailingList' => null]);
             }
         }
 
@@ -381,14 +391,14 @@ class PeoplePersonController
             return $response->withStatus(404);
         }
 
-        // if in mailchimp
-        $mailchimp = $this->container->get('MailChimpService');
+        // if in mail service, we need to remove it from the list
+        $mailService = $this->container->get('MailService');
 
-        if ( $mailchimp->isActive() ) {
-            $memberStatus = $mailchimp->getListNameAndStatus( $person->getEmail() );
+        if ( $mailService->isActive() ) {
+            $memberStatus = $mailService->getListNameAndStatus( $person->getEmail() );
 
             if ( !empty ($memberStatus) ) {
-                $res = $mailchimp->updateMember($memberStatus[0][2], "", "", $person->getEmail(), 'unsubscribed');
+                $res = $mailService->updateGlobalMember( "", "", $person->getEmail(), 'unsubscribed');
             }
         }
 
@@ -487,90 +497,7 @@ class PeoplePersonController
         return $response->withJson(['success' => false]);
     }
 
-    public function duplicateEmails(ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
-        $connection = Propel::getConnection();
-        $dupEmailsSQL = "SELECT email, total FROM email_count where total > 1";
-        $statement = $connection->prepare($dupEmailsSQL);
-        $statement->execute();
-        $dupEmails = $statement->fetchAll();
-        $emails = [];
-        foreach ($dupEmails as $dbEmail) {
-            $email = $dbEmail['email'];
-            $dbPeople = PersonQuery::create()->filterByEmail($email)->_or()->filterByWorkEmail($email)->find();
-            $people = [];
-            foreach ($dbPeople as $person) {
-                array_push($people, ["id" => $person->getId(), "name" => $person->getFullName()]);
-            }
-            $families = [];
-            $dbFamilies = FamilyQuery::create()->findByEmail($email);
-            foreach ($dbFamilies as $family) {
-                array_push($families, ["id" => $family->getId(), "name" => $family->getName()]);
-            }
-            array_push($emails, [
-                "email" => $email,
-                "people" => $people,
-                "families" => $families
-            ]);
-        }
-        return $response->withJson(["emails" => $emails]);
-    }
-
-    public function notInMailChimpEmails (ServerRequest $request, Response $response, array $args): Response {
-        if (!SessionUser::getUser()->isMailChimpEnabled()) {
-            return $response->withStatus(401);
-        }
-
-        $mailchimp = $this->container->get('MailChimpService');
-
-        if (!$mailchimp->isActive())
-        {
-            return $response->withRedirect(SystemURLs::getRootPath() . "/email/Dashboard.php");
-        }
-
-        if ($args['type'] == "families") {
-            $families = FamilyQuery::create()
-                ->filterByDateDeactivated(null)
-                ->find();
-
-
-            $missingEmailInMailChimp = array();
-            foreach ($families as $family) {
-                $persons = $family->getHeadPeople();
-                foreach ($persons as $Person) {
-                    $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
-                    if ($mailchimpList == '') {
-                        array_push($missingEmailInMailChimp, 
-                            ["id" => $Person->getId(), 
-                            "img" => $Person->getJPGPhotoDatas(),
-                            "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $family->getId() . '">' . $family->getSaluation() . '</a>', "email" => $Person->getEmail()]);
-                    }
-                }
-            }
-        } else if ($args['type'] == "persons") {
-            $People = PersonQuery::create()
-                ->filterByDateDeactivated(null)
-                ->filterByEmail(null, Criteria::NOT_EQUAL)
-                ->orderByDateLastEdited(Criteria::DESC)
-                ->find();
-
-            $missingEmailInMailChimp = array();
-            foreach ($People as $Person) {
-                $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
-                if ($mailchimpList == '') {
-                    array_push($missingEmailInMailChimp, 
-                        ["id" => $Person->getId(), 
-                        "img" => $Person->getJPGPhotoDatas(),
-                        "url" => '<a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $Person->getId() . '">' . $Person->getFullName() . '</a>', "email" => $Person->getEmail()]);
-                }
-            }
-        }
-
-        return $response->withJson(["emails" => $missingEmailInMailChimp]);
-    }
+    
 
     public function activateDeacticate (ServerRequest $request, Response $response, array $args): Response {
         if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {
@@ -633,17 +560,17 @@ class PeoplePersonController
                 $person->setDateDeactivated(Null);
             }
 
-            $mailchimp = $this->container->get('MailChimpService');
+            $mailService = $this->container->get('MailService');
 
-            if ( $mailchimp->isActive() ) {
-                $memberStatus = $mailchimp->getListNameAndStatus( $person->getEmail() );
+            if ( $mailService->isActive() ) {
+                $memberStatus = $mailService->getListNameAndStatus( $person->getEmail() );
 
                 if ( !empty ($memberStatus) ) {
 
                     if ( $newStatus == 'false' ) {
-                        $res = $mailchimp->updateMember($memberStatus[0][2], "", "", $person->getEmail(), 'unsubscribed');
+                        $res = $mailService->updateGloMember( "", "", $person->getEmail(), 'unsubscribed');
                     } else {
-                        $res = $mailchimp->updateMember($memberStatus[0][2], "", "", $person->getEmail(), 'subscribed');
+                        $res = $mailService->updateGloMember( "", "", $person->getEmail(), 'subscribed');
                     }
                 }
             }

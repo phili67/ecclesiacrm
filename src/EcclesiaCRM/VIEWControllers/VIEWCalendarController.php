@@ -69,8 +69,8 @@ class VIEWCalendarController {
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'sPageTitle'  => _('Church Calendar'),
             'eventTypes'  => $eventTypes,
-            'contentsExternalCssFont' => SystemConfig::getValue("sMailChimpContentsExternalCssFont"),
-            'extraFont' => SystemConfig::getValue("sMailChimpExtraFont"),
+            'contentsExternalCssFont' => SystemConfig::getValue("bMailServiceContentsExternalCssFont"),
+            'extraFont' => SystemConfig::getValue("bMailServiceExtraFont"),
             'coordinates' => [
                 'lat' => $lat,
                 'lng' => $lng
@@ -205,8 +205,8 @@ class VIEWCalendarController {
         $event = null;
 
         // for ckeditor fonts
-        $contentsExternalCssFont = SystemConfig::getValue("sMailChimpContentsExternalCssFont");
-        $extraFont = SystemConfig::getValue("sMailChimpExtraFont");
+        $contentsExternalCssFont = SystemConfig::getValue("bMailServiceContentsExternalCssFont");
+        $extraFont = SystemConfig::getValue("bMailServiceExtraFont");
 
         if (array_key_exists('EventID', $_POST)) {
             // from ListEvents button=Attendees

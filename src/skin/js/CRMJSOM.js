@@ -316,41 +316,6 @@ window.CRM.closeDialogLoadingFunction = function () {
   }
 }
 
-window.CRM.renderMailchimpLists = function () {
-
-  window.CRM.APIRequest({
-    method: 'GET',
-    path: 'mailchimp/lists'
-  }, function (data) {
-
-    if (data.isActive) {
-      var len = data.MailChimpLists.length;
-
-      // now we empty the menubar lists
-      $(".lists_class_menu").removeClass("hidden");
-
-      var real_listMenu = $(".lists_class_menu").find(".nav-treeview");
-
-      real_listMenu.html("");
-      var listItems = "";
-
-      for (i = 0; i < len; i++) {
-        var list = data.MailChimpLists[i];
-
-        listItems += '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link "> <i class="far fa-circle"></i> <p>' + list.name + '</p></a>'
-          + '</li>';
-      }
-
-      real_listMenu.html(listItems);
-
-      if (data.firstLoaded == true) {
-        window.CRM.notify('fas fa-info-circle', i18next.t("Mailchimp"), i18next.t("All the lists are now loaded in the CRM.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard', 'success', "top", 50000);
-      }
-    }
-
-  });
-}
-
 window.CRM.notify = function (icon, title, message, link, type, place, delay, target, horizontal) {
   if (type == 'success') {
     type = 'bg-success';
@@ -1977,27 +1942,6 @@ window.CRM.synchronize = {
 
       if (sundaySchoolDropDownBCCMailDasBoard) {
         $('#dropDownMailBCC').html(data.dropDown.allNormalBCC);
-      }
-    },
-    MailchimpDisplay: function (data) {
-      if (data.isActive) {
-        var len = data.MailChimpLists.length;
-
-        // now we empty the menubar lists
-        $(".lists_class_menu").removeClass("hidden");
-        var real_listMenu = $(".lists_class_menu").find(".nav-treeview");
-
-        real_listMenu.html("");
-        var listItems = "";
-
-        for (i = 0; i < len; i++) {
-          var list = data.MailChimpLists[i];
-
-          listItems += '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link "> <i class="far fa-circle"></i> <p>' + list.name + '</p></a>'
-            + '</li>';
-        }
-
-        real_listMenu.html(listItems);
       }
     },
     EventAttendeesDisplay: function (data) {

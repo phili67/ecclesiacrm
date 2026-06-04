@@ -8,9 +8,10 @@ use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\ReportingService;
 use EcclesiaCRM\Service\SystemService;
-use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\Service\PastoralCareService;
+
+use EcclesiaCRM\Service\MailService;
 
 use Slim\HttpCache\CacheProvider;
 use EcclesiaCRM\Utils\LoggerUtils;
@@ -27,12 +28,12 @@ class dependencies
         });
 
         // DIC configuration
-        if ($loggeronly == false) {
-            $container->set('MailChimpService', function () {
-                if (!isset($_SESSION['MailChimpService'])) {
-                    $_SESSION['MailChimpService'] = new MailChimpService();
+        //if ($loggeronly == false) {            
+            $container->set('MailService', function () {
+                if (!isset($_SESSION['MailService'])) {
+                    $_SESSION['MailService'] = new MailService();
                 }
-                return $_SESSION['MailChimpService'];
+                return $_SESSION['MailService'];
             });
 
             $container->set('PersonService', function () {
@@ -97,6 +98,6 @@ class dependencies
                 }
                 return $_SESSION['PastoralCareService'];                   
             });
-        }
+        //}
     }
 }

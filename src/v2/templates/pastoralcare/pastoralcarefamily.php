@@ -215,10 +215,10 @@ $sFamilyEmails = [];
                                 <a href="mailto:<?= $family->getEmail() ?>" target="_blank"><span><?= $family->getEmail() ?></span></a>
                             </li>
                             <?php
-                            if ($mailchimp->isActive()) {
+                            if ($mailService->isActive()) {
                                 ?>
-                                <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("MailChimp") ?>:</strong>
-                                    <span id="mailChimpUserNormal"></span>
+                                <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("Mail Lists") ?>:</strong>
+                                    <span id="mailServiceUserNormal"></span>
                                 </li>
                                 <?php
                             }
@@ -428,11 +428,15 @@ $sFamilyEmails = [];
         lng: parseFloat(<?= ChurchMetaData::getChurchLongitude() ?>)
     };
     window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
+    window.CRM.familyMail = "<?= $email ?>";
+    window.CRM.currentFamily = <?= $currentFamilyID ?>;
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/pastoralcare/PastoralCareBootboxContent.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/pastoralcare/PastoralCareFamily.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
+
+<script src="<?= $sRootPath ?>/skin/js/people/PeopleMailServices.js"></script>
 
 <?php
 if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {

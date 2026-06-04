@@ -466,18 +466,7 @@ require $sRootDocument . '/Include/Header.php';
                                                             <input type="checkbox" class="global_settings" name="QueryMenu"
                                                                    value="1"<?= ($usr_showMenuQuery) ? ' checked' : '' ?>>
                                                         </div>
-                                                    </div>
-                                                    <div class="<?= SystemConfig::getBooleanValue('bEnabledEmail')?'row':'d-none' ?>">
-                                                        <div class="col-md-10">&bullet;
-                                                            <?= _('MailChimp') ?>:<br/>
-                                                            <span class="SmallText">(<?= _('Allow a user to use MailChimp tool') ?>)</span>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <input type="checkbox" class="global_settings" name="MailChimp"
-                                                                   value="1"<?= ($usr_MailChimp) ? ' checked' : '' ?>>
-                                                            &nbsp;
-                                                        </div>
-                                                    </div>
+                                                    </div>                                                    
                                                     <div class="<?= SystemConfig::getBooleanValue('bGDPR')?'row':'d-none' ?>">
                                                         <div class="col-md-10">&bullet;
                                                             <?= _("GRPD Data Protection Officer") ?>:<br/>

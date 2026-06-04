@@ -148,7 +148,6 @@ require_once __DIR__.'/routes/user/user-role.php';
 require_once __DIR__.'/routes/cart.php';
 require_once __DIR__.'/routes/geocoder.php';
 require_once __DIR__.'/routes/kiosks.php';
-require_once __DIR__.'/routes/mailchimp.php';
 
 require_once __DIR__.'/routes/search.php';
 require_once __DIR__.'/routes/sundayschool.php';

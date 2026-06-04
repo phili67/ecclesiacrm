@@ -48,7 +48,7 @@ use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\FamilyCustomQuery;
 
 use EcclesiaCRM\Utils\GeoUtils;
-use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\Service\MailService;
 
 
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -205,6 +205,7 @@ class VIEWPastoralCareController {
     {
         $currentPastorId = SessionUser::getUser()->getPerson()->getID();
 
+        $mailService = new MailService();
 
         $ormPastoralCares = PastoralCareQuery::Create()
             ->orderByDate(Criteria::DESC)
@@ -357,6 +358,7 @@ class VIEWPastoralCareController {
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
             'sPageTitle'           => $sPageTitle,
+            'isMailServiceActive'  => $mailService->isActive(),
             'ormPastoralCares'     => $ormPastoralCares,
             'currentPersonID'      => $currentPersonID,
             'currentPastorId'      => $currentPastorId,
@@ -436,7 +438,7 @@ class VIEWPastoralCareController {
             ->find();
 
         // new code
-        $mailchimp = new MailChimpService();
+        $mailService = new MailService();
 
         $iCurrentUserFamID = SessionUser::getUser()->getPerson()->getFamId();
 
@@ -500,11 +502,13 @@ class VIEWPastoralCareController {
             'ormPastors'            => $ormPastors,
             'ormPastoralTypeCares'  => $ormPastoralTypeCares,
             'family'                => $family,
+            'email'                 => $family->getEmail(),
             'sDateFormatLong'       => $sDateFormatLong,
             'sCSPNonce'             => $sCSPNonce,
             'can_see_privatedata'   => $can_see_privatedata,
             'ormFamCustomFields'    => $ormFamCustomFields,
-            'mailchimp'             => $mailchimp,
+            'mailService'           => $mailService,
+            'isMailServiceActive'   => $mailService->isActive(),
             'iFamilyID'             => $iFamilyID,
             'aFamCustomDataArr'     => $aFamCustomDataArr,
             'sHomePhone'            => $sHomePhone,
