@@ -42,9 +42,16 @@ class AddressSearchRes extends BaseSearchRes
                 $isQuickSearch  = $this->isQuickSearch();
                 $familiesInCart = $showCart ? array_fill_keys(Cart::FamiliesInCart(), true) : [];
 
-                $addresses = FamilyQuery::create()
-                    ->setDistinct()
-                    ->leftJoinWithPerson();
+                $addresses = FamilyQuery::create();
+
+                if (!$isQuickSearch && !$isStringSearch) {
+                    $addresses
+                        ->setDistinct()
+                        ->leftJoinWithPerson()
+                        ->usePersonQuery()
+                            ->filterByDateDeactivated(null)
+                        ->endUse();
+                }
 
                 if (SystemConfig::getBooleanValue('bGDPR')) {
                     $addresses->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
@@ -78,16 +85,6 @@ class AddressSearchRes extends BaseSearchRes
 
                             $this->results[] = $elt;
                             continue;
-                        }
-
-                        $members = $address->getPeopleSorted();
-                        $res_members = [];
-                        $globalMembers = '';
-
-                        foreach ($members as $member) {
-                            $memberId = $member->getId();
-                            $res_members[] = $memberId;
-                            $globalMembers .= '• <a href="' . $rootPath . '/v2/people/person/view/' . $memberId . '">' . $member->getFirstName() . ' ' . $member->getLastName() . '</a><br>';
                         }
 
                         $inCart = isset($familiesInCart[$addressId]);
@@ -146,6 +143,16 @@ class AddressSearchRes extends BaseSearchRes
                                 }
                             }
                         } else {
+                            $members = $address->getPeopleSorted();
+                            $res_members = [];
+                            $globalMembers = '';
+
+                            foreach ($members as $member) {
+                                $memberId = $member->getId();
+                                $res_members[] = $memberId;
+                                $globalMembers .= '• <a href="' . $rootPath . '/v2/people/person/view/' . $memberId . '">' . $member->getFirstName() . ' ' . $member->getLastName() . '</a><br>';
+                            }
+
                             $elt = [
                                 'id' => $addressId,
                                 'img' => $address->getJPGPhotoDatas(),
