@@ -56,9 +56,13 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                         ->leftJoinWithPerson()
                         ->leftJoinWithGroup()
                         ->usePersonQuery()
-                        ->filterByDateDeactivated(null)
-                        ->leftJoinWithFamily()
-                        ->endUse();
+                        ->filterByDateDeactivated(null);
+
+                    if (!$quickSearch) {
+                        $persons->leftJoinWithFamily();
+                    }
+
+                    $persons->endUse();
                 } else {
                     $persons = GroupManagerPersonQuery::create()
                         ->leftJoinWithPerson()
@@ -66,9 +70,13 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                         ->usePersonQuery()
                         ->filterByFirstName($searchLikeString, Criteria::LIKE)
                         ->_or()->filterByLastName($searchLikeString, Criteria::LIKE)
-                        ->_and()->filterByDateDeactivated(null)
-                        ->leftJoinWithFamily()
-                        ->endUse();
+                        ->_and()->filterByDateDeactivated(null);
+
+                    if (!$quickSearch) {
+                        $persons->leftJoinWithFamily();
+                    }
+
+                    $persons->endUse();
                 }
 
 
