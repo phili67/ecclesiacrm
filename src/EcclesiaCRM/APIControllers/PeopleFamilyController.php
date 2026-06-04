@@ -84,25 +84,24 @@ class PeopleFamilyController
         return $response->write($ormAssignedProperties->toJSON());
     }
 
-    public function isMailChimpActiveFamily (ServerRequest $request, Response $response, array $args): Response {
+    public function isMailServiceActiveFamily (ServerRequest $request, Response $response, array $args): Response {
         $input = (object)$request->getParsedBody();
 
-        // we get the MailChimp Service
-        $mailchimp = $this->container->get('MailService');
+        // we get the Mail Service
+        $mailService = $this->container->get('MailService');
 
         if ( isset ($input->familyId) && isset ($input->email) ){
-
             $family = FamilyQuery::create()->findPk($input->familyId);
             $isIncludedInMailing = $family->getSendNewsletter();
 
-            if ($mailchimp->isLoaded()) {
-                if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
-                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailChimpActiv' => true, 'statusLists' => $mailchimp->getListNameAndStatus($input->email)]);
+            if ($mailService->isLoaded()) {
+                if ( !is_null ($mailService) && $mailService->isActive() ) {
+                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailServiceActive' => true, 'statusLists' => $mailService->getListNameAndStatus($input->email)]);
                 } else {
-                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
+                    return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailServiceActive' => false, 'mailingList' => null]);
                 }
             } else {
-                return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
+                return $response->withJson(['success' => true,'isIncludedInMailing' => ($isIncludedInMailing == 'TRUE')?true:false, 'mailServiceActive' => false, 'mailingList' => null]);
             }
         }
 
