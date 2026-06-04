@@ -2,17 +2,21 @@
 // copyright Philippe Logel not MIT
 namespace Plugins\Service;
 
+require_once(__DIR__ . '/../../vendor/autoload.php');
+
+use \DrewM\MailChimp\MailChimp;
+
 use EcclesiaCRM\Base\PersonQuery;
 use EcclesiaCRM\SendNewsLetterUserUpdateQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
-use \DrewM\MailChimp\MailChimp;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\SessionUser;
 
 spl_autoload_register(function ($className) {
     include_once str_replace(array('PluginStore', '\\'), array(__DIR__.'/../model', '/'), $className) . '.php';    
 });
+
 
 use PluginStore\MailChimpParamsQuery;
 
@@ -48,7 +52,7 @@ class MailChimpService
     private $apiKey = null;
     private $iMailChimpRequestTimeOut = 30;
     private $sMailChimpEmailSender = null;
-    private $bMailChimpWithAddressPhone = false;
+    private $bMailServiceWithAddressPhone = false;
 
 
     public function __construct()
@@ -57,16 +61,20 @@ class MailChimpService
         $this->apiKey = $params->getApiKey();
         $this->iMailChimpRequestTimeOut = $params->getRequestTimeout();
         $this->sMailChimpEmailSender = $params->getEmailSender();
-        $this->bMailChimpWithAddressPhone = $params->getWithAddressPhone();
+        $this->bMailServiceWithAddressPhone = $params->getWithAddressPhone();
         
         if ( !empty($this->apiKey) ) {
             $this->isActive = true;
 
-            if (!isset($_SESSION['MailChimpConnectionStatus']))  {
-                $_SESSION['myMailchimp'] = new MailChimp($this->apiKey);
-                $_SESSION['MailChimpConnectionStatus'] = $_SESSION['myMailchimp']->post("authorized-apps");
+            if (isset($_SESSION['myMailchimp'])) {
+                unset($_SESSION['myMailchimp']);
             }
-            $this->myMailchimp = $_SESSION['myMailchimp'];            
+
+            $this->myMailchimp = new MailChimp($this->apiKey);
+
+            if (!isset($_SESSION['MailChimpConnectionStatus']))  {
+                $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
+            }
         }
     }
 
@@ -103,7 +111,7 @@ class MailChimpService
                     $person = PersonQuery::create()
                         ->findOneById($nlsAdd->getPersonId());
 
-                    $res = $this->postMember($lists[0]['id'],32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');                    
+                    $res = $this->postMember($lists[0]['id'],32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailService(), $person->getHomePhone(), 'subscribed');                    
                     // we clean up the members
                     $nlsAdd->delete();
                 }
@@ -1067,11 +1075,11 @@ class MailChimpService
         if (!empty($mail)) {
             $merge_fields = ['FNAME' => $first_name, 'LNAME' => $last_name];
 
-            if (!is_null($address) && $this->bMailChimpWithAddressPhone) {
+            if (!is_null($address) && $this->bMailServiceWithAddressPhone) {
                 $merge_fields['ADDRESS'] = $address;
             }
 
-            if (!is_null($phone) && $this->bMailChimpWithAddressPhone) {
+            if (!is_null($phone) && $this->bMailServiceWithAddressPhone) {
                 $merge_fields['PHONE'] = $phone;
             }
 

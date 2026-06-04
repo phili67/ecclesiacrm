@@ -312,8 +312,8 @@ class VIEWPeopleController {
     public function argumentsPeoplePersonViewArray ($iPersonID, $mode = 'none')
     {
         // for ckeditor fonts
-        $contentsExternalCssFont = SystemConfig::getValue("sMailChimpContentsExternalCssFont");
-        $extraFont = SystemConfig::getValue("sMailChimpExtraFont");
+        $contentsExternalCssFont = SystemConfig::getValue("bMailServiceContentsExternalCssFont");
+        $extraFont = SystemConfig::getValue("bMailServiceExtraFont");
 
         $user = UserQuery::Create()->findPk($iPersonID);
 

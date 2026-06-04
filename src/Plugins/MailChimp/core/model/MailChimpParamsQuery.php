@@ -37,7 +37,7 @@ class MailChimpParamsQuery extends BaseMailChimpParamsQuery
 			'externalCssFont' => (string) $params->getContentsExternalCssFont(),
 			'bWithAddressPhone' => (bool) $params->getWithAddressPhone(),
 			'sMailChimpEmailSender' => (string) $params->getEmailSender(),
-			'sMailChimpExtraFont' => (string) $params->getExtraFont(),
+			'bMailServiceExtraFont' => (string) $params->getExtraFont(),
 		];
 	}
 
@@ -51,7 +51,7 @@ class MailChimpParamsQuery extends BaseMailChimpParamsQuery
 		$params->setContentsExternalCssFont(trim((string) ($data['externalCssFont'] ?? '')));
 		$params->setWithAddressPhone(!empty($data['bWithAddressPhone']));
 		$params->setEmailSender(trim((string) ($data['sMailChimpEmailSender'] ?? '')));
-		$params->setExtraFont(trim((string) ($data['sMailChimpExtraFont'] ?? '')));
+		$params->setExtraFont(trim((string) ($data['bMailServiceExtraFont'] ?? '')));
 		$params->save();
 
 		return $params;

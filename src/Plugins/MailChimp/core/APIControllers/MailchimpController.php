@@ -294,7 +294,7 @@ class MailchimpController
                     'externalCssFont' => (string) $params->getContentsExternalCssFont(),
                     'bWithAddressPhone' => (bool) $params->getWithAddressPhone(),
                     'sMailChimpEmailSender' => (string) $params->getEmailSender(),
-                    'sMailChimpExtraFont' => (string) $params->getExtraFont(),
+                    'bMailServiceExtraFont' => (string) $params->getExtraFont(),
                 ]
             ]);
         } catch (\Throwable $ex) {
@@ -475,8 +475,8 @@ class MailchimpController
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
 
-                if ( !empty(SystemConfig::getValue('sMailChimpContentsExternalCssFont')) ) {
-                    $input->htmlBody = '<link rel="stylesheet" type="text/css" href="' . SystemConfig::getValue('sMailChimpContentsExternalCssFont') . '"/>' . $input->htmlBody;
+                if ( !empty(SystemConfig::getValue('bMailServiceContentsExternalCssFont')) ) {
+                    $input->htmlBody = '<link rel="stylesheet" type="text/css" href="' . SystemConfig::getValue('bMailServiceContentsExternalCssFont') . '"/>' . $input->htmlBody;
                 }
 
                 $res = $mailchimp->createCampaign($input->list_id, $input->tagId, $input->subject, $input->title, $input->htmlBody);
@@ -541,8 +541,8 @@ class MailchimpController
 
             $mailchimp = new MailChimpService();;
 
-            if ( !empty(SystemConfig::getValue('sMailChimpContentsExternalCssFont')) && !mb_strpos($input->content, "text/css") ) {
-                $input->content = '<link rel="stylesheet" type="text/css" href="' . SystemConfig::getValue('sMailChimpContentsExternalCssFont') . '"/>' . $input->content;
+            if ( !empty(SystemConfig::getValue('bMailServiceContentsExternalCssFont')) && !mb_strpos($input->content, "text/css") ) {
+                $input->content = '<link rel="stylesheet" type="text/css" href="' . SystemConfig::getValue('bMailServiceContentsExternalCssFont') . '"/>' . $input->content;
             }
 
             $res1 = $mailchimp->setCampaignContent ($input->campaign_id,$input->content);
@@ -716,7 +716,7 @@ class MailchimpController
                     if (strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');
+                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailService(), $person->getHomePhone(), 'subscribed');
                     }
 
                     $count++;
@@ -754,7 +754,7 @@ class MailchimpController
                     if (strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');
+                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailService(), $person->getHomePhone(), 'subscribed');
 
                         $count++;
                     }
@@ -781,7 +781,7 @@ class MailchimpController
             $person = PersonQuery::create()->findPk($input->personID);
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() /*&& !is_null($person) && $mailchimp->getListNameFromEmail($person->getEmail()) == ''*/ ) {
-                $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');
+                $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailService(), $person->getHomePhone(), 'subscribed');
 
                 if ( !array_key_exists ('title',$res) ) {
                     return $response->withJson(['success' => true, "result" => $res]);
@@ -809,7 +809,7 @@ class MailchimpController
                 // all person from the family should be deactivated too
                 $res = [];
                 foreach ($persons as $person) {
-                    $res[] = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(),'subscribed');
+                    $res[] = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailService(), $person->getHomePhone(),'subscribed');
                 }
 
                 return $response->withJson(['success' => true, "result" => $res]);
@@ -851,7 +851,7 @@ class MailchimpController
                     if (!is_null ($person) && strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');
+                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailService(), $person->getHomePhone(), 'subscribed');
 
                         $count++;
                     }
@@ -889,7 +889,7 @@ class MailchimpController
                 // all person from the family should be deactivated too
                 $res = [];
                 foreach ($members as $member) {
-                    $res[] = $mailchimp->postMember($input->list_id,32,$member->getPerson()->getFirstName(),$member->getPerson()->getLastName(),$member->getPerson()->getEmail(),$member->getPerson()->getAddressForMailChimp(), $member->getPerson()->getHomePhone(),'subscribed');
+                    $res[] = $mailchimp->postMember($input->list_id,32,$member->getPerson()->getFirstName(),$member->getPerson()->getLastName(),$member->getPerson()->getEmail(),$member->getPerson()->getAddressForMailService(), $member->getPerson()->getHomePhone(),'subscribed');
                 }
 
                 return $response->withJson(['success' => true, "result" => $res]);
