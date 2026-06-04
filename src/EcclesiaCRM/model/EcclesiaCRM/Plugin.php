@@ -3,6 +3,7 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Plugin as BasePlugin;
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SecurityOptions;
 
@@ -25,9 +26,6 @@ class Plugin extends BasePlugin
         }
         if ( $this->getSecurities() & SecurityOptions::bPastoralCare ) {
             $res .= " bPastoralCare";
-        }
-        if ( $this->getSecurities() & SecurityOptions::bMailChimp ) {
-            $res .= " bMailChimp";
         }
         if ( $this->getSecurities() & SecurityOptions::bGdrpDpo ) {
             $res .= " bGdrpDpo";
@@ -110,5 +108,19 @@ class Plugin extends BasePlugin
                 }                
             }
         }
+    }
+
+    public function getAllClassesServices() : array
+    {
+        return PluginDependenciesQuery::getClassServices($this);
+    }
+
+    public function isMailActive() : bool
+    {
+        if ($this->getCategory() != "Communication") {
+            return false;
+        }
+
+        return PluginDependenciesQuery::isServiceActiveForPlugin($this);
     }
 }
