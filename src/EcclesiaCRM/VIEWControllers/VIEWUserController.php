@@ -463,13 +463,7 @@ class VIEWUserController
                 } else {
                     $PastoralCare = 0;
                 }
-
-                if (isset($_POST['MailChimp'])) {
-                    $MailChimp = 1;
-                } else {
-                    $MailChimp = 0;
-                }
-
+                
                 if (isset($_POST['MainDashboard'])) {
                     $MainDashboard = 1;
                 } else {
@@ -509,7 +503,6 @@ class VIEWUserController
                             $user->setLastLogin(date('Y-m-d H:i:s'));
 
                             $user->setPastoralCare($PastoralCare);
-                            $user->setMailChimp($MailChimp);
                             $user->setMainDashboard($MainDashboard);
                             $user->setSeePrivacyData($SeePrivacyData);
                             $user->setGdrpDpo($GdrpDpo);
@@ -572,7 +565,6 @@ class VIEWUserController
 
                             $user->setAddRecords($AddRecords);
                             $user->setPastoralCare($PastoralCare);
-                            $user->setMailChimp($MailChimp);
                             if ($roleID > 0) {
                                 $user->setRoleId($roleID);
                             }
@@ -655,7 +647,6 @@ class VIEWUserController
                     $usr_AddRecords = $user->getAddRecords();
                     $usr_PastoralCare = $user->getPastoralCare();
                     $usr_GDRP_DPO = $user->getGdrpDpo();
-                    $usr_MailChimp = $user->getMailChimp();
                     $usr_MainDashboard = $user->getMainDashboard();
                     $usr_SeePrivacyData = $user->getSeePrivacyData();
                     $usr_EditRecords = $user->getEditRecords();
@@ -694,7 +685,6 @@ class VIEWUserController
                     $usr_AddRecords = 0;
                     $usr_PastoralCare = 0;
                     $usr_GDRP_DPO = 0;
-                    $usr_MailChimp = 0;
                     $usr_MainDashboard = 0;
                     $usr_SeePrivacyData = 0;
                     $usr_EditRecords = 0;
@@ -727,7 +717,6 @@ class VIEWUserController
                 $usr_AddRecords = 0;
                 $usr_PastoralCare = 0;
                 $usr_GDRP_DPO = 0;
-                $usr_MailChimp = 0;
                 $usr_MainDashboard = 0;
                 $usr_SeePrivacyData = 0;
                 $usr_EditRecords = 0;
@@ -918,7 +907,6 @@ class VIEWUserController
             'usr_AddRecords'    => $usr_AddRecords,
             'usr_PastoralCare'  => $usr_PastoralCare,
             'usr_GDRP_DPO'      => $usr_GDRP_DPO,
-            'usr_MailChimp'     => $usr_MailChimp,
             'usr_MainDashboard'  => $usr_MainDashboard,
             'usr_SeePrivacyData' => $usr_SeePrivacyData,
             'usr_EditRecords'    => $usr_EditRecords,
