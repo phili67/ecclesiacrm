@@ -27,7 +27,6 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
-use EcclesiaCRM\Service\MailChimpService;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\VolunteerOpportunityQuery;
@@ -802,50 +801,12 @@ class MenuBar extends Menu
     {
         $menu = new Menu (_("Communication"), "fas fa-envelope", "#", true);
         
-        if ( SystemConfig::getBooleanValue("bEnabledEmail") and SessionUser::getUser()->isEmailEnabled() ) {        
-            // the Email
-            
-
-            /*if (SessionUser::getUser()->isMailChimpEnabled()) {
-                $mailchimp = new MailChimpService();
-
-                $menuMain = new Menu (_("MailChimp"), "fab fa-mailchimp", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
-
-                $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
-                $menuItem->addLink("v2/mailchimp/duplicateemails");
-                $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
-                $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
-
-
-                $menuItemItem = new Menu (_("Email Lists"), "fas fa-list", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
-
-                if ($mailchimp->isLoaded()) {// to accelerate the v2/dashboard the first time
-                    $mcLists = $mailchimp->getLists();
-
-                    foreach ($mcLists as $list) {
-                        $menuItemItemItem = new Menu ($list['name'], "fas fa-mail-bulk", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
-
-                        $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
-
-                        $campaigns = array_merge($campaigns[0], $campaigns[1]);
-
-                        foreach ($campaigns as $campaign) {
-                            //$menuItemItemItem = new Menu ($campaign['settings']['title'],"far fa-circle","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
-                            $menuItemItemItem->addLink("v2/mailchimp/campaign/" . $campaign['id']);
-                        }
-                    }
-                } else {// we add just a false item
-                    $menuItemItemItem = new Menu ("false item", "far fa-circle", "#", true, $menuItemItem, "#");
-                }
-
-                
-            }   */
-            
+        if ( SystemConfig::getBooleanValue("bEnabledEmail") and SessionUser::getUser()->isEmailEnabled() ) {                        
+            $this->addPluginMenus('Communication', $menu, 'inside_category_menu');
+            $this->addMenu($menu);       
+            $this->addPluginMenus('Communication', $menu, 'after_category_menu');                        
         }
 
-        $this->addPluginMenus('Communication', $menu, 'inside_category_menu');
-        $this->addMenu($menu);       
-        $this->addPluginMenus('Communication', $menu, 'after_category_menu');
     }
 
     private function addDepositMenu()
