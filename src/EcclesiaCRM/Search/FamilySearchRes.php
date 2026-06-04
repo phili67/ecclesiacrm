@@ -53,10 +53,21 @@ class FamilySearchRes extends BaseSearchRes
                     ->filterByDateDeactivated(NULL)
                     ->groupById(FamilyTableMap::COL_FAM_ID);
 
+                $isGlobalSearch = $this->isGlobalSearch();
+                $isStringSearch = $this->isStringSearch();
+                $isQuickSearch  = $this->isQuickSearch();
+
                 $families = FamilyQuery::create()
-                    ->setDistinct()
-                    ->leftJoinWithPerson()
                     ->addSelectQuery($subQuery, 'res'); // only real family with more than one member will be showed here
+
+                if ($isGlobalSearch && !$isQuickSearch) {
+                    $families
+                        ->setDistinct()
+                        ->leftJoinWithPerson()
+                        ->usePersonQuery()
+                            ->filterByDateDeactivated(null)
+                        ->endUse();
+                }
 
                 if ( !( mb_strtolower($qry) == mb_strtolower(_('families')) || mb_strtolower($qry) == mb_strtolower(_('family'))
                         || mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles')) ) ) {
@@ -76,18 +87,13 @@ class FamilySearchRes extends BaseSearchRes
                     $compareOp = "=";
                 }
 
-                $isGlobalSearch = $this->isGlobalSearch();
-                $isStringSearch = $this->isStringSearch();
-                $isQuickSearch  = $this->isQuickSearch();
+                $families->where('res.cnt'.$compareOp.'1 AND Family.Id=res.FamId');
 
                 if ( $isQuickSearch ) {
-                    $families->limit($maxResults)
-                        ->where('res.cnt'.$compareOp.'1 AND Family.Id=res.FamId')->find();
-                } else {
-                    $families
-                        ->where('res.cnt'.$compareOp.'1 AND Family.Id=res.FamId')->find();
+                    $families->limit($maxResults);
                 }
                     
+                $families = $families->find();
 
                 if ( $families->count() > 0 )
                 {
@@ -107,17 +113,6 @@ class FamilySearchRes extends BaseSearchRes
 
                           array_push($this->results,$elt);
                         } else {
-                            $members = $family->getPeopleSorted();
-
-                            $res_members = [];
-                            $globalMembers = "";
-
-                            foreach ($members as $member) {
-                                $memberId = $member->getId();
-                                $res_members[] = $memberId;
-                                $globalMembers .= '• <a href="' . $rootPath . '/v2/people/person/view/' . $memberId . '">' . $member->getFirstName() . ' ' . $member->getLastName() . '</a><br>';
-                            }
-
                             $inCart = isset($familiesInCart[$familyId]);
 
                             $res = "";
@@ -188,6 +183,16 @@ class FamilySearchRes extends BaseSearchRes
                                     }
                                 }
                             } elseif ( $isGlobalSearch ) {
+                                $members = $family->getPeopleSorted();
+                                $res_members = [];
+                                $globalMembers = "";
+
+                                foreach ($members as $member) {
+                                    $memberId = $member->getId();
+                                    $res_members[] = $memberId;
+                                    $globalMembers .= '• <a href="' . $rootPath . '/v2/people/person/view/' . $memberId . '">' . $member->getFirstName() . ' ' . $member->getLastName() . '</a><br>';
+                                }
+
                                 $elt = [
                                     "id" => $familyId,
                                     "img" => $family->getJPGPhotoDatas(),

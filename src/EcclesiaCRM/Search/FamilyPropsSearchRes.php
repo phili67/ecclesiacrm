@@ -44,9 +44,19 @@ class FamilyPropsSearchRes extends BaseSearchRes
                 $familiesInCart = $showCart ? array_fill_keys(Cart::FamiliesInCart(), true) : [];
                 $normalizedQuery = str_replace('*', '%', $qry);
                 $searchLikeString = '%' . $normalizedQuery . '%';
+                $memberCountQuery = FamilyQuery::create()
+                    ->withColumn('Family.Id', 'FamId')
+                    ->leftJoinPerson()
+                    ->withColumn('COUNT(Person.Id)', 'MemberCount')
+                    ->groupById();
+
                 $families = FamilyQuery::create()
                     ->setDistinct()
-                    ->leftJoinWithPerson();
+                    ->addSelectQuery($memberCountQuery, 'family_member_counts');
+
+                if (!$quickSearch) {
+                    $families->leftJoinWithPerson();
+                }
 
                 if ($quickSearch) {
                     $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"));
@@ -68,6 +78,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
                     //->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
                     //->addAsColumn('ProTypeDesc', PropertyTypeTableMap::COL_PRT_DESCRIPTION)
                     //->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
+                    ->where('family_member_counts.MemberCount <> 1 AND Family.Id = family_member_counts.FamId')
                     ->where(PropertyTableMap::COL_PRO_CLASS . "='f' AND (" . PropertyTableMap::COL_PRO_NAME . " LIKE '" . $searchLikeString . "' OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '" . $searchLikeString . "' )"
                         . "OR " . FamilyTableMap::COL_FAM_NAME . " LIKE '" . $searchLikeString . "'");
 
@@ -78,10 +89,6 @@ class FamilyPropsSearchRes extends BaseSearchRes
                     $id = 1;
 
                     foreach ($families as $family) {
-                        if ($family->getPeople()->count() == 1) {// we avoid a one person family
-                            continue;
-                        }
-
                         $familyId = $family->getId();
 
                         if ($quickSearch) {

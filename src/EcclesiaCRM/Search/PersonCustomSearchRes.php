@@ -57,9 +57,13 @@ class PersonCustomSearchRes extends BaseSearchRes
                     ->setDistinct()
                     ->leftJoinWithPerson()
                     ->usePersonQuery()
-                        ->filterByDateDeactivated(null)
-                        ->leftJoinWithFamily()
-                    ->endUse();
+                        ->filterByDateDeactivated(null);
+
+                if (!$isQuickSearch) {
+                    $perCustoms->leftJoinWithFamily();
+                }
+
+                $perCustoms->endUse();
 
                 foreach ($ormPerCustomFields as $customfield) {
                     $perCustoms->withColumn($customfield->getCustomField());

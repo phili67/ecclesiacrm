@@ -41,7 +41,7 @@ $(function() {
                 return window.CRM.root + "/api/search/" + params.term;
             },
             dataType: 'json',
-            delay: 250,
+            delay: 1500,
             data: "",
             headers: {
                 "Authorization" : "Bearer "+window.CRM.jwtToken

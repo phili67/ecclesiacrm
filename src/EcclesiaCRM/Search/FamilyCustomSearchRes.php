@@ -55,9 +55,17 @@ class FamilyCustomSearchRes extends BaseSearchRes
                     ->setDistinct()
                     ->leftJoinWithFamily()
                     ->useFamilyQuery()
-                        ->filterByDateDeactivated(null)
+                        ->filterByDateDeactivated(null);
+
+                if (!$isQuickSearch) {
+                    $famCustoms
                         ->leftJoinWithPerson()
-                    ->endUse();
+                        ->usePersonQuery()
+                            ->filterByDateDeactivated(null)
+                        ->endUse();
+                }
+
+                $famCustoms->endUse();
 
                 foreach ($ormFamCustomFields as $customfield) {
                     $famCustoms->withColumn($customfield->getCustomField());
