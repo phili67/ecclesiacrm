@@ -106,11 +106,11 @@ class VIEWMailchimpController {
             'campaignId'        => $campaignId,
             'campaign'          => $campaign,
             'isMailchimpActiv'  => $mailchimp->isActive(),
-            'contentsExternalCssFont' => SystemConfig::getValue("sMailChimpContentsExternalCssFont"),
-            'extraFont' => SystemConfig::getValue("sMailChimpExtraFont"),
+            'contentsExternalCssFont' => SystemConfig::getValue("bMailServiceContentsExternalCssFont"),
+            'extraFont' => SystemConfig::getValue("bMailServiceExtraFont"),
             'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
             'isMenuOption'      => !$mailchimp->isActive(),
-            'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailChimpWithAddressPhone'),
+            'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailServiceWithAddressPhone'),
             'sDateFormatLong'   => SystemConfig::getValue('sDateFormatLong'),
             'reports'           => $reports
         ];
@@ -149,12 +149,12 @@ class VIEWMailchimpController {
             'mailchimp'         => $mailchimp,
             'list'              => $list,
             'isMailchimpActiv'  => $mailchimp->isActive(),
-            'contentsExternalCssFont' => SystemConfig::getValue("sMailChimpContentsExternalCssFont"),
-            'extraFont'         => SystemConfig::getValue("sMailChimpExtraFont"),
+            'contentsExternalCssFont' => SystemConfig::getValue("bMailServiceContentsExternalCssFont"),
+            'extraFont'         => SystemConfig::getValue("bMailServiceExtraFont"),
             'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
             'getSupportURL'     => SystemURLs::getSupportURL(),
             'isMenuOption'      => !$mailchimp->isActive(),
-            'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailChimpWithAddressPhone'),
+            'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailServiceWithAddressPhone'),
             'sDateFormatLong'  => SystemConfig::getValue('sDateFormatLong')
         ];
 
@@ -257,7 +257,7 @@ class VIEWMailchimpController {
             'externalCssFont' => $keys->getContentsExternalCssFont(),
             'bWithAddressPhone' => $keys->getWithAddressPhone(),
             'sMailChimpEmailSender' => $keys->getEmailSender(),
-            'sMailChimpExtraFont' => $keys->getExtraFont(),
+            'bMailServiceExtraFont' => $keys->getExtraFont(),
         ];
 
         $paramsArguments = [
@@ -273,7 +273,7 @@ class VIEWMailchimpController {
             'requestTimeOut'       => $settings['requestTimeOut'],
             'externalCssFont'      => $settings['externalCssFont'],
             'sMailChimpEmailSender' => $settings['sMailChimpEmailSender'],
-            'sMailChimpExtraFont'  => $settings['sMailChimpExtraFont'],
+            'bMailServiceExtraFont'  => $settings['bMailServiceExtraFont'],
         ];
         return $paramsArguments;
     }

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         externalCssFont: document.getElementById('externalCssFont')?.value ?? '',
         bWithAddressPhone: document.getElementById('bWithAddressPhone')?.checked ? 1 : 0,
         sMailChimpEmailSender: document.getElementById('sMailChimpEmailSender')?.value ?? '',
-        sMailChimpExtraFont: document.getElementById('sMailChimpExtraFont')?.value ?? ''
+        bMailServiceExtraFont: document.getElementById('bMailServiceExtraFont')?.value ?? ''
     });
 
     const resizeTextarea = (field) => {

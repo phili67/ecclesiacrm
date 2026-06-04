@@ -23,7 +23,7 @@ $mailChimpApiKey = htmlspecialchars((string) ($apiKey ?? ''), ENT_QUOTES, 'UTF-8
 $mailChimpRequestTimeOut = (int) ($requestTimeOut ?? 30);
 $mailChimpExternalCssFont = htmlspecialchars((string) ($externalCssFont ?? ''), ENT_QUOTES, 'UTF-8');
 $mailChimpEmailSender = htmlspecialchars((string) ($sMailChimpEmailSender ?? ''), ENT_QUOTES, 'UTF-8');
-$mailChimpExtraFont = htmlspecialchars((string) ($sMailChimpExtraFont ?? ''), ENT_QUOTES, 'UTF-8');
+$mailChimpExtraFont = htmlspecialchars((string) ($bMailServiceExtraFont ?? ''), ENT_QUOTES, 'UTF-8');
 $mailChimpIsActive = !empty($isMailChimpActiv);
 $mailChimpWithAddressPhone = !empty($bWithAddressPhone);
 ?>
@@ -191,9 +191,9 @@ $mailChimpWithAddressPhone = !empty($bWithAddressPhone);
                         </div>
 
                         <div class="form-group mb-0">
-                            <label class="field-label" for="sMailChimpExtraFont"><?= dgettext("messages-MailChimp", "Extra font CSS") ?></label>
+                            <label class="field-label" for="bMailServiceExtraFont"><?= dgettext("messages-MailChimp", "Extra font CSS") ?></label>
                             <div class="field-shell">
-                                <textarea class="form-control" id="sMailChimpExtraFont" name="sMailChimpExtraFont" data-autoresize="true" placeholder="font-family: 'Helvetica Neue', Arial, sans-serif;" ><?= $mailChimpExtraFont ?></textarea>
+                                <textarea class="form-control" id="bMailServiceExtraFont" name="bMailServiceExtraFont" data-autoresize="true" placeholder="font-family: 'Helvetica Neue', Arial, sans-serif;" ><?= $mailChimpExtraFont ?></textarea>
                             </div>
                             <div class="field-help mt-2"><?= dgettext("messages-MailChimp", "Use this field for additional CSS declarations or fallback font stacks.") ?></div>
                         </div>
