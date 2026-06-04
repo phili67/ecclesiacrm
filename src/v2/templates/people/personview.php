@@ -366,10 +366,10 @@ foreach ($groupIds as $gid) {
                                 <li><strong><i class="fa-li far fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
                                             href="mailto:<?= $PersonInfos['sUnformattedEmail'] ?>" target="_blank"><?= $PersonInfos['sEmail'] ?></a></span></li>
                                 <?php
-                                if ($isMailChimpActive) {
+                                if ($isMailServiceActive) {
                                     ?>
-                                    <li><strong><i class="fa-li fas fa-paper-plane"></i>MailChimp:</strong> <span
-                                            id="mailChimpUserNormal"></span>
+                                    <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("Mail Lists") ?>:</strong> <span
+                                            id="mailServiceUserNormal"></span>
                                     </li>
                                     <?php
                                 }
@@ -389,9 +389,9 @@ foreach ($groupIds as $gid) {
                                             href="mailto:<?= $PersonInfos['WorkEmail'] ?>"  target="_blank"><?= $PersonInfos['WorkEmail'] ?></a></span>
                                 </li>
                                 <?php
-                                if ($isMailChimpActive) {
+                                if ($isMailServiceActive) {
                                     ?>
-                                    <li><strong><i class="fa-li fas fa-paper-plane"></i>MailChimp <?= _("Work")?>:</strong> <span id="mailChimpUserWork"></span>
+                                    <li><strong><i class="fa-li fas fa-paper-plane"></i>Mail Service <?= _("Work")?>:</strong> <span id="mailServiceUserWork"></span>
                                     </li>
                                     <?php
                                 }
@@ -1800,6 +1800,8 @@ foreach ($groupIds as $gid) {
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/document.js"></script>
 <!-- !Document editor -->
+
+<script src="<?= $sRootPath ?>/skin/js/people/PeopleMailServices.js"></script>
 
 <?php
 if ($sMapProvider == 'OpenStreetMap') {

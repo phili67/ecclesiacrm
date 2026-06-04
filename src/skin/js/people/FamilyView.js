@@ -1,33 +1,4 @@
 $(function() {
-
-// mailchimp management
-  if (window.CRM.familyMail != undefined) {
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'families/isMailChimpActive',
-      data: JSON.stringify({"familyId": window.CRM.currentFamily,"email" : window.CRM.familyMail})
-    },function(data) {
-      if (data.success) {
-        if (data.isIncludedInMailing) {
-          $("#NewsLetterSend").css('color','green');
-          $("#NewsLetterSend").html('<i class="fas fa-check"></i>');
-          if (data.mailChimpActiv) {
-            $("#mailChimpUserNormal").text(data.mailingList);
-          }
-        } else {
-          $("#NewsLetterSend").css('color','red');
-          $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
-          $("#mailChimpUserNormal").text(i18next.t("None"));
-        }
-      } else {
-        $("#NewsLetterSend").css('color','red');
-        $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
-      }
-    });
-  }
-
-// end of mailchimp management
-
   $("#activateDeactivate").on('click', function () {
     popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t("Confirm Activation") );
     if (window.CRM.currentActive == true) {

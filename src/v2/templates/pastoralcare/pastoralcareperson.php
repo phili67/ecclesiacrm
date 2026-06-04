@@ -308,10 +308,10 @@ $sFamilyEmails = [];
                             <li><strong><i class="fa-li far fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
                                         href="mailto:<?= $sUnformattedEmail ?>" target="_blank"><?= $sEmail ?></a></span></li>
                             <?php
-                            if ($isMailChimpActive) {
+                            if ($isMailServiceActive) {
                                 ?>
-                                <li><strong><i class="fa-li fas fa-paper-plane"></i>MailChimp:</strong> <span
-                                        id="mailChimpUserNormal"></span>
+                                <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("Mail Lists") ?>:</strong> <span
+                                        id="mailServiceUserNormal"></span>
                                 </li>
                                 <?php
                             }
@@ -331,9 +331,9 @@ $sFamilyEmails = [];
                                         href="mailto:<?= $person->getWorkEmail() ?>" target="_blank"><?= $person->getWorkEmail() ?></a></span>
                             </li>
                             <?php
-                            if ($isMailChimpActive) {
+                            if ($isMailServiceActive) {
                                 ?>
-                                <li><i class="fa-li fas fa-paper-plane"></i>MailChimp: <span id="mailChimpUserWork"></span>
+                                <li><i class="fa-li fas fa-paper-plane"></i><?= _("Mail Lists") ?>: <span id="mailServiceUserWork"></span>
                                 </li>
                                 <?php
                             }
@@ -602,7 +602,6 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-
     <?php if ($location_available){ ?>
     // location and MAP
     window.CRM.churchloc = {
@@ -614,5 +613,7 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', "<?= str_replace('"', "'", $person->getFullName()) ?>", '');
     <?php } ?>
 </script>
+
+<script src="<?= $sRootPath ?>/skin/js/people/PeopleMailServices.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
