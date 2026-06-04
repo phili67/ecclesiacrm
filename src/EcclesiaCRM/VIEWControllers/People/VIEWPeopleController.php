@@ -33,7 +33,7 @@ use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
-use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\Service\MailService;
 use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\AutoPaymentQuery;
@@ -325,8 +325,8 @@ class VIEWPeopleController {
 
         $timelineNotesServiceItems = $timelineService->getNotesForPerson($iPersonID);
 
-        // we get the MailChimp Service
-        $mailchimp = new MailChimpService();
+        // we get the MailService
+        $mailService = new MailService();
 
         $bDocuments = false;
 
@@ -779,7 +779,7 @@ class VIEWPeopleController {
                 'lat'                   => $lat,
                 'lng'                   => $lng,                
             ],
-            'isMailChimpActive'         => $mailchimp->isActive(),
+            'isMailServiceActive'       => $mailService?->isActive(),
             'iLittleMapZoom'            => $iLittleMapZoom,
             'sMapProvider'              => $sMapProvider,
             'sGoogleMapKey'             => $sGoogleMapKey
@@ -836,7 +836,7 @@ class VIEWPeopleController {
         $timelineServiceItems = $timelineService->getForFamily($iFamilyID);
         $timelineNotesServiceItems = $timelineService->getNotesForFamily($iFamilyID);
 
-        $mailchimp = new MailChimpService();
+        $mailService = new MailService();
         $curYear = (new \DateTime)->format("Y");
 
         
@@ -1080,7 +1080,7 @@ class VIEWPeopleController {
             'maxMainTimeLineItems'      => $maxMainTimeLineItems,
             'timelineService'           => $timelineService,
             'timelineServiceItems'      => $timelineServiceItems,
-            'isMailChimpActive'         => $mailchimp->isActive(),
+            'isMailServiceActive'       => $mailService?->isActive(),
             'curYear'                   => $curYear,
             'iCurrentUserFamID'         => $iCurrentUserFamID,
             'ormAutoPayments'           => $ormAutoPayments,
