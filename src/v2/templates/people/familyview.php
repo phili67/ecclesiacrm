@@ -198,7 +198,7 @@ $sFamilyEmails = [];
                                 <?php
                                     if ($isMailServiceActive) {
                                 ?>
-                                    <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("MailChimp") ?>:</strong>
+                                    <li><strong><i class="fa-li fas fa-paper-plane"></i><?= _("Mail Lists") ?>:</strong>
                                         <span id="mailServiceUserNormal"></span>
                                     </li>
                             <?php
