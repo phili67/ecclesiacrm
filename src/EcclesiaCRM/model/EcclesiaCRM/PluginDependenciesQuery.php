@@ -3,6 +3,7 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\PluginDependenciesQuery as BasePluginDependenciesQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'plugin_dependencies' table.
@@ -15,6 +16,54 @@ use EcclesiaCRM\Base\PluginDependenciesQuery as BasePluginDependenciesQuery;
  */
 class PluginDependenciesQuery extends BasePluginDependenciesQuery
 {
+	private static array $javascriptUrlsByPluginId = [];
+
+	public static function preloadJavascriptUrlsByPluginIds(array $pluginIds): void
+	{
+		$pluginIds = array_values(array_unique(array_filter($pluginIds, static function ($pluginId) {
+			return !is_null($pluginId);
+		})));
+
+		if (empty($pluginIds)) {
+			return;
+		}
+
+		$missingPluginIds = array_values(array_filter($pluginIds, static function ($pluginId) {
+			return !array_key_exists((int)$pluginId, self::$javascriptUrlsByPluginId);
+		}));
+
+		if (empty($missingPluginIds)) {
+			return;
+		}
+
+		foreach ($missingPluginIds as $pluginId) {
+			self::$javascriptUrlsByPluginId[(int)$pluginId] = [];
+		}
+
+		$dependencies = self::create()
+			->filterByExtension('js')
+			->filterByPluginId($missingPluginIds, Criteria::IN)
+			->find();
+
+		foreach ($dependencies as $dependency) {
+			$pluginId = (int)$dependency->getPluginId();
+			$url = $dependency->getUrl();
+
+			if (empty($url)) {
+				continue;
+			}
+
+			self::$javascriptUrlsByPluginId[$pluginId][] = $url;
+		}
+	}
+
+	public static function getJavascriptUrlsForPluginId(int $pluginId): array
+	{
+		self::preloadJavascriptUrlsByPluginIds([$pluginId]);
+
+		return self::$javascriptUrlsByPluginId[$pluginId] ?? [];
+	}
+
 	public static function getServiceClassesForPlugin(Plugin $plugin): array
 	{
 		$dependencies = self::create()
