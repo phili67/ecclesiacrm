@@ -226,8 +226,8 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                         </td>
                         <td><?= $class['name'] ?></td>
-                        <td><?= $class['teachers'] ?></td>
-                        <td><?= $class['kids'] ?></td>
+                        <td><span class="badge badge-pill badge-light border"><?= $class['teachers'] ?></span></td>
+                        <td><span class="badge badge-pill badge-light border"><?= $class['kids'] ?></span></td>
                     </tr>
                 <?php
                 } ?>
