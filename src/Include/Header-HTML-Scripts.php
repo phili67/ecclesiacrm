@@ -2,14 +2,17 @@
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PluginQuery;
+use EcclesiaCRM\Utils\MiscUtils;
+
+use EcclesiaCRM\PluginDependenciesQuery;
 
 use EcclesiaCRM\SessionUser;
-
-use Propel\Runtime\ActiveQuery\Criteria;
 
 if (isset($template)) {
   $pluginName = SessionUser::getPluginNameForTemplate($template);
 }
+
+$pluginName = $pluginName ?? SessionUser::getPluginName();
 
 ?>
 
@@ -24,52 +27,27 @@ if (isset($template)) {
 <?php
 // we load the plugin
 if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
-    // only dashboard plugins are loaded on the maindashboard page
-    $plugins = PluginQuery::create()
-        ->filterByCategory('Dashboard', Criteria::EQUAL )
-        ->usePluginUserRoleQuery()
-            ->filterByUserId(SessionUser::getId())
-            ->filterByDashboardVisible(true)
-        ->endUse()
-        ->findByActiv(true);
-
-    foreach ($plugins as $plugin) {
-        $security = $plugin->getSecurities();
-
-        if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
-            continue;
-
-        if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
-            $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
-    
-            foreach ($files as $file) {
-                if (!in_array($file, [".", ".."])) {
-                    ?>
-                    <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
-                    <?php
-                }
-            }
-        }    
+    foreach (PluginQuery::getDashboardPluginsForCurrentUser() as $plugin) {
+        MiscUtils::renderPluginCssFiles($plugin->getName());
     }
-} elseif (!is_null($pluginName) and $pluginName !== "") {
-    $plugin = PluginQuery::create()
-        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
-        ->filterByName($pluginName)
-        ->findOneByActiv(true);
-    if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/")) {
-          $files = scandir(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/css/");
-  
-          foreach ($files as $file) {
-              if (!in_array($file, [".", ".."])) {
-                  ?>
-                  <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/skin/css/<?= $file ?>">
-                  <?php
-              }
-          }
-    }  
+} else {
+    $plugin = PluginQuery::getActiveNonDashboardPluginByName($pluginName);
+
+    if (!is_null($plugin)) {
+        MiscUtils::renderPluginCssFiles($plugin->getName());
+    }
 }
 
-
+// global css dependencies for plugins
+$dependencies = PluginDependenciesQuery::create()->filterByExtension('global_css')->find();
+foreach ($dependencies as $dependency) {
+    $path = $documentRoot . "/" . $dependency->getUrl();
+    if (file_exists($path)) {// we write the code directely in the footer.php
+        ?>
+        <link rel="stylesheet" href="<?= $rootPath ?>/<?= $dependency->getUrl() ?>">
+        <?php
+    }
+} 
 ?>
 
 <?php

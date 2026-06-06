@@ -19,7 +19,6 @@ use EcclesiaCRM\Theme;
 
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\Utils\MiscUtils;
-use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\PluginDependenciesQuery;
 
@@ -450,51 +449,43 @@ use EcclesiaCRM\PluginDependenciesQuery;
 
 <?php
 // we load the plugin
+$rootPath = SystemURLs::getRootPath();
+$documentRoot = SystemURLs::getDocumentRoot();
+$currentLocale = Bootstrapper::getCurrentLocale()->getLocale();
+$currentPluginName = SessionUser::getPluginName();
+
 if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
-    $plugins = PluginQuery::create()
-        ->filterByActiv(1)
-        ->filterByCategory('Dashboard', Criteria::EQUAL )
-        ->usePluginUserRoleQuery()
-            ->filterByUserId(SessionUser::getId())
-            ->filterByDashboardVisible(true)
-        ->endUse()
-        ->findByActiv(true);
+    $plugins = PluginQuery::getDashboardPluginsForCurrentUser();
+
+    PluginDependenciesQuery::preloadJavascriptUrlsByPluginIds(array_map(static function ($plugin) {
+        return (int)$plugin->getId();
+    }, $plugins));
 
     foreach ($plugins as $plugin) {
-        $security = $plugin->getSecurities();
-        
-        if (!(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)))
-            continue;
+        $pluginName = $plugin->getName();
 
         // write the plgin dependencies js code
-        $plugin->getDependencies();                
-        ?>
-            <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
-        <?php
-        if (file_exists(__DIR__ . "/../Plugins/" . $plugin->getName() . "/skin/js/")) {
-            $directories = MiscUtils::expandDirectories(SystemURLs::getDocumentRoot() . "/Plugins/" . $plugin->getName() . "/skin/js", $plugin->getName());        
-        }        
+        $plugin->getJS_Dependencies();
+        MiscUtils::renderPluginLocaleScript($pluginName, $currentLocale);
+        MiscUtils::renderPluginSkinScripts($pluginName);
     }        
-} elseif (!is_null(SessionUser::getPluginName()) and !empty(SessionUser::getPluginName())) {
-    $plugin = PluginQuery::create()
-        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
-        ->filterByName(SessionUser::getPluginName())
-        ->findOneByActiv(true);
+} else {
+    $plugin = PluginQuery::getActiveNonDashboardPluginByName($currentPluginName);
 
-    // write the plgin dependencies js code
-    $plugin->getDependencies();
-    ?>
-        <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
-    <?php    
+    if (!is_null($plugin)) {
+        // write the plgin dependencies js code
+        $plugin->getJS_Dependencies();
+        MiscUtils::renderPluginLocaleScript($currentPluginName, $currentLocale);
+    }
 }
 
-// global dependencies for plugins
-$dependencies = PluginDependenciesQuery::create()->filterByExtension('js')->find();
+// global js dependencies for plugins
+$dependencies = PluginDependenciesQuery::create()->filterByExtension('global_js')->find();
 foreach ($dependencies as $dependency) {
-    $path = SystemURLs::getDocumentRoot() . "/" . $dependency->getUrl();
+    $path = $documentRoot . "/" . $dependency->getUrl();
     if (file_exists($path)) {// we write the code directely in the footer.php
         ?>
-        <script src="<?= SystemURLs::getRootPath() ?>/<?= $dependency->getUrl() ?>"></script>
+        <script src="<?= $rootPath ?>/<?= $dependency->getUrl() ?>"></script>
         <?php
     }
 } 
