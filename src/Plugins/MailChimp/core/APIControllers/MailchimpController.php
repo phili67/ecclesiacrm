@@ -22,6 +22,7 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Propel;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
