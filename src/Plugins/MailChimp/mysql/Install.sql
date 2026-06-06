@@ -11,7 +11,9 @@ INSERT INTO `plugin_dependencies` ( `plgn_dep_plugin_ID`, `plgn_dep_url`, `plgn_
 -- insert the menu item
 -- the first one is the main menu !!!
 INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
-('MailChimp', 'MailChimp', 'v2/mailchimp/dashboard', 'fab fa-mailchimp', ''),
+('MailChimp', 'MailChimp', 'v2/mailchimp/dashboard', 'fab fa-mailchimp', '');
+
+INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
 ('MailChimp', 'Dashboard', 'v2/mailchimp/dashboard', 'fas fa-tachometer-alt', '');
 
 -- we insert the rest of the links

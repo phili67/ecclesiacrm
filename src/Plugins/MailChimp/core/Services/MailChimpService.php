@@ -132,7 +132,10 @@ class MailChimpService
 
             PluginMenuBarQuery::create()
                 ->filterByName('MailChimp')
-                ->where('PluginMenuBar.LinkParentId IS NOT NULL')
+                ->where('PluginMenuBar.LinkParentId IS NOT NULL 
+                    AND PluginMenuBar.URL <> "v2/mailchimp/notinmailchimpemailspersons" 
+                    AND PluginMenuBar.URL <> "v2/mailchimp/notinmailchimpemailsfamilies" 
+                    AND PluginMenuBar.URL <> "v2/mailchimp/duplicateemails"')
                 ->delete();
             
             $dashBoardId = PluginMenuBarQuery::create()
