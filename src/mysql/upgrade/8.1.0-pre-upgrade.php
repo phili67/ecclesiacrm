@@ -19,5 +19,18 @@ MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/external/jquer
 
 unlink(SystemURLs::getDocumentRoot() . "/Images/jitsi_logo.png");
 
+# mailchim is now a plugin, so we need to remove all the files related to mailchimp in the core of CRM
+unlink(SystemURLs::getDocumentRoot() . "/api/routes/mailchimp.php");
+
+unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/APIControllers/MailchimpController.php");
+unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/Service/MailChimpService.php");
+unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/Synchronize/MailchimpDashboardItem.php");
+unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php");
+
+
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/js/email/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/routes/email/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/templates/email/");
+
 
 $logger->info("End of delete :  all unusefull files");

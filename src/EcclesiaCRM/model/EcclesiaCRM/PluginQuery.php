@@ -5,6 +5,7 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\Base\PluginQuery as BasePluginQuery;
 
 use EcclesiaCRM\PluginMenuBarQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Connection\ConnectionInterface;
 
 /**
@@ -18,6 +19,42 @@ use Propel\Runtime\Connection\ConnectionInterface;
  */
 class PluginQuery extends BasePluginQuery
 {
+    public static function getDashboardPluginsForCurrentUser(): array
+    {
+        $currentUser = SessionUser::getUser();
+        $plugins = self::create()
+            ->filterByCategory('Dashboard', Criteria::EQUAL)
+            ->usePluginUserRoleQuery()
+                ->filterByUserId(SessionUser::getId())
+                ->filterByDashboardVisible(true)
+            ->endUse()
+            ->findByActiv(true);
+
+        $visiblePlugins = [];
+
+        foreach ($plugins as $plugin) {
+            if (!$currentUser->isSecurityEnableForPlugin($plugin->getName(), $plugin->getSecurities())) {
+                continue;
+            }
+
+            $visiblePlugins[] = $plugin;
+        }
+
+        return $visiblePlugins;
+    }
+
+    public static function getActiveNonDashboardPluginByName(?string $pluginName): ?Plugin
+    {
+        if (empty($pluginName)) {
+            return null;
+        }
+
+        return self::create()
+            ->filterByCategory('Dashboard', Criteria::NOT_EQUAL)
+            ->filterByName($pluginName)
+            ->findOneByActiv(true);
+    }
+
     protected function preDelete(ConnectionInterface $con): ?int
     {
         $pluginMenuBarItems = PluginMenuBarQuery::create()->findByPluginName($this->getName());

@@ -4,7 +4,7 @@ VALUES ('MailChimp', 'Plugin for MailChimp', 'Communication', NULL, '', '0', '1.
 
 INSERT INTO `plugin_dependencies` ( `plgn_dep_plugin_ID`, `plgn_dep_url`, `plgn_dep_extension`) VALUES
 (LAST_INSERT_ID(), 'Plugin\\Synchronize\\MailchimpDashboardItemPlugin', 'synchronize'),
-(LAST_INSERT_ID(), 'Plugins/MailChimp/skin/js/synchronize/MailChimpDashboardItem.js', 'js'),
+(LAST_INSERT_ID(), 'Plugins/MailChimp/skin/js/synchronize/MailChimpDashboardItem.js', 'global_js'),
 (LAST_INSERT_ID(), 'Plugins\\Service\\MailChimpService', 'service');
 
 

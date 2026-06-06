@@ -1969,6 +1969,48 @@ class MiscUtils
             || $_SERVER['SERVER_PORT'] == 443;
     }
 
+    public static function renderPluginCssFiles(string $pluginName): void
+    {
+        $cssDirectory = SystemURLs::getDocumentRoot() . '/Plugins/' . $pluginName . '/skin/css';
+
+        if (!is_dir($cssDirectory)) {
+            return;
+        }
+
+        foreach (scandir($cssDirectory) as $file) {
+            if (in_array($file, ['.', '..'], true)) {
+                continue;
+            }
+            ?>
+            <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/skin/css/<?= $file ?>">
+            <?php
+        }
+    }
+
+    public static function renderPluginLocaleScript(string $pluginName, ?string $locale = null): void
+    {
+        $locale = $locale ?? Bootstrapper::getCurrentLocale()->getLocale();
+        $localeScript = SystemURLs::getDocumentRoot() . '/Plugins/' . $pluginName . '/locale/js/' . $locale . '.js';
+
+        if (!file_exists($localeScript)) {
+            return;
+        }
+        ?>
+        <script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $pluginName ?>/locale/js/<?= $locale ?>.js"></script>
+        <?php
+    }
+
+    public static function renderPluginSkinScripts(string $pluginName): void
+    {
+        $pluginSkinDirectory = SystemURLs::getDocumentRoot() . '/Plugins/' . $pluginName . '/skin/js';
+
+        if (!is_dir($pluginSkinDirectory)) {
+            return;
+        }
+
+        self::expandDirectories($pluginSkinDirectory, $pluginName);
+    }
+
     // only dashboard plugins are loaded on the maindashboard page
     public static function expandDirectories($base_dir, $pluginName) {
         $directories = array();

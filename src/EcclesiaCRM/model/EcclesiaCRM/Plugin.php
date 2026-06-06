@@ -7,6 +7,8 @@ use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SecurityOptions;
 
+use EcclesiaCRM\PluginDependenciesQuery;
+
 /**
  * Skeleton subclass for representing a row from the 'plugin' table.
  *
@@ -89,25 +91,17 @@ class Plugin extends BasePlugin
         return $res;
     }
 
-    public function getDependencies() : void
-    {
-        $string = file_get_contents(SystemURLs::getDocumentRoot() . '/Plugins/' . $this->getName() . '/config.json');
-        $json_a = json_decode($string, true);
-        if (array_key_exists("Dependencies", $json_a)) {
-            
-            if (!empty($json_a['Dependencies'])) {
-                $dependencies = explode(",", $json_a['Dependencies']);
-                foreach ($dependencies as $dependency) {
-                    $dependency = str_replace("**locale**", Bootstrapper::getCurrentLocale()->getLocale(),$dependency);
-                    $path = SystemURLs::getDocumentRoot() . "/" . $dependency;
-                    if (file_exists($path)) {// we write the code directely in the footer.php
-                        ?>
-                        <script src="<?= SystemURLs::getRootPath() ?>/<?= $dependency ?>"></script>
-                        <?php
-                    }                    
-                }                
+    public function getJS_Dependencies() : void
+    {        
+        foreach (PluginDependenciesQuery::getJavascriptUrlsForPluginId((int)$this->getId()) as $dependencyUrl) {
+            $dep = PluginDependenciesQuery::resolveJavascriptUrl($dependencyUrl);
+            $path = SystemURLs::getDocumentRoot() . "/" . $dep;
+            if (file_exists($path)) {// we write the code directely in the footer.php
+                ?>
+                <script src="<?= SystemURLs::getRootPath() ?>/<?= $dep ?>"></script>
+                <?php
             }
-        }
+        } 
     }
 
     public function getAllClassesServices() : array
