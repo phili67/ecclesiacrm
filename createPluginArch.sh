@@ -30,7 +30,6 @@
               "Settings_url": "'${pluginName}'/settings",
               "Details": "https://url;iframe=true&amp;width=772&amp;height=549",
               "UUID": "'${UUID}'",
-              "Dependencies": "",
               "licence": "NO"
           }' >> "src/Plugins/${pluginName}/config.json"
 
