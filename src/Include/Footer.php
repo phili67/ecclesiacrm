@@ -480,12 +480,13 @@ if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
 }
 
 // global js dependencies for plugins
-$dependencies = PluginDependenciesQuery::create()->filterByExtension('global_js')->find();
-foreach ($dependencies as $dependency) {
-    $path = $documentRoot . "/" . $dependency->getUrl();
+$globalJavascriptUrls = PluginDependenciesQuery::getGlobalJavascriptUrls();
+foreach ($globalJavascriptUrls as $dependencyUrl) {
+    $resolvedDependencyUrl = PluginDependenciesQuery::resolveJavascriptUrl($dependencyUrl, $currentLocale);
+    $path = $documentRoot . "/" . $resolvedDependencyUrl;
     if (file_exists($path)) {// we write the code directely in the footer.php
         ?>
-        <script src="<?= $rootPath ?>/<?= $dependency->getUrl() ?>"></script>
+        <script src="<?= $rootPath ?>/<?= $resolvedDependencyUrl ?>"></script>
         <?php
     }
 } 

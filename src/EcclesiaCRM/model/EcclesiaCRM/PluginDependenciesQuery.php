@@ -17,6 +17,20 @@ use Propel\Runtime\ActiveQuery\Criteria;
 class PluginDependenciesQuery extends BasePluginDependenciesQuery
 {
 	private static array $javascriptUrlsByPluginId = [];
+	private static ?array $globalJavascriptUrls = null;
+
+	public static function resolveJavascriptUrl(string $dependencyUrl, ?string $locale = null): string
+	{
+		if (!str_contains($dependencyUrl, '**locale**')) {
+			return $dependencyUrl;
+		}
+
+		if (is_null($locale) || $locale === '') {
+			$locale = Bootstrapper::getCurrentLocale()->getLocale();
+		}
+
+		return str_replace('**locale**', $locale, $dependencyUrl);
+	}
 
 	public static function preloadJavascriptUrlsByPluginIds(array $pluginIds): void
 	{
@@ -62,6 +76,25 @@ class PluginDependenciesQuery extends BasePluginDependenciesQuery
 		self::preloadJavascriptUrlsByPluginIds([$pluginId]);
 
 		return self::$javascriptUrlsByPluginId[$pluginId] ?? [];
+	}
+
+	public static function getGlobalJavascriptUrls(): array
+	{
+		if (!is_null(self::$globalJavascriptUrls)) {
+			return self::$globalJavascriptUrls;
+		}
+
+		$urls = self::create()
+			->filterByExtension('global_js')
+			->select(['Url'])
+			->find()
+			->toArray();
+
+		self::$globalJavascriptUrls = array_values(array_filter(array_unique($urls), static function ($url) {
+			return !empty($url);
+		}));
+
+		return self::$globalJavascriptUrls;
 	}
 
 	public static function getServiceClassesForPlugin(Plugin $plugin): array

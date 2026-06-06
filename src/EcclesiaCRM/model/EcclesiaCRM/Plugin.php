@@ -94,10 +94,7 @@ class Plugin extends BasePlugin
     public function getJS_Dependencies() : void
     {        
         foreach (PluginDependenciesQuery::getJavascriptUrlsForPluginId((int)$this->getId()) as $dependencyUrl) {
-            $dep = $dependencyUrl;
-            if (str_contains($dependencyUrl, "**locale**")) {
-                $dep = str_replace("**locale**", Bootstrapper::getCurrentLocale()->getLocale(), $dependencyUrl);
-            }
+            $dep = PluginDependenciesQuery::resolveJavascriptUrl($dependencyUrl);
             $path = SystemURLs::getDocumentRoot() . "/" . $dep;
             if (file_exists($path)) {// we write the code directely in the footer.php
                 ?>
