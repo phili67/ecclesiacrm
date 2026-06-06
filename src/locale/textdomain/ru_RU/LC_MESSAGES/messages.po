@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-05 20:20+0000\n"
+"POT-Creation-Date: 2026-06-06 07:46+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,7 +190,7 @@ msgstr "Не найдено ни одного человека для предв
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:279
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1033
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:701
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:628
 #: uploader/upload.php:171
 msgid "Create file"
 msgstr "Создать файл"
@@ -364,88 +364,6 @@ msgstr "Денежные средства"
 msgid "Checks"
 msgstr "Чеки"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:48
-msgid "persons"
-msgstr "лица"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:48
-#: v2/templates/people/peopledashboard.php:581
-msgid "people"
-msgstr "люди"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:56
-msgid "All People"
-msgstr "Все люди"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:71
-msgid "newsletter"
-msgstr "информационный бюллетень"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:77
-#: EcclesiaCRM/Search/FamilySearchRes.php:61 v2/templates/cart/cartview.php:163
-msgid "families"
-msgstr "семьи"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:85
-#: v2/templates/deposit/financialReports.php:414
-#: v2/templates/people/geopage.php:134
-msgid "All Families"
-msgstr "Все семьи"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:120
-#: EcclesiaCRM/APIControllers/PeopleController.php:79
-#: EcclesiaCRM/APIControllers/PeopleController.php:136
-#: EcclesiaCRM/APIControllers/PeopleController.php:186
-#: EcclesiaCRM/APIControllers/PeopleController.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:55
-#: EcclesiaCRM/MenuBar/MenuBar.php:235
-#: EcclesiaCRM/Search/PersonSearchRes.php:36
-#: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:165
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:256
-#: v2/templates/people/lettersandlabels.php:228
-#: v2/templates/people/lettersandlabels.php:317
-#: v2/templates/people/personlist.php:19
-msgid "Persons"
-msgstr "Лица"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:160
-#: EcclesiaCRM/APIControllers/PeopleController.php:278
-#: EcclesiaCRM/APIControllers/SearchController.php:97
-#: EcclesiaCRM/APIControllers/SearchController.php:314
-#: EcclesiaCRM/APIControllers/SearchController.php:317
-#: EcclesiaCRM/MenuBar/MenuBar.php:209 EcclesiaCRM/MenuBar/MenuBar.php:242
-#: EcclesiaCRM/Search/FamilySearchRes.php:21
-#: v2/templates/email/mailchimp/managelist.php:76
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:261
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
-#: v2/templates/people/familylist.php:51
-#: v2/templates/people/lettersandlabels.php:352
-#: v2/templates/people/peopledashboard.php:114
-#: v2/templates/people/peoplelist.php:20 v2/templates/people/peoplelist.php:54
-#: v2/templates/sundayschool/sundayschooldashboard.php:62
-msgid "Families"
-msgstr "Семьи"
-
-#: EcclesiaCRM/APIControllers/MailchimpController.php:198
-#: EcclesiaCRM/APIControllers/PeopleController.php:315
-#: EcclesiaCRM/APIControllers/SearchController.php:121
-#: EcclesiaCRM/APIControllers/SearchController.php:340
-#: EcclesiaCRM/APIControllers/SearchController.php:343
-#: EcclesiaCRM/MenuBar/MenuBar.php:265 EcclesiaCRM/Search/GroupSearchRes.php:20
-#: EcclesiaCRM/Service/ConfirmReportService.php:102
-#: EcclesiaCRM/Service/ConfirmReportService.php:343
-#: EcclesiaCRM/Service/ConfirmReportService.php:524
-#: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:132
-#: v2/templates/pastoralcare/pastoralcareperson.php:160
-#: v2/templates/people/peopledashboard.php:170
-#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:129
-#: v2/templates/people/personview.php:191
-#: v2/templates/people/personview.php:476
-msgid "Groups"
-msgstr "Группы"
-
 #: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:291
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
@@ -502,12 +420,61 @@ msgstr ""
 msgid "POST to cart requires an EventID"
 msgstr "POST в корзину требует идентификатор события"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:349
+#: EcclesiaCRM/APIControllers/PeopleController.php:79
+#: EcclesiaCRM/APIControllers/PeopleController.php:136
+#: EcclesiaCRM/APIControllers/PeopleController.php:186
+#: EcclesiaCRM/APIControllers/PeopleController.php:239
+#: EcclesiaCRM/APIControllers/SearchController.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:234
+#: EcclesiaCRM/Search/PersonSearchRes.php:36
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:165
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:256
+#: v2/templates/people/lettersandlabels.php:228
+#: v2/templates/people/lettersandlabels.php:317
+#: v2/templates/people/personlist.php:19
+msgid "Persons"
+msgstr "Лица"
+
+#: EcclesiaCRM/APIControllers/PeopleController.php:278
+#: EcclesiaCRM/APIControllers/SearchController.php:97
+#: EcclesiaCRM/APIControllers/SearchController.php:314
+#: EcclesiaCRM/APIControllers/SearchController.php:317
+#: EcclesiaCRM/MenuBar/MenuBar.php:208 EcclesiaCRM/MenuBar/MenuBar.php:241
+#: EcclesiaCRM/Search/FamilySearchRes.php:21
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:261
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
+#: v2/templates/people/familylist.php:51
+#: v2/templates/people/lettersandlabels.php:352
+#: v2/templates/people/peopledashboard.php:114
+#: v2/templates/people/peoplelist.php:20 v2/templates/people/peoplelist.php:54
+#: v2/templates/sundayschool/sundayschooldashboard.php:62
+msgid "Families"
+msgstr "Семьи"
+
+#: EcclesiaCRM/APIControllers/PeopleController.php:315
+#: EcclesiaCRM/APIControllers/SearchController.php:121
+#: EcclesiaCRM/APIControllers/SearchController.php:340
+#: EcclesiaCRM/APIControllers/SearchController.php:343
+#: EcclesiaCRM/MenuBar/MenuBar.php:264 EcclesiaCRM/Search/GroupSearchRes.php:20
+#: EcclesiaCRM/Service/ConfirmReportService.php:102
+#: EcclesiaCRM/Service/ConfirmReportService.php:343
+#: EcclesiaCRM/Service/ConfirmReportService.php:524
+#: v2/templates/calendar/calendar.php:207 v2/templates/group/grouplist.php:132
+#: v2/templates/pastoralcare/pastoralcareperson.php:160
+#: v2/templates/people/peopledashboard.php:170
+#: v2/templates/people/peoplelist.php:54 v2/templates/people/personview.php:129
+#: v2/templates/people/personview.php:191
+#: v2/templates/people/personview.php:476
+msgid "Groups"
+msgstr "Группы"
+
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:348
 #: ident/routes/verify.php:450
 msgid "Family Deactivated"
 msgstr "Семья деактивирована"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:351
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:350
 msgid "Family Activated"
 msgstr "Семья активирована"
 
@@ -550,7 +517,7 @@ msgstr "Добавлено в группу"
 #: v2/templates/people/personlist.php:46
 #: v2/templates/system/eventAttendance.php:191
 #: v2/templates/system/optionManager.php:426 v2/templates/user/userlist.php:54
-#: v2/templates/user/userseditor.php:716 v2/templates/user/userseditor.php:784
+#: v2/templates/user/userseditor.php:705 v2/templates/user/userseditor.php:773
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Имя"
@@ -562,7 +529,7 @@ msgstr "Имя"
 #: EcclesiaCRM/Service/ConfirmReportService.php:155
 #: EcclesiaCRM/Service/ConfirmReportService.php:160
 #: Reports/ConfirmReport.php:451 Reports/MemberEmailExport.php:24
-#: external/templates/registration/family-register-members.php:75
+#: external/templates/registration/family-register-members.php:84
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/deposit/autaPaymentEditor.php:400
 #: v2/templates/people/familyEditor.php:1194
@@ -582,7 +549,7 @@ msgstr "Имя"
 #: EcclesiaCRM/APIControllers/SearchController.php:476
 #: EcclesiaCRM/APIControllers/SearchController.php:484
 #: EcclesiaCRM/APIControllers/SearchController.php:489
-#: EcclesiaCRM/MenuBar/MenuBar.php:336 EcclesiaCRM/MenuBar/MenuBar.php:588
+#: EcclesiaCRM/MenuBar/MenuBar.php:335 EcclesiaCRM/MenuBar/MenuBar.php:587
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1152
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1164
@@ -630,7 +597,7 @@ msgstr "Нераспределенный"
 #: Reports/ConfirmReport.php:523 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:433
 #: v2/templates/people/personEditor.php:1018
-#: v2/templates/user/userseditor.php:764 v2/templates/user/userseditor.php:832
+#: v2/templates/user/userseditor.php:753 v2/templates/user/userseditor.php:821
 #: v2/templates/user/usersettings.php:412
 #: v2/templates/user/usersettings.php:465
 #: v2/templates/volunteer/volunteerview.php:237
@@ -649,16 +616,16 @@ msgstr "Да"
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
 #: Reports/ConfirmReport.php:525 Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:434
-#: v2/templates/user/userlist.php:169 v2/templates/user/userseditor.php:692
-#: v2/templates/user/userseditor.php:763 v2/templates/user/userseditor.php:831
+#: v2/templates/user/userlist.php:169 v2/templates/user/userseditor.php:681
+#: v2/templates/user/userseditor.php:752 v2/templates/user/userseditor.php:820
 #: v2/templates/user/usersettings.php:411
 #: v2/templates/user/usersettings.php:464
 #: v2/templates/volunteer/volunteerview.php:237
 msgid "No"
 msgstr "Нет"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:601
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:608
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:528
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:535
 #: EcclesiaCRM/APIControllers/UserUsersController.php:137
 #: EcclesiaCRM/APIControllers/UserUsersController.php:143
 #: EcclesiaCRM/dto/Cart.php:343 EcclesiaCRM/dto/Cart.php:349
@@ -666,11 +633,11 @@ msgstr "Нет"
 msgid "Account Deactivated"
 msgstr "Аккаунт деактивирован"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:663
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:590
 msgid "Person Deactivated"
 msgstr "Человек деактивирован"
 
-#: EcclesiaCRM/APIControllers/PeoplePersonController.php:663
+#: EcclesiaCRM/APIControllers/PeoplePersonController.php:590
 msgid "Person Activated"
 msgstr "Человек активирован"
 
@@ -728,11 +695,11 @@ msgstr "Пользовательское поле \"Семья"
 msgid "Family Pastoral Cares"
 msgstr "Семейная пасторская забота"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:115 Include/Footer.php:93
+#: EcclesiaCRM/APIControllers/SearchController.php:115 Include/Footer.php:94
 msgid "Family Properties"
 msgstr "Семейная недвижимость"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:127 Include/Footer.php:140
+#: EcclesiaCRM/APIControllers/SearchController.php:127 Include/Footer.php:141
 #: v2/templates/group/groupview.php:314
 msgid "Group Properties"
 msgstr "Свойства группы"
@@ -765,7 +732,7 @@ msgstr "Возможности для волонтеров"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:319
 #: EcclesiaCRM/APIControllers/SearchController.php:322
-#: EcclesiaCRM/Search/FamilySearchRes.php:196
+#: EcclesiaCRM/Search/FamilySearchRes.php:201
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:185
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:266
 #: v2/templates/people/peopledashboard.php:96
@@ -775,7 +742,7 @@ msgstr "Одинокие люди"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:324
 #: EcclesiaCRM/APIControllers/SearchController.php:327
-#: EcclesiaCRM/MenuBar/MenuBar.php:945
+#: EcclesiaCRM/MenuBar/MenuBar.php:909
 #: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:47
 #: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:124
 #: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:126
@@ -802,7 +769,7 @@ msgstr "groupmasters"
 #: EcclesiaCRM/Search/PersonSearchRes.php:385
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:143
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
-#: external/templates/registration/family-register-members.php:65
+#: external/templates/registration/family-register-members.php:74
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:301
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:450
 #: v2/templates/people/familyEditor.php:1250
@@ -817,7 +784,7 @@ msgstr "Мужчина"
 #: EcclesiaCRM/Search/PersonSearchRes.php:385
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:146
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
-#: external/templates/registration/family-register-members.php:66
+#: external/templates/registration/family-register-members.php:75
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:301
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:450
 #: v2/templates/people/familyEditor.php:1253
@@ -896,12 +863,12 @@ msgstr "Тип группы"
 #: v2/templates/people/personview.php:913
 #: v2/templates/system/optionManager.php:89
 #: v2/templates/system/optionManager.php:130
-#: v2/templates/user/userseditor.php:728 v2/templates/user/userseditor.php:796
+#: v2/templates/user/userseditor.php:717 v2/templates/user/userseditor.php:785
 msgid "Role"
 msgstr "Роль"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:119
-#: Include/Footer.php:87 v2/templates/people/directoryreport.php:111
+#: Include/Footer.php:88 v2/templates/people/directoryreport.php:111
 #: v2/templates/people/peopledashboard.php:287
 #: v2/templates/system/optionManager.php:92
 msgid "Family Roles"
@@ -953,7 +920,7 @@ msgid "Sunday School Group Type"
 msgstr "Тип группы воскресной школы"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:135
-#: Include/Footer.php:154 v2/templates/system/optionManager.php:108
+#: Include/Footer.php:155 v2/templates/system/optionManager.php:108
 msgid "Sunday School Group Types"
 msgstr "Типы групп воскресной школы"
 
@@ -963,7 +930,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Редактор типов групп воскресной школы"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:143
-#: Include/Footer.php:146 v2/templates/system/optionManager.php:116
+#: Include/Footer.php:147 v2/templates/system/optionManager.php:116
 msgid "Group Types"
 msgstr "Типы групп"
 
@@ -977,11 +944,11 @@ msgstr "Редактор типов групп"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/Search/GroupSearchRes.php:97
 #: EcclesiaCRM/Search/GroupSearchRes.php:211
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:165
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:173
 #: EcclesiaCRM/Service/CalendarService.php:1567
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
-#: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:123 Include/Footer.php:134
+#: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:123 Include/Footer.php:135
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:53
 #: v2/templates/system/optionManager.php:122
@@ -1080,7 +1047,7 @@ msgstr "Редактор параметров семейного пользов�
 #: EcclesiaCRM/Service/ConfirmReportService.php:132
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1515
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:108 Reports/GDPR/GDPRDataStructureExport.php:84
+#: Include/Footer.php:109 Reports/GDPR/GDPRDataStructureExport.php:84
 #: v2/templates/deposit/autaPaymentEditor.php:279
 #: v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
@@ -1096,15 +1063,15 @@ msgstr "Человек"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:39
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:37
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:173
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:158
-#: EcclesiaCRM/Search/FamilySearchRes.php:194
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:181
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:165
+#: EcclesiaCRM/Search/FamilySearchRes.php:199
 #: EcclesiaCRM/Service/ConfirmReportService.php:636
 #: EcclesiaCRM/Service/TimelineService.php:222
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
-#: EcclesiaCRM/dto/ReportUtilities.php:71 Include/Footer.php:82
+#: EcclesiaCRM/dto/ReportUtilities.php:71 Include/Footer.php:83
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
-#: external/templates/registration/family-register-done.php:28
+#: external/templates/registration/family-register-done.php:33
 #: members/404.php:16 v2/templates/deposit/autaPaymentEditor.php:279
 #: v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/electronicPaymentList.php:153
@@ -1235,14 +1202,14 @@ msgstr "Счет активирован"
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:397
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:398
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:399
-#: EcclesiaCRM/Search/AddressSearchRes.php:153
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:174
+#: EcclesiaCRM/Search/AddressSearchRes.php:160
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:182
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:150
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:159
-#: EcclesiaCRM/Search/FamilySearchRes.php:195
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:166
+#: EcclesiaCRM/Search/FamilySearchRes.php:200
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:167
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:168
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:167
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:172
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:175
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:145
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:165
 #: EcclesiaCRM/Search/PersonSearchRes.php:382
@@ -1251,7 +1218,6 @@ msgstr "Счет активирован"
 #: EcclesiaCRM/Search/PersonSearchRes.php:388
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:139
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:240
-#: EcclesiaCRM/Service/MailChimpService.php:240
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:624
 #: v2/templates/pastoralcare/pastoralcarefamily.php:229
 #: v2/templates/pastoralcare/pastoralcareperson.php:369
@@ -1323,7 +1289,7 @@ msgstr "Церковный служитель"
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:226
 #: Reports/ConfirmReport.php:275
-#: external/templates/registration/family-register.php:35
+#: external/templates/registration/family-register.php:41
 #: v2/templates/cart/cartToFamily.php:302
 #: v2/templates/people/familyEditor.php:770
 #: v2/templates/people/lettersandlabels.php:156
@@ -1359,7 +1325,7 @@ msgid "Your CRM Account was Deleted."
 msgstr "Ваша учетная запись CRM была удалена."
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30
-#: session/templates/session.php:236
+#: session/templates/session.php:243
 msgid "Email/Username"
 msgstr "Электронная почта/имя пользователя"
 
@@ -1448,8 +1414,8 @@ msgid "Your CRM account was updated"
 msgstr "Ваша учетная запись CRM была обновлена"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/plugins/plugins.php:91 v2/templates/user/userlist.php:65
-#: v2/templates/user/userseditor.php:722 v2/templates/user/userseditor.php:790
+#: v2/templates/plugins/plugins.php:92 v2/templates/user/userlist.php:65
+#: v2/templates/user/userseditor.php:711 v2/templates/user/userseditor.php:779
 msgid "Status"
 msgstr "Статус"
 
@@ -1460,16 +1426,16 @@ msgstr "Пожалуйста, проверьте информацию о ваш�
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:42
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:46
 #: EcclesiaCRM/VIEWControllers/Session/VIEWSessionController.php:71
-#: external/templates/password/enter-username.php:37
-#: external/templates/password/password-check-email.php:31
-#: ident/templates/verify/login-info.php:46 session/templates/session.php:268
+#: external/templates/password/enter-username.php:51
+#: external/templates/password/password-check-email.php:36
+#: ident/templates/verify/login-info.php:46 session/templates/session.php:275
 msgid "Login"
 msgstr "Вход в систему"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:43
 #: EcclesiaCRM/Emails/verify/PersonVerificationEmail.php:47
-#: ident/templates/verify/login-info.php:40 session/templates/session.php:249
-#: session/templates/session.php:349 v2/templates/BackupRestore/backup.php:107
+#: ident/templates/verify/login-info.php:40 session/templates/session.php:256
+#: session/templates/session.php:359 v2/templates/BackupRestore/backup.php:107
 #: v2/templates/BackupRestore/backup.php:108 v2/templates/user/userlist.php:60
 msgid "Password"
 msgstr "Пароль"
@@ -1483,73 +1449,70 @@ msgstr "информация"
 msgid "Please verify your informations"
 msgstr "Пожалуйста, проверьте ваши данные"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:116 Include/Header.php:73
+#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:73
 #: Include/Header.php:127
 msgid "Private Space"
 msgstr "Личное пространство"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:118 EcclesiaCRM/utils/MiscUtils.php:476
+#: EcclesiaCRM/MenuBar/MenuBar.php:117 EcclesiaCRM/utils/MiscUtils.php:476
 #: Include/Header.php:225
-#: external/templates/registration/family-register-members.php:103
+#: external/templates/registration/family-register-members.php:112
 msgid "Home"
 msgstr "Главная"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:129
+#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:129
 #: v2/templates/people/personview.php:532
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "Изменить пароль"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:122 Include/Header.php:131
+#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:131
 #: v2/templates/people/personview.php:530
 msgid "Change Settings"
 msgstr "Изменить настройки"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:123 v2/templates/people/familyview.php:574
+#: EcclesiaCRM/MenuBar/MenuBar.php:122 v2/templates/people/familyview.php:574
 #: v2/templates/people/personPrint.php:624
 #: v2/templates/people/personview.php:794
 #: v2/templates/people/personview.php:1506
 msgid "Documents"
 msgstr "Документы"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:137
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:132
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:133
-#: EcclesiaCRM/dto/SystemConfig.php:303
+#: EcclesiaCRM/MenuBar/MenuBar.php:136 EcclesiaCRM/dto/SystemConfig.php:300
 #: v2/templates/dashboard/maindashboard.php:30
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140 EcclesiaCRM/MenuBar/MenuBar.php:198
-#: EcclesiaCRM/MenuBar/MenuBar.php:211 EcclesiaCRM/MenuBar/MenuBar.php:520
-#: EcclesiaCRM/MenuBar/MenuBar.php:774 EcclesiaCRM/MenuBar/MenuBar.php:787
-#: EcclesiaCRM/MenuBar/MenuBar.php:812 EcclesiaCRM/MenuBar/MenuBar.php:870
-#: EcclesiaCRM/MenuBar/MenuBar.php:896 EcclesiaCRM/MenuBar/MenuBar.php:947
-#: EcclesiaCRM/MenuBar/MenuBar.php:970
+#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:197
+#: EcclesiaCRM/MenuBar/MenuBar.php:210 EcclesiaCRM/MenuBar/MenuBar.php:519
+#: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/MenuBar/MenuBar.php:786
+#: EcclesiaCRM/MenuBar/MenuBar.php:834 EcclesiaCRM/MenuBar/MenuBar.php:860
+#: EcclesiaCRM/MenuBar/MenuBar.php:911 EcclesiaCRM/MenuBar/MenuBar.php:934
 #: v2/templates/dashboard/maindashboard.php:108
 #: v2/templates/pastoralcare/pastoralcarefamily.php:349
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:72
 #: v2/templates/pastoralcare/pastoralcareperson.php:488
+#: v2/templates/plugins/plugins.php:122
 msgid "Dashboard"
 msgstr "Приборная панель"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:141
+#: EcclesiaCRM/MenuBar/MenuBar.php:140
 msgid "Data Structure"
 msgstr "Структура данных"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:142 EcclesiaCRM/MenuBar/MenuBar.php:240
+#: EcclesiaCRM/MenuBar/MenuBar.php:141 EcclesiaCRM/MenuBar/MenuBar.php:239
 msgid "View Inactive Persons"
 msgstr "Просмотр неактивных лиц"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:143 EcclesiaCRM/MenuBar/MenuBar.php:247
+#: EcclesiaCRM/MenuBar/MenuBar.php:142 EcclesiaCRM/MenuBar/MenuBar.php:246
 msgid "View Inactive Families"
 msgstr "Просмотр неактивных семей"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:154
+#: EcclesiaCRM/MenuBar/MenuBar.php:153
 msgid "Events"
 msgstr "События"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:162 v2/templates/map/MapUsingGoogle.php:126
+#: EcclesiaCRM/MenuBar/MenuBar.php:161 v2/templates/map/MapUsingGoogle.php:126
 #: v2/templates/map/MapUsingGoogle.php:128
 #: v2/templates/map/MapUsingGoogle.php:162
 #: v2/templates/map/MapUsingGoogle.php:163
@@ -1560,141 +1523,131 @@ msgstr "События"
 msgid "Calendar"
 msgstr "Календарь"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:165 EcclesiaCRM/MenuBar/MenuBar.php:227
+#: EcclesiaCRM/MenuBar/MenuBar.php:164 EcclesiaCRM/MenuBar/MenuBar.php:226
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Посмотреть на карте"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:168
+#: EcclesiaCRM/MenuBar/MenuBar.php:167
 msgid "List Church Events"
 msgstr "Список церковных мероприятий"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:169
+#: EcclesiaCRM/MenuBar/MenuBar.php:168
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:352
 msgid "List Event Types"
 msgstr "Список типов событий"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:171
+#: EcclesiaCRM/MenuBar/MenuBar.php:170
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:314
 #: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:316
 msgid "Call the Register"
 msgstr "Позвоните в Регистр"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:181
+#: EcclesiaCRM/MenuBar/MenuBar.php:180
 msgid "Medias"
 msgstr "Медиас"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:197
+#: EcclesiaCRM/MenuBar/MenuBar.php:196
 msgid "Meta Search Engine"
 msgstr "Мета-поисковая система"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:209 v2/templates/people/familylist.php:48
+#: EcclesiaCRM/MenuBar/MenuBar.php:208 v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "Люди"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:231
+#: EcclesiaCRM/MenuBar/MenuBar.php:230
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1319
 msgid "Directory reports"
 msgstr "Отчеты по каталогам"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:236 v2/templates/people/personlist.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:235 v2/templates/people/personlist.php:22
 msgid "Add New Person"
 msgstr "Добавить новое лицо"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:237
+#: EcclesiaCRM/MenuBar/MenuBar.php:236
 msgid "View Single Persons"
 msgstr "Просмотр одиноких людей"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:238
+#: EcclesiaCRM/MenuBar/MenuBar.php:237
 msgid "View Active Persons"
 msgstr "Просмотр активных лиц"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:243
+#: EcclesiaCRM/MenuBar/MenuBar.php:242
 msgid "Add New Family"
 msgstr "Добавить новую семью"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:244
+#: EcclesiaCRM/MenuBar/MenuBar.php:243
 msgid "View Active Families"
 msgstr "Просмотр активных семей"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:249
+#: EcclesiaCRM/MenuBar/MenuBar.php:248
 msgid "Empty Addresses"
 msgstr "Пустые адреса"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:252
+#: EcclesiaCRM/MenuBar/MenuBar.php:251
 msgid "Convert Individual to Address"
 msgstr "Преобразование физического лица в адрес"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:268
+#: EcclesiaCRM/MenuBar/MenuBar.php:267
 msgid "List Groups"
 msgstr "Список групп"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:355
+#: EcclesiaCRM/MenuBar/MenuBar.php:354
 #: v2/templates/deposit/electronicPaymentList.php:200
 #: v2/templates/group/groupedit.php:178 v2/templates/group/groupview.php:239
 #: v2/templates/volunteer/volunteerview.php:206
 msgid "Disabled"
 msgstr "Инвалид"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:364
+#: EcclesiaCRM/MenuBar/MenuBar.php:363
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:235
 msgid "Group Assignment Helper"
 msgstr "Помощник по групповым заданиям"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:409 EcclesiaCRM/MenuBar/MenuBar.php:643
+#: EcclesiaCRM/MenuBar/MenuBar.php:408 EcclesiaCRM/MenuBar/MenuBar.php:642
 msgid "Group manager"
 msgstr "Руководитель группы"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:475 EcclesiaCRM/MenuBar/MenuBar.php:707
+#: EcclesiaCRM/MenuBar/MenuBar.php:474 EcclesiaCRM/MenuBar/MenuBar.php:706
 msgid "Personal groups"
 msgstr "Персональные группы"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:517
+#: EcclesiaCRM/MenuBar/MenuBar.php:516
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 #: v2/templates/people/peopledashboard.php:151
 msgid "Sunday School"
 msgstr "Воскресная школа"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:755 EcclesiaCRM/MenuBar/MenuBar.php:762
-#: Include/Footer.php:192
+#: EcclesiaCRM/MenuBar/MenuBar.php:754 EcclesiaCRM/MenuBar/MenuBar.php:761
+#: Include/Footer.php:193
 msgid "Global Custom Menus"
 msgstr "Глобальные пользовательские меню"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:773
+#: EcclesiaCRM/MenuBar/MenuBar.php:772
 msgid "Custom Menus"
 msgstr "Пользовательские меню"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:785 EcclesiaCRM/dto/SystemConfig.php:300
+#: EcclesiaCRM/MenuBar/MenuBar.php:784 EcclesiaCRM/dto/SystemConfig.php:297
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:140
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:7
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:608
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:29
 #: v2/templates/people/familyview.php:305
-#: v2/templates/people/personview.php:562 v2/templates/user/userseditor.php:494
+#: v2/templates/people/personview.php:562 v2/templates/user/userseditor.php:483
 msgid "Pastoral Care"
 msgstr "Пасторское попечение"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:788
+#: EcclesiaCRM/MenuBar/MenuBar.php:787
 msgid "By Classifications"
 msgstr "По классификациям"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:805
+#: EcclesiaCRM/MenuBar/MenuBar.php:802
 msgid "Communication"
 msgstr "Общение"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:810
-#: v2/templates/pastoralcare/pastoralcarefamily.php:220
-#: v2/templates/people/familyview.php:201 v2/templates/user/userseditor.php:472
-msgid "MailChimp"
-msgstr "MailChimp"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:818
-msgid "Email Lists"
-msgstr "Списки адресов электронной почты"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:850
+#: EcclesiaCRM/MenuBar/MenuBar.php:814
 #: EcclesiaCRM/Search/PledgeSearchRes.php:81
 #: EcclesiaCRM/Search/PledgeSearchRes.php:101 Reports/AdvancedDeposit.php:269
 #: Reports/AdvancedDeposit.php:389 Reports/AdvancedDeposit.php:420
@@ -1703,19 +1656,19 @@ msgstr "Списки адресов электронной почты"
 msgid "Deposit"
 msgstr "Депозит"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:864
+#: EcclesiaCRM/MenuBar/MenuBar.php:828
 msgid "Current"
 msgstr "Текущий"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:870
+#: EcclesiaCRM/MenuBar/MenuBar.php:834
 msgid "View All Deposits"
 msgstr "Посмотреть все вклады"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:871
+#: EcclesiaCRM/MenuBar/MenuBar.php:835
 msgid "Edit Deposit Slip"
 msgstr "Редактирование квитанции о внесении депозита"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:873
+#: EcclesiaCRM/MenuBar/MenuBar.php:837
 #: v2/templates/people/peopledashboard.php:209
 #: v2/templates/people/peopledashboard.php:252
 #: v2/templates/people/peopledashboard.php:262
@@ -1723,59 +1676,59 @@ msgstr "Редактирование квитанции о внесении де
 msgid "Reports"
 msgstr "Отчеты"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:874 v2/templates/system/reportlist.php:39
+#: EcclesiaCRM/MenuBar/MenuBar.php:838 v2/templates/system/reportlist.php:39
 msgid "Deposit Reports"
 msgstr "Депозитные отчеты"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:875
+#: EcclesiaCRM/MenuBar/MenuBar.php:839
 #: v2/templates/deposit/financialReports.php:74
 msgid "Giving Report (Tax Statements)"
 msgstr "Отчет о пожертвованиях (налоговая отчетность)"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:877 v2/templates/group/groupbadge.php:236
+#: EcclesiaCRM/MenuBar/MenuBar.php:841 v2/templates/group/groupbadge.php:236
 msgid "Others"
 msgstr "Другие"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:878
+#: EcclesiaCRM/MenuBar/MenuBar.php:842
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:196
 msgid "Envelope Manager"
 msgstr "Менеджер по работе с конвертами"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:879
+#: EcclesiaCRM/MenuBar/MenuBar.php:843
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:377
 msgid "Electronic Payment Listing"
 msgstr "Перечисление электронных платежей"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:894 v2/templates/user/userseditor.php:297
+#: EcclesiaCRM/MenuBar/MenuBar.php:858 v2/templates/user/userseditor.php:297
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:907
+#: EcclesiaCRM/MenuBar/MenuBar.php:871
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "Сбор средств"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:909
+#: EcclesiaCRM/MenuBar/MenuBar.php:873
 msgid "Create New Fundraiser"
 msgstr "Создать новый сбор средств"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:910
+#: EcclesiaCRM/MenuBar/MenuBar.php:874
 msgid "View All Fundraisers"
 msgstr "Посмотреть все фандрайзеры"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:912
+#: EcclesiaCRM/MenuBar/MenuBar.php:876
 msgid "Edit Last Fundraiser"
 msgstr "Редактировать Последний сбор средств"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:994
+#: EcclesiaCRM/MenuBar/MenuBar.php:958
 msgid "Data/Reports"
 msgstr "Данные/отчеты"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:996
+#: EcclesiaCRM/MenuBar/MenuBar.php:960
 msgid "Reports Menu"
 msgstr "Меню отчетов"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:999 v2/templates/user/userseditor.php:462
+#: EcclesiaCRM/MenuBar/MenuBar.php:963 v2/templates/user/userseditor.php:462
 msgid "Query Menu"
 msgstr "Меню запросов"
 
@@ -1794,7 +1747,7 @@ msgstr "Название группы"
 #: EcclesiaCRM/Service/ConfirmReportService.php:739
 #: Reports/DirectoryReport.php:317 Reports/FundRaiserStatement.php:127
 #: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
-#: external/templates/registration/family-register-members.php:113
+#: external/templates/registration/family-register-members.php:122
 #: v2/templates/deposit/autaPaymentEditor.php:464
 #: v2/templates/people/directoryreport.php:303
 msgid "Phone"
@@ -1849,8 +1802,8 @@ msgstr "Итоговые данные"
 #: EcclesiaCRM/Service/ConfirmReportService.php:226
 #: EcclesiaCRM/Service/ConfirmReportService.php:669
 #: EcclesiaCRM/Service/ConfirmReportService.php:725 Reports/PDFLabel.php:859
-#: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:46
+#: external/templates/registration/family-register-done.php:34
+#: external/templates/registration/family-register.php:52
 #: v2/templates/cart/cartToFamily.php:353
 #: v2/templates/cart/cartToFamily.php:357
 #: v2/templates/cart/cartToFamily.php:364
@@ -1890,8 +1843,8 @@ msgstr "Город, штат, почтовый индекс"
 #: EcclesiaCRM/Service/ConfirmReportService.php:483
 #: EcclesiaCRM/Service/ConfirmReportService.php:560
 #: Reports/ConfirmReport.php:295 Reports/ConfirmReport.php:471
-#: external/templates/registration/family-register-done.php:30
-#: external/templates/registration/family-register.php:84
+#: external/templates/registration/family-register-done.php:35
+#: external/templates/registration/family-register.php:90
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:56
 #: v2/templates/cart/cartToFamily.php:422
@@ -1974,7 +1927,7 @@ msgstr "Взрослый/ребенок"
 #: Reports/DirectoryReport.php:328 Reports/FundRaiserStatement.php:128
 #: Reports/FundRaiserStatement.php:172 Reports/GroupReport.php:138
 #: Reports/MemberEmailExport.php:26
-#: external/templates/registration/family-register-members.php:87
+#: external/templates/registration/family-register-members.php:96
 #: ident/templates/verify/login-info.php:36
 #: v2/templates/calendar/eventattendeesedit.php:55
 #: v2/templates/cart/cartToFamily.php:470
@@ -2074,7 +2027,7 @@ msgstr "Адрес 2"
 
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:601
 #: Reports/ConfirmReport.php:498
-#: external/templates/registration/family-register-members.php:131
+#: external/templates/registration/family-register-members.php:140
 #: v2/templates/people/personEditor.php:1015
 msgid "Hide Age"
 msgstr "Скрыть возраст"
@@ -2097,7 +2050,7 @@ msgstr "Страница"
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
 #: Reports/GroupReport.php:129
-#: external/templates/registration/family-register-members.php:104
+#: external/templates/registration/family-register-members.php:113
 #: v2/templates/people/personview.php:394
 msgid "Work"
 msgstr "Работа"
@@ -2148,26 +2101,26 @@ msgstr "Трактор"
 msgid "Students"
 msgstr "Студенты"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:97
-#: EcclesiaCRM/Search/AddressSearchRes.php:122
-#: EcclesiaCRM/Search/AddressSearchRes.php:152
+#: EcclesiaCRM/Search/AddressSearchRes.php:94
+#: EcclesiaCRM/Search/AddressSearchRes.php:119
+#: EcclesiaCRM/Search/AddressSearchRes.php:159
 #: EcclesiaCRM/Search/DepositSearchRes.php:39
 #: EcclesiaCRM/Search/DepositSearchRes.php:110
 #: EcclesiaCRM/Search/DepositSearchRes.php:159
 #: EcclesiaCRM/Search/DepositSearchRes.php:160
 #: EcclesiaCRM/Search/DepositSearchRes.php:253
 #: EcclesiaCRM/Search/DepositSearchRes.php:256
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:123
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:160
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:173
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:131
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:168
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:181
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:112
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:149
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:110
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:145
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:158
-#: EcclesiaCRM/Search/FamilySearchRes.php:125
-#: EcclesiaCRM/Search/FamilySearchRes.php:160
-#: EcclesiaCRM/Search/FamilySearchRes.php:194
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:117
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:152
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:165
+#: EcclesiaCRM/Search/FamilySearchRes.php:120
+#: EcclesiaCRM/Search/FamilySearchRes.php:155
+#: EcclesiaCRM/Search/FamilySearchRes.php:199
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:102
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:137
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:150
@@ -2180,11 +2133,11 @@ msgstr "Студенты"
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:116
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:165
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:166
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:118
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:167
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:116
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:165
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:166
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:122
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:171
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:124
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:173
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:174
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:107
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:144
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:115
@@ -2211,15 +2164,15 @@ msgstr "Студенты"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:152
+#: EcclesiaCRM/Search/AddressSearchRes.php:159
 msgid "Addresse"
 msgstr "Адрес"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:152
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:173
+#: EcclesiaCRM/Search/AddressSearchRes.php:159
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:181
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:149
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:158
-#: EcclesiaCRM/Search/FamilySearchRes.php:194
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:165
+#: EcclesiaCRM/Search/FamilySearchRes.php:199
 #: ident/templates/verify/login-info.php:17
 #: v2/templates/cart/cartToFamily.php:188
 #: v2/templates/pastoralcare/pastoralcarefamily.php:373
@@ -2260,21 +2213,25 @@ msgstr "Семейная пасторская помощь"
 msgid "Families Properties"
 msgstr "Свойства семей"
 
-#: EcclesiaCRM/Search/FamilySearchRes.php:61
+#: EcclesiaCRM/Search/FamilySearchRes.php:72 v2/templates/cart/cartview.php:163
+msgid "families"
+msgstr "семьи"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:72
 #: EcclesiaCRM/Service/PersonService.php:49
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1517
 msgid "family"
 msgstr "семья"
 
-#: EcclesiaCRM/Search/FamilySearchRes.php:62
-#: EcclesiaCRM/Search/FamilySearchRes.php:75
-#: EcclesiaCRM/Search/FamilySearchRes.php:196
+#: EcclesiaCRM/Search/FamilySearchRes.php:73
+#: EcclesiaCRM/Search/FamilySearchRes.php:86
+#: EcclesiaCRM/Search/FamilySearchRes.php:201
 msgid "single"
 msgstr "один"
 
-#: EcclesiaCRM/Search/FamilySearchRes.php:62
-#: EcclesiaCRM/Search/FamilySearchRes.php:75
-#: EcclesiaCRM/Search/FamilySearchRes.php:196
+#: EcclesiaCRM/Search/FamilySearchRes.php:73
+#: EcclesiaCRM/Search/FamilySearchRes.php:86
+#: EcclesiaCRM/Search/FamilySearchRes.php:201
 msgid "singles"
 msgstr "Одинокие люди"
 
@@ -2325,8 +2282,8 @@ msgid "Student"
 msgstr "Студент"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:152
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:154
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:152
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:158
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:160
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:151
 #: EcclesiaCRM/Search/PersonSearchRes.php:346 Include/Header-function.php:228
 #: v2/templates/pastoralcare/pastoralcareperson.php:78
@@ -2406,8 +2363,6 @@ msgstr "Юбилей"
 #: v2/templates/deposit/electronicPaymentList.php:229
 #: v2/templates/deposit/finddepositslip.php:101
 #: v2/templates/deposit/finddepositslip.php:144
-#: v2/templates/email/mailchimp/campaign.php:88
-#: v2/templates/email/mailchimp/managelist.php:48
 #: v2/templates/group/groupbadge.php:156
 #: v2/templates/pastoralcare/pastoralcarefamily.php:311
 #: v2/templates/pastoralcare/pastoralcarefamily.php:320
@@ -2519,7 +2474,6 @@ msgstr "Хорошо"
 #: EcclesiaCRM/Service/ConfirmReportService.php:148
 #: Reports/GDPR/GDPRListExport.php:66 v2/templates/cart/carttobadge.php:81
 #: v2/templates/cart/carttobadge.php:83
-#: v2/templates/email/mailchimp/dashboard.php:17
 #: v2/templates/fundraiser/donatedItemEditor.php:35
 #: v2/templates/fundraiser/fundRaiserEditor.php:161
 #: v2/templates/people/personEditor.php:955
@@ -2541,7 +2495,7 @@ msgstr "Среднее имя"
 #: EcclesiaCRM/Service/ConfirmReportService.php:178
 #: EcclesiaCRM/Service/ConfirmReportService.php:183
 #: Reports/MemberEmailExport.php:25
-#: external/templates/registration/family-register-members.php:80
+#: external/templates/registration/family-register-members.php:89
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/deposit/autaPaymentEditor.php:408
 #: v2/templates/deposit/manageEnvelopes.php:168
@@ -2554,7 +2508,7 @@ msgstr "Фамилия"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:216
 #: EcclesiaCRM/Service/ConfirmReportService.php:704 Reports/PDFLabel.php:859
-#: external/templates/registration/family-register.php:72
+#: external/templates/registration/family-register.php:78
 #: v2/templates/cart/cartToFamily.php:397
 #: v2/templates/deposit/autaPaymentEditor.php:448
 #: v2/templates/people/UpdateAllLatLon.php:72
@@ -2568,7 +2522,7 @@ msgstr "Zip"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:221
 #: EcclesiaCRM/Service/ConfirmReportService.php:679 Reports/PDFLabel.php:859
-#: external/templates/registration/family-register.php:57
+#: external/templates/registration/family-register.php:63
 #: v2/templates/cart/cartToFamily.php:371
 #: v2/templates/deposit/autaPaymentEditor.php:432
 #: v2/templates/people/UpdateAllLatLon.php:70
@@ -2623,7 +2577,7 @@ msgid "Wedding Date"
 msgstr "Дата свадьбы"
 
 #: EcclesiaCRM/Service/ConfirmReportService.php:691 Reports/PDFLabel.php:859
-#: external/templates/registration/family-register.php:61
+#: external/templates/registration/family-register.php:67
 #: v2/templates/cart/cartToFamily.php:382
 #: v2/templates/deposit/autaPaymentEditor.php:440
 #: v2/templates/people/UpdateAllLatLon.php:71
@@ -2693,7 +2647,7 @@ msgstr "(Нет закрепленной семьи)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:792
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1277
@@ -2730,7 +2684,7 @@ msgstr "Поделился"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:166
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:164 v2/templates/deposit/pledgeEditor.php:99
+#: Include/Footer.php:165 v2/templates/deposit/pledgeEditor.php:99
 msgid "Other"
 msgstr "Другое"
 
@@ -2765,12 +2719,12 @@ msgid "Child"
 msgstr "Ребенок"
 
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWBackupController.php:73
-#: Include/Footer.php:271
+#: Include/Footer.php:272
 msgid "Backup Database"
 msgstr "Резервное копирование базы данных"
 
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWRestoreController.php:48
-#: Include/Footer.php:277
+#: Include/Footer.php:278
 msgid "Restore Database"
 msgstr "Восстановление базы данных"
 
@@ -2780,8 +2734,6 @@ msgstr "Одинокие люди"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1046
-#: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:16
-#: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:26
 msgid "Family List"
 msgstr "Семейный список"
 
@@ -2814,8 +2766,6 @@ msgstr "Предыдущий человек"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:650
 #: EcclesiaCRM/VIEWControllers/People/VIEWPersonListController.php:95
-#: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:16
-#: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:26
 msgid "Person List"
 msgstr "Список лиц"
 
@@ -2854,7 +2804,7 @@ msgid "Pledge Reminder Report"
 msgstr "Отчет о напоминании о залоге"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1392
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:580
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:584
 msgid "Printable View"
 msgstr "Просмотр в печатном виде"
 
@@ -2898,7 +2848,7 @@ msgid "Donation Fund Editor"
 msgstr "Редактор фонда пожертвований"
 
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:295
+#: Include/Footer.php:296
 msgid "Kiosk Manager"
 msgstr "Менеджер киоска"
 
@@ -3081,41 +3031,12 @@ msgstr "Редактор формы свойств группы:"
 msgid "for"
 msgstr "для"
 
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:46
-msgid "MailChimp Dashboard"
-msgstr "Приборная панель MailChimp"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:90
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:91
-msgid "Email Campaign"
-msgstr "Кампания по электронной почте"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:132
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:133
-msgid "Email List"
-msgstr "Список адресов электронной почты"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:170
-#: v2/templates/email/mailchimp/dashboard.php:68
-msgid "Find Duplicate Emails"
-msgstr "Поиск дубликатов электронных писем"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:196
-#: v2/templates/email/mailchimp/dashboard.php:71
-msgid "Persons Not In MailChimp"
-msgstr "Лица, отсутствующие в MailChimp"
-
-#: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:221
-#: v2/templates/email/mailchimp/dashboard.php:74
-msgid "Families Not In MailChimp"
-msgstr "Семьи, которых нет в MailChimp"
-
 #: EcclesiaCRM/VIEWControllers/VIEWMeetingController.php:44
 msgid "Meeting Dashboard"
 msgstr "Приборная панель совещаний"
 
 #: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
-#: Include/Footer.php:245
+#: Include/Footer.php:246
 msgid "Plugins"
 msgstr "Плагины"
 
@@ -3140,15 +3061,15 @@ msgstr "на"
 msgid "Pastoral care Dashboard"
 msgstr "Пасторское попечение Приборная панель"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:351
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:352
 msgid "Individual Pastoral care"
 msgstr "Индивидуальная пасторская помощь"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:488
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:490
 msgid "Family Pastoral care"
 msgstr "Семейная пасторская помощь"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:542
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:546
 msgid "Pastoral care members list by classification"
 msgstr "Список членов пасторского попечительства по классификации"
 
@@ -3180,7 +3101,7 @@ msgid "Sunday School Reports"
 msgstr "Отчеты воскресной школы"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:66
-#: Include/Footer.php:251 v2/templates/system/infos.php:193
+#: Include/Footer.php:252 v2/templates/system/infos.php:193
 msgid "System Infos"
 msgstr "Информация о системе"
 
@@ -3216,7 +3137,7 @@ msgid "Upgrade"
 msgstr "Обновление"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:385
-#: Include/Footer.php:283
+#: Include/Footer.php:284
 msgid "CSV Import"
 msgstr "Импорт CSV"
 
@@ -3234,59 +3155,59 @@ msgstr "Мои пользовательские настройки"
 msgid "Login must be a least 3 characters!"
 msgstr "Логин должен состоять минимум из 3 символов!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:561
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:631
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:554
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:623
 msgid "Login already in use, please select a different login!"
 msgstr "Логин уже используется, пожалуйста, выберите другой логин!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:625
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:617
 msgid "The same as before"
 msgstr "То же, что и раньше"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:897
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:886
 msgid "User Editor"
 msgstr "Пользовательский редактор"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1034
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1022
 msgid "You must enter a password in both boxes"
 msgstr "Вы должны ввести пароль в оба поля"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1040
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1028
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1091
 msgid "You must enter the same password in both boxes"
 msgstr "Вы должны ввести один и тот же пароль в оба поля"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1091
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1079
 msgid "Invalid password"
 msgstr "Неверный пароль"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1097
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1085
 msgid "You must enter your new password in both boxes"
 msgstr "Вы должны ввести свой новый пароль в оба поля"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1109
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1097
 msgid "Your password choice is too obvious. Please choose something else."
 msgstr ""
 "Ваш выбор пароля слишком очевиден. Пожалуйста, выберите что-нибудь другое."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
 msgid "Your new password must be at least"
 msgstr "Ваш новый пароль должен быть не менее"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1115
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
 msgid "characters"
 msgstr "персонажи"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1121
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1109
 msgid "You need to actually change your password (nice try, though!)"
 msgstr ""
 "Вы должны действительно изменить свой пароль (хорошая попытка, однако!)."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1124
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1112
 msgid "Your new password is too similar to your old one.  Be more creative!"
 msgstr "Ваш новый пароль слишком похож на старый.  Будьте более креативны!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1165
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1153
 msgid "User Password Change"
 msgstr "Изменение пароля пользователя"
 
@@ -4926,11 +4847,11 @@ msgstr "Текст перед именем в сообщениях электр�
 msgid "Google Analytics Tracking Code"
 msgstr "Код отслеживания Google Analytics"
 
-#: EcclesiaCRM/dto/SystemConfig.php:194
+#: EcclesiaCRM/dto/SystemConfig.php:193
 msgid "Deposit ticket type.  QBDT - Quickbooks"
 msgstr "Тип депозитного билета.  QBDT - Quickbooks"
 
-#: EcclesiaCRM/dto/SystemConfig.php:195
+#: EcclesiaCRM/dto/SystemConfig.php:194
 msgid ""
 "Set true to allow empty lastname in Person Editor.  Set false to validate "
 "last name and inherit from family when left empty."
@@ -4939,52 +4860,52 @@ msgstr ""
 "Установите false для проверки фамилии и наследования от семьи, если она "
 "остается пустой."
 
-#: EcclesiaCRM/dto/SystemConfig.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:196
 msgid "Display bill counts on deposit slip"
 msgstr "Отображение количества счетов на депозитном листе"
 
-#: EcclesiaCRM/dto/SystemConfig.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:197
 msgid "CRM Cloud Access URL"
 msgstr "URL-адрес доступа к облаку CRM"
 
-#: EcclesiaCRM/dto/SystemConfig.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:198
 msgid "Nexmo SMS API Key"
 msgstr "Ключ API Nexmo SMS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:200
+#: EcclesiaCRM/dto/SystemConfig.php:199
 msgid "Nexmo SMS API Secret"
 msgstr "Секрет API Nexmo SMS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:201
+#: EcclesiaCRM/dto/SystemConfig.php:200
 msgid "Nexmo SMS From Number"
 msgstr "Nexmo SMS с номера"
 
-#: EcclesiaCRM/dto/SystemConfig.php:202
+#: EcclesiaCRM/dto/SystemConfig.php:201
 msgid "OpenLP URL"
 msgstr "URL OpenLP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:203
+#: EcclesiaCRM/dto/SystemConfig.php:202
 msgid "OpenLP Username"
 msgstr "Имя пользователя OpenLP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:204
+#: EcclesiaCRM/dto/SystemConfig.php:203
 msgid "OpenLP Password"
 msgstr "Пароль OpenLP"
 
-#: EcclesiaCRM/dto/SystemConfig.php:205
+#: EcclesiaCRM/dto/SystemConfig.php:204
 msgid "KioskVisibilityTimestamp"
 msgstr "KioskVisibilityTimestamp"
 
-#: EcclesiaCRM/dto/SystemConfig.php:206
+#: EcclesiaCRM/dto/SystemConfig.php:205
 msgid "Show/Hide Lost Password Link on the login screen"
 msgstr "Показать/скрыть ссылку на потерянный пароль на экране входа в систему"
 
-#: EcclesiaCRM/dto/SystemConfig.php:207
+#: EcclesiaCRM/dto/SystemConfig.php:206
 msgid "lookup user images on Google when no local image is present"
 msgstr ""
 "поиск изображений пользователя в Google при отсутствии локального изображения"
 
-#: EcclesiaCRM/dto/SystemConfig.php:208
+#: EcclesiaCRM/dto/SystemConfig.php:207
 msgid ""
 "Comma Separated list of PersonIDs of people to notify when a new family or "
 "person is added"
@@ -4992,110 +4913,110 @@ msgstr ""
 "Список PersonID людей, которых нужно уведомлять при добавлении новой семьи "
 "или человека, разделенный запятой"
 
-#: EcclesiaCRM/dto/SystemConfig.php:209
+#: EcclesiaCRM/dto/SystemConfig.php:208
 msgid "Allow unauthenticated reads of events from the external calendar API"
 msgstr ""
 "Разрешить неаутентифицированное чтение событий из API внешнего календаря"
 
-#: EcclesiaCRM/dto/SystemConfig.php:210
+#: EcclesiaCRM/dto/SystemConfig.php:209
 msgid "Search People"
 msgstr "Поиск людей"
 
-#: EcclesiaCRM/dto/SystemConfig.php:211
+#: EcclesiaCRM/dto/SystemConfig.php:210
 msgid "Search Family"
 msgstr "Поиск семьи"
 
-#: EcclesiaCRM/dto/SystemConfig.php:212
+#: EcclesiaCRM/dto/SystemConfig.php:211
 msgid "Show Family Head of House Names"
 msgstr "Показать имена глав семейств"
 
-#: EcclesiaCRM/dto/SystemConfig.php:213
+#: EcclesiaCRM/dto/SystemConfig.php:212
 msgid "Search Groups"
 msgstr "Поисковые группы"
 
-#: EcclesiaCRM/dto/SystemConfig.php:214
+#: EcclesiaCRM/dto/SystemConfig.php:213
 msgid "Search Deposits"
 msgstr "Поиск вкладов"
 
-#: EcclesiaCRM/dto/SystemConfig.php:215
+#: EcclesiaCRM/dto/SystemConfig.php:214
 msgid "Search Payments"
 msgstr "Поиск платежей"
 
-#: EcclesiaCRM/dto/SystemConfig.php:216
+#: EcclesiaCRM/dto/SystemConfig.php:215
 msgid "Search Addresses"
 msgstr "Адреса для поиска"
 
-#: EcclesiaCRM/dto/SystemConfig.php:217
+#: EcclesiaCRM/dto/SystemConfig.php:216
 msgid "Maximum number of People"
 msgstr "Максимальное количество человек"
 
-#: EcclesiaCRM/dto/SystemConfig.php:218
+#: EcclesiaCRM/dto/SystemConfig.php:217
 msgid "Maximum number of Families"
 msgstr "Максимальное количество Семей"
 
-#: EcclesiaCRM/dto/SystemConfig.php:219
+#: EcclesiaCRM/dto/SystemConfig.php:218
 msgid "Maximum number of Family H.O.H Names"
 msgstr "Максимальное количество фамилий семьи H.O.H."
 
-#: EcclesiaCRM/dto/SystemConfig.php:220
+#: EcclesiaCRM/dto/SystemConfig.php:219
 msgid "Maximum number of Groups"
 msgstr "Максимальное количество групп"
 
-#: EcclesiaCRM/dto/SystemConfig.php:221
+#: EcclesiaCRM/dto/SystemConfig.php:220
 msgid "Maximum number of Deposits"
 msgstr "Максимальное количество вкладов"
 
-#: EcclesiaCRM/dto/SystemConfig.php:222
+#: EcclesiaCRM/dto/SystemConfig.php:221
 msgid "Maximum number of Payments"
 msgstr "Максимальное количество Платежей"
 
-#: EcclesiaCRM/dto/SystemConfig.php:223
+#: EcclesiaCRM/dto/SystemConfig.php:222
 msgid "Maximum number of Addresses"
 msgstr "Максимальное количество адресов"
 
-#: EcclesiaCRM/dto/SystemConfig.php:224
+#: EcclesiaCRM/dto/SystemConfig.php:223
 msgid "Search Pastoral Care"
 msgstr "Поиск Пасторское служение"
 
-#: EcclesiaCRM/dto/SystemConfig.php:225
+#: EcclesiaCRM/dto/SystemConfig.php:224
 msgid "Maximum number of Pastoral Care results"
 msgstr "Максимальное количество результатов пасторского ухода"
 
-#: EcclesiaCRM/dto/SystemConfig.php:226
+#: EcclesiaCRM/dto/SystemConfig.php:225
 msgid "Height to use for images"
 msgstr "Высота, используемая для изображений"
 
-#: EcclesiaCRM/dto/SystemConfig.php:227
+#: EcclesiaCRM/dto/SystemConfig.php:226
 msgid "Width to use for images"
 msgstr "Ширина, используемая для изображений"
 
-#: EcclesiaCRM/dto/SystemConfig.php:228
+#: EcclesiaCRM/dto/SystemConfig.php:227
 msgid "Width to use for thumbnails"
 msgstr "Ширина, используемая для миниатюр"
 
-#: EcclesiaCRM/dto/SystemConfig.php:229
+#: EcclesiaCRM/dto/SystemConfig.php:228
 msgid "Point size to use for initials thumbnails"
 msgstr "Размер точки, используемой для миниатюр инициалов"
 
-#: EcclesiaCRM/dto/SystemConfig.php:230
+#: EcclesiaCRM/dto/SystemConfig.php:229
 msgid "Client cache seconds for images"
 msgstr "Секунды кэша клиента для изображений"
 
-#: EcclesiaCRM/dto/SystemConfig.php:231
+#: EcclesiaCRM/dto/SystemConfig.php:230
 msgid "Server cache time for remote images"
 msgstr "Время кэширования сервера для удаленных изображений"
 
-#: EcclesiaCRM/dto/SystemConfig.php:232
+#: EcclesiaCRM/dto/SystemConfig.php:231
 msgid "Require that this CRM Database is accessed over HTTPS"
 msgstr ""
 "Требуйте, чтобы доступ к этой базе данных CRM осуществлялся по протоколу "
 "HTTPS"
 
-#: EcclesiaCRM/dto/SystemConfig.php:233
+#: EcclesiaCRM/dto/SystemConfig.php:232
 msgid "Show Birthdates Anniversaries on start up of the CRM"
 msgstr "Показывать даты рождения, юбилеи при запуске CRM"
 
-#: EcclesiaCRM/dto/SystemConfig.php:234
+#: EcclesiaCRM/dto/SystemConfig.php:233
 msgid ""
 "Number of seconds after page load until the banner disappears, default 10 "
 "seconds"
@@ -5103,17 +5024,17 @@ msgstr ""
 "Количество секунд после загрузки страницы до исчезновения баннера, по "
 "умолчанию 10 секунд"
 
-#: EcclesiaCRM/dto/SystemConfig.php:235
+#: EcclesiaCRM/dto/SystemConfig.php:234
 msgid "Automatically enable SMTP encryption if offered by the relaying server."
 msgstr ""
 "Автоматическое включение шифрования SMTP, если оно предлагается "
 "ретранслирующим сервером."
 
-#: EcclesiaCRM/dto/SystemConfig.php:236
+#: EcclesiaCRM/dto/SystemConfig.php:235
 msgid "Set the encryption system to use - ssl (deprecated) or tls"
 msgstr "Установите используемую систему шифрования - ssl (устаревшая) или tls"
 
-#: EcclesiaCRM/dto/SystemConfig.php:237
+#: EcclesiaCRM/dto/SystemConfig.php:236
 msgid ""
 "Dashboard & page Service dynamic asynchronous refresh interval, default 60 "
 "second"
@@ -5121,115 +5042,111 @@ msgstr ""
 "Приборная панель и страницы Сервис динамического асинхронного интервала "
 "обновления, по умолчанию 60 секунд"
 
-#: EcclesiaCRM/dto/SystemConfig.php:238
+#: EcclesiaCRM/dto/SystemConfig.php:237
 msgid "When you make the attendance all the kids are checked by default"
 msgstr "Когда вы создаете посещаемость, все дети проверяются по умолчанию"
 
-#: EcclesiaCRM/dto/SystemConfig.php:239
+#: EcclesiaCRM/dto/SystemConfig.php:238
 msgid "When you make the attendance the current user isn't choosed by default"
 msgstr ""
 "При создании посещаемости текущий пользователь не выбирается по умолчанию"
 
-#: EcclesiaCRM/dto/SystemConfig.php:240
+#: EcclesiaCRM/dto/SystemConfig.php:239
 msgid "Hide dropdown states when they are unusefull"
 msgstr "Скрывайте состояния выпадающих элементов, когда они неиспользуемы"
 
-#: EcclesiaCRM/dto/SystemConfig.php:241
+#: EcclesiaCRM/dto/SystemConfig.php:240
 msgid "The currency symbol you want to use in the deposit in $ per default"
 msgstr ""
 "Символ валюты, который вы хотите использовать в депозите в $ по умолчанию"
 
-#: EcclesiaCRM/dto/SystemConfig.php:242
+#: EcclesiaCRM/dto/SystemConfig.php:241
 msgid "If you do not want to receive these emails from"
 msgstr "Если вы не хотите получать эти электронные письма от"
 
-#: EcclesiaCRM/dto/SystemConfig.php:243
+#: EcclesiaCRM/dto/SystemConfig.php:242
 msgid "in the future, please contact the entity admins"
 msgstr "в будущем, пожалуйста, обращайтесь к администраторам сущностей"
 
-#: EcclesiaCRM/dto/SystemConfig.php:244
+#: EcclesiaCRM/dto/SystemConfig.php:243
 msgid "Time in minutes when a share document can't be opened."
 msgstr "Время в минутах, когда документ ресурса не может быть открыт."
 
-#: EcclesiaCRM/dto/SystemConfig.php:245
+#: EcclesiaCRM/dto/SystemConfig.php:244
 msgid "The DPO administrator for the GDPR"
 msgstr "Администратор DPO по GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:246
+#: EcclesiaCRM/dto/SystemConfig.php:245
 msgid "GDPR option"
 msgstr "Опция GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:247
+#: EcclesiaCRM/dto/SystemConfig.php:246
 msgid "The DPO email"
 msgstr "Электронная почта DPO"
 
-#: EcclesiaCRM/dto/SystemConfig.php:248
+#: EcclesiaCRM/dto/SystemConfig.php:247
 msgid ""
 "The private datas should be deleted after the iGdprExpirationDate in Year."
 msgstr ""
 "Частные данные должны быть удалены после даты истечения срока действия "
 "iGdprExpirationDate в году."
 
-#: EcclesiaCRM/dto/SystemConfig.php:249
+#: EcclesiaCRM/dto/SystemConfig.php:248
 msgid "Show custom links on the left menu."
 msgstr "Показывать пользовательские ссылки в левом меню."
 
-#: EcclesiaCRM/dto/SystemConfig.php:250
+#: EcclesiaCRM/dto/SystemConfig.php:249
 msgid "Enable Sunday School left menu."
 msgstr "Включите левое меню воскресной школы."
 
-#: EcclesiaCRM/dto/SystemConfig.php:251
+#: EcclesiaCRM/dto/SystemConfig.php:250
 msgid "Enable Finance menu"
 msgstr "Включить меню \"Финансы"
 
-#: EcclesiaCRM/dto/SystemConfig.php:252
+#: EcclesiaCRM/dto/SystemConfig.php:251
 msgid "Enable Events menu."
 msgstr "Включите меню \"События\"."
 
-#: EcclesiaCRM/dto/SystemConfig.php:253
+#: EcclesiaCRM/dto/SystemConfig.php:252
 msgid "Enable Fundraiser menu."
 msgstr "Включите меню \"Сбор средств\"."
 
-#: EcclesiaCRM/dto/SystemConfig.php:254
+#: EcclesiaCRM/dto/SystemConfig.php:253
 msgid "Enable Email menu."
 msgstr "Включить меню электронной почты."
 
-#: EcclesiaCRM/dto/SystemConfig.php:255
+#: EcclesiaCRM/dto/SystemConfig.php:254
 msgid "Enable WebDav, CardDav and CalDav support."
 msgstr "Включите поддержку WebDav, CardDav и CalDav."
 
-#: EcclesiaCRM/dto/SystemConfig.php:256
+#: EcclesiaCRM/dto/SystemConfig.php:255
 msgid "Enable WebDav, CardDav and CalDav support through a Browser."
 msgstr "Включите поддержку WebDav, CardDav и CalDav через браузер."
 
-#: EcclesiaCRM/dto/SystemConfig.php:257
-msgid "MailChimp API request time out in seconds"
-msgstr "Время ожидания запроса API MailChimp в секундах"
-
-#: EcclesiaCRM/dto/SystemConfig.php:258
+#: EcclesiaCRM/dto/SystemConfig.php:256
 msgid "Add Address, Phone."
 msgstr "Добавить адрес, телефон."
 
-#: EcclesiaCRM/dto/SystemConfig.php:259
+#: EcclesiaCRM/dto/SystemConfig.php:257
 msgid "Add a thumbnail icon for the people in the datatables."
 msgstr "Добавьте значок миниатюры для людей в таблицах данных."
 
-#: EcclesiaCRM/dto/SystemConfig.php:260
+#: EcclesiaCRM/dto/SystemConfig.php:258
 msgid "Search Pledges"
 msgstr "Поисковые залоги"
 
-#: EcclesiaCRM/dto/SystemConfig.php:261
+#: EcclesiaCRM/dto/SystemConfig.php:259
 msgid "Maximum number of Pledges results"
 msgstr "Максимальное количество результатов Обещаний"
 
-#: EcclesiaCRM/dto/SystemConfig.php:262
+#: EcclesiaCRM/dto/SystemConfig.php:260
 msgid ""
 "Allow to get the name in the search sequence in case of pledges and deposits"
 msgstr ""
 "Позволяет получить имя в последовательности поиска в случае залогов и "
 "депозитов"
 
-#: EcclesiaCRM/dto/SystemConfig.php:263
+#: EcclesiaCRM/dto/SystemConfig.php:261
 msgid ""
 "'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 "
 "days to now, 'Yearly 2' : from september to september."
@@ -5237,19 +5154,15 @@ msgstr ""
 "'Yearly 1' : с 1 января по 31 декабря, '365' : в диапазоне от сейчас-365 "
 "дней до сейчас, 'Yearly 2' : с сентября по сентябрь."
 
-#: EcclesiaCRM/dto/SystemConfig.php:264
+#: EcclesiaCRM/dto/SystemConfig.php:262
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr "Получить статистику звонков/визитов (для каждого пастора-консультанта)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:265
+#: EcclesiaCRM/dto/SystemConfig.php:263
 msgid "Set the export address)"
 msgstr "Установите адрес экспорта)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:266
-msgid "email address of the mailchimp sender."
-msgstr "адрес электронной почты отправителя mailchimp."
-
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:264
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?"
@@ -5261,7 +5174,7 @@ msgstr ""
 "family=Abril+Fatface:400,400i,700,700i,900,900i|"
 "Roboto:400,400i,700,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -5269,139 +5182,139 @@ msgstr ""
 "Здесь мы помещаем шрифт в виде fontnametodisplay/yourfontname. Это полезно "
 "для меню шрифтов в ckeditor, например: Abril/Abril Fatface"
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Use Pastoralcare."
 msgstr "Используйте пастырскую помощь."
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "Use Edrive."
 msgstr "Используйте Edrive."
 
-#: EcclesiaCRM/dto/SystemConfig.php:271
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "Enable volunteer opportunities"
 msgstr "Предоставьте возможности для волонтерства"
 
-#: EcclesiaCRM/dto/SystemConfig.php:272
+#: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Entity Name"
 msgstr "Название организации"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273
+#: EcclesiaCRM/dto/SystemConfig.php:270
 msgid "Entity Address"
 msgstr "Адрес организации"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:271
 msgid "Entity City"
 msgstr "Город"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:272
 msgid "Entity State"
 msgstr "Состояние сущности"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid "Entity Zip"
 msgstr "Запись о юридическом лице"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Entity Phone"
 msgstr "Телефон организации"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Entity Email"
 msgstr "Электронная почта организации"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Entity Checking Account Number"
 msgstr "Номер расчетного счета организации"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Your Entity's Website"
 msgstr "Веб-сайт вашей организации"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "Your Entity's Facebook Page"
 msgstr "Страница вашей организации в Facebook"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Your Entity's Twitter Page"
 msgstr "Страница вашей организации в Twitter"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Latitude of the entity, used to center the Google map"
 msgstr "Широта объекта, используется для центрирования карты Google"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Longitude of the entity, used to center the Google map"
 msgstr "Долгота объекта, используемая для центрирования карты Google"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Entity Information"
 msgstr "Информация о субъекте"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Enabled Features"
 msgstr "Включенные функции"
 
-#: EcclesiaCRM/dto/SystemConfig.php:294 Include/Footer.php:51
-#: Include/Footer.php:53 Include/Footer.php:217 Include/Footer.php:307
+#: EcclesiaCRM/dto/SystemConfig.php:291 Include/Footer.php:52
+#: Include/Footer.php:54 Include/Footer.php:218 Include/Footer.php:308
 msgid "System Settings"
 msgstr "Системные настройки"
 
-#: EcclesiaCRM/dto/SystemConfig.php:295
+#: EcclesiaCRM/dto/SystemConfig.php:292
 msgid "Localization"
 msgstr "Локализация"
 
-#: EcclesiaCRM/dto/SystemConfig.php:296
+#: EcclesiaCRM/dto/SystemConfig.php:293
 msgid "User setup"
 msgstr "Настройка пользователя"
 
-#: EcclesiaCRM/dto/SystemConfig.php:297
+#: EcclesiaCRM/dto/SystemConfig.php:294
 msgid "People Setup"
 msgstr "Настройка людей"
 
-#: EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/dto/SystemConfig.php:295
 msgid "Email Setup"
 msgstr "Настройка электронной почты"
 
-#: EcclesiaCRM/dto/SystemConfig.php:299 v2/templates/map/MapUsingGoogle.php:96
+#: EcclesiaCRM/dto/SystemConfig.php:296 v2/templates/map/MapUsingGoogle.php:96
 #: v2/templates/map/MapUsingLeaflet.php:82
 msgid "Map Settings"
 msgstr "Настройки карты"
 
-#: EcclesiaCRM/dto/SystemConfig.php:301
+#: EcclesiaCRM/dto/SystemConfig.php:298
 msgid "Sundayschool Attendance"
 msgstr "Посещение воскресной школы"
 
-#: EcclesiaCRM/dto/SystemConfig.php:302
+#: EcclesiaCRM/dto/SystemConfig.php:299
 msgid "Integration"
 msgstr "Интеграция"
 
-#: EcclesiaCRM/dto/SystemConfig.php:304
+#: EcclesiaCRM/dto/SystemConfig.php:301
 msgid "Quick Search"
 msgstr "Быстрый поиск"
 
-#: EcclesiaCRM/dto/SystemConfig.php:305
+#: EcclesiaCRM/dto/SystemConfig.php:302
 msgid "Report Settings"
 msgstr "Настройки отчета"
 
-#: EcclesiaCRM/dto/SystemConfig.php:306
+#: EcclesiaCRM/dto/SystemConfig.php:303
 msgid "Financial Settings"
 msgstr "Финансовые настройки"
 
-#: EcclesiaCRM/dto/SystemConfig.php:307
+#: EcclesiaCRM/dto/SystemConfig.php:304
 #: v2/templates/system/upgrade/UpgradeCRM.php:45
 msgid "Backup"
 msgstr "Резервное копирование"
 
-#: EcclesiaCRM/dto/SystemConfig.php:308
+#: EcclesiaCRM/dto/SystemConfig.php:305
 msgid "Users Specific Schedule Tasks"
 msgstr "Пользователи конкретные задачи расписания"
 
-#: EcclesiaCRM/dto/SystemConfig.php:362 EcclesiaCRM/dto/SystemConfig.php:371
-#: EcclesiaCRM/dto/SystemConfig.php:381
+#: EcclesiaCRM/dto/SystemConfig.php:359 EcclesiaCRM/dto/SystemConfig.php:368
+#: EcclesiaCRM/dto/SystemConfig.php:378
 msgid "An invalid configuration name has been requested"
 msgstr "Запрошено недопустимое имя конфигурации"
 
-#: EcclesiaCRM/dto/SystemConfig.php:396
+#: EcclesiaCRM/dto/SystemConfig.php:393
 msgid "An invalid configuration id has been requested"
 msgstr "Запрошен недопустимый идентификатор конфигурации"
 
@@ -5491,13 +5404,13 @@ msgid "Witness"
 msgstr "Свидетель"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:281
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:411
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:399
 #: v2/templates/people/familylist.php:68 v2/templates/people/personlist.php:52
 msgid "Created"
 msgstr "Создано"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:286
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:416
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:404
 msgid "Updated"
 msgstr "Обновленный"
 
@@ -5514,17 +5427,17 @@ msgid "Family Data Verification reset"
 msgstr "Сброс проверки семейных данных"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:303
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:433
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:421
 msgid "Verification email sent"
 msgstr "Электронное письмо с подтверждением отправлено"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:401
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:618
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:606
 msgid "Profile Image Deleted"
 msgstr "Изображение профиля удалено"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:417
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:645
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:633
 msgid "Profile Image uploaded"
 msgstr "Загружено изображение профиля"
 
@@ -5542,84 +5455,84 @@ msgstr "Редактирование этого документа"
 msgid "Delete this document"
 msgstr "Удалить этот документ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:421
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:409
 msgid "Person Data Verified"
 msgstr "Данные о человеке проверены"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:425
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:413
 msgid "Person Data Verified by url"
 msgstr "Данные о человеке, проверенные по url"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:429
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:417
 msgid "Person Data Verification reset"
 msgstr "Сброс верификации данных о человеке"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:811
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:799
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "месяцев"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:813
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:801
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "старый"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:817
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:805
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "лет"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:819
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:807
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "в годах"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:827
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:818
 msgid "system user created"
 msgstr "создан пользователь системы"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:821
 msgid "system user updated"
 msgstr "пользователь системы обновлен"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:833
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:824
 msgid "system user deleted"
 msgstr "пользователь системы удален"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:827
 msgid "system user password reset"
 msgstr "сброс пароля пользователя системы"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:839
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:830
 msgid "system user changed password"
 msgstr "пользователь системы изменил пароль"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:842
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:833
 msgid "system user password changed by admin"
 msgstr "пароль пользователя системы изменен администратором"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:845
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:836
 msgid "system user login reset"
 msgstr "сброс входа пользователя в систему"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:851
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:842
 msgid "Dav create file"
 msgstr "Дав создать файл"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:857
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:848
 msgid "Dav create directory"
 msgstr "Дав создать каталог"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:863
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:854
 msgid "Dav update file"
 msgstr "Файл обновления Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:876
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:867
 msgid "Dav move copy file"
 msgstr "Dav перемещение копирование файла"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:883
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:874
 msgid "Dav delete file"
 msgstr "Дав удалить файл"
 
@@ -5712,7 +5625,7 @@ msgstr "Отсутствующие данные о ролях некоторых
 msgid "Unmet Application Prerequisites"
 msgstr "Неудовлетворенные предварительные условия приложения"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:349
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:350
 msgid "Register Software"
 msgstr "Регистрационное программное обеспечение"
 
@@ -6006,112 +5919,112 @@ msgstr "Назад к Депозитная ведомость"
 msgid "Fatal error in eGive API datastream: '"
 msgstr "Фатальная ошибка в потоке данных eGive API: '"
 
-#: Include/Footer.php:31 v2/templates/plugins/plugins.php:123
+#: Include/Footer.php:32 v2/templates/plugins/plugins.php:135
 msgid "Version"
 msgstr "Версия"
 
-#: Include/Footer.php:33 Include/FooterNotLoggedIn.php:7
+#: Include/Footer.php:34 Include/FooterNotLoggedIn.php:7
 msgid "Copyright"
 msgstr "Авторское право"
 
-#: Include/Footer.php:36 Include/FooterNotLoggedIn.php:7
+#: Include/Footer.php:37 Include/FooterNotLoggedIn.php:7
 msgid "All rights reserved"
 msgstr "Все права защищены"
 
-#: Include/Footer.php:44 Include/Footer.php:46 Include/Footer.php:325
+#: Include/Footer.php:45 Include/Footer.php:47 Include/Footer.php:326
 msgid "Open Tasks"
 msgstr "Открытые задачи"
 
-#: Include/Footer.php:58 Include/Footer.php:60 Include/Footer.php:74
-#: Include/Footer.php:204
+#: Include/Footer.php:59 Include/Footer.php:61 Include/Footer.php:75
+#: Include/Footer.php:205
 msgid "Configuration Shortcuts"
 msgstr "Ярлыки конфигурации"
 
-#: Include/Footer.php:75
+#: Include/Footer.php:76
 msgid "Quick access by topic"
 msgstr "Быстрый доступ по темам"
 
-#: Include/Footer.php:76
+#: Include/Footer.php:77
 msgid "Access the most common configuration areas by topic."
 msgstr "Доступ к наиболее распространенным областям конфигурации по темам."
 
-#: Include/Footer.php:99
+#: Include/Footer.php:100
 msgid "Edit Custom Family Fields"
 msgstr "Редактирование пользовательских полей семьи"
 
-#: Include/Footer.php:113
+#: Include/Footer.php:114
 msgid "Classifications Manager"
 msgstr "Менеджер по классификации"
 
-#: Include/Footer.php:119
+#: Include/Footer.php:120
 msgid "People Properties"
 msgstr "Свойства людей"
 
-#: Include/Footer.php:125
+#: Include/Footer.php:126
 msgid "Edit Custom Person Fields"
 msgstr "Редактирование пользовательских полей персон"
 
-#: Include/Footer.php:169 v2/templates/sidebar/propertytypelist.php:22
+#: Include/Footer.php:170 v2/templates/sidebar/propertytypelist.php:22
 msgid "Property Types"
 msgstr "Типы недвижимости"
 
-#: Include/Footer.php:176
+#: Include/Footer.php:177
 msgid "Edit Donation Funds"
 msgstr "Редактирование фондов пожертвований"
 
-#: Include/Footer.php:184
+#: Include/Footer.php:185
 msgid "Pastoral Care Type"
 msgstr "Тип пасторского ухода"
 
-#: Include/Footer.php:205 Include/Footer.php:308
+#: Include/Footer.php:206 Include/Footer.php:309
 msgid "Administrator access required"
 msgstr "Требуется доступ администратора"
 
-#: Include/Footer.php:206 Include/Footer.php:309
+#: Include/Footer.php:207 Include/Footer.php:310
 msgid "Please contact your admin to change the system settings."
 msgstr "Обратитесь к администратору, чтобы изменить настройки системы."
 
-#: Include/Footer.php:218
+#: Include/Footer.php:219
 msgid "Administrative tools"
 msgstr "Административные инструменты"
 
-#: Include/Footer.php:219
+#: Include/Footer.php:220
 msgid "Administrative tools and global maintenance actions."
 msgstr "Инструменты администрирования и глобальные действия по обслуживанию."
 
-#: Include/Footer.php:228 v2/templates/people/canvassAutomation.php:111
+#: Include/Footer.php:229 v2/templates/people/canvassAutomation.php:111
 msgid "Administration"
 msgstr "Администрация"
 
-#: Include/Footer.php:233 v2/templates/email/mailchimp/managelist.php:102
+#: Include/Footer.php:234
 msgid "Edit General Settings"
 msgstr "Редактирование общих настроек"
 
-#: Include/Footer.php:239
+#: Include/Footer.php:240
 msgid "System Users"
 msgstr "Пользователи системы"
 
-#: Include/Footer.php:266
+#: Include/Footer.php:267
 msgid "Maintenance"
 msgstr "Техническое обслуживание"
 
-#: Include/Footer.php:289
+#: Include/Footer.php:290
 msgid "CSV Export Records"
 msgstr "Записи экспорта CSV"
 
-#: Include/Footer.php:326
+#: Include/Footer.php:327
 msgid "Pending actions"
 msgstr "Предстоящие действия"
 
-#: Include/Footer.php:327
+#: Include/Footer.php:328
 msgid "Follow up on the actions that still need attention."
 msgstr "Выполните действия, которые еще требуют внимания."
 
-#: Include/Footer.php:336
+#: Include/Footer.php:337
 msgid "All caught up"
 msgstr "Все схвачено"
 
-#: Include/Footer.php:337
+#: Include/Footer.php:338
 msgid "There are no open tasks at the moment."
 msgstr "На данный момент открытых заданий нет."
 
@@ -6230,7 +6143,7 @@ msgstr ""
 #: v2/templates/people/personview.php:1742
 #: v2/templates/people/reminderreport.php:50
 #: v2/templates/sundayschool/sundayschooldashboard.php:325
-#: v2/templates/user/userseditor.php:878 v2/templates/user/userseditor.php:879
+#: v2/templates/user/userseditor.php:867 v2/templates/user/userseditor.php:868
 #: v2/templates/user/usersettings.php:87 v2/templates/user/usersettings.php:88
 #: v2/templates/user/usersettings.php:350
 #: v2/templates/user/usersettings.php:351
@@ -6264,7 +6177,7 @@ msgid "View Issue on GitHub"
 msgstr "Посмотреть выпуск на GitHub"
 
 #: Include/Header-function.php:167
-#: external/templates/password/enter-username.php:32
+#: external/templates/password/enter-username.php:46
 #: v2/templates/system/integritycheck.php:52
 msgid "OK"
 msgstr "OK"
@@ -6421,7 +6334,7 @@ msgid "Canvass Progress Report"
 msgstr "Отчет о ходе агитации"
 
 #: Reports/CanvassReports.php:91
-#: external/templates/registration/family-register-done.php:46
+#: external/templates/registration/family-register-done.php:51
 msgid "Done"
 msgstr "Выполнено"
 
@@ -6796,7 +6709,6 @@ msgstr "Недоплата"
 #: v2/templates/deposit/depositslipeditor.php:32
 #: v2/templates/deposit/finddepositslip.php:63
 #: v2/templates/deposit/pledgeEditor.php:51
-#: v2/templates/email/mailchimp/campaign.php:150
 #: v2/templates/fundraiser/fundRaiserEditor.php:146
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:29
 #: v2/templates/people/canvassEditor.php:184
@@ -6990,67 +6902,67 @@ msgstr "Поделиться"
 msgid "Unable to reset password"
 msgstr "Невозможно сбросить пароль"
 
-#: external/templates/404.php:5 ident/templates/404.php:5
+#: external/templates/404.php:6 ident/templates/404.php:5
 #: kiosk/templates/404.php:5
 msgid "Page not fond"
 msgstr "Страница не увлекается"
 
-#: external/templates/404.php:15 ident/templates/404.php:15
+#: external/templates/404.php:23 ident/templates/404.php:15
 #: kiosk/templates/404.php:15
 msgid "Oops! Page not found."
 msgstr "Упс! Страница не найдена."
 
-#: external/templates/password/enter-username.php:8
-#: external/templates/password/password-check-email.php:8
-#: external/templates/registration/family-register-done.php:7
-#: external/templates/registration/family-register-members.php:8
-#: external/templates/registration/family-register.php:9
+#: external/templates/password/enter-username.php:9
+#: external/templates/password/password-check-email.php:9
+#: external/templates/registration/family-register-done.php:8
+#: external/templates/registration/family-register-members.php:9
+#: external/templates/registration/family-register.php:10
 msgid "Family Registration"
 msgstr "Семейная регистрация"
 
-#: external/templates/password/enter-username.php:19
+#: external/templates/password/enter-username.php:33
 msgid "Reset your password"
 msgstr "Сброс пароля"
 
-#: external/templates/password/enter-username.php:23
+#: external/templates/password/enter-username.php:37
 #: v2/templates/user/userseditor.php:93 v2/templates/user/userseditor.php:152
 msgid "Login Name"
 msgstr "Имя пользователя"
 
-#: external/templates/password/enter-username.php:52
+#: external/templates/password/enter-username.php:66
 msgid "Check your email for a password reset link"
 msgstr "Проверьте свою электронную почту на наличие ссылки для сброса пароля"
 
-#: external/templates/password/enter-username.php:60
+#: external/templates/password/enter-username.php:74
 msgid "Sorry, we are unable to process your request at this point in time."
 msgstr "К сожалению, в данный момент мы не можем обработать ваш запрос."
 
-#: external/templates/password/enter-username.php:64
+#: external/templates/password/enter-username.php:78
 msgid "Login Name is Required"
 msgstr "Имя пользователя обязательно"
 
-#: external/templates/password/password-check-email.php:28
+#: external/templates/password/password-check-email.php:33
 msgid "A new password was sent to you. Please check your email"
 msgstr ""
 "Вам был выслан новый пароль. Пожалуйста, проверьте свою электронную почту"
 
-#: external/templates/registration/family-register-done.php:19
+#: external/templates/registration/family-register-done.php:25
 msgid "Registration Complete"
 msgstr "Регистрация завершена"
 
-#: external/templates/registration/family-register-done.php:25
+#: external/templates/registration/family-register-done.php:30
 msgid "Thank you for registering your family."
 msgstr "Спасибо, что зарегистрировали свою семью."
 
-#: external/templates/registration/family-register-done.php:31
+#: external/templates/registration/family-register-done.php:36
 msgid "Member(s)"
 msgstr "Член(ы)"
 
-#: external/templates/registration/family-register-members.php:19
+#: external/templates/registration/family-register-members.php:28
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: external/templates/registration/family-register-members.php:19
+#: external/templates/registration/family-register-members.php:28
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:415
 #: v2/templates/pastoralcare/pastoralcarefamily.php:360
 #: v2/templates/pastoralcare/pastoralcareperson.php:500
@@ -7063,31 +6975,31 @@ msgstr "Зарегистрироваться"
 msgid "Family Members"
 msgstr "Члены семьи"
 
-#: external/templates/registration/family-register-members.php:34
+#: external/templates/registration/family-register-members.php:43
 msgid "Family Member"
 msgstr "Член семьи"
 
-#: external/templates/registration/family-register-members.php:102
+#: external/templates/registration/family-register-members.php:111
 #: sundayschool/SundaySchoolClassListExport.php:53
 msgid "Mobile"
 msgstr "Мобильный"
 
-#: external/templates/registration/family-register-members.php:155
-#: external/templates/registration/family-register.php:117
+#: external/templates/registration/family-register-members.php:164
+#: external/templates/registration/family-register.php:123
 #: v2/templates/deposit/financialReports.php:89
 #: v2/templates/group/groupreports.php:83
 msgid "Next"
 msgstr "Следующий"
 
-#: external/templates/registration/family-register.php:29
+#: external/templates/registration/family-register.php:35
 msgid "Register your family"
 msgstr "Зарегистрируйте свою семью"
 
-#: external/templates/registration/family-register.php:94
+#: external/templates/registration/family-register.php:100
 msgid "How many people are in your family"
 msgstr "Сколько человек в вашей семье"
 
-#: external/templates/registration/family-register.php:112
+#: external/templates/registration/family-register.php:118
 msgid "This will be my primary church."
 msgstr "Это будет моя основная церковь."
 
@@ -7179,8 +7091,8 @@ msgstr "Подтверждение нового пароля"
 msgid "Save"
 msgstr "Сохранить"
 
-#: ident/templates/verify/login-info.php:23 session/templates/session.php:215
-#: session/templates/session.php:307
+#: ident/templates/verify/login-info.php:23 session/templates/session.php:222
+#: session/templates/session.php:317
 msgid "Please Login"
 msgstr "Пожалуйста, войдите"
 
@@ -7228,7 +7140,6 @@ msgstr "Мы столкнулись с ошибкой при отправке в
 
 #: ident/templates/verify/verify-family-info.php:110
 #: ident/templates/verify/verify-person-info.php:103
-#: v2/templates/email/mailchimp/campaign.php:85
 msgid "Send"
 msgstr "Отправить"
 
@@ -7338,28 +7249,28 @@ msgstr "Эта учетная запись была деактивирована
 msgid "Invalid 2FA code"
 msgstr "Неверный код 2FA"
 
-#: session/templates/session.php:220 session/templates/session.php:314
+#: session/templates/session.php:227 session/templates/session.php:324
 msgid "Your previous session timed out.  Please login again."
 msgstr ""
 "Ваша предыдущая сессия завершилась.  Пожалуйста, войдите в систему снова."
 
-#: session/templates/session.php:260 session/templates/session.php:360
+#: session/templates/session.php:267 session/templates/session.php:369
 msgid "2FA : OTP key"
 msgstr "2FA : ключ OTP"
 
-#: session/templates/session.php:275
+#: session/templates/session.php:282
 msgid "I forgot my password"
 msgstr "Я забыл свой пароль"
 
-#: session/templates/session.php:287
+#: session/templates/session.php:294
 msgid "Register a new Family"
 msgstr "Зарегистрировать новую семью"
 
-#: session/templates/session.php:367
+#: session/templates/session.php:376
 msgid "Enter your password to retrieve your session"
 msgstr "Введите свой пароль для восстановления сеанса"
 
-#: session/templates/session.php:370
+#: session/templates/session.php:379
 msgid "Or sign in as a different user"
 msgstr "Или войдите в систему под другим пользователем"
 
@@ -7724,7 +7635,7 @@ msgstr "Добавление и регистрация"
 msgid "Add Visitor"
 msgstr "Добавить посетителя"
 
-#: v2/templates/calendar/checkin.php:324 v2/templates/user/userseditor.php:528
+#: v2/templates/calendar/checkin.php:324 v2/templates/user/userseditor.php:517
 #: v2/templates/user/usersettings.php:58 v2/templates/user/usersettings.php:110
 msgid "Notes"
 msgstr "Примечания"
@@ -7749,7 +7660,7 @@ msgstr "Вернуться к событиям"
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
 #: v2/templates/group/groupedit.php:101 v2/templates/group/groupview.php:401
-#: v2/templates/plugins/plugins.php:90
+#: v2/templates/plugins/plugins.php:91
 msgid "Description"
 msgstr "Описание"
 
@@ -8245,14 +8156,14 @@ msgstr "Имиджевая позиция"
 #: v2/templates/people/familyCustomFieldEditor.php:450
 #: v2/templates/people/personCustomEditor.php:335
 #: v2/templates/people/personCustomEditor.php:442
-#: v2/templates/user/userseditor.php:839 v2/templates/user/usersettings.php:472
+#: v2/templates/user/userseditor.php:828 v2/templates/user/usersettings.php:472
 msgid "Left"
 msgstr "Слева"
 
 #: v2/templates/cart/carttobadge.php:205 v2/templates/cart/carttobadge.php:211
 #: v2/templates/group/groupbadge.php:107 v2/templates/group/groupbadge.php:184
 #: v2/templates/group/groupbadge.php:190 v2/templates/group/groupbadge.php:223
-#: v2/templates/user/userseditor.php:840 v2/templates/user/usersettings.php:473
+#: v2/templates/user/userseditor.php:829 v2/templates/user/usersettings.php:473
 msgid "Center"
 msgstr "Центр"
 
@@ -8263,7 +8174,7 @@ msgstr "Центр"
 #: v2/templates/people/familyCustomFieldEditor.php:454
 #: v2/templates/people/personCustomEditor.php:339
 #: v2/templates/people/personCustomEditor.php:446
-#: v2/templates/user/userseditor.php:841 v2/templates/user/usersettings.php:474
+#: v2/templates/user/userseditor.php:830 v2/templates/user/usersettings.php:474
 msgid "Right"
 msgstr "Справа"
 
@@ -8434,7 +8345,7 @@ msgstr "Настроить страницу"
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:80
-#: v2/templates/plugins/plugins.php:110
+#: v2/templates/plugins/plugins.php:111
 msgid "Settings"
 msgstr "Настройки"
 
@@ -8893,6 +8804,11 @@ msgstr "Генерировать:"
 msgid "Only Families with unpaid pledges"
 msgstr "Только семьи с невыплаченными взносами"
 
+#: v2/templates/deposit/financialReports.php:414
+#: v2/templates/people/geopage.php:134
+msgid "All Families"
+msgstr "Все семьи"
+
 #: v2/templates/deposit/financialReports.php:423
 msgid "Report Heading:"
 msgstr "Заголовок отчета:"
@@ -9212,238 +9128,6 @@ msgstr "Рабочее пространство EDrive"
 #: v2/templates/edrive/dashboard.php:90
 msgid "Files"
 msgstr "Файлы"
-
-#: v2/templates/email/mailchimp/campaign.php:34
-msgid "Opened"
-msgstr "Открыт"
-
-#: v2/templates/email/mailchimp/campaign.php:42
-msgid "Clicked"
-msgstr "Нажмите"
-
-#: v2/templates/email/mailchimp/campaign.php:50
-msgid "Bounced"
-msgstr "Отскочил"
-
-#: v2/templates/email/mailchimp/campaign.php:58
-msgid "Unsubscribed"
-msgstr "Без подписки"
-
-#: v2/templates/email/mailchimp/campaign.php:69
-msgid "Email Campaign Management"
-msgstr "Управление кампаниями по электронной почте"
-
-#: v2/templates/email/mailchimp/campaign.php:70
-msgid "Compose content and schedule sending from one screen."
-msgstr "Составляйте контент и планируйте отправку с одного экрана."
-
-#: v2/templates/email/mailchimp/campaign.php:79
-#: v2/templates/email/mailchimp/dashboard.php:59
-#: v2/templates/email/mailchimp/managelist.php:30
-#: v2/templates/people/familyEditor.php:1157
-msgid "Quick actions"
-msgstr "Быстрые действия"
-
-#: v2/templates/email/mailchimp/campaign.php:82
-msgid "Save Campaign"
-msgstr "Кампания по спасению"
-
-#: v2/templates/email/mailchimp/campaign.php:98
-msgid "Mail Subject"
-msgstr "Тема письма"
-
-#: v2/templates/email/mailchimp/campaign.php:98
-msgid "Content"
-msgstr "Содержание"
-
-#: v2/templates/email/mailchimp/campaign.php:102
-msgid "Subject"
-msgstr "Тема"
-
-#: v2/templates/email/mailchimp/campaign.php:104
-msgid "Your Mail Subject"
-msgstr "Тема вашего письма"
-
-#: v2/templates/email/mailchimp/campaign.php:109
-msgid "You can use the button \"Merge Tags\" below, to customize your content"
-msgstr ""
-"Вы можете использовать кнопку \"Объединить теги\", расположенную ниже, для "
-"настройки вашего контента"
-
-#: v2/templates/email/mailchimp/campaign.php:120
-msgid "Tags"
-msgstr "Теги"
-
-#: v2/templates/email/mailchimp/campaign.php:136
-#: v2/templates/people/selectDelete.php:289
-msgid "Schedule"
-msgstr "Расписание"
-
-#: v2/templates/email/mailchimp/campaign.php:146
-msgid "You've first to create a content below to schedule a campaign."
-msgstr "Чтобы запланировать кампанию, сначала нужно создать контент ниже."
-
-#: v2/templates/email/mailchimp/campaign.php:147
-msgid ""
-"Campaigns may only be scheduled to send on the quarter-hour "
-"(:00, :15, :30, :45)."
-msgstr ""
-"Кампании могут быть запланированы для отправки только на четверть часа "
-"(:00, :15, :30, :45)."
-
-#: v2/templates/email/mailchimp/campaign.php:159
-msgid "Time"
-msgstr "Время"
-
-#: v2/templates/email/mailchimp/campaign.php:167
-msgid ""
-"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
-"over."
-msgstr ""
-"Для проверки сохраните кампанию с помощью кнопки <b>\"Сохранить кампанию\"</"
-"b>."
-
-#: v2/templates/email/mailchimp/dashboard.php:16
-msgid "MailChimp Problem"
-msgstr "Проблема MailChimp"
-
-#: v2/templates/email/mailchimp/dashboard.php:17
-msgid "Mailchimp Status"
-msgstr "Статус Mailchimp"
-
-#: v2/templates/email/mailchimp/dashboard.php:27
-msgid "field"
-msgstr "поле"
-
-#: v2/templates/email/mailchimp/dashboard.php:27
-msgid "Message"
-msgstr "Сообщение"
-
-#: v2/templates/email/mailchimp/dashboard.php:43
-msgid "MailChimp Management"
-msgstr "Управление MailChimp"
-
-#: v2/templates/email/mailchimp/dashboard.php:44
-msgid "Create audiences, sync contacts, and manage campaign data."
-msgstr ""
-"Создавайте аудитории, синхронизируйте контакты и управляйте данными кампаний."
-
-#: v2/templates/email/mailchimp/dashboard.php:52
-msgid "MailChimp is working correctly"
-msgstr "MailChimp работает правильно"
-
-#: v2/templates/email/mailchimp/dashboard.php:61
-msgid "Create an audience or List"
-msgstr "Создайте аудиторию или список"
-
-#: v2/templates/email/mailchimp/dashboard.php:62
-msgid "Create list"
-msgstr "Создать список"
-
-#: v2/templates/email/mailchimp/dashboard.php:65
-msgid "Generate CSV"
-msgstr "Сгенерировать CSV"
-
-#: v2/templates/email/mailchimp/dashboard.php:82
-msgid "You can import the generated CSV file to external email system."
-msgstr ""
-"Сгенерированный CSV-файл можно импортировать во внешнюю почтовую систему."
-
-#: v2/templates/email/mailchimp/dashboard.php:83
-msgid "For MailChimp see"
-msgstr "Для MailChimp см."
-
-#: v2/templates/email/mailchimp/dashboard.php:84
-msgid "import subscribers to a list."
-msgstr "импортировать подписчиков в список."
-
-#: v2/templates/email/mailchimp/dashboard.php:90
-msgid "All your lists"
-msgstr "Все ваши списки"
-
-#: v2/templates/email/mailchimp/duplicateemails.php:16
-#: v2/templates/email/mailchimp/duplicateemails.php:26
-msgid "Duplicate Emails"
-msgstr "Дублирование писем"
-
-#: v2/templates/email/mailchimp/duplicateemails.php:17
-msgid "Review duplicates before syncing audiences."
-msgstr "Просматривайте дубликаты перед синхронизацией аудиторий."
-
-#: v2/templates/email/mailchimp/managelist.php:20
-msgid "Manage Email List"
-msgstr "Управление списком адресов электронной почты"
-
-#: v2/templates/email/mailchimp/managelist.php:21
-msgid "Manage subscribers and campaigns for this audience."
-msgstr "Управляйте подписчиками и кампаниями для этой аудитории."
-
-#: v2/templates/email/mailchimp/managelist.php:34
-msgid "Create a Campaign"
-msgstr "Создать кампанию"
-
-#: v2/templates/email/mailchimp/managelist.php:42
-msgid "Delete All Subscribers"
-msgstr "Удалить всех подписчиков"
-
-#: v2/templates/email/mailchimp/managelist.php:45
-msgid "Modify Properties"
-msgstr "Изменить свойства"
-
-#: v2/templates/email/mailchimp/managelist.php:61
-msgid "Subscribers"
-msgstr "Подписчики"
-
-#: v2/templates/email/mailchimp/managelist.php:65
-msgid ""
-"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
-"to add all members of the CRM, use <b>*</b>"
-msgstr ""
-"Чтобы добавить всех пользователей рассылки, введите <b>NewLetter</b> в поле "
-"поиска, чтобы добавить всех членов CRM, используйте <b>*</b>."
-
-#: v2/templates/email/mailchimp/managelist.php:70
-#: v2/templates/sundayschool/sundayschooldashboard.php:327
-#: v2/templates/sundayschool/sundayschoolview.php:177
-#: v2/templates/volunteer/volunteerview.php:271
-msgid "Add"
-msgstr "Добавить"
-
-#: v2/templates/email/mailchimp/managelist.php:76
-msgid "Keywords"
-msgstr "Ключевые слова"
-
-#: v2/templates/email/mailchimp/managelist.php:100
-msgid "is not configured"
-msgstr "не настроен"
-
-#: v2/templates/email/mailchimp/managelist.php:101
-msgid "Please update the"
-msgstr "Пожалуйста, обновите"
-
-#: v2/templates/email/mailchimp/managelist.php:101
-msgid "API key in Setting->"
-msgstr "Ключ API в разделе Настройка->"
-
-#: v2/templates/email/mailchimp/managelist.php:103
-msgid "then update"
-msgstr "затем обновить"
-
-#: v2/templates/email/mailchimp/managelist.php:104
-msgid "For more info see our "
-msgstr "Для получения дополнительной информации см."
-
-#: v2/templates/email/mailchimp/managelist.php:105
-msgid "support docs."
-msgstr "вспомогательные документы."
-
-#: v2/templates/email/mailchimp/notinmailchimpemailsfamilies.php:17
-msgid "Families missing Mailchimp email matches."
-msgstr "Семьи, не имеющие соответствия электронной почте Mailchimp."
-
-#: v2/templates/email/mailchimp/notinmailchimpemailspersons.php:17
-msgid "Persons missing Mailchimp email matches."
-msgstr "Лица, отсутствующие в электронной почте Mailchimp."
 
 #: v2/templates/error/404.php:17
 msgid "Oops! Can't find route for "
@@ -10737,6 +10421,15 @@ msgstr "Текстовое сообщение"
 msgid "CRM text message"
 msgstr "Текстовое сообщение CRM"
 
+#: v2/templates/pastoralcare/pastoralcarefamily.php:220
+#: v2/templates/pastoralcare/pastoralcareperson.php:313
+#: v2/templates/pastoralcare/pastoralcareperson.php:336
+#: v2/templates/people/familyview.php:201
+#: v2/templates/people/personview.php:371
+#, fuzzy
+msgid "Mail Lists"
+msgstr "Списки электронной почты"
+
 #: v2/templates/pastoralcare/pastoralcarefamily.php:346
 #: v2/templates/people/selectDelete.php:164
 msgid "Return to Family View"
@@ -11481,6 +11174,10 @@ msgstr ""
 "Создайте или обновите данные о людях, которые в настоящее время прикреплены "
 "к этому домохозяйству."
 
+#: v2/templates/people/familyEditor.php:1157
+msgid "Quick actions"
+msgstr "Быстрые действия"
+
 #: v2/templates/people/familyEditor.php:1158
 msgid "Build the household progressively"
 msgstr "Стройте дом постепенно"
@@ -11692,13 +11389,13 @@ msgstr "Получить vCard семьи"
 
 #: v2/templates/people/familyview.php:341
 #: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:57
-#: v2/templates/plugins/plugins.php:113
+#: v2/templates/plugins/plugins.php:114
 msgid "Deactivate"
 msgstr "Деактивировать"
 
 #: v2/templates/people/familyview.php:341
 #: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:56
-#: v2/templates/plugins/plugins.php:113
+#: v2/templates/plugins/plugins.php:114
 msgid "Activate"
 msgstr "Активировать"
 
@@ -12212,6 +11909,10 @@ msgstr "# Количество человек"
 #: v2/templates/people/peopledashboard.php:542
 msgid "# number of people"
 msgstr "# количество людей"
+
+#: v2/templates/people/peopledashboard.php:581
+msgid "people"
+msgstr "люди"
 
 #: v2/templates/people/peoplelist.php:30
 msgid ""
@@ -12903,6 +12604,10 @@ msgstr "Переместить пожертвования выбранному �
 msgid "Delete Donations of Selected Person"
 msgstr "Удалить пожертвования выбранного человека"
 
+#: v2/templates/people/selectDelete.php:289
+msgid "Schedule"
+msgstr "Расписание"
+
 #: v2/templates/people/selectDelete.php:292
 msgid "Date Updated"
 msgstr "Дата обновления"
@@ -12962,7 +12667,7 @@ msgstr "Управление плагинами"
 msgid "Add a plugin"
 msgstr "Добавить плагин"
 
-#: v2/templates/plugins/plugins.php:40 v2/templates/plugins/plugins.php:139
+#: v2/templates/plugins/plugins.php:40 v2/templates/plugins/plugins.php:151
 msgid "Add new plugin"
 msgstr "Добавить новый плагин"
 
@@ -12986,39 +12691,48 @@ msgstr "Активированный"
 msgid "Check all boxes"
 msgstr "Отметьте все поля"
 
-#: v2/templates/plugins/plugins.php:89 v2/templates/system/infos.php:250
-#: v2/templates/system/integritycheck.php:135
+#: v2/templates/plugins/plugins.php:89 v2/templates/plugins/plugins.php:126
+#: v2/templates/system/infos.php:250 v2/templates/system/integritycheck.php:135
 #: v2/templates/system/integritycheck.php:230
 #: v2/templates/user/usersettings.php:375
 #: v2/templates/user/usersettings.php:428
 msgid "Plugin"
 msgstr "Плагин"
 
-#: v2/templates/plugins/plugins.php:92
+#: v2/templates/plugins/plugins.php:90
+msgid "Category"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:93
 msgid "Update"
 msgstr "Обновление"
 
-#: v2/templates/plugins/plugins.php:115
+#: v2/templates/plugins/plugins.php:116
 msgid "Guided tour"
 msgstr "Экскурсия с гидом"
 
-#: v2/templates/plugins/plugins.php:123
+#: v2/templates/plugins/plugins.php:124
+#, fuzzy
+msgid "Widget"
+msgstr "Виджеты"
+
+#: v2/templates/plugins/plugins.php:135
 msgid "By"
 msgstr "По ссылке"
 
-#: v2/templates/plugins/plugins.php:127
+#: v2/templates/plugins/plugins.php:139
 msgid "Details"
 msgstr "Подробности"
 
-#: v2/templates/plugins/plugins.php:131
+#: v2/templates/plugins/plugins.php:143
 msgid "Activated Plugin"
 msgstr "Активированный плагин"
 
-#: v2/templates/plugins/plugins.php:133
+#: v2/templates/plugins/plugins.php:145
 msgid "Deactivated Plugin"
 msgstr "Деактивированный плагин"
 
-#: v2/templates/plugins/plugins.php:143
+#: v2/templates/plugins/plugins.php:155
 msgid "Update/upgrade"
 msgstr "Обновление/модернизация"
 
@@ -13241,7 +12955,7 @@ msgid "Edit JSON Settings"
 msgstr "Редактирование настроек JSON"
 
 #: v2/templates/sidebar/systemsettings.php:267
-#: v2/templates/user/userseditor.php:881 v2/templates/user/userseditor.php:882
+#: v2/templates/user/userseditor.php:870 v2/templates/user/userseditor.php:871
 #: v2/templates/user/usersettings.php:90 v2/templates/user/usersettings.php:91
 #: v2/templates/user/usersettings.php:353
 #: v2/templates/user/usersettings.php:354
@@ -13251,7 +12965,7 @@ msgid "Save Settings"
 msgstr "Сохранить настройки"
 
 #: v2/templates/sidebar/systemsettings.php:283
-#: v2/templates/user/userseditor.php:526 v2/templates/user/usersettings.php:60
+#: v2/templates/user/userseditor.php:515 v2/templates/user/usersettings.php:60
 #: v2/templates/user/usersettings.php:112
 msgid "Variable name"
 msgstr "Имя переменной"
@@ -13261,13 +12975,13 @@ msgid "Default Value"
 msgstr "Значение по умолчанию"
 
 #: v2/templates/sidebar/systemsettings.php:354
-#: v2/templates/user/userseditor.php:563 v2/templates/user/userseditor.php:616
+#: v2/templates/user/userseditor.php:552 v2/templates/user/userseditor.php:605
 #: v2/templates/user/usersettings.php:302
 msgid "False"
 msgstr "Ложь"
 
 #: v2/templates/sidebar/systemsettings.php:355
-#: v2/templates/user/userseditor.php:564 v2/templates/user/userseditor.php:617
+#: v2/templates/user/userseditor.php:553 v2/templates/user/userseditor.php:606
 #: v2/templates/user/usersettings.php:303
 msgid "True"
 msgstr "Правда"
@@ -13369,6 +13083,12 @@ msgstr "Добавить класс воскресной школы"
 #: v2/templates/sundayschool/sundayschooldashboard.php:319
 msgid "Enter Name"
 msgstr "Введите имя"
+
+#: v2/templates/sundayschool/sundayschooldashboard.php:327
+#: v2/templates/sundayschool/sundayschoolview.php:177
+#: v2/templates/volunteer/volunteerview.php:271
+msgid "Add"
+msgstr "Добавить"
 
 #: v2/templates/sundayschool/sundayschoolreports.php:24
 msgid "Reports Actions"
@@ -14588,17 +14308,17 @@ msgstr "Человек для создания пользователя"
 msgid "Note: Changes will not take effect until next logon."
 msgstr "Примечание: Изменения не вступят в силу до следующего входа в систему."
 
-#: v2/templates/user/userseditor.php:129 v2/templates/user/userseditor.php:693
-#: v2/templates/user/userseditor.php:847
+#: v2/templates/user/userseditor.php:129 v2/templates/user/userseditor.php:682
+#: v2/templates/user/userseditor.php:836
 msgid "User"
 msgstr "Пользователь"
 
-#: v2/templates/user/userseditor.php:172 v2/templates/user/userseditor.php:863
+#: v2/templates/user/userseditor.php:172 v2/templates/user/userseditor.php:852
 msgid "Global Permissions"
 msgstr "Глобальные разрешения"
 
-#: v2/templates/user/userseditor.php:188 v2/templates/user/userseditor.php:694
-#: v2/templates/user/userseditor.php:848
+#: v2/templates/user/userseditor.php:188 v2/templates/user/userseditor.php:683
+#: v2/templates/user/userseditor.php:837
 msgid "Admin"
 msgstr "Администратор"
 
@@ -14734,23 +14454,19 @@ msgstr "Волонтер для проведения агитации."
 msgid "Allow to manage the query menu"
 msgstr "Позволяет управлять меню запросов"
 
-#: v2/templates/user/userseditor.php:473
-msgid "Allow a user to use MailChimp tool"
-msgstr "Разрешить пользователю использовать инструмент MailChimp"
-
-#: v2/templates/user/userseditor.php:483
+#: v2/templates/user/userseditor.php:472
 msgid "GRPD Data Protection Officer"
 msgstr "Сотрудник по защите данных GRPD"
 
-#: v2/templates/user/userseditor.php:485
+#: v2/templates/user/userseditor.php:474
 msgid "General Data Protection Regulation in UE"
 msgstr "Общее положение о защите данных в ЕС"
 
-#: v2/templates/user/userseditor.php:513 v2/templates/user/userseditor.php:864
+#: v2/templates/user/userseditor.php:502 v2/templates/user/userseditor.php:853
 msgid "Modifiable Permissions"
 msgstr "Изменяемые разрешения"
 
-#: v2/templates/user/userseditor.php:519
+#: v2/templates/user/userseditor.php:508
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -14758,45 +14474,45 @@ msgstr ""
 "Установите Permission True, чтобы дать этому пользователю возможность "
 "изменить его текущее значение."
 
-#: v2/templates/user/userseditor.php:525
+#: v2/templates/user/userseditor.php:514
 msgid "Permission"
 msgstr "Разрешение"
 
-#: v2/templates/user/userseditor.php:527 v2/templates/user/usersettings.php:59
+#: v2/templates/user/userseditor.php:516 v2/templates/user/usersettings.php:59
 #: v2/templates/user/usersettings.php:111
 msgid "Current Value"
 msgstr "Текущая стоимость"
 
-#: v2/templates/user/userseditor.php:668 v2/templates/user/userseditor.php:865
+#: v2/templates/user/userseditor.php:657 v2/templates/user/userseditor.php:854
 msgid "Plugin permissions"
 msgstr "Разрешения плагина"
 
-#: v2/templates/user/userseditor.php:709
+#: v2/templates/user/userseditor.php:698
 msgid "Visibilities of the dashboard plugins"
 msgstr "Видимость плагинов приборной панели"
 
-#: v2/templates/user/userseditor.php:713 v2/templates/user/usersettings.php:373
+#: v2/templates/user/userseditor.php:702 v2/templates/user/usersettings.php:373
 msgid "Widgets"
 msgstr "Виджеты"
 
-#: v2/templates/user/userseditor.php:719 v2/templates/user/userseditor.php:787
+#: v2/templates/user/userseditor.php:708 v2/templates/user/userseditor.php:776
 msgid "Security"
 msgstr "Безопасность"
 
-#: v2/templates/user/userseditor.php:725 v2/templates/user/userseditor.php:793
+#: v2/templates/user/userseditor.php:714 v2/templates/user/userseditor.php:782
 #: v2/templates/user/usersettings.php:430
 msgid "Position"
 msgstr "Позиция"
 
-#: v2/templates/user/userseditor.php:770 v2/templates/user/usersettings.php:418
+#: v2/templates/user/userseditor.php:759 v2/templates/user/usersettings.php:418
 msgid "widget"
 msgstr "виджет"
 
-#: v2/templates/user/userseditor.php:781 v2/templates/user/usersettings.php:426
+#: v2/templates/user/userseditor.php:770 v2/templates/user/usersettings.php:426
 msgid "Dashboard Plugins"
 msgstr "Плагины для приборной панели"
 
-#: v2/templates/user/userseditor.php:838 v2/templates/user/usersettings.php:471
+#: v2/templates/user/userseditor.php:827 v2/templates/user/usersettings.php:471
 msgid "Top"
 msgstr "Топ"
 
@@ -15876,6 +15592,213 @@ msgstr "Несколько дней"
 
 msgid "Giving Report"
 msgstr "Отчет о пожертвованиях"
+
+#~ msgid "persons"
+#~ msgstr "лица"
+
+#~ msgid "All People"
+#~ msgstr "Все люди"
+
+#~ msgid "newsletter"
+#~ msgstr "информационный бюллетень"
+
+#~ msgid "MailChimp"
+#~ msgstr "MailChimp"
+
+#~ msgid "Email Lists"
+#~ msgstr "Списки адресов электронной почты"
+
+#~ msgid "MailChimp Dashboard"
+#~ msgstr "Приборная панель MailChimp"
+
+#~ msgid "Email Campaign"
+#~ msgstr "Кампания по электронной почте"
+
+#~ msgid "Email List"
+#~ msgstr "Список адресов электронной почты"
+
+#~ msgid "Find Duplicate Emails"
+#~ msgstr "Поиск дубликатов электронных писем"
+
+#~ msgid "Persons Not In MailChimp"
+#~ msgstr "Лица, отсутствующие в MailChimp"
+
+#~ msgid "Families Not In MailChimp"
+#~ msgstr "Семьи, которых нет в MailChimp"
+
+#~ msgid "MailChimp API request time out in seconds"
+#~ msgstr "Время ожидания запроса API MailChimp в секундах"
+
+#~ msgid "email address of the mailchimp sender."
+#~ msgstr "адрес электронной почты отправителя mailchimp."
+
+#~ msgid "Opened"
+#~ msgstr "Открыт"
+
+#~ msgid "Clicked"
+#~ msgstr "Нажмите"
+
+#~ msgid "Bounced"
+#~ msgstr "Отскочил"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Без подписки"
+
+#~ msgid "Email Campaign Management"
+#~ msgstr "Управление кампаниями по электронной почте"
+
+#~ msgid "Compose content and schedule sending from one screen."
+#~ msgstr "Составляйте контент и планируйте отправку с одного экрана."
+
+#~ msgid "Save Campaign"
+#~ msgstr "Кампания по спасению"
+
+#~ msgid "Mail Subject"
+#~ msgstr "Тема письма"
+
+#~ msgid "Content"
+#~ msgstr "Содержание"
+
+#~ msgid "Subject"
+#~ msgstr "Тема"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "Тема вашего письма"
+
+#~ msgid ""
+#~ "You can use the button \"Merge Tags\" below, to customize your content"
+#~ msgstr ""
+#~ "Вы можете использовать кнопку \"Объединить теги\", расположенную ниже, "
+#~ "для настройки вашего контента"
+
+#~ msgid "Tags"
+#~ msgstr "Теги"
+
+#~ msgid "You've first to create a content below to schedule a campaign."
+#~ msgstr "Чтобы запланировать кампанию, сначала нужно создать контент ниже."
+
+#~ msgid ""
+#~ "Campaigns may only be scheduled to send on the quarter-hour "
+#~ "(:00, :15, :30, :45)."
+#~ msgstr ""
+#~ "Кампании могут быть запланированы для отправки только на четверть часа "
+#~ "(:00, :15, :30, :45)."
+
+#~ msgid "Time"
+#~ msgstr "Время"
+
+#~ msgid ""
+#~ "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+#~ "over."
+#~ msgstr ""
+#~ "Для проверки сохраните кампанию с помощью кнопки <b>\"Сохранить "
+#~ "кампанию\"</b>."
+
+#~ msgid "MailChimp Problem"
+#~ msgstr "Проблема MailChimp"
+
+#~ msgid "Mailchimp Status"
+#~ msgstr "Статус Mailchimp"
+
+#~ msgid "field"
+#~ msgstr "поле"
+
+#~ msgid "Message"
+#~ msgstr "Сообщение"
+
+#~ msgid "MailChimp Management"
+#~ msgstr "Управление MailChimp"
+
+#~ msgid "Create audiences, sync contacts, and manage campaign data."
+#~ msgstr ""
+#~ "Создавайте аудитории, синхронизируйте контакты и управляйте данными "
+#~ "кампаний."
+
+#~ msgid "MailChimp is working correctly"
+#~ msgstr "MailChimp работает правильно"
+
+#~ msgid "Create an audience or List"
+#~ msgstr "Создайте аудиторию или список"
+
+#~ msgid "Create list"
+#~ msgstr "Создать список"
+
+#~ msgid "Generate CSV"
+#~ msgstr "Сгенерировать CSV"
+
+#~ msgid "You can import the generated CSV file to external email system."
+#~ msgstr ""
+#~ "Сгенерированный CSV-файл можно импортировать во внешнюю почтовую систему."
+
+#~ msgid "For MailChimp see"
+#~ msgstr "Для MailChimp см."
+
+#~ msgid "import subscribers to a list."
+#~ msgstr "импортировать подписчиков в список."
+
+#~ msgid "All your lists"
+#~ msgstr "Все ваши списки"
+
+#~ msgid "Duplicate Emails"
+#~ msgstr "Дублирование писем"
+
+#~ msgid "Review duplicates before syncing audiences."
+#~ msgstr "Просматривайте дубликаты перед синхронизацией аудиторий."
+
+#~ msgid "Manage Email List"
+#~ msgstr "Управление списком адресов электронной почты"
+
+#~ msgid "Manage subscribers and campaigns for this audience."
+#~ msgstr "Управляйте подписчиками и кампаниями для этой аудитории."
+
+#~ msgid "Create a Campaign"
+#~ msgstr "Создать кампанию"
+
+#~ msgid "Delete All Subscribers"
+#~ msgstr "Удалить всех подписчиков"
+
+#~ msgid "Modify Properties"
+#~ msgstr "Изменить свойства"
+
+#~ msgid "Subscribers"
+#~ msgstr "Подписчики"
+
+#~ msgid ""
+#~ "To add all the newsletter users, type <b>NewLetter</b> in the search "
+#~ "field, to add all members of the CRM, use <b>*</b>"
+#~ msgstr ""
+#~ "Чтобы добавить всех пользователей рассылки, введите <b>NewLetter</b> в "
+#~ "поле поиска, чтобы добавить всех членов CRM, используйте <b>*</b>."
+
+#~ msgid "Keywords"
+#~ msgstr "Ключевые слова"
+
+#~ msgid "is not configured"
+#~ msgstr "не настроен"
+
+#~ msgid "Please update the"
+#~ msgstr "Пожалуйста, обновите"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "Ключ API в разделе Настройка->"
+
+#~ msgid "then update"
+#~ msgstr "затем обновить"
+
+#~ msgid "For more info see our "
+#~ msgstr "Для получения дополнительной информации см."
+
+#~ msgid "support docs."
+#~ msgstr "вспомогательные документы."
+
+#~ msgid "Families missing Mailchimp email matches."
+#~ msgstr "Семьи, не имеющие соответствия электронной почте Mailchimp."
+
+#~ msgid "Persons missing Mailchimp email matches."
+#~ msgstr "Лица, отсутствующие в электронной почте Mailchimp."
+
+#~ msgid "Allow a user to use MailChimp tool"
+#~ msgstr "Разрешить пользователю использовать инструмент MailChimp"
 
 #~ msgid "Clone roles"
 #~ msgstr "Роли клонов"
@@ -17044,9 +16967,6 @@ msgstr "Отчет о пожертвованиях"
 
 #~ msgid "Note Title"
 #~ msgstr "Примечание Название"
-
-#~ msgid "eMail Lists"
-#~ msgstr "Списки электронной почты"
 
 #~ msgid "Create a Mailing list"
 #~ msgstr "Создайте список рассылки"

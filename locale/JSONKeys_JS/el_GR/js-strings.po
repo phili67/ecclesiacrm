@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -704,16 +704,6 @@ msgstr "Σε εξέλιξη"
 msgid "Please wait while the operation is being completed"
 msgstr "Παρακαλώ περιμένετε όσο ολοκληρώνεται η λειτουργία"
 
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Όλες οι λίστες έχουν πλέον φορτωθεί στο CRM. 1235  4568 Αν θέλετε να τις "
-"διαχειριστείτε, κάντε κλικ σε αυτή την ειδοποίηση ! 7899 "
-
 msgid "There was a problem retrieving the requested object"
 msgstr "Υπήρξε πρόβλημα στην ανάκτηση του ζητούμενου αντικειμένου"
 
@@ -1112,430 +1102,6 @@ msgstr "Δημιουργία εγγράφου"
 msgid "You have to set a Title for your document"
 msgstr "Πρέπει να ορίσετε έναν τίτλο για το έγγραφό σας"
 
-msgid "Saving Campaign ..."
-msgstr "Εξοικονόμηση εκστρατείας ..."
-
-msgid "Campaign"
-msgstr "Εκστρατεία"
-
-msgid "saved successfully"
-msgstr "αποθηκεύτηκε με επιτυχία"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Είστε έτοιμοι να στείλετε την καμπάνια σας! Είστε σίγουροι;"
-
-msgid "Yes"
-msgstr "Ναι"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Πρόκειται να διαγράψετε την καμπάνια σας! Είσαι σίγουρος;"
-
-msgid "Loading..."
-msgstr "Φόρτωση..."
-
-msgid "Loading data..."
-msgstr "Φόρτωση δεδομένων..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "Παρακαλούμε περιμένετε μέχρι να ανακτήσουμε τις λίστες του MailChimp."
-
-msgid "No list are created with this account ...."
-msgstr "Δεν δημιουργούνται λίστες με αυτόν τον λογαριασμό ...."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr ""
-"Μπορείτε να δημιουργήσετε μια νέα λίστα MailChimp χρησιμοποιώντας το "
-"παραπάνω κουμπί."
-
-msgid "Email List"
-msgstr "Λίστα ηλεκτρονικού ταχυδρομείου"
-
-msgid "Details"
-msgstr "Λεπτομέρειες"
-
-msgid "Subject"
-msgstr "Θέμα"
-
-msgid "Members:"
-msgstr "Μέλη:"
-
-msgid "Unsubscribed count:"
-msgstr "Αριθμός μη εγγεγραμμένων:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Αριθμός μη εγγεγραμμένων από την τελευταία αποστολή:"
-
-msgid "Cleaned count:"
-msgstr "Καθαρισμένο μέτρημα:"
-
-msgid "Cleaned count since last send:"
-msgstr "Καθαρισμένη μέτρηση από την τελευταία αποστολή:"
-
-msgid "Campaigns"
-msgstr "Εκστρατείες"
-
-msgid "Tags"
-msgstr "Ετικέτες"
-
-msgid "is not configured"
-msgstr "δεν έχει ρυθμιστεί"
-
-msgid "Please update the"
-msgstr "Ενημερώστε το"
-
-msgid "API key in Setting->"
-msgstr "Κλειδί API στο Setting->"
-
-msgid "Edit General Settings"
-msgstr "Επεξεργασία γενικών ρυθμίσεων"
-
-msgid "Then update"
-msgstr "Στη συνέχεια, ενημερώστε"
-
-msgid "For more info see our "
-msgstr "Για περισσότερες πληροφορίες δείτε το"
-
-msgid "support docs."
-msgstr "έγγραφα υποστήριξης."
-
-msgid "List Title"
-msgstr "Τίτλος λίστας"
-
-msgid "Your List Title"
-msgstr "Ο τίτλος της λίστας σας"
-
-msgid "Your Subject"
-msgstr "Το θέμα σας"
-
-msgid "Permission Reminder"
-msgstr "Υπενθύμιση άδειας"
-
-msgid "Archive Bars"
-msgstr "Μπαρ αρχείου"
-
-msgid "Public"
-msgstr "Δημόσιο"
-
-msgid "List Creation"
-msgstr "Δημιουργία λίστας"
-
-msgid "You're about to delete a tag!"
-msgstr "Πρόκειται να διαγράψετε μια ετικέτα!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Αυτό θα διαγράψει επίσης την ετικέτα για όλα τα μέλη αυτής της λίστας. Είστε "
-"σίγουροι;"
-
-msgid "Deleting tag"
-msgstr "Διαγραφή ετικέτας"
-
-msgid "People"
-msgstr "Άνθρωποι"
-
-msgid "Families"
-msgstr "Οικογένειες"
-
-msgid "Add a new tag"
-msgstr "Προσθήκη νέας ετικέτας"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Διαγραφή ετικέτας από συνδρομητές"
-
-msgid "Delete tag"
-msgstr "Διαγραφή ετικέτας"
-
-msgid "Loading resources ..."
-msgstr "Φόρτωση πόρων ..."
-
-msgid "Check all boxes"
-msgstr "Σημειώστε όλα τα κουτάκια"
-
-msgid "Subscribed"
-msgstr "Συνδρομημένος"
-
-msgid "Unsubscribed"
-msgstr "Μη εγγεγραμμένοι"
-
-msgid "Email Marketing"
-msgstr "Μάρκετινγκ ηλεκτρονικού ταχυδρομείου"
-
-msgid "New tag"
-msgstr "Νέα ετικέτα"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-"Εισάγετε το όνομα της ετικέτας που θα δημιουργηθεί και θα εφαρμοστεί στα "
-"επιλεγμένα μέλη."
-
-msgid "Create tag"
-msgstr "Δημιουργία ετικέτας"
-
-msgid "Adding tag..."
-msgstr "Προσθήκη ετικέτας..."
-
-msgid "Name is empty !!"
-msgstr "Το όνομα είναι άδειο !!"
-
-msgid "Add tag"
-msgstr "Προσθήκη ετικέτας"
-
-msgid "Selected tag"
-msgstr "Επιλεγμένη ετικέτα"
-
-msgid "This will add the tag"
-msgstr "Αυτό θα προσθέσει την ετικέτα"
-
-msgid "to all the current selected members in the list."
-msgstr "σε όλα τα τρέχοντα επιλεγμένα μέλη της λίστας."
-
-msgid "Select One"
-msgstr "Επιλέξτε ένα"
-
-msgid "All Tags"
-msgstr "Όλες οι ετικέτες"
-
-msgid "Remove tags from selected members"
-msgstr "Αφαίρεση ετικετών από επιλεγμένα μέλη"
-
-msgid "Choose a tag"
-msgstr "Επιλέξτε μια ετικέτα"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"Επιλέξτε μια ετικέτα για να την αφαιρέσετε ή επιλέξτε όλες τις ετικέτες για "
-"πλήρη καθαρισμό των επιλεγμένων μελών."
-
-msgid "Apply"
-msgstr "Εφαρμογή"
-
-msgid "Removing tags..."
-msgstr "Αφαίρεση ετικετών..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Διαγραφή όλων των ετικετών για τα επιλεγμένα μέλη στη λίστα..."
-
-msgid "This action affects the whole list"
-msgstr "Αυτή η ενέργεια επηρεάζει ολόκληρη τη λίστα"
-
-msgid "Keep tag"
-msgstr "Κρατήστε την ετικέτα"
-
-msgid "A person name or Family or Group"
-msgstr "Όνομα προσώπου ή οικογένειας ή ομάδας"
-
-msgid "Loading subscriber"
-msgstr "Φόρτωση συνδρομητή"
-
-msgid "Loading subscribers from Group"
-msgstr "Φόρτωση συνδρομητών από Ομάδα"
-
-msgid "Loading subscribers from family"
-msgstr "Φόρτωση συνδρομητών από την οικογένεια"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr ""
-"Φόρτωση όλων των ατόμων από το EcclesiaCRM<br>Αυτό μπορεί να πάρει λίγο "
-"χρόνο!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Στην πραγματικότητα, καλύτερα να κλείσετε το CRM, να περιμένετε 5 λεπτά και "
-"να κάνετε τις καμπάνιες σας μετά.<br>Για την εισαγωγή τεράστιων δεδομένων, "
-"το API του MailChimp είναι αργό."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Φόρτωση όλων των συνδρομητών του ενημερωτικού δελτίου από το "
-"EcclesiaCRM<br>Αυτό μπορεί να πάρει λίγο χρόνο!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Φόρτωση όλων των οικογενειών των πρώτων headpeople συνδρομητών από το "
-"EcclesiaCRM<br>Αυτό μπορεί να πάρει λίγο χρόνο!"
-
-msgid "Update subscriber status"
-msgstr "Ενημέρωση κατάστασης συνδρομητών"
-
-msgid "Selected subscriber"
-msgstr "Επιλεγμένος συνδρομητής"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "Επιλέξτε την κατάσταση που θα εφαρμοστεί σε αυτόν τον συνδρομητή."
-
-msgid "Update"
-msgstr "Ενημέρωση"
-
-msgid "Changing status ..."
-msgstr "Αλλαγή κατάστασης ..."
-
-msgid "Delete subscriber"
-msgstr "Διαγραφή συνδρομητή"
-
-msgid "Subscriber removal"
-msgstr "Αφαίρεση συνδρομητή"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Πρόκειται να διαγράψετε έναν συνδρομητή! Είσαι σίγουρος;"
-
-msgid "Keep subscriber"
-msgstr "Κρατήστε τον συνδρομητή"
-
-msgid "Deleting Subscriber..."
-msgstr "Διαγραφή συνδρομητή..."
-
-msgid "Delete mailing list"
-msgstr "Διαγραφή λίστας αλληλογραφίας"
-
-msgid "This action is irreversible"
-msgstr "Η δράση αυτή είναι μη αναστρέψιμη"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Θέλετε πραγματικά να διαγράψετε αυτή τη λίστα αλληλογραφίας;"
-
-msgid "Delete list"
-msgstr "Διαγραφή λίστας"
-
-msgid "Delete all subscribers"
-msgstr "Διαγραφή όλων των συνδρομητών"
-
-msgid "Bulk deletion"
-msgstr "Μαζική διαγραφή"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε όλους τους συνδρομητές"
-
-msgid "Delete all"
-msgstr "Διαγραφή όλων"
-
-msgid "Deleting all subscribers..."
-msgstr "Διαγραφή όλων των συνδρομητών..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Στην πραγματικότητα, είναι προτιμότερο να αφήσετε το CRM και σε ένα τέταρτο "
-"της ώρας να το ανοίξετε ξανά για να διαχειριστείτε τη λίστα σας.<br>Για να "
-"διαγράψετε τεράστια δεδομένα, το API του MailChimp είναι αργό."
-
-msgid "Email Campaign Creation"
-msgstr "Δημιουργία καμπάνιας email"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"Ετοιμάστε έναν σαφή τίτλο, επιβεβαιώστε την ετικέτα-στόχο και γράψτε το "
-"περιεχόμενο της εκστρατείας ηλεκτρονικού ταχυδρομείου σας."
-
-msgid "Campaign details"
-msgstr "Λεπτομέρειες καμπάνιας"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-"Ορίστε τον τίτλο της καμπάνιας και ελέγξτε τον στόχο του MailChimp πριν "
-"γράψετε το μήνυμα."
-
-msgid "Campaign Title"
-msgstr "Τίτλος καμπάνιας"
-
-msgid "Your Campaign Title"
-msgstr "Ο τίτλος της καμπάνιας σας"
-
-msgid "For Tag"
-msgstr "Για ετικέτα"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr ""
-"Γράψτε το θέμα και το σώμα της καμπάνιας ηλεκτρονικού ταχυδρομείου σας."
-
-msgid "Mail Subject"
-msgstr "Θέμα αλληλογραφίας"
-
-msgid "Your Mail Subject"
-msgstr "Το θέμα της αλληλογραφίας σας"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "Συνθέστε το περιεχόμενο που θα αποσταλεί στα μέλη αυτής της ετικέτας."
-
-msgid "All list members"
-msgstr "Όλα τα μέλη του καταλόγου"
-
-msgid "Adding Campaign ..."
-msgstr "Προσθήκη εκστρατείας ..."
-
-msgid "Campaign created"
-msgstr "Δημιουργία καμπάνιας"
-
-msgid "Your campaign is ready"
-msgstr "Η καμπάνια σας είναι έτοιμη"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Θα θέλατε να διαχειριστείτε άμεσα αυτή τη νέα καμπάνια ?"
-
-msgid "Open campaign"
-msgstr "Ανοιχτή εκστρατεία"
-
-msgid "Stay here"
-msgstr "Μείνετε εδώ"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Πρέπει να ορίσετε έναν τίτλο καμπάνιας για την καμπάνια eMail σας"
-
-msgid "Edit list settings"
-msgstr "Επεξεργασία ρυθμίσεων λίστας"
-
-msgid "MailChimp list settings"
-msgstr "Ρυθμίσεις λίστας MailChimp"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr ""
-"Ενημερώστε τα κύρια στοιχεία που χρησιμοποιούνται από αυτή τη λίστα και τις "
-"καμπάνιες της."
-
-msgid "List Name"
-msgstr "Όνομα λίστας"
-
-msgid "Changing subscribers state..."
-msgstr "Αλλαγή κατάστασης συνδρομητών..."
-
-msgid "Delete selected subscribers"
-msgstr "Διαγραφή επιλεγμένων συνδρομητών"
-
-msgid "Selected members"
-msgstr "Επιλεγμένα μέλη"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Πρόκειται να διαγράψετε συνδρομητές! Είσαι σίγουρος;"
-
-msgid "selected"
-msgstr "επιλεγμένο"
-
-msgid "Delete selected"
-msgstr "Διαγραφή επιλεγμένου"
-
-msgid "Deleting Subscribers..."
-msgstr "Διαγραφή συνδρομητών..."
-
-msgid "Family"
-msgstr "Οικογένεια"
-
-msgid "Person"
-msgstr "Πρόσωπο"
-
 msgid "Free Event Attendees"
 msgstr "Δωρεάν Συμμετέχοντες στην εκδήλωση"
 
@@ -1777,6 +1343,12 @@ msgstr "Λεπτομέρειες ηλεκτρονικής συναλλαγής"
 msgid "TOTAL"
 msgstr "ΣΥΝΟΛΟ"
 
+msgid "Family"
+msgstr "Οικογένεια"
+
+msgid "Person"
+msgstr "Πρόσωπο"
+
 msgid "Anonymous"
 msgstr "Ανώνυμο"
 
@@ -1791,6 +1363,9 @@ msgstr "Μέθοδος"
 
 msgid "Check Number"
 msgstr "Αριθμός ελέγχου"
+
+msgid "Details"
+msgstr "Λεπτομέρειες"
 
 msgid "Tracking"
 msgstr "Παρακολούθηση"
@@ -1821,6 +1396,9 @@ msgstr "Σχόλιο κατάθεσης"
 
 msgid "Closed"
 msgstr "Κλειστό"
+
+msgid "Yes"
+msgstr "Ναι"
 
 msgid "Deposit Type"
 msgstr "Τύπος κατάθεσης"
@@ -2164,6 +1742,9 @@ msgstr "Δεν βρέθηκαν εγγραφές για αυτή την προβ
 
 msgid "No matching records found."
 msgstr "Δεν βρέθηκαν ταιριαστές εγγραφές."
+
+msgid "Loading..."
+msgstr "Φόρτωση..."
 
 msgid "Never contacted"
 msgstr "Δεν επικοινώνησε ποτέ"
@@ -2765,6 +2346,9 @@ msgstr "Διαχειριστής plugin"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Ο τρέχων φάκελος images είναι τώρα ο δημόσιος φάκελος !!!"
+
+msgid "Families"
+msgstr "Οικογένειες"
 
 msgid "Singles"
 msgstr "Singles"
@@ -3392,6 +2976,426 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Όλα τα μέλη θα καταστραφούν.  Τα ίδια τα μέλη δεν θα μεταβληθούν."
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailchimp"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "Όλες οι λίστες έχουν πλέον φορτωθεί στο CRM. 1235  4568 Αν θέλετε να τις "
+#~ "διαχειριστείτε, κάντε κλικ σε αυτή την ειδοποίηση ! 7899 "
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "Εξοικονόμηση εκστρατείας ..."
+
+#~ msgid "Campaign"
+#~ msgstr "Εκστρατεία"
+
+#~ msgid "saved successfully"
+#~ msgstr "αποθηκεύτηκε με επιτυχία"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "Είστε έτοιμοι να στείλετε την καμπάνια σας! Είστε σίγουροι;"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "Πρόκειται να διαγράψετε την καμπάνια σας! Είσαι σίγουρος;"
+
+#~ msgid "Loading data..."
+#~ msgstr "Φόρτωση δεδομένων..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr ""
+#~ "Παρακαλούμε περιμένετε μέχρι να ανακτήσουμε τις λίστες του MailChimp."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "Δεν δημιουργούνται λίστες με αυτόν τον λογαριασμό ...."
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr ""
+#~ "Μπορείτε να δημιουργήσετε μια νέα λίστα MailChimp χρησιμοποιώντας το "
+#~ "παραπάνω κουμπί."
+
+#~ msgid "Email List"
+#~ msgstr "Λίστα ηλεκτρονικού ταχυδρομείου"
+
+#~ msgid "Subject"
+#~ msgstr "Θέμα"
+
+#~ msgid "Members:"
+#~ msgstr "Μέλη:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "Αριθμός μη εγγεγραμμένων:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "Αριθμός μη εγγεγραμμένων από την τελευταία αποστολή:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "Καθαρισμένο μέτρημα:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "Καθαρισμένη μέτρηση από την τελευταία αποστολή:"
+
+#~ msgid "Campaigns"
+#~ msgstr "Εκστρατείες"
+
+#~ msgid "Tags"
+#~ msgstr "Ετικέτες"
+
+#~ msgid "is not configured"
+#~ msgstr "δεν έχει ρυθμιστεί"
+
+#~ msgid "Please update the"
+#~ msgstr "Ενημερώστε το"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "Κλειδί API στο Setting->"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "Επεξεργασία γενικών ρυθμίσεων"
+
+#~ msgid "Then update"
+#~ msgstr "Στη συνέχεια, ενημερώστε"
+
+#~ msgid "For more info see our "
+#~ msgstr "Για περισσότερες πληροφορίες δείτε το"
+
+#~ msgid "support docs."
+#~ msgstr "έγγραφα υποστήριξης."
+
+#~ msgid "List Title"
+#~ msgstr "Τίτλος λίστας"
+
+#~ msgid "Your List Title"
+#~ msgstr "Ο τίτλος της λίστας σας"
+
+#~ msgid "Your Subject"
+#~ msgstr "Το θέμα σας"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "Υπενθύμιση άδειας"
+
+#~ msgid "Archive Bars"
+#~ msgstr "Μπαρ αρχείου"
+
+#~ msgid "Public"
+#~ msgstr "Δημόσιο"
+
+#~ msgid "List Creation"
+#~ msgstr "Δημιουργία λίστας"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "Πρόκειται να διαγράψετε μια ετικέτα!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "Αυτό θα διαγράψει επίσης την ετικέτα για όλα τα μέλη αυτής της λίστας. "
+#~ "Είστε σίγουροι;"
+
+#~ msgid "Deleting tag"
+#~ msgstr "Διαγραφή ετικέτας"
+
+#~ msgid "People"
+#~ msgstr "Άνθρωποι"
+
+#~ msgid "Add a new tag"
+#~ msgstr "Προσθήκη νέας ετικέτας"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "Διαγραφή ετικέτας από συνδρομητές"
+
+#~ msgid "Delete tag"
+#~ msgstr "Διαγραφή ετικέτας"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "Φόρτωση πόρων ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "Σημειώστε όλα τα κουτάκια"
+
+#~ msgid "Subscribed"
+#~ msgstr "Συνδρομημένος"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Μη εγγεγραμμένοι"
+
+#~ msgid "Email Marketing"
+#~ msgstr "Μάρκετινγκ ηλεκτρονικού ταχυδρομείου"
+
+#~ msgid "New tag"
+#~ msgstr "Νέα ετικέτα"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr ""
+#~ "Εισάγετε το όνομα της ετικέτας που θα δημιουργηθεί και θα εφαρμοστεί στα "
+#~ "επιλεγμένα μέλη."
+
+#~ msgid "Create tag"
+#~ msgstr "Δημιουργία ετικέτας"
+
+#~ msgid "Adding tag..."
+#~ msgstr "Προσθήκη ετικέτας..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "Το όνομα είναι άδειο !!"
+
+#~ msgid "Add tag"
+#~ msgstr "Προσθήκη ετικέτας"
+
+#~ msgid "Selected tag"
+#~ msgstr "Επιλεγμένη ετικέτα"
+
+#~ msgid "This will add the tag"
+#~ msgstr "Αυτό θα προσθέσει την ετικέτα"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "σε όλα τα τρέχοντα επιλεγμένα μέλη της λίστας."
+
+#~ msgid "Select One"
+#~ msgstr "Επιλέξτε ένα"
+
+#~ msgid "All Tags"
+#~ msgstr "Όλες οι ετικέτες"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "Αφαίρεση ετικετών από επιλεγμένα μέλη"
+
+#~ msgid "Choose a tag"
+#~ msgstr "Επιλέξτε μια ετικέτα"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "Επιλέξτε μια ετικέτα για να την αφαιρέσετε ή επιλέξτε όλες τις ετικέτες "
+#~ "για πλήρη καθαρισμό των επιλεγμένων μελών."
+
+#~ msgid "Apply"
+#~ msgstr "Εφαρμογή"
+
+#~ msgid "Removing tags..."
+#~ msgstr "Αφαίρεση ετικετών..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "Διαγραφή όλων των ετικετών για τα επιλεγμένα μέλη στη λίστα..."
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "Αυτή η ενέργεια επηρεάζει ολόκληρη τη λίστα"
+
+#~ msgid "Keep tag"
+#~ msgstr "Κρατήστε την ετικέτα"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "Όνομα προσώπου ή οικογένειας ή ομάδας"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "Φόρτωση συνδρομητή"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "Φόρτωση συνδρομητών από Ομάδα"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "Φόρτωση συνδρομητών από την οικογένεια"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Φόρτωση όλων των ατόμων από το EcclesiaCRM<br>Αυτό μπορεί να πάρει λίγο "
+#~ "χρόνο!"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "Στην πραγματικότητα, καλύτερα να κλείσετε το CRM, να περιμένετε 5 λεπτά "
+#~ "και να κάνετε τις καμπάνιες σας μετά.<br>Για την εισαγωγή τεράστιων "
+#~ "δεδομένων, το API του MailChimp είναι αργό."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "Φόρτωση όλων των συνδρομητών του ενημερωτικού δελτίου από το "
+#~ "EcclesiaCRM<br>Αυτό μπορεί να πάρει λίγο χρόνο!"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Φόρτωση όλων των οικογενειών των πρώτων headpeople συνδρομητών από το "
+#~ "EcclesiaCRM<br>Αυτό μπορεί να πάρει λίγο χρόνο!"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "Ενημέρωση κατάστασης συνδρομητών"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "Επιλεγμένος συνδρομητής"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "Επιλέξτε την κατάσταση που θα εφαρμοστεί σε αυτόν τον συνδρομητή."
+
+#~ msgid "Update"
+#~ msgstr "Ενημέρωση"
+
+#~ msgid "Changing status ..."
+#~ msgstr "Αλλαγή κατάστασης ..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "Διαγραφή συνδρομητή"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "Αφαίρεση συνδρομητή"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "Πρόκειται να διαγράψετε έναν συνδρομητή! Είσαι σίγουρος;"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "Κρατήστε τον συνδρομητή"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "Διαγραφή συνδρομητή..."
+
+#~ msgid "Delete mailing list"
+#~ msgstr "Διαγραφή λίστας αλληλογραφίας"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "Η δράση αυτή είναι μη αναστρέψιμη"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "Θέλετε πραγματικά να διαγράψετε αυτή τη λίστα αλληλογραφίας;"
+
+#~ msgid "Delete list"
+#~ msgstr "Διαγραφή λίστας"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "Διαγραφή όλων των συνδρομητών"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "Μαζική διαγραφή"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε όλους τους συνδρομητές"
+
+#~ msgid "Delete all"
+#~ msgstr "Διαγραφή όλων"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "Διαγραφή όλων των συνδρομητών..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "Στην πραγματικότητα, είναι προτιμότερο να αφήσετε το CRM και σε ένα "
+#~ "τέταρτο της ώρας να το ανοίξετε ξανά για να διαχειριστείτε τη λίστα σας."
+#~ "<br>Για να διαγράψετε τεράστια δεδομένα, το API του MailChimp είναι αργό."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "Δημιουργία καμπάνιας email"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "Ετοιμάστε έναν σαφή τίτλο, επιβεβαιώστε την ετικέτα-στόχο και γράψτε το "
+#~ "περιεχόμενο της εκστρατείας ηλεκτρονικού ταχυδρομείου σας."
+
+#~ msgid "Campaign details"
+#~ msgstr "Λεπτομέρειες καμπάνιας"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr ""
+#~ "Ορίστε τον τίτλο της καμπάνιας και ελέγξτε τον στόχο του MailChimp πριν "
+#~ "γράψετε το μήνυμα."
+
+#~ msgid "Campaign Title"
+#~ msgstr "Τίτλος καμπάνιας"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "Ο τίτλος της καμπάνιας σας"
+
+#~ msgid "For Tag"
+#~ msgstr "Για ετικέτα"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr ""
+#~ "Γράψτε το θέμα και το σώμα της καμπάνιας ηλεκτρονικού ταχυδρομείου σας."
+
+#~ msgid "Mail Subject"
+#~ msgstr "Θέμα αλληλογραφίας"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "Το θέμα της αλληλογραφίας σας"
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr ""
+#~ "Συνθέστε το περιεχόμενο που θα αποσταλεί στα μέλη αυτής της ετικέτας."
+
+#~ msgid "All list members"
+#~ msgstr "Όλα τα μέλη του καταλόγου"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "Προσθήκη εκστρατείας ..."
+
+#~ msgid "Campaign created"
+#~ msgstr "Δημιουργία καμπάνιας"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "Η καμπάνια σας είναι έτοιμη"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "Θα θέλατε να διαχειριστείτε άμεσα αυτή τη νέα καμπάνια ?"
+
+#~ msgid "Open campaign"
+#~ msgstr "Ανοιχτή εκστρατεία"
+
+#~ msgid "Stay here"
+#~ msgstr "Μείνετε εδώ"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "Πρέπει να ορίσετε έναν τίτλο καμπάνιας για την καμπάνια eMail σας"
+
+#~ msgid "Edit list settings"
+#~ msgstr "Επεξεργασία ρυθμίσεων λίστας"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "Ρυθμίσεις λίστας MailChimp"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr ""
+#~ "Ενημερώστε τα κύρια στοιχεία που χρησιμοποιούνται από αυτή τη λίστα και "
+#~ "τις καμπάνιες της."
+
+#~ msgid "List Name"
+#~ msgstr "Όνομα λίστας"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "Αλλαγή κατάστασης συνδρομητών..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "Διαγραφή επιλεγμένων συνδρομητών"
+
+#~ msgid "Selected members"
+#~ msgstr "Επιλεγμένα μέλη"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "Πρόκειται να διαγράψετε συνδρομητές! Είσαι σίγουρος;"
+
+#~ msgid "selected"
+#~ msgstr "επιλεγμένο"
+
+#~ msgid "Delete selected"
+#~ msgstr "Διαγραφή επιλεγμένου"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "Διαγραφή συνδρομητών..."
 
 #~ msgid "ERROR"
 #~ msgstr "ΣΦΑΛΜΑ"

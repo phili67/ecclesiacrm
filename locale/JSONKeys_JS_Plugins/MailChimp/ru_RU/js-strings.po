@@ -1,0 +1,471 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06T14:06:23.012Z\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Loading data..."
+msgstr "Загрузка данных..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Пожалуйста, подождите, пока мы загружаем ваши списки из MailChimp."
+
+msgid "No list are created with this account ...."
+msgstr "С этой учетной записью не создано ни одного списка...."
+
+msgid "You can create a new MailChimp list using the button above."
+msgstr "Вы можете создать новый список в MailChimp, нажав на кнопку выше."
+
+msgid "Email Lists"
+msgstr "Списки рассылки"
+
+msgid "Details"
+msgstr "Подробнее"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Members:"
+msgstr "Участники:"
+
+msgid "Unsubscribed count:"
+msgstr "Количество отписавшихся:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Количество отписавшихся с момента последней рассылки:"
+
+msgid "Cleaned count:"
+msgstr "Количество очищенных:"
+
+msgid "Cleaned count since last send:"
+msgstr "Количество очищенных данных с момента последней отправки:"
+
+msgid "Campaigns"
+msgstr "Кампании"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Modify"
+msgstr "Изменить"
+
+msgid "is not configured"
+msgstr "не настроено"
+
+msgid "Please update the"
+msgstr "Пожалуйста, обновите"
+
+msgid "API key in Setting->"
+msgstr "Ключ API в разделе «Настройки»->"
+
+msgid "Edit General Settings"
+msgstr "Изменить общие настройки"
+
+msgid "Then update"
+msgstr "Затем обновите"
+
+msgid "For more info see our "
+msgstr "Более подробную информацию см. на нашем "
+
+msgid "support docs."
+msgstr "документация по поддержке."
+
+msgid "List Title"
+msgstr "Название списка"
+
+msgid "Your List Title"
+msgstr "Название вашего списка"
+
+msgid "Your Subject"
+msgstr "Тема письма"
+
+msgid "Permission Reminder"
+msgstr "Напоминание о разрешении"
+
+msgid "Archive Bars"
+msgstr "Архивные бары"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Private"
+msgstr "Частный"
+
+msgid "Public"
+msgstr "Открытый доступ"
+
+msgid "List Creation"
+msgstr "Создание списка"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "You have to set a List Title for your eMail List"
+msgstr "Вам необходимо указать название рассылки для вашего списка рассылки"
+
+msgid "You're about to delete a tag!"
+msgstr "Вы собираетесь удалить тег!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"При этом также будут удалены метки всех участников из этого списка. Вы "
+"уверены?"
+
+msgid "Deleting tag"
+msgstr "Удаление тега"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "People"
+msgstr "Люди"
+
+msgid "Families"
+msgstr "Семьи"
+
+msgid "Add a new tag"
+msgstr "Добавить новый тег"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Удалить тег из списка подписчиков"
+
+msgid "Delete tag"
+msgstr "Удалить тег"
+
+msgid "Loading resources ..."
+msgstr "Загрузка ресурсов..."
+
+msgid "Email List"
+msgstr "Список рассылки"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Campaign"
+msgstr "Кампания"
+
+msgid "Subscribed"
+msgstr "Подписано"
+
+msgid "Unsubscribed"
+msgstr "Отписаться"
+
+msgid "Last Name"
+msgstr "Фамилия"
+
+msgid "First Name"
+msgstr "Имя"
+
+msgid "Email Marketing"
+msgstr "Электронный маркетинг"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "New tag"
+msgstr "Новый тег"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+"Введите название тега, который необходимо создать и применить к выбранным "
+"элементам."
+
+msgid "Create tag"
+msgstr "Создать тег"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "Adding tag..."
+msgstr "Добавление тега..."
+
+msgid "Name is empty !!"
+msgstr "Поле «Имя» пустое!!"
+
+msgid "Add tag"
+msgstr "Добавить тег"
+
+msgid "Selected tag"
+msgstr "Выбранный тег"
+
+msgid "This will add the tag"
+msgstr "Это добавит тег"
+
+msgid "to all the current selected members in the list."
+msgstr "всем текущим выбранным участникам из списка."
+
+msgid "Confirm"
+msgstr "Подтвердить"
+
+msgid "Remove tags from selected members"
+msgstr "Удалить метки из выбранных участников"
+
+msgid "Choose a tag"
+msgstr "Выберите тег"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+"Выберите один тег для удаления или выберите все теги, чтобы полностью "
+"очистить данные выбранных участников."
+
+msgid "Apply"
+msgstr "Подать заявку"
+
+msgid "Removing tags..."
+msgstr "Удаление тегов..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Удаляются все теги для выбранных участников в списке..."
+
+msgid "This action affects the whole list"
+msgstr "Это действие затрагивает весь список"
+
+msgid "Keep tag"
+msgstr "Не отставай"
+
+msgid "A person name or Family or Group"
+msgstr "Имя человека, фамилия или группа"
+
+msgid "Loading subscriber"
+msgstr "Загрузка абонента"
+
+msgid "Loading subscribers from Group"
+msgstr "Загрузка подписчиков из группы"
+
+msgid "Loading subscribers from family"
+msgstr "Загрузка абонентов из семьи"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Загрузка всех пользователей из EcclesiaCRM<br>Это может занять некоторое "
+"время!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"На самом деле, лучше выйти из CRM, подождать 5 минут и только потом "
+"создавать кампании.<br>При импорте больших объемов данных API MailChimp "
+"работает медленно."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Загрузка списка всех подписчиков рассылки из EcclesiaCRM<br>Это может занять "
+"некоторое время!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Загрузка всех руководителей семей из базы данных EcclesiaCRM<br>Это может "
+"занять некоторое время!"
+
+msgid "Changing status ..."
+msgstr "Изменение статуса..."
+
+msgid "Delete subscriber"
+msgstr "Удалить подписчика"
+
+msgid "Subscriber removal"
+msgstr "Удаление подписчика"
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Вы собираетесь удалить подписчика! Вы уверены?"
+
+msgid "Keep subscriber"
+msgstr "Сохранить подписчика"
+
+msgid "Deleting Subscriber..."
+msgstr "Удаление подписчика..."
+
+msgid "Delete mailing list"
+msgstr "Удалить список рассылки"
+
+msgid "This action is irreversible"
+msgstr "Это действие необратимо"
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Вы действительно хотите удалить этот список рассылки?"
+
+msgid "Delete list"
+msgstr "Удалить список"
+
+msgid "Delete all subscribers"
+msgstr "Удалить всех подписчиков"
+
+msgid "Bulk deletion"
+msgstr "Массовое удаление"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Вы уверены, что хотите удалить всех подписчиков?"
+
+msgid "Delete all"
+msgstr "Удалить всё"
+
+msgid "Deleting all subscribers..."
+msgstr "Удаление всех подписчиков..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"На самом деле, лучше закрыть CRM, а через четверть часа снова открыть его, "
+"чтобы управлять списком. <br>При удалении больших объемов данных API "
+"MailChimp работает медленно."
+
+msgid "Email Campaign Creation"
+msgstr "Создание рассылки"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+"Придумайте лаконичное название, уточните целевую метку и составьте текст "
+"рассылки."
+
+msgid "Campaign details"
+msgstr "Подробности кампании"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+"Перед тем как приступить к написанию сообщения, укажите название кампании и "
+"проверьте настройки MailChimp."
+
+msgid "Campaign Title"
+msgstr "Название кампании"
+
+msgid "Your Campaign Title"
+msgstr "Название вашей кампании"
+
+msgid "For Tag"
+msgstr "Для тега"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Write the subject and the body of your email campaign."
+msgstr "Напишите тему и текст вашей рассылки."
+
+msgid "Mail Subject"
+msgstr "Тема письма"
+
+msgid "Your Mail Subject"
+msgstr "Тема вашего письма"
+
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "Составьте текст, который будет отправлен участникам с этим тегом."
+
+msgid "All list members"
+msgstr "Все участники списка рассылки"
+
+msgid "Adding Campaign ..."
+msgstr "Добавление кампании..."
+
+msgid "Campaign created"
+msgstr "Создана кампания"
+
+msgid "Your campaign is ready"
+msgstr "Ваша кампания готова"
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Хотите самостоятельно управлять этой новой кампанией?"
+
+msgid "Open campaign"
+msgstr "Открыть кампанию"
+
+msgid "Stay here"
+msgstr "Остановитесь здесь"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Вам необходимо указать название для вашей рассылки"
+
+msgid "Edit list settings"
+msgstr "Изменить настройки списка"
+
+msgid "MailChimp list settings"
+msgstr "Настройки списка рассылки MailChimp"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr "Обновите основные данные, используемые в этом списке и его кампаниях."
+
+msgid "List Name"
+msgstr "Название списка"
+
+msgid "Changing subscribers state..."
+msgstr "Изменение состояния абонентов..."
+
+msgid "Delete selected subscribers"
+msgstr "Удалить выбранных подписчиков"
+
+msgid "Selected members"
+msgstr "Избранные члены"
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Вы собираетесь удалить подписчиков! Вы уверены?"
+
+msgid "selected"
+msgstr "выбранный"
+
+msgid "Delete selected"
+msgstr "Удалить выделенное"
+
+msgid "Deleting Subscribers..."
+msgstr "Удаление подписчиков..."
+
+msgid "Family"
+msgstr "Семья"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Person"
+msgstr "Человек"
+
+msgid "Unsaved changes are ready to be stored."
+msgstr "Несохраненные изменения готовы к сохранению."
+
+msgid "No local changes yet."
+msgstr "Пока никаких изменений на местном уровне."
+
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+
+msgid "Saved"
+msgstr "Сохранено"
+
+msgid "Unable to save settings"
+msgstr "Не удалось сохранить настройки"

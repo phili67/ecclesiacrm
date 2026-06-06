@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -696,17 +696,6 @@ msgstr "Đang tiến hành..."
 msgid "Please wait while the operation is being completed"
 msgstr ""
 
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-#, fuzzy
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Tất cả các danh sách đã được nạp vào năm 1998<b>CRM</b>.<br><b>Nếu bạn muốn "
-"quản lý họ, hãy nhấp vào thông báo này!</b>"
-
 msgid "There was a problem retrieving the requested object"
 msgstr "Có một vấn đề lấy lại được vật yêu cầu"
 
@@ -1122,444 +1111,6 @@ msgstr "Tạo ra một cái."
 msgid "You have to set a Title for your document"
 msgstr "Anh phải đặt một tờ Title cho tài liệu của mình"
 
-msgid "Saving Campaign ..."
-msgstr "Cứu chiến dịch..."
-
-msgid "Campaign"
-msgstr "Chiến dịch"
-
-msgid "saved successfully"
-msgstr "cứu được một cách thành công"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Anh sắp gửi chiến dịch của mình đấy! Anh chắc chứ?"
-
-msgid "Yes"
-msgstr "Vâng."
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Anh sắp xóa chiến dịch của mình rồi! Anh chắc chứ?"
-
-#, fuzzy
-msgid "Loading..."
-msgstr "Đang tải video..."
-
-#, fuzzy
-msgid "Loading data..."
-msgstr "Đang tải dữ liệu ..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr ""
-
-msgid "No list are created with this account ...."
-msgstr "Không có danh sách nào được tạo ra với tài khoản này..."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr ""
-
-msgid "Email List"
-msgstr "Email List"
-
-msgid "Details"
-msgstr "Chi tiết"
-
-msgid "Subject"
-msgstr "Đối tượng"
-
-msgid "Members:"
-msgstr ""
-
-msgid "Unsubscribed count:"
-msgstr "Bá tước không đăng ký:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Không đăng ký đếm từ lần cuối gửi:"
-
-msgid "Cleaned count:"
-msgstr "Đếm ngược:"
-
-msgid "Cleaned count since last send:"
-msgstr "Đã đếm từ lần cuối gửi:"
-
-msgid "Campaigns"
-msgstr "Chiến dịch tranh cử"
-
-msgid "Tags"
-msgstr "Tags"
-
-msgid "is not configured"
-msgstr "không được cấu hình"
-
-msgid "Please update the"
-msgstr "Xin hãy cập nhật tình hình"
-
-msgid "API key in Setting->"
-msgstr "API key in setting-"
-
-msgid "Edit General Settings"
-msgstr "Chỉnh lại vị trí Đại tướng"
-
-#, fuzzy
-msgid "Then update"
-msgstr "vậy cập nhật đi"
-
-msgid "For more info see our "
-msgstr "Để có thêm thông tin xem"
-
-msgid "support docs."
-msgstr "hỗ trợ bác sĩ."
-
-msgid "List Title"
-msgstr "List Title"
-
-msgid "Your List Title"
-msgstr "Vé List của anh"
-
-msgid "Your Subject"
-msgstr "Đối tượng của anh"
-
-msgid "Permission Reminder"
-msgstr "Cho phép Reminder"
-
-msgid "Archive Bars"
-msgstr "Quán Archive Bars"
-
-msgid "Public"
-msgstr "Công chúng"
-
-msgid "List Creation"
-msgstr "Tạo hóa List"
-
-msgid "You're about to delete a tag!"
-msgstr "Anh sắp xóa một cái thẻ!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Cái này cũng sẽ xóa thẻ cho tất cả các thành viên trong danh sách này. Anh "
-"chắc chứ?"
-
-msgid "Deleting tag"
-msgstr "Xóa thẻ"
-
-msgid "People"
-msgstr "Mọi người"
-
-msgid "Families"
-msgstr "Gia đình"
-
-msgid "Add a new tag"
-msgstr "Thêm một cái thẻ mới"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Xóa thẻ từ đăng ký viên."
-
-msgid "Delete tag"
-msgstr "Xóa thẻ"
-
-msgid "Loading resources ..."
-msgstr "Nạp nguồn lực..."
-
-msgid "Check all boxes"
-msgstr "Kiểm tra tất cả các hộp"
-
-msgid "Subscribed"
-msgstr "Gửi tín hiệu"
-
-msgid "Unsubscribed"
-msgstr "Không đăng ký"
-
-msgid "Email Marketing"
-msgstr "Email Marketing"
-
-#, fuzzy
-msgid "New tag"
-msgstr "Thêm một cái thẻ mới"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-
-#, fuzzy
-msgid "Create tag"
-msgstr "Xóa thẻ"
-
-msgid "Adding tag..."
-msgstr "Thêm thẻ..."
-
-msgid "Name is empty !!"
-msgstr "Tên không có ai!"
-
-#, fuzzy
-msgid "Add tag"
-msgstr "Thêm thẻ?"
-
-#, fuzzy
-msgid "Selected tag"
-msgstr "Xóa thẻ"
-
-msgid "This will add the tag"
-msgstr "Cái này sẽ thêm cái thẻ"
-
-msgid "to all the current selected members in the list."
-msgstr "tất cả các thành viên hiện tại đã chọn ra trong danh sách."
-
-msgid "Select One"
-msgstr "Chọn 1 đi"
-
-msgid "All Tags"
-msgstr "Tất cả các thẻ"
-
-#, fuzzy
-msgid "Remove tags from selected members"
-msgstr "Loại bỏ tất cả"
-
-#, fuzzy
-msgid "Choose a tag"
-msgstr "Chọn một người Role tên"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-
-msgid "Apply"
-msgstr ""
-
-msgid "Removing tags..."
-msgstr "Thẻ tháo..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Xóa hết các thẻ cho những thành viên được chọn trong danh sách..."
-
-msgid "This action affects the whole list"
-msgstr ""
-
-#, fuzzy
-msgid "Keep tag"
-msgstr "Xóa thẻ"
-
-msgid "A person name or Family or Group"
-msgstr "Một người tên hay gia đình hoặc nhóm người"
-
-msgid "Loading subscriber"
-msgstr "Đang chuyển phòng"
-
-msgid "Loading subscribers from Group"
-msgstr "Nạp đăng ký của tập đoàn"
-
-msgid "Loading subscribers from family"
-msgstr "Nạp người đăng ký từ gia đình"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "Nạp tất cả mọi người từ EcclesiaCRM<br>thì phải mất một thời gian!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Thực tế, tốt hơn hết là anh nên bỏ CRM, đợi 5 phút và thực hiện chiến dịch "
-"của anh sau đó.<br>nhập dữ liệu khổng lồ, máy tính API của Mailchimp là chậm."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Nạp tất cả các bản tin đăng ký từ EcclesiaCRM<br>, sẽ mất một thời gian!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Nạp tất cả các gia đình đầu tiên đăng ký những người đầu tiên từ "
-"EcclesiaCRM<br>điều này có thể mất một thời gian !"
-
-#, fuzzy
-msgid "Update subscriber status"
-msgstr "Thay đổi bang đăng ký..."
-
-#, fuzzy
-msgid "Selected subscriber"
-msgstr "Xóa bỏ bộ phim..."
-
-msgid "Choose the status to apply to this subscriber."
-msgstr ""
-
-#, fuzzy
-msgid "Update"
-msgstr "Cập nhật bởi"
-
-msgid "Changing status ..."
-msgstr "Thay đổi tình trạng..."
-
-#, fuzzy
-msgid "Delete subscriber"
-msgstr "Xóa bỏ bộ phim..."
-
-#, fuzzy
-msgid "Subscriber removal"
-msgstr "Gửi tín hiệu"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Anh sắp xóa một cuốn sách rồi! Anh chắc chứ?"
-
-#, fuzzy
-msgid "Keep subscriber"
-msgstr "Đang chuyển phòng"
-
-msgid "Deleting Subscriber..."
-msgstr "Xóa bỏ bộ phim..."
-
-#, fuzzy
-msgid "Delete mailing list"
-msgstr "Xóa sổ Quản lý"
-
-#, fuzzy
-msgid "This action is irreversible"
-msgstr "Hành động này không thể nào bị phá hủy ! !!!"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Bạn có thực sự muốn xóa danh sách thư này không ?"
-
-#, fuzzy
-msgid "Delete list"
-msgstr "Xóa thẻ"
-
-#, fuzzy
-msgid "Delete all subscribers"
-msgstr "Xóa hết tất cả các đăng ký..."
-
-msgid "Bulk deletion"
-msgstr ""
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Anh có chắc là muốn xóa hết tất cả các đăng ký không?"
-
-#, fuzzy
-msgid "Delete all"
-msgstr "Xóa thẻ"
-
-msgid "Deleting all subscribers..."
-msgstr "Xóa hết tất cả các đăng ký..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Thực tế, bạn nên rời khỏi CRM, và trong một kỳ nghỉ của một giờ tái mở nó để "
-"kiểm soát danh sách của bạn.<br>để xóa dữ liệu khổng lồ, Mailchimp API là "
-"chậm."
-
-msgid "Email Campaign Creation"
-msgstr "Tạo ra chiến dịch Email"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-
-#, fuzzy
-msgid "Campaign details"
-msgstr "Chiến dịch Title"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-
-msgid "Campaign Title"
-msgstr "Chiến dịch Title"
-
-msgid "Your Campaign Title"
-msgstr "Cuốn chiến dịch của anh"
-
-msgid "For Tag"
-msgstr "Cho Tag"
-
-#, fuzzy
-msgid "Write the subject and the body of your email campaign."
-msgstr "Anh phải đặt một chiếc Title cho cuộc vận động điện tử của anh"
-
-msgid "Mail Subject"
-msgstr "Vật thể gửi thư"
-
-msgid "Your Mail Subject"
-msgstr "Vật thể bức thư của anh"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr ""
-
-msgid "All list members"
-msgstr "Tất cả các thành viên"
-
-msgid "Adding Campaign ..."
-msgstr "Cộng tác chiến tranh..."
-
-#, fuzzy
-msgid "Campaign created"
-msgstr "Chiến dịch Title"
-
-#, fuzzy
-msgid "Your campaign is ready"
-msgstr "Cuốn chiến dịch của anh"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Liệu có muốn trực tiếp quản lý chiến dịch mới này không ?"
-
-#, fuzzy
-msgid "Open campaign"
-msgstr "Chiến dịch"
-
-msgid "Stay here"
-msgstr ""
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Anh phải đặt một chiếc Title cho cuộc vận động điện tử của anh"
-
-#, fuzzy
-msgid "Edit list settings"
-msgstr "Chỉnh lại vị trí Đại tướng"
-
-msgid "MailChimp list settings"
-msgstr ""
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr ""
-
-msgid "List Name"
-msgstr "Danh sách tên"
-
-msgid "Changing subscribers state..."
-msgstr "Thay đổi bang đăng ký..."
-
-#, fuzzy
-msgid "Delete selected subscribers"
-msgstr "Xóa thẻ từ đăng ký viên."
-
-#, fuzzy
-msgid "Selected members"
-msgstr "Chọn đường"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Anh sắp xóa đăng ký rồi! Anh chắc chứ?"
-
-#, fuzzy
-msgid "selected"
-msgstr "Chọn đi"
-
-#, fuzzy
-msgid "Delete selected"
-msgstr "Xóa Event đi"
-
-msgid "Deleting Subscribers..."
-msgstr "Xóa các bản vẽ..."
-
-msgid "Family"
-msgstr "Gia đình"
-
-msgid "Person"
-msgstr "Người"
-
 msgid "Free Event Attendees"
 msgstr "Những người Attendees tự do"
 
@@ -1807,6 +1358,12 @@ msgstr "Chi tiết dịch chuyển điện"
 msgid "TOTAL"
 msgstr "TAL"
 
+msgid "Family"
+msgstr "Gia đình"
+
+msgid "Person"
+msgstr "Người"
+
 msgid "Anonymous"
 msgstr "Vô danh"
 
@@ -1821,6 +1378,9 @@ msgstr "Phương pháp"
 
 msgid "Check Number"
 msgstr "Kiểm tra số"
+
+msgid "Details"
+msgstr "Chi tiết"
 
 msgid "Tracking"
 msgstr "Đang truy tìm"
@@ -1851,6 +1411,9 @@ msgstr "Lời khai"
 
 msgid "Closed"
 msgstr "Đóng cửa"
+
+msgid "Yes"
+msgstr "Vâng."
 
 msgid "Deposit Type"
 msgstr "Gài mã"
@@ -2212,6 +1775,10 @@ msgstr ""
 
 msgid "No matching records found."
 msgstr ""
+
+#, fuzzy
+msgid "Loading..."
+msgstr "Đang tải video..."
 
 msgid "Never contacted"
 msgstr ""
@@ -2835,6 +2402,9 @@ msgstr ""
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Tập hồ sơ hình ảnh hiện nay là tập tài liệu công cộng !! !"
+
+msgid "Families"
+msgstr "Gia đình"
 
 msgid "Singles"
 msgstr ""
@@ -3475,6 +3045,387 @@ msgid ""
 msgstr ""
 "Tất cả các thành viên và tài sản của nhóm sẽ bị tiêu diệt. Các thành viên "
 "nhóm sẽ không bị thay đổi."
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailchimp"
+
+#, fuzzy
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "Tất cả các danh sách đã được nạp vào năm 1998<b>CRM</b>.<br><b>Nếu bạn "
+#~ "muốn quản lý họ, hãy nhấp vào thông báo này!</b>"
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "Cứu chiến dịch..."
+
+#~ msgid "Campaign"
+#~ msgstr "Chiến dịch"
+
+#~ msgid "saved successfully"
+#~ msgstr "cứu được một cách thành công"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "Anh sắp gửi chiến dịch của mình đấy! Anh chắc chứ?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "Anh sắp xóa chiến dịch của mình rồi! Anh chắc chứ?"
+
+#, fuzzy
+#~ msgid "Loading data..."
+#~ msgstr "Đang tải dữ liệu ..."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "Không có danh sách nào được tạo ra với tài khoản này..."
+
+#~ msgid "Email List"
+#~ msgstr "Email List"
+
+#~ msgid "Subject"
+#~ msgstr "Đối tượng"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "Bá tước không đăng ký:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "Không đăng ký đếm từ lần cuối gửi:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "Đếm ngược:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "Đã đếm từ lần cuối gửi:"
+
+#~ msgid "Campaigns"
+#~ msgstr "Chiến dịch tranh cử"
+
+#~ msgid "Tags"
+#~ msgstr "Tags"
+
+#~ msgid "is not configured"
+#~ msgstr "không được cấu hình"
+
+#~ msgid "Please update the"
+#~ msgstr "Xin hãy cập nhật tình hình"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "API key in setting-"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "Chỉnh lại vị trí Đại tướng"
+
+#, fuzzy
+#~ msgid "Then update"
+#~ msgstr "vậy cập nhật đi"
+
+#~ msgid "For more info see our "
+#~ msgstr "Để có thêm thông tin xem"
+
+#~ msgid "support docs."
+#~ msgstr "hỗ trợ bác sĩ."
+
+#~ msgid "List Title"
+#~ msgstr "List Title"
+
+#~ msgid "Your List Title"
+#~ msgstr "Vé List của anh"
+
+#~ msgid "Your Subject"
+#~ msgstr "Đối tượng của anh"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "Cho phép Reminder"
+
+#~ msgid "Archive Bars"
+#~ msgstr "Quán Archive Bars"
+
+#~ msgid "Public"
+#~ msgstr "Công chúng"
+
+#~ msgid "List Creation"
+#~ msgstr "Tạo hóa List"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "Anh sắp xóa một cái thẻ!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "Cái này cũng sẽ xóa thẻ cho tất cả các thành viên trong danh sách này. "
+#~ "Anh chắc chứ?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "Xóa thẻ"
+
+#~ msgid "People"
+#~ msgstr "Mọi người"
+
+#~ msgid "Add a new tag"
+#~ msgstr "Thêm một cái thẻ mới"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "Xóa thẻ từ đăng ký viên."
+
+#~ msgid "Delete tag"
+#~ msgstr "Xóa thẻ"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "Nạp nguồn lực..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "Kiểm tra tất cả các hộp"
+
+#~ msgid "Subscribed"
+#~ msgstr "Gửi tín hiệu"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Không đăng ký"
+
+#~ msgid "Email Marketing"
+#~ msgstr "Email Marketing"
+
+#, fuzzy
+#~ msgid "New tag"
+#~ msgstr "Thêm một cái thẻ mới"
+
+#, fuzzy
+#~ msgid "Create tag"
+#~ msgstr "Xóa thẻ"
+
+#~ msgid "Adding tag..."
+#~ msgstr "Thêm thẻ..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "Tên không có ai!"
+
+#, fuzzy
+#~ msgid "Add tag"
+#~ msgstr "Thêm thẻ?"
+
+#, fuzzy
+#~ msgid "Selected tag"
+#~ msgstr "Xóa thẻ"
+
+#~ msgid "This will add the tag"
+#~ msgstr "Cái này sẽ thêm cái thẻ"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "tất cả các thành viên hiện tại đã chọn ra trong danh sách."
+
+#~ msgid "Select One"
+#~ msgstr "Chọn 1 đi"
+
+#~ msgid "All Tags"
+#~ msgstr "Tất cả các thẻ"
+
+#, fuzzy
+#~ msgid "Remove tags from selected members"
+#~ msgstr "Loại bỏ tất cả"
+
+#, fuzzy
+#~ msgid "Choose a tag"
+#~ msgstr "Chọn một người Role tên"
+
+#~ msgid "Removing tags..."
+#~ msgstr "Thẻ tháo..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "Xóa hết các thẻ cho những thành viên được chọn trong danh sách..."
+
+#, fuzzy
+#~ msgid "Keep tag"
+#~ msgstr "Xóa thẻ"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "Một người tên hay gia đình hoặc nhóm người"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "Đang chuyển phòng"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "Nạp đăng ký của tập đoàn"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "Nạp người đăng ký từ gia đình"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr "Nạp tất cả mọi người từ EcclesiaCRM<br>thì phải mất một thời gian!"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "Thực tế, tốt hơn hết là anh nên bỏ CRM, đợi 5 phút và thực hiện chiến "
+#~ "dịch của anh sau đó.<br>nhập dữ liệu khổng lồ, máy tính API của Mailchimp "
+#~ "là chậm."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "Nạp tất cả các bản tin đăng ký từ EcclesiaCRM<br>, sẽ mất một thời gian!"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Nạp tất cả các gia đình đầu tiên đăng ký những người đầu tiên từ "
+#~ "EcclesiaCRM<br>điều này có thể mất một thời gian !"
+
+#, fuzzy
+#~ msgid "Update subscriber status"
+#~ msgstr "Thay đổi bang đăng ký..."
+
+#, fuzzy
+#~ msgid "Selected subscriber"
+#~ msgstr "Xóa bỏ bộ phim..."
+
+#, fuzzy
+#~ msgid "Update"
+#~ msgstr "Cập nhật bởi"
+
+#~ msgid "Changing status ..."
+#~ msgstr "Thay đổi tình trạng..."
+
+#, fuzzy
+#~ msgid "Delete subscriber"
+#~ msgstr "Xóa bỏ bộ phim..."
+
+#, fuzzy
+#~ msgid "Subscriber removal"
+#~ msgstr "Gửi tín hiệu"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "Anh sắp xóa một cuốn sách rồi! Anh chắc chứ?"
+
+#, fuzzy
+#~ msgid "Keep subscriber"
+#~ msgstr "Đang chuyển phòng"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "Xóa bỏ bộ phim..."
+
+#, fuzzy
+#~ msgid "Delete mailing list"
+#~ msgstr "Xóa sổ Quản lý"
+
+#, fuzzy
+#~ msgid "This action is irreversible"
+#~ msgstr "Hành động này không thể nào bị phá hủy ! !!!"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "Bạn có thực sự muốn xóa danh sách thư này không ?"
+
+#, fuzzy
+#~ msgid "Delete list"
+#~ msgstr "Xóa thẻ"
+
+#, fuzzy
+#~ msgid "Delete all subscribers"
+#~ msgstr "Xóa hết tất cả các đăng ký..."
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "Anh có chắc là muốn xóa hết tất cả các đăng ký không?"
+
+#, fuzzy
+#~ msgid "Delete all"
+#~ msgstr "Xóa thẻ"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "Xóa hết tất cả các đăng ký..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "Thực tế, bạn nên rời khỏi CRM, và trong một kỳ nghỉ của một giờ tái mở nó "
+#~ "để kiểm soát danh sách của bạn.<br>để xóa dữ liệu khổng lồ, Mailchimp API "
+#~ "là chậm."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "Tạo ra chiến dịch Email"
+
+#, fuzzy
+#~ msgid "Campaign details"
+#~ msgstr "Chiến dịch Title"
+
+#~ msgid "Campaign Title"
+#~ msgstr "Chiến dịch Title"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "Cuốn chiến dịch của anh"
+
+#~ msgid "For Tag"
+#~ msgstr "Cho Tag"
+
+#, fuzzy
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "Anh phải đặt một chiếc Title cho cuộc vận động điện tử của anh"
+
+#~ msgid "Mail Subject"
+#~ msgstr "Vật thể gửi thư"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "Vật thể bức thư của anh"
+
+#~ msgid "All list members"
+#~ msgstr "Tất cả các thành viên"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "Cộng tác chiến tranh..."
+
+#, fuzzy
+#~ msgid "Campaign created"
+#~ msgstr "Chiến dịch Title"
+
+#, fuzzy
+#~ msgid "Your campaign is ready"
+#~ msgstr "Cuốn chiến dịch của anh"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "Liệu có muốn trực tiếp quản lý chiến dịch mới này không ?"
+
+#, fuzzy
+#~ msgid "Open campaign"
+#~ msgstr "Chiến dịch"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "Anh phải đặt một chiếc Title cho cuộc vận động điện tử của anh"
+
+#, fuzzy
+#~ msgid "Edit list settings"
+#~ msgstr "Chỉnh lại vị trí Đại tướng"
+
+#~ msgid "List Name"
+#~ msgstr "Danh sách tên"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "Thay đổi bang đăng ký..."
+
+#, fuzzy
+#~ msgid "Delete selected subscribers"
+#~ msgstr "Xóa thẻ từ đăng ký viên."
+
+#, fuzzy
+#~ msgid "Selected members"
+#~ msgstr "Chọn đường"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "Anh sắp xóa đăng ký rồi! Anh chắc chứ?"
+
+#, fuzzy
+#~ msgid "selected"
+#~ msgstr "Chọn đi"
+
+#, fuzzy
+#~ msgid "Delete selected"
+#~ msgstr "Xóa Event đi"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "Xóa các bản vẽ..."
 
 #~ msgid "ERROR"
 #~ msgstr "ERROR"

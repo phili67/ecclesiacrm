@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -697,16 +697,6 @@ msgstr "În curs de desfășurare"
 msgid "Please wait while the operation is being completed"
 msgstr "Vă rugăm să așteptați în timp ce operațiunea este finalizată"
 
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Toate listele sunt acum încărcate în CRM. 1235  4568 Dacă doriți să le "
-"gestionați, faceți clic pe această notificare ! 7899 "
-
 msgid "There was a problem retrieving the requested object"
 msgstr "A existat o problemă în recuperarea obiectului solicitat"
 
@@ -1104,427 +1094,6 @@ msgstr "Crearea documentului"
 msgid "You have to set a Title for your document"
 msgstr "Trebuie să setați un titlu pentru documentul dvs."
 
-msgid "Saving Campaign ..."
-msgstr "Campanie de economisire ..."
-
-msgid "Campaign"
-msgstr "Campanie"
-
-msgid "saved successfully"
-msgstr "salvat cu succes"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Sunteți pe cale să vă trimiteți campania! Sunteți sigur?"
-
-msgid "Yes"
-msgstr "Da"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Sunteți pe cale să vă ștergeți campania! Sunteți sigur?"
-
-msgid "Loading..."
-msgstr "Încărcare..."
-
-msgid "Loading data..."
-msgstr "Încărcarea datelor..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "Vă rugăm să așteptați în timp ce vă recuperăm listele MailChimp."
-
-msgid "No list are created with this account ...."
-msgstr "Nu se creează liste cu acest cont ...."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr "Puteți crea o nouă listă MailChimp utilizând butonul de mai sus."
-
-msgid "Email List"
-msgstr "Lista de e-mail"
-
-msgid "Details"
-msgstr "Detalii"
-
-msgid "Subject"
-msgstr "Subiect"
-
-msgid "Members:"
-msgstr "Membrii:"
-
-msgid "Unsubscribed count:"
-msgstr "Număr de neabonați:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Numărul de neabonați de la ultima trimitere:"
-
-msgid "Cleaned count:"
-msgstr "Numărătoare curată:"
-
-msgid "Cleaned count since last send:"
-msgstr "Numărătoare curățată de la ultima trimitere:"
-
-msgid "Campaigns"
-msgstr "Campanii"
-
-msgid "Tags"
-msgstr "Etichete"
-
-msgid "is not configured"
-msgstr "nu este configurat"
-
-msgid "Please update the"
-msgstr "Vă rugăm să actualizați"
-
-msgid "API key in Setting->"
-msgstr "Cheia API în Setting->"
-
-msgid "Edit General Settings"
-msgstr "Editați setările generale"
-
-msgid "Then update"
-msgstr "Apoi actualizați"
-
-msgid "For more info see our "
-msgstr "Pentru mai multe informații, consultați pagina noastră"
-
-msgid "support docs."
-msgstr "documente de suport."
-
-msgid "List Title"
-msgstr "Titlu listă"
-
-msgid "Your List Title"
-msgstr "Titlul listei dvs."
-
-msgid "Your Subject"
-msgstr "Subiectul dumneavoastră"
-
-msgid "Permission Reminder"
-msgstr "Amintire de permisiune"
-
-msgid "Archive Bars"
-msgstr "Baruri de arhivă"
-
-msgid "Public"
-msgstr "Public"
-
-msgid "List Creation"
-msgstr "Crearea listei"
-
-msgid "You're about to delete a tag!"
-msgstr "Sunteți pe cale să ștergeți o etichetă!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Acest lucru va șterge, de asemenea, eticheta pentru toți membrii din această "
-"listă. Sunteți sigur?"
-
-msgid "Deleting tag"
-msgstr "Ștergerea etichetei"
-
-msgid "People"
-msgstr "Oameni"
-
-msgid "Families"
-msgstr "Familii"
-
-msgid "Add a new tag"
-msgstr "Adăugați o nouă etichetă"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Ștergerea etichetei de la abonat (abonați)"
-
-msgid "Delete tag"
-msgstr "Ștergeți eticheta"
-
-msgid "Loading resources ..."
-msgstr "Încărcarea resurselor ..."
-
-msgid "Check all boxes"
-msgstr "Bifați toate căsuțele"
-
-msgid "Subscribed"
-msgstr "Abonat"
-
-msgid "Unsubscribed"
-msgstr "Dezabonat"
-
-msgid "Email Marketing"
-msgstr "Marketing prin e-mail"
-
-msgid "New tag"
-msgstr "Etichetă nouă"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-"Introduceți numele etichetei care urmează să fie creată și aplicată "
-"membrilor selectați."
-
-msgid "Create tag"
-msgstr "Creați eticheta"
-
-msgid "Adding tag..."
-msgstr "Adăugarea etichetei..."
-
-msgid "Name is empty !!"
-msgstr "Numele este gol !!"
-
-msgid "Add tag"
-msgstr "Adaugă etichetă"
-
-msgid "Selected tag"
-msgstr "Etichetă selectată"
-
-msgid "This will add the tag"
-msgstr "Acest lucru va adăuga eticheta"
-
-msgid "to all the current selected members in the list."
-msgstr "la toți membrii selectați în prezent din listă."
-
-msgid "Select One"
-msgstr "Selectați unul"
-
-msgid "All Tags"
-msgstr "Toate etichetele"
-
-msgid "Remove tags from selected members"
-msgstr "Eliminarea etichetelor de la membrii selectați"
-
-msgid "Choose a tag"
-msgstr "Alegeți o etichetă"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"Selectați o etichetă pentru a o elimina sau selectați toate etichetele "
-"pentru o curățare completă a membrilor selectați."
-
-msgid "Apply"
-msgstr "Aplicați"
-
-msgid "Removing tags..."
-msgstr "Îndepărtarea etichetelor..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Ștergerea tuturor etichetelor pentru membrii selectați în listă..."
-
-msgid "This action affects the whole list"
-msgstr "Această acțiune afectează întreaga listă"
-
-msgid "Keep tag"
-msgstr "Păstrați eticheta"
-
-msgid "A person name or Family or Group"
-msgstr "Un nume de persoană sau o familie sau un grup"
-
-msgid "Loading subscriber"
-msgstr "Încărcare abonat"
-
-msgid "Loading subscribers from Group"
-msgstr "Încărcarea abonaților din Grup"
-
-msgid "Loading subscribers from family"
-msgstr "Încărcare abonați din familie"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr ""
-"Încărcarea tuturor persoanelor din EcclesiaCRM<br>Acest lucru ar putea dura "
-"ceva timp!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"De fapt, ar fi mai bine să ieșiți din CRM, să așteptați 5 minute și să vă "
-"faceți campaniile după.<br>Pentru a importa date uriașe, MailChimp API este "
-"lent."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Încărcarea tuturor abonaților la newsletter din EcclesiaCRM<br>Aceasta ar "
-"putea dura ceva timp!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Încărcarea tuturor familiilor de abonați din EcclesiaCRM<br>Aceasta ar putea "
-"dura ceva timp!"
-
-msgid "Update subscriber status"
-msgstr "Actualizarea statutului abonatului"
-
-msgid "Selected subscriber"
-msgstr "Abonat selectat"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "Alegeți statutul care se aplică acestui abonat."
-
-msgid "Update"
-msgstr "Actualizare"
-
-msgid "Changing status ..."
-msgstr "Schimbarea statutului ..."
-
-msgid "Delete subscriber"
-msgstr "Ștergeți abonatul"
-
-msgid "Subscriber removal"
-msgstr "Eliminarea abonaților"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Sunteți pe cale să ștergeți un abonat! Sunteți sigur?"
-
-msgid "Keep subscriber"
-msgstr "Păstrați abonamentul"
-
-msgid "Deleting Subscriber..."
-msgstr "Ștergerea abonatului..."
-
-msgid "Delete mailing list"
-msgstr "Ștergeți lista de corespondență"
-
-msgid "This action is irreversible"
-msgstr "Această acțiune este ireversibilă"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Chiar doriți să ștergeți această listă de discuții?"
-
-msgid "Delete list"
-msgstr "Ștergeți lista"
-
-msgid "Delete all subscribers"
-msgstr "Ștergeți toți abonații"
-
-msgid "Bulk deletion"
-msgstr "Ștergere în masă"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Sunteți sigur că doriți să ștergeți toți abonații"
-
-msgid "Delete all"
-msgstr "Ștergeți toate"
-
-msgid "Deleting all subscribers..."
-msgstr "Ștergerea tuturor abonaților..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"De fapt, este mai bine să ieșiți din CRM, iar peste un sfert de oră să îl "
-"redeschideți pentru a vă gestiona lista.<br>Pentru a șterge date uriașe, "
-"MailChimp API este lent."
-
-msgid "Email Campaign Creation"
-msgstr "Crearea campaniilor de e-mail"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"Pregătiți un titlu clar, confirmați tag-ul țintă și scrieți conținutul "
-"campaniei dvs. de e-mail."
-
-msgid "Campaign details"
-msgstr "Detalii privind campania"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-"Setați titlul campaniei și analizați ținta MailChimp înainte de a scrie "
-"mesajul."
-
-msgid "Campaign Title"
-msgstr "Titlul campaniei"
-
-msgid "Your Campaign Title"
-msgstr "Titlul campaniei dvs."
-
-msgid "For Tag"
-msgstr "Pentru etichetă"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr "Scrieți subiectul și corpul campaniei dvs. de e-mail."
-
-msgid "Mail Subject"
-msgstr "Mail Subiect"
-
-msgid "Your Mail Subject"
-msgstr "Subiectul e-mailului dvs."
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "Compuneți conținutul care va fi trimis membrilor acestei etichete."
-
-msgid "All list members"
-msgstr "Toți membrii listei"
-
-msgid "Adding Campaign ..."
-msgstr "Adăugarea campaniei ..."
-
-msgid "Campaign created"
-msgstr "Campanie creată"
-
-msgid "Your campaign is ready"
-msgstr "Campania dvs. este gata"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Doriți să gestionați direct această nouă campanie?"
-
-msgid "Open campaign"
-msgstr "Campanie deschisă"
-
-msgid "Stay here"
-msgstr "Rămâi aici"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Trebuie să setați un titlu de campanie pentru campania dvs. de e-mail."
-
-msgid "Edit list settings"
-msgstr "Editarea setărilor listei"
-
-msgid "MailChimp list settings"
-msgstr "Setări listă MailChimp"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr ""
-"Actualizați detaliile principale utilizate de această listă și de campaniile "
-"sale."
-
-msgid "List Name"
-msgstr "Nume listă"
-
-msgid "Changing subscribers state..."
-msgstr "Schimbarea stării abonaților..."
-
-msgid "Delete selected subscribers"
-msgstr "Ștergeți abonații selectați"
-
-msgid "Selected members"
-msgstr "Membri selectați"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Sunteți pe cale să ștergeți abonați! Sunteți sigur?"
-
-msgid "selected"
-msgstr "selectat"
-
-msgid "Delete selected"
-msgstr "Ștergeți selectat"
-
-msgid "Deleting Subscribers..."
-msgstr "Ștergerea abonaților..."
-
-msgid "Family"
-msgstr "Familie"
-
-msgid "Person"
-msgstr "Persoană"
-
 msgid "Free Event Attendees"
 msgstr "Participanții la evenimentul gratuit"
 
@@ -1764,6 +1333,12 @@ msgstr "Detalii privind tranzacția electronică"
 msgid "TOTAL"
 msgstr "TOTAL"
 
+msgid "Family"
+msgstr "Familie"
+
+msgid "Person"
+msgstr "Persoană"
+
 msgid "Anonymous"
 msgstr "Anonimul"
 
@@ -1778,6 +1353,9 @@ msgstr "Metoda"
 
 msgid "Check Number"
 msgstr "Număr de cec"
+
+msgid "Details"
+msgstr "Detalii"
 
 msgid "Tracking"
 msgstr "Urmărire"
@@ -1808,6 +1386,9 @@ msgstr "Depozit Comentariu"
 
 msgid "Closed"
 msgstr "Închis"
+
+msgid "Yes"
+msgstr "Da"
 
 msgid "Deposit Type"
 msgstr "Tipul de depozit"
@@ -2150,6 +1731,9 @@ msgstr "Nu s-au găsit înregistrări pentru această vizualizare."
 
 msgid "No matching records found."
 msgstr "Nu s-au găsit înregistrări corespunzătoare."
+
+msgid "Loading..."
+msgstr "Încărcare..."
 
 msgid "Never contacted"
 msgstr "Niciodată contactat"
@@ -2748,6 +2332,9 @@ msgstr "Manager de pluginuri"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Dosarul de imagini curente este acum dosarul public !!!"
+
+msgid "Families"
+msgstr "Familii"
 
 msgid "Singles"
 msgstr "Singuri"
@@ -3375,6 +2962,422 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailchimp"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "Toate listele sunt acum încărcate în CRM. 1235  4568 Dacă doriți să le "
+#~ "gestionați, faceți clic pe această notificare ! 7899 "
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "Campanie de economisire ..."
+
+#~ msgid "Campaign"
+#~ msgstr "Campanie"
+
+#~ msgid "saved successfully"
+#~ msgstr "salvat cu succes"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "Sunteți pe cale să vă trimiteți campania! Sunteți sigur?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "Sunteți pe cale să vă ștergeți campania! Sunteți sigur?"
+
+#~ msgid "Loading data..."
+#~ msgstr "Încărcarea datelor..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr "Vă rugăm să așteptați în timp ce vă recuperăm listele MailChimp."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "Nu se creează liste cu acest cont ...."
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr "Puteți crea o nouă listă MailChimp utilizând butonul de mai sus."
+
+#~ msgid "Email List"
+#~ msgstr "Lista de e-mail"
+
+#~ msgid "Subject"
+#~ msgstr "Subiect"
+
+#~ msgid "Members:"
+#~ msgstr "Membrii:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "Număr de neabonați:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "Numărul de neabonați de la ultima trimitere:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "Numărătoare curată:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "Numărătoare curățată de la ultima trimitere:"
+
+#~ msgid "Campaigns"
+#~ msgstr "Campanii"
+
+#~ msgid "Tags"
+#~ msgstr "Etichete"
+
+#~ msgid "is not configured"
+#~ msgstr "nu este configurat"
+
+#~ msgid "Please update the"
+#~ msgstr "Vă rugăm să actualizați"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "Cheia API în Setting->"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "Editați setările generale"
+
+#~ msgid "Then update"
+#~ msgstr "Apoi actualizați"
+
+#~ msgid "For more info see our "
+#~ msgstr "Pentru mai multe informații, consultați pagina noastră"
+
+#~ msgid "support docs."
+#~ msgstr "documente de suport."
+
+#~ msgid "List Title"
+#~ msgstr "Titlu listă"
+
+#~ msgid "Your List Title"
+#~ msgstr "Titlul listei dvs."
+
+#~ msgid "Your Subject"
+#~ msgstr "Subiectul dumneavoastră"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "Amintire de permisiune"
+
+#~ msgid "Archive Bars"
+#~ msgstr "Baruri de arhivă"
+
+#~ msgid "Public"
+#~ msgstr "Public"
+
+#~ msgid "List Creation"
+#~ msgstr "Crearea listei"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "Sunteți pe cale să ștergeți o etichetă!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "Acest lucru va șterge, de asemenea, eticheta pentru toți membrii din "
+#~ "această listă. Sunteți sigur?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "Ștergerea etichetei"
+
+#~ msgid "People"
+#~ msgstr "Oameni"
+
+#~ msgid "Add a new tag"
+#~ msgstr "Adăugați o nouă etichetă"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "Ștergerea etichetei de la abonat (abonați)"
+
+#~ msgid "Delete tag"
+#~ msgstr "Ștergeți eticheta"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "Încărcarea resurselor ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "Bifați toate căsuțele"
+
+#~ msgid "Subscribed"
+#~ msgstr "Abonat"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Dezabonat"
+
+#~ msgid "Email Marketing"
+#~ msgstr "Marketing prin e-mail"
+
+#~ msgid "New tag"
+#~ msgstr "Etichetă nouă"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr ""
+#~ "Introduceți numele etichetei care urmează să fie creată și aplicată "
+#~ "membrilor selectați."
+
+#~ msgid "Create tag"
+#~ msgstr "Creați eticheta"
+
+#~ msgid "Adding tag..."
+#~ msgstr "Adăugarea etichetei..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "Numele este gol !!"
+
+#~ msgid "Add tag"
+#~ msgstr "Adaugă etichetă"
+
+#~ msgid "Selected tag"
+#~ msgstr "Etichetă selectată"
+
+#~ msgid "This will add the tag"
+#~ msgstr "Acest lucru va adăuga eticheta"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "la toți membrii selectați în prezent din listă."
+
+#~ msgid "Select One"
+#~ msgstr "Selectați unul"
+
+#~ msgid "All Tags"
+#~ msgstr "Toate etichetele"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "Eliminarea etichetelor de la membrii selectați"
+
+#~ msgid "Choose a tag"
+#~ msgstr "Alegeți o etichetă"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "Selectați o etichetă pentru a o elimina sau selectați toate etichetele "
+#~ "pentru o curățare completă a membrilor selectați."
+
+#~ msgid "Apply"
+#~ msgstr "Aplicați"
+
+#~ msgid "Removing tags..."
+#~ msgstr "Îndepărtarea etichetelor..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "Ștergerea tuturor etichetelor pentru membrii selectați în listă..."
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "Această acțiune afectează întreaga listă"
+
+#~ msgid "Keep tag"
+#~ msgstr "Păstrați eticheta"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "Un nume de persoană sau o familie sau un grup"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "Încărcare abonat"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "Încărcarea abonaților din Grup"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "Încărcare abonați din familie"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Încărcarea tuturor persoanelor din EcclesiaCRM<br>Acest lucru ar putea "
+#~ "dura ceva timp!"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "De fapt, ar fi mai bine să ieșiți din CRM, să așteptați 5 minute și să vă "
+#~ "faceți campaniile după.<br>Pentru a importa date uriașe, MailChimp API "
+#~ "este lent."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "Încărcarea tuturor abonaților la newsletter din EcclesiaCRM<br>Aceasta ar "
+#~ "putea dura ceva timp!"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Încărcarea tuturor familiilor de abonați din EcclesiaCRM<br>Aceasta ar "
+#~ "putea dura ceva timp!"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "Actualizarea statutului abonatului"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "Abonat selectat"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "Alegeți statutul care se aplică acestui abonat."
+
+#~ msgid "Update"
+#~ msgstr "Actualizare"
+
+#~ msgid "Changing status ..."
+#~ msgstr "Schimbarea statutului ..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "Ștergeți abonatul"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "Eliminarea abonaților"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "Sunteți pe cale să ștergeți un abonat! Sunteți sigur?"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "Păstrați abonamentul"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "Ștergerea abonatului..."
+
+#~ msgid "Delete mailing list"
+#~ msgstr "Ștergeți lista de corespondență"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "Această acțiune este ireversibilă"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "Chiar doriți să ștergeți această listă de discuții?"
+
+#~ msgid "Delete list"
+#~ msgstr "Ștergeți lista"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "Ștergeți toți abonații"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "Ștergere în masă"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "Sunteți sigur că doriți să ștergeți toți abonații"
+
+#~ msgid "Delete all"
+#~ msgstr "Ștergeți toate"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "Ștergerea tuturor abonaților..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "De fapt, este mai bine să ieșiți din CRM, iar peste un sfert de oră să îl "
+#~ "redeschideți pentru a vă gestiona lista.<br>Pentru a șterge date uriașe, "
+#~ "MailChimp API este lent."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "Crearea campaniilor de e-mail"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "Pregătiți un titlu clar, confirmați tag-ul țintă și scrieți conținutul "
+#~ "campaniei dvs. de e-mail."
+
+#~ msgid "Campaign details"
+#~ msgstr "Detalii privind campania"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr ""
+#~ "Setați titlul campaniei și analizați ținta MailChimp înainte de a scrie "
+#~ "mesajul."
+
+#~ msgid "Campaign Title"
+#~ msgstr "Titlul campaniei"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "Titlul campaniei dvs."
+
+#~ msgid "For Tag"
+#~ msgstr "Pentru etichetă"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "Scrieți subiectul și corpul campaniei dvs. de e-mail."
+
+#~ msgid "Mail Subject"
+#~ msgstr "Mail Subiect"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "Subiectul e-mailului dvs."
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr "Compuneți conținutul care va fi trimis membrilor acestei etichete."
+
+#~ msgid "All list members"
+#~ msgstr "Toți membrii listei"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "Adăugarea campaniei ..."
+
+#~ msgid "Campaign created"
+#~ msgstr "Campanie creată"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "Campania dvs. este gata"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "Doriți să gestionați direct această nouă campanie?"
+
+#~ msgid "Open campaign"
+#~ msgstr "Campanie deschisă"
+
+#~ msgid "Stay here"
+#~ msgstr "Rămâi aici"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr ""
+#~ "Trebuie să setați un titlu de campanie pentru campania dvs. de e-mail."
+
+#~ msgid "Edit list settings"
+#~ msgstr "Editarea setărilor listei"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "Setări listă MailChimp"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr ""
+#~ "Actualizați detaliile principale utilizate de această listă și de "
+#~ "campaniile sale."
+
+#~ msgid "List Name"
+#~ msgstr "Nume listă"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "Schimbarea stării abonaților..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "Ștergeți abonații selectați"
+
+#~ msgid "Selected members"
+#~ msgstr "Membri selectați"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "Sunteți pe cale să ștergeți abonați! Sunteți sigur?"
+
+#~ msgid "selected"
+#~ msgstr "selectat"
+
+#~ msgid "Delete selected"
+#~ msgstr "Ștergeți selectat"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "Ștergerea abonaților..."
 
 #~ msgid "ERROR"
 #~ msgstr "ERROR"

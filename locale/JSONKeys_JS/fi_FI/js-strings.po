@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -689,16 +689,6 @@ msgstr "Käynnissä"
 msgid "Please wait while the operation is being completed"
 msgstr "Odota, kun toiminto on valmis"
 
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Kaikki listat on nyt ladattu CRM:ään. 1235  4568 Jos haluat hallita niitä, "
-"napsauta tätä ilmoitusta ! 7899 ."
-
 msgid "There was a problem retrieving the requested object"
 msgstr "Pyydetyn objektin hakemisessa oli ongelma."
 
@@ -1090,423 +1080,6 @@ msgstr "Luo asiakirja"
 msgid "You have to set a Title for your document"
 msgstr "Asiakirjalle on määritettävä otsikko"
 
-msgid "Saving Campaign ..."
-msgstr "Säästökampanja ..."
-
-msgid "Campaign"
-msgstr "Kampanja"
-
-msgid "saved successfully"
-msgstr "tallennettu onnistuneesti"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Olet lähettämässä kampanjaasi! Oletko varma?"
-
-msgid "Yes"
-msgstr "Kyllä"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Olet poistamassa kampanjaasi! Oletko varma?"
-
-msgid "Loading..."
-msgstr "Ladataan..."
-
-msgid "Loading data..."
-msgstr "Tietojen lataaminen..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "Odota, kun haemme MailChimp-listasi."
-
-msgid "No list are created with this account ...."
-msgstr "Tällä tilillä ei luoda listaa ...."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr "Voit luoda uuden MailChimp-luettelon yllä olevasta painikkeesta."
-
-msgid "Email List"
-msgstr "Sähköpostilista"
-
-msgid "Details"
-msgstr "Yksityiskohdat"
-
-msgid "Subject"
-msgstr "Aihe"
-
-msgid "Members:"
-msgstr "Jäsenet:"
-
-msgid "Unsubscribed count:"
-msgstr "Tilaamattomien määrä:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Tilaamattomien määrä viimeisimmän lähetyksen jälkeen:"
-
-msgid "Cleaned count:"
-msgstr "Puhdistettu määrä:"
-
-msgid "Cleaned count since last send:"
-msgstr "Puhdistettu luku viimeisimmän lähetyksen jälkeen:"
-
-msgid "Campaigns"
-msgstr "Kampanjat"
-
-msgid "Tags"
-msgstr "Tunnisteet"
-
-msgid "is not configured"
-msgstr "ei ole määritetty"
-
-msgid "Please update the"
-msgstr "Päivitä"
-
-msgid "API key in Setting->"
-msgstr "API-avain kohdassa Setting->"
-
-msgid "Edit General Settings"
-msgstr "Muokkaa yleisiä asetuksia"
-
-msgid "Then update"
-msgstr "Päivitä sitten"
-
-msgid "For more info see our "
-msgstr "Lisätietoja löydät osoitteesta"
-
-msgid "support docs."
-msgstr "tukidokumentit."
-
-msgid "List Title"
-msgstr "Luettelon otsikko"
-
-msgid "Your List Title"
-msgstr "Luettelosi otsikko"
-
-msgid "Your Subject"
-msgstr "Aiheesi"
-
-msgid "Permission Reminder"
-msgstr "Lupamuistutus"
-
-msgid "Archive Bars"
-msgstr "Arkistopalkit"
-
-msgid "Public"
-msgstr "Julkinen"
-
-msgid "List Creation"
-msgstr "Luettelon luominen"
-
-msgid "You're about to delete a tag!"
-msgstr "Olet poistamassa tunnisteen!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "Tämä poistaa myös kaikkien listan jäsenten tunnisteen. Oletko varma?"
-
-msgid "Deleting tag"
-msgstr "Tagin poistaminen"
-
-msgid "People"
-msgstr "Ihmiset"
-
-msgid "Families"
-msgstr "Perheet"
-
-msgid "Add a new tag"
-msgstr "Lisää uusi tagi"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Poista tunniste tilaajalta (tilaajilta)"
-
-msgid "Delete tag"
-msgstr "Poista tagi"
-
-msgid "Loading resources ..."
-msgstr "Resurssien lataaminen ..."
-
-msgid "Check all boxes"
-msgstr "Rastita kaikki ruudut"
-
-msgid "Subscribed"
-msgstr "Tilattu"
-
-msgid "Unsubscribed"
-msgstr "Tilaukset poistettu"
-
-msgid "Email Marketing"
-msgstr "Sähköpostimarkkinointi"
-
-msgid "New tag"
-msgstr "Uusi tagi"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-"Anna sen tunnisteen nimi, joka luodaan ja jota sovelletaan valittuihin "
-"jäseniin."
-
-msgid "Create tag"
-msgstr "Luo tunniste"
-
-msgid "Adding tag..."
-msgstr "Tagin lisääminen..."
-
-msgid "Name is empty !!"
-msgstr "Nimi on tyhjä !!"
-
-msgid "Add tag"
-msgstr "Lisää tagi"
-
-msgid "Selected tag"
-msgstr "Valittu tagi"
-
-msgid "This will add the tag"
-msgstr "Tämä lisää tunnisteen"
-
-msgid "to all the current selected members in the list."
-msgstr "kaikille luettelon nykyisille valituille jäsenille."
-
-msgid "Select One"
-msgstr "Valitse yksi"
-
-msgid "All Tags"
-msgstr "Kaikki tunnisteet"
-
-msgid "Remove tags from selected members"
-msgstr "Poista tunnisteet valituista jäsenistä"
-
-msgid "Choose a tag"
-msgstr "Valitse tunniste"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"Valitse yksi poistettava tunniste tai valitse kaikki tunnisteet, jos haluat "
-"puhdistaa kaikki valitut jäsenet."
-
-msgid "Apply"
-msgstr "Hae"
-
-msgid "Removing tags..."
-msgstr "Tunnisteiden poistaminen..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Kaikkien valittujen jäsenten tunnisteiden poistaminen luettelosta..."
-
-msgid "This action affects the whole list"
-msgstr "Tämä toiminto vaikuttaa koko luetteloon"
-
-msgid "Keep tag"
-msgstr "Pidä tunniste"
-
-msgid "A person name or Family or Group"
-msgstr "Henkilön nimi tai perhe tai ryhmä"
-
-msgid "Loading subscriber"
-msgstr "Tilaajan lataaminen"
-
-msgid "Loading subscribers from Group"
-msgstr "Tilaajien lataaminen ryhmästä"
-
-msgid "Loading subscribers from family"
-msgstr "Tilaajien lataaminen perheestä"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr ""
-"Kaikkien henkilöiden lataaminen EcclesiaCRM:stä<br>Tämä voi kestää jonkin "
-"aikaa !"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Itse asiassa sinun on parempi lopettaa CRM, odottaa 5 minuuttia ja tehdä "
-"kampanjasi sen jälkeen.<br>MailChimp API on hidas, kun haluat tuoda valtavia "
-"datamääriä."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Kaikkien uutiskirjeen tilaajien lataaminen EcclesiaCRM:stä<br>Tämä voi "
-"kestää jonkin aikaa !"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Kaikkien perheiden ensimmäisten headpeople-tilaajien lataaminen EcclesiaCRM:"
-"stä<br>Tämä voi kestää jonkin aikaa !"
-
-msgid "Update subscriber status"
-msgstr "Päivitä tilaajan tila"
-
-msgid "Selected subscriber"
-msgstr "Valittu tilaaja"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "Valitse tilaajan tila."
-
-msgid "Update"
-msgstr "Päivitys"
-
-msgid "Changing status ..."
-msgstr "Muuttuva tila ..."
-
-msgid "Delete subscriber"
-msgstr "Poista tilaaja"
-
-msgid "Subscriber removal"
-msgstr "Tilaajan poistaminen"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Olet poistamassa tilaajan! Oletko varma?"
-
-msgid "Keep subscriber"
-msgstr "Pidä tilaaja"
-
-msgid "Deleting Subscriber..."
-msgstr "Tilaajan poistaminen..."
-
-msgid "Delete mailing list"
-msgstr "Poista postituslista"
-
-msgid "This action is irreversible"
-msgstr "Tämä toiminta on peruuttamatonta"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Haluatko todella poistaa tämän postituslistan?"
-
-msgid "Delete list"
-msgstr "Poista luettelo"
-
-msgid "Delete all subscribers"
-msgstr "Poista kaikki tilaajat"
-
-msgid "Bulk deletion"
-msgstr "Joukkotyhjennys"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Haluatko varmasti poistaa kaikki tilaajat?"
-
-msgid "Delete all"
-msgstr "Poista kaikki"
-
-msgid "Deleting all subscribers..."
-msgstr "Kaikkien tilaajien poistaminen..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Itse asiassa sinun on parempi jättää CRM ja avata se neljänneksen kuluttua "
-"uudelleen listan hallintaa varten.<br>MailChimpin API on hidas, kun haluat "
-"poistaa valtavia tietomääriä."
-
-msgid "Email Campaign Creation"
-msgstr "Sähköpostikampanjan luominen"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"Valmista selkeä otsikko, vahvista kohdetunniste ja kirjoita "
-"sähköpostikampanjan sisältö."
-
-msgid "Campaign details"
-msgstr "Kampanjan tiedot"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-"Määritä kampanjan otsikko ja tarkista MailChimp-kohde ennen viestin "
-"kirjoittamista."
-
-msgid "Campaign Title"
-msgstr "Kampanjan nimi"
-
-msgid "Your Campaign Title"
-msgstr "Kampanjan nimi"
-
-msgid "For Tag"
-msgstr "Merkille"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr "Kirjoita sähköpostikampanjan aihe ja runko."
-
-msgid "Mail Subject"
-msgstr "Mail Aihe"
-
-msgid "Your Mail Subject"
-msgstr "Sähköpostin aihe"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "Laadi sisältö, joka lähetetään tämän tunnisteen jäsenille."
-
-msgid "All list members"
-msgstr "Kaikki luettelon jäsenet"
-
-msgid "Adding Campaign ..."
-msgstr "Kampanjan lisääminen ..."
-
-msgid "Campaign created"
-msgstr "Kampanja luotu"
-
-msgid "Your campaign is ready"
-msgstr "Kampanjasi on valmis"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Haluaisitko hallita suoraan tätä uutta kampanjaa ?"
-
-msgid "Open campaign"
-msgstr "Avoin kampanja"
-
-msgid "Stay here"
-msgstr "Pysy täällä."
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Sinun täytyy asettaa kampanjan otsikko eMail-kampanjallesi."
-
-msgid "Edit list settings"
-msgstr "Muokkaa luettelon asetuksia"
-
-msgid "MailChimp list settings"
-msgstr "MailChimp-luettelon asetukset"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr "Päivitä tämän listan ja sen kampanjoiden käyttämät tärkeimmät tiedot."
-
-msgid "List Name"
-msgstr "Luettelon nimi"
-
-msgid "Changing subscribers state..."
-msgstr "Tilaajien tilan muuttaminen..."
-
-msgid "Delete selected subscribers"
-msgstr "Poista valitut tilaajat"
-
-msgid "Selected members"
-msgstr "Valitut jäsenet"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Olet poistamassa tilaajia! Oletko varma?"
-
-msgid "selected"
-msgstr "valitut"
-
-msgid "Delete selected"
-msgstr "Poista valittu"
-
-msgid "Deleting Subscribers..."
-msgstr "Tilaajien poistaminen..."
-
-msgid "Family"
-msgstr "Perhe"
-
-msgid "Person"
-msgstr "Henkilö"
-
 msgid "Free Event Attendees"
 msgstr "Ilmaiset tapahtuman osallistujat"
 
@@ -1742,6 +1315,12 @@ msgstr "Sähköisen tapahtuman tiedot"
 msgid "TOTAL"
 msgstr "YHTEENSÄ"
 
+msgid "Family"
+msgstr "Perhe"
+
+msgid "Person"
+msgstr "Henkilö"
+
 msgid "Anonymous"
 msgstr "Anonyymi"
 
@@ -1756,6 +1335,9 @@ msgstr "Menetelmä"
 
 msgid "Check Number"
 msgstr "Tarkistusnumero"
+
+msgid "Details"
+msgstr "Yksityiskohdat"
 
 msgid "Tracking"
 msgstr "Seuranta"
@@ -1786,6 +1368,9 @@ msgstr "Talletus Kommentti"
 
 msgid "Closed"
 msgstr "Suljettu"
+
+msgid "Yes"
+msgstr "Kyllä"
 
 msgid "Deposit Type"
 msgstr "Talletuksen tyyppi"
@@ -2127,6 +1712,9 @@ msgstr "Tälle näkymälle ei löytynyt tietueita."
 
 msgid "No matching records found."
 msgstr "Vastaavia tietueita ei löytynyt."
+
+msgid "Loading..."
+msgstr "Ladataan..."
 
 msgid "Never contacted"
 msgstr "Ei koskaan otettu yhteyttä"
@@ -2707,6 +2295,9 @@ msgstr "Plugin manager"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Nykyinen kuvakansio on nyt julkinen kansio !!!!"
+
+msgid "Families"
+msgstr "Perheet"
 
 msgid "Singles"
 msgstr "Sinkut"
@@ -3326,6 +2917,420 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Kaikki jäsenyys tuhotaan.  Jäseniä itseään ei muuteta."
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailchimp"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "Kaikki listat on nyt ladattu CRM:ään. 1235  4568 Jos haluat hallita "
+#~ "niitä, napsauta tätä ilmoitusta ! 7899 ."
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "Säästökampanja ..."
+
+#~ msgid "Campaign"
+#~ msgstr "Kampanja"
+
+#~ msgid "saved successfully"
+#~ msgstr "tallennettu onnistuneesti"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "Olet lähettämässä kampanjaasi! Oletko varma?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "Olet poistamassa kampanjaasi! Oletko varma?"
+
+#~ msgid "Loading data..."
+#~ msgstr "Tietojen lataaminen..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr "Odota, kun haemme MailChimp-listasi."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "Tällä tilillä ei luoda listaa ...."
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr "Voit luoda uuden MailChimp-luettelon yllä olevasta painikkeesta."
+
+#~ msgid "Email List"
+#~ msgstr "Sähköpostilista"
+
+#~ msgid "Subject"
+#~ msgstr "Aihe"
+
+#~ msgid "Members:"
+#~ msgstr "Jäsenet:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "Tilaamattomien määrä:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "Tilaamattomien määrä viimeisimmän lähetyksen jälkeen:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "Puhdistettu määrä:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "Puhdistettu luku viimeisimmän lähetyksen jälkeen:"
+
+#~ msgid "Campaigns"
+#~ msgstr "Kampanjat"
+
+#~ msgid "Tags"
+#~ msgstr "Tunnisteet"
+
+#~ msgid "is not configured"
+#~ msgstr "ei ole määritetty"
+
+#~ msgid "Please update the"
+#~ msgstr "Päivitä"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "API-avain kohdassa Setting->"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "Muokkaa yleisiä asetuksia"
+
+#~ msgid "Then update"
+#~ msgstr "Päivitä sitten"
+
+#~ msgid "For more info see our "
+#~ msgstr "Lisätietoja löydät osoitteesta"
+
+#~ msgid "support docs."
+#~ msgstr "tukidokumentit."
+
+#~ msgid "List Title"
+#~ msgstr "Luettelon otsikko"
+
+#~ msgid "Your List Title"
+#~ msgstr "Luettelosi otsikko"
+
+#~ msgid "Your Subject"
+#~ msgstr "Aiheesi"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "Lupamuistutus"
+
+#~ msgid "Archive Bars"
+#~ msgstr "Arkistopalkit"
+
+#~ msgid "Public"
+#~ msgstr "Julkinen"
+
+#~ msgid "List Creation"
+#~ msgstr "Luettelon luominen"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "Olet poistamassa tunnisteen!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "Tämä poistaa myös kaikkien listan jäsenten tunnisteen. Oletko varma?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "Tagin poistaminen"
+
+#~ msgid "People"
+#~ msgstr "Ihmiset"
+
+#~ msgid "Add a new tag"
+#~ msgstr "Lisää uusi tagi"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "Poista tunniste tilaajalta (tilaajilta)"
+
+#~ msgid "Delete tag"
+#~ msgstr "Poista tagi"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "Resurssien lataaminen ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "Rastita kaikki ruudut"
+
+#~ msgid "Subscribed"
+#~ msgstr "Tilattu"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Tilaukset poistettu"
+
+#~ msgid "Email Marketing"
+#~ msgstr "Sähköpostimarkkinointi"
+
+#~ msgid "New tag"
+#~ msgstr "Uusi tagi"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr ""
+#~ "Anna sen tunnisteen nimi, joka luodaan ja jota sovelletaan valittuihin "
+#~ "jäseniin."
+
+#~ msgid "Create tag"
+#~ msgstr "Luo tunniste"
+
+#~ msgid "Adding tag..."
+#~ msgstr "Tagin lisääminen..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "Nimi on tyhjä !!"
+
+#~ msgid "Add tag"
+#~ msgstr "Lisää tagi"
+
+#~ msgid "Selected tag"
+#~ msgstr "Valittu tagi"
+
+#~ msgid "This will add the tag"
+#~ msgstr "Tämä lisää tunnisteen"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "kaikille luettelon nykyisille valituille jäsenille."
+
+#~ msgid "Select One"
+#~ msgstr "Valitse yksi"
+
+#~ msgid "All Tags"
+#~ msgstr "Kaikki tunnisteet"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "Poista tunnisteet valituista jäsenistä"
+
+#~ msgid "Choose a tag"
+#~ msgstr "Valitse tunniste"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "Valitse yksi poistettava tunniste tai valitse kaikki tunnisteet, jos "
+#~ "haluat puhdistaa kaikki valitut jäsenet."
+
+#~ msgid "Apply"
+#~ msgstr "Hae"
+
+#~ msgid "Removing tags..."
+#~ msgstr "Tunnisteiden poistaminen..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr ""
+#~ "Kaikkien valittujen jäsenten tunnisteiden poistaminen luettelosta..."
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "Tämä toiminto vaikuttaa koko luetteloon"
+
+#~ msgid "Keep tag"
+#~ msgstr "Pidä tunniste"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "Henkilön nimi tai perhe tai ryhmä"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "Tilaajan lataaminen"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "Tilaajien lataaminen ryhmästä"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "Tilaajien lataaminen perheestä"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Kaikkien henkilöiden lataaminen EcclesiaCRM:stä<br>Tämä voi kestää jonkin "
+#~ "aikaa !"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "Itse asiassa sinun on parempi lopettaa CRM, odottaa 5 minuuttia ja tehdä "
+#~ "kampanjasi sen jälkeen.<br>MailChimp API on hidas, kun haluat tuoda "
+#~ "valtavia datamääriä."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "Kaikkien uutiskirjeen tilaajien lataaminen EcclesiaCRM:stä<br>Tämä voi "
+#~ "kestää jonkin aikaa !"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Kaikkien perheiden ensimmäisten headpeople-tilaajien lataaminen "
+#~ "EcclesiaCRM:stä<br>Tämä voi kestää jonkin aikaa !"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "Päivitä tilaajan tila"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "Valittu tilaaja"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "Valitse tilaajan tila."
+
+#~ msgid "Update"
+#~ msgstr "Päivitys"
+
+#~ msgid "Changing status ..."
+#~ msgstr "Muuttuva tila ..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "Poista tilaaja"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "Tilaajan poistaminen"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "Olet poistamassa tilaajan! Oletko varma?"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "Pidä tilaaja"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "Tilaajan poistaminen..."
+
+#~ msgid "Delete mailing list"
+#~ msgstr "Poista postituslista"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "Tämä toiminta on peruuttamatonta"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "Haluatko todella poistaa tämän postituslistan?"
+
+#~ msgid "Delete list"
+#~ msgstr "Poista luettelo"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "Poista kaikki tilaajat"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "Joukkotyhjennys"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "Haluatko varmasti poistaa kaikki tilaajat?"
+
+#~ msgid "Delete all"
+#~ msgstr "Poista kaikki"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "Kaikkien tilaajien poistaminen..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "Itse asiassa sinun on parempi jättää CRM ja avata se neljänneksen "
+#~ "kuluttua uudelleen listan hallintaa varten.<br>MailChimpin API on hidas, "
+#~ "kun haluat poistaa valtavia tietomääriä."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "Sähköpostikampanjan luominen"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "Valmista selkeä otsikko, vahvista kohdetunniste ja kirjoita "
+#~ "sähköpostikampanjan sisältö."
+
+#~ msgid "Campaign details"
+#~ msgstr "Kampanjan tiedot"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr ""
+#~ "Määritä kampanjan otsikko ja tarkista MailChimp-kohde ennen viestin "
+#~ "kirjoittamista."
+
+#~ msgid "Campaign Title"
+#~ msgstr "Kampanjan nimi"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "Kampanjan nimi"
+
+#~ msgid "For Tag"
+#~ msgstr "Merkille"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "Kirjoita sähköpostikampanjan aihe ja runko."
+
+#~ msgid "Mail Subject"
+#~ msgstr "Mail Aihe"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "Sähköpostin aihe"
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr "Laadi sisältö, joka lähetetään tämän tunnisteen jäsenille."
+
+#~ msgid "All list members"
+#~ msgstr "Kaikki luettelon jäsenet"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "Kampanjan lisääminen ..."
+
+#~ msgid "Campaign created"
+#~ msgstr "Kampanja luotu"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "Kampanjasi on valmis"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "Haluaisitko hallita suoraan tätä uutta kampanjaa ?"
+
+#~ msgid "Open campaign"
+#~ msgstr "Avoin kampanja"
+
+#~ msgid "Stay here"
+#~ msgstr "Pysy täällä."
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "Sinun täytyy asettaa kampanjan otsikko eMail-kampanjallesi."
+
+#~ msgid "Edit list settings"
+#~ msgstr "Muokkaa luettelon asetuksia"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "MailChimp-luettelon asetukset"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr ""
+#~ "Päivitä tämän listan ja sen kampanjoiden käyttämät tärkeimmät tiedot."
+
+#~ msgid "List Name"
+#~ msgstr "Luettelon nimi"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "Tilaajien tilan muuttaminen..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "Poista valitut tilaajat"
+
+#~ msgid "Selected members"
+#~ msgstr "Valitut jäsenet"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "Olet poistamassa tilaajia! Oletko varma?"
+
+#~ msgid "selected"
+#~ msgstr "valitut"
+
+#~ msgid "Delete selected"
+#~ msgstr "Poista valittu"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "Tilaajien poistaminen..."
 
 #~ msgid "ERROR"
 #~ msgstr "VIRHE"

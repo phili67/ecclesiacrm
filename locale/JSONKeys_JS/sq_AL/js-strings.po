@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -696,17 +696,6 @@ msgstr "në progres..."
 msgid "Please wait while the operation is being completed"
 msgstr ""
 
-msgid "Mailchimp"
-msgstr "Mailkim."
-
-#, fuzzy
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"të gjitha listat janë të mbushura meEcclesia<b>crm</b>.<br><b>nëse doni t'i "
-"menaxhoni, shtypni këtë njoftim!</b>"
-
 msgid "There was a problem retrieving the requested object"
 msgstr "kishte një problem të ririfitonte objektin e kërkuar"
 
@@ -1123,448 +1112,6 @@ msgstr "krijo një."
 msgid "You have to set a Title for your document"
 msgstr "Duhet të vendosësh Titullin për dokumentin tënd"
 
-msgid "Saving Campaign ..."
-msgstr "fushata saving ..."
-
-msgid "Campaign"
-msgstr "fushata"
-
-msgid "saved successfully"
-msgstr "na shpëtoi me sukses"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "tani do dërgoni fushatën! A je i sigurt?"
-
-msgid "Yes"
-msgstr "po."
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Do ta fshish fushatën tënde! A je i sigurt?"
-
-#, fuzzy
-msgid "Loading..."
-msgstr "video..."
-
-#, fuzzy
-msgid "Loading data..."
-msgstr "Duke mbushur datat..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr ""
-
-msgid "No list are created with this account ...."
-msgstr "Nuk janë krijuar listë me këtë llogari..."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr ""
-
-msgid "Email List"
-msgstr "lista e email"
-
-msgid "Details"
-msgstr "Detajet"
-
-msgid "Subject"
-msgstr "subjekti"
-
-msgid "Members:"
-msgstr "Anëtarët:"
-
-msgid "Unsubscribed count:"
-msgstr "numërimi i papërshkrueshëm:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "numërimi i papërshkruar që nga dërgimi i fundit:"
-
-msgid "Cleaned count:"
-msgstr "numërimi i pastruar:"
-
-msgid "Cleaned count since last send:"
-msgstr "numërimi i pastruar që nga dërgimi i fundit:"
-
-msgid "Campaigns"
-msgstr "Fushata."
-
-msgid "Tags"
-msgstr "Tags"
-
-msgid "is not configured"
-msgstr "nuk është e konfiguruar"
-
-msgid "Please update the"
-msgstr "ju lutem, lajmëroni"
-
-msgid "API key in Setting->"
-msgstr "çelësi i api në setting -"
-
-msgid "Edit General Settings"
-msgstr "Seksionet e Gjeneralit Edit"
-
-#, fuzzy
-msgid "Then update"
-msgstr "pastaj të reja"
-
-msgid "For more info see our "
-msgstr "për më shumë informacione do të na shohin"
-
-msgid "support docs."
-msgstr "doktorët mbështetës."
-
-msgid "List Title"
-msgstr "list titëll"
-
-msgid "Your List Title"
-msgstr "lista jote \"titulli\""
-
-msgid "Your Subject"
-msgstr "subjekti juaj"
-
-msgid "Permission Reminder"
-msgstr "Leje kujtesën"
-
-msgid "Archive Bars"
-msgstr "Arkivo Baret"
-
-msgid "Public"
-msgstr "Publik"
-
-msgid "List Creation"
-msgstr "Krijimi i listës"
-
-msgid "You're about to delete a tag!"
-msgstr "Do ta fshish etiketën!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Kjo do ta fshijë gjithashtu etiketën për të gjithë anëtarët e listës. A je i "
-"sigurt?"
-
-msgid "Deleting tag"
-msgstr "Po kënaq"
-
-msgid "People"
-msgstr "Njerëz."
-
-msgid "Families"
-msgstr "Familjet"
-
-msgid "Add a new tag"
-msgstr "Shto një etiketë të re"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "fshije etiketën nga abonentët(s)"
-
-msgid "Delete tag"
-msgstr "fshije etiketën"
-
-msgid "Loading resources ..."
-msgstr "Mbushja e burimeve ..."
-
-msgid "Check all boxes"
-msgstr "Kontrollo të gjitha kutitë"
-
-msgid "Subscribed"
-msgstr "është i shkruar në rresht."
-
-msgid "Unsubscribed"
-msgstr "E papërshkruara"
-
-msgid "Email Marketing"
-msgstr "marketing e-mail"
-
-#, fuzzy
-msgid "New tag"
-msgstr "Shto një etiketë të re"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-
-#, fuzzy
-msgid "Create tag"
-msgstr "fshije etiketën"
-
-msgid "Adding tag..."
-msgstr "Shtimi i etiketave..."
-
-msgid "Name is empty !!"
-msgstr "emri është bosh!"
-
-#, fuzzy
-msgid "Add tag"
-msgstr "Shtoni etiketën?"
-
-#, fuzzy
-msgid "Selected tag"
-msgstr "fshije etiketën"
-
-msgid "This will add the tag"
-msgstr "Kjo do të shtojë etiketën"
-
-msgid "to all the current selected members in the list."
-msgstr "për të gjithë anëtarët e tanishëm të zgjedhur në listë."
-
-msgid "Select One"
-msgstr "Zgjedhja një"
-
-msgid "All Tags"
-msgstr "Të gjitha taket"
-
-#, fuzzy
-msgid "Remove tags from selected members"
-msgstr "Largoni të gjitha"
-
-#, fuzzy
-msgid "Choose a tag"
-msgstr "Zgjidh një emër roli"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-
-msgid "Apply"
-msgstr ""
-
-msgid "Removing tags..."
-msgstr "Hiqja etiketat..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Po mbledh të gjitha etiketat për anëtarët e zgjedhur në listë..."
-
-msgid "This action affects the whole list"
-msgstr ""
-
-#, fuzzy
-msgid "Keep tag"
-msgstr "fshije etiketën"
-
-msgid "A person name or Family or Group"
-msgstr "Një emër ose familje ose grup"
-
-msgid "Loading subscriber"
-msgstr "Mbushi abonentët"
-
-msgid "Loading subscribers from Group"
-msgstr "Duke mbushur abonentët nga Grupi"
-
-msgid "Loading subscribers from family"
-msgstr "Duke mbushur abonentët nga familja"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr ""
-"Duke mbushur të gjithë personat nga EcclesiaCRM<br>kjo mund të marrë një "
-"kohë!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Në fakt, duhet të largohesh nga CRM, të presësh 5 minuta dhe të bësh "
-"fushatat e tua më pas.<br>për të importuar të dhëna të mëdha, mailchimp api "
-"është i ngadalshëm."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Duke mbushur të gjithë abonentët e gazetave nga EcclesiaCRM<br>kjo mund të "
-"marrë një kohë!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Duke mbushur të gjitha familjet e para të rekrutëve të kokave nga "
-"EcclesiaCRM<br>kjo mund të marrë një kohë!"
-
-#, fuzzy
-msgid "Update subscriber status"
-msgstr "Ndryshimi i abonentëve shtet..."
-
-#, fuzzy
-msgid "Selected subscriber"
-msgstr "Po i mbledh këshillat..."
-
-msgid "Choose the status to apply to this subscriber."
-msgstr ""
-
-#, fuzzy
-msgid "Update"
-msgstr "Lajmërim i ri"
-
-msgid "Changing status ..."
-msgstr "Ndrysho statusin..."
-
-#, fuzzy
-msgid "Delete subscriber"
-msgstr "Po i mbledh këshillat..."
-
-#, fuzzy
-msgid "Subscriber removal"
-msgstr "është i shkruar në rresht."
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Do ta fshish abonentët! A je i sigurt?"
-
-#, fuzzy
-msgid "Keep subscriber"
-msgstr "Mbushi abonentët"
-
-msgid "Deleting Subscriber..."
-msgstr "Po i mbledh këshillat..."
-
-#, fuzzy
-msgid "Delete mailing list"
-msgstr "Fshij menaxherat"
-
-#, fuzzy
-msgid "This action is irreversible"
-msgstr "Ky aksion nuk mund të bëhet kurrë! !!!!"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "A dëshiron vërtet ta fshish këtë listë postare?"
-
-#, fuzzy
-msgid "Delete list"
-msgstr "fshije etiketën"
-
-#, fuzzy
-msgid "Delete all subscribers"
-msgstr "Po fshij të gjithë abonentët..."
-
-msgid "Bulk deletion"
-msgstr ""
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Je i sigurt që do t'i fshish të gjithë abonentët"
-
-#, fuzzy
-msgid "Delete all"
-msgstr "fshije etiketën"
-
-msgid "Deleting all subscribers..."
-msgstr "Po fshij të gjithë abonentët..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Në fakt, më mirë të largohesh nga CRM, dhe në një orë e hap për të menaxhuar "
-"listën tënde.<br>për të fshirë datat e mëdha, mailchip api është i "
-"ngadalshëm."
-
-msgid "Email Campaign Creation"
-msgstr "Krijimi i fushatës elektronike"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-
-#, fuzzy
-msgid "Campaign details"
-msgstr "fushata titëll"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-
-msgid "Campaign Title"
-msgstr "fushata titëll"
-
-msgid "Your Campaign Title"
-msgstr "Titulli yt i fushatës"
-
-msgid "For Tag"
-msgstr "Për Tagun"
-
-#, fuzzy
-msgid "Write the subject and the body of your email campaign."
-msgstr "Duhet të vendosësh një titull fushate për fushatën elektronike"
-
-msgid "Mail Subject"
-msgstr "posta subjekt"
-
-msgid "Your Mail Subject"
-msgstr "Subjekti yt i postës"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr ""
-
-msgid "All list members"
-msgstr "të gjithë anëtarët e listës"
-
-msgid "Adding Campaign ..."
-msgstr "Shtimi i fushatës..."
-
-#, fuzzy
-msgid "Campaign created"
-msgstr "fushata titëll"
-
-#, fuzzy
-msgid "Your campaign is ready"
-msgstr "Titulli yt i fushatës"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "A do të donim ta menaxhonim këtë fushatë të re?"
-
-#, fuzzy
-msgid "Open campaign"
-msgstr "fushata"
-
-msgid "Stay here"
-msgstr ""
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Duhet të vendosësh një titull fushate për fushatën elektronike"
-
-#, fuzzy
-msgid "Edit list settings"
-msgstr "Seksionet e Gjeneralit Edit"
-
-msgid "MailChimp list settings"
-msgstr ""
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr ""
-
-msgid "List Name"
-msgstr "emri i listes"
-
-msgid "Changing subscribers state..."
-msgstr "Ndryshimi i abonentëve shtet..."
-
-#, fuzzy
-msgid "Delete selected subscribers"
-msgstr "fshije etiketën nga abonentët(s)"
-
-#, fuzzy
-msgid "Selected members"
-msgstr "Rrugë të zgjedhur"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Do t'i fshish abonentët! A je i sigurt?"
-
-#, fuzzy
-msgid "selected"
-msgstr "Zgjedh."
-
-#, fuzzy
-msgid "Delete selected"
-msgstr "Fshije Event"
-
-msgid "Deleting Subscribers..."
-msgstr "Po mbledh abreceta..."
-
-msgid "Family"
-msgstr "Familja."
-
-msgid "Person"
-msgstr "Person"
-
 msgid "Free Event Attendees"
 msgstr "të ndjekurit për të ndjekur lirinë"
 
@@ -1812,6 +1359,12 @@ msgstr "Detajet e Transaksionit elektronik"
 msgid "TOTAL"
 msgstr "TOTAL"
 
+msgid "Family"
+msgstr "Familja."
+
+msgid "Person"
+msgstr "Person"
+
 msgid "Anonymous"
 msgstr "Anonim"
 
@@ -1826,6 +1379,9 @@ msgstr "metoda"
 
 msgid "Check Number"
 msgstr "Kontrollo Numberin"
+
+msgid "Details"
+msgstr "Detajet"
 
 msgid "Tracking"
 msgstr "gjurmimi."
@@ -1856,6 +1412,9 @@ msgstr "Depozita Koment"
 
 msgid "Closed"
 msgstr "Mbyllur."
+
+msgid "Yes"
+msgstr "po."
 
 msgid "Deposit Type"
 msgstr "depozit tajpe"
@@ -2217,6 +1776,10 @@ msgstr ""
 
 msgid "No matching records found."
 msgstr ""
+
+#, fuzzy
+msgid "Loading..."
+msgstr "video..."
 
 msgid "Never contacted"
 msgstr ""
@@ -2840,6 +2403,9 @@ msgstr ""
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "tani fotografitë e tanishme të fotografive janë dosja publike! !"
+
+msgid "Families"
+msgstr "Familjet"
 
 msgid "Singles"
 msgstr ""
@@ -3479,6 +3045,393 @@ msgid ""
 msgstr ""
 "Të gjitha anëtarësimi në grup dhe pronat do të shkatërrohen. vetë anëtarët e "
 "grupit nuk do të ndryshojnë."
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailkim."
+
+#, fuzzy
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "të gjitha listat janë të mbushura meEcclesia<b>crm</b>.<br><b>nëse doni "
+#~ "t'i menaxhoni, shtypni këtë njoftim!</b>"
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "fushata saving ..."
+
+#~ msgid "Campaign"
+#~ msgstr "fushata"
+
+#~ msgid "saved successfully"
+#~ msgstr "na shpëtoi me sukses"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "tani do dërgoni fushatën! A je i sigurt?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "Do ta fshish fushatën tënde! A je i sigurt?"
+
+#, fuzzy
+#~ msgid "Loading data..."
+#~ msgstr "Duke mbushur datat..."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "Nuk janë krijuar listë me këtë llogari..."
+
+#~ msgid "Email List"
+#~ msgstr "lista e email"
+
+#~ msgid "Subject"
+#~ msgstr "subjekti"
+
+#~ msgid "Members:"
+#~ msgstr "Anëtarët:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "numërimi i papërshkrueshëm:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "numërimi i papërshkruar që nga dërgimi i fundit:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "numërimi i pastruar:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "numërimi i pastruar që nga dërgimi i fundit:"
+
+#~ msgid "Campaigns"
+#~ msgstr "Fushata."
+
+#~ msgid "Tags"
+#~ msgstr "Tags"
+
+#~ msgid "is not configured"
+#~ msgstr "nuk është e konfiguruar"
+
+#~ msgid "Please update the"
+#~ msgstr "ju lutem, lajmëroni"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "çelësi i api në setting -"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "Seksionet e Gjeneralit Edit"
+
+#, fuzzy
+#~ msgid "Then update"
+#~ msgstr "pastaj të reja"
+
+#~ msgid "For more info see our "
+#~ msgstr "për më shumë informacione do të na shohin"
+
+#~ msgid "support docs."
+#~ msgstr "doktorët mbështetës."
+
+#~ msgid "List Title"
+#~ msgstr "list titëll"
+
+#~ msgid "Your List Title"
+#~ msgstr "lista jote \"titulli\""
+
+#~ msgid "Your Subject"
+#~ msgstr "subjekti juaj"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "Leje kujtesën"
+
+#~ msgid "Archive Bars"
+#~ msgstr "Arkivo Baret"
+
+#~ msgid "Public"
+#~ msgstr "Publik"
+
+#~ msgid "List Creation"
+#~ msgstr "Krijimi i listës"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "Do ta fshish etiketën!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "Kjo do ta fshijë gjithashtu etiketën për të gjithë anëtarët e listës. A "
+#~ "je i sigurt?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "Po kënaq"
+
+#~ msgid "People"
+#~ msgstr "Njerëz."
+
+#~ msgid "Add a new tag"
+#~ msgstr "Shto një etiketë të re"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "fshije etiketën nga abonentët(s)"
+
+#~ msgid "Delete tag"
+#~ msgstr "fshije etiketën"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "Mbushja e burimeve ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "Kontrollo të gjitha kutitë"
+
+#~ msgid "Subscribed"
+#~ msgstr "është i shkruar në rresht."
+
+#~ msgid "Unsubscribed"
+#~ msgstr "E papërshkruara"
+
+#~ msgid "Email Marketing"
+#~ msgstr "marketing e-mail"
+
+#, fuzzy
+#~ msgid "New tag"
+#~ msgstr "Shto një etiketë të re"
+
+#, fuzzy
+#~ msgid "Create tag"
+#~ msgstr "fshije etiketën"
+
+#~ msgid "Adding tag..."
+#~ msgstr "Shtimi i etiketave..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "emri është bosh!"
+
+#, fuzzy
+#~ msgid "Add tag"
+#~ msgstr "Shtoni etiketën?"
+
+#, fuzzy
+#~ msgid "Selected tag"
+#~ msgstr "fshije etiketën"
+
+#~ msgid "This will add the tag"
+#~ msgstr "Kjo do të shtojë etiketën"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "për të gjithë anëtarët e tanishëm të zgjedhur në listë."
+
+#~ msgid "Select One"
+#~ msgstr "Zgjedhja një"
+
+#~ msgid "All Tags"
+#~ msgstr "Të gjitha taket"
+
+#, fuzzy
+#~ msgid "Remove tags from selected members"
+#~ msgstr "Largoni të gjitha"
+
+#, fuzzy
+#~ msgid "Choose a tag"
+#~ msgstr "Zgjidh një emër roli"
+
+#~ msgid "Removing tags..."
+#~ msgstr "Hiqja etiketat..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "Po mbledh të gjitha etiketat për anëtarët e zgjedhur në listë..."
+
+#, fuzzy
+#~ msgid "Keep tag"
+#~ msgstr "fshije etiketën"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "Një emër ose familje ose grup"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "Mbushi abonentët"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "Duke mbushur abonentët nga Grupi"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "Duke mbushur abonentët nga familja"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Duke mbushur të gjithë personat nga EcclesiaCRM<br>kjo mund të marrë një "
+#~ "kohë!"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "Në fakt, duhet të largohesh nga CRM, të presësh 5 minuta dhe të bësh "
+#~ "fushatat e tua më pas.<br>për të importuar të dhëna të mëdha, mailchimp "
+#~ "api është i ngadalshëm."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "Duke mbushur të gjithë abonentët e gazetave nga EcclesiaCRM<br>kjo mund "
+#~ "të marrë një kohë!"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Duke mbushur të gjitha familjet e para të rekrutëve të kokave nga "
+#~ "EcclesiaCRM<br>kjo mund të marrë një kohë!"
+
+#, fuzzy
+#~ msgid "Update subscriber status"
+#~ msgstr "Ndryshimi i abonentëve shtet..."
+
+#, fuzzy
+#~ msgid "Selected subscriber"
+#~ msgstr "Po i mbledh këshillat..."
+
+#, fuzzy
+#~ msgid "Update"
+#~ msgstr "Lajmërim i ri"
+
+#~ msgid "Changing status ..."
+#~ msgstr "Ndrysho statusin..."
+
+#, fuzzy
+#~ msgid "Delete subscriber"
+#~ msgstr "Po i mbledh këshillat..."
+
+#, fuzzy
+#~ msgid "Subscriber removal"
+#~ msgstr "është i shkruar në rresht."
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "Do ta fshish abonentët! A je i sigurt?"
+
+#, fuzzy
+#~ msgid "Keep subscriber"
+#~ msgstr "Mbushi abonentët"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "Po i mbledh këshillat..."
+
+#, fuzzy
+#~ msgid "Delete mailing list"
+#~ msgstr "Fshij menaxherat"
+
+#, fuzzy
+#~ msgid "This action is irreversible"
+#~ msgstr "Ky aksion nuk mund të bëhet kurrë! !!!!"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "A dëshiron vërtet ta fshish këtë listë postare?"
+
+#, fuzzy
+#~ msgid "Delete list"
+#~ msgstr "fshije etiketën"
+
+#, fuzzy
+#~ msgid "Delete all subscribers"
+#~ msgstr "Po fshij të gjithë abonentët..."
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "Je i sigurt që do t'i fshish të gjithë abonentët"
+
+#, fuzzy
+#~ msgid "Delete all"
+#~ msgstr "fshije etiketën"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "Po fshij të gjithë abonentët..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "Në fakt, më mirë të largohesh nga CRM, dhe në një orë e hap për të "
+#~ "menaxhuar listën tënde.<br>për të fshirë datat e mëdha, mailchip api "
+#~ "është i ngadalshëm."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "Krijimi i fushatës elektronike"
+
+#, fuzzy
+#~ msgid "Campaign details"
+#~ msgstr "fushata titëll"
+
+#~ msgid "Campaign Title"
+#~ msgstr "fushata titëll"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "Titulli yt i fushatës"
+
+#~ msgid "For Tag"
+#~ msgstr "Për Tagun"
+
+#, fuzzy
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "Duhet të vendosësh një titull fushate për fushatën elektronike"
+
+#~ msgid "Mail Subject"
+#~ msgstr "posta subjekt"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "Subjekti yt i postës"
+
+#~ msgid "All list members"
+#~ msgstr "të gjithë anëtarët e listës"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "Shtimi i fushatës..."
+
+#, fuzzy
+#~ msgid "Campaign created"
+#~ msgstr "fushata titëll"
+
+#, fuzzy
+#~ msgid "Your campaign is ready"
+#~ msgstr "Titulli yt i fushatës"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "A do të donim ta menaxhonim këtë fushatë të re?"
+
+#, fuzzy
+#~ msgid "Open campaign"
+#~ msgstr "fushata"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "Duhet të vendosësh një titull fushate për fushatën elektronike"
+
+#, fuzzy
+#~ msgid "Edit list settings"
+#~ msgstr "Seksionet e Gjeneralit Edit"
+
+#~ msgid "List Name"
+#~ msgstr "emri i listes"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "Ndryshimi i abonentëve shtet..."
+
+#, fuzzy
+#~ msgid "Delete selected subscribers"
+#~ msgstr "fshije etiketën nga abonentët(s)"
+
+#, fuzzy
+#~ msgid "Selected members"
+#~ msgstr "Rrugë të zgjedhur"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "Do t'i fshish abonentët! A je i sigurt?"
+
+#, fuzzy
+#~ msgid "selected"
+#~ msgstr "Zgjedh."
+
+#, fuzzy
+#~ msgid "Delete selected"
+#~ msgstr "Fshije Event"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "Po mbledh abreceta..."
 
 #~ msgid "ERROR"
 #~ msgstr "ERROR"

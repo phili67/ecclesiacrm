@@ -1,0 +1,584 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06 10:42+0000\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+msgid "persons"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+msgid "people"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:66
+msgid "All People"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:81
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "newsletter"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:87
+msgid "families"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:95
+msgid "All Families"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:130
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Persons"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:170
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Families"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:208
+msgid "Groups"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/Services/MailChimpService.php:299
+msgid "Private Data"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:55
+msgid "MailChimp Dashboard"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:99
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:100
+msgid "Email Campaign"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:141
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:142
+msgid "Email List"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:141
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:142
+msgid "GDPR"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:179
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:68
+msgid "Find Duplicate Emails"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:205
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:71
+msgid "Persons Not In MailChimp"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:230
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:74
+msgid "Families Not In MailChimp"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:249
+msgid "Settings"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:34
+msgid "Opened"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:42
+msgid "Clicked"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:50
+msgid "Bounced"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:58
+msgid "Unsubscribed"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:69
+msgid "Email Campaign Management"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:70
+msgid "Compose content and schedule sending from one screen."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:79
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:59
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:30
+msgid "Quick actions"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:82
+msgid "Save Campaign"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:85
+msgid "Send"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:88
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:48
+msgid "Delete"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+msgid "Mail Subject"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+msgid "Content"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:102
+msgid "Subject"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:104
+msgid "Your Mail Subject"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:109
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:120
+msgid "Tags"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:136
+msgid "Schedule"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:146
+msgid "You've first to create a content below to schedule a campaign."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:147
+msgid ""
+"Campaigns may only be scheduled to send on the quarter-hour "
+"(:00, :15, :30, :45)."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:150
+msgid "Date"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:159
+msgid "Time"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:167
+msgid ""
+"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+"over."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:16
+msgid "MailChimp Problem"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "Mailchimp Status"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "Title"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "status"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
+msgid "detail"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+msgid "field"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+msgid "Message"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:43
+msgid "MailChimp Management"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:44
+msgid "Create audiences, sync contacts, and manage campaign data."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:52
+msgid "MailChimp is working correctly"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:61
+msgid "Create an audience or List"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:62
+msgid "Create list"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:65
+msgid "Generate CSV"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:82
+msgid "You can import the generated CSV file to external email system."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:83
+msgid "For MailChimp see"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:84
+msgid "import subscribers to a list."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:90
+msgid "All your lists"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:16
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:26
+msgid "Duplicate Emails"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:17
+msgid "Review duplicates before syncing audiences."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:20
+msgid "Manage Email List"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:21
+msgid "Manage subscribers and campaigns for this audience."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:34
+msgid "Create a Campaign"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:37
+msgid "Toggle Dropdown"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:42
+msgid "Delete All Subscribers"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:45
+msgid "Modify Properties"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:61
+msgid "Subscribers"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:65
+msgid ""
+"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
+"to add all members of the CRM, use <b>*</b>"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:70
+msgid "Add"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Keywords"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:100
+msgid "is not configured"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:101
+msgid "Please update the"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:101
+msgid "API key in Setting->"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:102
+msgid "Edit General Settings"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:103
+msgid "then update"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:104
+msgid "For more info see our "
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:105
+msgid "support docs."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:16
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:26
+msgid "Family List"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:17
+msgid "Families missing Mailchimp email matches."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:16
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:26
+msgid "Person List"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:17
+msgid "Persons missing Mailchimp email matches."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:40
+msgid "MailChimp Settings"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:41
+msgid "Shape your MailChimp workspace"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:43
+msgid ""
+"Manage the API connection, timeout policy, audience enrichment, and "
+"typography defaults used by the MailChimp plugin."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:49
+msgid "MailChimp is active"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:49
+msgid "MailChimp is not active"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:52
+msgid "API key guide"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:55
+msgid "Support"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:62
+msgid "Configuration fields"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:66
+msgid "Timeout seconds"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:69
+msgid "On"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:69
+msgid "Off"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:70
+msgid "Address and phone sync"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:76
+msgid "What this page controls"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:77
+msgid "MailChimp plugin defaults"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:79
+msgid ""
+"These values are used to connect the plugin, enrich contacts, and inject "
+"reusable font assets into generated campaign content."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:83
+msgid "API key"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:84
+msgid "Required to load lists, members, and campaigns from MailChimp."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:87
+msgid "Timeout and sender"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:88
+msgid "Used during remote requests and campaign generation."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:91
+msgid "Typography fields"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:92
+msgid "Prepended to campaign HTML to keep a consistent brand style."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:104
+msgid "Connection"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:105
+msgid "API access and sending identity"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:107
+msgid ""
+"Keep the API key private, define a sensible timeout for remote calls, and "
+"set the sender email used by the plugin."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:111
+msgid "MailChimp API key"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:119
+msgid "Show or hide API key"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:131
+msgid "Request timeout"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:136
+msgid "seconds"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:144
+msgid "Sender email address"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:159
+msgid "Audience enrichment"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:160
+msgid "Contact payload options"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:162
+msgid ""
+"Enable this option only if your MailChimp audience contains matching merge "
+"fields for postal address and phone number."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:167
+msgid "Include address and phone in MailChimp records"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:168
+msgid ""
+"When enabled, the plugin can push additional family and person information "
+"during synchronization."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:179
+msgid "Content defaults"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:180
+msgid "Typography and external assets"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:182
+msgid ""
+"These values are used when campaign HTML needs shared CSS imports or a "
+"custom font stack."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:186
+msgid "External CSS font URL"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:190
+msgid "This value can be injected ahead of generated campaign HTML."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:194
+msgid "Extra font CSS"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:198
+msgid "Use this field for additional CSS declarations or fallback font stacks."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:205
+msgid "Implementation map"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:208
+msgid "API key and timeout"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:209
+msgid ""
+"Used by the plugin service when it creates the MailChimp client and fetches "
+"remote audiences."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:212
+msgid "Address and phone flag"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:213
+msgid ""
+"Controls whether additional address and phone fields are sent with contacts."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:216
+msgid "External CSS and extra fonts"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:217
+msgid ""
+"Prepended to campaign content to keep the same visual language across "
+"newsletters."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:223
+msgid "Resources"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:226
+msgid "Manage API keys"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:229
+msgid "Audience fields guide"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:232
+msgid "Project support"
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:242
+msgid "No local changes yet."
+msgstr ""
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:245
+msgid "Save MailChimp settings"
+msgstr ""

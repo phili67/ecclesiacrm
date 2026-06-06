@@ -1,0 +1,631 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06 10:41+0000\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+msgid "persons"
+msgstr "άτομα"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+msgid "people"
+msgstr "άνθρωποι"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:66
+msgid "All People"
+msgstr "Όλοι οι άνθρωποι"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:81
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "newsletter"
+msgstr "ενημερωτικό δελτίο"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:87
+msgid "families"
+msgstr "οικογένειες"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:95
+msgid "All Families"
+msgstr "Όλες οι οικογένειες"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:130
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Persons"
+msgstr "Άτομα"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:170
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Families"
+msgstr "Οικογένειες"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:208
+msgid "Groups"
+msgstr "Ομάδες"
+
+#: ../src/Plugins/MailChimp/core/Services/MailChimpService.php:299
+msgid "Private Data"
+msgstr "Προσωπικά δεδομένα"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:55
+msgid "MailChimp Dashboard"
+msgstr "Πίνακας ελέγχου MailChimp"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:99
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:100
+msgid "Email Campaign"
+msgstr "Εκστρατεία μέσω ηλεκτρονικού ταχυδρομείου"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:141
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:142
+msgid "Email List"
+msgstr "Λίστα ηλεκτρονικού ταχυδρομείου"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:141
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:142
+msgid "GDPR"
+msgstr "Γενικός Κανονισμός για την Προστασία Δεδομένων (GDPR)"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:179
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:68
+msgid "Find Duplicate Emails"
+msgstr "Εύρεση διπλών email"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:205
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:71
+msgid "Persons Not In MailChimp"
+msgstr "Άτομα που δεν είναι εγγεγραμμένα στο MailChimp"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:230
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:74
+msgid "Families Not In MailChimp"
+msgstr "Οικογένειες που δεν είναι εγγεγραμμένες στο MailChimp"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:249
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:34
+msgid "Opened"
+msgstr "Άνοιξε"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:42
+msgid "Clicked"
+msgstr "Κάνοντας κλικ"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:50
+msgid "Bounced"
+msgstr "Απορρίφθηκε"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:58
+msgid "Unsubscribed"
+msgstr "Διαγραφή"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:69
+msgid "Email Campaign Management"
+msgstr "Διαχείριση καμπανιών μέσω email"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:70
+msgid "Compose content and schedule sending from one screen."
+msgstr ""
+"Δημιουργήστε περιεχόμενο και προγραμματίστε την αποστολή του από μία οθόνη."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:79
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:59
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:30
+msgid "Quick actions"
+msgstr "Γρήγορες ενέργειες"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:82
+msgid "Save Campaign"
+msgstr "Αποθήκευση καμπάνιας"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:85
+msgid "Send"
+msgstr "Αποστολή"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:88
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:48
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+msgid "Mail Subject"
+msgstr "Θέμα μηνύματος"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+msgid "Content"
+msgstr "Περιεχόμενο"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:102
+msgid "Subject"
+msgstr "Θέμα"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:104
+msgid "Your Mail Subject"
+msgstr "Θέμα του μηνύματός σας"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:109
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr ""
+"Μπορείτε να χρησιμοποιήσετε το κουμπί «Συγχώνευση ετικετών» παρακάτω για να "
+"προσαρμόσετε το περιεχόμενό σας"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:120
+msgid "Tags"
+msgstr "Ετικέτες"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:136
+msgid "Schedule"
+msgstr "Πρόγραμμα"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:146
+msgid "You've first to create a content below to schedule a campaign."
+msgstr ""
+"Πρώτα πρέπει να δημιουργήσετε ένα περιεχόμενο παρακάτω για να "
+"προγραμματίσετε μια καμπάνια."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:147
+msgid ""
+"Campaigns may only be scheduled to send on the quarter-hour "
+"(:00, :15, :30, :45)."
+msgstr ""
+"Οι καμπάνιες μπορούν να προγραμματιστούν για αποστολή μόνο στα τέταρτα της "
+"ώρας (:00, :15, :30, :45)."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:150
+msgid "Date"
+msgstr "Ημερομηνία"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:159
+msgid "Time"
+msgstr "Ώρα"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:167
+msgid ""
+"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+"over."
+msgstr ""
+"Για να ολοκληρώσετε τη διαδικασία, αποθηκεύστε την καμπάνια σας "
+"χρησιμοποιώντας το κουμπί <b>\"Αποθήκευση καμπάνιας\"</b>."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:16
+msgid "MailChimp Problem"
+msgstr "Πρόβλημα με το MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "Mailchimp Status"
+msgstr "Κατάσταση Mailchimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "Title"
+msgstr "Τίτλος"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "status"
+msgstr "κατάσταση"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
+msgid "detail"
+msgstr "λεπτομέρεια"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+msgid "field"
+msgstr "πεδίο"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+msgid "Message"
+msgstr "Μήνυμα"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:43
+msgid "MailChimp Management"
+msgstr "Διαχείριση MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:44
+msgid "Create audiences, sync contacts, and manage campaign data."
+msgstr ""
+"Δημιουργήστε ομάδες-στόχους, συγχρονίστε τις επαφές σας και διαχειριστείτε "
+"τα δεδομένα των καμπανιών σας."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:52
+msgid "MailChimp is working correctly"
+msgstr "Το MailChimp λειτουργεί κανονικά"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:61
+msgid "Create an audience or List"
+msgstr "Δημιουργία κοινού ή λίστας"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:62
+msgid "Create list"
+msgstr "Δημιουργία λίστας"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:65
+msgid "Generate CSV"
+msgstr "Δημιουργία αρχείου CSV"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:82
+msgid "You can import the generated CSV file to external email system."
+msgstr ""
+"Μπορείτε να εισαγάγετε το αρχείο CSV που δημιουργήθηκε σε εξωτερικό σύστημα "
+"ηλεκτρονικού ταχυδρομείου."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:83
+msgid "For MailChimp see"
+msgstr "Για το MailChimp, δείτε"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:84
+msgid "import subscribers to a list."
+msgstr "εισαγωγή συνδρομητών σε μια λίστα."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:90
+msgid "All your lists"
+msgstr "Όλες οι λίστες σου"
+
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:16
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:26
+msgid "Duplicate Emails"
+msgstr "Διπλά μηνύματα ηλεκτρονικού ταχυδρομείου"
+
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:17
+msgid "Review duplicates before syncing audiences."
+msgstr "Ελέγξτε τα διπλότυπα πριν από τη συγχρονισμό των ομάδων-στόχων."
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:20
+msgid "Manage Email List"
+msgstr "Διαχείριση λίστας ηλεκτρονικού ταχυδρομείου"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:21
+msgid "Manage subscribers and campaigns for this audience."
+msgstr "Διαχείριση συνδρομητών και καμπανιών για αυτό το κοινό."
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:34
+msgid "Create a Campaign"
+msgstr "Δημιουργία καμπάνιας"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:37
+msgid "Toggle Dropdown"
+msgstr "Εμφάνιση/απόκρυψη αναπτυσσόμενου μενού"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:42
+msgid "Delete All Subscribers"
+msgstr "Διαγραφή όλων των συνδρομητών"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:45
+msgid "Modify Properties"
+msgstr "Τροποποίηση ιδιοτήτων"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:61
+msgid "Subscribers"
+msgstr "Συνδρομητές"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:65
+msgid ""
+"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
+"to add all members of the CRM, use <b>*</b>"
+msgstr ""
+"Για να προσθέσετε όλους τους χρήστες του ενημερωτικού δελτίου, "
+"πληκτρολογήστε <b>NewLetter</b> στο πεδίο αναζήτησης. Για να προσθέσετε όλα "
+"τα μέλη του CRM, χρησιμοποιήστε <b>*</b>"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:70
+msgid "Add"
+msgstr "Προσθήκη"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Keywords"
+msgstr "Λέξεις-κλειδιά"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:100
+msgid "is not configured"
+msgstr "δεν έχει ρυθμιστεί"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:101
+msgid "Please update the"
+msgstr "Παρακαλώ ενημερώστε το"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:101
+msgid "API key in Setting->"
+msgstr "Κλειδί API στις Ρυθμίσεις->"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:102
+msgid "Edit General Settings"
+msgstr "Επεξεργασία γενικών ρυθμίσεων"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:103
+msgid "then update"
+msgstr "και στη συνέχεια ενημερώστε"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:104
+msgid "For more info see our "
+msgstr "Για περισσότερες πληροφορίες, ανατρέξτε στην "
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:105
+msgid "support docs."
+msgstr "έγγραφα υποστήριξης."
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:16
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:26
+msgid "Family List"
+msgstr "Λίστα οικογενειών"
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:17
+msgid "Families missing Mailchimp email matches."
+msgstr "Οικογένειες στις οποίες λείπουν αντιστοιχίες email από το Mailchimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:16
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:26
+msgid "Person List"
+msgstr "Λίστα ατόμων"
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:17
+msgid "Persons missing Mailchimp email matches."
+msgstr "Άτομα για τα οποία δεν υπάρχουν αντιστοιχίες στα email του Mailchimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:40
+msgid "MailChimp Settings"
+msgstr "Ρυθμίσεις MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:41
+msgid "Shape your MailChimp workspace"
+msgstr "Διαμορφώστε τον χώρο εργασίας σας στο MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:43
+msgid ""
+"Manage the API connection, timeout policy, audience enrichment, and "
+"typography defaults used by the MailChimp plugin."
+msgstr ""
+"Διαχειριστείτε τη σύνδεση API, την πολιτική χρονικού ορίου, τον εμπλουτισμό "
+"κοινού και τις προεπιλεγμένες ρυθμίσεις τυπογραφίας που χρησιμοποιεί το "
+"πρόσθετο MailChimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:49
+msgid "MailChimp is active"
+msgstr "Το MailChimp είναι ενεργό"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:49
+msgid "MailChimp is not active"
+msgstr "Το MailChimp δεν είναι ενεργό"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:52
+msgid "API key guide"
+msgstr "Οδηγός για τα κλειδιά API"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:55
+msgid "Support"
+msgstr "Υποστήριξη"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:62
+msgid "Configuration fields"
+msgstr "Πεδία διαμόρφωσης"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:66
+msgid "Timeout seconds"
+msgstr "Χρονικό όριο σε δευτερόλεπτα"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:69
+msgid "On"
+msgstr "Στις"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:69
+msgid "Off"
+msgstr "Απενεργοποιημένο"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:70
+msgid "Address and phone sync"
+msgstr "Συγχρονισμός διευθύνσεων και τηλεφωνικών αριθμών"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:76
+msgid "What this page controls"
+msgstr "Τι ρυθμίζει αυτή η σελίδα"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:77
+msgid "MailChimp plugin defaults"
+msgstr "Προεπιλεγμένες ρυθμίσεις του πρόσθετου MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:79
+msgid ""
+"These values are used to connect the plugin, enrich contacts, and inject "
+"reusable font assets into generated campaign content."
+msgstr ""
+"Αυτές οι τιμές χρησιμοποιούνται για τη σύνδεση του πρόσθετου, τον "
+"εμπλουτισμό των επαφών και την ενσωμάτωση επαναχρησιμοποιήσιμων στοιχείων "
+"γραμματοσειράς στο περιεχόμενο της καμπάνιας που δημιουργείται."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:83
+msgid "API key"
+msgstr "Κλειδί API"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:84
+msgid "Required to load lists, members, and campaigns from MailChimp."
+msgstr "Απαιτείται η εισαγωγή λιστών, μελών και καμπανιών από το MailChimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:87
+msgid "Timeout and sender"
+msgstr "Χρονικό όριο και αποστολέας"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:88
+msgid "Used during remote requests and campaign generation."
+msgstr ""
+"Χρησιμοποιείται κατά την υποβολή απομακρυσμένων αιτημάτων και τη δημιουργία "
+"καμπανιών."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:91
+msgid "Typography fields"
+msgstr "Τομείς της τυπογραφίας"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:92
+msgid "Prepended to campaign HTML to keep a consistent brand style."
+msgstr ""
+"Προστέθηκε στο HTML της καμπάνιας για τη διατήρηση ενός συνεπούς στυλ της "
+"επωνυμίας."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:104
+msgid "Connection"
+msgstr "Σύνδεση"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:105
+msgid "API access and sending identity"
+msgstr "Πρόσβαση στο API και αποστολή στοιχείων ταυτότητας"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:107
+msgid ""
+"Keep the API key private, define a sensible timeout for remote calls, and "
+"set the sender email used by the plugin."
+msgstr ""
+"Διατηρήστε το κλειδί API εμπιστευτικό, ορίστε ένα λογικό χρονικό όριο για "
+"τις απομακρυσμένες κλήσεις και ρυθμίστε τη διεύθυνση ηλεκτρονικού "
+"ταχυδρομείου αποστολέα που χρησιμοποιεί το πρόσθετο."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:111
+msgid "MailChimp API key"
+msgstr "Κλειδί API του MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:119
+msgid "Show or hide API key"
+msgstr "Εμφάνιση ή απόκρυψη κλειδιού API"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:131
+msgid "Request timeout"
+msgstr "Λήξη χρόνου αναμονής"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:136
+msgid "seconds"
+msgstr "δευτερόλεπτα"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:144
+msgid "Sender email address"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου αποστολέα"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:159
+msgid "Audience enrichment"
+msgstr "Εμπλουτισμός του κοινού"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:160
+msgid "Contact payload options"
+msgstr "Επιλογές φορτίου επικοινωνίας"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:162
+msgid ""
+"Enable this option only if your MailChimp audience contains matching merge "
+"fields for postal address and phone number."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή μόνο εάν το κοινό σας στο MailChimp "
+"περιλαμβάνει αντίστοιχα πεδία συγχώνευσης για τη ταχυδρομική διεύθυνση και "
+"τον αριθμό τηλεφώνου."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:167
+msgid "Include address and phone in MailChimp records"
+msgstr "Προσθήκη διεύθυνσης και τηλεφώνου στα αρχεία του MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:168
+msgid ""
+"When enabled, the plugin can push additional family and person information "
+"during synchronization."
+msgstr ""
+"Όταν είναι ενεργοποιημένο, το πρόσθετο μπορεί να μεταφέρει επιπλέον "
+"πληροφορίες για την οικογένεια και τα άτομα κατά τη διάρκεια του "
+"συγχρονισμού."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:179
+msgid "Content defaults"
+msgstr "Προεπιλεγμένες ρυθμίσεις περιεχομένου"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:180
+msgid "Typography and external assets"
+msgstr "Τυπογραφία και εξωτερικά στοιχεία"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:182
+msgid ""
+"These values are used when campaign HTML needs shared CSS imports or a "
+"custom font stack."
+msgstr ""
+"Αυτές οι τιμές χρησιμοποιούνται όταν το HTML μιας καμπάνιας απαιτεί κοινές "
+"εισαγωγές CSS ή μια προσαρμοσμένη λίστα γραμματοσειρών."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:186
+msgid "External CSS font URL"
+msgstr "Εξωτερική διεύθυνση URL γραμματοσειράς CSS"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:190
+msgid "This value can be injected ahead of generated campaign HTML."
+msgstr ""
+"Αυτή η τιμή μπορεί να εισαχθεί πριν από τον παραγόμενο κώδικα HTML της "
+"καμπάνιας."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:194
+msgid "Extra font CSS"
+msgstr "Επιπλέον CSS για γραμματοσειρές"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:198
+msgid "Use this field for additional CSS declarations or fallback font stacks."
+msgstr ""
+"Χρησιμοποιήστε αυτό το πεδίο για πρόσθετες δηλώσεις CSS ή εφεδρικές λίστες "
+"γραμματοσειρών."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:205
+msgid "Implementation map"
+msgstr "Χάρτης υλοποίησης"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:208
+msgid "API key and timeout"
+msgstr "Κλειδί API και χρονικό όριο"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:209
+msgid ""
+"Used by the plugin service when it creates the MailChimp client and fetches "
+"remote audiences."
+msgstr ""
+"Χρησιμοποιείται από την υπηρεσία του πρόσθετου κατά τη δημιουργία του "
+"λογαριασμού MailChimp και τη λήψη απομακρυσμένων ομάδων-στόχων."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:212
+msgid "Address and phone flag"
+msgstr "Σημαία διεύθυνσης και τηλεφώνου"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:213
+msgid ""
+"Controls whether additional address and phone fields are sent with contacts."
+msgstr ""
+"Καθορίζει αν θα αποστέλλονται επιπλέον πεδία διεύθυνσης και τηλεφώνου μαζί "
+"με τις επαφές."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:216
+msgid "External CSS and extra fonts"
+msgstr "Εξωτερικά αρχεία CSS και επιπλέον γραμματοσειρές"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:217
+msgid ""
+"Prepended to campaign content to keep the same visual language across "
+"newsletters."
+msgstr ""
+"Προστίθεται στο περιεχόμενο της καμπάνιας για να διατηρηθεί η ίδια οπτική "
+"γλώσσα σε όλα τα ενημερωτικά δελτία."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:223
+msgid "Resources"
+msgstr "Πηγές"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:226
+msgid "Manage API keys"
+msgstr "Διαχείριση κλειδιών API"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:229
+msgid "Audience fields guide"
+msgstr "Οδηγός για τα πεδία κοινού"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:232
+msgid "Project support"
+msgstr "Υποστήριξη έργων"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:242
+msgid "No local changes yet."
+msgstr "Δεν έχουν γίνει ακόμη τοπικές αλλαγές."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:245
+msgid "Save MailChimp settings"
+msgstr "Αποθήκευση ρυθμίσεων MailChimp"

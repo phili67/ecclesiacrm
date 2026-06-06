@@ -1,0 +1,470 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06T14:05:38.823Z\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Yes"
+msgstr "Ya"
+
+msgid "No"
+msgstr "Tidak"
+
+msgid "Error"
+msgstr "Kesalahan"
+
+msgid "Loading..."
+msgstr "Sedang dimuat..."
+
+msgid "Loading data..."
+msgstr "Memuat data..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Mohon tunggu sebentar sementara kami mengambil daftar MailChimp Anda."
+
+msgid "No list are created with this account ...."
+msgstr "Tidak ada daftar yang dibuat dengan akun ini ...."
+
+msgid "You can create a new MailChimp list using the button above."
+msgstr ""
+"Anda dapat membuat daftar MailChimp baru dengan menggunakan tombol di atas."
+
+msgid "Email Lists"
+msgstr "Daftar Email"
+
+msgid "Details"
+msgstr "Rincian"
+
+msgid "Subject"
+msgstr "Subjek"
+
+msgid "Members:"
+msgstr "Anggota:"
+
+msgid "Unsubscribed count:"
+msgstr "Jumlah yang berhenti berlangganan:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Jumlah yang berhenti berlangganan sejak pengiriman terakhir:"
+
+msgid "Cleaned count:"
+msgstr "Jumlah yang telah dibersihkan:"
+
+msgid "Cleaned count since last send:"
+msgstr "Jumlah yang telah dibersihkan sejak pengiriman terakhir:"
+
+msgid "Campaigns"
+msgstr "Kampanye"
+
+msgid "Tags"
+msgstr "Tag"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Modify"
+msgstr "Ubah"
+
+msgid "is not configured"
+msgstr "belum dikonfigurasi"
+
+msgid "Please update the"
+msgstr "Mohon perbarui"
+
+msgid "API key in Setting->"
+msgstr "Kunci API di Pengaturan->"
+
+msgid "Edit General Settings"
+msgstr "Edit Pengaturan Umum"
+
+msgid "Then update"
+msgstr "Kemudian perbarui"
+
+msgid "For more info see our "
+msgstr "Untuk informasi lebih lanjut, silakan lihat "
+
+msgid "support docs."
+msgstr "dokumen panduan."
+
+msgid "List Title"
+msgstr "Judul Daftar"
+
+msgid "Your List Title"
+msgstr "Judul Daftar Anda"
+
+msgid "Your Subject"
+msgstr "Subjek Anda"
+
+msgid "Permission Reminder"
+msgstr "Pengingat Izin"
+
+msgid "Archive Bars"
+msgstr "Bilah Arsip"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Private"
+msgstr "Pribadi"
+
+msgid "Public"
+msgstr "Umum"
+
+msgid "List Creation"
+msgstr "Pembuatan Daftar"
+
+msgid "Close"
+msgstr "Tutup"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "You have to set a List Title for your eMail List"
+msgstr "Anda harus menentukan Judul Daftar untuk Daftar Email Anda"
+
+msgid "You're about to delete a tag!"
+msgstr "Anda akan menghapus sebuah tag!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Ini juga akan menghapus tag untuk semua anggota dalam daftar ini. Apakah "
+"Anda yakin?"
+
+msgid "Deleting tag"
+msgstr "Menghapus tag"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "People"
+msgstr "Orang-orang"
+
+msgid "Families"
+msgstr "Keluarga"
+
+msgid "Add a new tag"
+msgstr "Tambahkan tag baru"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Hapus tag dari pelanggan"
+
+msgid "Delete tag"
+msgstr "Hapus tag"
+
+msgid "Loading resources ..."
+msgstr "Sedang memuat sumber daya ..."
+
+msgid "Email List"
+msgstr "Daftar Email"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Campaign"
+msgstr "Kampanye"
+
+msgid "Subscribed"
+msgstr "Berlangganan"
+
+msgid "Unsubscribed"
+msgstr "Berhenti berlangganan"
+
+msgid "Last Name"
+msgstr "Nama Belakang"
+
+msgid "First Name"
+msgstr "Nama Depan"
+
+msgid "Email Marketing"
+msgstr "Pemasaran Melalui Email"
+
+msgid "Address"
+msgstr "Alamat"
+
+msgid "Phone"
+msgstr "Telepon"
+
+msgid "New tag"
+msgstr "Tag baru"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+"Masukkan nama tag yang akan dibuat dan diterapkan ke anggota yang dipilih."
+
+msgid "Create tag"
+msgstr "Buat tag"
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Adding tag..."
+msgstr "Menambahkan tag..."
+
+msgid "Name is empty !!"
+msgstr "Nama kosong !!"
+
+msgid "Add tag"
+msgstr "Tambahkan tag"
+
+msgid "Selected tag"
+msgstr "Tag yang dipilih"
+
+msgid "This will add the tag"
+msgstr "Ini akan menambahkan tag"
+
+msgid "to all the current selected members in the list."
+msgstr "kepada semua anggota terpilih yang tercantum dalam daftar."
+
+msgid "Confirm"
+msgstr "Konfirmasi"
+
+msgid "Remove tags from selected members"
+msgstr "Hapus tag dari anggota yang dipilih"
+
+msgid "Choose a tag"
+msgstr "Pilih tag"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+"Pilih satu tag untuk dihapus, atau pilih semua tag untuk membersihkan "
+"seluruh data pada anggota yang dipilih."
+
+msgid "Apply"
+msgstr "Daftar"
+
+msgid "Removing tags..."
+msgstr "Menghapus tag..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Menghapus semua tag untuk anggota yang dipilih dalam daftar..."
+
+msgid "This action affects the whole list"
+msgstr "Tindakan ini memengaruhi seluruh daftar"
+
+msgid "Keep tag"
+msgstr "Simpan tag"
+
+msgid "A person name or Family or Group"
+msgstr "Nama seseorang, keluarga, atau kelompok"
+
+msgid "Loading subscriber"
+msgstr "Memuat pelanggan"
+
+msgid "Loading subscribers from Group"
+msgstr "Memuat pelanggan dari Grup"
+
+msgid "Loading subscribers from family"
+msgstr "Memuat daftar pelanggan dari keluarga"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Memuat semua pengguna dari EcclesiaCRM<br>Proses ini mungkin memakan waktu "
+"cukup lama!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Sebenarnya, sebaiknya Anda keluar dari CRM, tunggu 5 menit, lalu buat "
+"kampanye Anda setelah itu.<br>Untuk mengimpor data dalam jumlah besar, API "
+"MailChimp berjalan lambat."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Sedang memuat semua pelanggan buletin dari EcclesiaCRM<br>Proses ini mungkin "
+"akan memakan waktu cukup lama!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Sedang memuat semua langganan kepala keluarga pertama dari "
+"EcclesiaCRM<br>Proses ini mungkin akan memakan waktu cukup lama!"
+
+msgid "Changing status ..."
+msgstr "Sedang memperbarui status ..."
+
+msgid "Delete subscriber"
+msgstr "Hapus pelanggan"
+
+msgid "Subscriber removal"
+msgstr "Penghapusan pelanggan"
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Anda akan menghapus seorang pelanggan! Apakah Anda yakin?"
+
+msgid "Keep subscriber"
+msgstr "Pertahankan pelanggan"
+
+msgid "Deleting Subscriber..."
+msgstr "Menghapus Pelanggan..."
+
+msgid "Delete mailing list"
+msgstr "Hapus daftar milis"
+
+msgid "This action is irreversible"
+msgstr "Tindakan ini tidak dapat dibatalkan"
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Apakah Anda benar-benar ingin menghapus milis ini?"
+
+msgid "Delete list"
+msgstr "Hapus daftar"
+
+msgid "Delete all subscribers"
+msgstr "Hapus semua pelanggan"
+
+msgid "Bulk deletion"
+msgstr "Penghapusan massal"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Apakah Anda yakin ingin menghapus semua pelanggan?"
+
+msgid "Delete all"
+msgstr "Hapus semua"
+
+msgid "Deleting all subscribers..."
+msgstr "Menghapus semua pelanggan..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Sebenarnya, sebaiknya Anda menutup aplikasi CRM terlebih dahulu, lalu "
+"membukanya kembali setelah seperempat jam untuk mengelola daftar Anda."
+"<br>Untuk menghapus data dalam jumlah besar, API MailChimp bekerja lambat."
+
+msgid "Email Campaign Creation"
+msgstr "Pembuatan Kampanye Email"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+"Siapkan subjek yang jelas, pastikan tag tujuan, dan tulis isi kampanye email "
+"Anda."
+
+msgid "Campaign details"
+msgstr "Rincian kampanye"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+"Tentukan judul kampanye dan periksa target MailChimp sebelum menulis pesan."
+
+msgid "Campaign Title"
+msgstr "Judul Kampanye"
+
+msgid "Your Campaign Title"
+msgstr "Judul Kampanye Anda"
+
+msgid "For Tag"
+msgstr "Untuk Tag"
+
+msgid "Message"
+msgstr "Pesan"
+
+msgid "Write the subject and the body of your email campaign."
+msgstr "Tulis subjek dan isi kampanye email Anda."
+
+msgid "Mail Subject"
+msgstr "Subjek Email"
+
+msgid "Your Mail Subject"
+msgstr "Subjek Email Anda"
+
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "Tuliskan konten yang akan dikirimkan kepada anggota dengan tag ini."
+
+msgid "All list members"
+msgstr "Semua anggota daftar"
+
+msgid "Adding Campaign ..."
+msgstr "Menambahkan Kampanye ..."
+
+msgid "Campaign created"
+msgstr "Kampanye telah dibuat"
+
+msgid "Your campaign is ready"
+msgstr "Kampanye Anda sudah siap"
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Ingin mengelola kampanye baru ini secara langsung?"
+
+msgid "Open campaign"
+msgstr "Kampanye terbuka"
+
+msgid "Stay here"
+msgstr "Tinggallah di sini"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Anda harus menentukan Judul Kampanye untuk Kampanye Email Anda"
+
+msgid "Edit list settings"
+msgstr "Edit pengaturan daftar"
+
+msgid "MailChimp list settings"
+msgstr "Pengaturan daftar MailChimp"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr "Perbarui detail utama yang digunakan oleh daftar ini dan kampanyenya."
+
+msgid "List Name"
+msgstr "Nama Daftar"
+
+msgid "Changing subscribers state..."
+msgstr "Mengubah status pelanggan..."
+
+msgid "Delete selected subscribers"
+msgstr "Hapus pelanggan yang dipilih"
+
+msgid "Selected members"
+msgstr "Anggota terpilih"
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Anda akan menghapus pelanggan! Apakah Anda yakin?"
+
+msgid "selected"
+msgstr "terpilih"
+
+msgid "Delete selected"
+msgstr "Hapus yang dipilih"
+
+msgid "Deleting Subscribers..."
+msgstr "Menghapus Pelanggan..."
+
+msgid "Family"
+msgstr "Keluarga"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Person"
+msgstr "Orang"
+
+msgid "Unsaved changes are ready to be stored."
+msgstr "Perubahan yang belum disimpan siap untuk disimpan."
+
+msgid "No local changes yet."
+msgstr "Belum ada perubahan lokal."
+
+msgid "Settings saved."
+msgstr "Pengaturan telah disimpan."
+
+msgid "Saved"
+msgstr "Tersimpan"
+
+msgid "Unable to save settings"
+msgstr "Tidak dapat menyimpan pengaturan"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -680,16 +680,6 @@ msgstr "진행 중"
 msgid "Please wait while the operation is being completed"
 msgstr "작업이 완료되는 동안 잠시 기다려주세요."
 
-msgid "Mailchimp"
-msgstr "메일침프"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"이제 모든 목록이 CRM에 로드되었습니다. 1235  4568 목록을 관리하려면 이 알림"
-"을 클릭하세요! 7899 "
-
 msgid "There was a problem retrieving the requested object"
 msgstr "요청된 개체를 검색하는 데 문제가 있습니다."
 
@@ -1071,417 +1061,6 @@ msgstr "문서 만들기"
 msgid "You have to set a Title for your document"
 msgstr "문서의 제목을 설정해야 합니다."
 
-msgid "Saving Campaign ..."
-msgstr "절약 캠페인 ..."
-
-msgid "Campaign"
-msgstr "캠페인"
-
-msgid "saved successfully"
-msgstr "저장 성공"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "캠페인을 곧 전송할 예정입니다! 확실하신가요?"
-
-msgid "Yes"
-msgstr "예"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "캠페인을 삭제하려고 합니다! 정말인가요?"
-
-msgid "Loading..."
-msgstr "로드 중..."
-
-msgid "Loading data..."
-msgstr "데이터 로드 중..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "MailChimp 목록을 검색하는 동안 잠시 기다려주세요."
-
-msgid "No list are created with this account ...."
-msgstr "이 계정으로 생성된 목록이 없습니다 ...."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr "위의 버튼을 사용하여 새 MailChimp 목록을 만들 수 있습니다."
-
-msgid "Email List"
-msgstr "이메일 목록"
-
-msgid "Details"
-msgstr "세부 정보"
-
-msgid "Subject"
-msgstr "제목"
-
-msgid "Members:"
-msgstr "회원:"
-
-msgid "Unsubscribed count:"
-msgstr "구독 취소 횟수:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "마지막 전송 이후 구독 취소 횟수입니다:"
-
-msgid "Cleaned count:"
-msgstr "청소 횟수:"
-
-msgid "Cleaned count since last send:"
-msgstr "마지막 전송 이후 정리된 횟수입니다:"
-
-msgid "Campaigns"
-msgstr "캠페인"
-
-msgid "Tags"
-msgstr "태그"
-
-msgid "is not configured"
-msgstr "가 구성되지 않았습니다."
-
-msgid "Please update the"
-msgstr "업데이트하세요."
-
-msgid "API key in Setting->"
-msgstr "설정-> API 키에서"
-
-msgid "Edit General Settings"
-msgstr "일반 설정 편집"
-
-msgid "Then update"
-msgstr "그런 다음 업데이트"
-
-msgid "For more info see our "
-msgstr "자세한 내용은"
-
-msgid "support docs."
-msgstr "지원 문서."
-
-msgid "List Title"
-msgstr "목록 제목"
-
-msgid "Your List Title"
-msgstr "목록 제목"
-
-msgid "Your Subject"
-msgstr "제목"
-
-msgid "Permission Reminder"
-msgstr "권한 알림"
-
-msgid "Archive Bars"
-msgstr "아카이브 바"
-
-msgid "Public"
-msgstr "공개"
-
-msgid "List Creation"
-msgstr "목록 생성"
-
-msgid "You're about to delete a tag!"
-msgstr "태그를 삭제하려고 합니다!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "이렇게 하면 이 목록에 있는 모든 멤버의 태그도 삭제됩니다. 정말인가요?"
-
-msgid "Deleting tag"
-msgstr "태그 삭제하기"
-
-msgid "People"
-msgstr "사람"
-
-msgid "Families"
-msgstr "가족"
-
-msgid "Add a new tag"
-msgstr "새 태그 추가"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "구독자에서 태그 삭제"
-
-msgid "Delete tag"
-msgstr "태그 삭제"
-
-msgid "Loading resources ..."
-msgstr "리소스 로드 중 ..."
-
-msgid "Check all boxes"
-msgstr "모든 상자에 체크"
-
-msgid "Subscribed"
-msgstr "구독"
-
-msgid "Unsubscribed"
-msgstr "구독 취소"
-
-msgid "Email Marketing"
-msgstr "이메일 마케팅"
-
-msgid "New tag"
-msgstr "새 태그"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr "생성할 태그의 이름을 입력하고 선택한 멤버에게 적용합니다."
-
-msgid "Create tag"
-msgstr "태그 만들기"
-
-msgid "Adding tag..."
-msgstr "태그 추가 중..."
-
-msgid "Name is empty !!"
-msgstr "이름이 비어 있습니다 !!"
-
-msgid "Add tag"
-msgstr "태그 추가"
-
-msgid "Selected tag"
-msgstr "선택한 태그"
-
-msgid "This will add the tag"
-msgstr "그러면 태그가 추가됩니다."
-
-msgid "to all the current selected members in the list."
-msgstr "를 목록에서 현재 선택된 모든 멤버로 변경합니다."
-
-msgid "Select One"
-msgstr "하나 선택"
-
-msgid "All Tags"
-msgstr "모든 태그"
-
-msgid "Remove tags from selected members"
-msgstr "선택한 멤버의 태그 제거"
-
-msgid "Choose a tag"
-msgstr "태그 선택"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"제거할 태그를 하나 선택하거나 모든 태그를 선택하여 선택한 멤버에 대한 전체 정"
-"리를 수행합니다."
-
-msgid "Apply"
-msgstr "신청하기"
-
-msgid "Removing tags..."
-msgstr "태그 제거하기..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "목록에서 선택한 멤버에 대한 모든 태그 삭제..."
-
-msgid "This action affects the whole list"
-msgstr "이 작업은 전체 목록에 영향을 미칩니다."
-
-msgid "Keep tag"
-msgstr "태그 유지"
-
-msgid "A person name or Family or Group"
-msgstr "사람 이름 또는 가족 또는 그룹"
-
-msgid "Loading subscriber"
-msgstr "구독자 로드 중"
-
-msgid "Loading subscribers from Group"
-msgstr "그룹에서 구독자 로드"
-
-msgid "Loading subscribers from family"
-msgstr "가족에서 구독자 로드"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr ""
-"EcclesiaCRM에서 모든 사람을 로드하는 중입니다<br>시간이 걸릴 수 있습니다!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"사실, CRM을 종료하고 5분 정도 기다린 후 캠페인을 만드는 것이 좋습니다.<br>대"
-"용량 데이터를 가져오려면 MailChimp API가 느립니다."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"에클레시아CRM에서 모든 뉴스레터 구독자를 로드하는 중입니다<br>시간이 걸릴 수 "
-"있습니다!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"EcclesiaCRM에서 모든 가족 첫 번째 헤드피플 구독자를 로드하는 중<br>시간이 걸"
-"릴 수 있습니다!"
-
-msgid "Update subscriber status"
-msgstr "구독자 상태 업데이트"
-
-msgid "Selected subscriber"
-msgstr "선택한 구독자"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "이 구독자에게 적용할 상태를 선택합니다."
-
-msgid "Update"
-msgstr "업데이트"
-
-msgid "Changing status ..."
-msgstr "상태 변경 ..."
-
-msgid "Delete subscriber"
-msgstr "구독자 삭제"
-
-msgid "Subscriber removal"
-msgstr "구독자 제거"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "구독자를 삭제하려고 합니다! 정말인가요?"
-
-msgid "Keep subscriber"
-msgstr "구독자 유지"
-
-msgid "Deleting Subscriber..."
-msgstr "구독자 삭제..."
-
-msgid "Delete mailing list"
-msgstr "메일링 리스트 삭제"
-
-msgid "This action is irreversible"
-msgstr "이 작업은 되돌릴 수 없습니다."
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "이 메일링 리스트를 정말 삭제하시겠습니까?"
-
-msgid "Delete list"
-msgstr "목록 삭제"
-
-msgid "Delete all subscribers"
-msgstr "모든 구독자 삭제"
-
-msgid "Bulk deletion"
-msgstr "일괄 삭제"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "모든 구독자를 삭제하시겠습니까?"
-
-msgid "Delete all"
-msgstr "모두 삭제"
-
-msgid "Deleting all subscribers..."
-msgstr "모든 구독자 삭제 중..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"사실, CRM을 종료하고 한 시간 후에 다시 열어 목록을 관리하는 것이 좋습니다."
-"<br>대용량 데이터를 삭제하려면 MailChimp API가 느립니다."
-
-msgid "Email Campaign Creation"
-msgstr "이메일 캠페인 생성"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"명확한 제목을 준비하고 대상 태그를 확인한 후 이메일 캠페인의 내용을 작성합니"
-"다."
-
-msgid "Campaign details"
-msgstr "캠페인 세부 정보"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-"메시지를 작성하기 전에 캠페인 제목을 설정하고 MailChimp 대상을 검토합니다."
-
-msgid "Campaign Title"
-msgstr "캠페인 제목"
-
-msgid "Your Campaign Title"
-msgstr "캠페인 제목"
-
-msgid "For Tag"
-msgstr "태그"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr "이메일 캠페인의 제목과 본문을 작성합니다."
-
-msgid "Mail Subject"
-msgstr "메일 제목"
-
-msgid "Your Mail Subject"
-msgstr "메일 제목"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "이 태그의 회원에게 전송할 콘텐츠를 작성합니다."
-
-msgid "All list members"
-msgstr "모든 목록 구성원"
-
-msgid "Adding Campaign ..."
-msgstr "캠페인 추가 ..."
-
-msgid "Campaign created"
-msgstr "캠페인 생성"
-
-msgid "Your campaign is ready"
-msgstr "캠페인이 준비되었습니다."
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "이 새로운 캠페인을 직접 관리하고 싶으신가요?"
-
-msgid "Open campaign"
-msgstr "오픈 캠페인"
-
-msgid "Stay here"
-msgstr "여기 머물기"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "이메일 캠페인의 캠페인 제목을 설정해야 합니다."
-
-msgid "Edit list settings"
-msgstr "목록 설정 편집"
-
-msgid "MailChimp list settings"
-msgstr "MailChimp 목록 설정"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr "이 목록과 해당 캠페인에서 사용하는 주요 세부 정보를 업데이트합니다."
-
-msgid "List Name"
-msgstr "목록 이름"
-
-msgid "Changing subscribers state..."
-msgstr "구독자 상태 변경 중..."
-
-msgid "Delete selected subscribers"
-msgstr "선택한 구독자 삭제"
-
-msgid "Selected members"
-msgstr "선택된 멤버"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "구독자를 삭제하려고 합니다! 정말인가요?"
-
-msgid "selected"
-msgstr "선택"
-
-msgid "Delete selected"
-msgstr "선택한 항목 삭제"
-
-msgid "Deleting Subscribers..."
-msgstr "구독자 삭제하기..."
-
-msgid "Family"
-msgstr "가족"
-
-msgid "Person"
-msgstr "사람"
-
 msgid "Free Event Attendees"
 msgstr "무료 이벤트 참석자"
 
@@ -1715,6 +1294,12 @@ msgstr "전자 거래 세부 정보"
 msgid "TOTAL"
 msgstr "총계"
 
+msgid "Family"
+msgstr "가족"
+
+msgid "Person"
+msgstr "사람"
+
 msgid "Anonymous"
 msgstr "익명"
 
@@ -1729,6 +1314,9 @@ msgstr "방법"
 
 msgid "Check Number"
 msgstr "수표 번호"
+
+msgid "Details"
+msgstr "세부 정보"
 
 msgid "Tracking"
 msgstr "추적"
@@ -1759,6 +1347,9 @@ msgstr "댓글 남기기"
 
 msgid "Closed"
 msgstr "Closed"
+
+msgid "Yes"
+msgstr "예"
 
 msgid "Deposit Type"
 msgstr "입금 유형"
@@ -2095,6 +1686,9 @@ msgstr "이 보기에 대한 레코드를 찾을 수 없습니다."
 
 msgid "No matching records found."
 msgstr "일치하는 레코드가 없습니다."
+
+msgid "Loading..."
+msgstr "로드 중..."
 
 msgid "Never contacted"
 msgstr "연락이 닿지 않음"
@@ -2662,6 +2256,9 @@ msgstr "플러그인 관리자"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "현재 이미지 폴더는 이제 공용 폴더입니다 !!!"
+
+msgid "Families"
+msgstr "가족"
 
 msgid "Singles"
 msgstr "싱글"
@@ -3272,6 +2869,412 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "모든 회원 자격은 파기됩니다.  멤버십 자체는 변경되지 않습니다."
+
+#~ msgid "Mailchimp"
+#~ msgstr "메일침프"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "이제 모든 목록이 CRM에 로드되었습니다. 1235  4568 목록을 관리하려면 이 알"
+#~ "림을 클릭하세요! 7899 "
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "절약 캠페인 ..."
+
+#~ msgid "Campaign"
+#~ msgstr "캠페인"
+
+#~ msgid "saved successfully"
+#~ msgstr "저장 성공"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "캠페인을 곧 전송할 예정입니다! 확실하신가요?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "캠페인을 삭제하려고 합니다! 정말인가요?"
+
+#~ msgid "Loading data..."
+#~ msgstr "데이터 로드 중..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr "MailChimp 목록을 검색하는 동안 잠시 기다려주세요."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "이 계정으로 생성된 목록이 없습니다 ...."
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr "위의 버튼을 사용하여 새 MailChimp 목록을 만들 수 있습니다."
+
+#~ msgid "Email List"
+#~ msgstr "이메일 목록"
+
+#~ msgid "Subject"
+#~ msgstr "제목"
+
+#~ msgid "Members:"
+#~ msgstr "회원:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "구독 취소 횟수:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "마지막 전송 이후 구독 취소 횟수입니다:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "청소 횟수:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "마지막 전송 이후 정리된 횟수입니다:"
+
+#~ msgid "Campaigns"
+#~ msgstr "캠페인"
+
+#~ msgid "Tags"
+#~ msgstr "태그"
+
+#~ msgid "is not configured"
+#~ msgstr "가 구성되지 않았습니다."
+
+#~ msgid "Please update the"
+#~ msgstr "업데이트하세요."
+
+#~ msgid "API key in Setting->"
+#~ msgstr "설정-> API 키에서"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "일반 설정 편집"
+
+#~ msgid "Then update"
+#~ msgstr "그런 다음 업데이트"
+
+#~ msgid "For more info see our "
+#~ msgstr "자세한 내용은"
+
+#~ msgid "support docs."
+#~ msgstr "지원 문서."
+
+#~ msgid "List Title"
+#~ msgstr "목록 제목"
+
+#~ msgid "Your List Title"
+#~ msgstr "목록 제목"
+
+#~ msgid "Your Subject"
+#~ msgstr "제목"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "권한 알림"
+
+#~ msgid "Archive Bars"
+#~ msgstr "아카이브 바"
+
+#~ msgid "Public"
+#~ msgstr "공개"
+
+#~ msgid "List Creation"
+#~ msgstr "목록 생성"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "태그를 삭제하려고 합니다!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "이렇게 하면 이 목록에 있는 모든 멤버의 태그도 삭제됩니다. 정말인가요?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "태그 삭제하기"
+
+#~ msgid "People"
+#~ msgstr "사람"
+
+#~ msgid "Add a new tag"
+#~ msgstr "새 태그 추가"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "구독자에서 태그 삭제"
+
+#~ msgid "Delete tag"
+#~ msgstr "태그 삭제"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "리소스 로드 중 ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "모든 상자에 체크"
+
+#~ msgid "Subscribed"
+#~ msgstr "구독"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "구독 취소"
+
+#~ msgid "Email Marketing"
+#~ msgstr "이메일 마케팅"
+
+#~ msgid "New tag"
+#~ msgstr "새 태그"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr "생성할 태그의 이름을 입력하고 선택한 멤버에게 적용합니다."
+
+#~ msgid "Create tag"
+#~ msgstr "태그 만들기"
+
+#~ msgid "Adding tag..."
+#~ msgstr "태그 추가 중..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "이름이 비어 있습니다 !!"
+
+#~ msgid "Add tag"
+#~ msgstr "태그 추가"
+
+#~ msgid "Selected tag"
+#~ msgstr "선택한 태그"
+
+#~ msgid "This will add the tag"
+#~ msgstr "그러면 태그가 추가됩니다."
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "를 목록에서 현재 선택된 모든 멤버로 변경합니다."
+
+#~ msgid "Select One"
+#~ msgstr "하나 선택"
+
+#~ msgid "All Tags"
+#~ msgstr "모든 태그"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "선택한 멤버의 태그 제거"
+
+#~ msgid "Choose a tag"
+#~ msgstr "태그 선택"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "제거할 태그를 하나 선택하거나 모든 태그를 선택하여 선택한 멤버에 대한 전"
+#~ "체 정리를 수행합니다."
+
+#~ msgid "Apply"
+#~ msgstr "신청하기"
+
+#~ msgid "Removing tags..."
+#~ msgstr "태그 제거하기..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "목록에서 선택한 멤버에 대한 모든 태그 삭제..."
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "이 작업은 전체 목록에 영향을 미칩니다."
+
+#~ msgid "Keep tag"
+#~ msgstr "태그 유지"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "사람 이름 또는 가족 또는 그룹"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "구독자 로드 중"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "그룹에서 구독자 로드"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "가족에서 구독자 로드"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "EcclesiaCRM에서 모든 사람을 로드하는 중입니다<br>시간이 걸릴 수 있습니다!"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "사실, CRM을 종료하고 5분 정도 기다린 후 캠페인을 만드는 것이 좋습니다.<br>"
+#~ "대용량 데이터를 가져오려면 MailChimp API가 느립니다."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "에클레시아CRM에서 모든 뉴스레터 구독자를 로드하는 중입니다<br>시간이 걸릴 "
+#~ "수 있습니다!"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "EcclesiaCRM에서 모든 가족 첫 번째 헤드피플 구독자를 로드하는 중<br>시간이 "
+#~ "걸릴 수 있습니다!"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "구독자 상태 업데이트"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "선택한 구독자"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "이 구독자에게 적용할 상태를 선택합니다."
+
+#~ msgid "Update"
+#~ msgstr "업데이트"
+
+#~ msgid "Changing status ..."
+#~ msgstr "상태 변경 ..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "구독자 삭제"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "구독자 제거"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "구독자를 삭제하려고 합니다! 정말인가요?"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "구독자 유지"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "구독자 삭제..."
+
+#~ msgid "Delete mailing list"
+#~ msgstr "메일링 리스트 삭제"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "이 작업은 되돌릴 수 없습니다."
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "이 메일링 리스트를 정말 삭제하시겠습니까?"
+
+#~ msgid "Delete list"
+#~ msgstr "목록 삭제"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "모든 구독자 삭제"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "일괄 삭제"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "모든 구독자를 삭제하시겠습니까?"
+
+#~ msgid "Delete all"
+#~ msgstr "모두 삭제"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "모든 구독자 삭제 중..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "사실, CRM을 종료하고 한 시간 후에 다시 열어 목록을 관리하는 것이 좋습니다."
+#~ "<br>대용량 데이터를 삭제하려면 MailChimp API가 느립니다."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "이메일 캠페인 생성"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "명확한 제목을 준비하고 대상 태그를 확인한 후 이메일 캠페인의 내용을 작성합"
+#~ "니다."
+
+#~ msgid "Campaign details"
+#~ msgstr "캠페인 세부 정보"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr ""
+#~ "메시지를 작성하기 전에 캠페인 제목을 설정하고 MailChimp 대상을 검토합니다."
+
+#~ msgid "Campaign Title"
+#~ msgstr "캠페인 제목"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "캠페인 제목"
+
+#~ msgid "For Tag"
+#~ msgstr "태그"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "이메일 캠페인의 제목과 본문을 작성합니다."
+
+#~ msgid "Mail Subject"
+#~ msgstr "메일 제목"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "메일 제목"
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr "이 태그의 회원에게 전송할 콘텐츠를 작성합니다."
+
+#~ msgid "All list members"
+#~ msgstr "모든 목록 구성원"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "캠페인 추가 ..."
+
+#~ msgid "Campaign created"
+#~ msgstr "캠페인 생성"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "캠페인이 준비되었습니다."
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "이 새로운 캠페인을 직접 관리하고 싶으신가요?"
+
+#~ msgid "Open campaign"
+#~ msgstr "오픈 캠페인"
+
+#~ msgid "Stay here"
+#~ msgstr "여기 머물기"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "이메일 캠페인의 캠페인 제목을 설정해야 합니다."
+
+#~ msgid "Edit list settings"
+#~ msgstr "목록 설정 편집"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "MailChimp 목록 설정"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr "이 목록과 해당 캠페인에서 사용하는 주요 세부 정보를 업데이트합니다."
+
+#~ msgid "List Name"
+#~ msgstr "목록 이름"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "구독자 상태 변경 중..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "선택한 구독자 삭제"
+
+#~ msgid "Selected members"
+#~ msgstr "선택된 멤버"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "구독자를 삭제하려고 합니다! 정말인가요?"
+
+#~ msgid "selected"
+#~ msgstr "선택"
+
+#~ msgid "Delete selected"
+#~ msgstr "선택한 항목 삭제"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "구독자 삭제하기..."
 
 #~ msgid "ERROR"
 #~ msgstr "오류"

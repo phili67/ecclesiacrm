@@ -1,0 +1,610 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06 10:40+0000\n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+msgid "persons"
+msgstr "الأشخاص"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+msgid "people"
+msgstr "الناس"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:66
+msgid "All People"
+msgstr "الجميع"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:81
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "newsletter"
+msgstr "النشرة الإخبارية"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:87
+msgid "families"
+msgstr "العائلات"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:95
+msgid "All Families"
+msgstr "جميع العائلات"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:130
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Persons"
+msgstr "الأشخاص"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:170
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Families"
+msgstr "العائلات"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:208
+msgid "Groups"
+msgstr "المجموعات"
+
+#: ../src/Plugins/MailChimp/core/Services/MailChimpService.php:299
+msgid "Private Data"
+msgstr "البيانات الخاصة"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:55
+msgid "MailChimp Dashboard"
+msgstr "لوحة تحكم MailChimp"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:99
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:100
+msgid "Email Campaign"
+msgstr "حملة عبر البريد الإلكتروني"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:141
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:142
+msgid "Email List"
+msgstr "قائمة البريد الإلكتروني"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:141
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:142
+msgid "GDPR"
+msgstr "اللائحة العامة لحماية البيانات"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:179
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:68
+msgid "Find Duplicate Emails"
+msgstr "البحث عن رسائل البريد الإلكتروني المكررة"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:205
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:71
+msgid "Persons Not In MailChimp"
+msgstr "الأشخاص غير المسجلين في MailChimp"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:230
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:74
+msgid "Families Not In MailChimp"
+msgstr "العائلات غير المسجلة في MailChimp"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:249
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:34
+msgid "Opened"
+msgstr "تم افتتاحه"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:42
+msgid "Clicked"
+msgstr "تم النقر عليه"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:50
+msgid "Bounced"
+msgstr "مرتد"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:58
+msgid "Unsubscribed"
+msgstr "إلغاء الاشتراك"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:69
+msgid "Email Campaign Management"
+msgstr "إدارة الحملات عبر البريد الإلكتروني"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:70
+msgid "Compose content and schedule sending from one screen."
+msgstr "قم بكتابة المحتوى وتحديد موعد الإرسال من شاشة واحدة."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:79
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:59
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:30
+msgid "Quick actions"
+msgstr "الإجراءات السريعة"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:82
+msgid "Save Campaign"
+msgstr "حملة التوفير"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:85
+msgid "Send"
+msgstr "إرسال"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:88
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:48
+msgid "Delete"
+msgstr "حذف"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+msgid "Mail Subject"
+msgstr "موضوع البريد"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+msgid "Content"
+msgstr "المحتوى"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:102
+msgid "Subject"
+msgstr "الموضوع"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:104
+msgid "Your Mail Subject"
+msgstr "موضوع رسالتك"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:109
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr "يمكنك استخدام الزر \"دمج العلامات\" أدناه لتخصيص المحتوى الخاص بك"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:120
+msgid "Tags"
+msgstr "العلامات"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:136
+msgid "Schedule"
+msgstr "الجدول الزمني"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:146
+msgid "You've first to create a content below to schedule a campaign."
+msgstr "يجب عليك أولاً إنشاء محتوى أدناه لجدولة حملة."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:147
+msgid ""
+"Campaigns may only be scheduled to send on the quarter-hour "
+"(:00, :15, :30, :45)."
+msgstr ""
+"لا يمكن جدولة إرسال الحملات إلا في أوقات ربع الساعة (:00، :15، :30، :45)."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:150
+msgid "Date"
+msgstr "التاريخ"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:159
+msgid "Time"
+msgstr "الوقت"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:167
+msgid ""
+"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+"over."
+msgstr ""
+"للتحقق من صحة البيانات، احفظ حملتك باستخدام زر <b>\"حفظ الحملة\"</b> الموجود "
+"أعلاه."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:16
+msgid "MailChimp Problem"
+msgstr "مشكلة في MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "Mailchimp Status"
+msgstr "حالة Mailchimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "Title"
+msgstr "العنوان"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "status"
+msgstr "الحالة"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
+msgid "detail"
+msgstr "التفاصيل"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+msgid "field"
+msgstr "الميدان"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+msgid "Message"
+msgstr "رسالة"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:43
+msgid "MailChimp Management"
+msgstr "إدارة MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:44
+msgid "Create audiences, sync contacts, and manage campaign data."
+msgstr "إنشاء جمهور، ومزامنة جهات الاتصال، وإدارة بيانات الحملات."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:52
+msgid "MailChimp is working correctly"
+msgstr "يعمل MailChimp بشكل صحيح"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:61
+msgid "Create an audience or List"
+msgstr "إنشاء جمهور أو قائمة"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:62
+msgid "Create list"
+msgstr "إنشاء قائمة"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:65
+msgid "Generate CSV"
+msgstr "إنشاء ملف CSV"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:82
+msgid "You can import the generated CSV file to external email system."
+msgstr "يمكنك استيراد ملف CSV الذي تم إنشاؤه إلى نظام بريد إلكتروني خارجي."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:83
+msgid "For MailChimp see"
+msgstr "للاطلاع على MailChimp، انظر"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:84
+msgid "import subscribers to a list."
+msgstr "استيراد المشتركين إلى قائمة."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:90
+msgid "All your lists"
+msgstr "جميع قوائمك"
+
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:16
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:26
+msgid "Duplicate Emails"
+msgstr "رسائل البريد الإلكتروني المكررة"
+
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:17
+msgid "Review duplicates before syncing audiences."
+msgstr "تحقق من التكرارات قبل مزامنة الجماهير."
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:20
+msgid "Manage Email List"
+msgstr "إدارة قائمة البريد الإلكتروني"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:21
+msgid "Manage subscribers and campaigns for this audience."
+msgstr "إدارة المشتركين والحملات الموجهة لهذه الفئة من الجمهور."
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:34
+msgid "Create a Campaign"
+msgstr "إنشاء حملة"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:37
+msgid "Toggle Dropdown"
+msgstr "تبديل القائمة المنسدلة"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:42
+msgid "Delete All Subscribers"
+msgstr "حذف جميع المشتركين"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:45
+msgid "Modify Properties"
+msgstr "تعديل الخصائص"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:61
+msgid "Subscribers"
+msgstr "المشتركون"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:65
+msgid ""
+"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
+"to add all members of the CRM, use <b>*</b>"
+msgstr ""
+"لإضافة جميع مستخدمي النشرة الإخبارية، اكتب <b>NewLetter</b> في حقل البحث، "
+"ولإضافة جميع أعضاء نظام إدارة علاقات العملاء (CRM)، استخدم <b>*</b>"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:70
+msgid "Add"
+msgstr "إضافة"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Keywords"
+msgstr "الكلمات المفتاحية"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:100
+msgid "is not configured"
+msgstr "لم يتم تكوينه"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:101
+msgid "Please update the"
+msgstr "يرجى تحديث"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:101
+msgid "API key in Setting->"
+msgstr "مفتاح API في الإعدادات->"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:102
+msgid "Edit General Settings"
+msgstr "تحرير الإعدادات العامة"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:103
+msgid "then update"
+msgstr "ثم قم بالتحديث"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:104
+msgid "For more info see our "
+msgstr "لمزيد من المعلومات، يرجى الاطلاع على "
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:105
+msgid "support docs."
+msgstr "وثائق الدعم."
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:16
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:26
+msgid "Family List"
+msgstr "قائمة العائلة"
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:17
+msgid "Families missing Mailchimp email matches."
+msgstr "العائلات التي لا تتطابق مع عناوين البريد الإلكتروني في Mailchimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:16
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:26
+msgid "Person List"
+msgstr "قائمة الأشخاص"
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:17
+msgid "Persons missing Mailchimp email matches."
+msgstr ""
+"الأشخاص الذين لا تتطابق عناوين بريدهم الإلكتروني مع قاعدة بيانات Mailchimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:40
+msgid "MailChimp Settings"
+msgstr "إعدادات MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:41
+msgid "Shape your MailChimp workspace"
+msgstr "صمم مساحة عملك في MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:43
+msgid ""
+"Manage the API connection, timeout policy, audience enrichment, and "
+"typography defaults used by the MailChimp plugin."
+msgstr ""
+"إدارة اتصال واجهة برمجة التطبيقات (API) وسياسة المهلة الزمنية وإثراء قاعدة "
+"البيانات والإعدادات الافتراضية للخطوط التي يستخدمها المكون الإضافي MailChimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:49
+msgid "MailChimp is active"
+msgstr "MailChimp نشط"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:49
+msgid "MailChimp is not active"
+msgstr "MailChimp غير نشط"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:52
+msgid "API key guide"
+msgstr "دليل مفتاح واجهة برمجة التطبيقات"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:55
+msgid "Support"
+msgstr "الدعم"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:62
+msgid "Configuration fields"
+msgstr "حقول التكوين"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:66
+msgid "Timeout seconds"
+msgstr "مدة الانتظار بالثواني"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:69
+msgid "On"
+msgstr "في"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:69
+msgid "Off"
+msgstr "إيقاف"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:70
+msgid "Address and phone sync"
+msgstr "مزامنة العناوين وأرقام الهواتف"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:76
+msgid "What this page controls"
+msgstr "ما تتحكم فيه هذه الصفحة"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:77
+msgid "MailChimp plugin defaults"
+msgstr "الإعدادات الافتراضية لمكوّن MailChimp الإضافي"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:79
+msgid ""
+"These values are used to connect the plugin, enrich contacts, and inject "
+"reusable font assets into generated campaign content."
+msgstr ""
+"تُستخدم هذه القيم لتوصيل المكون الإضافي، وإثراء بيانات جهات الاتصال، وإدراج "
+"عناصر الخطوط القابلة لإعادة الاستخدام في محتوى الحملات التي يتم إنشاؤها."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:83
+msgid "API key"
+msgstr "مفتاح واجهة برمجة التطبيقات"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:84
+msgid "Required to load lists, members, and campaigns from MailChimp."
+msgstr "مطلوب لتحميل القوائم والأعضاء والحملات من MailChimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:87
+msgid "Timeout and sender"
+msgstr "مهلة الانتظار والمرسل"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:88
+msgid "Used during remote requests and campaign generation."
+msgstr "يُستخدم في الطلبات عن بُعد وإنشاء الحملات."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:91
+msgid "Typography fields"
+msgstr "مجالات الطباعة"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:92
+msgid "Prepended to campaign HTML to keep a consistent brand style."
+msgstr ""
+"تمت إضافتها في مقدمة كود HTML الخاص بالحملة للحفاظ على اتساق أسلوب العلامة "
+"التجارية."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:104
+msgid "Connection"
+msgstr "الاتصال"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:105
+msgid "API access and sending identity"
+msgstr "الوصول إلى واجهة برمجة التطبيقات (API) وهوية المرسل"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:107
+msgid ""
+"Keep the API key private, define a sensible timeout for remote calls, and "
+"set the sender email used by the plugin."
+msgstr ""
+"احرص على الحفاظ على سرية مفتاح واجهة برمجة التطبيقات (API)، وحدد مهلة زمنية "
+"معقولة للمكالمات عن بُعد، وقم بتعيين عنوان البريد الإلكتروني للمرسل الذي "
+"يستخدمه المكون الإضافي."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:111
+msgid "MailChimp API key"
+msgstr "مفتاح واجهة برمجة تطبيقات MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:119
+msgid "Show or hide API key"
+msgstr "إظهار مفتاح API أو إخفاؤه"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:131
+msgid "Request timeout"
+msgstr "انتهت مهلة الانتظار"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:136
+msgid "seconds"
+msgstr "ثوانٍ"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:144
+msgid "Sender email address"
+msgstr "عنوان البريد الإلكتروني للمرسل"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:159
+msgid "Audience enrichment"
+msgstr "إثراء الجمهور"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:160
+msgid "Contact payload options"
+msgstr "خيارات حمولة الاتصال"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:162
+msgid ""
+"Enable this option only if your MailChimp audience contains matching merge "
+"fields for postal address and phone number."
+msgstr ""
+"لا تقم بتفعيل هذا الخيار إلا إذا كان جمهور MailChimp الخاص بك يحتوي على حقول "
+"دمج مطابقة للعنوان البريدي ورقم الهاتف."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:167
+msgid "Include address and phone in MailChimp records"
+msgstr "أضف العنوان ورقم الهاتف إلى سجلات MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:168
+msgid ""
+"When enabled, the plugin can push additional family and person information "
+"during synchronization."
+msgstr ""
+"عند تفعيل المكون الإضافي، يمكنه إرسال معلومات إضافية عن العائلة والأفراد "
+"أثناء عملية المزامنة."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:179
+msgid "Content defaults"
+msgstr "الإعدادات الافتراضية للمحتوى"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:180
+msgid "Typography and external assets"
+msgstr "الخطوط والمواد الخارجية"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:182
+msgid ""
+"These values are used when campaign HTML needs shared CSS imports or a "
+"custom font stack."
+msgstr ""
+"تُستخدم هذه القيم عندما تحتاج صفحة HTML الخاصة بالحملة إلى استيراد ملفات CSS "
+"مشتركة أو مجموعة خطوط مخصصة."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:186
+msgid "External CSS font URL"
+msgstr "عنوان URL الخارجي لملف CSS الخاص بالخط"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:190
+msgid "This value can be injected ahead of generated campaign HTML."
+msgstr "يمكن إدراج هذه القيمة قبل كود HTML الخاص بالحملة الذي تم إنشاؤه."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:194
+msgid "Extra font CSS"
+msgstr "CSS إضافي للخطوط"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:198
+msgid "Use this field for additional CSS declarations or fallback font stacks."
+msgstr "استخدم هذا الحقل لإدخال تعليلات CSS إضافية أو مجموعات الخطوط البديلة."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:205
+msgid "Implementation map"
+msgstr "خريطة التنفيذ"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:208
+msgid "API key and timeout"
+msgstr "مفتاح واجهة برمجة التطبيقات (API) ومدة الانتظار"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:209
+msgid ""
+"Used by the plugin service when it creates the MailChimp client and fetches "
+"remote audiences."
+msgstr ""
+"تستخدمها خدمة المكون الإضافي عند إنشاء عميل MailChimp واسترداد قوائم الجمهور "
+"البعيدة."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:212
+msgid "Address and phone flag"
+msgstr "علامة العنوان والهاتف"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:213
+msgid ""
+"Controls whether additional address and phone fields are sent with contacts."
+msgstr ""
+"يحدد ما إذا كان سيتم إرسال حقول إضافية للعنوان والهاتف مع جهات الاتصال."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:216
+msgid "External CSS and extra fonts"
+msgstr "ملفات CSS الخارجية والخطوط الإضافية"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:217
+msgid ""
+"Prepended to campaign content to keep the same visual language across "
+"newsletters."
+msgstr ""
+"يُضاف إلى محتوى الحملة للحفاظ على نفس الأسلوب البصري في جميع النشرات "
+"الإخبارية."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:223
+msgid "Resources"
+msgstr "الموارد"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:226
+msgid "Manage API keys"
+msgstr "إدارة مفاتيح واجهة برمجة التطبيقات"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:229
+msgid "Audience fields guide"
+msgstr "دليل حقول الجمهور"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:232
+msgid "Project support"
+msgstr "دعم المشاريع"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:242
+msgid "No local changes yet."
+msgstr "لم تُجرَ أي تغييرات محلية حتى الآن."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:245
+msgid "Save MailChimp settings"
+msgstr "حفظ إعدادات MailChimp"

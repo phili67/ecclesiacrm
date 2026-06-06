@@ -1,0 +1,471 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06T14:06:33.794Z\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Error"
+msgstr "Fel"
+
+msgid "Loading..."
+msgstr "Laddar..."
+
+msgid "Loading data..."
+msgstr "Laddar data..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Vänligen vänta medan vi hämtar dina MailChimp-listor."
+
+msgid "No list are created with this account ...."
+msgstr "Inga listor har skapats med det här kontot ...."
+
+msgid "You can create a new MailChimp list using the button above."
+msgstr "Du kan skapa en ny MailChimp-lista genom att klicka på knappen ovan."
+
+msgid "Email Lists"
+msgstr "E-postlistor"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Subject"
+msgstr "Ämne"
+
+msgid "Members:"
+msgstr "Medlemmar:"
+
+msgid "Unsubscribed count:"
+msgstr "Antal avregistrerade:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Antal avregistreringar sedan senaste utskicket:"
+
+msgid "Cleaned count:"
+msgstr "Antal rengjorda:"
+
+msgid "Cleaned count since last send:"
+msgstr "Antal rensade poster sedan senaste överföringen:"
+
+msgid "Campaigns"
+msgstr "Kampanjer"
+
+msgid "Tags"
+msgstr "Taggar"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Modify"
+msgstr "Ändra"
+
+msgid "is not configured"
+msgstr "är inte konfigurerad"
+
+msgid "Please update the"
+msgstr "Uppdatera"
+
+msgid "API key in Setting->"
+msgstr "API-nyckel under Inställningar->"
+
+msgid "Edit General Settings"
+msgstr "Redigera allmänna inställningar"
+
+msgid "Then update"
+msgstr "Uppdatera sedan"
+
+msgid "For more info see our "
+msgstr "För mer information, se vår "
+
+msgid "support docs."
+msgstr "supportdokument."
+
+msgid "List Title"
+msgstr "Listans titel"
+
+msgid "Your List Title"
+msgstr "Rubriken på din lista"
+
+msgid "Your Subject"
+msgstr "Ämne"
+
+msgid "Permission Reminder"
+msgstr "Påminnelse om tillstånd"
+
+msgid "Archive Bars"
+msgstr "Arkivfält"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Public"
+msgstr "Allmänt"
+
+msgid "List Creation"
+msgstr "Skapa lista"
+
+msgid "Close"
+msgstr "Stäng"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "You have to set a List Title for your eMail List"
+msgstr "Du måste ange en titel för din e-postlista"
+
+msgid "You're about to delete a tag!"
+msgstr "Du är på väg att ta bort en tagg!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Detta kommer också att ta bort taggen för alla medlemmar i listan. Är du "
+"säker?"
+
+msgid "Deleting tag"
+msgstr "Ta bort tagg"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "People"
+msgstr "Människor"
+
+msgid "Families"
+msgstr "Familjer"
+
+msgid "Add a new tag"
+msgstr "Lägg till en ny tagg"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Ta bort tagg från prenumerant(er)"
+
+msgid "Delete tag"
+msgstr "Ta bort tagg"
+
+msgid "Loading resources ..."
+msgstr "Laddar resurser ..."
+
+msgid "Email List"
+msgstr "E-postlista"
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "Campaign"
+msgstr "Kampanj"
+
+msgid "Subscribed"
+msgstr "Prenumererar"
+
+msgid "Unsubscribed"
+msgstr "Avregistrerad"
+
+msgid "Last Name"
+msgstr "Efternamn"
+
+msgid "First Name"
+msgstr "Förnamn"
+
+msgid "Email Marketing"
+msgstr "E-postmarknadsföring"
+
+msgid "Address"
+msgstr "Adress"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "New tag"
+msgstr "Ny tagg"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+"Ange namnet på den tagg som ska skapas och tillämpas på de markerade "
+"medlemmarna."
+
+msgid "Create tag"
+msgstr "Skapa tagg"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Adding tag..."
+msgstr "Lägger till tagg..."
+
+msgid "Name is empty !!"
+msgstr "Namnet är tomt !!"
+
+msgid "Add tag"
+msgstr "Lägg till tagg"
+
+msgid "Selected tag"
+msgstr "Vald tagg"
+
+msgid "This will add the tag"
+msgstr "Detta lägger till taggen"
+
+msgid "to all the current selected members in the list."
+msgstr "till alla de medlemmar som för närvarande är markerade i listan."
+
+msgid "Confirm"
+msgstr "Bekräfta"
+
+msgid "Remove tags from selected members"
+msgstr "Ta bort taggar från valda medlemmar"
+
+msgid "Choose a tag"
+msgstr "Välj en tagg"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+"Välj en tagg som ska tas bort, eller välj alla taggar för att rensa bort "
+"alla taggar för de valda medlemmarna."
+
+msgid "Apply"
+msgstr "Ansök"
+
+msgid "Removing tags..."
+msgstr "Tar bort taggar..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Tar bort alla taggar för de markerade medlemmarna i listan..."
+
+msgid "This action affects the whole list"
+msgstr "Denna åtgärd påverkar hela listan"
+
+msgid "Keep tag"
+msgstr "Håll koll"
+
+msgid "A person name or Family or Group"
+msgstr "En persons namn, en familj eller en grupp"
+
+msgid "Loading subscriber"
+msgstr "Hämtar abonnent"
+
+msgid "Loading subscribers from Group"
+msgstr "Laddar prenumeranter från gruppen"
+
+msgid "Loading subscribers from family"
+msgstr "Laddar prenumeranter från familjen"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr "Hämtar alla personer från EcclesiaCRM<br>Det här kan ta ett tag!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Det är faktiskt bättre att stänga CRM-systemet, vänta i fem minuter och "
+"sedan skapa dina kampanjer. <br>MailChimp API är långsamt när man importerar "
+"stora datamängder."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Hämtar alla nyhetsbrevsprenumeranter från EcclesiaCRM<br>Det här kan ta ett "
+"tag!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Hämtar alla familjers första kontaktpersoner från EcclesiaCRM<br>Det här kan "
+"ta ett tag!"
+
+msgid "Changing status ..."
+msgstr "Ändrar status ..."
+
+msgid "Delete subscriber"
+msgstr "Ta bort prenumerant"
+
+msgid "Subscriber removal"
+msgstr "Avregistrering av prenumerant"
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Du är på väg att ta bort en prenumerant! Är du säker?"
+
+msgid "Keep subscriber"
+msgstr "Behåll abonnenten"
+
+msgid "Deleting Subscriber..."
+msgstr "Tar bort prenumerant..."
+
+msgid "Delete mailing list"
+msgstr "Ta bort e-postlista"
+
+msgid "This action is irreversible"
+msgstr "Denna åtgärd går inte att ångra"
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Vill du verkligen ta bort den här e-postlistan?"
+
+msgid "Delete list"
+msgstr "Ta bort lista"
+
+msgid "Delete all subscribers"
+msgstr "Ta bort alla prenumeranter"
+
+msgid "Bulk deletion"
+msgstr "Massradering"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Är du säker på att du vill ta bort alla prenumeranter?"
+
+msgid "Delete all"
+msgstr "Ta bort allt"
+
+msgid "Deleting all subscribers..."
+msgstr "Tar bort alla prenumeranter..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Det är faktiskt bättre att stänga CRM-systemet och öppna det igen efter en "
+"kvart för att hantera din lista.<br>När det gäller att radera stora "
+"datamängder är MailChimp API långsamt."
+
+msgid "Email Campaign Creation"
+msgstr "Skapande av e-postkampanjer"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+"Skapa en tydlig rubrik, kontrollera mottagarmärket och skriv innehållet i "
+"din e-postkampanj."
+
+msgid "Campaign details"
+msgstr "Kampanjinformation"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+"Ange kampanjens titel och kontrollera målgruppen i MailChimp innan du "
+"skriver meddelandet."
+
+msgid "Campaign Title"
+msgstr "Kampanjens titel"
+
+msgid "Your Campaign Title"
+msgstr "Din kampanjtitel"
+
+msgid "For Tag"
+msgstr "För tagg"
+
+msgid "Message"
+msgstr "Meddelande"
+
+msgid "Write the subject and the body of your email campaign."
+msgstr "Skriv ämnesraden och texten till din e-postkampanj."
+
+msgid "Mail Subject"
+msgstr "E-postämne"
+
+msgid "Your Mail Subject"
+msgstr "Ämne för ditt e-postmeddelande"
+
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "Skriv det innehåll som ska skickas till medlemmarna med denna tagg."
+
+msgid "All list members"
+msgstr "Alla listmedlemmar"
+
+msgid "Adding Campaign ..."
+msgstr "Lägger till kampanj ..."
+
+msgid "Campaign created"
+msgstr "Kampanj skapad"
+
+msgid "Your campaign is ready"
+msgstr "Din kampanj är klar"
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Vill du sköta den här nya kampanjen själv?"
+
+msgid "Open campaign"
+msgstr "Öppen kampanj"
+
+msgid "Stay here"
+msgstr "Bo här"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Du måste ange en kampanjtitel för din e-postkampanj"
+
+msgid "Edit list settings"
+msgstr "Redigera listinställningar"
+
+msgid "MailChimp list settings"
+msgstr "Inställningar för MailChimp-listor"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr ""
+"Uppdatera de viktigaste uppgifterna som används i denna lista och dess "
+"kampanjer."
+
+msgid "List Name"
+msgstr "Listans namn"
+
+msgid "Changing subscribers state..."
+msgstr "Ändrar abonnenternas status..."
+
+msgid "Delete selected subscribers"
+msgstr "Ta bort valda prenumeranter"
+
+msgid "Selected members"
+msgstr "Utvalda medlemmar"
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Du är på väg att ta bort prenumeranter! Är du säker?"
+
+msgid "selected"
+msgstr "vald"
+
+msgid "Delete selected"
+msgstr "Ta bort det markerade"
+
+msgid "Deleting Subscribers..."
+msgstr "Tar bort prenumeranter..."
+
+msgid "Family"
+msgstr "Familj"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "Person"
+msgstr "Person"
+
+msgid "Unsaved changes are ready to be stored."
+msgstr "De ändringar som inte har sparats är redo att sparas."
+
+msgid "No local changes yet."
+msgstr "Inga lokala ändringar ännu."
+
+msgid "Settings saved."
+msgstr "Inställningarna har sparats."
+
+msgid "Saved"
+msgstr "Sparat"
+
+msgid "Unable to save settings"
+msgstr "Det går inte att spara inställningarna"

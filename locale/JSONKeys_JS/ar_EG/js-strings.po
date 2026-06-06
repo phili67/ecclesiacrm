@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -684,16 +684,6 @@ msgstr "قيد التنفيذ"
 msgid "Please wait while the operation is being completed"
 msgstr "يرجى الانتظار ريثما يتم الانتهاء من العملية"
 
-msgid "Mailchimp"
-msgstr "تشيمب البريد"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"يتم الآن تحميل جميع القوائم في CRM. 1235  4568 إذا كنت ترغب في إدارتها، انقر "
-"فوق هذا الإشعار ! 7899 "
-
 msgid "There was a problem retrieving the requested object"
 msgstr "كانت هناك مشكلة في استرجاع الجسم المطلوب"
 
@@ -1075,413 +1065,6 @@ msgstr "إنشاء مستند"
 msgid "You have to set a Title for your document"
 msgstr "عليك أن تضع عنوان لوثيقك"
 
-msgid "Saving Campaign ..."
-msgstr "إنقاذ الحملة"
-
-msgid "Campaign"
-msgstr "الحملة"
-
-msgid "saved successfully"
-msgstr "أنقذت بنجاح"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "أنت على وشك إرسال حملتك هل أنت متأكد؟"
-
-msgid "Yes"
-msgstr "نعم"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "أنت على وشك حذف حملتك هل أنت متأكد؟"
-
-msgid "Loading..."
-msgstr "جاري التحميل..."
-
-msgid "Loading data..."
-msgstr "تحميل البيانات..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "يُرجى الانتظار ريثما نسترجع قوائم MailChimp الخاصة بك."
-
-msgid "No list are created with this account ...."
-msgstr "لا توجد قائمة بهذا الحساب"
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr "يمكنك إنشاء قائمة MailChimp جديدة باستخدام الزر أعلاه."
-
-msgid "Email List"
-msgstr "قائمة البريد الإلكتروني"
-
-msgid "Details"
-msgstr "التفاصيل"
-
-msgid "Subject"
-msgstr "الساعة"
-
-msgid "Members:"
-msgstr "الأعضاء:"
-
-msgid "Unsubscribed count:"
-msgstr "العد غير المشمول به:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "العد غير المشمول به منذ آخر مرة"
-
-msgid "Cleaned count:"
-msgstr "العد النظيف:"
-
-msgid "Cleaned count since last send:"
-msgstr "العد النظيف منذ آخر إرسال:"
-
-msgid "Campaigns"
-msgstr "الحملات"
-
-msgid "Tags"
-msgstr "العلامات"
-
-msgid "is not configured"
-msgstr "ليس مصمم"
-
-msgid "Please update the"
-msgstr "رجاءً حدثي المعلومات"
-
-msgid "API key in Setting->"
-msgstr "مفتاح API في Seting--"
-
-msgid "Edit General Settings"
-msgstr "إديت سيتينغز العامة"
-
-msgid "Then update"
-msgstr "ثم قم بالتحديث"
-
-msgid "For more info see our "
-msgstr "لمزيد من المعلومات نرى لدينا"
-
-msgid "support docs."
-msgstr "أطباء دعم"
-
-msgid "List Title"
-msgstr "العنوان المدرج في القائمة"
-
-msgid "Your List Title"
-msgstr "لقب قائمتك"
-
-msgid "Your Subject"
-msgstr "موضوعك"
-
-msgid "Permission Reminder"
-msgstr "تذكير الإذن"
-
-msgid "Archive Bars"
-msgstr "قضبان الأرشيف"
-
-msgid "Public"
-msgstr "1 - العلن"
-
-msgid "List Creation"
-msgstr "(أ) وضع القائمة"
-
-msgid "You're about to delete a tag!"
-msgstr "أنت على وشك حذف بطاقة!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "وسيحذف هذا أيضا بطاقة جميع الأعضاء في هذه القائمة. هل أنت متأكد؟"
-
-msgid "Deleting tag"
-msgstr "حذف بطاقة"
-
-msgid "People"
-msgstr "الناس"
-
-msgid "Families"
-msgstr "الأسر"
-
-msgid "Add a new tag"
-msgstr "أضف علامة جديدة"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "تحذف بطاقة من المشتركين (المشتركين)"
-
-msgid "Delete tag"
-msgstr "حذف البطاقة"
-
-msgid "Loading resources ..."
-msgstr "تحميل الموارد..."
-
-msgid "Check all boxes"
-msgstr "تفقد كل الصناديق"
-
-msgid "Subscribed"
-msgstr "Substribed"
-
-msgid "Unsubscribed"
-msgstr "غير مشمول"
-
-msgid "Email Marketing"
-msgstr "تسويق البريد الإلكتروني"
-
-msgid "New tag"
-msgstr "علامة جديدة"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr "أدخل اسم العلامة المراد إنشاؤها وتطبيقها على الأعضاء المحددين."
-
-msgid "Create tag"
-msgstr "إنشاء علامة"
-
-msgid "Adding tag..."
-msgstr "علامة إضافيّة..."
-
-msgid "Name is empty !!"
-msgstr "الاسم فارغ"
-
-msgid "Add tag"
-msgstr "إضافة علامة"
-
-msgid "Selected tag"
-msgstr "العلامة المختارة"
-
-msgid "This will add the tag"
-msgstr "هذا سيضيف البطاقة"
-
-msgid "to all the current selected members in the list."
-msgstr "إلى جميع الأعضاء المنتخبين الحاليين في القائمة."
-
-msgid "Select One"
-msgstr "اختر واحد"
-
-msgid "All Tags"
-msgstr "جميع العلامات"
-
-msgid "Remove tags from selected members"
-msgstr "إزالة العلامات من الأعضاء المحددين"
-
-msgid "Choose a tag"
-msgstr "اختر علامة"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"اختر علامة واحدة لإزالتها، أو اختر جميع العلامات لإجراء تنظيف كامل للأعضاء "
-"المحددين."
-
-msgid "Apply"
-msgstr "قدم طلبك"
-
-msgid "Removing tags..."
-msgstr "إزالة العلامات..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "حذف جميع العلامات للأعضاء المختارين في القائمة"
-
-msgid "This action affects the whole list"
-msgstr "يؤثر هذا الإجراء على القائمة بأكملها"
-
-msgid "Keep tag"
-msgstr "احتفظ بالعلامة"
-
-msgid "A person name or Family or Group"
-msgstr "1 - اسم شخص أو أسرة أو مجموعة"
-
-msgid "Loading subscriber"
-msgstr "تحميل المشترك"
-
-msgid "Loading subscribers from Group"
-msgstr "تحميل المشتركين من المجموعة"
-
-msgid "Loading subscribers from family"
-msgstr "تحميل المشتركين من العائلة"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "تحميل جميع الأشخاص من EcclesiaCRM<br>هذا قد يستغرق وقتاً"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"في الواقع، من الأفضل أن تترك مركز الرصد، إنتظر 5 دقائق وتقوم بحملاتك بعد "
-"ذلك<br>لاستيراد مواعيد ضخمة، Mailchimp API بطيئة."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"تحميل جميع المشتركين في الرسالة الإخبارية من EcclesiaCRM<br>هذا قد يستغرق "
-"وقتاً"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr "تحميل جميع العائلات أول من يشارك من EcclesiaCRM<br>هذا قد يستغرق وقتاً"
-
-msgid "Update subscriber status"
-msgstr "تحديث حالة المشتركين"
-
-msgid "Selected subscriber"
-msgstr "مشترك مختار"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "اختر الحالة المراد تطبيقها على هذا المشترك."
-
-msgid "Update"
-msgstr "تحديث"
-
-msgid "Changing status ..."
-msgstr "تغيير الوضع..."
-
-msgid "Delete subscriber"
-msgstr "حذف المشترك"
-
-msgid "Subscriber removal"
-msgstr "إزالة المشتركين"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "أنت على وشك حذف المشترك هل أنت متأكد؟"
-
-msgid "Keep subscriber"
-msgstr "الاحتفاظ بالمشترك"
-
-msgid "Deleting Subscriber..."
-msgstr "حذف المشتبه"
-
-msgid "Delete mailing list"
-msgstr "حذف القائمة البريدية"
-
-msgid "This action is irreversible"
-msgstr "هذا الإجراء لا رجعة فيه"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "هل تريد حقا حذف هذه القائمة البريدية؟"
-
-msgid "Delete list"
-msgstr "حذف القائمة"
-
-msgid "Delete all subscribers"
-msgstr "حذف جميع المشتركين"
-
-msgid "Bulk deletion"
-msgstr "الحذف بالجملة"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "هل أنت متأكد أنك تريد حذف كل المشتركين"
-
-msgid "Delete all"
-msgstr "حذف الكل"
-
-msgid "Deleting all subscribers..."
-msgstr "حذف جميع المشتركين..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"في الواقع، من الأفضل أن تترك وحدة الرصد، وفي ربع ساعة إعادة فتحه لإدارة "
-"قائمتك.<br>لمسح مواعيد ضخمة، شركة بريد أب آي بطيئة."
-
-msgid "Email Campaign Creation"
-msgstr "خلق حملة البريد الإلكتروني"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"قم بإعداد عنوان واضح، وتأكيد العلامة المستهدفة وكتابة محتوى حملة البريد "
-"الإلكتروني الخاصة بك."
-
-msgid "Campaign details"
-msgstr "تفاصيل الحملة"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr "عيّن عنوان الحملة وراجع هدف MailChimp قبل كتابة الرسالة."
-
-msgid "Campaign Title"
-msgstr "عنوان الحملة"
-
-msgid "Your Campaign Title"
-msgstr "عنوان حملتك"
-
-msgid "For Tag"
-msgstr "من أجل (تاغ)"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr "اكتب الموضوع ونص حملة البريد الإلكتروني الخاص بك."
-
-msgid "Mail Subject"
-msgstr "موضوع البريد"
-
-msgid "Your Mail Subject"
-msgstr "موضوع البريد الخاص بك"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "قم بتكوين المحتوى الذي سيتم إرساله إلى أعضاء هذه العلامة."
-
-msgid "All list members"
-msgstr "جميع أعضاء القائمة"
-
-msgid "Adding Campaign ..."
-msgstr "حملة اضافية"
-
-msgid "Campaign created"
-msgstr "تم إنشاء الحملة"
-
-msgid "Your campaign is ready"
-msgstr "حملتك جاهزة"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "هل تود أن تدير هذه الحملة الجديدة مباشرة؟"
-
-msgid "Open campaign"
-msgstr "حملة مفتوحة"
-
-msgid "Stay here"
-msgstr "ابق هنا"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "عليك أن تضع عنوان حملة لحملتك البريدية"
-
-msgid "Edit list settings"
-msgstr "تحرير إعدادات القائمة"
-
-msgid "MailChimp list settings"
-msgstr "إعدادات قائمة MailChimp"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr "تحديث التفاصيل الرئيسية التي تستخدمها هذه القائمة وحملاتها."
-
-msgid "List Name"
-msgstr "الاسم المدرج"
-
-msgid "Changing subscribers state..."
-msgstr "تغيير حالة المشتركين..."
-
-msgid "Delete selected subscribers"
-msgstr "حذف المشتركين المحددين"
-
-msgid "Selected members"
-msgstr "أعضاء مختارون"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "أنت على وشك حذف المشتركين هل أنت متأكد؟"
-
-msgid "selected"
-msgstr "مختارة"
-
-msgid "Delete selected"
-msgstr "حذف المحدد"
-
-msgid "Deleting Subscribers..."
-msgstr "حذف المشتركين..."
-
-msgid "Family"
-msgstr "الأسرة"
-
-msgid "Person"
-msgstr "الشخص"
-
 msgid "Free Event Attendees"
 msgstr "حضور مناسبة مجانية"
 
@@ -1717,6 +1300,12 @@ msgstr "تفاصيل المعاملات الإلكترونية"
 msgid "TOTAL"
 msgstr "TOTAL"
 
+msgid "Family"
+msgstr "الأسرة"
+
+msgid "Person"
+msgstr "الشخص"
+
 msgid "Anonymous"
 msgstr "مجهول"
 
@@ -1731,6 +1320,9 @@ msgstr "الطريقة"
 
 msgid "Check Number"
 msgstr "تحقق رقم"
+
+msgid "Details"
+msgstr "التفاصيل"
 
 msgid "Tracking"
 msgstr "التعقب"
@@ -1761,6 +1353,9 @@ msgstr "تعليق الإيداع"
 
 msgid "Closed"
 msgstr "مغلق"
+
+msgid "Yes"
+msgstr "نعم"
 
 msgid "Deposit Type"
 msgstr "إيداع من نوع"
@@ -2098,6 +1693,9 @@ msgstr "لم يتم العثور على سجلات لهذا العرض."
 
 msgid "No matching records found."
 msgstr "لم يتم العثور على سجلات مطابقة."
+
+msgid "Loading..."
+msgstr "جاري التحميل..."
 
 msgid "Never contacted"
 msgstr "لم يتم الاتصال به"
@@ -2673,6 +2271,9 @@ msgstr "مدير المكوّن الإضافي"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "ملف الصور الحالي هو الآن الملف العام! !"
+
+msgid "Families"
+msgstr "الأسر"
 
 msgid "Singles"
 msgstr "الفردي"
@@ -3280,6 +2881,408 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "سيتم تدمير جميع الأعضاء.  لن يتم تغيير الأعضاء أنفسهم."
+
+#~ msgid "Mailchimp"
+#~ msgstr "تشيمب البريد"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "يتم الآن تحميل جميع القوائم في CRM. 1235  4568 إذا كنت ترغب في إدارتها، "
+#~ "انقر فوق هذا الإشعار ! 7899 "
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "إنقاذ الحملة"
+
+#~ msgid "Campaign"
+#~ msgstr "الحملة"
+
+#~ msgid "saved successfully"
+#~ msgstr "أنقذت بنجاح"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "أنت على وشك إرسال حملتك هل أنت متأكد؟"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "أنت على وشك حذف حملتك هل أنت متأكد؟"
+
+#~ msgid "Loading data..."
+#~ msgstr "تحميل البيانات..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr "يُرجى الانتظار ريثما نسترجع قوائم MailChimp الخاصة بك."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "لا توجد قائمة بهذا الحساب"
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr "يمكنك إنشاء قائمة MailChimp جديدة باستخدام الزر أعلاه."
+
+#~ msgid "Email List"
+#~ msgstr "قائمة البريد الإلكتروني"
+
+#~ msgid "Subject"
+#~ msgstr "الساعة"
+
+#~ msgid "Members:"
+#~ msgstr "الأعضاء:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "العد غير المشمول به:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "العد غير المشمول به منذ آخر مرة"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "العد النظيف:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "العد النظيف منذ آخر إرسال:"
+
+#~ msgid "Campaigns"
+#~ msgstr "الحملات"
+
+#~ msgid "Tags"
+#~ msgstr "العلامات"
+
+#~ msgid "is not configured"
+#~ msgstr "ليس مصمم"
+
+#~ msgid "Please update the"
+#~ msgstr "رجاءً حدثي المعلومات"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "مفتاح API في Seting--"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "إديت سيتينغز العامة"
+
+#~ msgid "Then update"
+#~ msgstr "ثم قم بالتحديث"
+
+#~ msgid "For more info see our "
+#~ msgstr "لمزيد من المعلومات نرى لدينا"
+
+#~ msgid "support docs."
+#~ msgstr "أطباء دعم"
+
+#~ msgid "List Title"
+#~ msgstr "العنوان المدرج في القائمة"
+
+#~ msgid "Your List Title"
+#~ msgstr "لقب قائمتك"
+
+#~ msgid "Your Subject"
+#~ msgstr "موضوعك"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "تذكير الإذن"
+
+#~ msgid "Archive Bars"
+#~ msgstr "قضبان الأرشيف"
+
+#~ msgid "Public"
+#~ msgstr "1 - العلن"
+
+#~ msgid "List Creation"
+#~ msgstr "(أ) وضع القائمة"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "أنت على وشك حذف بطاقة!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr "وسيحذف هذا أيضا بطاقة جميع الأعضاء في هذه القائمة. هل أنت متأكد؟"
+
+#~ msgid "Deleting tag"
+#~ msgstr "حذف بطاقة"
+
+#~ msgid "People"
+#~ msgstr "الناس"
+
+#~ msgid "Add a new tag"
+#~ msgstr "أضف علامة جديدة"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "تحذف بطاقة من المشتركين (المشتركين)"
+
+#~ msgid "Delete tag"
+#~ msgstr "حذف البطاقة"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "تحميل الموارد..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "تفقد كل الصناديق"
+
+#~ msgid "Subscribed"
+#~ msgstr "Substribed"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "غير مشمول"
+
+#~ msgid "Email Marketing"
+#~ msgstr "تسويق البريد الإلكتروني"
+
+#~ msgid "New tag"
+#~ msgstr "علامة جديدة"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr "أدخل اسم العلامة المراد إنشاؤها وتطبيقها على الأعضاء المحددين."
+
+#~ msgid "Create tag"
+#~ msgstr "إنشاء علامة"
+
+#~ msgid "Adding tag..."
+#~ msgstr "علامة إضافيّة..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "الاسم فارغ"
+
+#~ msgid "Add tag"
+#~ msgstr "إضافة علامة"
+
+#~ msgid "Selected tag"
+#~ msgstr "العلامة المختارة"
+
+#~ msgid "This will add the tag"
+#~ msgstr "هذا سيضيف البطاقة"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "إلى جميع الأعضاء المنتخبين الحاليين في القائمة."
+
+#~ msgid "Select One"
+#~ msgstr "اختر واحد"
+
+#~ msgid "All Tags"
+#~ msgstr "جميع العلامات"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "إزالة العلامات من الأعضاء المحددين"
+
+#~ msgid "Choose a tag"
+#~ msgstr "اختر علامة"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "اختر علامة واحدة لإزالتها، أو اختر جميع العلامات لإجراء تنظيف كامل "
+#~ "للأعضاء المحددين."
+
+#~ msgid "Apply"
+#~ msgstr "قدم طلبك"
+
+#~ msgid "Removing tags..."
+#~ msgstr "إزالة العلامات..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "حذف جميع العلامات للأعضاء المختارين في القائمة"
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "يؤثر هذا الإجراء على القائمة بأكملها"
+
+#~ msgid "Keep tag"
+#~ msgstr "احتفظ بالعلامة"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "1 - اسم شخص أو أسرة أو مجموعة"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "تحميل المشترك"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "تحميل المشتركين من المجموعة"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "تحميل المشتركين من العائلة"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr "تحميل جميع الأشخاص من EcclesiaCRM<br>هذا قد يستغرق وقتاً"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "في الواقع، من الأفضل أن تترك مركز الرصد، إنتظر 5 دقائق وتقوم بحملاتك بعد "
+#~ "ذلك<br>لاستيراد مواعيد ضخمة، Mailchimp API بطيئة."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "تحميل جميع المشتركين في الرسالة الإخبارية من EcclesiaCRM<br>هذا قد يستغرق "
+#~ "وقتاً"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "تحميل جميع العائلات أول من يشارك من EcclesiaCRM<br>هذا قد يستغرق وقتاً"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "تحديث حالة المشتركين"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "مشترك مختار"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "اختر الحالة المراد تطبيقها على هذا المشترك."
+
+#~ msgid "Update"
+#~ msgstr "تحديث"
+
+#~ msgid "Changing status ..."
+#~ msgstr "تغيير الوضع..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "حذف المشترك"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "إزالة المشتركين"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "أنت على وشك حذف المشترك هل أنت متأكد؟"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "الاحتفاظ بالمشترك"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "حذف المشتبه"
+
+#~ msgid "Delete mailing list"
+#~ msgstr "حذف القائمة البريدية"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "هذا الإجراء لا رجعة فيه"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "هل تريد حقا حذف هذه القائمة البريدية؟"
+
+#~ msgid "Delete list"
+#~ msgstr "حذف القائمة"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "حذف جميع المشتركين"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "الحذف بالجملة"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "هل أنت متأكد أنك تريد حذف كل المشتركين"
+
+#~ msgid "Delete all"
+#~ msgstr "حذف الكل"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "حذف جميع المشتركين..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "في الواقع، من الأفضل أن تترك وحدة الرصد، وفي ربع ساعة إعادة فتحه لإدارة "
+#~ "قائمتك.<br>لمسح مواعيد ضخمة، شركة بريد أب آي بطيئة."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "خلق حملة البريد الإلكتروني"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "قم بإعداد عنوان واضح، وتأكيد العلامة المستهدفة وكتابة محتوى حملة البريد "
+#~ "الإلكتروني الخاصة بك."
+
+#~ msgid "Campaign details"
+#~ msgstr "تفاصيل الحملة"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr "عيّن عنوان الحملة وراجع هدف MailChimp قبل كتابة الرسالة."
+
+#~ msgid "Campaign Title"
+#~ msgstr "عنوان الحملة"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "عنوان حملتك"
+
+#~ msgid "For Tag"
+#~ msgstr "من أجل (تاغ)"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "اكتب الموضوع ونص حملة البريد الإلكتروني الخاص بك."
+
+#~ msgid "Mail Subject"
+#~ msgstr "موضوع البريد"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "موضوع البريد الخاص بك"
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr "قم بتكوين المحتوى الذي سيتم إرساله إلى أعضاء هذه العلامة."
+
+#~ msgid "All list members"
+#~ msgstr "جميع أعضاء القائمة"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "حملة اضافية"
+
+#~ msgid "Campaign created"
+#~ msgstr "تم إنشاء الحملة"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "حملتك جاهزة"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "هل تود أن تدير هذه الحملة الجديدة مباشرة؟"
+
+#~ msgid "Open campaign"
+#~ msgstr "حملة مفتوحة"
+
+#~ msgid "Stay here"
+#~ msgstr "ابق هنا"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "عليك أن تضع عنوان حملة لحملتك البريدية"
+
+#~ msgid "Edit list settings"
+#~ msgstr "تحرير إعدادات القائمة"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "إعدادات قائمة MailChimp"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr "تحديث التفاصيل الرئيسية التي تستخدمها هذه القائمة وحملاتها."
+
+#~ msgid "List Name"
+#~ msgstr "الاسم المدرج"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "تغيير حالة المشتركين..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "حذف المشتركين المحددين"
+
+#~ msgid "Selected members"
+#~ msgstr "أعضاء مختارون"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "أنت على وشك حذف المشتركين هل أنت متأكد؟"
+
+#~ msgid "selected"
+#~ msgstr "مختارة"
+
+#~ msgid "Delete selected"
+#~ msgstr "حذف المحدد"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "حذف المشتركين..."
 
 #~ msgid "ERROR"
 #~ msgstr "RROR"

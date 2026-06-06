@@ -1,0 +1,611 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06 10:40+0000\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+msgid "persons"
+msgstr "personer"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+msgid "people"
+msgstr "mennesker"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:66
+msgid "All People"
+msgstr "Alle mennesker"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:81
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "newsletter"
+msgstr "nyhedsbrev"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:87
+msgid "families"
+msgstr "familier"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:95
+msgid "All Families"
+msgstr "Alle familier"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:130
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Persons"
+msgstr "Personer"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:170
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Families"
+msgstr "Familier"
+
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:208
+msgid "Groups"
+msgstr "Grupper"
+
+#: ../src/Plugins/MailChimp/core/Services/MailChimpService.php:299
+msgid "Private Data"
+msgstr "Personlige oplysninger"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:55
+msgid "MailChimp Dashboard"
+msgstr "MailChimp-kontrolpanel"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:99
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:100
+msgid "Email Campaign"
+msgstr "E-mail-kampagne"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:141
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:142
+msgid "Email List"
+msgstr "E-mail-liste"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:141
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:142
+msgid "GDPR"
+msgstr "GDPR"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:179
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:68
+msgid "Find Duplicate Emails"
+msgstr "Find dubletter af e-mails"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:205
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:71
+msgid "Persons Not In MailChimp"
+msgstr "Personer, der ikke er i MailChimp"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:230
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:74
+msgid "Families Not In MailChimp"
+msgstr "Familier, der ikke er i MailChimp"
+
+#: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:249
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:34
+msgid "Opened"
+msgstr "Åbnet"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:42
+msgid "Clicked"
+msgstr "Klikket"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:50
+msgid "Bounced"
+msgstr "Afvist"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:58
+msgid "Unsubscribed"
+msgstr "Afmeldt"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:69
+msgid "Email Campaign Management"
+msgstr "Styring af e-mailkampagner"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:70
+msgid "Compose content and schedule sending from one screen."
+msgstr "Udarbejd indhold og planlæg udsendelse fra én skærm."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:79
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:59
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:30
+msgid "Quick actions"
+msgstr "Hurtige handlinger"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:82
+msgid "Save Campaign"
+msgstr "Gem kampagne"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:85
+msgid "Send"
+msgstr "Send"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:88
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:48
+msgid "Delete"
+msgstr "Slet"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+msgid "Mail Subject"
+msgstr "E-mail-emne"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+msgid "Content"
+msgstr "Indhold"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:102
+msgid "Subject"
+msgstr "Emne"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:104
+msgid "Your Mail Subject"
+msgstr "Emnefeltet i din e-mail"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:109
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr "Du kan bruge knappen »Flet tags« nedenfor til at tilpasse dit indhold"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:120
+msgid "Tags"
+msgstr "Tags"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:136
+msgid "Schedule"
+msgstr "Tidsplan"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:146
+msgid "You've first to create a content below to schedule a campaign."
+msgstr "Du skal først oprette et indlæg nedenfor for at planlægge en kampagne."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:147
+msgid ""
+"Campaigns may only be scheduled to send on the quarter-hour "
+"(:00, :15, :30, :45)."
+msgstr ""
+"Kampagner kan kun planlægges til at blive sendt på hvert kvarter "
+"(:00, :15, :30, :45)."
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:150
+msgid "Date"
+msgstr "Dato"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:159
+msgid "Time"
+msgstr "Tid"
+
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:167
+msgid ""
+"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+"over."
+msgstr ""
+"For at bekræfte skal du gemme din kampagne ved at klikke på knappen <b>\"Gem "
+"kampagne\"</b> ovenfor."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:16
+msgid "MailChimp Problem"
+msgstr "Problem med MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "Mailchimp Status"
+msgstr "Mailchimp-status"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "Title"
+msgstr "Titel"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+msgid "status"
+msgstr "status"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
+msgid "detail"
+msgstr "detalje"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+msgid "field"
+msgstr "felt"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+msgid "Message"
+msgstr "Meddelelse"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:43
+msgid "MailChimp Management"
+msgstr "Administration af MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:44
+msgid "Create audiences, sync contacts, and manage campaign data."
+msgstr "Opret målgrupper, synkroniser kontakter og administrer kampagnedata."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:52
+msgid "MailChimp is working correctly"
+msgstr "MailChimp fungerer korrekt"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:61
+msgid "Create an audience or List"
+msgstr "Opret en målgruppe eller en liste"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:62
+msgid "Create list"
+msgstr "Opret liste"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:65
+msgid "Generate CSV"
+msgstr "Generer CSV"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:82
+msgid "You can import the generated CSV file to external email system."
+msgstr "Du kan importere den genererede CSV-fil til et eksternt e-mailsystem."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:83
+msgid "For MailChimp see"
+msgstr "Se under MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:84
+msgid "import subscribers to a list."
+msgstr "Importer abonnenter til en liste."
+
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:90
+msgid "All your lists"
+msgstr "Alle dine lister"
+
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:16
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:26
+msgid "Duplicate Emails"
+msgstr "Dobbelt-e-mails"
+
+#: ../src/Plugins/MailChimp/v2/templates/duplicateemails.php:17
+msgid "Review duplicates before syncing audiences."
+msgstr "Gennemgå dubletter, før du synkroniserer målgrupper."
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:20
+msgid "Manage Email List"
+msgstr "Administrer e-mail-liste"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:21
+msgid "Manage subscribers and campaigns for this audience."
+msgstr "Administrer abonnenter og kampagner for denne målgruppe."
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:34
+msgid "Create a Campaign"
+msgstr "Opret en kampagne"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:37
+msgid "Toggle Dropdown"
+msgstr "Vis/skjul rullemenuen"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:42
+msgid "Delete All Subscribers"
+msgstr "Slet alle abonnenter"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:45
+msgid "Modify Properties"
+msgstr "Rediger egenskaber"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:61
+msgid "Subscribers"
+msgstr "Abonnenter"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:65
+msgid ""
+"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
+"to add all members of the CRM, use <b>*</b>"
+msgstr ""
+"For at tilføje alle nyhedsbrevsabonnenter skal du skrive <b>NewLetter</b> i "
+"søgefeltet. For at tilføje alle medlemmer af CRM-systemet skal du bruge "
+"<b>*</b>"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:70
+msgid "Add"
+msgstr "Tilføj"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
+msgid "Keywords"
+msgstr "Nøgleord"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:100
+msgid "is not configured"
+msgstr "er ikke konfigureret"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:101
+msgid "Please update the"
+msgstr "Opdater venligst"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:101
+msgid "API key in Setting->"
+msgstr "API-nøgle under Indstillinger->"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:102
+msgid "Edit General Settings"
+msgstr "Rediger generelle indstillinger"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:103
+msgid "then update"
+msgstr "og derefter opdatere"
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:104
+msgid "For more info see our "
+msgstr "For mere information, se vores "
+
+#: ../src/Plugins/MailChimp/v2/templates/managelist.php:105
+msgid "support docs."
+msgstr "supportdokumenter."
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:16
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:26
+msgid "Family List"
+msgstr "Familieliste"
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailsfamilies.php:17
+msgid "Families missing Mailchimp email matches."
+msgstr "Familier, der mangler Mailchimp-e-mail-sammenfald."
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:16
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:26
+msgid "Person List"
+msgstr "Personliste"
+
+#: ../src/Plugins/MailChimp/v2/templates/notinmailchimpemailspersons.php:17
+msgid "Persons missing Mailchimp email matches."
+msgstr "Personer, der mangler Mailchimp-e-mail-oplysninger."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:40
+msgid "MailChimp Settings"
+msgstr "Indstillinger for MailChimp"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:41
+msgid "Shape your MailChimp workspace"
+msgstr "Indret dit MailChimp-arbejdsområde"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:43
+msgid ""
+"Manage the API connection, timeout policy, audience enrichment, and "
+"typography defaults used by the MailChimp plugin."
+msgstr ""
+"Administrer API-forbindelsen, timeout-politikken, målgruppeforbedring og "
+"standardindstillingerne for typografi, som MailChimp-pluginet bruger."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:49
+msgid "MailChimp is active"
+msgstr "MailChimp er aktiv"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:49
+msgid "MailChimp is not active"
+msgstr "MailChimp er ikke aktivt"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:52
+msgid "API key guide"
+msgstr "Vejledning til API-nøgler"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:55
+msgid "Support"
+msgstr "Support"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:62
+msgid "Configuration fields"
+msgstr "Konfigurationsfelter"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:66
+msgid "Timeout seconds"
+msgstr "Timeout i sekunder"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:69
+msgid "On"
+msgstr "Den"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:69
+msgid "Off"
+msgstr "Fra"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:70
+msgid "Address and phone sync"
+msgstr "Synkronisering af adresse og telefonnummer"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:76
+msgid "What this page controls"
+msgstr "Hvad denne side styrer"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:77
+msgid "MailChimp plugin defaults"
+msgstr "Standardindstillinger for MailChimp-plugin"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:79
+msgid ""
+"These values are used to connect the plugin, enrich contacts, and inject "
+"reusable font assets into generated campaign content."
+msgstr ""
+"Disse værdier bruges til at forbinde plugin'et, udvide kontaktoplysningerne "
+"og indsætte genanvendelige skrifttyper i det genererede kampagneindhold."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:83
+msgid "API key"
+msgstr "API-nøgle"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:84
+msgid "Required to load lists, members, and campaigns from MailChimp."
+msgstr ""
+"Nødvendigt for at indlæse lister, medlemmer og kampagner fra MailChimp."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:87
+msgid "Timeout and sender"
+msgstr "Timeout og afsender"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:88
+msgid "Used during remote requests and campaign generation."
+msgstr "Anvendes ved fjernforespørgsler og oprettelse af kampagner."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:91
+msgid "Typography fields"
+msgstr "Typografiske områder"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:92
+msgid "Prepended to campaign HTML to keep a consistent brand style."
+msgstr "Indsat foran kampagnens HTML-kode for at sikre en ensartet brandstil."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:104
+msgid "Connection"
+msgstr "Forbindelse"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:105
+msgid "API access and sending identity"
+msgstr "API-adgang og identitet ved afsendelse"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:107
+msgid ""
+"Keep the API key private, define a sensible timeout for remote calls, and "
+"set the sender email used by the plugin."
+msgstr ""
+"Sørg for, at API-nøglen forbliver fortrolig, angiv en rimelig timeout for "
+"fjernopkald, og angiv den afsender-e-mailadresse, som plugin'et skal bruge."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:111
+msgid "MailChimp API key"
+msgstr "MailChimp-API-nøgle"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:119
+msgid "Show or hide API key"
+msgstr "Vis eller skjul API-nøgle"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:131
+msgid "Request timeout"
+msgstr "Anmodning om timeout"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:136
+msgid "seconds"
+msgstr "sekunder"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:144
+msgid "Sender email address"
+msgstr "Afsenderens e-mailadresse"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:159
+msgid "Audience enrichment"
+msgstr "Udvidelse af målgruppen"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:160
+msgid "Contact payload options"
+msgstr "Valgmuligheder for kontaktdata"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:162
+msgid ""
+"Enable this option only if your MailChimp audience contains matching merge "
+"fields for postal address and phone number."
+msgstr ""
+"Aktivér kun denne indstilling, hvis din MailChimp-målgruppe indeholder "
+"tilsvarende flettefelter for postadresse og telefonnummer."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:167
+msgid "Include address and phone in MailChimp records"
+msgstr "Angiv adresse og telefonnummer i MailChimp-registreringerne"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:168
+msgid ""
+"When enabled, the plugin can push additional family and person information "
+"during synchronization."
+msgstr ""
+"Når funktionen er aktiveret, kan plugin'et overføre yderligere oplysninger "
+"om familier og personer under synkroniseringen."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:179
+msgid "Content defaults"
+msgstr "Standardindstillinger for indhold"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:180
+msgid "Typography and external assets"
+msgstr "Typografi og eksterne ressourcer"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:182
+msgid ""
+"These values are used when campaign HTML needs shared CSS imports or a "
+"custom font stack."
+msgstr ""
+"Disse værdier bruges, når kampagnens HTML har brug for fælles CSS-import "
+"eller en brugerdefineret fontstak."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:186
+msgid "External CSS font URL"
+msgstr "URL til ekstern CSS-skrifttype"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:190
+msgid "This value can be injected ahead of generated campaign HTML."
+msgstr "Denne værdi kan indsættes i den genererede kampagne-HTML."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:194
+msgid "Extra font CSS"
+msgstr "Ekstra CSS til skrifttyper"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:198
+msgid "Use this field for additional CSS declarations or fallback font stacks."
+msgstr ""
+"Brug dette felt til yderligere CSS-deklarationer eller reservefontstakke."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:205
+msgid "Implementation map"
+msgstr "Implementeringsoversigt"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:208
+msgid "API key and timeout"
+msgstr "API-nøgle og timeout"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:209
+msgid ""
+"Used by the plugin service when it creates the MailChimp client and fetches "
+"remote audiences."
+msgstr ""
+"Bruges af plugin-tjenesten, når den opretter MailChimp-klienten og henter "
+"eksterne målgrupper."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:212
+msgid "Address and phone flag"
+msgstr "Flag for adresse og telefonnummer"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:213
+msgid ""
+"Controls whether additional address and phone fields are sent with contacts."
+msgstr ""
+"Bestemmer, om der skal sendes yderligere adresse- og telefonnummerfelter "
+"sammen med kontakterne."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:216
+msgid "External CSS and extra fonts"
+msgstr "Eksternt CSS og ekstra skrifttyper"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:217
+msgid ""
+"Prepended to campaign content to keep the same visual language across "
+"newsletters."
+msgstr ""
+"Indsættes foran kampagneindholdet for at sikre et ensartet visuelt udtryk i "
+"alle nyhedsbreve."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:223
+msgid "Resources"
+msgstr "Ressourcer"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:226
+msgid "Manage API keys"
+msgstr "Administrer API-nøgler"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:229
+msgid "Audience fields guide"
+msgstr "Vejledning til målgruppefelter"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:232
+msgid "Project support"
+msgstr "Projektstøtte"
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:242
+msgid "No local changes yet."
+msgstr "Der er endnu ikke foretaget lokale ændringer."
+
+#: ../src/Plugins/MailChimp/v2/templates/settings.php:245
+msgid "Save MailChimp settings"
+msgstr "Gem MailChimp-indstillinger"

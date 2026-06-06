@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -684,15 +684,6 @@ msgstr "進行中"
 msgid "Please wait while the operation is being completed"
 msgstr "操作完了までしばらくお待ちください"
 
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-" 1235  4568 リストを管理したい場合は、この通知をクリックしてください 7899 。"
-
 msgid "There was a problem retrieving the requested object"
 msgstr "要求されたオブジェクトの取得に問題がありました。"
 
@@ -1081,415 +1072,6 @@ msgstr "ドキュメントの作成"
 msgid "You have to set a Title for your document"
 msgstr "ドキュメントのタイトルを設定する必要があります。"
 
-msgid "Saving Campaign ..."
-msgstr "保存版キャンペーン ..."
-
-msgid "Campaign"
-msgstr "キャンペーン"
-
-msgid "saved successfully"
-msgstr "保存成功"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "キャンペーンを送信しようとしています。本当にいいの？"
-
-msgid "Yes"
-msgstr "はい。"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "キャンペーンを削除しようとしています。本当ですか？"
-
-msgid "Loading..."
-msgstr "読み込み中..."
-
-msgid "Loading data..."
-msgstr "データをロード中..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "MailChimpのリストを取得しますので、しばらくお待ちください。"
-
-msgid "No list are created with this account ...."
-msgstr "このアカウントではリストは作成されません ...."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr "上のボタンからMailChimpの新規リストを作成できます。"
-
-msgid "Email List"
-msgstr "メールリスト"
-
-msgid "Details"
-msgstr "詳細"
-
-msgid "Subject"
-msgstr "件名"
-
-msgid "Members:"
-msgstr "メンバーです。"
-
-msgid "Unsubscribed count:"
-msgstr "購読解除数"
-
-msgid "Unsubscribed count since last send:"
-msgstr "最後に送信してからの配信停止数"
-
-msgid "Cleaned count:"
-msgstr "掃除の回数"
-
-msgid "Cleaned count since last send:"
-msgstr "最後に送信してからのクリーンなカウント。"
-
-msgid "Campaigns"
-msgstr "キャンペーン"
-
-msgid "Tags"
-msgstr "タグ"
-
-msgid "is not configured"
-msgstr "が設定されていない"
-
-msgid "Please update the"
-msgstr "を更新してください。"
-
-msgid "API key in Setting->"
-msgstr "APIキーを設定->。"
-
-msgid "Edit General Settings"
-msgstr "一般設定の編集"
-
-msgid "Then update"
-msgstr "そして更新する"
-
-msgid "For more info see our "
-msgstr "詳細はこちらをご覧ください。"
-
-msgid "support docs."
-msgstr "のサポートドキュメントです。"
-
-msgid "List Title"
-msgstr "リストタイトル"
-
-msgid "Your List Title"
-msgstr "あなたのリストのタイトル"
-
-msgid "Your Subject"
-msgstr "あなたのテーマ"
-
-msgid "Permission Reminder"
-msgstr "パーミッション・リマインダー"
-
-msgid "Archive Bars"
-msgstr "アーカイブ・バー"
-
-msgid "Public"
-msgstr "パブリック"
-
-msgid "List Creation"
-msgstr "リスト作成"
-
-msgid "You're about to delete a tag!"
-msgstr "タグを削除しようとしている!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"これにより、このリストに含まれるすべてのメンバーのタグも削除されます。本当に"
-"いいの？"
-
-msgid "Deleting tag"
-msgstr "タグを削除する"
-
-msgid "People"
-msgstr "人々"
-
-msgid "Families"
-msgstr "ファミリ"
-
-msgid "Add a new tag"
-msgstr "新規タグの追加"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "サブスクライバーからのタグ削除"
-
-msgid "Delete tag"
-msgstr "タグの削除"
-
-msgid "Loading resources ..."
-msgstr "読み込み中のリソース ..."
-
-msgid "Check all boxes"
-msgstr "すべてのボックスをチェック"
-
-msgid "Subscribed"
-msgstr "申し込み"
-
-msgid "Unsubscribed"
-msgstr "購読解除"
-
-msgid "Email Marketing"
-msgstr "メールマーケティング"
-
-msgid "New tag"
-msgstr "新しいタグ"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr "選択したメンバーに適用するタグの名前を入力します。"
-
-msgid "Create tag"
-msgstr "タグの作成"
-
-msgid "Adding tag..."
-msgstr "タグの追加..."
-
-msgid "Name is empty !!"
-msgstr "Name is empty !"
-
-msgid "Add tag"
-msgstr "タグの追加"
-
-msgid "Selected tag"
-msgstr "選択されたタグ"
-
-msgid "This will add the tag"
-msgstr "これにより、タグ"
-
-msgid "to all the current selected members in the list."
-msgstr "を、リスト内の現在選択されているすべてのメンバーに送信します。"
-
-msgid "Select One"
-msgstr "一つ選択"
-
-msgid "All Tags"
-msgstr "すべてのタグ"
-
-msgid "Remove tags from selected members"
-msgstr "選択したメンバーからタグを削除する"
-
-msgid "Choose a tag"
-msgstr "タグを選ぶ"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"削除するタグを1つ選択するか、選択したメンバーの完全なクリーンアップのためにす"
-"べてのタグを選択します。"
-
-msgid "Apply"
-msgstr "応募する"
-
-msgid "Removing tags..."
-msgstr "タグを外すと..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "リストで選択したメンバーのすべてのタグを削除する..."
-
-msgid "This action affects the whole list"
-msgstr "このアクションはリスト全体に影響する"
-
-msgid "Keep tag"
-msgstr "キープタグ"
-
-msgid "A person name or Family or Group"
-msgstr "人名、家族、グループ"
-
-msgid "Loading subscriber"
-msgstr "加入者の読み込み"
-
-msgid "Loading subscribers from Group"
-msgstr "グループからサブスクライバーを読み込む"
-
-msgid "Loading subscribers from family"
-msgstr "家族からの購読者を読み込む"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "Loading all persons from EcclesiaCRM<br>This could be take time !"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr "<br>巨大なデータをインポートするには、MailChimp APIは遅いです。"
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"EcclesiaCRMからすべてのニュースレター購読者を読み込む<br>これには時間がかかり"
-"ます !"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"EcclesiaCRMからすべてのファミリーの最初のヘッドピープルの購読者を読み込む<br>"
-"これには時間がかかります !"
-
-msgid "Update subscriber status"
-msgstr "購読者ステータスの更新"
-
-msgid "Selected subscriber"
-msgstr "厳選された契約者"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "この加入者に適用するステータスを選択します。"
-
-msgid "Update"
-msgstr "更新"
-
-msgid "Changing status ..."
-msgstr "ステータスの変更 ..."
-
-msgid "Delete subscriber"
-msgstr "購読者の削除"
-
-msgid "Subscriber removal"
-msgstr "加入者の削除"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "サブスクライバーを削除しようとしています。本当にいいの？"
-
-msgid "Keep subscriber"
-msgstr "購読者の維持"
-
-msgid "Deleting Subscriber..."
-msgstr "サブスクライバーを削除する..."
-
-msgid "Delete mailing list"
-msgstr "メーリングリストの削除"
-
-msgid "This action is irreversible"
-msgstr "この作用は不可逆的である"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "本当にこのメーリングリストを削除したいのですか？"
-
-msgid "Delete list"
-msgstr "リスト削除"
-
-msgid "Delete all subscribers"
-msgstr "すべての購読者を削除する"
-
-msgid "Bulk deletion"
-msgstr "一括削除"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "本当にすべてのサブスクライバーを削除してもいいのですか？"
-
-msgid "Delete all"
-msgstr "すべて削除"
-
-msgid "Deleting all subscribers..."
-msgstr "すべてのサブスクライバーを削除する..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr "<br>巨大なデータを削除するには、MailChimpのAPIは遅いです。"
-
-msgid "Email Campaign Creation"
-msgstr "メールキャンペーンの作成"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"明確なタイトルを用意し、ターゲットタグを確認し、メールキャンペーンの内容を書"
-"きます。"
-
-msgid "Campaign details"
-msgstr "キャンペーン詳細"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-"キャンペーンタイトルを設定し、メッセージを書く前にMailChimpのターゲットを確認"
-"します。"
-
-msgid "Campaign Title"
-msgstr "キャンペーンタイトル"
-
-msgid "Your Campaign Title"
-msgstr "キャンペーンタイトル"
-
-msgid "For Tag"
-msgstr "タグの場合"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr "メールキャンペーンの件名と本文を書きます。"
-
-msgid "Mail Subject"
-msgstr "メール件名"
-
-msgid "Your Mail Subject"
-msgstr "メールの件名"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "このタグのメンバーに送信されるコンテンツを作成する。"
-
-msgid "All list members"
-msgstr "全リストメンバー"
-
-msgid "Adding Campaign ..."
-msgstr "キャンペーンの追加 ..."
-
-msgid "Campaign created"
-msgstr "キャンペーン実施"
-
-msgid "Your campaign is ready"
-msgstr "キャンペーン準備完了"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "この新しいキャンペーンを直接管理したいですか？"
-
-msgid "Open campaign"
-msgstr "オープンキャンペーン"
-
-msgid "Stay here"
-msgstr "ここに滞在する"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "メールキャンペーンには、キャンペーンタイトルを設定する必要があります。"
-
-msgid "Edit list settings"
-msgstr "リスト設定の編集"
-
-msgid "MailChimp list settings"
-msgstr "MailChimpリスト設定"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr "このリストとそのキャンペーンで使用される主な詳細を更新します。"
-
-msgid "List Name"
-msgstr "リスト名"
-
-msgid "Changing subscribers state..."
-msgstr "加入者の状態を変える..."
-
-msgid "Delete selected subscribers"
-msgstr "選択した購読者を削除する"
-
-msgid "Selected members"
-msgstr "選抜メンバー"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "サブスクライバーを削除しようとしています。本当にいいの？"
-
-msgid "selected"
-msgstr "選ばれた"
-
-msgid "Delete selected"
-msgstr "選択削除"
-
-msgid "Deleting Subscribers..."
-msgstr "購読者の削除..."
-
-msgid "Family"
-msgstr "ファミリー"
-
-msgid "Person"
-msgstr "人物"
-
 msgid "Free Event Attendees"
 msgstr "無料イベントの参加者"
 
@@ -1725,6 +1307,12 @@ msgstr "電子取引の詳細"
 msgid "TOTAL"
 msgstr "TOTAL"
 
+msgid "Family"
+msgstr "ファミリー"
+
+msgid "Person"
+msgstr "人物"
+
 msgid "Anonymous"
 msgstr "アノニマス"
 
@@ -1739,6 +1327,9 @@ msgstr "方法"
 
 msgid "Check Number"
 msgstr "チェックナンバー"
+
+msgid "Details"
+msgstr "詳細"
 
 msgid "Tracking"
 msgstr "トラッキング"
@@ -1769,6 +1360,9 @@ msgstr "デポジットコメント"
 
 msgid "Closed"
 msgstr "閉鎖"
+
+msgid "Yes"
+msgstr "はい。"
 
 msgid "Deposit Type"
 msgstr "預金タイプ"
@@ -2109,6 +1703,9 @@ msgstr "このビューに関する記録は見つかりませんでした。"
 
 msgid "No matching records found."
 msgstr "一致する記録は見つかりませんでした。"
+
+msgid "Loading..."
+msgstr "読み込み中..."
 
 msgid "Never contacted"
 msgstr "連絡なし"
@@ -2681,6 +2278,9 @@ msgstr "プラグインマネージャー"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "現在のイメージフォルダがパブリックフォルダになっています。"
+
+msgid "Families"
+msgstr "ファミリ"
 
 msgid "Singles"
 msgstr "シングルス"
@@ -3295,6 +2895,410 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "すべての会員権は破棄される。  メンバーそのものが変更されることはない。"
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailchimp"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ " 1235  4568 リストを管理したい場合は、この通知をクリックしてください "
+#~ "7899 。"
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "保存版キャンペーン ..."
+
+#~ msgid "Campaign"
+#~ msgstr "キャンペーン"
+
+#~ msgid "saved successfully"
+#~ msgstr "保存成功"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "キャンペーンを送信しようとしています。本当にいいの？"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "キャンペーンを削除しようとしています。本当ですか？"
+
+#~ msgid "Loading data..."
+#~ msgstr "データをロード中..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr "MailChimpのリストを取得しますので、しばらくお待ちください。"
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "このアカウントではリストは作成されません ...."
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr "上のボタンからMailChimpの新規リストを作成できます。"
+
+#~ msgid "Email List"
+#~ msgstr "メールリスト"
+
+#~ msgid "Subject"
+#~ msgstr "件名"
+
+#~ msgid "Members:"
+#~ msgstr "メンバーです。"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "購読解除数"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "最後に送信してからの配信停止数"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "掃除の回数"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "最後に送信してからのクリーンなカウント。"
+
+#~ msgid "Campaigns"
+#~ msgstr "キャンペーン"
+
+#~ msgid "Tags"
+#~ msgstr "タグ"
+
+#~ msgid "is not configured"
+#~ msgstr "が設定されていない"
+
+#~ msgid "Please update the"
+#~ msgstr "を更新してください。"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "APIキーを設定->。"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "一般設定の編集"
+
+#~ msgid "Then update"
+#~ msgstr "そして更新する"
+
+#~ msgid "For more info see our "
+#~ msgstr "詳細はこちらをご覧ください。"
+
+#~ msgid "support docs."
+#~ msgstr "のサポートドキュメントです。"
+
+#~ msgid "List Title"
+#~ msgstr "リストタイトル"
+
+#~ msgid "Your List Title"
+#~ msgstr "あなたのリストのタイトル"
+
+#~ msgid "Your Subject"
+#~ msgstr "あなたのテーマ"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "パーミッション・リマインダー"
+
+#~ msgid "Archive Bars"
+#~ msgstr "アーカイブ・バー"
+
+#~ msgid "Public"
+#~ msgstr "パブリック"
+
+#~ msgid "List Creation"
+#~ msgstr "リスト作成"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "タグを削除しようとしている!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "これにより、このリストに含まれるすべてのメンバーのタグも削除されます。本当"
+#~ "にいいの？"
+
+#~ msgid "Deleting tag"
+#~ msgstr "タグを削除する"
+
+#~ msgid "People"
+#~ msgstr "人々"
+
+#~ msgid "Add a new tag"
+#~ msgstr "新規タグの追加"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "サブスクライバーからのタグ削除"
+
+#~ msgid "Delete tag"
+#~ msgstr "タグの削除"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "読み込み中のリソース ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "すべてのボックスをチェック"
+
+#~ msgid "Subscribed"
+#~ msgstr "申し込み"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "購読解除"
+
+#~ msgid "Email Marketing"
+#~ msgstr "メールマーケティング"
+
+#~ msgid "New tag"
+#~ msgstr "新しいタグ"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr "選択したメンバーに適用するタグの名前を入力します。"
+
+#~ msgid "Create tag"
+#~ msgstr "タグの作成"
+
+#~ msgid "Adding tag..."
+#~ msgstr "タグの追加..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "Name is empty !"
+
+#~ msgid "Add tag"
+#~ msgstr "タグの追加"
+
+#~ msgid "Selected tag"
+#~ msgstr "選択されたタグ"
+
+#~ msgid "This will add the tag"
+#~ msgstr "これにより、タグ"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "を、リスト内の現在選択されているすべてのメンバーに送信します。"
+
+#~ msgid "Select One"
+#~ msgstr "一つ選択"
+
+#~ msgid "All Tags"
+#~ msgstr "すべてのタグ"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "選択したメンバーからタグを削除する"
+
+#~ msgid "Choose a tag"
+#~ msgstr "タグを選ぶ"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "削除するタグを1つ選択するか、選択したメンバーの完全なクリーンアップのため"
+#~ "にすべてのタグを選択します。"
+
+#~ msgid "Apply"
+#~ msgstr "応募する"
+
+#~ msgid "Removing tags..."
+#~ msgstr "タグを外すと..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "リストで選択したメンバーのすべてのタグを削除する..."
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "このアクションはリスト全体に影響する"
+
+#~ msgid "Keep tag"
+#~ msgstr "キープタグ"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "人名、家族、グループ"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "加入者の読み込み"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "グループからサブスクライバーを読み込む"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "家族からの購読者を読み込む"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr "Loading all persons from EcclesiaCRM<br>This could be take time !"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr "<br>巨大なデータをインポートするには、MailChimp APIは遅いです。"
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "EcclesiaCRMからすべてのニュースレター購読者を読み込む<br>これには時間がか"
+#~ "かります !"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "EcclesiaCRMからすべてのファミリーの最初のヘッドピープルの購読者を読み込む"
+#~ "<br>これには時間がかかります !"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "購読者ステータスの更新"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "厳選された契約者"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "この加入者に適用するステータスを選択します。"
+
+#~ msgid "Update"
+#~ msgstr "更新"
+
+#~ msgid "Changing status ..."
+#~ msgstr "ステータスの変更 ..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "購読者の削除"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "加入者の削除"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "サブスクライバーを削除しようとしています。本当にいいの？"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "購読者の維持"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "サブスクライバーを削除する..."
+
+#~ msgid "Delete mailing list"
+#~ msgstr "メーリングリストの削除"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "この作用は不可逆的である"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "本当にこのメーリングリストを削除したいのですか？"
+
+#~ msgid "Delete list"
+#~ msgstr "リスト削除"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "すべての購読者を削除する"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "一括削除"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "本当にすべてのサブスクライバーを削除してもいいのですか？"
+
+#~ msgid "Delete all"
+#~ msgstr "すべて削除"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "すべてのサブスクライバーを削除する..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr "<br>巨大なデータを削除するには、MailChimpのAPIは遅いです。"
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "メールキャンペーンの作成"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "明確なタイトルを用意し、ターゲットタグを確認し、メールキャンペーンの内容を"
+#~ "書きます。"
+
+#~ msgid "Campaign details"
+#~ msgstr "キャンペーン詳細"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr ""
+#~ "キャンペーンタイトルを設定し、メッセージを書く前にMailChimpのターゲットを"
+#~ "確認します。"
+
+#~ msgid "Campaign Title"
+#~ msgstr "キャンペーンタイトル"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "キャンペーンタイトル"
+
+#~ msgid "For Tag"
+#~ msgstr "タグの場合"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "メールキャンペーンの件名と本文を書きます。"
+
+#~ msgid "Mail Subject"
+#~ msgstr "メール件名"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "メールの件名"
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr "このタグのメンバーに送信されるコンテンツを作成する。"
+
+#~ msgid "All list members"
+#~ msgstr "全リストメンバー"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "キャンペーンの追加 ..."
+
+#~ msgid "Campaign created"
+#~ msgstr "キャンペーン実施"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "キャンペーン準備完了"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "この新しいキャンペーンを直接管理したいですか？"
+
+#~ msgid "Open campaign"
+#~ msgstr "オープンキャンペーン"
+
+#~ msgid "Stay here"
+#~ msgstr "ここに滞在する"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr ""
+#~ "メールキャンペーンには、キャンペーンタイトルを設定する必要があります。"
+
+#~ msgid "Edit list settings"
+#~ msgstr "リスト設定の編集"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "MailChimpリスト設定"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr "このリストとそのキャンペーンで使用される主な詳細を更新します。"
+
+#~ msgid "List Name"
+#~ msgstr "リスト名"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "加入者の状態を変える..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "選択した購読者を削除する"
+
+#~ msgid "Selected members"
+#~ msgstr "選抜メンバー"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "サブスクライバーを削除しようとしています。本当にいいの？"
+
+#~ msgid "selected"
+#~ msgstr "選ばれた"
+
+#~ msgid "Delete selected"
+#~ msgstr "選択削除"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "購読者の削除..."
 
 #~ msgid "ERROR"
 #~ msgstr "ERROR"
