@@ -1,0 +1,449 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06T14:06:06.708Z\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Loading data..."
+msgstr ""
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr ""
+
+msgid "No list are created with this account ...."
+msgstr ""
+
+msgid "You can create a new MailChimp list using the button above."
+msgstr ""
+
+msgid "Email Lists"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Members:"
+msgstr ""
+
+msgid "Unsubscribed count:"
+msgstr ""
+
+msgid "Unsubscribed count since last send:"
+msgstr ""
+
+msgid "Cleaned count:"
+msgstr ""
+
+msgid "Cleaned count since last send:"
+msgstr ""
+
+msgid "Campaigns"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Modify"
+msgstr ""
+
+msgid "is not configured"
+msgstr ""
+
+msgid "Please update the"
+msgstr ""
+
+msgid "API key in Setting->"
+msgstr ""
+
+msgid "Edit General Settings"
+msgstr ""
+
+msgid "Then update"
+msgstr ""
+
+msgid "For more info see our "
+msgstr ""
+
+msgid "support docs."
+msgstr ""
+
+msgid "List Title"
+msgstr ""
+
+msgid "Your List Title"
+msgstr ""
+
+msgid "Your Subject"
+msgstr ""
+
+msgid "Permission Reminder"
+msgstr ""
+
+msgid "Archive Bars"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Private"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "List Creation"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "You have to set a List Title for your eMail List"
+msgstr ""
+
+msgid "You're about to delete a tag!"
+msgstr ""
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+
+msgid "Deleting tag"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "People"
+msgstr ""
+
+msgid "Families"
+msgstr ""
+
+msgid "Add a new tag"
+msgstr ""
+
+msgid "Delete tag from subscriber(s)"
+msgstr ""
+
+msgid "Delete tag"
+msgstr ""
+
+msgid "Loading resources ..."
+msgstr ""
+
+msgid "Email List"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Campaign"
+msgstr ""
+
+msgid "Subscribed"
+msgstr ""
+
+msgid "Unsubscribed"
+msgstr ""
+
+msgid "Last Name"
+msgstr ""
+
+msgid "First Name"
+msgstr ""
+
+msgid "Email Marketing"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "New tag"
+msgstr ""
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+
+msgid "Create tag"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Adding tag..."
+msgstr ""
+
+msgid "Name is empty !!"
+msgstr ""
+
+msgid "Add tag"
+msgstr ""
+
+msgid "Selected tag"
+msgstr ""
+
+msgid "This will add the tag"
+msgstr ""
+
+msgid "to all the current selected members in the list."
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "Remove tags from selected members"
+msgstr ""
+
+msgid "Choose a tag"
+msgstr ""
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Removing tags..."
+msgstr ""
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr ""
+
+msgid "This action affects the whole list"
+msgstr ""
+
+msgid "Keep tag"
+msgstr ""
+
+msgid "A person name or Family or Group"
+msgstr ""
+
+msgid "Loading subscriber"
+msgstr ""
+
+msgid "Loading subscribers from Group"
+msgstr ""
+
+msgid "Loading subscribers from family"
+msgstr ""
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+
+msgid "Changing status ..."
+msgstr ""
+
+msgid "Delete subscriber"
+msgstr ""
+
+msgid "Subscriber removal"
+msgstr ""
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr ""
+
+msgid "Keep subscriber"
+msgstr ""
+
+msgid "Deleting Subscriber..."
+msgstr ""
+
+msgid "Delete mailing list"
+msgstr ""
+
+msgid "This action is irreversible"
+msgstr ""
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr ""
+
+msgid "Delete list"
+msgstr ""
+
+msgid "Delete all subscribers"
+msgstr ""
+
+msgid "Bulk deletion"
+msgstr ""
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
+
+msgid "Deleting all subscribers..."
+msgstr ""
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+
+msgid "Email Campaign Creation"
+msgstr ""
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+
+msgid "Campaign details"
+msgstr ""
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+
+msgid "Campaign Title"
+msgstr ""
+
+msgid "Your Campaign Title"
+msgstr ""
+
+msgid "For Tag"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Write the subject and the body of your email campaign."
+msgstr ""
+
+msgid "Mail Subject"
+msgstr ""
+
+msgid "Your Mail Subject"
+msgstr ""
+
+msgid "Compose the content that will be sent to members of this tag."
+msgstr ""
+
+msgid "All list members"
+msgstr ""
+
+msgid "Adding Campaign ..."
+msgstr ""
+
+msgid "Campaign created"
+msgstr ""
+
+msgid "Your campaign is ready"
+msgstr ""
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr ""
+
+msgid "Open campaign"
+msgstr ""
+
+msgid "Stay here"
+msgstr ""
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr ""
+
+msgid "Edit list settings"
+msgstr ""
+
+msgid "MailChimp list settings"
+msgstr ""
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr ""
+
+msgid "List Name"
+msgstr ""
+
+msgid "Changing subscribers state..."
+msgstr ""
+
+msgid "Delete selected subscribers"
+msgstr ""
+
+msgid "Selected members"
+msgstr ""
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr ""
+
+msgid "selected"
+msgstr ""
+
+msgid "Delete selected"
+msgstr ""
+
+msgid "Deleting Subscribers..."
+msgstr ""
+
+msgid "Family"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Person"
+msgstr ""
+
+msgid "Unsaved changes are ready to be stored."
+msgstr ""
+
+msgid "No local changes yet."
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "Unable to save settings"
+msgstr ""

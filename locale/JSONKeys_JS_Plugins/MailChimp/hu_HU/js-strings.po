@@ -1,0 +1,470 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06T14:05:33.008Z\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Error"
+msgstr "Hiba"
+
+msgid "Loading..."
+msgstr "Betöltés..."
+
+msgid "Loading data..."
+msgstr "Adatok betöltése..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Kérjük, várjon, amíg letöltjük a MailChimp-listáit."
+
+msgid "No list are created with this account ...."
+msgstr "Ehhez a fiókhoz nincs létrehozva lista...."
+
+msgid "You can create a new MailChimp list using the button above."
+msgstr "A fenti gombra kattintva létrehozhat egy új MailChimp-listát."
+
+msgid "Email Lists"
+msgstr "E-mail listák"
+
+msgid "Details"
+msgstr "Részletek"
+
+msgid "Subject"
+msgstr "Tárgy"
+
+msgid "Members:"
+msgstr "Tagok:"
+
+msgid "Unsubscribed count:"
+msgstr "Leiratkozók száma:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "A legutóbbi küldés óta leiratkozók száma:"
+
+msgid "Cleaned count:"
+msgstr "Tisztított darabszám:"
+
+msgid "Cleaned count since last send:"
+msgstr "Az utolsó elküldés óta törölt elemek száma:"
+
+msgid "Campaigns"
+msgstr "Kampányok"
+
+msgid "Tags"
+msgstr "Címkék"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Modify"
+msgstr "Módosítás"
+
+msgid "is not configured"
+msgstr "nincs beállítva"
+
+msgid "Please update the"
+msgstr "Kérjük, frissítse a"
+
+msgid "API key in Setting->"
+msgstr "API-kulcs a Beállítások->"
+
+msgid "Edit General Settings"
+msgstr "Általános beállítások szerkesztése"
+
+msgid "Then update"
+msgstr "Ezután frissítsd"
+
+msgid "For more info see our "
+msgstr "További információkért látogasson el a "
+
+msgid "support docs."
+msgstr "támogatási dokumentumok."
+
+msgid "List Title"
+msgstr "A lista címe"
+
+msgid "Your List Title"
+msgstr "A listád címe"
+
+msgid "Your Subject"
+msgstr "A tárgy"
+
+msgid "Permission Reminder"
+msgstr "Engedélyezési emlékeztető"
+
+msgid "Archive Bars"
+msgstr "Archív sávok"
+
+msgid "Status"
+msgstr "Állapot"
+
+msgid "Private"
+msgstr "Magán"
+
+msgid "Public"
+msgstr "Nyilvános"
+
+msgid "List Creation"
+msgstr "Lista létrehozása"
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "You have to set a List Title for your eMail List"
+msgstr "Be kell állítania egy listacímet az e-mail listájához"
+
+msgid "You're about to delete a tag!"
+msgstr "Egy címkét fogsz törölni!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Ezzel a listán szereplő összes tag címkéje is törlődik. Biztosan ezt "
+"szeretné?"
+
+msgid "Deleting tag"
+msgstr "Címke törlése"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "People"
+msgstr "Emberek"
+
+msgid "Families"
+msgstr "Családok"
+
+msgid "Add a new tag"
+msgstr "Új címke hozzáadása"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Címke eltávolítása az előfizető(k)ről"
+
+msgid "Delete tag"
+msgstr "Címke törlése"
+
+msgid "Loading resources ..."
+msgstr "Erőforrások betöltése..."
+
+msgid "Email List"
+msgstr "E-mail lista"
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Campaign"
+msgstr "Kampány"
+
+msgid "Subscribed"
+msgstr "Feliratkozott"
+
+msgid "Unsubscribed"
+msgstr "Leiratkozás"
+
+msgid "Last Name"
+msgstr "Vezetéknév"
+
+msgid "First Name"
+msgstr "Keresztnév"
+
+msgid "Email Marketing"
+msgstr "E-mailes marketing"
+
+msgid "Address"
+msgstr "Cím"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "New tag"
+msgstr "Új címke"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+"Írja be a létrehozandó címke nevét, majd alkalmazza azt a kijelölt elemekre."
+
+msgid "Create tag"
+msgstr "Címke létrehozása"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Adding tag..."
+msgstr "Címke hozzáadása..."
+
+msgid "Name is empty !!"
+msgstr "A név mező üres!!"
+
+msgid "Add tag"
+msgstr "Címke hozzáadása"
+
+msgid "Selected tag"
+msgstr "Kiválasztott címke"
+
+msgid "This will add the tag"
+msgstr "Ezzel hozzáadódik a címke"
+
+msgid "to all the current selected members in the list."
+msgstr "a listán szereplő összes jelenleg kiválasztott tag számára."
+
+msgid "Confirm"
+msgstr "Megerősítés"
+
+msgid "Remove tags from selected members"
+msgstr "Címkék eltávolítása a kijelölt tagokról"
+
+msgid "Choose a tag"
+msgstr "Válasszon címkét"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+"Válasszon ki egy címkét az eltávolításhoz, vagy jelölje be az összes címkét "
+"a kiválasztott elemek teljes törléséhez."
+
+msgid "Apply"
+msgstr "Jelentkezés"
+
+msgid "Removing tags..."
+msgstr "Címkék eltávolítása..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "A listában szereplő kiválasztott tagek összes címkéjének törlése..."
+
+msgid "This action affects the whole list"
+msgstr "Ez a művelet a teljes listára vonatkozik"
+
+msgid "Keep tag"
+msgstr "Kövess"
+
+msgid "A person name or Family or Group"
+msgstr "Egy személy neve, család vagy csoport"
+
+msgid "Loading subscriber"
+msgstr "Előfizető betöltése"
+
+msgid "Loading subscribers from Group"
+msgstr "Előfizetők betöltése a Csoportból"
+
+msgid "Loading subscribers from family"
+msgstr "Előfizetők betöltése a családból"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Az EcclesiaCRM<br> rendszerből valamennyi személy adatainak betöltése… Ez "
+"eltarthat egy darabig!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Valójában jobb, ha kilépsz a CRM-ből, 5 percet vársz, és utána hozod létre a "
+"kampányaidat.<br>Nagy adatmennyiségek importálásakor a MailChimp API lassú."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Az EcclesiaCRM<br> rendszerből betöltöm az összes hírlevél-előfizetőt. Ez "
+"eltarthat egy darabig!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Az EcclesiaCRM-ből<br> az összes család első vezetőjének előfizetőinek "
+"betöltése… Ez eltarthat egy darabig!"
+
+msgid "Changing status ..."
+msgstr "Állapot változik..."
+
+msgid "Delete subscriber"
+msgstr "Előfizető törlése"
+
+msgid "Subscriber removal"
+msgstr "Előfizető törlése"
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Egy előfizetőt fogsz törölni! Biztosan ezt szeretnéd?"
+
+msgid "Keep subscriber"
+msgstr "Előfizető megtartása"
+
+msgid "Deleting Subscriber..."
+msgstr "Előfizető törlése..."
+
+msgid "Delete mailing list"
+msgstr "A levelezőlista törlése"
+
+msgid "This action is irreversible"
+msgstr "Ez a művelet visszafordíthatatlan"
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Tényleg törölni szeretné ezt a levelezőlistát?"
+
+msgid "Delete list"
+msgstr "Lista törlése"
+
+msgid "Delete all subscribers"
+msgstr "Az összes előfizető törlése"
+
+msgid "Bulk deletion"
+msgstr "Tömeges törlés"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Biztosan törölni szeretné az összes feliratkozót?"
+
+msgid "Delete all"
+msgstr "Minden törlése"
+
+msgid "Deleting all subscribers..."
+msgstr "Az összes előfizető törlése..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Valójában jobb, ha bezárja a CRM-et, majd negyed óra múlva újra megnyitja, "
+"hogy kezelje a listáját.<br>Nagy mennyiségű adat törlésekor a MailChimp API "
+"lassú."
+
+msgid "Email Campaign Creation"
+msgstr "E-mailes kampány létrehozása"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+"Készítsen elő egy egyértelmű tárgyat, ellenőrizze a célcímkét, majd írja meg "
+"az e-mail kampány szövegét."
+
+msgid "Campaign details"
+msgstr "A kampány részletei"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+"Az üzenet megírása előtt állítsa be a kampány címét, és ellenőrizze a "
+"MailChimp célcsoportját."
+
+msgid "Campaign Title"
+msgstr "Kampány címe"
+
+msgid "Your Campaign Title"
+msgstr "Kampányod címe"
+
+msgid "For Tag"
+msgstr "A „Tag” címkéhez"
+
+msgid "Message"
+msgstr "Üzenet"
+
+msgid "Write the subject and the body of your email campaign."
+msgstr "Írja meg e-mailes kampányának tárgyát és szövegét."
+
+msgid "Mail Subject"
+msgstr "E-mail tárgya"
+
+msgid "Your Mail Subject"
+msgstr "Az e-mail tárgya"
+
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "Írja meg azt a tartalmat, amelyet a címke tagjainak küldeni szeretne."
+
+msgid "All list members"
+msgstr "A lista összes tagja"
+
+msgid "Adding Campaign ..."
+msgstr "Kampány hozzáadása..."
+
+msgid "Campaign created"
+msgstr "Kampány létrehozása"
+
+msgid "Your campaign is ready"
+msgstr "A kampányod készen áll"
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Szeretné közvetlenül irányítani ezt az új kampányt?"
+
+msgid "Open campaign"
+msgstr "Kampány indítása"
+
+msgid "Stay here"
+msgstr "Maradjon itt"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Meg kell adnia az e-mail kampány címét"
+
+msgid "Edit list settings"
+msgstr "A lista beállításainak szerkesztése"
+
+msgid "MailChimp list settings"
+msgstr "A MailChimp lista beállításai"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr ""
+"Frissítse a lista és a hozzá tartozó kampányok által használt főbb adatokat."
+
+msgid "List Name"
+msgstr "Lista neve"
+
+msgid "Changing subscribers state..."
+msgstr "Az előfizetők állapotának módosítása..."
+
+msgid "Delete selected subscribers"
+msgstr "A kijelölt előfizetők törlése"
+
+msgid "Selected members"
+msgstr "Kiválasztott tagok"
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Épp most fogod törölni az előfizetőket! Biztosan ezt szeretnéd tenni?"
+
+msgid "selected"
+msgstr "kiválasztott"
+
+msgid "Delete selected"
+msgstr "Kijelöltek törlése"
+
+msgid "Deleting Subscribers..."
+msgstr "Előfizetők törlése..."
+
+msgid "Family"
+msgstr "Család"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Person"
+msgstr "Személy"
+
+msgid "Unsaved changes are ready to be stored."
+msgstr "A mentetlen módosítások készen állnak a mentésre."
+
+msgid "No local changes yet."
+msgstr "Egyelőre nincs helyi módosítás."
+
+msgid "Settings saved."
+msgstr "A beállítások elmentve."
+
+msgid "Saved"
+msgstr "Elmentve"
+
+msgid "Unable to save settings"
+msgstr "A beállítások mentése nem sikerült"

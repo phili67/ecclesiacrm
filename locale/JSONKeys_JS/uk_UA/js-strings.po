@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -689,16 +689,6 @@ msgstr "У процесі виконання"
 msgid "Please wait while the operation is being completed"
 msgstr "Будь ласка, зачекайте, поки операція завершиться"
 
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Всі списки тепер завантажені в CRM. 1235  4568 Якщо ви хочете керувати ними, "
-"натисніть на це сповіщення ! 7899 "
-
 msgid "There was a problem retrieving the requested object"
 msgstr "Виникла проблема з отриманням запитуваного об'єкта"
 
@@ -1093,420 +1083,6 @@ msgstr "Створити документ"
 msgid "You have to set a Title for your document"
 msgstr "Ви маєте задати заголовок для вашого документа"
 
-msgid "Saving Campaign ..."
-msgstr "Кампанія порятунку ..."
-
-msgid "Campaign"
-msgstr "Кампанія"
-
-msgid "saved successfully"
-msgstr "успішно збережено"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Ви збираєтеся відправити свою кампанію! Ви впевнені?"
-
-msgid "Yes"
-msgstr "Так."
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Ви збираєтеся видалити свою кампанію! Ви впевнені?"
-
-msgid "Loading..."
-msgstr "Завантаження..."
-
-msgid "Loading data..."
-msgstr "Завантаження даних..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "Будь ласка, зачекайте, поки ми отримаємо ваші списки MailChimp."
-
-msgid "No list are created with this account ...."
-msgstr "З цим акаунтом не створюються списки ...."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr "Ви можете створити новий список MailChimp за допомогою кнопки вище."
-
-msgid "Email List"
-msgstr "Список електронної пошти"
-
-msgid "Details"
-msgstr "Деталі"
-
-msgid "Subject"
-msgstr "Тема"
-
-msgid "Members:"
-msgstr "Члени:"
-
-msgid "Unsubscribed count:"
-msgstr "Невідписані рахуються:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Кількість невідписаних з моменту останньої відправки:"
-
-msgid "Cleaned count:"
-msgstr "Чистий рахунок:"
-
-msgid "Cleaned count since last send:"
-msgstr "Очищено лічильник з моменту останнього відправлення:"
-
-msgid "Campaigns"
-msgstr "Кампанії"
-
-msgid "Tags"
-msgstr "Теги"
-
-msgid "is not configured"
-msgstr "не налаштовано"
-
-msgid "Please update the"
-msgstr "Будь ласка, оновіть"
-
-msgid "API key in Setting->"
-msgstr "Ключ API у розділі Налаштування->."
-
-msgid "Edit General Settings"
-msgstr "Редагування загальних налаштувань"
-
-msgid "Then update"
-msgstr "Потім оновіть"
-
-msgid "For more info see our "
-msgstr "Для отримання додаткової інформації дивіться наш"
-
-msgid "support docs."
-msgstr "допоміжні документи."
-
-msgid "List Title"
-msgstr "Назва списку"
-
-msgid "Your List Title"
-msgstr "Назва вашого списку"
-
-msgid "Your Subject"
-msgstr "Ваш суб'єкт"
-
-msgid "Permission Reminder"
-msgstr "Нагадування про дозвіл"
-
-msgid "Archive Bars"
-msgstr "Архівні бари"
-
-msgid "Public"
-msgstr "Громадськість"
-
-msgid "List Creation"
-msgstr "Створення списку"
-
-msgid "You're about to delete a tag!"
-msgstr "Ви збираєтеся видалити тег!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "Це також видалить тег для всіх учасників у цьому списку. Ви впевнені?"
-
-msgid "Deleting tag"
-msgstr "Видалення тегу"
-
-msgid "People"
-msgstr "Люди"
-
-msgid "Families"
-msgstr "Сім'ї"
-
-msgid "Add a new tag"
-msgstr "Додати новий тег"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Видалити тег у підписника(ів)"
-
-msgid "Delete tag"
-msgstr "Видалити тег"
-
-msgid "Loading resources ..."
-msgstr "Завантаження ресурсів ..."
-
-msgid "Check all boxes"
-msgstr "Поставте всі галочки"
-
-msgid "Subscribed"
-msgstr "Підписано"
-
-msgid "Unsubscribed"
-msgstr "Відписався"
-
-msgid "Email Marketing"
-msgstr "Email-маркетинг"
-
-msgid "New tag"
-msgstr "Новий тег"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-"Введіть назву мітки, щоб створити її і застосувати до вибраних учасників."
-
-msgid "Create tag"
-msgstr "Створити тег"
-
-msgid "Adding tag..."
-msgstr "Додавання тегу..."
-
-msgid "Name is empty !!"
-msgstr "Ім'я порожнє!!!"
-
-msgid "Add tag"
-msgstr "Додати тег"
-
-msgid "Selected tag"
-msgstr "Вибраний тег"
-
-msgid "This will add the tag"
-msgstr "Це додасть тег"
-
-msgid "to all the current selected members in the list."
-msgstr "усім поточним вибраним учасникам у списку."
-
-msgid "Select One"
-msgstr "Виберіть один"
-
-msgid "All Tags"
-msgstr "Всі теги"
-
-msgid "Remove tags from selected members"
-msgstr "Видалення тегів у вибраних користувачів"
-
-msgid "Choose a tag"
-msgstr "Виберіть тег"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"Виберіть один тег для видалення або всі теги для повного очищення вибраних "
-"учасників."
-
-msgid "Apply"
-msgstr "Подати заявку"
-
-msgid "Removing tags..."
-msgstr "Видалення тегів..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Видалення всіх тегів для вибраних учасників у списку..."
-
-msgid "This action affects the whole list"
-msgstr "Ця дія впливає на весь список"
-
-msgid "Keep tag"
-msgstr "Зберігай бирку."
-
-msgid "A person name or Family or Group"
-msgstr "Ім'я особи або Сім'я чи Група"
-
-msgid "Loading subscriber"
-msgstr "Завантаження абонента"
-
-msgid "Loading subscribers from Group"
-msgstr "Завантаження підписників з групи"
-
-msgid "Loading subscribers from family"
-msgstr "Завантаження абонентів з сім'ї"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "Завантаження всіх осіб з EcclesiaCRM<br>Це може зайняти деякий час!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Насправді, краще вийти з CRM, почекати 5 хвилин і зробити кампанії після "
-"цього.<br>Для імпорту великих даних API MailChimp працює повільно."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Завантаження всіх підписників розсилки з EcclesiaCRM<br>Це може зайняти "
-"деякий час!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Завантажуємо всі сім'ї спочатку підписників старости з EcclesiaCRM<br>Це "
-"може зайняти деякий час!"
-
-msgid "Update subscriber status"
-msgstr "Оновлення статусу абонента"
-
-msgid "Selected subscriber"
-msgstr "Обраний абонент"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "Виберіть статус, який ви хочете застосувати до цього абонента."
-
-msgid "Update"
-msgstr "Оновлення"
-
-msgid "Changing status ..."
-msgstr "Зміна статусу ..."
-
-msgid "Delete subscriber"
-msgstr "Видалити абонента"
-
-msgid "Subscriber removal"
-msgstr "Видалення абонента"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Ви збираєтеся видалити абонента! Ти впевнений?"
-
-msgid "Keep subscriber"
-msgstr "Зберегти підписника"
-
-msgid "Deleting Subscriber..."
-msgstr "Видалення абонента."
-
-msgid "Delete mailing list"
-msgstr "Видалити список розсилки"
-
-msgid "This action is irreversible"
-msgstr "Ця дія є незворотною"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Ви дійсно хочете видалити цей список розсилки?"
-
-msgid "Delete list"
-msgstr "Видалити список"
-
-msgid "Delete all subscribers"
-msgstr "Видалити всіх підписників"
-
-msgid "Bulk deletion"
-msgstr "Масове видалення"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Ви впевнені, що хочете видалити всіх підписників"
-
-msgid "Delete all"
-msgstr "Видалити все"
-
-msgid "Deleting all subscribers..."
-msgstr "Видалення всіх підписників..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Насправді, краще залишити CRM, а через чверть години знову відкрити її, щоб "
-"керувати списком.<br>Для видалення великих даних API MailChimp працює "
-"повільно."
-
-msgid "Email Campaign Creation"
-msgstr "Створення email-розсилок"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"Підготуйте чіткий заголовок, підтвердьте цільовий тег і напишіть зміст "
-"розсилки."
-
-msgid "Campaign details"
-msgstr "Деталі кампанії"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-"Задайте назву кампанії та перегляньте ціль MailChimp, перш ніж писати "
-"повідомлення."
-
-msgid "Campaign Title"
-msgstr "Назва кампанії"
-
-msgid "Your Campaign Title"
-msgstr "Назва вашої кампанії"
-
-msgid "For Tag"
-msgstr "Для Тега"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr "Напишіть тему і тіло листа."
-
-msgid "Mail Subject"
-msgstr "Тема листа"
-
-msgid "Your Mail Subject"
-msgstr "Тема вашого листа"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "Складіть вміст, який буде надіслано учасникам цього тегу."
-
-msgid "All list members"
-msgstr "Всі учасники списку"
-
-msgid "Adding Campaign ..."
-msgstr "Додавання кампанії ..."
-
-msgid "Campaign created"
-msgstr "Кампанію створено"
-
-msgid "Your campaign is ready"
-msgstr "Ваша кампанія готова"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Хочете безпосередньо керувати цією новою кампанією?"
-
-msgid "Open campaign"
-msgstr "Відкрита кампанія"
-
-msgid "Stay here"
-msgstr "Залишайся тут."
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Ви маєте встановити назву кампанії для вашої email-розсилки"
-
-msgid "Edit list settings"
-msgstr "Редагування налаштувань списку"
-
-msgid "MailChimp list settings"
-msgstr "Налаштування списку MailChimp"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr ""
-"Оновіть основні дані, що використовуються цим списком та його кампаніями."
-
-msgid "List Name"
-msgstr "Назва списку Ім'я"
-
-msgid "Changing subscribers state..."
-msgstr "Зміна стану абонентів..."
-
-msgid "Delete selected subscribers"
-msgstr "Видалення вибраних абонентів"
-
-msgid "Selected members"
-msgstr "Вибрані учасники"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Ви збираєтеся видалити підписників! Ви впевнені?"
-
-msgid "selected"
-msgstr "вибрано"
-
-msgid "Delete selected"
-msgstr "Видалити вибране"
-
-msgid "Deleting Subscribers..."
-msgstr "Видалення підписників..."
-
-msgid "Family"
-msgstr "Сім'я"
-
-msgid "Person"
-msgstr "Людина"
-
 msgid "Free Event Attendees"
 msgstr "Безкоштовне відвідування заходу"
 
@@ -1743,6 +1319,12 @@ msgstr "Інформація про електронну транзакцію"
 msgid "TOTAL"
 msgstr "ВСЬОГО"
 
+msgid "Family"
+msgstr "Сім'я"
+
+msgid "Person"
+msgstr "Людина"
+
 msgid "Anonymous"
 msgstr "Анонім"
 
@@ -1757,6 +1339,9 @@ msgstr "Метод"
 
 msgid "Check Number"
 msgstr "Номер чека"
+
+msgid "Details"
+msgstr "Деталі"
 
 msgid "Tracking"
 msgstr "Відстеження"
@@ -1787,6 +1372,9 @@ msgstr "Коментар до депозиту"
 
 msgid "Closed"
 msgstr "Закрито."
+
+msgid "Yes"
+msgstr "Так."
 
 msgid "Deposit Type"
 msgstr "Тип депозиту"
@@ -2126,6 +1714,9 @@ msgstr "Для цього виду не знайдено записів."
 
 msgid "No matching records found."
 msgstr "Відповідних записів не знайдено."
+
+msgid "Loading..."
+msgstr "Завантаження..."
 
 msgid "Never contacted"
 msgstr "Ніколи не зв'язувався"
@@ -2703,6 +2294,9 @@ msgstr "Менеджер плагінів"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Поточна тека зображень тепер є спільною текою!!!"
+
+msgid "Families"
+msgstr "Сім'ї"
 
 msgid "Singles"
 msgstr "Одиночки"
@@ -3319,6 +2913,415 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Все членство буде знищено.  Самі члени не будуть змінені."
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailchimp"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "Всі списки тепер завантажені в CRM. 1235  4568 Якщо ви хочете керувати "
+#~ "ними, натисніть на це сповіщення ! 7899 "
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "Кампанія порятунку ..."
+
+#~ msgid "Campaign"
+#~ msgstr "Кампанія"
+
+#~ msgid "saved successfully"
+#~ msgstr "успішно збережено"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "Ви збираєтеся відправити свою кампанію! Ви впевнені?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "Ви збираєтеся видалити свою кампанію! Ви впевнені?"
+
+#~ msgid "Loading data..."
+#~ msgstr "Завантаження даних..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr "Будь ласка, зачекайте, поки ми отримаємо ваші списки MailChimp."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "З цим акаунтом не створюються списки ...."
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr "Ви можете створити новий список MailChimp за допомогою кнопки вище."
+
+#~ msgid "Email List"
+#~ msgstr "Список електронної пошти"
+
+#~ msgid "Subject"
+#~ msgstr "Тема"
+
+#~ msgid "Members:"
+#~ msgstr "Члени:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "Невідписані рахуються:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "Кількість невідписаних з моменту останньої відправки:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "Чистий рахунок:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "Очищено лічильник з моменту останнього відправлення:"
+
+#~ msgid "Campaigns"
+#~ msgstr "Кампанії"
+
+#~ msgid "Tags"
+#~ msgstr "Теги"
+
+#~ msgid "is not configured"
+#~ msgstr "не налаштовано"
+
+#~ msgid "Please update the"
+#~ msgstr "Будь ласка, оновіть"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "Ключ API у розділі Налаштування->."
+
+#~ msgid "Edit General Settings"
+#~ msgstr "Редагування загальних налаштувань"
+
+#~ msgid "Then update"
+#~ msgstr "Потім оновіть"
+
+#~ msgid "For more info see our "
+#~ msgstr "Для отримання додаткової інформації дивіться наш"
+
+#~ msgid "support docs."
+#~ msgstr "допоміжні документи."
+
+#~ msgid "List Title"
+#~ msgstr "Назва списку"
+
+#~ msgid "Your List Title"
+#~ msgstr "Назва вашого списку"
+
+#~ msgid "Your Subject"
+#~ msgstr "Ваш суб'єкт"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "Нагадування про дозвіл"
+
+#~ msgid "Archive Bars"
+#~ msgstr "Архівні бари"
+
+#~ msgid "Public"
+#~ msgstr "Громадськість"
+
+#~ msgid "List Creation"
+#~ msgstr "Створення списку"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "Ви збираєтеся видалити тег!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "Це також видалить тег для всіх учасників у цьому списку. Ви впевнені?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "Видалення тегу"
+
+#~ msgid "People"
+#~ msgstr "Люди"
+
+#~ msgid "Add a new tag"
+#~ msgstr "Додати новий тег"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "Видалити тег у підписника(ів)"
+
+#~ msgid "Delete tag"
+#~ msgstr "Видалити тег"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "Завантаження ресурсів ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "Поставте всі галочки"
+
+#~ msgid "Subscribed"
+#~ msgstr "Підписано"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Відписався"
+
+#~ msgid "Email Marketing"
+#~ msgstr "Email-маркетинг"
+
+#~ msgid "New tag"
+#~ msgstr "Новий тег"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr ""
+#~ "Введіть назву мітки, щоб створити її і застосувати до вибраних учасників."
+
+#~ msgid "Create tag"
+#~ msgstr "Створити тег"
+
+#~ msgid "Adding tag..."
+#~ msgstr "Додавання тегу..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "Ім'я порожнє!!!"
+
+#~ msgid "Add tag"
+#~ msgstr "Додати тег"
+
+#~ msgid "Selected tag"
+#~ msgstr "Вибраний тег"
+
+#~ msgid "This will add the tag"
+#~ msgstr "Це додасть тег"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "усім поточним вибраним учасникам у списку."
+
+#~ msgid "Select One"
+#~ msgstr "Виберіть один"
+
+#~ msgid "All Tags"
+#~ msgstr "Всі теги"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "Видалення тегів у вибраних користувачів"
+
+#~ msgid "Choose a tag"
+#~ msgstr "Виберіть тег"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "Виберіть один тег для видалення або всі теги для повного очищення "
+#~ "вибраних учасників."
+
+#~ msgid "Apply"
+#~ msgstr "Подати заявку"
+
+#~ msgid "Removing tags..."
+#~ msgstr "Видалення тегів..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "Видалення всіх тегів для вибраних учасників у списку..."
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "Ця дія впливає на весь список"
+
+#~ msgid "Keep tag"
+#~ msgstr "Зберігай бирку."
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "Ім'я особи або Сім'я чи Група"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "Завантаження абонента"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "Завантаження підписників з групи"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "Завантаження абонентів з сім'ї"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr "Завантаження всіх осіб з EcclesiaCRM<br>Це може зайняти деякий час!"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "Насправді, краще вийти з CRM, почекати 5 хвилин і зробити кампанії після "
+#~ "цього.<br>Для імпорту великих даних API MailChimp працює повільно."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "Завантаження всіх підписників розсилки з EcclesiaCRM<br>Це може зайняти "
+#~ "деякий час!"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Завантажуємо всі сім'ї спочатку підписників старости з EcclesiaCRM<br>Це "
+#~ "може зайняти деякий час!"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "Оновлення статусу абонента"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "Обраний абонент"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "Виберіть статус, який ви хочете застосувати до цього абонента."
+
+#~ msgid "Update"
+#~ msgstr "Оновлення"
+
+#~ msgid "Changing status ..."
+#~ msgstr "Зміна статусу ..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "Видалити абонента"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "Видалення абонента"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "Ви збираєтеся видалити абонента! Ти впевнений?"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "Зберегти підписника"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "Видалення абонента."
+
+#~ msgid "Delete mailing list"
+#~ msgstr "Видалити список розсилки"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "Ця дія є незворотною"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "Ви дійсно хочете видалити цей список розсилки?"
+
+#~ msgid "Delete list"
+#~ msgstr "Видалити список"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "Видалити всіх підписників"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "Масове видалення"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "Ви впевнені, що хочете видалити всіх підписників"
+
+#~ msgid "Delete all"
+#~ msgstr "Видалити все"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "Видалення всіх підписників..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "Насправді, краще залишити CRM, а через чверть години знову відкрити її, "
+#~ "щоб керувати списком.<br>Для видалення великих даних API MailChimp працює "
+#~ "повільно."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "Створення email-розсилок"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "Підготуйте чіткий заголовок, підтвердьте цільовий тег і напишіть зміст "
+#~ "розсилки."
+
+#~ msgid "Campaign details"
+#~ msgstr "Деталі кампанії"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr ""
+#~ "Задайте назву кампанії та перегляньте ціль MailChimp, перш ніж писати "
+#~ "повідомлення."
+
+#~ msgid "Campaign Title"
+#~ msgstr "Назва кампанії"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "Назва вашої кампанії"
+
+#~ msgid "For Tag"
+#~ msgstr "Для Тега"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "Напишіть тему і тіло листа."
+
+#~ msgid "Mail Subject"
+#~ msgstr "Тема листа"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "Тема вашого листа"
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr "Складіть вміст, який буде надіслано учасникам цього тегу."
+
+#~ msgid "All list members"
+#~ msgstr "Всі учасники списку"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "Додавання кампанії ..."
+
+#~ msgid "Campaign created"
+#~ msgstr "Кампанію створено"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "Ваша кампанія готова"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "Хочете безпосередньо керувати цією новою кампанією?"
+
+#~ msgid "Open campaign"
+#~ msgstr "Відкрита кампанія"
+
+#~ msgid "Stay here"
+#~ msgstr "Залишайся тут."
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "Ви маєте встановити назву кампанії для вашої email-розсилки"
+
+#~ msgid "Edit list settings"
+#~ msgstr "Редагування налаштувань списку"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "Налаштування списку MailChimp"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr ""
+#~ "Оновіть основні дані, що використовуються цим списком та його кампаніями."
+
+#~ msgid "List Name"
+#~ msgstr "Назва списку Ім'я"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "Зміна стану абонентів..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "Видалення вибраних абонентів"
+
+#~ msgid "Selected members"
+#~ msgstr "Вибрані учасники"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "Ви збираєтеся видалити підписників! Ви впевнені?"
+
+#~ msgid "selected"
+#~ msgstr "вибрано"
+
+#~ msgid "Delete selected"
+#~ msgstr "Видалити вибране"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "Видалення підписників..."
 
 #~ msgid "ERROR"
 #~ msgstr "ПОМИЛКА"

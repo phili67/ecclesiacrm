@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -704,16 +704,6 @@ msgstr "In uitvoering"
 msgid "Please wait while the operation is being completed"
 msgstr "Even geduld terwijl de bewerking wordt voltooid"
 
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Alle lijsten zijn nu geladen in het CRM. 1235  4568 Als je ze wilt beheren, "
-"klik dan op deze melding ! 7899 "
-
 msgid "There was a problem retrieving the requested object"
 msgstr "Er was een probleem met het ophalen van het gevraagde object"
 
@@ -1112,424 +1102,6 @@ msgstr "Document maken"
 msgid "You have to set a Title for your document"
 msgstr "U moet een titel instellen voor uw document"
 
-msgid "Saving Campaign ..."
-msgstr "Het redden van Campagne ..."
-
-msgid "Campaign"
-msgstr "Campagne"
-
-msgid "saved successfully"
-msgstr "succesvol opgeslagen"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "U staat op het punt om uw campagne te versturen! Ben je zeker ?"
-
-msgid "Yes"
-msgstr "Ja"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Je staat op het punt om je campagne te verwijderen! Ben je zeker ?"
-
-msgid "Loading..."
-msgstr "Aan het laden..."
-
-msgid "Loading data..."
-msgstr "Gegevens laden..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "Even geduld terwijl we je MailChimp-lijsten ophalen."
-
-msgid "No list are created with this account ...."
-msgstr "Er worden geen lijsten aangemaakt met deze rekening ...."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr "Je kunt een nieuwe MailChimp-lijst maken met de knop hierboven."
-
-msgid "Email List"
-msgstr "E-mail lijst"
-
-msgid "Details"
-msgstr "Details"
-
-msgid "Subject"
-msgstr "Onderwerp"
-
-msgid "Members:"
-msgstr "Leden:"
-
-msgid "Unsubscribed count:"
-msgstr "Aantal uitgeschrevenen:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Aantal uitgeschrevenen sinds laatste verzending:"
-
-msgid "Cleaned count:"
-msgstr "Geschoonde telling:"
-
-msgid "Cleaned count since last send:"
-msgstr "Opgeschoonde telling sinds laatste verzending:"
-
-msgid "Campaigns"
-msgstr "Campagnes"
-
-msgid "Tags"
-msgstr "Tags"
-
-msgid "is not configured"
-msgstr "is niet geconfigureerd"
-
-msgid "Please update the"
-msgstr "Gelieve de"
-
-msgid "API key in Setting->"
-msgstr "API sleutel in Instelling->"
-
-msgid "Edit General Settings"
-msgstr "Algemene instellingen bewerken"
-
-msgid "Then update"
-msgstr "Dan bijwerken"
-
-msgid "For more info see our "
-msgstr "Voor meer info zie onze"
-
-msgid "support docs."
-msgstr "ondersteunende documenten."
-
-msgid "List Title"
-msgstr "Lijst Titel"
-
-msgid "Your List Title"
-msgstr "Titel van uw lijst"
-
-msgid "Your Subject"
-msgstr "Uw onderwerp"
-
-msgid "Permission Reminder"
-msgstr "Toestemming Herinnering"
-
-msgid "Archive Bars"
-msgstr "Archief Bars"
-
-msgid "Public"
-msgstr "Publiek"
-
-msgid "List Creation"
-msgstr "Lijst creatie"
-
-msgid "You're about to delete a tag!"
-msgstr "Je staat op het punt om een tag te verwijderen!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Dit zal ook de tag verwijderen voor alle leden in deze lijst. Ben je zeker ?"
-
-msgid "Deleting tag"
-msgstr "Tag verwijderen"
-
-msgid "People"
-msgstr "Mensen"
-
-msgid "Families"
-msgstr "Families"
-
-msgid "Add a new tag"
-msgstr "Een nieuwe tag toevoegen"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Verwijder tag van abonnee(s)"
-
-msgid "Delete tag"
-msgstr "Verwijder tag"
-
-msgid "Loading resources ..."
-msgstr "Hulpbronnen laden ..."
-
-msgid "Check all boxes"
-msgstr "Vink alle vakjes aan"
-
-msgid "Subscribed"
-msgstr "Ingeschreven"
-
-msgid "Unsubscribed"
-msgstr "Uitgeschreven"
-
-msgid "Email Marketing"
-msgstr "E-mail Marketing"
-
-msgid "New tag"
-msgstr "Nieuw label"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-"Voer de naam in van de tag die moet worden aangemaakt en toegepast op de "
-"geselecteerde leden."
-
-msgid "Create tag"
-msgstr "Tag maken"
-
-msgid "Adding tag..."
-msgstr "Tag toevoegen..."
-
-msgid "Name is empty !!"
-msgstr "Naam is leeg !!"
-
-msgid "Add tag"
-msgstr "Label toevoegen"
-
-msgid "Selected tag"
-msgstr "Geselecteerde tag"
-
-msgid "This will add the tag"
-msgstr "Dit zal de tag toevoegen"
-
-msgid "to all the current selected members in the list."
-msgstr "naar alle huidige geselecteerde leden in de lijst."
-
-msgid "Select One"
-msgstr "Kies er een"
-
-msgid "All Tags"
-msgstr "Alle tags"
-
-msgid "Remove tags from selected members"
-msgstr "Tags verwijderen van geselecteerde leden"
-
-msgid "Choose a tag"
-msgstr "Kies een tag"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"Selecteer één tag om te verwijderen of kies alle tags voor een volledige "
-"opruiming van de geselecteerde leden."
-
-msgid "Apply"
-msgstr "Toepassen"
-
-msgid "Removing tags..."
-msgstr "Verwijderen van tags..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr ""
-"Het verwijderen van alle tags voor de geselecteerde leden in de lijst..."
-
-msgid "This action affects the whole list"
-msgstr "Deze actie beïnvloedt de hele lijst"
-
-msgid "Keep tag"
-msgstr "Label houden"
-
-msgid "A person name or Family or Group"
-msgstr "Een persoonsnaam of Familie of Groep"
-
-msgid "Loading subscriber"
-msgstr "Abonnee laden"
-
-msgid "Loading subscribers from Group"
-msgstr "Abonnees van groep laden"
-
-msgid "Loading subscribers from family"
-msgstr "Laadt abonnees van familie"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "Alle personen uit EcclesiaCRM laden<br>Dit kan even duren !"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"In feite kun je beter je CRM afsluiten, 5 minuten wachten en je campagnes "
-"daarna maken.<br> Om grote hoeveelheden data te importeren, is MailChimp API "
-"traag."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Alle nieuwsbriefabonnees laden vanuit EcclesiaCRM<br>Dit kan even duren !"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Het laden van alle families eerste hoofdpersonen abonnees van "
-"EcclesiaCRM<br>Dit kan een tijdje duren !"
-
-msgid "Update subscriber status"
-msgstr "Abonneestatus bijwerken"
-
-msgid "Selected subscriber"
-msgstr "Geselecteerde abonnee"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "Kies de status die van toepassing is op deze abonnee."
-
-msgid "Update"
-msgstr "Update"
-
-msgid "Changing status ..."
-msgstr "Veranderende status ..."
-
-msgid "Delete subscriber"
-msgstr "Abonnee verwijderen"
-
-msgid "Subscriber removal"
-msgstr "Verwijdering van abonnees"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Je staat op het punt een abonnee te verwijderen! Ben je zeker ?"
-
-msgid "Keep subscriber"
-msgstr "Abonnee blijven"
-
-msgid "Deleting Subscriber..."
-msgstr "Abonnee verwijderen..."
-
-msgid "Delete mailing list"
-msgstr "Mailinglijst verwijderen"
-
-msgid "This action is irreversible"
-msgstr "Deze actie is onomkeerbaar"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Wilt u deze mailinglijst echt verwijderen ?"
-
-msgid "Delete list"
-msgstr "Lijst verwijderen"
-
-msgid "Delete all subscribers"
-msgstr "Alle abonnees verwijderen"
-
-msgid "Bulk deletion"
-msgstr "Bulkverwijdering"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Weet u zeker dat u alle abonnees wilt verwijderen"
-
-msgid "Delete all"
-msgstr "Alles verwijderen"
-
-msgid "Deleting all subscribers..."
-msgstr "Alle abonnees verwijderen..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"In feite kun je beter het CRM verlaten, en het over een kwartier weer openen "
-"om je lijst te beheren.<br>Om grote datas te verwijderen, is MailChimp API "
-"traag."
-
-msgid "Email Campaign Creation"
-msgstr "Creatie van e-mailcampagnes"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"Maak een duidelijke titel, bevestig de doeltag en schrijf de inhoud van je e-"
-"mailcampagne."
-
-msgid "Campaign details"
-msgstr "Campagne details"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-"Stel de campagnetitel in en bekijk het MailChimp-doel voordat je het bericht "
-"schrijft."
-
-msgid "Campaign Title"
-msgstr "Titel van de campagne"
-
-msgid "Your Campaign Title"
-msgstr "De titel van uw campagne"
-
-msgid "For Tag"
-msgstr "Voor Tag"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr "Schrijf het onderwerp en de hoofdtekst van je e-mailcampagne."
-
-msgid "Mail Subject"
-msgstr "Post Onderwerp"
-
-msgid "Your Mail Subject"
-msgstr "Onderwerp van uw e-mail"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "Stel de inhoud samen die wordt verzonden naar leden van deze tag."
-
-msgid "All list members"
-msgstr "Alle leden van de lijst"
-
-msgid "Adding Campaign ..."
-msgstr "Campagne toevoegen..."
-
-msgid "Campaign created"
-msgstr "Campagne gemaakt"
-
-msgid "Your campaign is ready"
-msgstr "Je campagne is klaar"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Wil je deze nieuwe campagne direct beheren ?"
-
-msgid "Open campaign"
-msgstr "Campagne openen"
-
-msgid "Stay here"
-msgstr "Blijf hier"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "U moet een Campagne Titel instellen voor uw eMail Campagne"
-
-msgid "Edit list settings"
-msgstr "Lijstinstellingen bewerken"
-
-msgid "MailChimp list settings"
-msgstr "MailChimp lijst instellingen"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr ""
-"Werk de belangrijkste gegevens bij die door deze lijst en zijn campagnes "
-"worden gebruikt."
-
-msgid "List Name"
-msgstr "Lijst Naam"
-
-msgid "Changing subscribers state..."
-msgstr "De staat van de abonnees veranderen..."
-
-msgid "Delete selected subscribers"
-msgstr "Geselecteerde abonnees verwijderen"
-
-msgid "Selected members"
-msgstr "Geselecteerde leden"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Je staat op het punt om abonnees te verwijderen! Ben je zeker ?"
-
-msgid "selected"
-msgstr "geselecteerd"
-
-msgid "Delete selected"
-msgstr "Geselecteerde verwijderen"
-
-msgid "Deleting Subscribers..."
-msgstr "Abonnees verwijderen..."
-
-msgid "Family"
-msgstr "Familie"
-
-msgid "Person"
-msgstr "Persoon"
-
 msgid "Free Event Attendees"
 msgstr "Gratis bezoekers"
 
@@ -1768,6 +1340,12 @@ msgstr "Details elektronische transactie"
 msgid "TOTAL"
 msgstr "TOTAAL"
 
+msgid "Family"
+msgstr "Familie"
+
+msgid "Person"
+msgstr "Persoon"
+
 msgid "Anonymous"
 msgstr "Anoniem"
 
@@ -1782,6 +1360,9 @@ msgstr "Methode"
 
 msgid "Check Number"
 msgstr "Check Nummer"
+
+msgid "Details"
+msgstr "Details"
 
 msgid "Tracking"
 msgstr "Volgen"
@@ -1812,6 +1393,9 @@ msgstr "Deposito-commentaar"
 
 msgid "Closed"
 msgstr "Gesloten"
+
+msgid "Yes"
+msgstr "Ja"
 
 msgid "Deposit Type"
 msgstr "Stortingstype"
@@ -2151,6 +1735,9 @@ msgstr "Geen records gevonden voor deze weergave."
 
 msgid "No matching records found."
 msgstr "Geen overeenkomende records gevonden."
+
+msgid "Loading..."
+msgstr "Aan het laden..."
 
 msgid "Never contacted"
 msgstr "Nooit contact opgenomen"
@@ -2742,6 +2329,9 @@ msgstr "Plugin beheerder"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "De huidige afbeeldingen map is nu de openbare map !!!"
+
+msgid "Families"
+msgstr "Families"
 
 msgid "Singles"
 msgstr "Singles"
@@ -3362,6 +2952,419 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailchimp"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "Alle lijsten zijn nu geladen in het CRM. 1235  4568 Als je ze wilt "
+#~ "beheren, klik dan op deze melding ! 7899 "
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "Het redden van Campagne ..."
+
+#~ msgid "Campaign"
+#~ msgstr "Campagne"
+
+#~ msgid "saved successfully"
+#~ msgstr "succesvol opgeslagen"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "U staat op het punt om uw campagne te versturen! Ben je zeker ?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "Je staat op het punt om je campagne te verwijderen! Ben je zeker ?"
+
+#~ msgid "Loading data..."
+#~ msgstr "Gegevens laden..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr "Even geduld terwijl we je MailChimp-lijsten ophalen."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "Er worden geen lijsten aangemaakt met deze rekening ...."
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr "Je kunt een nieuwe MailChimp-lijst maken met de knop hierboven."
+
+#~ msgid "Email List"
+#~ msgstr "E-mail lijst"
+
+#~ msgid "Subject"
+#~ msgstr "Onderwerp"
+
+#~ msgid "Members:"
+#~ msgstr "Leden:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "Aantal uitgeschrevenen:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "Aantal uitgeschrevenen sinds laatste verzending:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "Geschoonde telling:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "Opgeschoonde telling sinds laatste verzending:"
+
+#~ msgid "Campaigns"
+#~ msgstr "Campagnes"
+
+#~ msgid "Tags"
+#~ msgstr "Tags"
+
+#~ msgid "is not configured"
+#~ msgstr "is niet geconfigureerd"
+
+#~ msgid "Please update the"
+#~ msgstr "Gelieve de"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "API sleutel in Instelling->"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "Algemene instellingen bewerken"
+
+#~ msgid "Then update"
+#~ msgstr "Dan bijwerken"
+
+#~ msgid "For more info see our "
+#~ msgstr "Voor meer info zie onze"
+
+#~ msgid "support docs."
+#~ msgstr "ondersteunende documenten."
+
+#~ msgid "List Title"
+#~ msgstr "Lijst Titel"
+
+#~ msgid "Your List Title"
+#~ msgstr "Titel van uw lijst"
+
+#~ msgid "Your Subject"
+#~ msgstr "Uw onderwerp"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "Toestemming Herinnering"
+
+#~ msgid "Archive Bars"
+#~ msgstr "Archief Bars"
+
+#~ msgid "Public"
+#~ msgstr "Publiek"
+
+#~ msgid "List Creation"
+#~ msgstr "Lijst creatie"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "Je staat op het punt om een tag te verwijderen!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "Dit zal ook de tag verwijderen voor alle leden in deze lijst. Ben je "
+#~ "zeker ?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "Tag verwijderen"
+
+#~ msgid "People"
+#~ msgstr "Mensen"
+
+#~ msgid "Add a new tag"
+#~ msgstr "Een nieuwe tag toevoegen"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "Verwijder tag van abonnee(s)"
+
+#~ msgid "Delete tag"
+#~ msgstr "Verwijder tag"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "Hulpbronnen laden ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "Vink alle vakjes aan"
+
+#~ msgid "Subscribed"
+#~ msgstr "Ingeschreven"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Uitgeschreven"
+
+#~ msgid "Email Marketing"
+#~ msgstr "E-mail Marketing"
+
+#~ msgid "New tag"
+#~ msgstr "Nieuw label"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr ""
+#~ "Voer de naam in van de tag die moet worden aangemaakt en toegepast op de "
+#~ "geselecteerde leden."
+
+#~ msgid "Create tag"
+#~ msgstr "Tag maken"
+
+#~ msgid "Adding tag..."
+#~ msgstr "Tag toevoegen..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "Naam is leeg !!"
+
+#~ msgid "Add tag"
+#~ msgstr "Label toevoegen"
+
+#~ msgid "Selected tag"
+#~ msgstr "Geselecteerde tag"
+
+#~ msgid "This will add the tag"
+#~ msgstr "Dit zal de tag toevoegen"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "naar alle huidige geselecteerde leden in de lijst."
+
+#~ msgid "Select One"
+#~ msgstr "Kies er een"
+
+#~ msgid "All Tags"
+#~ msgstr "Alle tags"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "Tags verwijderen van geselecteerde leden"
+
+#~ msgid "Choose a tag"
+#~ msgstr "Kies een tag"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "Selecteer één tag om te verwijderen of kies alle tags voor een volledige "
+#~ "opruiming van de geselecteerde leden."
+
+#~ msgid "Apply"
+#~ msgstr "Toepassen"
+
+#~ msgid "Removing tags..."
+#~ msgstr "Verwijderen van tags..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr ""
+#~ "Het verwijderen van alle tags voor de geselecteerde leden in de lijst..."
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "Deze actie beïnvloedt de hele lijst"
+
+#~ msgid "Keep tag"
+#~ msgstr "Label houden"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "Een persoonsnaam of Familie of Groep"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "Abonnee laden"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "Abonnees van groep laden"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "Laadt abonnees van familie"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr "Alle personen uit EcclesiaCRM laden<br>Dit kan even duren !"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "In feite kun je beter je CRM afsluiten, 5 minuten wachten en je campagnes "
+#~ "daarna maken.<br> Om grote hoeveelheden data te importeren, is MailChimp "
+#~ "API traag."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "Alle nieuwsbriefabonnees laden vanuit EcclesiaCRM<br>Dit kan even duren !"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Het laden van alle families eerste hoofdpersonen abonnees van "
+#~ "EcclesiaCRM<br>Dit kan een tijdje duren !"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "Abonneestatus bijwerken"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "Geselecteerde abonnee"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "Kies de status die van toepassing is op deze abonnee."
+
+#~ msgid "Update"
+#~ msgstr "Update"
+
+#~ msgid "Changing status ..."
+#~ msgstr "Veranderende status ..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "Abonnee verwijderen"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "Verwijdering van abonnees"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "Je staat op het punt een abonnee te verwijderen! Ben je zeker ?"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "Abonnee blijven"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "Abonnee verwijderen..."
+
+#~ msgid "Delete mailing list"
+#~ msgstr "Mailinglijst verwijderen"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "Deze actie is onomkeerbaar"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "Wilt u deze mailinglijst echt verwijderen ?"
+
+#~ msgid "Delete list"
+#~ msgstr "Lijst verwijderen"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "Alle abonnees verwijderen"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "Bulkverwijdering"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "Weet u zeker dat u alle abonnees wilt verwijderen"
+
+#~ msgid "Delete all"
+#~ msgstr "Alles verwijderen"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "Alle abonnees verwijderen..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "In feite kun je beter het CRM verlaten, en het over een kwartier weer "
+#~ "openen om je lijst te beheren.<br>Om grote datas te verwijderen, is "
+#~ "MailChimp API traag."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "Creatie van e-mailcampagnes"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "Maak een duidelijke titel, bevestig de doeltag en schrijf de inhoud van "
+#~ "je e-mailcampagne."
+
+#~ msgid "Campaign details"
+#~ msgstr "Campagne details"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr ""
+#~ "Stel de campagnetitel in en bekijk het MailChimp-doel voordat je het "
+#~ "bericht schrijft."
+
+#~ msgid "Campaign Title"
+#~ msgstr "Titel van de campagne"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "De titel van uw campagne"
+
+#~ msgid "For Tag"
+#~ msgstr "Voor Tag"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "Schrijf het onderwerp en de hoofdtekst van je e-mailcampagne."
+
+#~ msgid "Mail Subject"
+#~ msgstr "Post Onderwerp"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "Onderwerp van uw e-mail"
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr "Stel de inhoud samen die wordt verzonden naar leden van deze tag."
+
+#~ msgid "All list members"
+#~ msgstr "Alle leden van de lijst"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "Campagne toevoegen..."
+
+#~ msgid "Campaign created"
+#~ msgstr "Campagne gemaakt"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "Je campagne is klaar"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "Wil je deze nieuwe campagne direct beheren ?"
+
+#~ msgid "Open campaign"
+#~ msgstr "Campagne openen"
+
+#~ msgid "Stay here"
+#~ msgstr "Blijf hier"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "U moet een Campagne Titel instellen voor uw eMail Campagne"
+
+#~ msgid "Edit list settings"
+#~ msgstr "Lijstinstellingen bewerken"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "MailChimp lijst instellingen"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr ""
+#~ "Werk de belangrijkste gegevens bij die door deze lijst en zijn campagnes "
+#~ "worden gebruikt."
+
+#~ msgid "List Name"
+#~ msgstr "Lijst Naam"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "De staat van de abonnees veranderen..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "Geselecteerde abonnees verwijderen"
+
+#~ msgid "Selected members"
+#~ msgstr "Geselecteerde leden"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "Je staat op het punt om abonnees te verwijderen! Ben je zeker ?"
+
+#~ msgid "selected"
+#~ msgstr "geselecteerd"
+
+#~ msgid "Delete selected"
+#~ msgstr "Geselecteerde verwijderen"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "Abonnees verwijderen..."
 
 #~ msgid "ERROR"
 #~ msgstr "ERROR"

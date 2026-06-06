@@ -1,0 +1,471 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-06T14:04:45.313Z\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "Loading..."
+msgstr "Bezig met laden..."
+
+msgid "Loading data..."
+msgstr "Gegevens worden geladen..."
+
+msgid "Please wait while we retrieve your MailChimp lists."
+msgstr "Even geduld a.u.b. terwijl we uw MailChimp-lijsten ophalen."
+
+msgid "No list are created with this account ...."
+msgstr "Er zijn geen lijsten aangemaakt met dit account ...."
+
+msgid "You can create a new MailChimp list using the button above."
+msgstr "Je kunt via de knop hierboven een nieuwe MailChimp-lijst aanmaken."
+
+msgid "Email Lists"
+msgstr "E-maillijsten"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Members:"
+msgstr "Leden:"
+
+msgid "Unsubscribed count:"
+msgstr "Aantal afmeldingen:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Aantal afmeldingen sinds de laatste verzending:"
+
+msgid "Cleaned count:"
+msgstr "Aantal gereinigde:"
+
+msgid "Cleaned count since last send:"
+msgstr "Aantal verwerkte gegevens sinds de laatste verzending:"
+
+msgid "Campaigns"
+msgstr "Campagnes"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Modify"
+msgstr "Wijzigen"
+
+msgid "is not configured"
+msgstr "is niet geconfigureerd"
+
+msgid "Please update the"
+msgstr "Werk de"
+
+msgid "API key in Setting->"
+msgstr "API-sleutel in Instellingen->"
+
+msgid "Edit General Settings"
+msgstr "Algemene instellingen bewerken"
+
+msgid "Then update"
+msgstr "Werk vervolgens bij"
+
+msgid "For more info see our "
+msgstr "Kijk voor meer informatie op onze "
+
+msgid "support docs."
+msgstr "ondersteuningsdocumenten."
+
+msgid "List Title"
+msgstr "Titel van de lijst"
+
+msgid "Your List Title"
+msgstr "De titel van je lijst"
+
+msgid "Your Subject"
+msgstr "Onderwerp"
+
+msgid "Permission Reminder"
+msgstr "Herinnering aan toestemming"
+
+msgid "Archive Bars"
+msgstr "Archiefbalken"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Private"
+msgstr "Privé"
+
+msgid "Public"
+msgstr "Openbaar"
+
+msgid "List Creation"
+msgstr "Lijst aanmaken"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "You have to set a List Title for your eMail List"
+msgstr "Je moet een titel voor je e-maillijst instellen"
+
+msgid "You're about to delete a tag!"
+msgstr "Je staat op het punt een tag te verwijderen!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Hierdoor wordt ook de tag voor alle leden in deze lijst verwijderd. Weet u "
+"het zeker?"
+
+msgid "Deleting tag"
+msgstr "Tag verwijderen"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "People"
+msgstr "Mensen"
+
+msgid "Families"
+msgstr "Gezinnen"
+
+msgid "Add a new tag"
+msgstr "Een nieuwe tag toevoegen"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Tag verwijderen bij abonnee(s)"
+
+msgid "Delete tag"
+msgstr "Tag verwijderen"
+
+msgid "Loading resources ..."
+msgstr "Bronnen worden geladen ..."
+
+msgid "Email List"
+msgstr "E-maillijst"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Campaign"
+msgstr "Campagne"
+
+msgid "Subscribed"
+msgstr "Geabonneerd"
+
+msgid "Unsubscribed"
+msgstr "Afgemeld"
+
+msgid "Last Name"
+msgstr "Achternaam"
+
+msgid "First Name"
+msgstr "Voornaam"
+
+msgid "Email Marketing"
+msgstr "E-mailmarketing"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Phone"
+msgstr "Telefoon"
+
+msgid "New tag"
+msgstr "Nieuwe tag"
+
+msgid "Enter the name of the tag to create and apply to the selected members."
+msgstr ""
+"Voer de naam in van het label dat u wilt aanmaken en op de geselecteerde "
+"leden wilt toepassen."
+
+msgid "Create tag"
+msgstr "Tag aanmaken"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Adding tag..."
+msgstr "Tag toevoegen..."
+
+msgid "Name is empty !!"
+msgstr "De naam is leeg !!"
+
+msgid "Add tag"
+msgstr "Tag toevoegen"
+
+msgid "Selected tag"
+msgstr "Geselecteerde tag"
+
+msgid "This will add the tag"
+msgstr "Hiermee wordt de tag toegevoegd"
+
+msgid "to all the current selected members in the list."
+msgstr "aan alle momenteel geselecteerde leden in de lijst."
+
+msgid "Confirm"
+msgstr "Bevestigen"
+
+msgid "Remove tags from selected members"
+msgstr "Tags verwijderen van geselecteerde leden"
+
+msgid "Choose a tag"
+msgstr "Kies een tag"
+
+msgid ""
+"Select one tag to remove, or choose all tags for a full cleanup on the "
+"selected members."
+msgstr ""
+"Selecteer één tag om te verwijderen, of selecteer alle tags om de "
+"geselecteerde leden volledig op te schonen."
+
+msgid "Apply"
+msgstr "Solliciteren"
+
+msgid "Removing tags..."
+msgstr "Tags verwijderen..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Alle tags voor de geselecteerde leden in de lijst verwijderen..."
+
+msgid "This action affects the whole list"
+msgstr "Deze actie heeft gevolgen voor de hele lijst"
+
+msgid "Keep tag"
+msgstr "Tag behouden"
+
+msgid "A person name or Family or Group"
+msgstr "Een persoonsnaam, een familie of een groep"
+
+msgid "Loading subscriber"
+msgstr "Abonnee wordt geladen"
+
+msgid "Loading subscribers from Group"
+msgstr "Abonnees uit groep laden"
+
+msgid "Loading subscribers from family"
+msgstr "Abonnees uit de familie laden"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr "Alle personen uit EcclesiaCRM worden geladen<br>Dit kan even duren!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Het is zelfs beter om het CRM-systeem te sluiten, vijf minuten te wachten en "
+"daarna je campagnes op te zetten.<br>Bij het importeren van grote "
+"hoeveelheden gegevens werkt de MailChimp-API traag."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Alle nieuwsbriefabonnees worden opgehaald uit EcclesiaCRM<br>Dit kan even "
+"duren!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Alle hoofdabonnees van alle families uit EcclesiaCRM worden nu geladen <br> "
+"Dit kan even duren!"
+
+msgid "Changing status ..."
+msgstr "Status wordt gewijzigd ..."
+
+msgid "Delete subscriber"
+msgstr "Abonnee verwijderen"
+
+msgid "Subscriber removal"
+msgstr "Een abonnee verwijderen"
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Je staat op het punt een abonnee te verwijderen! Weet je het zeker?"
+
+msgid "Keep subscriber"
+msgstr "Abonnee behouden"
+
+msgid "Deleting Subscriber..."
+msgstr "Abonnee wordt verwijderd..."
+
+msgid "Delete mailing list"
+msgstr "Mailinglijst verwijderen"
+
+msgid "This action is irreversible"
+msgstr "Deze handeling kan niet ongedaan worden gemaakt"
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Wilt u deze mailinglijst echt verwijderen?"
+
+msgid "Delete list"
+msgstr "Lijst verwijderen"
+
+msgid "Delete all subscribers"
+msgstr "Alle abonnees verwijderen"
+
+msgid "Bulk deletion"
+msgstr "In één keer verwijderen"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Weet je zeker dat je alle abonnees wilt verwijderen?"
+
+msgid "Delete all"
+msgstr "Alles verwijderen"
+
+msgid "Deleting all subscribers..."
+msgstr "Alle abonnees verwijderen..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Het is zelfs beter om het CRM even te sluiten en het na een kwartier weer te "
+"openen om je lijst te beheren.<br>Voor het verwijderen van grote "
+"hoeveelheden gegevens werkt de MailChimp-API traag."
+
+msgid "Email Campaign Creation"
+msgstr "Het opzetten van e-mailcampagnes"
+
+msgid ""
+"Prepare a clear title, confirm the target tag and write the content of your "
+"email campaign."
+msgstr ""
+"Zorg voor een duidelijke onderwerpregel, controleer de bestemmings-tag en "
+"schrijf de tekst voor je e-mailcampagne."
+
+msgid "Campaign details"
+msgstr "Campagnedetails"
+
+msgid ""
+"Set the campaign title and review the MailChimp target before writing the "
+"message."
+msgstr ""
+"Stel de titel van de campagne in en controleer de MailChimp-doelgroep "
+"voordat je het bericht opstelt."
+
+msgid "Campaign Title"
+msgstr "Titel van de campagne"
+
+msgid "Your Campaign Title"
+msgstr "De titel van je campagne"
+
+msgid "For Tag"
+msgstr "Voor Tag"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Write the subject and the body of your email campaign."
+msgstr "Schrijf het onderwerp en de tekst van je e-mailcampagne."
+
+msgid "Mail Subject"
+msgstr "Onderwerp van de e-mail"
+
+msgid "Your Mail Subject"
+msgstr "Het onderwerp van uw e-mail"
+
+msgid "Compose the content that will be sent to members of this tag."
+msgstr "Stel de inhoud op die naar de leden van deze tag wordt verzonden."
+
+msgid "All list members"
+msgstr "Alle leden van de lijst"
+
+msgid "Adding Campaign ..."
+msgstr "Campagne toevoegen ..."
+
+msgid "Campaign created"
+msgstr "Campagne aangemaakt"
+
+msgid "Your campaign is ready"
+msgstr "Je campagne is klaar"
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Wilt u deze nieuwe campagne zelf beheren?"
+
+msgid "Open campaign"
+msgstr "Campagne starten"
+
+msgid "Stay here"
+msgstr "Blijf hier"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Je moet een campagnetitel instellen voor je e-mailcampagne"
+
+msgid "Edit list settings"
+msgstr "Lijstinstellingen bewerken"
+
+msgid "MailChimp list settings"
+msgstr "MailChimp-lijstinstellingen"
+
+msgid "Update the main details used by this list and its campaigns."
+msgstr ""
+"Werk de belangrijkste gegevens bij die voor deze lijst en de bijbehorende "
+"campagnes worden gebruikt."
+
+msgid "List Name"
+msgstr "Naam van de lijst"
+
+msgid "Changing subscribers state..."
+msgstr "De status van abonnees wordt gewijzigd..."
+
+msgid "Delete selected subscribers"
+msgstr "Geselecteerde abonnees verwijderen"
+
+msgid "Selected members"
+msgstr "Geselecteerde leden"
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Je staat op het punt abonnees te verwijderen! Weet je het zeker?"
+
+msgid "selected"
+msgstr "geselecteerd"
+
+msgid "Delete selected"
+msgstr "Geselecteerde items verwijderen"
+
+msgid "Deleting Subscribers..."
+msgstr "Abonnees verwijderen..."
+
+msgid "Family"
+msgstr "Familie"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Person"
+msgstr "Persoon"
+
+msgid "Unsaved changes are ready to be stored."
+msgstr "De niet-opgeslagen wijzigingen zijn klaar om te worden opgeslagen."
+
+msgid "No local changes yet."
+msgstr "Er zijn nog geen lokale wijzigingen."
+
+msgid "Settings saved."
+msgstr "Instellingen opgeslagen."
+
+msgid "Saved"
+msgstr "Opgeslagen"
+
+msgid "Unable to save settings"
+msgstr "Instellingen kunnen niet worden opgeslagen"

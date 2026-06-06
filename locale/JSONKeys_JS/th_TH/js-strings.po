@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -687,17 +687,6 @@ msgstr "ในความคืบหน้า"
 msgid "Please wait while the operation is being completed"
 msgstr ""
 
-msgid "Mailchimp"
-msgstr "ใบไม้ผลิตภัณฑ์"
-
-#, fuzzy
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"รายชื่อทั้งหมดถูกโหลดในปีEcclesia<b>CRM</b><br><b>ถ้าคุณต้องการจัดการพวกเขา "
-"ก็กดการแจ้งเตือน</b>"
-
 msgid "There was a problem retrieving the requested object"
 msgstr "มีปัญหาเรียกคืนของที่ได้รับการขอ"
 
@@ -1109,439 +1098,6 @@ msgstr "สร้างหนึ่ง"
 msgid "You have to set a Title for your document"
 msgstr "คุณต้องตั้งเอกสารให้ทิทเทิลฟัง"
 
-msgid "Saving Campaign ..."
-msgstr "ช่วยชีวิตค่าเทพ"
-
-msgid "Campaign"
-msgstr "แคมเปญ"
-
-msgid "saved successfully"
-msgstr "ช่วยเหลือผู้ประสบความสำเร็จ"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "คุณกำลังจะส่งแคมเปญของคุณ! คุณแน่ใจเหรอ?"
-
-msgid "Yes"
-msgstr "ใช่"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "คุณกำลังจะลบแคมเปญของคุณ! คุณแน่ใจเหรอ?"
-
-#, fuzzy
-msgid "Loading..."
-msgstr "วีดีโอกำลังทะลุ"
-
-#, fuzzy
-msgid "Loading data..."
-msgstr "วันที่กำลังหลอก"
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr ""
-
-msgid "No list are created with this account ...."
-msgstr "ไม่มีรายชื่อที่ถูกสร้างขึ้นด้วยบัญชีนี้"
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr ""
-
-msgid "Email List"
-msgstr "รายชื่ออีเมล"
-
-msgid "Details"
-msgstr "รายละเอียด"
-
-msgid "Subject"
-msgstr "เป้าหมาย"
-
-msgid "Members:"
-msgstr "สมาชิก:"
-
-msgid "Unsubscribed count:"
-msgstr "นับไม่ได้รับการยอมรับ:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "นับไม่ถูกต้อง ตั้งแต่ส่งสัญญาณ"
-
-msgid "Cleaned count:"
-msgstr "นับถ่ายเกินไป"
-
-msgid "Cleaned count since last send:"
-msgstr "นับถือความสะอาด ตั้งแต่ส่งสุดท้าย"
-
-msgid "Campaigns"
-msgstr "แคมเปญ"
-
-msgid "Tags"
-msgstr "แท็กส์"
-
-msgid "is not configured"
-msgstr "ไม่มีการจัดเรียงใด"
-
-msgid "Please update the"
-msgstr "กรุณาอัพเดทด้วยครับ"
-
-msgid "API key in Setting->"
-msgstr "API กุญแจในการตั้งค่า"
-
-msgid "Edit General Settings"
-msgstr "แก้ไข นายพลตั้งค่า"
-
-#, fuzzy
-msgid "Then update"
-msgstr "งั้นก็อัพเดทซะ"
-
-msgid "For more info see our "
-msgstr "เพื่อให้ข้อมูลเพิ่มเติม"
-
-msgid "support docs."
-msgstr "สนับสนุน"
-
-msgid "List Title"
-msgstr "ลิซ ทิทเทิล"
-
-msgid "Your List Title"
-msgstr "ลิสต์ ทิทเทิลของคุณ"
-
-msgid "Your Subject"
-msgstr "วิชาของคุณ"
-
-msgid "Permission Reminder"
-msgstr "ขอยืนยัน"
-
-msgid "Archive Bars"
-msgstr "อาร์เชิลบาร์"
-
-msgid "Public"
-msgstr "สาธารณะ"
-
-msgid "List Creation"
-msgstr "ลิสต์สร้าง"
-
-msgid "You're about to delete a tag!"
-msgstr "คุณกำลังจะลบแท็ก!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr "นี่ก็ลบแท็ก สำหรับสมาชิกทุกคนในรายชื่อนี้ด้วย คุณแน่ใจเหรอ?"
-
-msgid "Deleting tag"
-msgstr "ลบแท็ก"
-
-msgid "People"
-msgstr "ผู้คน"
-
-msgid "Families"
-msgstr "ครอบครัว"
-
-msgid "Add a new tag"
-msgstr "เพิ่มป้ายป้ายใหม่"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "ลบแท็กจากผู้เขียนหนังสือ"
-
-msgid "Delete tag"
-msgstr "ลบแท็ก"
-
-msgid "Loading resources ..."
-msgstr "กำลังเติมทรัพยากร"
-
-msgid "Check all boxes"
-msgstr "ตรวจดูทุกกล่อง"
-
-msgid "Subscribed"
-msgstr "เขียนไว้"
-
-msgid "Unsubscribed"
-msgstr "ไม่ได้รับการยอมรับ"
-
-msgid "Email Marketing"
-msgstr "การตลาดอีเมล"
-
-#, fuzzy
-msgid "New tag"
-msgstr "เพิ่มป้ายป้ายใหม่"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-
-#, fuzzy
-msgid "Create tag"
-msgstr "ลบแท็ก"
-
-msgid "Adding tag..."
-msgstr "เพิ่ม..."
-
-msgid "Name is empty !!"
-msgstr "ชื่อว่างเปล่า!"
-
-#, fuzzy
-msgid "Add tag"
-msgstr "ป้ายทะเบียนด้วยหรอ?"
-
-#, fuzzy
-msgid "Selected tag"
-msgstr "ลบแท็ก"
-
-msgid "This will add the tag"
-msgstr "นี่จะเพิ่มเลขที่"
-
-msgid "to all the current selected members in the list."
-msgstr "ที่เป็นสมาชิกที่เลือกทั้งหมดในรายชื่อ"
-
-msgid "Select One"
-msgstr "เลือกหนึ่ง"
-
-msgid "All Tags"
-msgstr "ทุกแท็กส์"
-
-#, fuzzy
-msgid "Remove tags from selected members"
-msgstr "ลบทั้งหมด"
-
-#, fuzzy
-msgid "Choose a tag"
-msgstr "เลือกชื่อโรล"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-
-msgid "Apply"
-msgstr ""
-
-msgid "Removing tags..."
-msgstr "ถอดป้ายทะเบียน..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "ลบป้ายทะเบียนทุกสำหรับ สมาชิกที่ถูกเลือกในรายการ"
-
-msgid "This action affects the whole list"
-msgstr ""
-
-#, fuzzy
-msgid "Keep tag"
-msgstr "ลบแท็ก"
-
-msgid "A person name or Family or Group"
-msgstr "ชื่อคนหรือครอบครัว หรือกลุ่ม"
-
-msgid "Loading subscriber"
-msgstr "บรรจุผู้เขียนไว้"
-
-msgid "Loading subscribers from Group"
-msgstr "ผู้เขียนหนังสือจากกรุ๊ป"
-
-msgid "Loading subscribers from family"
-msgstr "ผู้เขียนหนังสือจากครอบครัว"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "กำลังเติมคนทั้งหมดจาก EcclesiaCRM<br>นี่คงใช้เวลาสักพัก"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"ที่จริง คุณควรที่จะลาออกจาก CRM รออีก 5 นาที "
-"และทำการหาเสียงของคุณหลังจากนั้น<br>นำเข้าวันที่ใหญ่โต รัฐมาชิมป์ก็ช้า"
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr "กำลังเติมนักข่าวทั้งหมดเขียนข่าว จากEcclesiaCRM<br>นี่คงใช้เวลาสักพัก"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr "ปิดครอบครัวทั้งหมดเป็นครั้งแรก ผู้เขียนรายงาน จากปี EcclesiaCRM<br>นี่ต้องใช้เวลาสักพัก"
-
-#, fuzzy
-msgid "Update subscriber status"
-msgstr "การเปลี่ยนแปลงสภาวะผู้เขียนวิชาการ"
-
-#, fuzzy
-msgid "Selected subscriber"
-msgstr "ลบผู้เขียนหนังสือ"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr ""
-
-#, fuzzy
-msgid "Update"
-msgstr "อัพเดทมา"
-
-msgid "Changing status ..."
-msgstr "การเปลี่ยนแปลงสถานะ"
-
-#, fuzzy
-msgid "Delete subscriber"
-msgstr "ลบผู้เขียนหนังสือ"
-
-#, fuzzy
-msgid "Subscriber removal"
-msgstr "เขียนไว้"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "คุณกำลังจะลบผู้เขียนหนังสือ คุณแน่ใจเหรอ?"
-
-#, fuzzy
-msgid "Keep subscriber"
-msgstr "บรรจุผู้เขียนไว้"
-
-msgid "Deleting Subscriber..."
-msgstr "ลบผู้เขียนหนังสือ"
-
-#, fuzzy
-msgid "Delete mailing list"
-msgstr "ลบ แมนเกอร์"
-
-#, fuzzy
-msgid "This action is irreversible"
-msgstr "การกระทำนี้ไม่สามารถแก้ไขได้ !!!"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "คุณอยากลบรายชื่อส่งสัญญานี่จริงๆเหรอ"
-
-#, fuzzy
-msgid "Delete list"
-msgstr "ลบแท็ก"
-
-#, fuzzy
-msgid "Delete all subscribers"
-msgstr "ลบผู้เขียนทั้งหมด"
-
-msgid "Bulk deletion"
-msgstr ""
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "คุณแน่ใจนะว่าคุณต้องการลบผู้เขียนทั้งหมด"
-
-#, fuzzy
-msgid "Delete all"
-msgstr "ลบแท็ก"
-
-msgid "Deleting all subscribers..."
-msgstr "ลบผู้เขียนทั้งหมด"
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"ที่จริง คุณควรทิ้ง CRM ไว้ดีกว่า "
-"และในอีกสี่สิบชั่วโมงเปิดมันใหม่เพื่อจัดการรายชื่อของคุณ<br>เพื่อลบฐานที่ใหญ่ที่สุด, MailChimp API "
-"ก็ช้า"
-
-msgid "Email Campaign Creation"
-msgstr "สร้าง อีเมล แคมเปญ"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-
-#, fuzzy
-msgid "Campaign details"
-msgstr "แคมเปญ ทิทเทิล"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-
-msgid "Campaign Title"
-msgstr "แคมเปญ ทิทเทิล"
-
-msgid "Your Campaign Title"
-msgstr "เสียงหอบของคุณ"
-
-msgid "For Tag"
-msgstr "เพื่อแท็ก"
-
-#, fuzzy
-msgid "Write the subject and the body of your email campaign."
-msgstr "คุณต้องตั้ง แคมเปญ ทิวเทิลให้กับโคมเปญ อีเมล"
-
-msgid "Mail Subject"
-msgstr "จดหมาย"
-
-msgid "Your Mail Subject"
-msgstr "วิชาจดหมายของคุณ"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr ""
-
-msgid "All list members"
-msgstr "รายชื่อทั้งหมด"
-
-msgid "Adding Campaign ..."
-msgstr "เพิ่ม แคมเปญ"
-
-#, fuzzy
-msgid "Campaign created"
-msgstr "แคมเปญ ทิทเทิล"
-
-#, fuzzy
-msgid "Your campaign is ready"
-msgstr "เสียงหอบของคุณ"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "อยากจะจัดการแคมเปญใหม่โดยตรง"
-
-#, fuzzy
-msgid "Open campaign"
-msgstr "แคมเปญ"
-
-msgid "Stay here"
-msgstr ""
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "คุณต้องตั้ง แคมเปญ ทิวเทิลให้กับโคมเปญ อีเมล"
-
-#, fuzzy
-msgid "Edit list settings"
-msgstr "แก้ไข นายพลตั้งค่า"
-
-msgid "MailChimp list settings"
-msgstr ""
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr ""
-
-msgid "List Name"
-msgstr "ลิซชื่อ"
-
-msgid "Changing subscribers state..."
-msgstr "การเปลี่ยนแปลงสภาวะผู้เขียนวิชาการ"
-
-#, fuzzy
-msgid "Delete selected subscribers"
-msgstr "ลบแท็กจากผู้เขียนหนังสือ"
-
-#, fuzzy
-msgid "Selected members"
-msgstr "เลือกแถว"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "คุณกำลังจะลบผู้เขียนทิ้ง คุณแน่ใจเหรอ?"
-
-#, fuzzy
-msgid "selected"
-msgstr "เลือก"
-
-#, fuzzy
-msgid "Delete selected"
-msgstr "ลบ อีเวนท์"
-
-msgid "Deleting Subscribers..."
-msgstr "ลบผู้เขียนที่ถูกลบ"
-
-msgid "Family"
-msgstr "Family"
-
-msgid "Person"
-msgstr "คนๆนึง"
-
 msgid "Free Event Attendees"
 msgstr "ผู้ที่ถูกต้อง"
 
@@ -1787,6 +1343,12 @@ msgstr "รายละเอียดอิเล็กทรานซ์แอ
 msgid "TOTAL"
 msgstr "TOTAL"
 
+msgid "Family"
+msgstr "Family"
+
+msgid "Person"
+msgstr "คนๆนึง"
+
 msgid "Anonymous"
 msgstr "ไม่มีชื่อ"
 
@@ -1801,6 +1363,9 @@ msgstr "วิธี"
 
 msgid "Check Number"
 msgstr "ตรวจหมายเลข"
+
+msgid "Details"
+msgstr "รายละเอียด"
 
 msgid "Tracking"
 msgstr "ตามรอย"
@@ -1831,6 +1396,9 @@ msgstr "ข้อความ"
 
 msgid "Closed"
 msgstr "ปิด"
+
+msgid "Yes"
+msgstr "ใช่"
 
 msgid "Deposit Type"
 msgstr "ประเภทที่ดี"
@@ -2181,6 +1749,10 @@ msgstr ""
 
 msgid "No matching records found."
 msgstr ""
+
+#, fuzzy
+msgid "Loading..."
+msgstr "วีดีโอกำลังทะลุ"
 
 msgid "Never contacted"
 msgstr ""
@@ -2801,6 +2373,9 @@ msgstr ""
 msgid "The current images folder is now the public folder !!!"
 msgstr "แฟ้มภาพปัจจุบัน ตอนนี้แฟ้มสาธารณะ! !"
 
+msgid "Families"
+msgstr "ครอบครัว"
+
 msgid "Singles"
 msgstr ""
 
@@ -3420,6 +2995,385 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "สมาชิกและสมบัติทั้งหมดจะถูกทำลาย กลุ่มสมาชิกตัวเองจะไม่ได้รับการเปลี่ยนแปลง"
+
+#~ msgid "Mailchimp"
+#~ msgstr "ใบไม้ผลิตภัณฑ์"
+
+#, fuzzy
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "รายชื่อทั้งหมดถูกโหลดในปีEcclesia<b>CRM</b><br><b>ถ้าคุณต้องการจัดการพวกเขา "
+#~ "ก็กดการแจ้งเตือน</b>"
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "ช่วยชีวิตค่าเทพ"
+
+#~ msgid "Campaign"
+#~ msgstr "แคมเปญ"
+
+#~ msgid "saved successfully"
+#~ msgstr "ช่วยเหลือผู้ประสบความสำเร็จ"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "คุณกำลังจะส่งแคมเปญของคุณ! คุณแน่ใจเหรอ?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "คุณกำลังจะลบแคมเปญของคุณ! คุณแน่ใจเหรอ?"
+
+#, fuzzy
+#~ msgid "Loading data..."
+#~ msgstr "วันที่กำลังหลอก"
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "ไม่มีรายชื่อที่ถูกสร้างขึ้นด้วยบัญชีนี้"
+
+#~ msgid "Email List"
+#~ msgstr "รายชื่ออีเมล"
+
+#~ msgid "Subject"
+#~ msgstr "เป้าหมาย"
+
+#~ msgid "Members:"
+#~ msgstr "สมาชิก:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "นับไม่ได้รับการยอมรับ:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "นับไม่ถูกต้อง ตั้งแต่ส่งสัญญาณ"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "นับถ่ายเกินไป"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "นับถือความสะอาด ตั้งแต่ส่งสุดท้าย"
+
+#~ msgid "Campaigns"
+#~ msgstr "แคมเปญ"
+
+#~ msgid "Tags"
+#~ msgstr "แท็กส์"
+
+#~ msgid "is not configured"
+#~ msgstr "ไม่มีการจัดเรียงใด"
+
+#~ msgid "Please update the"
+#~ msgstr "กรุณาอัพเดทด้วยครับ"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "API กุญแจในการตั้งค่า"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "แก้ไข นายพลตั้งค่า"
+
+#, fuzzy
+#~ msgid "Then update"
+#~ msgstr "งั้นก็อัพเดทซะ"
+
+#~ msgid "For more info see our "
+#~ msgstr "เพื่อให้ข้อมูลเพิ่มเติม"
+
+#~ msgid "support docs."
+#~ msgstr "สนับสนุน"
+
+#~ msgid "List Title"
+#~ msgstr "ลิซ ทิทเทิล"
+
+#~ msgid "Your List Title"
+#~ msgstr "ลิสต์ ทิทเทิลของคุณ"
+
+#~ msgid "Your Subject"
+#~ msgstr "วิชาของคุณ"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "ขอยืนยัน"
+
+#~ msgid "Archive Bars"
+#~ msgstr "อาร์เชิลบาร์"
+
+#~ msgid "Public"
+#~ msgstr "สาธารณะ"
+
+#~ msgid "List Creation"
+#~ msgstr "ลิสต์สร้าง"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "คุณกำลังจะลบแท็ก!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr "นี่ก็ลบแท็ก สำหรับสมาชิกทุกคนในรายชื่อนี้ด้วย คุณแน่ใจเหรอ?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "ลบแท็ก"
+
+#~ msgid "People"
+#~ msgstr "ผู้คน"
+
+#~ msgid "Add a new tag"
+#~ msgstr "เพิ่มป้ายป้ายใหม่"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "ลบแท็กจากผู้เขียนหนังสือ"
+
+#~ msgid "Delete tag"
+#~ msgstr "ลบแท็ก"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "กำลังเติมทรัพยากร"
+
+#~ msgid "Check all boxes"
+#~ msgstr "ตรวจดูทุกกล่อง"
+
+#~ msgid "Subscribed"
+#~ msgstr "เขียนไว้"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "ไม่ได้รับการยอมรับ"
+
+#~ msgid "Email Marketing"
+#~ msgstr "การตลาดอีเมล"
+
+#, fuzzy
+#~ msgid "New tag"
+#~ msgstr "เพิ่มป้ายป้ายใหม่"
+
+#, fuzzy
+#~ msgid "Create tag"
+#~ msgstr "ลบแท็ก"
+
+#~ msgid "Adding tag..."
+#~ msgstr "เพิ่ม..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "ชื่อว่างเปล่า!"
+
+#, fuzzy
+#~ msgid "Add tag"
+#~ msgstr "ป้ายทะเบียนด้วยหรอ?"
+
+#, fuzzy
+#~ msgid "Selected tag"
+#~ msgstr "ลบแท็ก"
+
+#~ msgid "This will add the tag"
+#~ msgstr "นี่จะเพิ่มเลขที่"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "ที่เป็นสมาชิกที่เลือกทั้งหมดในรายชื่อ"
+
+#~ msgid "Select One"
+#~ msgstr "เลือกหนึ่ง"
+
+#~ msgid "All Tags"
+#~ msgstr "ทุกแท็กส์"
+
+#, fuzzy
+#~ msgid "Remove tags from selected members"
+#~ msgstr "ลบทั้งหมด"
+
+#, fuzzy
+#~ msgid "Choose a tag"
+#~ msgstr "เลือกชื่อโรล"
+
+#~ msgid "Removing tags..."
+#~ msgstr "ถอดป้ายทะเบียน..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "ลบป้ายทะเบียนทุกสำหรับ สมาชิกที่ถูกเลือกในรายการ"
+
+#, fuzzy
+#~ msgid "Keep tag"
+#~ msgstr "ลบแท็ก"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "ชื่อคนหรือครอบครัว หรือกลุ่ม"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "บรรจุผู้เขียนไว้"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "ผู้เขียนหนังสือจากกรุ๊ป"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "ผู้เขียนหนังสือจากครอบครัว"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr "กำลังเติมคนทั้งหมดจาก EcclesiaCRM<br>นี่คงใช้เวลาสักพัก"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "ที่จริง คุณควรที่จะลาออกจาก CRM รออีก 5 นาที "
+#~ "และทำการหาเสียงของคุณหลังจากนั้น<br>นำเข้าวันที่ใหญ่โต รัฐมาชิมป์ก็ช้า"
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr "กำลังเติมนักข่าวทั้งหมดเขียนข่าว จากEcclesiaCRM<br>นี่คงใช้เวลาสักพัก"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "ปิดครอบครัวทั้งหมดเป็นครั้งแรก ผู้เขียนรายงาน จากปี EcclesiaCRM<br>นี่ต้องใช้เวลาสักพัก"
+
+#, fuzzy
+#~ msgid "Update subscriber status"
+#~ msgstr "การเปลี่ยนแปลงสภาวะผู้เขียนวิชาการ"
+
+#, fuzzy
+#~ msgid "Selected subscriber"
+#~ msgstr "ลบผู้เขียนหนังสือ"
+
+#, fuzzy
+#~ msgid "Update"
+#~ msgstr "อัพเดทมา"
+
+#~ msgid "Changing status ..."
+#~ msgstr "การเปลี่ยนแปลงสถานะ"
+
+#, fuzzy
+#~ msgid "Delete subscriber"
+#~ msgstr "ลบผู้เขียนหนังสือ"
+
+#, fuzzy
+#~ msgid "Subscriber removal"
+#~ msgstr "เขียนไว้"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "คุณกำลังจะลบผู้เขียนหนังสือ คุณแน่ใจเหรอ?"
+
+#, fuzzy
+#~ msgid "Keep subscriber"
+#~ msgstr "บรรจุผู้เขียนไว้"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "ลบผู้เขียนหนังสือ"
+
+#, fuzzy
+#~ msgid "Delete mailing list"
+#~ msgstr "ลบ แมนเกอร์"
+
+#, fuzzy
+#~ msgid "This action is irreversible"
+#~ msgstr "การกระทำนี้ไม่สามารถแก้ไขได้ !!!"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "คุณอยากลบรายชื่อส่งสัญญานี่จริงๆเหรอ"
+
+#, fuzzy
+#~ msgid "Delete list"
+#~ msgstr "ลบแท็ก"
+
+#, fuzzy
+#~ msgid "Delete all subscribers"
+#~ msgstr "ลบผู้เขียนทั้งหมด"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "คุณแน่ใจนะว่าคุณต้องการลบผู้เขียนทั้งหมด"
+
+#, fuzzy
+#~ msgid "Delete all"
+#~ msgstr "ลบแท็ก"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "ลบผู้เขียนทั้งหมด"
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "ที่จริง คุณควรทิ้ง CRM ไว้ดีกว่า "
+#~ "และในอีกสี่สิบชั่วโมงเปิดมันใหม่เพื่อจัดการรายชื่อของคุณ<br>เพื่อลบฐานที่ใหญ่ที่สุด, MailChimp "
+#~ "API ก็ช้า"
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "สร้าง อีเมล แคมเปญ"
+
+#, fuzzy
+#~ msgid "Campaign details"
+#~ msgstr "แคมเปญ ทิทเทิล"
+
+#~ msgid "Campaign Title"
+#~ msgstr "แคมเปญ ทิทเทิล"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "เสียงหอบของคุณ"
+
+#~ msgid "For Tag"
+#~ msgstr "เพื่อแท็ก"
+
+#, fuzzy
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "คุณต้องตั้ง แคมเปญ ทิวเทิลให้กับโคมเปญ อีเมล"
+
+#~ msgid "Mail Subject"
+#~ msgstr "จดหมาย"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "วิชาจดหมายของคุณ"
+
+#~ msgid "All list members"
+#~ msgstr "รายชื่อทั้งหมด"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "เพิ่ม แคมเปญ"
+
+#, fuzzy
+#~ msgid "Campaign created"
+#~ msgstr "แคมเปญ ทิทเทิล"
+
+#, fuzzy
+#~ msgid "Your campaign is ready"
+#~ msgstr "เสียงหอบของคุณ"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "อยากจะจัดการแคมเปญใหม่โดยตรง"
+
+#, fuzzy
+#~ msgid "Open campaign"
+#~ msgstr "แคมเปญ"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "คุณต้องตั้ง แคมเปญ ทิวเทิลให้กับโคมเปญ อีเมล"
+
+#, fuzzy
+#~ msgid "Edit list settings"
+#~ msgstr "แก้ไข นายพลตั้งค่า"
+
+#~ msgid "List Name"
+#~ msgstr "ลิซชื่อ"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "การเปลี่ยนแปลงสภาวะผู้เขียนวิชาการ"
+
+#, fuzzy
+#~ msgid "Delete selected subscribers"
+#~ msgstr "ลบแท็กจากผู้เขียนหนังสือ"
+
+#, fuzzy
+#~ msgid "Selected members"
+#~ msgstr "เลือกแถว"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "คุณกำลังจะลบผู้เขียนทิ้ง คุณแน่ใจเหรอ?"
+
+#, fuzzy
+#~ msgid "selected"
+#~ msgstr "เลือก"
+
+#, fuzzy
+#~ msgid "Delete selected"
+#~ msgstr "ลบ อีเวนท์"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "ลบผู้เขียนที่ถูกลบ"
 
 #~ msgid "ERROR"
 #~ msgstr "อีร์โรร์"

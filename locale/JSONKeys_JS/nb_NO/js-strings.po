@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-05T17:38:50.828Z\n"
+"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -689,16 +689,6 @@ msgstr "Pågående"
 msgid "Please wait while the operation is being completed"
 msgstr "Vennligst vent mens operasjonen fullføres"
 
-msgid "Mailchimp"
-msgstr "Mailchimp"
-
-msgid ""
-"All the lists are now loaded in the CRM.<br><b>If you want to manage them, "
-"click this notification !</b>"
-msgstr ""
-"Alle listene er nå lastet inn i CRM-systemet.  1235  4568 Hvis du vil "
-"administrere dem, klikker du på dette varselet!"
-
 msgid "There was a problem retrieving the requested object"
 msgstr "Det oppstod et problem med å hente det forespurte objektet."
 
@@ -1095,422 +1085,6 @@ msgstr "Opprett dokument"
 msgid "You have to set a Title for your document"
 msgstr "Du må angi en tittel for dokumentet ditt"
 
-msgid "Saving Campaign ..."
-msgstr "Sparekampanje ..."
-
-msgid "Campaign"
-msgstr "Kampanje"
-
-msgid "saved successfully"
-msgstr "lagret vellykket"
-
-msgid "You're about to send your campaign! Are you sure ?"
-msgstr "Du er i ferd med å sende kampanjen din! Er du sikker?"
-
-msgid "Yes"
-msgstr "Ja"
-
-msgid "You're about to delete your campaign! Are you sure ?"
-msgstr "Du er i ferd med å slette kampanjen din! Er du sikker?"
-
-msgid "Loading..."
-msgstr "Laster..."
-
-msgid "Loading data..."
-msgstr "Laster inn data..."
-
-msgid "Please wait while we retrieve your MailChimp lists."
-msgstr "Vennligst vent mens vi henter MailChimp-listene dine."
-
-msgid "No list are created with this account ...."
-msgstr "Ingen lister opprettes med denne kontoen ...."
-
-msgid "You can create a new MailChimp list using the button above."
-msgstr "Du kan opprette en ny MailChimp-liste ved hjelp av knappen ovenfor."
-
-msgid "Email List"
-msgstr "E-postliste"
-
-msgid "Details"
-msgstr "Nærmere opplysninger"
-
-msgid "Subject"
-msgstr "Emne"
-
-msgid "Members:"
-msgstr "Medlemmer:"
-
-msgid "Unsubscribed count:"
-msgstr "Antall avmeldte:"
-
-msgid "Unsubscribed count since last send:"
-msgstr "Antall avmeldinger siden forrige sending:"
-
-msgid "Cleaned count:"
-msgstr "Renset antall:"
-
-msgid "Cleaned count since last send:"
-msgstr "Renset antall siden forrige sending:"
-
-msgid "Campaigns"
-msgstr "Kampanjer"
-
-msgid "Tags"
-msgstr "Tagger"
-
-msgid "is not configured"
-msgstr "er ikke konfigurert"
-
-msgid "Please update the"
-msgstr "Vennligst oppdater"
-
-msgid "API key in Setting->"
-msgstr "API-nøkkel i Innstillinger->"
-
-msgid "Edit General Settings"
-msgstr "Rediger generelle innstillinger"
-
-msgid "Then update"
-msgstr "Oppdater deretter"
-
-msgid "For more info see our "
-msgstr "For mer informasjon, se vår"
-
-msgid "support docs."
-msgstr "støttedokumenter."
-
-msgid "List Title"
-msgstr "Liste Tittel"
-
-msgid "Your List Title"
-msgstr "Tittelen på listen din"
-
-msgid "Your Subject"
-msgstr "Ditt emne"
-
-msgid "Permission Reminder"
-msgstr "Påminnelse om tillatelse"
-
-msgid "Archive Bars"
-msgstr "Arkiv barer"
-
-msgid "Public"
-msgstr "Offentlig"
-
-msgid "List Creation"
-msgstr "Opprettelse av lister"
-
-msgid "You're about to delete a tag!"
-msgstr "Du er i ferd med å slette en tagg!"
-
-msgid ""
-"This will also delete the tag for all the members in this list. Are you "
-"sure ?"
-msgstr ""
-"Dette vil også slette taggen for alle medlemmene i denne listen. Er du "
-"sikker?"
-
-msgid "Deleting tag"
-msgstr "Slette tagg"
-
-msgid "People"
-msgstr "Mennesker"
-
-msgid "Families"
-msgstr "Familier"
-
-msgid "Add a new tag"
-msgstr "Legg til en ny tagg"
-
-msgid "Delete tag from subscriber(s)"
-msgstr "Slett tagg fra abonnent(er)"
-
-msgid "Delete tag"
-msgstr "Slett tagg"
-
-msgid "Loading resources ..."
-msgstr "Laster inn ressurser ..."
-
-msgid "Check all boxes"
-msgstr "Kryss av i alle boksene"
-
-msgid "Subscribed"
-msgstr "Abonnert"
-
-msgid "Unsubscribed"
-msgstr "Avmeldt"
-
-msgid "Email Marketing"
-msgstr "E-postmarkedsføring"
-
-msgid "New tag"
-msgstr "Ny tag"
-
-msgid "Enter the name of the tag to create and apply to the selected members."
-msgstr ""
-"Skriv inn navnet på taggen som skal opprettes og brukes på de valgte "
-"medlemmene."
-
-msgid "Create tag"
-msgstr "Opprett tagg"
-
-msgid "Adding tag..."
-msgstr "Legge til tag..."
-
-msgid "Name is empty !!"
-msgstr "Navnet er tomt !!"
-
-msgid "Add tag"
-msgstr "Legg til tagg"
-
-msgid "Selected tag"
-msgstr "Valgt tagg"
-
-msgid "This will add the tag"
-msgstr "Dette vil legge til taggen"
-
-msgid "to all the current selected members in the list."
-msgstr "til alle de nåværende valgte medlemmene i listen."
-
-msgid "Select One"
-msgstr "Velg en"
-
-msgid "All Tags"
-msgstr "Alle tagger"
-
-msgid "Remove tags from selected members"
-msgstr "Fjern tagger fra utvalgte medlemmer"
-
-msgid "Choose a tag"
-msgstr "Velg en tagg"
-
-msgid ""
-"Select one tag to remove, or choose all tags for a full cleanup on the "
-"selected members."
-msgstr ""
-"Velg én tagg som skal fjernes, eller velg alle tagger for å få en "
-"fullstendig opprydding av de valgte medlemmene."
-
-msgid "Apply"
-msgstr "Søk"
-
-msgid "Removing tags..."
-msgstr "Fjerne tagger..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Slette alle tagger for de valgte medlemmene i listen..."
-
-msgid "This action affects the whole list"
-msgstr "Denne handlingen påvirker hele listen"
-
-msgid "Keep tag"
-msgstr "Behold taggen"
-
-msgid "A person name or Family or Group"
-msgstr "Et personnavn eller en familie eller gruppe"
-
-msgid "Loading subscriber"
-msgstr "Laster inn abonnent"
-
-msgid "Loading subscribers from Group"
-msgstr "Innlasting av abonnenter fra Group"
-
-msgid "Loading subscribers from family"
-msgstr "Innlasting av abonnenter fra familie"
-
-msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "Laster inn alle personer fra EcclesiaCRM<br>Dette kan ta en stund!"
-
-msgid ""
-"In fact, you've better to quit the CRM, wait 5 minutes and make your "
-"campaigns after.<br>To import huge datas, MailChimp API is slow."
-msgstr ""
-"Faktisk er det bedre å avslutte CRM, vente 5 minutter og lage kampanjene "
-"dine etter.<br> For å importere store data er MailChimp API treg."
-
-msgid ""
-"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
-"while !"
-msgstr ""
-"Laster inn alle nyhetsbrevabonnenter fra EcclesiaCRM<br>Dette kan ta en "
-"stund!"
-
-msgid ""
-"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
-"could take a while !"
-msgstr ""
-"Laster inn alle familiens første hovedpersoner abonnenter fra "
-"EcclesiaCRM<br>Dette kan ta en stund!"
-
-msgid "Update subscriber status"
-msgstr "Oppdater abonnentstatus"
-
-msgid "Selected subscriber"
-msgstr "Utvalgt abonnent"
-
-msgid "Choose the status to apply to this subscriber."
-msgstr "Velg hvilken status som skal gjelde for denne abonnenten."
-
-msgid "Update"
-msgstr "Oppdatering"
-
-msgid "Changing status ..."
-msgstr "Endring av status ..."
-
-msgid "Delete subscriber"
-msgstr "Slett abonnent"
-
-msgid "Subscriber removal"
-msgstr "Fjerning av abonnent"
-
-msgid "You're about to delete a subscriber! Are you sure ?"
-msgstr "Du er i ferd med å slette en abonnent! Er du sikker?"
-
-msgid "Keep subscriber"
-msgstr "Behold abonnenten"
-
-msgid "Deleting Subscriber..."
-msgstr "Slette abonnent..."
-
-msgid "Delete mailing list"
-msgstr "Slett adresseliste"
-
-msgid "This action is irreversible"
-msgstr "Denne handlingen er irreversibel"
-
-msgid "Do you really want to delete this mailing list ?"
-msgstr "Vil du virkelig slette denne adresselisten?"
-
-msgid "Delete list"
-msgstr "Slett liste"
-
-msgid "Delete all subscribers"
-msgstr "Slett alle abonnenter"
-
-msgid "Bulk deletion"
-msgstr "Bulk-sletting"
-
-msgid "Are you sure you want to delete all the subscribers"
-msgstr "Er du sikker på at du vil slette alle abonnentene?"
-
-msgid "Delete all"
-msgstr "Slett alle"
-
-msgid "Deleting all subscribers..."
-msgstr "Slette alle abonnenter..."
-
-msgid ""
-"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
-"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
-msgstr ""
-"Faktisk er det bedre å forlate CRM, og om en kvart time åpner du den igjen "
-"for å administrere listen din.<br> For å slette store data er MailChimp API "
-"treg."
-
-msgid "Email Campaign Creation"
-msgstr "Opprettelse av e-postkampanje"
-
-msgid ""
-"Prepare a clear title, confirm the target tag and write the content of your "
-"email campaign."
-msgstr ""
-"Lag en tydelig tittel, bekreft måltaggen og skriv innholdet i e-"
-"postkampanjen."
-
-msgid "Campaign details"
-msgstr "Detaljer om kampanjen"
-
-msgid ""
-"Set the campaign title and review the MailChimp target before writing the "
-"message."
-msgstr ""
-"Angi kampanjetittelen og gå gjennom MailChimp-målet før du skriver meldingen."
-
-msgid "Campaign Title"
-msgstr "Tittel på kampanjen"
-
-msgid "Your Campaign Title"
-msgstr "Din kampanjetittel"
-
-msgid "For Tag"
-msgstr "For Tag"
-
-msgid "Write the subject and the body of your email campaign."
-msgstr "Skriv emnefeltet og brødteksten til e-postkampanjen din."
-
-msgid "Mail Subject"
-msgstr "E-post Emne"
-
-msgid "Your Mail Subject"
-msgstr "E-postens emne"
-
-msgid "Compose the content that will be sent to members of this tag."
-msgstr "Komponere innholdet som skal sendes til medlemmer av denne taggen."
-
-msgid "All list members"
-msgstr "Alle medlemmer av listen"
-
-msgid "Adding Campaign ..."
-msgstr "Legge til kampanje ..."
-
-msgid "Campaign created"
-msgstr "Kampanjen ble opprettet"
-
-msgid "Your campaign is ready"
-msgstr "Kampanjen din er klar"
-
-msgid "Would like to manage directly this new campaign ?"
-msgstr "Ønsker du å administrere denne nye kampanjen direkte?"
-
-msgid "Open campaign"
-msgstr "Åpen kampanje"
-
-msgid "Stay here"
-msgstr "Bli her"
-
-msgid "You have to set a Campaign Title for your eMail Campaign"
-msgstr "Du må angi en kampanjetittel for e-postkampanjen din."
-
-msgid "Edit list settings"
-msgstr "Rediger listeinnstillinger"
-
-msgid "MailChimp list settings"
-msgstr "Innstillinger for MailChimp-listen"
-
-msgid "Update the main details used by this list and its campaigns."
-msgstr ""
-"Oppdater hovedopplysningene som brukes av denne listen og dens kampanjer."
-
-msgid "List Name"
-msgstr "Liste Navn"
-
-msgid "Changing subscribers state..."
-msgstr "Endring av abonnentstatus..."
-
-msgid "Delete selected subscribers"
-msgstr "Slett valgte abonnenter"
-
-msgid "Selected members"
-msgstr "Utvalgte medlemmer"
-
-msgid "You're about to delete subscribers! Are you sure ?"
-msgstr "Du er i ferd med å slette abonnenter! Er du sikker?"
-
-msgid "selected"
-msgstr "valgt"
-
-msgid "Delete selected"
-msgstr "Slett valgt"
-
-msgid "Deleting Subscribers..."
-msgstr "Slette abonnenter..."
-
-msgid "Family"
-msgstr "Familie"
-
-msgid "Person"
-msgstr "Person"
-
 msgid "Free Event Attendees"
 msgstr "Deltakere på gratis arrangementer"
 
@@ -1745,6 +1319,12 @@ msgstr "Elektroniske transaksjonsdetaljer"
 msgid "TOTAL"
 msgstr "TOTALT"
 
+msgid "Family"
+msgstr "Familie"
+
+msgid "Person"
+msgstr "Person"
+
 msgid "Anonymous"
 msgstr "Anonym"
 
@@ -1759,6 +1339,9 @@ msgstr "Metode"
 
 msgid "Check Number"
 msgstr "Kontrollnummer"
+
+msgid "Details"
+msgstr "Nærmere opplysninger"
 
 msgid "Tracking"
 msgstr "Sporing"
@@ -1789,6 +1372,9 @@ msgstr "Depositum Kommentar"
 
 msgid "Closed"
 msgstr "Avsluttet"
+
+msgid "Yes"
+msgstr "Ja"
 
 msgid "Deposit Type"
 msgstr "Type innskudd"
@@ -2128,6 +1714,9 @@ msgstr "Ingen oppføringer funnet for denne visningen."
 
 msgid "No matching records found."
 msgstr "Ingen matchende poster funnet."
+
+msgid "Loading..."
+msgstr "Laster..."
 
 msgid "Never contacted"
 msgstr "Aldri kontaktet"
@@ -2714,6 +2303,9 @@ msgstr "Plugin-manager"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Den gjeldende bildemappen er nå den offentlige mappen !!!!"
+
+msgid "Families"
+msgstr "Familier"
 
 msgid "Singles"
 msgstr "Singler"
@@ -3326,6 +2918,417 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Alle medlemskap vil bli ødelagt.  Medlemmene selv vil ikke bli endret."
+
+#~ msgid "Mailchimp"
+#~ msgstr "Mailchimp"
+
+#~ msgid ""
+#~ "All the lists are now loaded in the CRM.<br><b>If you want to manage "
+#~ "them, click this notification !</b>"
+#~ msgstr ""
+#~ "Alle listene er nå lastet inn i CRM-systemet.  1235  4568 Hvis du vil "
+#~ "administrere dem, klikker du på dette varselet!"
+
+#~ msgid "Saving Campaign ..."
+#~ msgstr "Sparekampanje ..."
+
+#~ msgid "Campaign"
+#~ msgstr "Kampanje"
+
+#~ msgid "saved successfully"
+#~ msgstr "lagret vellykket"
+
+#~ msgid "You're about to send your campaign! Are you sure ?"
+#~ msgstr "Du er i ferd med å sende kampanjen din! Er du sikker?"
+
+#~ msgid "You're about to delete your campaign! Are you sure ?"
+#~ msgstr "Du er i ferd med å slette kampanjen din! Er du sikker?"
+
+#~ msgid "Loading data..."
+#~ msgstr "Laster inn data..."
+
+#~ msgid "Please wait while we retrieve your MailChimp lists."
+#~ msgstr "Vennligst vent mens vi henter MailChimp-listene dine."
+
+#~ msgid "No list are created with this account ...."
+#~ msgstr "Ingen lister opprettes med denne kontoen ...."
+
+#~ msgid "You can create a new MailChimp list using the button above."
+#~ msgstr "Du kan opprette en ny MailChimp-liste ved hjelp av knappen ovenfor."
+
+#~ msgid "Email List"
+#~ msgstr "E-postliste"
+
+#~ msgid "Subject"
+#~ msgstr "Emne"
+
+#~ msgid "Members:"
+#~ msgstr "Medlemmer:"
+
+#~ msgid "Unsubscribed count:"
+#~ msgstr "Antall avmeldte:"
+
+#~ msgid "Unsubscribed count since last send:"
+#~ msgstr "Antall avmeldinger siden forrige sending:"
+
+#~ msgid "Cleaned count:"
+#~ msgstr "Renset antall:"
+
+#~ msgid "Cleaned count since last send:"
+#~ msgstr "Renset antall siden forrige sending:"
+
+#~ msgid "Campaigns"
+#~ msgstr "Kampanjer"
+
+#~ msgid "Tags"
+#~ msgstr "Tagger"
+
+#~ msgid "is not configured"
+#~ msgstr "er ikke konfigurert"
+
+#~ msgid "Please update the"
+#~ msgstr "Vennligst oppdater"
+
+#~ msgid "API key in Setting->"
+#~ msgstr "API-nøkkel i Innstillinger->"
+
+#~ msgid "Edit General Settings"
+#~ msgstr "Rediger generelle innstillinger"
+
+#~ msgid "Then update"
+#~ msgstr "Oppdater deretter"
+
+#~ msgid "For more info see our "
+#~ msgstr "For mer informasjon, se vår"
+
+#~ msgid "support docs."
+#~ msgstr "støttedokumenter."
+
+#~ msgid "List Title"
+#~ msgstr "Liste Tittel"
+
+#~ msgid "Your List Title"
+#~ msgstr "Tittelen på listen din"
+
+#~ msgid "Your Subject"
+#~ msgstr "Ditt emne"
+
+#~ msgid "Permission Reminder"
+#~ msgstr "Påminnelse om tillatelse"
+
+#~ msgid "Archive Bars"
+#~ msgstr "Arkiv barer"
+
+#~ msgid "Public"
+#~ msgstr "Offentlig"
+
+#~ msgid "List Creation"
+#~ msgstr "Opprettelse av lister"
+
+#~ msgid "You're about to delete a tag!"
+#~ msgstr "Du er i ferd med å slette en tagg!"
+
+#~ msgid ""
+#~ "This will also delete the tag for all the members in this list. Are you "
+#~ "sure ?"
+#~ msgstr ""
+#~ "Dette vil også slette taggen for alle medlemmene i denne listen. Er du "
+#~ "sikker?"
+
+#~ msgid "Deleting tag"
+#~ msgstr "Slette tagg"
+
+#~ msgid "People"
+#~ msgstr "Mennesker"
+
+#~ msgid "Add a new tag"
+#~ msgstr "Legg til en ny tagg"
+
+#~ msgid "Delete tag from subscriber(s)"
+#~ msgstr "Slett tagg fra abonnent(er)"
+
+#~ msgid "Delete tag"
+#~ msgstr "Slett tagg"
+
+#~ msgid "Loading resources ..."
+#~ msgstr "Laster inn ressurser ..."
+
+#~ msgid "Check all boxes"
+#~ msgstr "Kryss av i alle boksene"
+
+#~ msgid "Subscribed"
+#~ msgstr "Abonnert"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Avmeldt"
+
+#~ msgid "Email Marketing"
+#~ msgstr "E-postmarkedsføring"
+
+#~ msgid "New tag"
+#~ msgstr "Ny tag"
+
+#~ msgid ""
+#~ "Enter the name of the tag to create and apply to the selected members."
+#~ msgstr ""
+#~ "Skriv inn navnet på taggen som skal opprettes og brukes på de valgte "
+#~ "medlemmene."
+
+#~ msgid "Create tag"
+#~ msgstr "Opprett tagg"
+
+#~ msgid "Adding tag..."
+#~ msgstr "Legge til tag..."
+
+#~ msgid "Name is empty !!"
+#~ msgstr "Navnet er tomt !!"
+
+#~ msgid "Add tag"
+#~ msgstr "Legg til tagg"
+
+#~ msgid "Selected tag"
+#~ msgstr "Valgt tagg"
+
+#~ msgid "This will add the tag"
+#~ msgstr "Dette vil legge til taggen"
+
+#~ msgid "to all the current selected members in the list."
+#~ msgstr "til alle de nåværende valgte medlemmene i listen."
+
+#~ msgid "Select One"
+#~ msgstr "Velg en"
+
+#~ msgid "All Tags"
+#~ msgstr "Alle tagger"
+
+#~ msgid "Remove tags from selected members"
+#~ msgstr "Fjern tagger fra utvalgte medlemmer"
+
+#~ msgid "Choose a tag"
+#~ msgstr "Velg en tagg"
+
+#~ msgid ""
+#~ "Select one tag to remove, or choose all tags for a full cleanup on the "
+#~ "selected members."
+#~ msgstr ""
+#~ "Velg én tagg som skal fjernes, eller velg alle tagger for å få en "
+#~ "fullstendig opprydding av de valgte medlemmene."
+
+#~ msgid "Apply"
+#~ msgstr "Søk"
+
+#~ msgid "Removing tags..."
+#~ msgstr "Fjerne tagger..."
+
+#~ msgid "Deleting all tags for the selected members in the list..."
+#~ msgstr "Slette alle tagger for de valgte medlemmene i listen..."
+
+#~ msgid "This action affects the whole list"
+#~ msgstr "Denne handlingen påvirker hele listen"
+
+#~ msgid "Keep tag"
+#~ msgstr "Behold taggen"
+
+#~ msgid "A person name or Family or Group"
+#~ msgstr "Et personnavn eller en familie eller gruppe"
+
+#~ msgid "Loading subscriber"
+#~ msgstr "Laster inn abonnent"
+
+#~ msgid "Loading subscribers from Group"
+#~ msgstr "Innlasting av abonnenter fra Group"
+
+#~ msgid "Loading subscribers from family"
+#~ msgstr "Innlasting av abonnenter fra familie"
+
+#~ msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+#~ msgstr "Laster inn alle personer fra EcclesiaCRM<br>Dette kan ta en stund!"
+
+#~ msgid ""
+#~ "In fact, you've better to quit the CRM, wait 5 minutes and make your "
+#~ "campaigns after.<br>To import huge datas, MailChimp API is slow."
+#~ msgstr ""
+#~ "Faktisk er det bedre å avslutte CRM, vente 5 minutter og lage kampanjene "
+#~ "dine etter.<br> For å importere store data er MailChimp API treg."
+
+#~ msgid ""
+#~ "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+#~ "while !"
+#~ msgstr ""
+#~ "Laster inn alle nyhetsbrevabonnenter fra EcclesiaCRM<br>Dette kan ta en "
+#~ "stund!"
+
+#~ msgid ""
+#~ "Loading all families first headpeople subscribers from "
+#~ "EcclesiaCRM<br>This could take a while !"
+#~ msgstr ""
+#~ "Laster inn alle familiens første hovedpersoner abonnenter fra "
+#~ "EcclesiaCRM<br>Dette kan ta en stund!"
+
+#~ msgid "Update subscriber status"
+#~ msgstr "Oppdater abonnentstatus"
+
+#~ msgid "Selected subscriber"
+#~ msgstr "Utvalgt abonnent"
+
+#~ msgid "Choose the status to apply to this subscriber."
+#~ msgstr "Velg hvilken status som skal gjelde for denne abonnenten."
+
+#~ msgid "Update"
+#~ msgstr "Oppdatering"
+
+#~ msgid "Changing status ..."
+#~ msgstr "Endring av status ..."
+
+#~ msgid "Delete subscriber"
+#~ msgstr "Slett abonnent"
+
+#~ msgid "Subscriber removal"
+#~ msgstr "Fjerning av abonnent"
+
+#~ msgid "You're about to delete a subscriber! Are you sure ?"
+#~ msgstr "Du er i ferd med å slette en abonnent! Er du sikker?"
+
+#~ msgid "Keep subscriber"
+#~ msgstr "Behold abonnenten"
+
+#~ msgid "Deleting Subscriber..."
+#~ msgstr "Slette abonnent..."
+
+#~ msgid "Delete mailing list"
+#~ msgstr "Slett adresseliste"
+
+#~ msgid "This action is irreversible"
+#~ msgstr "Denne handlingen er irreversibel"
+
+#~ msgid "Do you really want to delete this mailing list ?"
+#~ msgstr "Vil du virkelig slette denne adresselisten?"
+
+#~ msgid "Delete list"
+#~ msgstr "Slett liste"
+
+#~ msgid "Delete all subscribers"
+#~ msgstr "Slett alle abonnenter"
+
+#~ msgid "Bulk deletion"
+#~ msgstr "Bulk-sletting"
+
+#~ msgid "Are you sure you want to delete all the subscribers"
+#~ msgstr "Er du sikker på at du vil slette alle abonnentene?"
+
+#~ msgid "Delete all"
+#~ msgstr "Slett alle"
+
+#~ msgid "Deleting all subscribers..."
+#~ msgstr "Slette alle abonnenter..."
+
+#~ msgid ""
+#~ "In fact, you've better to leave the CRM, and in a quater of an hour re-"
+#~ "open it to manage your list.<br>To delete huge datas, MailChimp API is "
+#~ "slow."
+#~ msgstr ""
+#~ "Faktisk er det bedre å forlate CRM, og om en kvart time åpner du den "
+#~ "igjen for å administrere listen din.<br> For å slette store data er "
+#~ "MailChimp API treg."
+
+#~ msgid "Email Campaign Creation"
+#~ msgstr "Opprettelse av e-postkampanje"
+
+#~ msgid ""
+#~ "Prepare a clear title, confirm the target tag and write the content of "
+#~ "your email campaign."
+#~ msgstr ""
+#~ "Lag en tydelig tittel, bekreft måltaggen og skriv innholdet i e-"
+#~ "postkampanjen."
+
+#~ msgid "Campaign details"
+#~ msgstr "Detaljer om kampanjen"
+
+#~ msgid ""
+#~ "Set the campaign title and review the MailChimp target before writing the "
+#~ "message."
+#~ msgstr ""
+#~ "Angi kampanjetittelen og gå gjennom MailChimp-målet før du skriver "
+#~ "meldingen."
+
+#~ msgid "Campaign Title"
+#~ msgstr "Tittel på kampanjen"
+
+#~ msgid "Your Campaign Title"
+#~ msgstr "Din kampanjetittel"
+
+#~ msgid "For Tag"
+#~ msgstr "For Tag"
+
+#~ msgid "Write the subject and the body of your email campaign."
+#~ msgstr "Skriv emnefeltet og brødteksten til e-postkampanjen din."
+
+#~ msgid "Mail Subject"
+#~ msgstr "E-post Emne"
+
+#~ msgid "Your Mail Subject"
+#~ msgstr "E-postens emne"
+
+#~ msgid "Compose the content that will be sent to members of this tag."
+#~ msgstr "Komponere innholdet som skal sendes til medlemmer av denne taggen."
+
+#~ msgid "All list members"
+#~ msgstr "Alle medlemmer av listen"
+
+#~ msgid "Adding Campaign ..."
+#~ msgstr "Legge til kampanje ..."
+
+#~ msgid "Campaign created"
+#~ msgstr "Kampanjen ble opprettet"
+
+#~ msgid "Your campaign is ready"
+#~ msgstr "Kampanjen din er klar"
+
+#~ msgid "Would like to manage directly this new campaign ?"
+#~ msgstr "Ønsker du å administrere denne nye kampanjen direkte?"
+
+#~ msgid "Open campaign"
+#~ msgstr "Åpen kampanje"
+
+#~ msgid "Stay here"
+#~ msgstr "Bli her"
+
+#~ msgid "You have to set a Campaign Title for your eMail Campaign"
+#~ msgstr "Du må angi en kampanjetittel for e-postkampanjen din."
+
+#~ msgid "Edit list settings"
+#~ msgstr "Rediger listeinnstillinger"
+
+#~ msgid "MailChimp list settings"
+#~ msgstr "Innstillinger for MailChimp-listen"
+
+#~ msgid "Update the main details used by this list and its campaigns."
+#~ msgstr ""
+#~ "Oppdater hovedopplysningene som brukes av denne listen og dens kampanjer."
+
+#~ msgid "List Name"
+#~ msgstr "Liste Navn"
+
+#~ msgid "Changing subscribers state..."
+#~ msgstr "Endring av abonnentstatus..."
+
+#~ msgid "Delete selected subscribers"
+#~ msgstr "Slett valgte abonnenter"
+
+#~ msgid "Selected members"
+#~ msgstr "Utvalgte medlemmer"
+
+#~ msgid "You're about to delete subscribers! Are you sure ?"
+#~ msgstr "Du er i ferd med å slette abonnenter! Er du sikker?"
+
+#~ msgid "selected"
+#~ msgstr "valgt"
+
+#~ msgid "Delete selected"
+#~ msgstr "Slett valgt"
+
+#~ msgid "Deleting Subscribers..."
+#~ msgstr "Slette abonnenter..."
 
 #~ msgid "ERROR"
 #~ msgstr "FEIL"
