@@ -131,7 +131,7 @@ $mailChimpWithAddressPhone = !empty($bWithAddressPhone);
                                     <label class="field-label" for="requestTimeOut"><?= dgettext("messages-MailChimp", "Request timeout") ?></label>
                                     <div class="field-shell">
                                         <div class="input-group">
-                                            <input type="number" class="form-control" min="1" max="300" id="requestTimeOut" name="requestTimeOut" value="<?= $mailChimpRequestTimeOut ?>">
+                                            <input type="number" class="form-control" min="1" max="3600" id="requestTimeOut" name="requestTimeOut" value="<?= $mailChimpRequestTimeOut ?>">
                                             <div class="input-group-append">
                                                 <span class="input-group-text"><?= dgettext("messages-MailChimp", "seconds") ?></span>
                                             </div>

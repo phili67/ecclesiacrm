@@ -66,12 +66,8 @@ class MailChimpService
         $this->sMailChimpEmailSender = $params->getEmailSender();
         $this->bMailServiceWithAddressPhone = $params->getWithAddressPhone();
         
-        if ( !empty($this->apiKey) ) {
+        if ( !empty($this->apiKey) and $this->apiKey != 'None' ) {
             $this->isActive = true;
-
-            if (isset($_SESSION['myMailchimp'])) {
-                unset($_SESSION['myMailchimp']);
-            }
 
             $this->myMailchimp = new MailChimp($this->apiKey);
 
@@ -215,7 +211,7 @@ class MailChimpService
 
     public function getConnectionStatus()
     {
-        if (!isset ($connection_status) && !empty($this)) {
+        if (!isset ($_SESSION['MailChimpConnectionStatus']) && !empty($this)) {
             $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
         }
 
