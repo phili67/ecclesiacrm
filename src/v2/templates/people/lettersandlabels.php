@@ -103,6 +103,9 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
     } elseif ($_POST['realAction'] == 'SubmitConfirmReportEmail') {
         $_SESSION['POST_Datas'] = $_POST;
         RedirectUtils::Redirect('Reports/ConfirmReportEmail.php');
+    } elseif ($_POST['realAction'] == 'SubmitConfirmReportCheck') {
+        $_SESSION['POST_Datas'] = $_POST;
+        RedirectUtils::Redirect('v2/people/confirmReportCheck');
     }
 } else {
     $sLabelFormat = 'Tractor';
@@ -125,10 +128,41 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
     ?>
 </div>
 
-<form method="post" action="<?= $sRootPath ?>/v2/people/LettersAndLabels" id="Myform">
+<form method="post" action="<?= $sRootPath ?>/v2/people/LettersAndLabels" id="LettersAndLabelsForm">
     <input id="personsId" name="personsId" type="hidden" value="" />
     <input id="familiesId" name="familiesId" type="hidden" value="" />
     <input id="realAction" name="realAction" type="hidden" value="" />
+
+
+    <div class="card card-outline card-primary shadow-sm mb-3">
+        <div class="card-header py-2 d-flex justify-content-between align-items-center">
+            <h3 class="card-title mb-0"><i class="fas fa-user-friends mr-1"></i><?= _("Reports management") ?></h3>
+        </div>
+        <div class="card-body py-3">
+            <div class="d-flex flex-wrap gap- align-items-center" style="gap:0.5rem;">
+                <div class="btn-group mr-2 mb-2" role="group" aria-label="PDF reports">
+                    <button class="btn btn-outline-success" type="submit" name="realAction" value="SubmitNewsLetter">
+                        <i class="fas fa-file-pdf"></i> <?= gettext('Newsletter labels') ?>
+                    </button>
+                    <button class="btn btn-outline-primary" type="submit" name="realAction" value="SubmitConfirmLabels">
+                        <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data labels') ?>
+                    </button>
+                    <button class="btn btn-primary" type="submit" name="realAction" value="SubmitConfirmReport">
+                        <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data letter') ?>
+                    </button>                    
+                </div>
+
+                <button class="btn btn-outline-success mr-2 mb-2" type="submit" name="realAction" value="SubmitConfirmReportCheck">
+                    <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data in person') ?>
+                </button>
+
+                <button class="btn btn-outline-danger mr-2 mb-2" type="submit" name="realAction" value="SubmitConfirmReportEmail">
+                    <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data Email') ?>
+                </button>
+                    
+            </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-9">
@@ -170,9 +204,9 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                                     foreach ($ormPersonPersonCustomFields as $ormPersonPersonCustomField) {
                                         if (($aSecurityType[$ormPersonPersonCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormPersonPersonCustomField->getCustomFieldSec()]])) {
                                 ?>
-                                            <div class="form-check mb-1">
-                                                <input class="form-check-input" type="checkbox" name="bCustomPerson<?= $ormPersonPersonCustomField->getCustomOrder() ?>" value="<?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>>
-                                                <label class="form-check-label"><?= $ormPersonPersonCustomField->getCustomName() ?></label>
+                                            <div class="custom-control custom-switch mb-1">
+                                                <input class="custom-control-input" type="checkbox" name="bCustomPerson<?= $ormPersonPersonCustomField->getCustomOrder() ?>" value="<?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormPersonPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?> id="bCustomPerson<?= $ormPersonPersonCustomField->getCustomOrder() ?>">
+                                                <label class="custom-control-label" for="bCustomPerson<?= $ormPersonPersonCustomField->getCustomOrder() ?>"><?= $ormPersonPersonCustomField->getCustomName() ?></label>
                                             </div>
                                 <?php
                                         }
@@ -189,9 +223,9 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                                     foreach ($ormFamilyPersonCustomFields as $ormFamilyPersonCustomField) {
                                         if (($aSecurityType[$ormFamilyPersonCustomField->getCustomFieldSec()] == 'bAll') || ($_SESSION[$aSecurityType[$ormFamilyPersonCustomField->getCustomFieldSec()]])) {
                                 ?>
-                                            <div class="form-check mb-1">
-                                                <input class="form-check-input" type="checkbox" name="bCustomFamily<?= $ormFamilyPersonCustomField->getCustomOrder() ?>" value="<?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?>>
-                                                <label class="form-check-label"><?= $ormFamilyPersonCustomField->getCustomName() ?></label>
+                                            <div class="custom-control custom-switch  mb-1">
+                                                <input class="custom-control-input" type="checkbox" name="bCustomFamily<?= $ormFamilyPersonCustomField->getCustomOrder() ?>" value="<?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'1':'0' ?>" <?= $ormFamilyPersonCustomField->getCustomConfirmationDatas()?'checked':'' ?> id="bCustomFamily<?= $ormFamilyPersonCustomField->getCustomOrder() ?>">
+                                                <label class="custom-control-label" for="bCustomFamily<?= $ormFamilyPersonCustomField->getCustomOrder() ?>"><?= $ormFamilyPersonCustomField->getCustomName() ?></label>
                                             </div>
                                 <?php
                                         }
@@ -203,99 +237,92 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                         </div>
                         <div class="col-md-4">
                             <div class="card card-outline card-secondary h-100">
-                            <div class="card-body py-2">
-                            <h5 class="mb-2"><?= _("Person Classifications") ?></h5>
-                            <select name="classList[]" style="width:100%" multiple id="classList">
-                                <?php
-                                    //Get Classifications for the drop-down
-                                    $ormClassifications = ListOptionQuery::Create()
-                                        ->orderByOptionSequence()
-                                        ->findById(1);
-                                    foreach ($ormClassifications as $ormClassification) {
-                                    ?>
-                                        <option value="<?= $ormClassification->getOptionID() ?>"><?= $ormClassification->getOptionName() ?>&nbsp;
+                                <div class="card-body py-2">                                    
+                                    <h5 class=" mb-2"><?= _("Selection Scope") ?></h5>
+
+                                    <select class="form-control form-control-sm" name="letterandlabelsnamingmethod" id="letterandlabelsnamingmethod">
+                                        <option value="family"><?= gettext("Addresses") ?></option>
+                                        <option value="person"><?= gettext("Persons") ?></option>
+                                    </select>
+
+                                    <hr/>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label><?= _("Search") ?></label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select name="person-family-search" class="person-family-search form-control select2" style="width:100%"></select>
+                                        </div>                                
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-4">
+                                            <label><?= _("Selected") ?></label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div id="users" class="small text-muted"><?= _("None") ?></div>
+                                        </div>                                
+                                        <div class="col-md-1">
+                                            <button type="button" class="btn btn-outline-danger btn-xs" id="remove-users" title="<?= _('Clear selected') ?>">
+                                                <i class="fa fa-trash-can"></i>
+                                            </button>
+                                        </div>                                
+                                    </div>
+
+                                    <hr />
+
+                                    <h5 class="mb-2"><?= _("Person Classifications") ?></h5>
+                                    <select name="classList[]" style="width:100%" multiple id="classList">
                                         <?php
-                                    }
-                                    ?>
-                            </select>
+                                            //Get Classifications for the drop-down
+                                            $ormClassifications = ListOptionQuery::Create()
+                                                ->orderByOptionSequence()
+                                                ->findById(1);
+                                            foreach ($ormClassifications as $ormClassification) {
+                                            ?>
+                                                <option value="<?= $ormClassification->getOptionID() ?>"><?= $ormClassification->getOptionName() ?>&nbsp;
+                                                <?php
+                                            }
+                                            ?>
+                                    </select>
 
-                            <hr />
+                                    <hr />                                    
 
-                            <h6 class="text-muted text-uppercase mb-2"><?= _("Selection Scope") ?></h6>
+                                    <h6 class="mb-2"><?= _("Age Range") ?></h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group"><label><?= _("Minimum Age") ?></label>
+                                                <input size="5" name="minAge" type="text" value="0" class="form-control form-control-sm">
+                                                <div class="help-block">
+                                                    <div><?= _("The minimum age for which you want records returned.") ?></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group"><label><?= _("Maximum Age") ?></label>
+                                                <input size="5" name="maxAge" type="text" value="130" class="form-control form-control-sm">
+                                                <div class="help-block">
+                                                    <div><?= _("The maximum age for which you want records returned.") ?></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <select class="form-control form-control-sm" name="letterandlabelsnamingmethod" id="letterandlabelsnamingmethod">
-                                <option value="family"><?= gettext("Addresses") ?></option>
-                                <option value="person"><?= gettext("Persons") ?></option>
-                            </select>
-
-                            <hr/>
-
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label><?= _("Search") ?></label>
-                                </div>
-                                <div class="col-md-10">
-                                    <select name="person-family-search" class="person-family-search form-control select2" style="width:100%"></select>
-                                </div>                                
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-2">
-                                    <label><?= _("Selected") ?></label>
-                                </div>
-                                <div class="col-md-9">
-                                    <div id="users" class="small text-muted"><?= _("None") ?></div>
-                                </div>                                
-                                <div class="col-md-1">
-                                    <button type="button" class="btn btn-outline-secondary btn-xs" id="remove-users" title="<?= _('Clear selected') ?>">
-                                        <i class="fa fa-trash-can"></i>
-                                    </button>
-                                </div>                                
-                            </div>
-
-                            <hr />
-
-                            <h6 class="text-muted text-uppercase mb-2"><?= _("Age Range") ?></h6>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group"><label><?= _("Minimum Age") ?></label>
-                                        <input size="5" name="minAge" type="text" value="0" class="form-control form-control-sm">
-                                        <div class="help-block">
-                                            <div><?= _("The minimum age for which you want records returned.") ?></div>
+                                    <hr/>
+                                    
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-12 pt-2">
+                                            <div class="custom-control custom-switch  mb-1">
+                                                <input class="custom-control-input" type="checkbox" name="useQRCode" value="1" id="useQRCode">
+                                                <label class="custom-control-label" for="useQRCode"><i class="fas fa-qrcode mr-1"></i><?= _("With a link (QR code) and form submission") ?></label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group"><label><?= _("Maximum Age") ?></label>
-                                        <input size="5" name="maxAge" type="text" value="130" class="form-control form-control-sm">
-                                        <div class="help-block">
-                                            <div><?= _("The maximum age for which you want records returned.") ?></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-footer d-flex flex-wrap align-items-center">
-                    <div class="btn-group mr-2 mb-2" role="group" aria-label="PDF reports">
-                    <button class="btn btn-success" type="submit" name="SubmitNewsLetter" value="SubmitNewsLetter">
-                        <i class="fas fa-file-pdf"></i> <?= gettext('Newsletter labels') ?>
-                    </button>
-                    <button class="btn btn-primary" type="submit" name="SubmitConfirmReport" value="SubmitConfirmReport">
-                        <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data letter') ?>
-                    </button>
-                    <button class="btn btn-primary" type="submit" name="SubmitConfirmLabels" value="SubmitConfirmLabels">
-                        <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data labels') ?>
-                    </button>
-                    </div>
-                    <button class="btn btn-danger mr-2 mb-2" type="submit" name="SubmitConfirmReportEmail" value="SubmitConfirmReportEmail">
-                        <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data Email') ?>
-                    </button>
-
-                    <input type="button" class="btn btn-outline-secondary mb-2" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/dashboard';">
-                </div>
+                </div>                
             </div>
         </div>
         <div class="col-lg-3">
@@ -314,7 +341,7 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                         $familiesPending = FamilyQuery::create()
                                 ->findByConfirmReport('Pending');
                     ?>
-                    <h6 class="text-muted text-uppercase mb-2"><?= _("Persons") ?></h6>
+                    <h6 class="mb-2"><?= _("Persons") ?></h6>
                     <div class="table-responsive mb-2">
                         <table class="table table-sm table-borderless mb-0">
                             <tbody>
@@ -349,7 +376,7 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
                     </div>
                     <hr class="my-3" />
 
-                    <h6 class="text-muted text-uppercase mb-2"><?= _("Families") ?></h6>
+                    <h6 class="mb-2"><?= _("Families") ?></h6>
                     <div class="table-responsive mb-2">
                         <table class="table table-sm table-borderless mb-0">
                             <tbody>

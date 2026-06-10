@@ -7,8 +7,73 @@ $(function() {
     $( "#letterandlabelsnamingmethod" ).on( "change", function() {
         type = $('#letterandlabelsnamingmethod option:selected').val();        
 
+        $(".person-family-search").val(null).trigger('change');
+
         $('input#familiesId').val("");
         $('input#personsId').val("");
+    });
+
+    document.getElementById('LettersAndLabelsForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var formData = new FormData(this, e.submitter); // Permet de récupérer les données du formulaire, y compris le bouton qui a déclenché la soumission
+
+        const dataObject = Object.fromEntries(formData.entries());
+        
+        if (dataObject.realAction === 'SubmitConfirmReportCheck') {
+            location.href = window.CRM.root + "/v2/people/confirmReportCheck";
+            return;
+        }
+
+        var donneesFormulaire = new URLSearchParams(formData);
+
+        window.CRM.dialogLoadingFunction(i18next.t("Please wait while the PDF is generated and downloaded."), function () {
+            var urlCible = window.CRM.root + "/v2/people/LettersAndLabels";
+
+            fetch(urlCible, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Bearer ' + window.CRM.jwtToken,
+                },
+                body: donneesFormulaire
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erreur lors de la génération : " + response.status);
+                }
+                // L'ASTUCE : On demande à Fetch de traiter la réponse comme un fichier binaire (Blob)
+                return response.blob(); 
+            })
+            .then(blob => {
+                // 4. On ferme la Bootbox puisque le fichier est entièrement reçu !
+                
+                // 5. Création d'un lien invisible pour déclencher le téléchargement du PDF
+                var urlPdf = window.URL.createObjectURL(blob);
+                var lienInvisible = document.createElement('a');
+                lienInvisible.href = urlPdf;
+                
+                // Vous pouvez nommer le fichier par défaut si le PHP n'impose pas le sien en mode 'D'
+                lienInvisible.download = "document.pdf"; 
+                
+                document.body.appendChild(lienInvisible);
+                lienInvisible.click(); // Simule le clic de téléchargement
+
+                window.CRM.closeDialogLoadingFunction();
+
+                
+                // Nettoyage de la mémoire
+                document.body.removeChild(lienInvisible);
+                window.URL.revokeObjectURL(urlPdf);
+            })
+            .catch(error => {
+                // En cas de problème, on ferme la Bootbox et on prévient
+                window.CRM.closeDialogLoadingFunction();
+
+                bootbox.alert("Impossible de générer le PDF.");
+                console.error(error);
+            }); 
+        });            
     });
 
 
@@ -69,6 +134,12 @@ $(function() {
     });
 
     $("#letterandlabelsnamingmethod").on ('change', function() {
+        $('input#familiesId').val("");
+        $('input#personsId').val("");
+
+        
+        $(".person-family-search").val(null).trigger('change');
+
         if ($(this).val() == 'person') {
             window.CRM.DisplayAlert(i18next.t("Modification"), i18next.t("By persons"));
         } else if ($(this).val() == 'family') {
@@ -79,6 +150,7 @@ $(function() {
     });
 
     $("#remove-users").on ('click', function() {
+        $(".person-family-search").val(null).trigger('change');
         $("#users").html(i18next.t("None"));
         users = '';
     });
