@@ -33,6 +33,14 @@ $sLabelFormat = InputUtils::LegacyFilterInput($_GET['labeltype']);
 $bRecipientNamingMethod = $_GET['recipientnamingmethod'];
 setcookie('labeltype', $sLabelFormat, time() + 60 * 60 * 24 * 90, '/');
 
+if (isset($_GET['fams'])) {
+    $fams = explode(",", $_GET['fams']);
+}
+
+if (isset($_GET['persons'])) {
+    $persons = explode(",", $_GET['persons']);
+}
+
 $exportType = 'family';
 if (isset($_POST['letterandlabelsnamingmethod'])) {
     $exportType = $_POST['letterandlabelsnamingmethod'];
@@ -70,8 +78,9 @@ $cnt = 0;
 if ($exportType == "family") {    
     $families = FamilyQuery::create();
 
-    if ($_GET['familyId']) {
-        $fams = explode(",", $_GET['familyId']);
+    $fams = $_POST['familiesId'];
+    if (strlen($fams) > 0) {
+        $fams = explode(",",$_POST['familiesId']);
         $families->filterById($fams);
     }
 
@@ -103,51 +112,13 @@ if ($exportType == "family") {
         $pdf->Add_PDF_Label($labelText);
     }
 } else if ($exportType == "person") {
-    // Get all the families which receive the newsletter by mail
-    $families = FamilyQuery::create();
+    $persons = $_POST['personsId'];
+    if (strlen($persons) > 0) {
+        $persons = explode(",",$persons);
 
-    if ($_GET['familyId']) {
-        $fams = explode(",", $_GET['familyId']);
-        $families->filterById($fams);
-    }
-
-    $families->filterByDateDeactivated(NULL);
-
-    // Get all the families
-    $families->orderByName()->find();// ->orderByZip()
-
-    foreach ($families as $family) {
-        //Get the family members for this family
-            $ormFamilyMembers = PersonQuery::create()
-            ->filterByDateDeactivated(NULL)
-            ->addAlias('cls', ListOptionTableMap::TABLE_NAME)
-            ->addMultipleJoin(array(
-                    array(PersonTableMap::COL_PER_CLS_ID, ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_OPTIONID)),
-                    array(ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_ID), 1)
-                )
-                , Criteria::LEFT_JOIN)
-            ->addAsColumn('ClassName', ListOptionTableMap::alias('cls', ListOptionTableMap::COL_LST_OPTIONNAME))
-            ->addAlias('fmr', ListOptionTableMap::TABLE_NAME)
-            ->addMultipleJoin(array(
-                    array(PersonTableMap::COL_PER_FMR_ID, ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONID)),
-                    array(ListOptionTableMap::Alias("fmr",ListOptionTableMap::COL_LST_ID), 2)
-                )
-                , Criteria::LEFT_JOIN)
-            ->addAsColumn('FamRole', ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONNAME))
-            ->filterByFamId($family->getId())
-            ->orderByFmrId();
-
-        if ($classList != "*") {
-            $ormFamilyMembers->filterByClsId($classList);
-        }
-
-        if ($minAge != 0 or $maxAge != 130) {
-            $ormFamilyMembers->where('DATE_ADD(CONCAT('.PersonTableMap::COL_PER_BIRTHYEAR.',"-",'.PersonTableMap::COL_PER_BIRTHMONTH.',"-",'.PersonTableMap::COL_PER_BIRTHDAY.'),INTERVAL ' . $minAge . ' YEAR) <= CURDATE() AND DATE_ADD(CONCAT('.PersonTableMap::COL_PER_BIRTHYEAR.',"-",'.PersonTableMap::COL_PER_BIRTHMONTH.',"-",'.PersonTableMap::COL_PER_BIRTHDAY.'),INTERVAL (' . $maxAge . '+1) YEAR) >= CURDATE()');
-        }
-
-        $ormFamilyMembers->find();
-
-        $cnt += $ormFamilyMembers->count();
+        $ormFamilyMembers = PersonQuery::create()
+            ->filterById($persons)
+            ->find();
 
         foreach ($ormFamilyMembers as $person) {
             if ($bRecipientNamingMethod == "familyname") {
@@ -155,19 +126,84 @@ if ($exportType == "family") {
             } else {
                 $labelText = $pdf->MakeSalutation($person->getID(), "person");
             }
-            if ($family->getAddress1() != '') {
-                $labelText .= "\n".$person->getFamily()->getAddress1();
-            }
-            if ($family->getAddress2() != '') {
-                $labelText .= "\n".$person->getFamily()->getAddress2();
-            }
-            $labelText .= sprintf("\n%s, %s  %s", $family->getCity(), $family->getState(), $family->getZip());
+            $labelText .= "\n".$person->getFamily()->getAddress1();
+            $labelText .= "\n".$person->getFamily()->getAddress2();
+            $labelText .= sprintf("\n%s, %s  %s", $person->getFamily()->getCity(), $person->getFamily()->getState(), $person->getFamily()->getZip());
     
-            if ($family->getCountry() != '' && $person->getFamily()->getCountry() != 'USA' && $person->getFamily()->getCountry() != 'United States') {
+            if ($person->getFamily()->getCountry() != '' && $person->getFamily()->getCountry() != 'USA' && $person->getFamily()->getCountry() != 'United States') {
                 $labelText .= "\n".$person->getFamily()->getCountry();
             }
     
             $pdf->Add_PDF_Label($labelText);
+        }
+    } else {
+        
+        // Get all the families which receive the newsletter by mail
+        $families = FamilyQuery::create();
+
+        if ($_GET['familyId']) {
+            $fams = explode(",", $_GET['familyId']);
+            $families->filterById($fams);
+        }
+
+        $families->filterByDateDeactivated(NULL);
+
+        // Get all the families
+        $families->orderByName()->find();// ->orderByZip()
+
+        foreach ($families as $family) {
+            //Get the family members for this family
+                $ormFamilyMembers = PersonQuery::create()
+                ->filterByDateDeactivated(NULL)
+                ->addAlias('cls', ListOptionTableMap::TABLE_NAME)
+                ->addMultipleJoin(array(
+                        array(PersonTableMap::COL_PER_CLS_ID, ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_OPTIONID)),
+                        array(ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_ID), 1)
+                    )
+                    , Criteria::LEFT_JOIN)
+                ->addAsColumn('ClassName', ListOptionTableMap::alias('cls', ListOptionTableMap::COL_LST_OPTIONNAME))
+                ->addAlias('fmr', ListOptionTableMap::TABLE_NAME)
+                ->addMultipleJoin(array(
+                        array(PersonTableMap::COL_PER_FMR_ID, ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONID)),
+                        array(ListOptionTableMap::Alias("fmr",ListOptionTableMap::COL_LST_ID), 2)
+                    )
+                    , Criteria::LEFT_JOIN)
+                ->addAsColumn('FamRole', ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONNAME))
+                ->filterByFamId($family->getId())
+                ->orderByFmrId();
+
+            if ($classList != "*") {
+                $ormFamilyMembers->filterByClsId($classList);
+            }
+
+            if ($minAge != 0 or $maxAge != 130) {
+                $ormFamilyMembers->where('DATE_ADD(CONCAT('.PersonTableMap::COL_PER_BIRTHYEAR.',"-",'.PersonTableMap::COL_PER_BIRTHMONTH.',"-",'.PersonTableMap::COL_PER_BIRTHDAY.'),INTERVAL ' . $minAge . ' YEAR) <= CURDATE() AND DATE_ADD(CONCAT('.PersonTableMap::COL_PER_BIRTHYEAR.',"-",'.PersonTableMap::COL_PER_BIRTHMONTH.',"-",'.PersonTableMap::COL_PER_BIRTHDAY.'),INTERVAL (' . $maxAge . '+1) YEAR) >= CURDATE()');
+            }
+
+            $ormFamilyMembers->find();
+
+            $cnt += $ormFamilyMembers->count();
+
+            foreach ($ormFamilyMembers as $person) {
+                if ($bRecipientNamingMethod == "familyname") {
+                    $labelText = $person->getName();
+                } else {
+                    $labelText = $pdf->MakeSalutation($person->getID(), "person");
+                }
+                if ($family->getAddress1() != '') {
+                    $labelText .= "\n".$person->getFamily()->getAddress1();
+                }
+                if ($family->getAddress2() != '') {
+                    $labelText .= "\n".$person->getFamily()->getAddress2();
+                }
+                $labelText .= sprintf("\n%s, %s  %s", $family->getCity(), $family->getState(), $family->getZip());
+        
+                if ($family->getCountry() != '' && $person->getFamily()->getCountry() != 'USA' && $person->getFamily()->getCountry() != 'United States') {
+                    $labelText .= "\n".$person->getFamily()->getCountry();
+                }
+        
+                $pdf->Add_PDF_Label($labelText);
+            }
         }
     }
 }
