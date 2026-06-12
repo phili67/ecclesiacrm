@@ -347,13 +347,12 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
         $ormFamilies = FamilyQuery::create();
         $ormFamilies->orderByName();
 
-        $perIds = NULL;
-        $familiesIds = NULL;
-
+        $perIds = $families = NULL;
+        
         if (isset($_GET['familyId']) and !empty($_GET['familyId'])) {
-            $families = $familiesIds = explode(",", $_GET['familyId']);    
+            $families = explode(",", $_GET['familyId']);               
         } else if (isset($_POST['familiesId']) and !empty($_POST['familiesId'])) {
-            $families = $familiesIds = explode(",", $_POST['familiesId']);
+            $families = explode(",", $_POST['familiesId']);
         }
 
         if (isset($_GET['personId']) and !empty($_GET['personId'])) {
@@ -362,21 +361,16 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
 
             $per = PersonQuery::create()->findOneById($perIds[0]);
             $families = [$per->getFamily()->getId()];
-
-            $ormFamilies->filterById($families);
         } else if (isset($_POST['personsId']) and !empty($_POST['personsId'])) {
             $this->exportType = 'person';
             $perIds = [(int)$_POST['personsId']];
 
             $per = PersonQuery::create()->findOneById($perIds[0]);
             $families = [$per->getFamily()->getId()];
-
-            $ormFamilies->filterById($families);
         }
 
-
-        if (!is_null($familiesIds)) {
-            $ormFamilies->filterById($familiesIds);
+        if (!is_null($families)) {
+            $ormFamilies->filterById($families); 
         }
 
         $ormFamilies->filterByDateDeactivated(NULL);
