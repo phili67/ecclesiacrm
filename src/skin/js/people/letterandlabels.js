@@ -21,7 +21,20 @@ $(function() {
         const dataObject = Object.fromEntries(formData.entries());
         
         if (dataObject.realAction === 'SubmitConfirmReportCheck') {
-            location.href = window.CRM.root + "/v2/people/confirmReportCheck";
+            var postForm = document.createElement('form');
+            postForm.method = 'POST';
+            postForm.action = window.CRM.root + "/v2/people/confirmReportCheck";
+
+            formData.forEach(function(value, key) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                postForm.appendChild(input);
+            });
+
+            document.body.appendChild(postForm);
+            postForm.submit();
             return;
         }
 

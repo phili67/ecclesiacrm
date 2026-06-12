@@ -356,4 +356,45 @@ class PeopleController
         return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
     }
 
+    public function postFamilyUpdateStatus(ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!SessionUser::getUser()->isEditRecordsEnabled() and !$_SESSION['bEditRecords']) {
+            return $response->withStatus(401);
+        }
+
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->ID) && isset ($input->Status)) {
+            $family = FamilyQuery::create()->findOneById($input->ID);
+
+            $family->setDateLastEdited(new \DateTime('now'));
+            $family->setEditedBy(SessionUser::getId());
+
+            $family->save();
+
+            $family->createTimeLineNote('edit');                    
+        }
+
+        return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
+    }
+
+    public function postPersonUpdateStatus(ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!SessionUser::getUser()->isEditRecordsEnabled() and !$_SESSION['bEditRecords']) {
+            return $response->withStatus(401);
+        }
+
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->ID) && isset ($input->Status)) {
+            $person = PersonQuery::create()->findOneById($input->ID);
+            $person->setDateLastEdited(new \DateTime('now'));
+            $person->setEditedBy(SessionUser::getId());
+            $person->save();
+
+            $person->createTimeLineNote('edit');                        
+        }
+
+        return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
+    }
 }
