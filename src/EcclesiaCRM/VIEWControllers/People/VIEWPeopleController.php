@@ -1656,4 +1656,82 @@ class VIEWPeopleController {
             'Members'                   => $Members
         ];
     } 
+
+
+    public function confirmReportCheck (ServerRequest $request, Response $response, array $args): Response {
+        $renderer = new PhpRenderer('templates/people/');
+
+        if (!SessionUser::getUser()->isAddRecordsEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $datas = $_SESSION['POST_Datas'] ?? $request->getParsedBody() ?? [];
+        if (isset($_SESSION['POST_Datas'])) {
+            unset($_SESSION['POST_Datas']);
+        }
+
+        return $renderer->render($response, 'ConfirmReportCheck.php', $this->argumentsPeopleConfirmReportCheck($datas));
+    }
+
+    public function argumentsPeopleConfirmReportCheck ($datas) 
+    {        
+
+        $exportType = 'family';
+
+        if (isset($datas['letterandlabelsnamingmethod'])) {
+            $exportType = $datas['letterandlabelsnamingmethod'];
+        }
+
+        $minAge = 18;
+        if (isset($datas['minAge'])) {
+            $minAge = InputUtils::FilterInt($datas['minAge']);
+        }
+
+        $maxAge = 130;
+        if (isset($datas['maxAge'])) {
+            $maxAge = InputUtils::FilterInt($datas['maxAge']);
+        }
+
+        $classList = "*";
+        if (isset($datas['classList'])) {
+            $classList = $datas['classList'];
+        }
+
+        $families = [];
+
+        $perIds = NULL;
+        $families = NULL;
+
+        if (isset($_POST['familiesId']) and !empty($_POST['familiesId'])) {
+            $families = explode(",", $_POST['familiesId']);
+        }
+
+        if (isset($_POST['personsId']) and !empty($_POST['personsId'])) {
+            $exportType = 'person';
+            $perIds = [(int)$_POST['personsId']];
+
+            $per = PersonQuery::create()->findOneById($perIds[0]);
+            $families = [$per->getFamily()->getId()];            
+        }
+
+        $ageWhere = "TIMESTAMPDIFF(YEAR, STR_TO_DATE(CONCAT(" . PersonTableMap::COL_PER_BIRTHYEAR . ", '-', LPAD(" . PersonTableMap::COL_PER_BIRTHMONTH . ", 2, '0'), '-', LPAD(" . PersonTableMap::COL_PER_BIRTHDAY . ", 2, '0')), '%Y-%m-%d'), CURDATE()) BETWEEN " . (int)$minAge . " AND " . (int)$maxAge;
+
+        $sPageTitle = _('People Report Check Confirmation');
+
+        return [
+            'sRootPath'                 => SystemURLs::getRootPath(),
+            'sRootDocument'             => SystemURLs::getDocumentRoot(),
+            'CSPNonce'                  => SystemURLs::getCSPNonce(),
+            'sPageTitle'                => $sPageTitle,
+            'datas'                     => $datas,
+            'exportType'                => $exportType,
+            'ageWhere'                  => $ageWhere,
+            'classList'                 => $classList,
+            'minAge'                    => $minAge,
+            'families'                  => $families,
+            'familiesIds'               => $families,  
+            'perIds'                    => $perIds,
+            'maxAge'                    => $maxAge
+        ];
+    }
 }
