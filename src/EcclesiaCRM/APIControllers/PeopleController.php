@@ -25,6 +25,8 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\SessionUser;
 
+use EcclesiaCRM\Utils\OutputUtils;
+
 class PeopleController
 {
     private $container;
@@ -365,17 +367,22 @@ class PeopleController
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->ID) && isset ($input->Status)) {
+            $date = new \DateTime('now');
             $family = FamilyQuery::create()->findOneById($input->ID);
 
-            $family->setDateLastEdited(new \DateTime('now'));
+            $family->setDateLastEdited($date);
             $family->setEditedBy(SessionUser::getId());
 
             $family->save();
 
-            $family->createTimeLineNote('edit');                    
+            $family->createTimeLineNote('edit');        
+            
+            return $response->withJson(['success' => true, 
+                "Date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), true),
+                "Message" => _('No')]);
         }
 
-        return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
+        return $response->withJson(['success' => false]);
     }
 
     public function postPersonUpdateStatus(ServerRequest $request, Response $response, array $args): Response
@@ -387,14 +394,19 @@ class PeopleController
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->ID) && isset ($input->Status)) {
+            $date = new \DateTime('now');
             $person = PersonQuery::create()->findOneById($input->ID);
-            $person->setDateLastEdited(new \DateTime('now'));
+            $person->setDateLastEdited($date);
             $person->setEditedBy(SessionUser::getId());
             $person->save();
 
-            $person->createTimeLineNote('edit');                        
+            $person->createTimeLineNote('edit');  
+            
+            return $response->withJson(['success' => true, 
+                "Date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), true),
+                "Message" => _('No')]);
         }
 
-        return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
+        return $response->withJson(['success' => false]);
     }
 }

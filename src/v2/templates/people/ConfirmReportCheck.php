@@ -13,6 +13,10 @@ require $sRootDocument . '/Include/Header.php';
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 
+use EcclesiaCRM\PersonQuery;
+
+use EcclesiaCRM\Utils\OutputUtils;
+
 switch ($exportType) {
     case 'family':
         $reportTitle = _('Address Report Check Confirmation');
@@ -54,6 +58,36 @@ switch ($exportType) {
         break;
     case 'person':
         $reportTitle = _('Person Report Check Confirmation');
+
+        $ormPersons = PersonQuery::create();
+        
+        if ( !is_null($families) ) {
+             $ormPersons->filterById($perIds);
+        }    
+        
+        $ormPersons->filterByDateDeactivated(NULL);
+        $ormPersons->addAsColumn('FirstLetter', 'UPPER(LEFT(person_per.per_LastName, 1))');
+
+        // Get all the persons
+        $ormPersons->groupById()
+        ->leftJoinNote()
+            ->useNoteQuery()
+                ->addAsColumn('LastDateEdited', 'max(note_nte.nte_DateLastEdited)')
+                ->addAsColumn('LastDateEntered', 'max(note_nte.nte_DateEntered)')
+                
+                // Sécurité : Si l'un est NULL, on prend l'autre. Si les deux sont NULL, on met une date par défaut.
+                ->addAsColumn('PlusGrandeDate', 'GREATEST(
+                    COALESCE(max(note_nte.nte_DateLastEdited), max(note_nte.nte_DateEntered), "1970-01-01"), 
+                    COALESCE(max(note_nte.nte_DateEntered), max(note_nte.nte_DateLastEdited), "1970-01-01")
+                )')
+                
+                ->addAsColumn('EstAncienneGlobale', 'GREATEST(
+                    COALESCE(max(note_nte.nte_DateLastEdited), max(note_nte.nte_DateEntered), "1970-01-01"), 
+                    COALESCE(max(note_nte.nte_DateEntered), max(note_nte.nte_DateLastEdited), "1970-01-01")
+                ) < DATE_SUB(NOW(), INTERVAL 1 WEEK)') // Par exemple, on considère "ancienne" si la dernière note a été modifiée ou créée il y a plus d'une semaine
+            ->endUse();
+        $ormPersons->orderByLastName();
+        $ormPersons->find();
         break;
 }
 ?>
@@ -82,23 +116,64 @@ switch ($exportType) {
                     <?php foreach ($ormFamilies as $fam) : ?>
                         <tr>
                             <td><?= htmlspecialchars($fam->getVirtualColumn('FirstLetter')) ?></td>
-                            <td><a href="<?= $sRootPath ?>/v2/people/family/view/<?= $fam->getId() ?>"><?= htmlspecialchars($fam->getName()) ?></a></td>
+                            <td><a href="<?= $sRootPath ?>/v2/people/family/view/<?= $fam->getId() ?>"><?= $fam->getVirtualColumn('PersonCount') > 1 ?'<i class="fa-solid fa-people-roof"></i> ' : '<i class="fas fa-user"></i>'?> <?= htmlspecialchars($fam->getName()) ?></a></td>
                             <td>
                                 <div class="custom-control custom-switch mb-1">
-                                    <input class="custom-control-input" type="checkbox" name="bCustomPeople<?= $fam->getId() ?>" value="<?= $fam->getVirtualColumn('EstAncienneGlobale') ? '0' : '1' ?>" id="bCustomPeople<?= $fam->getId() ?>" <?= $fam->getVirtualColumn('EstAncienneGlobale') ? '' : 'checked' ?>>
-                                    <label class="custom-control-label" for="bCustomPeople<?= $fam->getId() ?>"><?= htmlspecialchars($fam->getVirtualColumn('PlusGrandeDate')) ?></label>
+                                    <input class="custom-control-input" 
+                                        type="checkbox" 
+                                        name="bCustomPeople<?= $fam->getId() ?>" 
+                                        value="<?= $fam->getVirtualColumn('EstAncienneGlobale') ? '0' : '1' ?>" 
+                                        id="bCustomPeople<?= $fam->getId() ?>" 
+                                        <?= $fam->getVirtualColumn('EstAncienneGlobale') ? '' : 'checked' ?>
+                                        <?= $fam->getVirtualColumn('EstAncienneGlobale') ? '' : 'disabled' ?>>
+                                    <label class="custom-control-label" for="bCustomPeople<?= $fam->getId() ?>"><span class="text-muted bCustomPeopleDate<?= $fam->getId() ?>"><?= OutputUtils::FormatDate($fam->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
                                 </div>
                             </td> 
-                            <td><span class="badge badge-pill badge-light border"><?= $fam->getVirtualColumn('PersonCount') > 1 ?'<i class="fa-solid fa-people-roof"></i> ' : '<i class="fas fa-user"></i>'?> <?= htmlspecialchars($fam->getVirtualColumn('PersonCount')) ?></span></td>
+                            <td><span class="badge badge-pill badge-light border"> <?= htmlspecialchars($fam->getVirtualColumn('PersonCount')) ?> </span></td>
                             <td><?= htmlspecialchars($fam->getAddress()) ?></td>
                             <td><a href="mailto:<?= htmlspecialchars( is_array($fam->getEmails()) ? $fam->getEmails()[0] : $fam->getEmails() ) ?>"><?= htmlspecialchars( is_array($fam->getEmails()) ? $fam->getEmails()[0] : $fam->getEmails() ) ?></a></td>                              
-                            <td><?= htmlspecialchars($fam->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></td>                         
+                            <td><span class="text-muted <?= $fam->getVirtualColumn('EstAncienneGlobale') ?  'text-red': 'text-green' ?>  bCustomPeopleMessage<?= $fam->getId() ?>"><?= htmlspecialchars($fam->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></span></td>                         
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
             <?php elseif ($exportType === 'person') : ?>
-                <p><?= _('No data to display for this report type.') ?></p>
+                <table width="100%" cellpadding="2" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="monTableau">
+                <thead>
+                    <tr>
+                        <th><b><?= _('First Letter') ?></b></th>
+                        <th><i class="fa-solid fa-users"></i> <?= _('Name') ?></th>
+                        <th><i class="fa-solid fa-users"></i> <?= _('First Name') ?></th>
+                        <th><i class="fa-solid fa-cogs"></i> <?= _('Action') ?></th>                        
+                        <th><i class="fa-solid fa-home"></i> <?= _('Address') ?></th>
+                        <th><i class="fa-solid fa-envelope"></i> <?= _('Email') ?></th>
+                        <th><i class="fa-solid fa-clock"></i> <?= _('Is too old') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($ormPersons as $person) : ?>
+                        <tr>
+                            <td><?= htmlspecialchars($person->getVirtualColumn('FirstLetter')) ?></td>
+                            <td><i class="fa-solid fa-user"></i> <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $person->getId() ?>"><?= htmlspecialchars($person->getLastName()) ?></a></td>
+                            <td><a href="<?= $sRootPath ?>/v2/people/person/view/<?= $person->getId() ?>"><?= htmlspecialchars($person->getFirstName()) ?></a></td>
+                            <td>
+                                <div class="custom-control custom-switch mb-1">
+                                    <input class="custom-control-input" type="checkbox" 
+                                        name="bCustomPeople<?= $person->getId() ?>" 
+                                        value="<?= $person->getVirtualColumn('EstAncienneGlobale') ? '0' : '1' ?>" 
+                                        id="bCustomPeople<?= $person->getId() ?>" 
+                                        <?= $person->getVirtualColumn('EstAncienneGlobale') ? '' : 'checked' ?>
+                                        <?= $person->getVirtualColumn('EstAncienneGlobale') ? '' : 'disabled' ?>>
+                                    <label class="custom-control-label" for="bCustomPeople<?= $person->getId() ?>"><span class="text-muted bCustomPeopleDate<?= $person->getId() ?>"><?= OutputUtils::FormatDate($person->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
+                                </div>
+                            </td> 
+                            <td><?= htmlspecialchars($person->getAddress()) ?></td>
+                            <td><a href="mailto:<?= htmlspecialchars( $person->getEmail() ) ?>"><?= htmlspecialchars( $person->getEmail() ) ?></a></td>                              
+                            <td><span class="text-muted <?= $person->getVirtualColumn('EstAncienneGlobale') ?  'text-red': 'text-green' ?> bCustomPeopleMessage<?= $person->getId() ?>"><?= htmlspecialchars($person->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></span></td>                         
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
             <?php endif; ?>
         </div>
         <form method="post" action="<?= $sRootPath ?>/v2/people/confirmReportCheck">
@@ -120,7 +195,8 @@ switch ($exportType) {
 <script>
 $(document).ready(function() {
     $('#monTableau').DataTable({
-        paging: false,
+        paging: true,
+        pageLength: 100,
         responsive: true,
         // On trie par la première colonne (la lettre) pour que le groupement fonctionne
         order: [[0, 'asc']], 
@@ -140,21 +216,38 @@ $(document).ready(function() {
 
     $('.custom-control-input, .custom-control-label').on('change', function() {
         const isChecked = $(this).is(':checked');
-        const Id = $(this).attr('id').replace('bCustomPeople', '');
-        const newValue = isChecked ? '1' : '0';
+    
+        if (!isChecked) {
+            return; 
+        }
 
-        // Mettre à jour la valeur du champ caché correspondant
-        $(this).val(newValue);        
+        const $thisInput = $(this); // On stocke la référence jQuery de l'input
+        const currentId = $thisInput.attr('id').replace('bCustomPeople', '');
+        const newValue = '1'; // Puisqu'on ne gère désormais que le passage à "coché"
+        const dateSelector = '.bCustomPeopleDate' + currentId;
+        const messageSelector = '.bCustomPeopleMessage' + currentId;
+
+        $thisInput.val(newValue);        
 
         window.CRM.APIRequest({
             method: "POST",
             path: "people/" + window.CRM.exportType + "/updateStatus",
             data: JSON.stringify({
-                "ID": Id,
+                "ID": currentId,
                 "Status": newValue
             })
         }, function (data) {
-            location.reload(); // Recharger la page pour voir les changements
+            if (data && data.Date) {
+                $(dateSelector).text(data.Date);
+            }
+            if (data && data.Message) {
+                $(messageSelector).text(data.Message);
+                $(messageSelector).removeClass('text-red');
+                $(messageSelector).addClass('text-green');
+            }
+
+            
+            $thisInput.prop('disabled', true);
         });
     })
 });

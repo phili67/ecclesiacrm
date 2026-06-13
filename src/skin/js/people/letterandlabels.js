@@ -37,6 +37,7 @@ $(function() {
             postForm.submit();
             return;
         }
+        
 
         var donneesFormulaire = new URLSearchParams(formData);
 

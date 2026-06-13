@@ -419,4 +419,4 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src="<?= $sRootPath ?>/skin/js/people/letterandlabels.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/people/letterandlabels.js?v=1718260000"></script>
