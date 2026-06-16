@@ -81,14 +81,23 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
     public function StartNewPage($ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $type)
     {
         $curY = $this->StartLetterPage($ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, 'graphic', $type);
-        $curY += 2 * $this->incrY;
-        $blurb = SystemConfig::getValue('sConfirm1');
-        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
-        $curY += 2 * $this->incrY;
+
+        if (!$this->useQRCode) {
+          $curY += 2 * $this->incrY;
+            $blurb = SystemConfig::getValue('sConfirm1');
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
+            $curY += 2 * $this->incrY;
+        }
 
         return $curY;
     }
 
+    /*
+        Name : create_QR_Code($url) : string
+        Description : Create a QR code for a given URL
+        Parameters : 
+            - $url : the URL to encode in the QR code
+    */
     private function create_QR_Code($url) : string
     {
         $writer = new PngWriter();
@@ -111,9 +120,44 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
         $result = $writer->write($qrCode, null);//, $label);
 
         // Save it to a file
-        $result->saveToFile('../tmp_attach/qrcode_'.$groupID."_".$personId.'.png');
+        $name = bin2hex(random_bytes(10));
+        $result->saveToFile('../tmp_attach/qrcode_'.'_'.$name.'.png');
 
-        return '../tmp_attach/qrcode_'.$groupID."_".$personId.'.png';
+        return '../tmp_attach/qrcode_'.'_'.$name.'.png';
+    }
+
+    /*
+        Name : create_QR_Code_people($id, $type) : string
+        Description : Create a QR code for a person or a family
+        Parameters : 
+            - $id : the id of the person or family
+            - $type : "person" or "family"
+    */
+    private function create_QR_Code_people($id, $type) : string
+    {
+        $writer = new PngWriter();
+
+// Create QR code
+        $qrCode = QrCode::create($type."-".$id)
+            ->setEncoding(new Encoding('UTF-8'))
+            ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+            ->setSize(70)
+            ->setMargin(5)
+            ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
+            ->setForegroundColor(new Color(0, 0, 0))
+            ->setBackgroundColor(new Color(255, 255, 255));
+
+// Create generic label
+        $label = Label::create('EcclesiaCRM')
+            ->setTextColor(new Color(0, 0, 0));
+            //->setBackgroundColor(new Color(0, 0, 0));
+
+        $result = $writer->write($qrCode, null);//, $label);
+
+        // Save it to a file
+        $result->saveToFile('../tmp_attach/qrcode_'.$type."_".$id.'.png');
+
+        return '../tmp_attach/qrcode_'.$type."_".$id.'.png';
     }
 
     private function onLineVerifyWithLink($curY, $person=null, $family=null) : int
@@ -140,11 +184,12 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
         $tokenPassword->setMustChangePwd(false);
 
         $tokenPassword->save();        
-
+    
         if (!is_null($person)) {
+            $id = $person->getId();
+
             $emails = [$person->getEmail()];
-
-
+            
             $person->setConfirmReport('Pending');
             $person->save();
             
@@ -157,6 +202,8 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
             ];
             $link = SystemURLs::getHost()."/ident/my-profile/".$token->getToken();
         } else if (!is_null($family)) {
+            $id = $family->getId();
+
             $emails = [];
 
             foreach ($headPeople as $headPerson) {
@@ -195,6 +242,24 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
         $w = $this->getPageWidth() - $x; // Largeur disponible jusqu'à la marge droite
 
         if ($this->useQRCode) {
+            
+            // on ajoute une ligne pour séparer le QR code du reste du document : pour la person ou la famille
+            $this->Line($x, $curY + 9, $w, $curY  + 9, $style);
+
+            $curY += 2.3 * $this->incrY;
+
+            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, _("Please check  QR code")." :");
+
+            $qrCodePeople = $this->create_QR_Code_people($id, $this->exportType);
+
+            $imageWidth = $this->_Height*0.20;
+            $centerX = ($this->getPageWidth() - $imageWidth) / 2-50;
+            $this->Image($qrCodePeople, $centerX, $curY + 4, $imageWidth, $imageWidth);
+
+            unlink ($qrCodePeople);                
+
+            $curY += 7 * $this->incrY;
+
             // 3. Tracer la ligne
             $this->Line($x, $curY + 9, $w, $curY  + 9, $style);
 
@@ -207,7 +272,9 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
                 
             $qrCodePath = $this->create_QR_Code($link);
 
-            $this->Image($qrCodePath, SystemConfig::getValue('leftX')+9, $curY + 4, $this->_Height*0.20, $this->_Height*0.20);
+            $imageWidth = $this->_Height*0.20;
+            $centerX = ($this->getPageWidth() - $imageWidth) / 2-50;
+            $this->Image($qrCodePath, $centerX, $curY + 4, $imageWidth, $imageWidth);
 
             unlink ($qrCodePath);
                 
@@ -224,30 +291,32 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
 
     public function FinishPage($curY, $person = null, $family = null)
     {
-        if (SystemConfig::getValue('sConfirm2') != '') {
-            $curY += 1 * $this->incrY;
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm2'));
-        }
+        if (!$this->useQRCode) {
+            if (SystemConfig::getValue('sConfirm2') != '') {
+                $curY += 1 * $this->incrY;
+                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm2'));
+            }
 
-        if (SystemConfig::getValue('sConfirm3') != '') {
-            $curY += 2 * $this->incrY;
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm3'));
-        }
+            if (SystemConfig::getValue('sConfirm3') != '') {
+                $curY += 2 * $this->incrY;
+                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm3'));
+            }
 
-        if (SystemConfig::getValue('sConfirm4') != '') {
-            $curY += 2 * $this->incrY;
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm4'));
-        }
+            if (SystemConfig::getValue('sConfirm4') != '') {
+                $curY += 2 * $this->incrY;
+                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm4'));
+            }
 
-        if (SystemConfig::getValue('sConfirm5') != '') {
-            $curY += 3 * $this->incrY;
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm5'));
-            $curY += 2 * $this->incrY;
+            if (SystemConfig::getValue('sConfirm5') != '') {
+                $curY += 3 * $this->incrY;
+                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm5'));
+                $curY += 2 * $this->incrY;
+            }
+            if (SystemConfig::getValue('sConfirm6') != '') {
+                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm6'));
+            }
         }
-        if (SystemConfig::getValue('sConfirm6') != '') {
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm6'));
-        }
-
+        
         // we add the qr code with the link to the family record in CRM
         $curY = $this->onLineVerifyWithLink($curY, $person, $family);
         
@@ -402,94 +471,97 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
                 $cnt += 1;
                 $curY = $this->StartNewPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(),$family->getState(), $family->getZip(), $family->getCountry(), $this->exportType);
                 $curY += $incrY;
+
+                if (!$this->useQRCode) {
             
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Family Name'));
-                $this->SetFont('Times', '', $fontSize);
-                $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getName());
-                $curY += $incrY;
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 1'));
-                $this->SetFont('Times', '', $fontSize);
-                $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress1());
-                $curY += $incrY;
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('City, State, Zip'));
-                $this->SetFont('Times', '', $fontSize);
-                $this->WriteAtCell($dataCol, $curY, $dataWid, ($family->getCity().', '.$family->getState().'  '.$family->getZip()));
-                $curY += $incrY;
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 2'));
-                $this->SetFont('Times', '', $fontSize);
-                $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress2());
-                $curY += $incrY;
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Home Phone'));
-                $this->SetFont('Times', '', $fontSize);
-                $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getHomePhone());
-                $curY += $incrY;
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Send Newsletter'));
-                $this->SetFont('Times', '', $fontSize);
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Family Name'));
+                    $this->SetFont('Times', '', $fontSize);
+                    $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getName());
+                    $curY += $incrY;
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 1'));
+                    $this->SetFont('Times', '', $fontSize);
+                    $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress1());
+                    $curY += $incrY;
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('City, State, Zip'));
+                    $this->SetFont('Times', '', $fontSize);
+                    $this->WriteAtCell($dataCol, $curY, $dataWid, ($family->getCity().', '.$family->getState().'  '.$family->getZip()));
+                    $curY += $incrY;
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 2'));
+                    $this->SetFont('Times', '', $fontSize);
+                    $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress2());
+                    $curY += $incrY;
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Home Phone'));
+                    $this->SetFont('Times', '', $fontSize);
+                    $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getHomePhone());
+                    $curY += $incrY;
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Send Newsletter'));
+                    $this->SetFont('Times', '', $fontSize);
 
-                $this->WriteAtCell($dataCol, $curY, $dataWid, "");
-                if ($family->getSendNewsletter() == 'FALSE') {
-                    $this->CheckBox('newsletterFamily'.$family->getId(), 5, false, array(), array(), 'No', $dataCol, $curY);
-                } else {
-                    $this->CheckBox('newsletterFamily'.$family->getId(), 5, true, array(), array(), 'Yes', $dataCol, $curY);
-                }
-                
-                $curY += $incrY;
-
-                // Missing the following information from the Family record:
-                // Wedding date (if present) - need to figure how to do this with sensitivity
-                // Family e-mail address
-
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
-                $this->SetFont('Times', '', $fontSize);
-                $this->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate((!is_null($family->getWeddingdate())?$family->getWeddingdate()->format('Y-m-d'):'')));
-                $curY += $incrY;
-
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Family Email'));
-                $this->SetFont('Times', '', $fontSize);
-                $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getEmail());
-                $curY += $incrY;
-                
-                // family custom fields : 
-                $rawQry = FamilyCustomQuery::create();
-                foreach ($ormFamilyCustomFields as $customField) {
-                    $rawQry->withColumn($customField->getCustomField());
-                }
-
-                if (!is_null($rawQry->findOneByFamId($family->getId()))) {
-                    $aCustomData = $rawQry->findOneByFamId($family->getId())->toArray();
-                }
-
-                foreach ($ormFamilyCustomFields as $customField) {
-                    if ($this->GetFamilyCustomField($customField->getCustomOrder()) == 0) continue;
-
-                    if ($sFamilyCustomFieldName[$customField->getCustomOrder() - 1]) {
-                        $currentFieldData = trim($aCustomData[$customField->getCustomField()]);
-
-                        $currentFieldData = OutputUtils::displayCustomField($customField->getTypeId(), trim($aCustomData[$customField->getCustomField()]), $customField->getCustomSpecial(), false);
-
-                        $this->SetFont('Times', 'B', $fontSize);
-                        $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), $sFamilyCustomFieldName[$customField->getCustomOrder() - 1]);
-                        $this->SetFont('Times', '', $fontSize);
-                        
-                        if ($currentFieldData == '') {
-                            $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getEmail());
-                        } else {
-                            $this->WriteAtCell($dataCol, $curY, $dataWid, $currentFieldData);                
-                        }
-                        $curY += $incrY;                    
+                    $this->WriteAtCell($dataCol, $curY, $dataWid, "");
+                    if ($family->getSendNewsletter() == 'FALSE') {
+                        $this->CheckBox('newsletterFamily'.$family->getId(), 5, false, array(), array(), 'No', $dataCol, $curY);
+                    } else {
+                        $this->CheckBox('newsletterFamily'.$family->getId(), 5, true, array(), array(), 'Yes', $dataCol, $curY);
                     }
+                    
+                    $curY += $incrY;
+
+                    // Missing the following information from the Family record:
+                    // Wedding date (if present) - need to figure how to do this with sensitivity
+                    // Family e-mail address
+
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
+                    $this->SetFont('Times', '', $fontSize);
+                    $this->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate((!is_null($family->getWeddingdate())?$family->getWeddingdate()->format('Y-m-d'):'')));
+                    $curY += $incrY;
+
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Family Email'));
+                    $this->SetFont('Times', '', $fontSize);
+                    $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getEmail());
+                    $curY += $incrY;
+                    
+                    // family custom fields : 
+                    $rawQry = FamilyCustomQuery::create();
+                    foreach ($ormFamilyCustomFields as $customField) {
+                        $rawQry->withColumn($customField->getCustomField());
+                    }
+
+                    if (!is_null($rawQry->findOneByFamId($family->getId()))) {
+                        $aCustomData = $rawQry->findOneByFamId($family->getId())->toArray();
+                    }
+
+                    foreach ($ormFamilyCustomFields as $customField) {
+                        if ($this->GetFamilyCustomField($customField->getCustomOrder()) == 0) continue;
+
+                        if ($sFamilyCustomFieldName[$customField->getCustomOrder() - 1]) {
+                            $currentFieldData = trim($aCustomData[$customField->getCustomField()]);
+
+                            $currentFieldData = OutputUtils::displayCustomField($customField->getTypeId(), trim($aCustomData[$customField->getCustomField()]), $customField->getCustomSpecial(), false);
+
+                            $this->SetFont('Times', 'B', $fontSize);
+                            $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), $sFamilyCustomFieldName[$customField->getCustomOrder() - 1]);
+                            $this->SetFont('Times', '', $fontSize);
+                            
+                            if ($currentFieldData == '') {
+                                $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getEmail());
+                            } else {
+                                $this->WriteAtCell($dataCol, $curY, $dataWid, $currentFieldData);                
+                            }
+                            $curY += $incrY;                    
+                        }
+                    }
+                    $curY += $incrY;
+                    $curY += $incrY;
                 }
 
-                $curY += $incrY;
-                $curY += $incrY;
             }
 
             //Get the family members for this family
@@ -571,186 +643,190 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
 
                     $curY += $incrY;  
 
-                    // place the first table
-                    $this->SetFont('Times', 'B', $fontSize);
-                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Name'));
-                    $this->SetFont('Times', '', $fontSize);
-                    $this->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getlastName());
-                    $curY += $incrY;
-                    // place the first table
-                    $this->SetFont('Times', 'B', $fontSize);
-                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('First Name'));
-                    $this->SetFont('Times', '', $fontSize);
-                    $this->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getFirstName());
-                    $curY += $incrY;
-                    $this->SetFont('Times', 'B', $fontSize);
-                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 1'));
-                    $this->SetFont('Times', '', $fontSize);
-                    $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress1());
-                    $curY += $incrY;
-                    $this->SetFont('Times', 'B', $fontSize);
-                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('City, State, Zip'));
-                    $this->SetFont('Times', '', $fontSize);
-                    $this->WriteAtCell($dataCol, $curY, $dataWid, ($family->getCity().', '.$family->getState().'  '.$family->getZip()));
-                    $curY += $incrY;
-                    $this->SetFont('Times', 'B', $fontSize);
-                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 2'));
-                    $this->SetFont('Times', '', $fontSize);
-                    $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress2());
-                    $curY += $incrY;
-                    $this->SetFont('Times', 'B', $fontSize);
-                    $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Home Phone'));
-                    $this->SetFont('Times', '', $fontSize);
-                    $this->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getHomePhone());
-
-                    // Missing the following information from the Family record:
-                    // Wedding date (if present) - need to figure how to do this with sensitivity
-                    // Family e-mail address
-                    if ($fMember->getFmrId() == 1 or $fMember->getFmrId() == 2) {
-                        $curY += $incrY;    
+                    if (!$this->useQRCode) {
+                        // place the first table
                         $this->SetFont('Times', 'B', $fontSize);
-                        $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
+                        $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Name'));
                         $this->SetFont('Times', '', $fontSize);
-                        $this->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate((!is_null($family->getWeddingdate())?$family->getWeddingdate()->format('Y-m-d'):'')));
+                        $this->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getlastName());
+                        $curY += $incrY;
+                        // place the first table
+                        $this->SetFont('Times', 'B', $fontSize);
+                        $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('First Name'));
+                        $this->SetFont('Times', '', $fontSize);
+                        $this->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getFirstName());
+                        $curY += $incrY;
+                        $this->SetFont('Times', 'B', $fontSize);
+                        $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 1'));
+                        $this->SetFont('Times', '', $fontSize);
+                        $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress1());
+                        $curY += $incrY;
+                        $this->SetFont('Times', 'B', $fontSize);
+                        $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('City, State, Zip'));
+                        $this->SetFont('Times', '', $fontSize);
+                        $this->WriteAtCell($dataCol, $curY, $dataWid, ($family->getCity().', '.$family->getState().'  '.$family->getZip()));
+                        $curY += $incrY;
+                        $this->SetFont('Times', 'B', $fontSize);
+                        $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 2'));
+                        $this->SetFont('Times', '', $fontSize);
+                        $this->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress2());
+                        $curY += $incrY;
+                        $this->SetFont('Times', 'B', $fontSize);
+                        $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Home Phone'));
+                        $this->SetFont('Times', '', $fontSize);
+                        $this->WriteAtCell($dataCol, $curY, $dataWid, $fMember->getHomePhone());
+
+                        // Missing the following information from the Family record:
+                        // Wedding date (if present) - need to figure how to do this with sensitivity
+                        // Family e-mail address
+                        if ($fMember->getFmrId() == 1 or $fMember->getFmrId() == 2) {
+                            $curY += $incrY;    
+                            $this->SetFont('Times', 'B', $fontSize);
+                            $this->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
+                            $this->SetFont('Times', '', $fontSize);
+                            $this->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate((!is_null($family->getWeddingdate())?$family->getWeddingdate()->format('Y-m-d'):'')));
+                            $curY += $incrY;
+                        }
+                        $curY += $incrY;    
                         $curY += $incrY;
                     }
 
-                    $curY += $incrY;    
+                }
+                
+                if (!$this->useQRCode) {
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell($XName, $curY, $XGender - $XName, _('Member Name'));
+                    $this->WriteAtCell($XGender, $curY, $XRole - $XGender, _('M/F'));
+                    $this->WriteAtCell($XRole, $curY, $XEmail - $XRole, _('Adult/Child'));
+                    $this->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, _('Email'));
+                    $this->WriteAtCell($XBirthday, $curY, $XHideAge - $XBirthday, _('Birthday'));
+                    $this->SetFont('Times', 'B', 5);
+                    $this->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, _('Hide Age'), "LTR");
+                    $this->SetFont('Times', 'B', $fontSize);            
+                    $this->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, substr(_('Cell phone'),0,10).".");
+                    $this->WriteAtCell($XClassification, $curY, $XRight - $XClassification, _('Work Phone'));
+                    $this->SetFont('Times', '', $fontSize);
                     $curY += $incrY;
-                }
 
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell($XName, $curY, $XGender - $XName, _('Member Name'));
-                $this->WriteAtCell($XGender, $curY, $XRole - $XGender, _('M/F'));
-                $this->WriteAtCell($XRole, $curY, $XEmail - $XRole, _('Adult/Child'));
-                $this->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, _('Email'));
-                $this->WriteAtCell($XBirthday, $curY, $XHideAge - $XBirthday, _('Birthday'));
-                $this->SetFont('Times', 'B', 5);
-                $this->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, _('Hide Age'), "LTR");
-                $this->SetFont('Times', 'B', $fontSize);            
-                $this->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, substr(_('Cell phone'),0,10).".");
-                $this->WriteAtCell($XClassification, $curY, $XRight - $XClassification, _('Work Phone'));
-                $this->SetFont('Times', '', $fontSize);
-                $curY += $incrY;
-
-                $iPersonID = $fMember->getId();
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell($XName, $curY, $XGender - $XName, $fMember->getFirstName().' '.$fMember->getMiddleName().' '.$fMember->getLastName());
-                $this->SetFont('Times', '', $fontSize);
-                $genderStr = ($fMember->getGender() == 1 ? 'M' : 'F');
-                $this->WriteAtCell($XGender, $curY, $XRole - $XGender, $genderStr);
-                $this->WriteAtCell($XRole, $curY, $XEmail - $XRole, $fMember->getFamRole());
-                $this->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, $fMember->getEmail());
-                if ($fMember->getBirthYear()) {
-                    $theDate = new \DateTime($fMember->getBirthYear().'-'.$fMember->getBirthMonth().'-'.$fMember->getBirthDay(), new \DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                    $birthdayStr = $theDate->format(SystemConfig::getValue("sDatePickerFormat"));
-                } elseif ($fMember->getBirthMonth()) {
-                    $birthdayStr = $fMember->getBirthMonth().'-'.$fMember->getBirthDay();
-                } else {
-                    $birthdayStr = '';
-                }
-                //If the "HideAge" check box is true, then create a Yes/No representation of the check box.
-                if ($fMember->getFlags()) {
-                    $hideAgeStr = _('Yes');
-                } else {
-                    $hideAgeStr = _('No');
-                }
-
-                $this->WriteAtCell($XBirthday, $curY, $XHideAge - $XBirthday, $birthdayStr);
-                $this->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, $hideAgeStr);
-                $this->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, $fMember->getCellPhone());
-                $this->WriteAtCell($XClassification, $curY, $XRight - $XClassification, $fMember->getWorkPhone());
-
-                $curY += $incrY;
-                $curY += $incrY;
-                
-                // Missing the following information for the personal record: ??? Is this the place to put this data ???
-                // Work Phone
-                $this->SetFont('Times', 'B', $fontSize);
-                $this->WriteAtCell($XName, $curY, $XEmail - $XGender, _('Send Newsletter'), "0");
-                $this->WriteAtCell($XGender, $curY, $XBirthday - $XEmail, "", "0");
-                if ($fMember->getSendNewsletter() == 'FALSE') {
-                    $this->CheckBox('newsletterPerson'.$fMember->getId(), 5, false, array(), array(), 'No', $XGender, $curY);
-                } else {
-                    $this->CheckBox('newsletterPerson'.$fMember->getId(), 5, true, array(), array(), 'Yes', $XGender, $curY);
-                }
-
-                
-                $this->WriteAtCell($XRole, $curY, $XEmail - $XRole, _('Classification'), "0", "R");
-                $this->SetFont('Times', '', $fontSize);
-                $this->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, $fMember->getClassName(), "0");
-
-                $curY += $incrY;
-                $curY += $incrY;
-
-                // *** All custom fields ***
-                // Get the list of custom person fields
-
-                $xSize = 40;
-                if ($numPersonCustomFields > 0) {
-                    // Get the custom field data for this person.
-                    $rawQry = PersonCustomQuery::create();
-                    foreach ($ormPersonCustomFields as $custField) {
-                        $rawQry->withColumn($custField->getCustomField());
+                    $iPersonID = $fMember->getId();
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell($XName, $curY, $XGender - $XName, $fMember->getFirstName().' '.$fMember->getMiddleName().' '.$fMember->getLastName());
+                    $this->SetFont('Times', '', $fontSize);
+                    $genderStr = ($fMember->getGender() == 1 ? 'M' : 'F');
+                    $this->WriteAtCell($XGender, $curY, $XRole - $XGender, $genderStr);
+                    $this->WriteAtCell($XRole, $curY, $XEmail - $XRole, $fMember->getFamRole());
+                    $this->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, $fMember->getEmail());
+                    if ($fMember->getBirthYear()) {
+                        $theDate = new \DateTime($fMember->getBirthYear().'-'.$fMember->getBirthMonth().'-'.$fMember->getBirthDay(), new \DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                        $birthdayStr = $theDate->format(SystemConfig::getValue("sDatePickerFormat"));
+                    } elseif ($fMember->getBirthMonth()) {
+                        $birthdayStr = $fMember->getBirthMonth().'-'.$fMember->getBirthDay();
+                    } else {
+                        $birthdayStr = '';
+                    }
+                    //If the "HideAge" check box is true, then create a Yes/No representation of the check box.
+                    if ($fMember->getFlags()) {
+                        $hideAgeStr = _('Yes');
+                    } else {
+                        $hideAgeStr = _('No');
                     }
 
-                    if (!is_null($rawQry->findOneByPerId($iPersonID))) {
-                        $aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
+                    $this->WriteAtCell($XBirthday, $curY, $XHideAge - $XBirthday, $birthdayStr);
+                    $this->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, $hideAgeStr);
+                    $this->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, $fMember->getCellPhone());
+                    $this->WriteAtCell($XClassification, $curY, $XRight - $XClassification, $fMember->getWorkPhone());
+
+                    $curY += $incrY;
+                    $curY += $incrY;
+                    
+                    // Missing the following information for the personal record: ??? Is this the place to put this data ???
+                    // Work Phone
+                    $this->SetFont('Times', 'B', $fontSize);
+                    $this->WriteAtCell($XName, $curY, $XEmail - $XGender, _('Send Newsletter'), "0");
+                    $this->WriteAtCell($XGender, $curY, $XBirthday - $XEmail, "", "0");
+                    if ($fMember->getSendNewsletter() == 'FALSE') {
+                        $this->CheckBox('newsletterPerson'.$fMember->getId(), 5, false, array(), array(), 'No', $XGender, $curY);
+                    } else {
+                        $this->CheckBox('newsletterPerson'.$fMember->getId(), 5, true, array(), array(), 'Yes', $XGender, $curY);
                     }
 
-                    //$numCustomData = $aCustomData);
-                    $OutStr = '';
-                    $xInc = $XName;    // Set the starting column for Custom fields
-                    // Here is where we determine if space is available on the current page to
-                    // display the custom data and still get the ending on the page
-                    // Calculations (without groups) show 84 mm is needed.
-                    // For the Letter size of 279 mm, this says that curY can be no bigger than 195 mm.
-                    // Leaving 12 mm for a bottom margin yields 183 mm.
-                    $numWide = 0;    // starting value for columns
-                    foreach ($ormPersonCustomFields as $custField) {
+                    
+                    $this->WriteAtCell($XRole, $curY, $XEmail - $XRole, _('Classification'), "0", "R");
+                    $this->SetFont('Times', '', $fontSize);
+                    $this->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, $fMember->getClassName(), "0");
 
-                        if ($this->GetPersonCustomField($custField->getCustomOrder()) == 0) continue;
+                    $curY += $incrY;
+                    $curY += $incrY;
+                
+                    // *** All custom fields ***
+                    // Get the list of custom person fields
 
-                        if ($sPersonCustomFieldName[$custField->getCustomOrder() - 1]) {
-                            $currentFieldData = trim($aCustomData[$custField->getCustomField()]);
+                    $xSize = 40;
+                    if ($numPersonCustomFields > 0) {
+                        // Get the custom field data for this person.
+                        $rawQry = PersonCustomQuery::create();
+                        foreach ($ormPersonCustomFields as $custField) {
+                            $rawQry->withColumn($custField->getCustomField());
+                        }
 
-                            $currentFieldData = OutputUtils::displayCustomField($custField->getTypeId(), trim($aCustomData[$custField->getCustomField()]), $custField->getCustomSpecial(), false);
+                        if (!is_null($rawQry->findOneByPerId($iPersonID))) {
+                            $aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
+                        }
 
-                            if ($sPersonCustomFieldTypeID[$custField->getCustomOrder() - 1] == 1) {
-                                $this->SetFont('Times', 'B', $fontSize);
-                                $this->WriteAtCell($xInc, $curY, $xSize, $sPersonCustomFieldName[$custField->getCustomOrder() - 1]);
-                                $this->SetFont('Times', '', $fontSize);
-                                $this->WriteAtCell($xInc + $xSize, $curY, $xSize, "");
-                                if (is_null($currentFieldData) or $currentFieldData  == '' or $currentFieldData == 'FALSE') {
-                                    $this->CheckBox('props'.$custField->getId(), 5, false, array(), array(), 'No', $xInc + $xSize, $curY);
-                                } else {
-                                    $this->CheckBox('props'.$custField->getId(), 5, true, array(), array(), 'Yes', $xInc + $xSize, $curY);
+                        //$numCustomData = $aCustomData);
+                        $OutStr = '';
+                        $xInc = $XName;    // Set the starting column for Custom fields
+                        // Here is where we determine if space is available on the current page to
+                        // display the custom data and still get the ending on the page
+                        // Calculations (without groups) show 84 mm is needed.
+                        // For the Letter size of 279 mm, this says that curY can be no bigger than 195 mm.
+                        // Leaving 12 mm for a bottom margin yields 183 mm.
+                        $numWide = 0;    // starting value for columns
+                        foreach ($ormPersonCustomFields as $custField) {
+
+                            if ($this->GetPersonCustomField($custField->getCustomOrder()) == 0) continue;
+
+                            if ($sPersonCustomFieldName[$custField->getCustomOrder() - 1]) {
+                                $currentFieldData = trim($aCustomData[$custField->getCustomField()]);
+
+                                $currentFieldData = OutputUtils::displayCustomField($custField->getTypeId(), trim($aCustomData[$custField->getCustomField()]), $custField->getCustomSpecial(), false);
+
+                                if ($sPersonCustomFieldTypeID[$custField->getCustomOrder() - 1] == 1) {
+                                    $this->SetFont('Times', 'B', $fontSize);
+                                    $this->WriteAtCell($xInc, $curY, $xSize, $sPersonCustomFieldName[$custField->getCustomOrder() - 1]);
+                                    $this->SetFont('Times', '', $fontSize);
+                                    $this->WriteAtCell($xInc + $xSize, $curY, $xSize, "");
+                                    if (is_null($currentFieldData) or $currentFieldData  == '' or $currentFieldData == 'FALSE') {
+                                        $this->CheckBox('props'.$custField->getId(), 5, false, array(), array(), 'No', $xInc + $xSize, $curY);
+                                    } else {
+                                        $this->CheckBox('props'.$custField->getId(), 5, true, array(), array(), 'Yes', $xInc + $xSize, $curY);
+                                    }
+                                } else {                    
+                                    $OutStr = $sPersonCustomFieldName[$custField->getCustomOrder() - 1].' : '.$currentFieldData.'    ';
+                                    $this->SetFont('Times', 'B', $fontSize);
+                                    $this->WriteAtCell($xInc, $curY, $xSize, $sPersonCustomFieldName[$custField->getCustomOrder() - 1]);
+
+                                    $this->SetFont('Times', '', $fontSize);
+                                    if ($currentFieldData == '') {
+                                        $this->WriteAtCell($xInc + $xSize, $curY, $xSize, '');                        
+                                    } else {
+                                        $this->WriteAtCell($xInc + $xSize, $curY, $xSize, $currentFieldData);
+                                    }
+                                }                    
+                                
+                                $numWide += 1;    // increment the number of columns done
+                                $xInc += (2 * $xSize);    // Increment the X position by about 1/2 page width
+                                if (($numWide % 2) == 0) { // 2 columns
+                                    $xInc = $XName;    // Reset margin
+                                    $curY += $incrY;
                                 }
-                            } else {                    
-                                $OutStr = $sPersonCustomFieldName[$custField->getCustomOrder() - 1].' : '.$currentFieldData.'    ';
-                                $this->SetFont('Times', 'B', $fontSize);
-                                $this->WriteAtCell($xInc, $curY, $xSize, $sPersonCustomFieldName[$custField->getCustomOrder() - 1]);
-
-                                $this->SetFont('Times', '', $fontSize);
-                                if ($currentFieldData == '') {
-                                    $this->WriteAtCell($xInc + $xSize, $curY, $xSize, '');                        
-                                } else {
-                                    $this->WriteAtCell($xInc + $xSize, $curY, $xSize, $currentFieldData);
-                                }
-                            }                    
-                            
-                            $numWide += 1;    // increment the number of columns done
-                            $xInc += (2 * $xSize);    // Increment the X position by about 1/2 page width
-                            if (($numWide % 2) == 0) { // 2 columns
-                                $xInc = $XName;    // Reset margin
-                                $curY += $incrY;
                             }
                         }
+                        //$this->WriteAt($XName,$curY,$OutStr);
+                        //$curY += (2 * SystemConfig::getValue("incrementY"));
                     }
-                    //$this->WriteAt($XName,$curY,$OutStr);
-                    //$curY += (2 * SystemConfig::getValue("incrementY"));
+                    $curY += 2 * $incrY;
                 }
-                $curY += 2 * $incrY;
 
                 if ($this->exportType == "person") {
                     $ormAssignedGroups = GroupQuery::create()
@@ -768,7 +844,7 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
                         ->find();
 
 
-                    if ($ormAssignedGroups->count() > 0) {
+                    if ($ormAssignedGroups->count() > 0 and !$this->useQRCode) {
                         $groupStr = _("Assigned groups for")." ".$fMember->getFirstName().' '.$fMember->getLastName().': ';
 
                         foreach ($ormAssignedGroups as $group) {
@@ -790,38 +866,40 @@ class PDF_ConfirmReport extends ChurchInfoReportTCPDF
             }
 
             if ($this->exportType == "family") {
-                $ormFamilyMembers = PersonQuery::create()
-                    ->filterByFamId($family->getId())
-                    ->orderByFmrId()
-                    ->find();
-
-                foreach ($ormFamilyMembers as $aMember) {
-                    // Get the Groups this Person is assigned to
-                    $ormAssignedGroups = GroupQuery::create()
-                        ->leftJoinPerson2group2roleP2g2r()
-                        ->withColumn('person2group2role_p2g2r.PersonId', 'memberCount')
-                        ->addAlias('role', ListOptionTableMap::TABLE_NAME)
-                        ->addMultipleJoin(array(
-                                array('person2group2role_p2g2r.RoleId', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONID)),
-                                array(ListOptionTableMap::Alias("role",ListOptionTableMap::COL_LST_ID), GroupTableMap::COL_GRP_ROLELISTID)
-                            )
-                            , Criteria::LEFT_JOIN)
-                        ->addAsColumn('RoleName', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONNAME))
-                        ->where('person2group2role_p2g2r.PersonId = '.$aMember->getId())
-                        ->orderByName()
+                if ($this->useQRCode) {
+                    $ormFamilyMembers = PersonQuery::create()
+                        ->filterByFamId($family->getId())
+                        ->orderByFmrId()
                         ->find();
 
+                    foreach ($ormFamilyMembers as $aMember) {
+                        // Get the Groups this Person is assigned to
+                        $ormAssignedGroups = GroupQuery::create()
+                            ->leftJoinPerson2group2roleP2g2r()
+                            ->withColumn('person2group2role_p2g2r.PersonId', 'memberCount')
+                            ->addAlias('role', ListOptionTableMap::TABLE_NAME)
+                            ->addMultipleJoin(array(
+                                    array('person2group2role_p2g2r.RoleId', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONID)),
+                                    array(ListOptionTableMap::Alias("role",ListOptionTableMap::COL_LST_ID), GroupTableMap::COL_GRP_ROLELISTID)
+                                )
+                                , Criteria::LEFT_JOIN)
+                            ->addAsColumn('RoleName', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONNAME))
+                            ->where('person2group2role_p2g2r.PersonId = '.$aMember->getId())
+                            ->orderByName()
+                            ->find();
 
-                    if ($ormAssignedGroups->count() > 0) {
-                        $groupStr = _("Assigned groups for")." ".$aMember->getFirstName().' '.$aMember->getLastName().': ';
 
-                        foreach ($ormAssignedGroups as $group) {
-                            $groupStr .= $group->getName().' ('._($group->getRoleName()).') ';
+                        if ($ormAssignedGroups->count() > 0 and !$this->useQRCode) {
+                            $groupStr = _("Assigned groups for")." ".$aMember->getFirstName().' '.$aMember->getLastName().': ';
+
+                            foreach ($ormAssignedGroups as $group) {
+                                $groupStr .= $group->getName().' ('._($group->getRoleName()).') ';
+                            }
+                            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $groupStr);
+                            $curY += 2 * $incrY;
                         }
-                        $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $groupStr);
-                        $curY += 2 * $incrY;
-                    }
 
+                    }
                 }
 
                 if ($curY > 183) {    // This insures the trailer information fits continuously on the page (3 inches of "footer"
