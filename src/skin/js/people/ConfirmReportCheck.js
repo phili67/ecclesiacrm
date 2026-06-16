@@ -64,6 +64,7 @@ $(document).ready(function() {
 
             const dateSelector = '.bCustomPeopleDate' + currentId;
             const messageSelector = '.bCustomPeopleMessage' + currentId;
+            const selector = '#bCustomPeople' + currentId;
 
             window.CRM.APIRequest({
                 method: "POST",
@@ -89,7 +90,8 @@ $(document).ready(function() {
                         $(messageSelector).removeClass('text-red');
                         $(messageSelector).addClass('text-green');
                     }
-                    $thisInput.prop('disabled', true);
+                    $(selector).prop('disabled', true);
+                    $(selector).prop('checked', true);
                 }                                
             });                        
         });
