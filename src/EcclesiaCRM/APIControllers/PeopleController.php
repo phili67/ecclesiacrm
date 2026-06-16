@@ -374,8 +374,6 @@ class PeopleController
             $family->setEditedBy(SessionUser::getId());
 
             $family->save();
-
-            $family->createTimeLineNote('edit');        
             
             return $response->withJson(['success' => true, 
                 "Date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), true),
@@ -399,8 +397,6 @@ class PeopleController
             $person->setDateLastEdited($date);
             $person->setEditedBy(SessionUser::getId());
             $person->save();
-
-            $person->createTimeLineNote('edit');  
             
             return $response->withJson(['success' => true, 
                 "Date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), true),
