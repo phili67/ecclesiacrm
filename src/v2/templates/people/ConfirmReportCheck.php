@@ -38,6 +38,7 @@ switch ($exportType) {
         $ormFamilies->groupById()
         ->leftJoinNote()
             ->useNoteQuery()
+                ->filterByType('verify-URL-reset', \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
                 ->addAsColumn('LastDateEdited', 'max(note_nte.nte_DateLastEdited)')
                 ->addAsColumn('LastDateEntered', 'max(note_nte.nte_DateEntered)')
                 
@@ -72,6 +73,7 @@ switch ($exportType) {
         $ormPersons->groupById()
         ->leftJoinNote()
             ->useNoteQuery()
+                ->filterByType('verify-URL-reset', \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
                 ->addAsColumn('LastDateEdited', 'max(note_nte.nte_DateLastEdited)')
                 ->addAsColumn('LastDateEntered', 'max(note_nte.nte_DateEntered)')
                 
@@ -93,8 +95,13 @@ switch ($exportType) {
 ?>
 
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title"><?= htmlspecialchars($reportTitle) ?></h3>
+    <div class="card-header card-outline card-primary py-2 d-flex justify-content-between align-items-center flex-wrap">
+        <h3 class="card-title mb-0"><i class="fa-solid fa-check"></i> <?= htmlspecialchars($reportTitle) ?></h3>
+        <div class="d-flex flex-wrap mt-2 mt-md-0">
+            <a class="btn btn-sm btn-info mr-2 mb-2 mb-md-0" id="qrcode-call">
+                    <i class="fas fa-qrcode mr-1"></i>Code QR               
+            </a>
+        </div>
     </div>
     <div class="card-body">
         <p><?= _('This is a confirmation page to check the data before sending the confirmation emails to the families. Please review the information below and click "Confirm" to proceed with sending the emails, or "Cancel" to return to the previous page.') ?></p>        
@@ -126,13 +133,13 @@ switch ($exportType) {
                                         id="bCustomPeople<?= $fam->getId() ?>" 
                                         <?= $fam->getVirtualColumn('EstAncienneGlobale') ? '' : 'checked' ?>
                                         <?= $fam->getVirtualColumn('EstAncienneGlobale') ? '' : 'disabled' ?>>
-                                    <label class="custom-control-label" for="bCustomPeople<?= $fam->getId() ?>"><span class="text-muted bCustomPeopleDate<?= $fam->getId() ?>"><?= OutputUtils::FormatDate($fam->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
+                                    <label class="custom-control-label" for="bCustomPeople<?= $fam->getId() ?>"><span class="bCustomPeopleDate<?= $fam->getId() ?>"><?= OutputUtils::FormatDate($fam->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
                                 </div>
                             </td> 
                             <td><span class="badge badge-pill badge-light border"> <?= htmlspecialchars($fam->getVirtualColumn('PersonCount')) ?> </span></td>
                             <td><?= htmlspecialchars($fam->getAddress()) ?></td>
                             <td><a href="mailto:<?= htmlspecialchars( is_array($fam->getEmails()) ? $fam->getEmails()[0] : $fam->getEmails() ) ?>"><?= htmlspecialchars( is_array($fam->getEmails()) ? $fam->getEmails()[0] : $fam->getEmails() ) ?></a></td>                              
-                            <td><span class="text-muted <?= $fam->getVirtualColumn('EstAncienneGlobale') ?  'text-red': 'text-green' ?>  bCustomPeopleMessage<?= $fam->getId() ?>"><?= htmlspecialchars($fam->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></span></td>                         
+                            <td><span class="<?= $fam->getVirtualColumn('EstAncienneGlobale') ?  'text-red': 'text-green' ?>  bCustomPeopleMessage<?= $fam->getId() ?>"><?= htmlspecialchars($fam->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></span></td>                         
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -164,12 +171,12 @@ switch ($exportType) {
                                         id="bCustomPeople<?= $person->getId() ?>" 
                                         <?= $person->getVirtualColumn('EstAncienneGlobale') ? '' : 'checked' ?>
                                         <?= $person->getVirtualColumn('EstAncienneGlobale') ? '' : 'disabled' ?>>
-                                    <label class="custom-control-label" for="bCustomPeople<?= $person->getId() ?>"><span class="text-muted bCustomPeopleDate<?= $person->getId() ?>"><?= OutputUtils::FormatDate($person->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
+                                    <label class="custom-control-label" for="bCustomPeople<?= $person->getId() ?>"><span class="bCustomPeopleDate<?= $person->getId() ?>"><?= OutputUtils::FormatDate($person->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
                                 </div>
                             </td> 
                             <td><?= htmlspecialchars($person->getAddress()) ?></td>
                             <td><a href="mailto:<?= htmlspecialchars( $person->getEmail() ) ?>"><?= htmlspecialchars( $person->getEmail() ) ?></a></td>                              
-                            <td><span class="text-muted <?= $person->getVirtualColumn('EstAncienneGlobale') ?  'text-red': 'text-green' ?> bCustomPeopleMessage<?= $person->getId() ?>"><?= htmlspecialchars($person->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></span></td>                         
+                            <td><span class="<?= $person->getVirtualColumn('EstAncienneGlobale') ?  'text-red': 'text-green' ?> bCustomPeopleMessage<?= $person->getId() ?>"><?= htmlspecialchars($person->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></span></td>                         
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -192,65 +199,7 @@ switch ($exportType) {
     window.CRM.familyIDs = <?= json_encode($familyIDs) ?>;
 </script>
 
-<script>
-$(document).ready(function() {
-    $('#monTableau').DataTable({
-        paging: true,
-        pageLength: 100,
-        responsive: true,
-        // On trie par la première colonne (la lettre) pour que le groupement fonctionne
-        order: [[0, 'asc']], 
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-        // On configure le groupement de lignes
-        rowGroup: {
-            dataSrc: 0 // Index de la colonne contenant la première lettre
-        },
-        
-        // Optionnel : masquer la première colonne puisqu'elle sert d'intertitre
-        columnDefs: [
-            { targets: [0], visible: false }
-        ]
-    });
-
-    $('.custom-control-input, .custom-control-label').on('change', function() {
-        const isChecked = $(this).is(':checked');
-    
-        if (!isChecked) {
-            return; 
-        }
-
-        const $thisInput = $(this); // On stocke la référence jQuery de l'input
-        const currentId = $thisInput.attr('id').replace('bCustomPeople', '');
-        const newValue = '1'; // Puisqu'on ne gère désormais que le passage à "coché"
-        const dateSelector = '.bCustomPeopleDate' + currentId;
-        const messageSelector = '.bCustomPeopleMessage' + currentId;
-
-        $thisInput.val(newValue);        
-
-        window.CRM.APIRequest({
-            method: "POST",
-            path: "people/" + window.CRM.exportType + "/updateStatus",
-            data: JSON.stringify({
-                "ID": currentId,
-                "Status": newValue
-            })
-        }, function (data) {
-            if (data && data.Date) {
-                $(dateSelector).text(data.Date);
-            }
-            if (data && data.Message) {
-                $(messageSelector).text(data.Message);
-                $(messageSelector).removeClass('text-red');
-                $(messageSelector).addClass('text-green');
-            }
-
-            
-            $thisInput.prop('disabled', true);
-        });
-    })
-});
-</script>
-
+<script src="https://unpkg.com/jsqr@1.4.0/dist/jsQR.js" defer></script>
+<script src="<?= $sRootPath ?>/skin/js/qr_code.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/people/ConfirmReportCheck.js"></script>
 
