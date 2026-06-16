@@ -146,7 +146,7 @@ class Family extends BaseFamily implements iPhoto
 
     public function postUpdate(ConnectionInterface $con = null): void
     {
-        if (!empty($this->getDateLastEdited())) {
+        if (!empty($this->getDateLastEdited()) and $this->getConfirmReport() != 'Pending') {
             $this->createTimeLineNote('edit');
         }
     }
@@ -284,13 +284,13 @@ class Family extends BaseFamily implements iPhoto
               break;
             case "edit":
               $note->setText(_('Updated'));
-                $note->setEnteredBy(SessionUser::getId());
-                $note->setDateEntered($this->getDateLastEdited());
-                break;
+              $note->setEnteredBy(SessionUser::getId());
+              $note->setDateLastEdited($this->getDateLastEdited());
+              break;
             case "verify":
-                $note->setText(_('Family Data Verified'));
-                $note->setEnteredBy(SessionUser::getId());
-                break;
+              $note->setText(_('Family Data Verified'));
+              $note->setEnteredBy(SessionUser::getId());
+              break;
             case "verify-URL":
               $note->setText(_('Family Data Verified by url'));
               $note->setEnteredBy(SessionUser::getId());
