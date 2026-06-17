@@ -92,6 +92,8 @@ $(document).ready(function() {
                     }
                     $(selector).prop('disabled', true);
                     $(selector).prop('checked', true);
+
+                    alert(i18next.t('Success') + "\n\n" +  data.alertMessage);
                 }                                
             });                        
         });

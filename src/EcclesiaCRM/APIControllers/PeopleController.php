@@ -377,6 +377,7 @@ class PeopleController
             
             return $response->withJson(['success' => true, 
                 "Date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), true),
+                "alertMessage" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")) . ' ' . _('Status Updated'),
                 "Message" => _('No')]);
         }
 
@@ -400,6 +401,7 @@ class PeopleController
             
             return $response->withJson(['success' => true, 
                 "Date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), true),
+                "alertMessage" => $person->getFullName() . ' ' . _('Status Updated'),
                 "Message" => _('No')]);
         }
 
