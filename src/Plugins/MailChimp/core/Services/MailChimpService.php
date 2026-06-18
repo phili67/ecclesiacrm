@@ -212,7 +212,7 @@ class MailChimpService
     public function getConnectionStatus()
     {
         if (!isset ($_SESSION['MailChimpConnectionStatus']) && !empty($this)) {
-            $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
+            $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp?->post("authorized-apps");
         }
 
         return $_SESSION['MailChimpConnectionStatus'];

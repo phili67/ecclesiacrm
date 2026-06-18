@@ -269,7 +269,7 @@ class OutputUtils
             case 12:
                 if ($data > 0) {
                     $list = ListOptionQuery::Create()->filterById($special)->findOneByOptionId($data);
-                    return $list->getOptionName();
+                    return $list?->getOptionName();
                 } else {
                     return '';
                 }
