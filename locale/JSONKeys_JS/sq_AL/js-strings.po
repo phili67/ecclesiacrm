@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
+"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1167,31 +1167,6 @@ msgstr "shiko datën"
 msgid "Checkout By"
 msgstr "po"
 
-#, fuzzy
-msgid "Scan a QR Code"
-msgstr "s'ka kod ajror"
-
-msgid "Point your camera at a QR code to check in attendees automatically."
-msgstr ""
-
-msgid ""
-"Unable to access video stream (please make sure you have a webcam enabled)"
-msgstr ""
-"të paaftë për të hyrë në rrjet të videove (ju lutem sigurohuni që keni një "
-"kamerë të mundësuar)"
-
-msgid "No QR code detected yet. Keep the code inside the frame."
-msgstr ""
-
-msgid "Detected data"
-msgstr ""
-
-msgid "QR Code : Call the register"
-msgstr "Thirre regjistrin"
-
-msgid "Loading video..."
-msgstr "video..."
-
 msgid "Failed"
 msgstr "dështoi."
 
@@ -1200,6 +1175,9 @@ msgstr "Nuk ka ngjarje tani."
 
 msgid "Move one in the right range."
 msgstr "Lëviz një në të djathtë."
+
+msgid "Or"
+msgstr ""
 
 msgid "Create one."
 msgstr "krijo një."
@@ -1969,22 +1947,6 @@ msgstr "Dërguar e-mail verifikimi"
 msgid "Failed to send verification email"
 msgstr "nuk dërgoi mesazh verifikimi"
 
-#, fuzzy
-msgid "A person name or Family"
-msgstr "Një emër ose familje ose grup"
-
-#, fuzzy
-msgid "Modification"
-msgstr "Takim për modifikim"
-
-#, fuzzy
-msgid "By persons"
-msgstr "Shtoje"
-
-#, fuzzy
-msgid "By Adresses"
-msgstr "adresa."
-
 msgid "Warning !!!!"
 msgstr ""
 
@@ -2001,6 +1963,25 @@ msgstr "ti do të heqësh një dosje"
 #, fuzzy
 msgid "members"
 msgstr "Anëtarë"
+
+msgid "Please wait while the PDF is generated and downloaded."
+msgstr ""
+
+#, fuzzy
+msgid "A person name or Family"
+msgstr "Një emër ose familje ose grup"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Takim për modifikim"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Shtoje"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "adresa."
 
 #, fuzzy
 msgid "You're about to delete all pending confirmation for all the persons."
@@ -2403,6 +2384,31 @@ msgstr ""
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "tani fotografitë e tanishme të fotografive janë dosja publike! !"
+
+msgid "QR Code : Call the register"
+msgstr "Thirre regjistrin"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+
+#, fuzzy
+msgid "Scan a QR Code"
+msgstr "s'ka kod ajror"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"të paaftë për të hyrë në rrjet të videove (ju lutem sigurohuni që keni një "
+"kamerë të mundësuar)"
+
+msgid "Available Cameras"
+msgstr ""
+
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr ""
+
+msgid "Detected data"
+msgstr ""
 
 msgid "Families"
 msgstr "Familjet"
@@ -3045,6 +3051,9 @@ msgid ""
 msgstr ""
 "Të gjitha anëtarësimi në grup dhe pronat do të shkatërrohen. vetë anëtarët e "
 "grupit nuk do të ndryshojnë."
+
+#~ msgid "Loading video..."
+#~ msgstr "video..."
 
 #~ msgid "Mailchimp"
 #~ msgstr "Mailkim."

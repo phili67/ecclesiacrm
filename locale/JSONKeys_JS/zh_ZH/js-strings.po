@@ -3443,6 +3443,15 @@ msgstr "插件管理器"
 msgid "Record this pastoral follow-up for the whole family"
 msgstr "为整个家庭记录下这一牧养后续行动"
 
+msgid "Or"
+msgstr "或者"
+
+msgid "Please wait while the PDF is generated and downloaded."
+msgstr "请稍等，系统正在生成并下载 PDF 文件。"
+
+msgid "Available Cameras"
+msgstr "可选相机"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

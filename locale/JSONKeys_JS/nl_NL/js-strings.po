@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
+"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1153,30 +1153,6 @@ msgstr "Vertrekdatum"
 msgid "Checkout By"
 msgstr "Uitchecken door"
 
-msgid "Scan a QR Code"
-msgstr "Scan een QR-code"
-
-msgid "Point your camera at a QR code to check in attendees automatically."
-msgstr ""
-"Richt je camera op een QR-code om deelnemers automatisch in te checken."
-
-msgid ""
-"Unable to access video stream (please make sure you have a webcam enabled)"
-msgstr ""
-"Geen toegang tot videostream (zorg ervoor dat u een webcam hebt ingeschakeld)"
-
-msgid "No QR code detected yet. Keep the code inside the frame."
-msgstr "Nog geen QR-code gedetecteerd. Bewaar de code in het frame."
-
-msgid "Detected data"
-msgstr "Gedetecteerde gegevens"
-
-msgid "QR Code : Call the register"
-msgstr "QR Code : Bel het register"
-
-msgid "Loading video..."
-msgstr "Video wordt geladen..."
-
 msgid "Failed"
 msgstr "Mislukt"
 
@@ -1185,6 +1161,9 @@ msgstr "Geen gebeurtenis op dit moment."
 
 msgid "Move one in the right range."
 msgstr "Verplaats er een in het juiste bereik."
+
+msgid "Or"
+msgstr "Of"
 
 msgid "Create one."
 msgstr "Maak er een."
@@ -1926,18 +1905,6 @@ msgstr "Verificatie e-mail verzonden"
 msgid "Failed to send verification email"
 msgstr "Mislukt om verificatie e-mail te verzenden"
 
-msgid "A person name or Family"
-msgstr "Een persoonsnaam of Familie"
-
-msgid "Modification"
-msgstr "Wijziging"
-
-msgid "By persons"
-msgstr "Door personen"
-
-msgid "By Adresses"
-msgstr "Door Adressen"
-
 msgid "Warning !!!!"
 msgstr "Waarschuwing !!!!"
 
@@ -1955,6 +1922,21 @@ msgstr "Je staat op het punt een e-mail te sturen naar"
 
 msgid "members"
 msgstr "leden"
+
+msgid "Please wait while the PDF is generated and downloaded."
+msgstr "Even geduld a.u.b. terwijl de PDF wordt gegenereerd en gedownload."
+
+msgid "A person name or Family"
+msgstr "Een persoonsnaam of Familie"
+
+msgid "Modification"
+msgstr "Wijziging"
+
+msgid "By persons"
+msgstr "Door personen"
+
+msgid "By Adresses"
+msgstr "Door Adressen"
 
 msgid "You're about to delete all pending confirmation for all the persons."
 msgstr ""
@@ -2329,6 +2311,30 @@ msgstr "Plugin beheerder"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "De huidige afbeeldingen map is nu de openbare map !!!"
+
+msgid "QR Code : Call the register"
+msgstr "QR Code : Bel het register"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+"Richt je camera op een QR-code om deelnemers automatisch in te checken."
+
+msgid "Scan a QR Code"
+msgstr "Scan een QR-code"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Geen toegang tot videostream (zorg ervoor dat u een webcam hebt ingeschakeld)"
+
+msgid "Available Cameras"
+msgstr "Beschikbare camera's"
+
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr "Nog geen QR-code gedetecteerd. Bewaar de code in het frame."
+
+msgid "Detected data"
+msgstr "Gedetecteerde gegevens"
 
 msgid "Families"
 msgstr "Families"
@@ -2952,6 +2958,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
+
+#~ msgid "Loading video..."
+#~ msgstr "Video wordt geladen..."
 
 #~ msgid "Mailchimp"
 #~ msgstr "Mailchimp"

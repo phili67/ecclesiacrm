@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
+"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1141,32 +1141,6 @@ msgstr "Checkout Date"
 msgid "Checkout By"
 msgstr "Checkout By"
 
-msgid "Scan a QR Code"
-msgstr "Memindai Kode QR"
-
-msgid "Point your camera at a QR code to check in attendees automatically."
-msgstr ""
-"Arahkan kamera Anda ke kode QR untuk melakukan check-in peserta secara "
-"otomatis."
-
-msgid ""
-"Unable to access video stream (please make sure you have a webcam enabled)"
-msgstr ""
-"Tak bisa mengakses video stream (tolong pastikan kau memiliki webcam "
-"diaktifkan)"
-
-msgid "No QR code detected yet. Keep the code inside the frame."
-msgstr "Belum ada kode QR yang terdeteksi. Simpan kode di dalam bingkai."
-
-msgid "Detected data"
-msgstr "Data yang terdeteksi"
-
-msgid "QR Code : Call the register"
-msgstr "Panggil daftar"
-
-msgid "Loading video..."
-msgstr "Memuat video..."
-
 msgid "Failed"
 msgstr "Gagal."
 
@@ -1175,6 +1149,9 @@ msgstr "Tidak ada acara sekarang."
 
 msgid "Move one in the right range."
 msgstr "Pindahkan satu di jarak yang tepat."
+
+msgid "Or"
+msgstr "Atau"
 
 msgid "Create one."
 msgstr "Buat satu."
@@ -1913,18 +1890,6 @@ msgstr "Email verifikasi dikirim"
 msgid "Failed to send verification email"
 msgstr "Gagal untuk mengirim email verifikasi"
 
-msgid "A person name or Family"
-msgstr "Nama seseorang atau Keluarga"
-
-msgid "Modification"
-msgstr "Modifikasi"
-
-msgid "By persons"
-msgstr "Oleh orang"
-
-msgid "By Adresses"
-msgstr "Oleh Alamat"
-
 msgid "Warning !!!!"
 msgstr "Peringatan !!!!"
 
@@ -1942,6 +1907,21 @@ msgstr "Anda akan mengirim email ke"
 
 msgid "members"
 msgstr "anggota"
+
+msgid "Please wait while the PDF is generated and downloaded."
+msgstr "Mohon tunggu sebentar sementara file PDF sedang dibuat dan diunduh."
+
+msgid "A person name or Family"
+msgstr "Nama seseorang atau Keluarga"
+
+msgid "Modification"
+msgstr "Modifikasi"
+
+msgid "By persons"
+msgstr "Oleh orang"
+
+msgid "By Adresses"
+msgstr "Oleh Alamat"
 
 msgid "You're about to delete all pending confirmation for all the persons."
 msgstr "Anda akan menghapus semua konfirmasi yang tertunda untuk semua orang."
@@ -2310,6 +2290,32 @@ msgstr "Manajer plugin"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Folder saat ini sekarang adalah folder publik! !"
+
+msgid "QR Code : Call the register"
+msgstr "Panggil daftar"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+"Arahkan kamera Anda ke kode QR untuk melakukan check-in peserta secara "
+"otomatis."
+
+msgid "Scan a QR Code"
+msgstr "Memindai Kode QR"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Tak bisa mengakses video stream (tolong pastikan kau memiliki webcam "
+"diaktifkan)"
+
+msgid "Available Cameras"
+msgstr "Kamera yang Tersedia"
+
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr "Belum ada kode QR yang terdeteksi. Simpan kode di dalam bingkai."
+
+msgid "Detected data"
+msgstr "Data yang terdeteksi"
 
 msgid "Families"
 msgstr "Keluarga"
@@ -2933,6 +2939,9 @@ msgid ""
 "altered."
 msgstr ""
 "Semua keanggotaan akan dihancurkan.  Anggota itu sendiri tidak akan diubah."
+
+#~ msgid "Loading video..."
+#~ msgstr "Memuat video..."
 
 #~ msgid "Mailchimp"
 #~ msgstr "Mailchimp"

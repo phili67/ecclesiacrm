@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
+"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1154,29 +1154,6 @@ msgstr "ตรวจสอบเดท"
 msgid "Checkout By"
 msgstr "ตรวจสอบโดยการ"
 
-#, fuzzy
-msgid "Scan a QR Code"
-msgstr "ไม่มีการตรวจจับ QR รหัส"
-
-msgid "Point your camera at a QR code to check in attendees automatically."
-msgstr ""
-
-msgid ""
-"Unable to access video stream (please make sure you have a webcam enabled)"
-msgstr "ไม่สามารถเข้าถึงลำธารได้"
-
-msgid "No QR code detected yet. Keep the code inside the frame."
-msgstr ""
-
-msgid "Detected data"
-msgstr ""
-
-msgid "QR Code : Call the register"
-msgstr "โทรเรียกทะเบียน"
-
-msgid "Loading video..."
-msgstr "วีดีโอกำลังทะลุ"
-
 msgid "Failed"
 msgstr "ล้มเหลว"
 
@@ -1185,6 +1162,9 @@ msgstr "ไม่มีเหตุการณ์ตอนนี้"
 
 msgid "Move one in the right range."
 msgstr "เลื่อนไปหนึ่งในระยะที่ถูกต้อง"
+
+msgid "Or"
+msgstr ""
 
 msgid "Create one."
 msgstr "สร้างหนึ่ง"
@@ -1940,22 +1920,6 @@ msgstr "อีเมลล์ส่งข้อความ"
 msgid "Failed to send verification email"
 msgstr "ล้มเหลวในการส่งอีเมล์ตรวจสอบ"
 
-#, fuzzy
-msgid "A person name or Family"
-msgstr "ชื่อคนหรือครอบครัว หรือกลุ่ม"
-
-#, fuzzy
-msgid "Modification"
-msgstr "ปรับเปลี่ยน"
-
-#, fuzzy
-msgid "By persons"
-msgstr "เพิ่มคน"
-
-#, fuzzy
-msgid "By Adresses"
-msgstr "ที่อยู่"
-
 msgid "Warning !!!!"
 msgstr ""
 
@@ -1972,6 +1936,25 @@ msgstr "คุณกำลังจะถอดแฟ้ม"
 #, fuzzy
 msgid "members"
 msgstr "สมาชิก"
+
+msgid "Please wait while the PDF is generated and downloaded."
+msgstr ""
+
+#, fuzzy
+msgid "A person name or Family"
+msgstr "ชื่อคนหรือครอบครัว หรือกลุ่ม"
+
+#, fuzzy
+msgid "Modification"
+msgstr "ปรับเปลี่ยน"
+
+#, fuzzy
+msgid "By persons"
+msgstr "เพิ่มคน"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "ที่อยู่"
 
 #, fuzzy
 msgid "You're about to delete all pending confirmation for all the persons."
@@ -2372,6 +2355,29 @@ msgstr ""
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "แฟ้มภาพปัจจุบัน ตอนนี้แฟ้มสาธารณะ! !"
+
+msgid "QR Code : Call the register"
+msgstr "โทรเรียกทะเบียน"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+
+#, fuzzy
+msgid "Scan a QR Code"
+msgstr "ไม่มีการตรวจจับ QR รหัส"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr "ไม่สามารถเข้าถึงลำธารได้"
+
+msgid "Available Cameras"
+msgstr ""
+
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr ""
+
+msgid "Detected data"
+msgstr ""
 
 msgid "Families"
 msgstr "ครอบครัว"
@@ -2995,6 +3001,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "สมาชิกและสมบัติทั้งหมดจะถูกทำลาย กลุ่มสมาชิกตัวเองจะไม่ได้รับการเปลี่ยนแปลง"
+
+#~ msgid "Loading video..."
+#~ msgstr "วีดีโอกำลังทะลุ"
 
 #~ msgid "Mailchimp"
 #~ msgstr "ใบไม้ผลิตภัณฑ์"

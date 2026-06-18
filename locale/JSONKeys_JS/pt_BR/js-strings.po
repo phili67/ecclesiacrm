@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
+"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1166,31 +1166,6 @@ msgstr "Data de Saída"
 msgid "Checkout By"
 msgstr "Checkout Por"
 
-#, fuzzy
-msgid "Scan a QR Code"
-msgstr "sem código QR detectado"
-
-msgid "Point your camera at a QR code to check in attendees automatically."
-msgstr ""
-
-msgid ""
-"Unable to access video stream (please make sure you have a webcam enabled)"
-msgstr ""
-"Impossível aceder ao fluxo de vídeo (por favor, certifique-se de que tem uma "
-"webcam activada)"
-
-msgid "No QR code detected yet. Keep the code inside the frame."
-msgstr ""
-
-msgid "Detected data"
-msgstr ""
-
-msgid "QR Code : Call the register"
-msgstr "Código QR : Ligue para o registo"
-
-msgid "Loading video..."
-msgstr "A carregar o vídeo..."
-
 msgid "Failed"
 msgstr "Falha"
 
@@ -1199,6 +1174,9 @@ msgstr "Nenhum evento agora."
 
 msgid "Move one in the right range."
 msgstr "Mova um na faixa certa."
+
+msgid "Or"
+msgstr ""
 
 msgid "Create one."
 msgstr "Crie um."
@@ -1965,18 +1943,6 @@ msgstr "E-mail de verificação enviado"
 msgid "Failed to send verification email"
 msgstr "Falha no envio de e-mail de verificação"
 
-msgid "A person name or Family"
-msgstr "Nome de uma pessoa ou Família"
-
-msgid "Modification"
-msgstr "Modificação"
-
-msgid "By persons"
-msgstr "Por pessoas"
-
-msgid "By Adresses"
-msgstr "Por endereços"
-
 msgid "Warning !!!!"
 msgstr "Aviso !!!!"
 
@@ -1995,6 +1961,21 @@ msgstr "Está prestes a enviar uma mensagem de correio eletrónico para"
 
 msgid "members"
 msgstr "membros"
+
+msgid "Please wait while the PDF is generated and downloaded."
+msgstr ""
+
+msgid "A person name or Family"
+msgstr "Nome de uma pessoa ou Família"
+
+msgid "Modification"
+msgstr "Modificação"
+
+msgid "By persons"
+msgstr "Por pessoas"
+
+msgid "By Adresses"
+msgstr "Por endereços"
 
 msgid "You're about to delete all pending confirmation for all the persons."
 msgstr ""
@@ -2401,6 +2382,31 @@ msgstr "Gerenciador de download de plugins"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "A pasta de imagens actual é agora a pasta pública !!!"
+
+msgid "QR Code : Call the register"
+msgstr "Código QR : Ligue para o registo"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+
+#, fuzzy
+msgid "Scan a QR Code"
+msgstr "sem código QR detectado"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Impossível aceder ao fluxo de vídeo (por favor, certifique-se de que tem uma "
+"webcam activada)"
+
+msgid "Available Cameras"
+msgstr ""
+
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr ""
+
+msgid "Detected data"
+msgstr ""
 
 msgid "Families"
 msgstr "Famílias"
@@ -3054,6 +3060,9 @@ msgid ""
 msgstr ""
 "Todos os membros e propriedades do grupo serão destruídos.  Os próprios "
 "membros do grupo não serão alterados."
+
+#~ msgid "Loading video..."
+#~ msgstr "A carregar o vídeo..."
 
 #~ msgid "Mailchimp"
 #~ msgstr "Mailchimp"
