@@ -36,6 +36,72 @@ $(function() {
             document.body.appendChild(postForm);
             postForm.submit();
             return;
+        } else if (dataObject.realAction === 'SubmitConfirmReportEmail' && users == '') {
+            var postForm = document.createElement('form');
+            postForm.method = 'POST';
+            postForm.action = window.CRM.root + "/Reports/ConfirmReportEmail.php";
+
+            formData.forEach(function(value, key) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                postForm.appendChild(input);
+            });          
+            
+            document.body.appendChild(postForm);
+
+            bootbox.confirm({
+                title: i18next.t("Warning !!!!"),
+                size: "large",
+                message:i18next.t("You're about to send a massive e-mail to all EcclesiaCRM members :<br>- prefer a test with a few people or families<br>- make sure you select all of them, either by address or by person."),
+                animate:true,
+                callback: function(result) {
+                    if (result) {
+                        postForm.submit();
+                    }
+                }
+            }).find('.modal-content').css({
+                'background-color': '#f55', 
+                'font-weight' : 'bold', 
+                'color': '#000', 
+                'font-size': '1em', 
+                'font-weight' : 'bold'
+            });
+            return;
+        } else if (dataObject.realAction === 'SubmitConfirmReportEmail' && users != '') {
+            var postForm = document.createElement('form');
+            postForm.method = 'POST';
+            postForm.action = window.CRM.root + "/Reports/ConfirmReportEmail.php";
+
+            formData.forEach(function(value, key) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                postForm.appendChild(input);
+            });
+
+            document.body.appendChild(postForm);
+
+            bootbox.confirm({
+                title: i18next.t("Warning !!!!"),
+                size: "large",
+                message:i18next.t("You're about to send a e-mail to") + " " +  users + " "  + i18next.t("members")+ ".",
+                animate:true,
+                callback: function(result) {
+                    if (result) {
+                        postForm.submit();
+                    }
+                }
+            }).find('.modal-content').css({
+                'background-color': '#f55', 
+                'font-weight' : 'bold', 
+                'color': '#000', 
+                'font-size': '1em', 
+                'font-weight' : 'bold'
+            });
+            return;
         }
         
 
@@ -172,54 +238,7 @@ $(function() {
     var which;
     $("input").on('click', function () {
         which = $(this).attr("id");
-    });
-
-    $("#Myform").on('submit', function(e) {
-        var name = e.originalEvent.submitter.name;
-        $('input#realAction').val(name);        
-        var currentForm = this;
-        e.preventDefault();
-        
-        if (name == 'SubmitConfirmReportEmail' && users == '') {
-            bootbox.confirm({
-                    title: i18next.t("Warning !!!!"),
-                    size: "large",
-                    message:i18next.t("You're about to send a massive e-mail to all EcclesiaCRM members :<br>- prefer a test with a few people or families<br>- make sure you select all of them, either by address or by person."),
-                    animate:true,
-                    callback: function(result) {
-                        if (result) {
-                            currentForm.submit();
-                        }
-                    }
-            }).find('.modal-content').css({
-                'background-color': '#f55', 
-                'font-weight' : 'bold', 
-                'color': '#000', 
-                'font-size': '1em', 
-                'font-weight' : 'bold'
-            });
-        } else if (name == 'SubmitConfirmReportEmail' && users != '') {
-            bootbox.confirm({
-                    title: i18next.t("Warning !!!!"),
-                    size: "large",
-                    message:i18next.t("You're about to send a e-mail to") + " " +  users + " "  + i18next.t("members")+ ".",
-                    animate:true,
-                    callback: function(result) {
-                        if (result) {
-                            currentForm.submit();
-                        }
-                    }
-            }).find('.modal-content').css({
-                'background-color': '#f55', 
-                'font-weight' : 'bold', 
-                'color': '#000', 
-                'font-size': '1em', 
-                'font-weight' : 'bold'
-            });
-        } else {
-            currentForm.submit();
-        }
-    });
+    });    
 
     $("#delete-pending-persons").on ('click', function() {
         bootbox.confirm({
@@ -317,6 +336,55 @@ $(function() {
                 'font-size': '1em', 
                 'font-weight' : 'bold'
         });
+    });
+
+    $('input[name="options"]').on('change', function() {
+        // Récupère l'ID de l'élément coché
+        let selectedId = $(this).attr('id'); 
+        switch (selectedId) {
+            case 'Labels':
+                $('#reports-options-labels').removeClass('hide');
+                $('#reports-options-more').addClass('hide');
+                break;
+            case 'ConfirmDataLetter':
+                $('#reports-options-labels').addClass('hide');
+                $('#reports-options-more').removeClass('hide');
+                $('#qrCodeOption').removeClass('hide');                
+                $('#SubmitConfirmReport').removeClass('hide');
+                $('#SubmitConfirmReportCheck').addClass('hide');
+                $('#SubmitConfirmReportEmail').addClass('hide');
+                $('#reports-options-more-right').addClass('hide');
+
+                $('#reports-options-more-left').removeClass('col-lg-8');                
+                $('#reports-options-more-left').addClass('col-lg-12');
+                break;
+            case 'ConfirmDataInPerson':
+                $('#reports-options-labels').addClass('hide');
+                $('#reports-options-more').removeClass('hide');
+                $('#qrCodeOption').addClass('hide');
+                $('#SubmitConfirmReport').addClass('hide');
+                $('#SubmitConfirmReportCheck').removeClass('hide');
+                $('#SubmitConfirmReportEmail').addClass('hide');
+                $('#reports-options-more-right').removeClass('hide');
+
+                $('#reports-options-more-left').removeClass('col-lg-12');
+                $('#reports-options-more-left').addClass('col-lg-8');
+                break;
+            case 'ConfirmDataEmail':
+                $('#reports-options-labels').addClass('hide');
+                $('#reports-options-more').removeClass('hide');
+                $('#qrCodeOption').addClass('hide');
+                $('#SubmitConfirmReport').addClass('hide');
+                $('#SubmitConfirmReportCheck').addClass('hide');
+                $('#SubmitConfirmReportEmail').removeClass('hide');
+                $('#reports-options-more-right').removeClass('hide');
+
+                $('#reports-options-more-left').removeClass('col-lg-12');
+                $('#reports-options-more-left').addClass('col-lg-8');
+                break;
+            default:
+                window.CRM.DisplayAlert(i18next.t("Modification"), i18next.t("None"));
+        }       
     });
 
 });

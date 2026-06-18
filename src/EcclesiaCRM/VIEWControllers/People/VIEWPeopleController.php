@@ -1340,7 +1340,7 @@ class VIEWPeopleController {
     public function argumentsPeopleLettersAndLabelsArray () {
         $sRootDocument   = SystemURLs::getDocumentRoot();
 
-        $sPageTitle = _("Letters and mailing labels for data confirmations");
+        $sPageTitle = _("Data Audit/Verification");
 
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),

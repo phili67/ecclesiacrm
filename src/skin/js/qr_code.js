@@ -1,4 +1,4 @@
-/* QRCode code */
+/* QRCode code : © Philippe Logel All right reserved */
 class QRCodeScanner {
     static listElement = null;
     static stream = null;

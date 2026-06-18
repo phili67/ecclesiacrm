@@ -94,6 +94,12 @@ switch ($exportType) {
 }
 ?>
 
+<div class="d-flex justify-content-end mb-2">
+    <a class="btn btn-sm btn-outline-secondary" href="<?=  $sRootPath ?>/v2/people/LettersAndLabels">
+        <i class="fas fa-arrow-left mr-1"></i><?= _('Back') ?>
+    </a>
+</div>
+
 <div class="card">
     <div class="card-header card-outline card-primary py-2 d-flex justify-content-between align-items-center flex-wrap">
         <h3 class="card-title mb-0"><i class="fa-solid fa-check"></i> <?= htmlspecialchars($reportTitle) ?></h3>
@@ -104,7 +110,9 @@ switch ($exportType) {
         </div>
     </div>
     <div class="card-body">
-        <p><?= _('This is a confirmation page to check the data before sending the confirmation emails to the families. Please review the information below and click "Confirm" to proceed with sending the emails, or "Cancel" to return to the previous page.') ?></p>        
+        <div class="alert alert-light border mb-3">
+            <p><?= _('This is a confirmation page to check the data before sending the confirmation emails to the families. Please review the information below and click "Confirm" to proceed with sending the emails, or "Cancel" to return to the previous page.') ?></p>
+        </div>
         <div class="table-responsive">
             <?php if ($exportType === 'family') : ?>                            
             <table width="100%" cellpadding="2" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="monTableau">
@@ -185,8 +193,7 @@ switch ($exportType) {
         </div>
         <form method="post" action="<?= $sRootPath ?>/v2/people/confirmReportCheck">
             <input type="hidden" name="confirm" value="1">
-            <button type="submit" class="btn btn-success"><?= _('Confirm') ?></button>
-            <a href="<?= $sRootPath ?>/v2/people/LettersAndLabels" class="btn btn-secondary"><?= _('Cancel') ?></a>
+            <a href="<?= $sRootPath ?>/v2/people/LettersAndLabels" class="btn btn-secondary"><i class="fas fa-arrow-left mr-1"></i><?= _('Back') ?></a>
         </form>
         </div>
 </div>
