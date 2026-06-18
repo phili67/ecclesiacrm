@@ -478,144 +478,36 @@ $(function() {
         }
     }
 
-    /* QRCode code */
-    const BootboxContent = () => {
-
-        var frm_str = `<div class="qr-scanner-modal">
-            <div class="qr-scanner-header mb-3">
-                <h5 class="mb-2">${i18next.t("Scan a QR Code")}</h5>
-                <p class="mb-0 text-muted">${i18next.t("Point your camera at a QR code to check in attendees automatically.")}</p>
-            </div>
-            <div class="qr-scanner-stage">
-                <div id="loadingMessage" class="qr-scanner-status qr-scanner-status-loading">
-                    <span class="qr-scanner-status-icon"><i class="fas fa-camera"></i></span>
-                    <span class="qr-scanner-status-text">${i18next.t("Unable to access video stream (please make sure you have a webcam enabled)")}</span>
-                </div>
-                <canvas id="canvas" class="qr-scanner-canvas" hidden></canvas>
-            </div>
-            <div id="output" class="qr-scanner-feedback" hidden>
-                <div id="outputMessage" class="qr-scanner-status qr-scanner-status-idle">
-                    <span class="qr-scanner-status-icon"><i class="fas fa-search"></i></span>
-                    <span>${i18next.t("No QR code detected yet. Keep the code inside the frame.")}</span>
-                </div>
-                <div class="qr-scanner-result" hidden>
-                    <span class="qr-scanner-result-label">${i18next.t("Detected data")}</span>
-                    <span id="outputData" class="qr-scanner-result-value"></span>
-                </div>
-            </div>
-        </div>`;
-
-        var object = $('<div/>').html(frm_str).contents();
-
-        return object
-    }
-
     $(document).on("click", "#qrcode-call", function () {
-
-        var modal = bootbox.dialog({
-            title: i18next.t("QR Code : Call the register"),
-            message: BootboxContent(),
-            //size: 'large',
-            onShown: function(e) {
-                var video = document.createElement("video");
-                var canvasElement = document.getElementById("canvas");
-                var canvas = canvasElement.getContext("2d");
-                var loadingMessage = document.getElementById("loadingMessage");
-                var outputContainer = document.getElementById("output");
-                var outputMessage = document.getElementById("outputMessage");
-                var outputData = document.getElementById("outputData");
-
-                function drawLine(begin, end, color) {
-                    canvas.beginPath();
-                    canvas.moveTo(begin.x, begin.y);
-                    canvas.lineTo(end.x, end.y);
-                    canvas.lineWidth = 4;
-                    canvas.strokeStyle = color;
-                    canvas.stroke();
+        var qrcode = new QRCodeScanner(function(code) {
+            var res = code.split(' ');
+            
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'attendees/qrcodeCall',
+                data: JSON.stringify({ "groupID": res[0], "personID": res[1] })
+            }, function (data) {
+                if (data.status == 'failed') {
+                    alert(i18next.t('Failed') + " : " + i18next.t("No event right now.") + "\n\n" + "• "
+                        + i18next.t("Move one in the right range.")
+                        + "\n\n" + i18next.t("Or") + "\n\n" + "• "
+                        + i18next.t("Create one.") + "\n\n" + i18next.t('Group')
+                        + ' : ' + data.group + "\n" + i18next.t("User") + ' : ' + data.person);
+                } else if (data.status == 'global_failed') {
+                    alert(i18next.t("Failed") + " : " + i18next.t("No event now."));
+                } else {
+                    alert(i18next.t('Success') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + i18next.t("User") + ' : ' + data.person);
+                    reloadCheckinTable(false);
                 }
-
-                // Use facingMode: environment to attempt to get the front camera on phones
-                navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
-                    video.srcObject = stream;
-                    window.stream = stream;
-                    video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-                    video.play();
-                    requestAnimationFrame(tick);
-                });
-
-                var qrcode = '';
-
-                function tick() {
-                    loadingMessage.innerHTML = '<span class="qr-scanner-status-icon"><i class="fas fa-spinner fa-spin"></i></span><span class="qr-scanner-status-text">' + i18next.t("Loading video...") + '</span>';
-                    if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                        loadingMessage.hidden = true;
-                        canvasElement.hidden = false;
-                        outputContainer.hidden = false;
-
-                        canvasElement.height = video.videoHeight;
-                        canvasElement.width = video.videoWidth;
-                        canvas.drawImage(video, 0, 0,canvasElement.width -1, canvasElement.height-1);
-                        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-                        var code = jsQR(imageData.data, imageData.width, imageData.height, {
-                            inversionAttempts: "dontInvert",
-                        });
-                        if (code) {
-                            drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
-                            drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
-                            drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
-                            drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-                            outputMessage.hidden = true;
-                            outputData.parentElement.hidden = false;
-                            outputData.innerText = code.data;
-
-
-                            if (qrcode != code.data) {
-
-                                qrcode = code.data;
-                                var res = code.data.split(' ');
-
-                                window.CRM.APIRequest({
-                                    method: 'POST',
-                                    path: 'attendees/qrcodeCall',
-                                    data: JSON.stringify({"groupID": res[0], "personID": res[1]})
-                                },function (data) {
-                                    if (data.status == 'failed') {
-                                        alert(i18next.t('Failed') + " : " + i18next.t("No event right now.") + "\n\n" + "• "
-                                            + i18next.t("Move one in the right range.")
-                                            + "\n\n" + i18next.t ("Or") + "\n\n" + "• "
-                                            +  i18next.t("Create one.") + "\n\n" + i18next.t('Group')
-                                            + ' : ' + data.group + "\n" + i18next.t("User") + ' : ' + data.person);
-                                    } else if (data.status == 'global_failed') {
-                                        alert(i18next.t("Failed") + " : " + i18next.t("No event now.") );
-                                    } else {
-                                        alert(i18next.t('Success') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + i18next.t("User") + ' : ' + data.person);
-                                        reloadCheckinTable(false);
-                                    }
-                                });
-                            }
-                        } else {
-                            outputMessage.hidden = false;
-                            outputData.parentElement.hidden = true;
-                        }
-                    }
-                    requestAnimationFrame(tick);
-                }
-            },
-            onHide: function (e){
-                window.stream.getVideoTracks()[0].stop();
-            },
-            buttons: [
-                {
-                    label: '<i class="fas fa-check"></i> ' + i18next.t("Close"),
-                    className: "btn btn-primary",
-                    callback: function () {
-
-                    }
-                }
-            ]
+            });
         });
-
-        modal.show();
+        qrcode.setParameters({
+            "width": 470,
+            "height": 570,
+            "fps": 10,
+            "qrbox": 250
+        })
+        qrcode.show();
     });
 
 

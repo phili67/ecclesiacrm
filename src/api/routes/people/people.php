@@ -55,4 +55,19 @@ $app->group('/people', function (RouteCollectorProxy $group) {
      */
   $group->post('/person/classification/assign', PeopleController::class . ':postPersonClassification' );
 
+
+  /*
+   * @! Upate the status of a family
+   * #! param: id->int :: ID
+   * #! param: id->int :: Status
+   */
+  $group->post('/family/updateStatus', PeopleController::class . ':postFamilyUpdateStatus' );
+
+  /*
+   * @! Upate the status of a person
+   * #! param: id->int :: ID
+   * #! param: id->int :: Status
+   */
+  $group->post('/person/updateStatus', PeopleController::class . ':postPersonUpdateStatus' );
+
 });

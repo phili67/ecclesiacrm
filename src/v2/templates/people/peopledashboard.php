@@ -238,9 +238,9 @@ $families = FamilyQuery::create()->filterByDateDeactivated(NULL)->filterByLongit
                     <?php endif; ?>
                     <li class="list-group-item">
                         <a href="<?= $sRootPath ?>/v2/people/LettersAndLabels" class="font-weight-bold">
-                            <i class="fas fa-envelope-open-text mr-2 text-primary"></i><?= _('Letters and mailing labels for data confirmations') ?>
+                            <i class="fas fa-envelope-open-text mr-2 text-primary"></i><?= _("Data Audit/Verification") ?>
                         </a>
-                        <small class="d-block text-muted mt-1"><?= _('Generate letters and mailing labels for data confirmations.') ?></small>
+                        <small class="d-block text-muted mt-1"><?= _('Generate letters and mailing labels for data confirmations with QR code if necessary.') ?></small>
                     </li>
                 </ul>
             </div>

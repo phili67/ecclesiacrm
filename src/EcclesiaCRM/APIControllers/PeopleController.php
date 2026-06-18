@@ -25,6 +25,8 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\SessionUser;
 
+use EcclesiaCRM\Utils\OutputUtils;
+
 class PeopleController
 {
     private $container;
@@ -356,4 +358,53 @@ class PeopleController
         return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
     }
 
+    public function postFamilyUpdateStatus(ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!SessionUser::getUser()->isEditRecordsEnabled() and !$_SESSION['bEditRecords']) {
+            return $response->withStatus(401);
+        }
+
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->ID) && isset ($input->Status)) {
+            $date = new \DateTime('now');
+            $family = FamilyQuery::create()->findOneById($input->ID);
+
+            $family->setDateLastEdited($date);
+            $family->setEditedBy(SessionUser::getId());
+
+            $family->save();
+            
+            return $response->withJson(['success' => true, 
+                "Date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), true),
+                "alertMessage" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")) . ' ' . _('Status Updated'),
+                "Message" => _('No')]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function postPersonUpdateStatus(ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!SessionUser::getUser()->isEditRecordsEnabled() and !$_SESSION['bEditRecords']) {
+            return $response->withStatus(401);
+        }
+
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->ID) && isset ($input->Status)) {
+            $date = new \DateTime('now');
+            $person = PersonQuery::create()->findOneById($input->ID);
+            $person->setDateLastEdited($date);
+            $person->setEditedBy(SessionUser::getId());
+            $person->save();
+            
+            return $response->withJson(['success' => true, 
+                "Date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), true),
+                "alertMessage" => $person->getFullName() . ' ' . _('Status Updated'),
+                "Message" => _('No')]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
 }

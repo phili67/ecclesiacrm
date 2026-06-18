@@ -368,7 +368,7 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
-
+<script src="<?= $sRootPath ?>/skin/js/qr_code.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/event/Checkin.js"></script>
 
 <link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css"

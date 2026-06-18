@@ -510,7 +510,7 @@ class PeopleFamilyController
                         $token->delete();
                     }
                 
-                    $family->createTimeLineNote("verify-URL-reset");
+                    //$family->createTimeLineNote("verify-URL-reset");
 
                     $family->setConfirmReport('No');
                     $family->save();

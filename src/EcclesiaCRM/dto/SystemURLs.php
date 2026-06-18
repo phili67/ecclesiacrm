@@ -17,6 +17,7 @@ class SystemURLs
     private static $documentRoot;
     private static $CSPNonce;
     private static $supportURL = "https://www.docs.ecclesiacrm.com";//"https://github.com/phili67/ecclesiacrm/wiki";
+    private static $fullUrl;
 
     public static function init($rootPath, $urls, $documentRoot)
     {
@@ -41,6 +42,15 @@ class SystemURLs
     public static function getDocumentRoot()
     {
         return self::$documentRoot;
+    }
+
+    public static function getHost()
+    {
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'];
+
+        self::$fullUrl = $protocol . "://" . $host . self::$rootPath;         
+        return self::$fullUrl;
     }
 
     public static function getImagesRoot()

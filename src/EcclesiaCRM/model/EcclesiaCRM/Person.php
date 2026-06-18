@@ -375,7 +375,7 @@ class Person extends BasePerson implements iPhoto
 
     public function postUpdate(ConnectionInterface $con = null): void
     {
-      if (!empty($this->getDateLastEdited())) {
+      if (!empty($this->getDateLastEdited()) and $this->getConfirmReport() != 'Pending') {
         $this->createTimeLineNote('edit');
       }
     }
@@ -398,11 +398,10 @@ class Person extends BasePerson implements iPhoto
             case "create":
               $note->setText(gettext('Created'));
               $note->setEnteredBy($this->getEnteredBy());
-              $note->setDateEntered($this->getDateEntered());
               break;
             case "edit":
               $note->setText(gettext('Updated'));
-              $note->setDateEntered($this->getDateLastEdited());
+              $note->setDateLastEdited($this->getDateLastEdited());
               $note->setEditedBy(SessionUser::getId());
               break;
             case "verify":

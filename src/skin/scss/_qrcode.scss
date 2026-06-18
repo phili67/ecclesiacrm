@@ -103,9 +103,11 @@ h1 {
 }
 
 #canvas.qr-scanner-canvas {
+    margin-top: -100px;
     display: block;
     width: 100%;
-    max-height: 60vh;
+    height: 470px;
+    /* max-height: 60vh; */
     object-fit: cover;
     background: #020617;
 }

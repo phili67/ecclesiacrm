@@ -786,7 +786,7 @@ class PeoplePersonController
                         $token->delete();
                     }
                 
-                    $person->createTimeLineNote("verify-URL-reset");
+                    //$person->createTimeLineNote("verify-URL-reset");
 
                     $person->setConfirmReport('No');
                     $person->save();

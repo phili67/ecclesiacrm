@@ -86,4 +86,6 @@ $app->group('/people', function (RouteCollectorProxy $group) {
     $group->get('/canvass/automation', VIEWPeopleController::class . ':canvassAutomation' );
     $group->post('/canvass/automation', VIEWPeopleController::class . ':canvassAutomation' );
 
+    $group->get('/confirmReportCheck', VIEWPeopleController::class . ':confirmReportCheck' );
+    $group->post('/confirmReportCheck', VIEWPeopleController::class . ':confirmReportCheck' );
 });
