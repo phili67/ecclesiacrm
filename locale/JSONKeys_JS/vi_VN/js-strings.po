@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
+"POT-Creation-Date: 2026-06-18T08:42:44.976Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1166,31 +1166,6 @@ msgstr "Ngày kiểm tra"
 msgid "Checkout By"
 msgstr "Kiểm tra trước"
 
-#, fuzzy
-msgid "Scan a QR Code"
-msgstr "không phát hiện mã QR"
-
-msgid "Point your camera at a QR code to check in attendees automatically."
-msgstr ""
-
-msgid ""
-"Unable to access video stream (please make sure you have a webcam enabled)"
-msgstr ""
-"Không thể truy cập vào video (Xin hãy chắc chắn bạn có một webcam kết cho "
-"phép)"
-
-msgid "No QR code detected yet. Keep the code inside the frame."
-msgstr ""
-
-msgid "Detected data"
-msgstr ""
-
-msgid "QR Code : Call the register"
-msgstr "Mã QR : Gọi cho máy tính tiền"
-
-msgid "Loading video..."
-msgstr "Đang tải video..."
-
 msgid "Failed"
 msgstr "Thất bại"
 
@@ -1199,6 +1174,9 @@ msgstr "Không có sự kiện gì lúc này."
 
 msgid "Move one in the right range."
 msgstr "Di chuyển một cái ở khoảng cách phải."
+
+msgid "Or"
+msgstr ""
 
 msgid "Create one."
 msgstr "Tạo ra một cái."
@@ -1968,22 +1946,6 @@ msgstr "Email đã gửi"
 msgid "Failed to send verification email"
 msgstr "Không gửi email xác nhận"
 
-#, fuzzy
-msgid "A person name or Family"
-msgstr "Một người tên hay gia đình hoặc nhóm người"
-
-#, fuzzy
-msgid "Modification"
-msgstr "Ngày cải tiến"
-
-#, fuzzy
-msgid "By persons"
-msgstr "Thêm người"
-
-#, fuzzy
-msgid "By Adresses"
-msgstr "Địa chỉ"
-
 msgid "Warning !!!!"
 msgstr ""
 
@@ -2000,6 +1962,25 @@ msgstr "Anh sắp sửa xóa một tập tin"
 #, fuzzy
 msgid "members"
 msgstr "Các thành viên."
+
+msgid "Please wait while the PDF is generated and downloaded."
+msgstr ""
+
+#, fuzzy
+msgid "A person name or Family"
+msgstr "Một người tên hay gia đình hoặc nhóm người"
+
+#, fuzzy
+msgid "Modification"
+msgstr "Ngày cải tiến"
+
+#, fuzzy
+msgid "By persons"
+msgstr "Thêm người"
+
+#, fuzzy
+msgid "By Adresses"
+msgstr "Địa chỉ"
 
 #, fuzzy
 msgid "You're about to delete all pending confirmation for all the persons."
@@ -2402,6 +2383,31 @@ msgstr ""
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Tập hồ sơ hình ảnh hiện nay là tập tài liệu công cộng !! !"
+
+msgid "QR Code : Call the register"
+msgstr "Mã QR : Gọi cho máy tính tiền"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+
+#, fuzzy
+msgid "Scan a QR Code"
+msgstr "không phát hiện mã QR"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Không thể truy cập vào video (Xin hãy chắc chắn bạn có một webcam kết cho "
+"phép)"
+
+msgid "Available Cameras"
+msgstr ""
+
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr ""
+
+msgid "Detected data"
+msgstr ""
 
 msgid "Families"
 msgstr "Gia đình"
@@ -3045,6 +3051,9 @@ msgid ""
 msgstr ""
 "Tất cả các thành viên và tài sản của nhóm sẽ bị tiêu diệt. Các thành viên "
 "nhóm sẽ không bị thay đổi."
+
+#~ msgid "Loading video..."
+#~ msgstr "Đang tải video..."
 
 #~ msgid "Mailchimp"
 #~ msgstr "Mailchimp"

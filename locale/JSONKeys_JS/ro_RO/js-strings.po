@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-06T07:46:14.342Z\n"
+"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1145,32 +1145,6 @@ msgstr "Data de checkout"
 msgid "Checkout By"
 msgstr "Checkout Prin"
 
-msgid "Scan a QR Code"
-msgstr "Scanați un cod QR"
-
-msgid "Point your camera at a QR code to check in attendees automatically."
-msgstr ""
-"Îndreptați aparatul foto către un cod QR pentru a înregistra participanții "
-"în mod automat."
-
-msgid ""
-"Unable to access video stream (please make sure you have a webcam enabled)"
-msgstr ""
-"Nu se poate accesa fluxul video (asigurați-vă că aveți o cameră web activată)"
-
-msgid "No QR code detected yet. Keep the code inside the frame."
-msgstr ""
-"Încă nu a fost detectat niciun cod QR. Păstrați codul în interiorul cadrului."
-
-msgid "Detected data"
-msgstr "Date detectate"
-
-msgid "QR Code : Call the register"
-msgstr "Cod QR : Sunați la registru"
-
-msgid "Loading video..."
-msgstr "Încărcare video..."
-
 msgid "Failed"
 msgstr "A eșuat"
 
@@ -1179,6 +1153,9 @@ msgstr "Nu există niciun eveniment în acest moment."
 
 msgid "Move one in the right range."
 msgstr "Mutați unul în intervalul corect."
+
+msgid "Or"
+msgstr "Sau"
 
 msgid "Create one."
 msgstr "Creați unul."
@@ -1923,18 +1900,6 @@ msgstr "E-mail de verificare trimis"
 msgid "Failed to send verification email"
 msgstr "Nu s-a reușit trimiterea e-mailului de verificare"
 
-msgid "A person name or Family"
-msgstr "Un nume de persoană sau Familie"
-
-msgid "Modification"
-msgstr "Modificare"
-
-msgid "By persons"
-msgstr "De către persoane"
-
-msgid "By Adresses"
-msgstr "Prin Adrese"
-
 msgid "Warning !!!!"
 msgstr "Avertisment !!!!"
 
@@ -1952,6 +1917,22 @@ msgstr "Sunteți pe cale să trimiteți un e-mail către"
 
 msgid "members"
 msgstr "membri"
+
+msgid "Please wait while the PDF is generated and downloaded."
+msgstr ""
+"Vă rugăm să așteptați până când fișierul PDF este generat și descărcat."
+
+msgid "A person name or Family"
+msgstr "Un nume de persoană sau Familie"
+
+msgid "Modification"
+msgstr "Modificare"
+
+msgid "By persons"
+msgstr "De către persoane"
+
+msgid "By Adresses"
+msgstr "Prin Adrese"
 
 msgid "You're about to delete all pending confirmation for all the persons."
 msgstr ""
@@ -2332,6 +2313,32 @@ msgstr "Manager de pluginuri"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Dosarul de imagini curente este acum dosarul public !!!"
+
+msgid "QR Code : Call the register"
+msgstr "Cod QR : Sunați la registru"
+
+msgid "Point your camera at a QR code to check in attendees automatically."
+msgstr ""
+"Îndreptați aparatul foto către un cod QR pentru a înregistra participanții "
+"în mod automat."
+
+msgid "Scan a QR Code"
+msgstr "Scanați un cod QR"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Nu se poate accesa fluxul video (asigurați-vă că aveți o cameră web activată)"
+
+msgid "Available Cameras"
+msgstr "Camere disponibile"
+
+msgid "No QR code detected yet. Keep the code inside the frame."
+msgstr ""
+"Încă nu a fost detectat niciun cod QR. Păstrați codul în interiorul cadrului."
+
+msgid "Detected data"
+msgstr "Date detectate"
 
 msgid "Families"
 msgstr "Familii"
@@ -2962,6 +2969,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
+
+#~ msgid "Loading video..."
+#~ msgstr "Încărcare video..."
 
 #~ msgid "Mailchimp"
 #~ msgstr "Mailchimp"

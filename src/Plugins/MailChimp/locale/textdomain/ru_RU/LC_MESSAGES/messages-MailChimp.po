@@ -2,53 +2,53 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-06 10:42+0000\n"
+"POT-Creation-Date: 2026-06-18 08:39+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:59
 msgid "persons"
 msgstr "люди"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:58
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:59
 msgid "people"
 msgstr "люди"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:66
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:67
 msgid "All People"
 msgstr "Все люди"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:81
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:82
 #: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
 msgid "newsletter"
 msgstr "информационный бюллетень"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:87
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:88
 msgid "families"
 msgstr "семьи"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:95
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:96
 msgid "All Families"
 msgstr "Все семьи"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:130
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:131
 #: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
 msgid "Persons"
 msgstr "Лица"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:170
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:171
 #: ../src/Plugins/MailChimp/v2/templates/managelist.php:76
 msgid "Families"
 msgstr "Семьи"
 
-#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:208
+#: ../src/Plugins/MailChimp/core/APIControllers/MailchimpController.php:209
 msgid "Groups"
 msgstr "Группы"
 
-#: ../src/Plugins/MailChimp/core/Services/MailChimpService.php:299
+#: ../src/Plugins/MailChimp/core/Services/MailChimpService.php:298
 msgid "Private Data"
 msgstr "Конфиденциальные данные"
 
