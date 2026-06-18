@@ -353,10 +353,10 @@ $(function() {
                 $('#SubmitConfirmReport').removeClass('hide');
                 $('#SubmitConfirmReportCheck').addClass('hide');
                 $('#SubmitConfirmReportEmail').addClass('hide');
-                $('#reports-options-more-right').addClass('hide');
+                $('#reports-options-more-right').removeClass('hide');
 
-                $('#reports-options-more-left').removeClass('col-lg-8');                
-                $('#reports-options-more-left').addClass('col-lg-12');
+                $('#reports-options-more-left').removeClass('col-lg-12');                
+                $('#reports-options-more-left').addClass('col-lg-8');
                 break;
             case 'ConfirmDataInPerson':
                 $('#reports-options-labels').addClass('hide');

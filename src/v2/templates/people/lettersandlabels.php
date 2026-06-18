@@ -123,7 +123,8 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
     <?=
     _("Here you can choose to run reports to confirm the data stored in CRM, for families or on an individual basis.<br>
         - in PDF format for printing<br>
-        - or by e-mail (please note that at this level, e-mail is massive).")
+        - or by e-mail (please note that at this level, e-mail is massive).<br>
+        - in person with a QR code to confirm the data.")
     ?>
 </div>
 
