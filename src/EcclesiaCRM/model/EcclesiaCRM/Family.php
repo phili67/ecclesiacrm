@@ -28,7 +28,7 @@ class Family extends BaseFamily implements iPhoto
     private $photo;
 
 
-    public function preDelete(ConnectionInterface $con = NULL): bool
+    public function preDelete(?ConnectionInterface $con = NULL): bool
     {
       $token = TokenQuery::create()->findByReferenceId($this->getId());
       if ( !is_null($token)) {
@@ -132,7 +132,7 @@ class Family extends BaseFamily implements iPhoto
         return '';
     }
 
-    public function postInsert(ConnectionInterface $con = null): void
+    public function postInsert(?ConnectionInterface $con = null): void
     {
         $this->createTimeLineNote('create');
         if (!empty(SystemConfig::getValue("sNewPersonNotificationRecipientIDs")))
@@ -144,7 +144,7 @@ class Family extends BaseFamily implements iPhoto
         }
     }
 
-    public function postUpdate(ConnectionInterface $con = null): void
+    public function postUpdate(?ConnectionInterface $con = null): void
     {
         if (!empty($this->getDateLastEdited()) and $this->getConfirmReport() != 'Pending') {
             $this->createTimeLineNote('edit');
@@ -269,7 +269,7 @@ class Family extends BaseFamily implements iPhoto
     return $emails;
   }
 
-    public function createTimeLineNote($type)
+    public function createTimeLineNote($type, $title = null, $eventId = null)
     {
         $note = new Note();
         $note->setFamId($this->getId());
@@ -301,6 +301,10 @@ class Family extends BaseFamily implements iPhoto
               break;              
             case "verify-link":
               $note->setText(_('Verification email sent'));
+              $note->setEnteredBy(SessionUser::getId());
+              break;
+            case "event_attend":
+              $note->setText(_('Attended event: ') . $title.' (ID: ' . $eventId . ')');
               $note->setEnteredBy(SessionUser::getId());
               break;
         }
