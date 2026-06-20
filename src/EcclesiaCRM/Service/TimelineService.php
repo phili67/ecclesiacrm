@@ -283,6 +283,9 @@ class TimelineService
             case 'create':
                 $item['style'] = 'fa-plus-circle bg-blue';
                 break;
+            case 'event_attend':
+                $item['style'] = 'fa-calendar-check bg-green';
+                break;
             case 'edit':
                 $item['style'] = 'fa-pencil-alt bg-blue';
                 break;

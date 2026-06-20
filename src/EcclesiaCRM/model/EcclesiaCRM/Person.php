@@ -380,7 +380,7 @@ class Person extends BasePerson implements iPhoto
       }
     }
 
-    public function createTimeLineNote($type)
+    public function createTimeLineNote($type, $title = null, $eventId = null)
     {
         $note = new Note();
         $note->setPerId($this->getId());
@@ -418,6 +418,10 @@ class Person extends BasePerson implements iPhoto
               break;
             case "verify-link":
               $note->setText(_('Verification email sent'));
+              $note->setEnteredBy(SessionUser::getId());
+              break;
+            case "event_attend":
+              $note->setText(_('Attended event: ') . $title.' (ID: ' . $eventId . ')');
               $note->setEnteredBy(SessionUser::getId());
               break;
         }
