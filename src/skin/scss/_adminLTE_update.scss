@@ -664,7 +664,15 @@ a {
     height: 24px !important;
 }
 
+.card-warning-new, .bg-warning{
+    background-color: #fffb8cfc !important;
+}
+
 @media (prefers-color-scheme: dark) {
+    .card-warning-new, .bg-warning{
+        background-color: #f39c12 !important;
+    }
+
     .fas-blue {
         color: #8da9ff !important;
     }
