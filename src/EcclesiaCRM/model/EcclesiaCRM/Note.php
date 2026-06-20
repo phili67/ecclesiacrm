@@ -53,6 +53,9 @@ class Note extends BaseNote
 
     public function getEditLink()
     {
+        if ($this->getType() == 'event_attend') {
+            return null;
+        }
         if ($this->currentEditbyUserName() != "") {
             return '<button class="btn btn-outline-info btn-sm" disabled><i class="fas fa-lock"></i></button>';
         }
@@ -75,6 +78,9 @@ class Note extends BaseNote
 
     public function getDeleteLink()
     {
+        if ($this->getType() == 'event_attend') {
+            return null;
+        }
         if ($this->currentEditbyUserName() != "") {
             return '<button class="btn btn-outline-danger btn-sm deleteDocument" disabled><i class="fas fa-lock"></i></button>';
         }
