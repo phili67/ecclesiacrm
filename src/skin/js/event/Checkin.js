@@ -416,8 +416,18 @@ $(function() {
         editor.on('instanceReady', function () {
             var editableBody = editor.document.getBody();
 
-            editableBody.setStyle('background-color', '#ffc107');
+            editableBody.setStyle('background-color', '#fffb8cfc');
+            editableBody.setStyle('border-color', '#f39c12');            
             editableBody.setStyle('color', '#212529');
+
+            // 2. Supprimer la bordure et l'ombre de l'interface globale
+            if (editor.container) {
+                editor.container.setStyle('border', 'none');
+                editor.container.setStyle('box-shadow', 'none');
+                editor.container.setStyle('margin-left', '-4px');
+                editor.container.setStyle('margin-right', '-4px');
+                editor.container.setStyle('margin-bottom', '-4px');
+            }
         });
         
 

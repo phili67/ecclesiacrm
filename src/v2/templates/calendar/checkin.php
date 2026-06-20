@@ -318,7 +318,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             
 
-            <div class="card card-warning shadow-sm mt-3">
+            <div class="card card-warning-new shadow-sm mt-3">
                 <div class="card-header py-2 border-0">
                     <h3 class="card-title mb-0">
                         <i class="fas fa-sticky-note mr-1"></i><?= _("Notes") ?>
