@@ -4,6 +4,8 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\EventAttend as BaseEventAttend;
 
+use Propel\Runtime\Connection\ConnectionInterface;
+
 /**
  * Skeleton subclass for representing a row from the 'event_attend' table.
  *
@@ -15,4 +17,21 @@ use EcclesiaCRM\Base\EventAttend as BaseEventAttend;
  */
 class EventAttend extends BaseEventAttend
 {
+    public function postInsert(?ConnectionInterface $con = null): void
+    {
+        if (!is_null($this->getPerson()->getFamily())) {
+            $this->getPerson()->getFamily()->createTimeLineNote('event_attend', $this->getEvent()->getTitle(), $this->getEvent()->getId());
+        } else {
+            $this->getPerson()->createTimeLineNote('event_attend', $this->getEvent()->getTitle(), $this->getEvent()->getId());
+        }        
+    }
+
+    public function postUpdate(?ConnectionInterface $con = null): void
+    {
+        if (!is_null($this->getPerson()->getFamily())) {
+            $this->getPerson()->getFamily()->createTimeLineNote('event_attend', $this->getEvent()->getTitle(), $this->getEvent()->getId());
+        } else {
+            $this->getPerson()->createTimeLineNote('event_attend', $this->getEvent()->getTitle(), $this->getEvent()->getId());
+        }        
+    }
 }
