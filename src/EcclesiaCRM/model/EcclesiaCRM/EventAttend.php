@@ -34,4 +34,14 @@ class EventAttend extends BaseEventAttend
             $this->getPerson()->createTimeLineNote('event_attend', $this->getEvent()->getTitle(), $this->getEvent()->getId());
         }        
     }
+
+    public function preDelete(?ConnectionInterface $con = null): bool
+    {
+        if (!is_null($this->getPerson()->getFamily())) {
+            $this->getPerson()->getFamily()->createTimeLineNote('event_attend', $this->getEvent()->getTitle(), $this->getEvent()->getId());
+        } else {
+            $this->getPerson()->createTimeLineNote('event_attend', $this->getEvent()->getTitle(), $this->getEvent()->getId());
+        }     
+        return true;
+    }
 }
