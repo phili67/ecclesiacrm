@@ -3,8 +3,8 @@ $(document).ready(function() {
         paging: true,
         pageLength: 100,
         responsive: true,
-        // On trie par la première colonne (la lettre) pour que le groupement fonctionne
-        order: [[0, 'asc']], 
+        // On trie par la colonne "Action" (index 2) en ordre décroissant (dates les plus récentes en premier)
+        order: [[1, 'asc']], 
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
@@ -13,9 +13,25 @@ $(document).ready(function() {
             dataSrc: 0 // Index de la colonne contenant la première lettre
         },
         
-        // Optionnel : masquer la première colonne puisqu'elle sert d'intertitre
         columnDefs: [
-            { targets: [0], visible: false }
+            { targets: [0], visible: false },
+            // Configurer le tri de la colonne "Nom" (index 1) en utilisant l'attribut data-sort
+            { targets: [1], type: 'string', render: function(data, type, row) {
+                if (type === 'sort' || type === 'filter') {
+                    var match = data.match(/data-sort="([^"]*)"/);
+                    return match ? match[1] : '';
+                }
+                return data;
+            }},
+            // Configurer le tri de la colonne "Action" en utilisant l'attribut data-sort
+            { targets: [2], type: 'string', render: function(data, type, row) {
+                if (type === 'sort' || type === 'filter') {
+                    // Extraire la valeur de tri depuis l'attribut data-sort avec une regex
+                    var match = data.match(/data-sort="([^"]*)"/);
+                    return match ? match[1] : '';
+                }
+                return data;
+            }}
         ]
     });
 
