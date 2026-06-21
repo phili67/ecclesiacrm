@@ -48,10 +48,10 @@ switch ($exportType) {
                     COALESCE(max(note_nte.nte_DateEntered), max(note_nte.nte_DateLastEdited), "1970-01-01")
                 )')
                 
-                ->addAsColumn('EstAncienneGlobale', 'GREATEST(
+                ->addAsColumn('NoRecentActivity', 'GREATEST(
                     COALESCE(max(note_nte.nte_DateLastEdited), max(note_nte.nte_DateEntered), "1970-01-01"), 
                     COALESCE(max(note_nte.nte_DateEntered), max(note_nte.nte_DateLastEdited), "1970-01-01")
-                ) < DATE_SUB(NOW(), INTERVAL 1 WEEK)') // Par exemple, on considère "ancienne" si la dernière note a été modifiée ou créée il y a plus d'une semaine
+                ) < DATE_SUB(NOW(), INTERVAL 1 YEAR)') // Par exemple, on considère "ancienne" si la dernière note a été modifiée ou créée il y a plus d'une année
             ->endUse();
         $ormFamilies->orderByName();
         $ormFamilies->find();
@@ -83,10 +83,10 @@ switch ($exportType) {
                     COALESCE(max(note_nte.nte_DateEntered), max(note_nte.nte_DateLastEdited), "1970-01-01")
                 )')
                 
-                ->addAsColumn('EstAncienneGlobale', 'GREATEST(
+                ->addAsColumn('NoRecentActivity', 'GREATEST(
                     COALESCE(max(note_nte.nte_DateLastEdited), max(note_nte.nte_DateEntered), "1970-01-01"), 
                     COALESCE(max(note_nte.nte_DateEntered), max(note_nte.nte_DateLastEdited), "1970-01-01")
-                ) < DATE_SUB(NOW(), INTERVAL 1 WEEK)') // Par exemple, on considère "ancienne" si la dernière note a été modifiée ou créée il y a plus d'une semaine
+                ) < DATE_SUB(NOW(), INTERVAL 1 YEAR)') // Par exemple, on considère "ancienne" si la dernière note a été modifiée ou créée il y a plus d'une année
             ->endUse();
         $ormPersons->orderByLastName();
         $ormPersons->find();
@@ -124,30 +124,30 @@ switch ($exportType) {
                         <th><i class="fa-solid fa-user"></i> <?= _('Person Count') ?></th>
                         <th><i class="fa-solid fa-home"></i> <?= _('Address') ?></th>
                         <th><i class="fa-solid fa-envelope"></i> <?= _('Email') ?></th>
-                        <th><i class="fa-solid fa-clock"></i> <?= _('Is too old') ?></th>
+                        <th><i class="fa-solid fa-clock"></i> <?= _('No Recent Activity') ?></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($ormFamilies as $fam) : ?>
                         <tr>
                             <td><?= htmlspecialchars($fam->getVirtualColumn('FirstLetter')) ?></td>
-                            <td><a href="<?= $sRootPath ?>/v2/people/family/view/<?= $fam->getId() ?>"><?= $fam->getVirtualColumn('PersonCount') > 1 ?'<i class="fa-solid fa-people-roof"></i> ' : '<i class="fas fa-user"></i>'?> <?= htmlspecialchars($fam->getName()) ?></a></td>
+                            <td><a href="<?= $sRootPath ?>/v2/people/family/view/<?= $fam->getId() ?>" data-sort="<?= htmlspecialchars($fam->getName()) ?>"><?= $fam->getVirtualColumn('PersonCount') > 1 ?'<i class="fa-solid fa-people-roof"></i> ' : '<i class="fas fa-user"></i>'?> <?= htmlspecialchars($fam->getName()) ?></a></td>
                             <td>
                                 <div class="custom-control custom-switch mb-1">
                                     <input class="custom-control-input" 
                                         type="checkbox" 
                                         name="bCustomPeople<?= $fam->getId() ?>" 
-                                        value="<?= $fam->getVirtualColumn('EstAncienneGlobale') ? '0' : '1' ?>" 
+                                        value="<?= $fam->getVirtualColumn('NoRecentActivity') ? '0' : '1' ?>" 
                                         id="bCustomPeople<?= $fam->getId() ?>" 
-                                        <?= $fam->getVirtualColumn('EstAncienneGlobale') ? '' : 'checked' ?>
-                                        <?= $fam->getVirtualColumn('EstAncienneGlobale') ? '' : 'disabled' ?>>
-                                    <label class="custom-control-label" for="bCustomPeople<?= $fam->getId() ?>"><span class="bCustomPeopleDate<?= $fam->getId() ?>"><?= OutputUtils::FormatDate($fam->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
+                                        <?= $fam->getVirtualColumn('NoRecentActivity') ? '' : 'checked' ?>
+                                        <?= $fam->getVirtualColumn('NoRecentActivity') ? '' : 'disabled' ?>>
+                                    <label class="custom-control-label" for="bCustomPeople<?= $fam->getId() ?>"><span class="bCustomPeopleDate<?= $fam->getId() ?>" data-sort="<?= $fam->getVirtualColumn('PlusGrandeDate') ?>"><?= OutputUtils::FormatDate($fam->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
                                 </div>
                             </td> 
                             <td><span class="badge badge-pill badge-light border"> <?= htmlspecialchars($fam->getVirtualColumn('PersonCount')) ?> </span></td>
                             <td><?= htmlspecialchars($fam->getAddress()) ?></td>
                             <td><a href="mailto:<?= htmlspecialchars( is_array($fam->getEmails()) ? $fam->getEmails()[0] : $fam->getEmails() ) ?>"><?= htmlspecialchars( is_array($fam->getEmails()) ? $fam->getEmails()[0] : $fam->getEmails() ) ?></a></td>                              
-                            <td><span class="<?= $fam->getVirtualColumn('EstAncienneGlobale') ?  'text-red': 'text-green' ?>  bCustomPeopleMessage<?= $fam->getId() ?>"><?= htmlspecialchars($fam->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></span></td>                         
+                            <td><span class="<?= $fam->getVirtualColumn('NoRecentActivity') ?  'text-red': 'text-green' ?>  bCustomPeopleMessage<?= $fam->getId() ?>"><?= htmlspecialchars($fam->getVirtualColumn('NoRecentActivity') ? _('Yes') : _('No')) ?></span></td>                         
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -169,22 +169,22 @@ switch ($exportType) {
                     <?php foreach ($ormPersons as $person) : ?>
                         <tr>
                             <td><?= htmlspecialchars($person->getVirtualColumn('FirstLetter')) ?></td>
-                            <td><i class="fa-solid fa-user"></i> <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $person->getId() ?>"><?= htmlspecialchars($person->getLastName()) ?></a></td>
+                            <td><i class="fa-solid fa-user"></i> <a href="<?= $sRootPath ?>/v2/people/person/view/<?= $person->getId() ?>" data-sort="<?= htmlspecialchars($person->getLastName()) ?>"><?= htmlspecialchars($person->getLastName()) ?></a></td>
                             <td><a href="<?= $sRootPath ?>/v2/people/person/view/<?= $person->getId() ?>"><?= htmlspecialchars($person->getFirstName()) ?></a></td>
                             <td>
                                 <div class="custom-control custom-switch mb-1">
                                     <input class="custom-control-input" type="checkbox" 
                                         name="bCustomPeople<?= $person->getId() ?>" 
-                                        value="<?= $person->getVirtualColumn('EstAncienneGlobale') ? '0' : '1' ?>" 
+                                        value="<?= $person->getVirtualColumn('NoRecentActivity') ? '0' : '1' ?>" 
                                         id="bCustomPeople<?= $person->getId() ?>" 
-                                        <?= $person->getVirtualColumn('EstAncienneGlobale') ? '' : 'checked' ?>
-                                        <?= $person->getVirtualColumn('EstAncienneGlobale') ? '' : 'disabled' ?>>
-                                    <label class="custom-control-label" for="bCustomPeople<?= $person->getId() ?>"><span class="bCustomPeopleDate<?= $person->getId() ?>"><?= OutputUtils::FormatDate($person->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
+                                        <?= $person->getVirtualColumn('NoRecentActivity') ? '' : 'checked' ?>
+                                        <?= $person->getVirtualColumn('NoRecentActivity') ? '' : 'disabled' ?>>
+                                    <label class="custom-control-label" for="bCustomPeople<?= $person->getId() ?>"><span class="bCustomPeopleDate<?= $person->getId() ?>" data-sort="<?= $person->getVirtualColumn('PlusGrandeDate') ?>"><?= OutputUtils::FormatDate($person->getVirtualColumn('PlusGrandeDate'),true) ?></span></label>
                                 </div>
                             </td> 
                             <td><?= htmlspecialchars($person->getAddress()) ?></td>
                             <td><a href="mailto:<?= htmlspecialchars( $person->getEmail() ) ?>"><?= htmlspecialchars( $person->getEmail() ) ?></a></td>                              
-                            <td><span class="<?= $person->getVirtualColumn('EstAncienneGlobale') ?  'text-red': 'text-green' ?> bCustomPeopleMessage<?= $person->getId() ?>"><?= htmlspecialchars($person->getVirtualColumn('EstAncienneGlobale') ? _('Yes') : _('No')) ?></span></td>                         
+                            <td><span class="<?= $person->getVirtualColumn('NoRecentActivity') ?  'text-red': 'text-green' ?> bCustomPeopleMessage<?= $person->getId() ?>"><?= htmlspecialchars($person->getVirtualColumn('NoRecentActivity') ? _('Yes') : _('No')) ?></span></td>                         
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
