@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 08:56+0000\n"
+"POT-Creation-Date: 2026-06-21 16:42+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2723,7 +2723,7 @@ msgstr "(Không có gia đình được phân công)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:791
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:795
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1277
@@ -2747,12 +2747,12 @@ msgstr "Tự xác minh"
 msgid "by"
 msgstr "By"
 
-#: EcclesiaCRM/Service/TimelineService.php:317
+#: EcclesiaCRM/Service/TimelineService.php:320
 #: EcclesiaCRM/utils/MiscUtils.php:780 EcclesiaCRM/utils/MiscUtils.php:1038
 msgid "File"
 msgstr "Hồ sơ"
 
-#: EcclesiaCRM/Service/TimelineService.php:352
+#: EcclesiaCRM/Service/TimelineService.php:355
 msgid "Shared by"
 msgstr "Chia sẻ bởi"
 
@@ -5512,13 +5512,19 @@ msgstr "Quảng cáo gia đình"
 msgid "Verification email sent"
 msgstr "Email đã gửi"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:401
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:605
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:307
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:424
+#, fuzzy
+msgid "Attended event: "
+msgstr "Quầy chăm sóc"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:405
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:609
 msgid "Profile Image Deleted"
 msgstr "Hình ảnh bị xóa"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:417
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:632
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:421
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:636
 msgid "Profile Image uploaded"
 msgstr "Hình ảnh nhân tạo đã được tải lên"
 
@@ -5528,11 +5534,11 @@ msgstr "Hình ảnh nhân tạo đã được tải lên"
 msgid "Member"
 msgstr "Thành viên."
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:63
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:66
 msgid "Edit this document"
 msgstr "Chỉnh lại tài liệu này đi"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:85
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:91
 msgid "Delete this document"
 msgstr "Xóa tài liệu này đi"
 
@@ -5551,23 +5557,23 @@ msgstr "Dữ liệu gia đình được kiểm chứng"
 msgid "Person Data Verification reset"
 msgstr "Dữ liệu gia đình được kiểm chứng"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:798
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:802
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "cổ lỗ mãng"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "già"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "- Già rồi"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:810
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "- Già rồi"
@@ -10716,6 +10722,9 @@ msgid "Person Count"
 msgstr "Danh sách Nhân sự"
 
 #: v2/templates/people/ConfirmReportCheck.php:127
+msgid "No Recent Activity"
+msgstr ""
+
 #: v2/templates/people/ConfirmReportCheck.php:165
 #, fuzzy
 msgid "Is too old"

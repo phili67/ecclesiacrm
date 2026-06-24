@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 08:56+0000\n"
+"POT-Creation-Date: 2026-06-21 16:42+0000\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2696,7 +2696,7 @@ msgstr "(Brak przypisanej rodziny)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:791
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:795
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1277
@@ -2720,12 +2720,12 @@ msgstr "Samodzielna weryfikacja"
 msgid "by"
 msgstr "przez"
 
-#: EcclesiaCRM/Service/TimelineService.php:317
+#: EcclesiaCRM/Service/TimelineService.php:320
 #: EcclesiaCRM/utils/MiscUtils.php:780 EcclesiaCRM/utils/MiscUtils.php:1038
 msgid "File"
 msgstr "Plik"
 
-#: EcclesiaCRM/Service/TimelineService.php:352
+#: EcclesiaCRM/Service/TimelineService.php:355
 msgid "Shared by"
 msgstr "Udostępnione przez"
 
@@ -5480,13 +5480,19 @@ msgstr "Resetowanie weryfikacji danych rodziny"
 msgid "Verification email sent"
 msgstr "Wysłano e-mail weryfikacyjny"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:401
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:605
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:307
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:424
+#, fuzzy
+msgid "Attended event: "
+msgstr "Karta obecności"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:405
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:609
 msgid "Profile Image Deleted"
 msgstr "Usunięto obrazek profilu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:417
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:632
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:421
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:636
 msgid "Profile Image uploaded"
 msgstr "Wgranie zdjęcia profilowego"
 
@@ -5496,11 +5502,11 @@ msgstr "Wgranie zdjęcia profilowego"
 msgid "Member"
 msgstr "Członek"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:63
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:66
 msgid "Edit this document"
 msgstr "Edytuj ten dokument"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:85
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:91
 msgid "Delete this document"
 msgstr "Usuń ten dokument"
 
@@ -5516,23 +5522,23 @@ msgstr "Dane osoby zweryfikowane przez url"
 msgid "Person Data Verification reset"
 msgstr "Resetowanie weryfikacji danych osoby"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:798
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:802
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "miesięczny"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo stary"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "lat"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:810
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "yr old"
@@ -10564,6 +10570,9 @@ msgid "Person Count"
 msgstr "Liczba osób"
 
 #: v2/templates/people/ConfirmReportCheck.php:127
+msgid "No Recent Activity"
+msgstr ""
+
 #: v2/templates/people/ConfirmReportCheck.php:165
 msgid "Is too old"
 msgstr "Jest za stary"

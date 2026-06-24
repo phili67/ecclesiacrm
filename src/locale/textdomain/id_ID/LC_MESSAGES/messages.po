@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 08:56+0000\n"
+"POT-Creation-Date: 2026-06-21 16:42+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2694,7 +2694,7 @@ msgstr "(Tidak ada keluarga yang ditugaskan)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:791
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:795
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1277
@@ -2718,12 +2718,12 @@ msgstr "Verifikasi diri"
 msgid "by"
 msgstr "By"
 
-#: EcclesiaCRM/Service/TimelineService.php:317
+#: EcclesiaCRM/Service/TimelineService.php:320
 #: EcclesiaCRM/utils/MiscUtils.php:780 EcclesiaCRM/utils/MiscUtils.php:1038
 msgid "File"
 msgstr "Berkas"
 
-#: EcclesiaCRM/Service/TimelineService.php:352
+#: EcclesiaCRM/Service/TimelineService.php:355
 msgid "Shared by"
 msgstr "Dibagi oleh"
 
@@ -5471,13 +5471,19 @@ msgstr "Pengaturan ulang Verifikasi Data Keluarga"
 msgid "Verification email sent"
 msgstr "Email verifikasi dikirim"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:401
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:605
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:307
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:424
+#, fuzzy
+msgid "Attended event: "
+msgstr "Pertemuan"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:405
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:609
 msgid "Profile Image Deleted"
 msgstr "Profil Image dihapus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:417
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:632
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:421
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:636
 msgid "Profile Image uploaded"
 msgstr "Imaja Profil diunggah"
 
@@ -5487,11 +5493,11 @@ msgstr "Imaja Profil diunggah"
 msgid "Member"
 msgstr "Anggota"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:63
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:66
 msgid "Edit this document"
 msgstr "Edit dokumen ini"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:85
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:91
 msgid "Delete this document"
 msgstr "Hapus dokumen ini"
 
@@ -5507,23 +5513,23 @@ msgstr "Data Orang Terverifikasi oleh url"
 msgid "Person Data Verification reset"
 msgstr "Pengaturan ulang Verifikasi Data Orang"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:798
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:802
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos tua"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "mo tua"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "tua-mu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:810
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "tua mu"
@@ -10551,6 +10557,9 @@ msgid "Person Count"
 msgstr "Jumlah Orang"
 
 #: v2/templates/people/ConfirmReportCheck.php:127
+msgid "No Recent Activity"
+msgstr ""
+
 #: v2/templates/people/ConfirmReportCheck.php:165
 msgid "Is too old"
 msgstr "Terlalu tua"

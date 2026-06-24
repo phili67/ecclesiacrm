@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 08:56+0000\n"
+"POT-Creation-Date: 2026-06-21 16:42+0000\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2688,7 +2688,7 @@ msgstr "(할당된 가족 없음)"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:154
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:791
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:795
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
 #: v2/templates/people/familyEditor.php:1277
@@ -2712,12 +2712,12 @@ msgstr "자체 인증"
 msgid "by"
 msgstr "으로"
 
-#: EcclesiaCRM/Service/TimelineService.php:317
+#: EcclesiaCRM/Service/TimelineService.php:320
 #: EcclesiaCRM/utils/MiscUtils.php:780 EcclesiaCRM/utils/MiscUtils.php:1038
 msgid "File"
 msgstr "파일"
 
-#: EcclesiaCRM/Service/TimelineService.php:352
+#: EcclesiaCRM/Service/TimelineService.php:355
 msgid "Shared by"
 msgstr "공유자"
 
@@ -5428,13 +5428,19 @@ msgstr "가족 데이터 인증 재설정"
 msgid "Verification email sent"
 msgstr "확인 이메일 전송"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:401
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:605
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:307
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:424
+#, fuzzy
+msgid "Attended event: "
+msgstr "출석 시트"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:405
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:609
 msgid "Profile Image Deleted"
 msgstr "프로필 이미지 삭제됨"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Family.php:417
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:632
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:421
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:636
 msgid "Profile Image uploaded"
 msgstr "프로필 이미지 업로드"
 
@@ -5444,11 +5450,11 @@ msgstr "프로필 이미지 업로드"
 msgid "Member"
 msgstr "회원"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:63
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:66
 msgid "Edit this document"
 msgstr "이 문서 편집"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Note.php:85
+#: EcclesiaCRM/model/EcclesiaCRM/Note.php:91
 msgid "Delete this document"
 msgstr "이 문서 삭제"
 
@@ -5464,23 +5470,23 @@ msgstr "URL로 확인된 개인 데이터"
 msgid "Person Data Verification reset"
 msgstr "개인 데이터 인증 재설정"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:798
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:802
 #: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mos old"
 msgstr "mos old"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:800
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
 #: EcclesiaCRM/utils/OutputUtils.php:575
 msgid "mo old"
 msgstr "모 오래된"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:804
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:808
 #: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
 #: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yrs old"
 msgstr "세"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:806
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:810
 #: EcclesiaCRM/utils/OutputUtils.php:581
 msgid "yr old"
 msgstr "yr old"
@@ -10453,6 +10459,9 @@ msgid "Person Count"
 msgstr "인원 수"
 
 #: v2/templates/people/ConfirmReportCheck.php:127
+msgid "No Recent Activity"
+msgstr ""
+
 #: v2/templates/people/ConfirmReportCheck.php:165
 msgid "Is too old"
 msgstr "너무 늙었다"
