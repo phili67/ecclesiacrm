@@ -2191,6 +2191,160 @@ window.CRM.darkMode = function (mode, save = false) {
   }
 }
 
+// EDrive Modal function - Opens EDrive file browser and returns selected file URL
+window.CRM.edriveModalOpen = function(callback, 
+    file_type=null, error_file_type_title=null, error_file_type_message=null, error_file_type_callback=null) {
+    if (!callback || typeof callback !== 'function') {
+        console.error('edriveModalOpen requires a callback function');
+        return;
+    }
+
+    // Create modal with iframe loading EDrive browse
+    var edriveModal = bootbox.dialog({
+        title: '<span class="d-inline-flex align-items-center"><i class="fas fa-cloud mr-2"></i><span>' + i18next.t('EDrive File Browser') + '</span></span>',
+        message: '<div style="height: 100%; overflow: hidden; border-radius: 4px; flex: 1;"><iframe id="edrive-iframe" src="' + window.CRM.root + '/browser/browse.php?type=publicDocuments" style="width: 100%; height: 100%; border: none; border-radius: 4px;"></iframe></div>',
+        size: 'extra-large',
+        className: 'edrive-browser-modal',
+        buttons: [
+            {
+                label: '<i class="fas fa-times"></i> ' + i18next.t('Close'),
+                className: 'btn btn-secondary',
+                callback: function() {
+                    edriveModal.modal('hide');
+                    // Clean up event listener
+                    $(document).off('click.edriveDownload');
+                }
+            }
+        ],
+        backdrop: 'static',
+        keyboard: false,
+        show: true,
+        onEscape: function() {
+            $(document).off('click.edriveDownload');
+        }
+    });
+
+    // Apply fullheight styles
+    edriveModal.addClass('edrive-browser-modal');
+
+    // Wait for iframe to load, then attach event listener to iframe content
+    setTimeout(function() {
+        try {
+            var iframeDoc = document.getElementById('edrive-iframe').contentDocument || document.getElementById('edrive-iframe').contentWindow.document;
+            
+            if (iframeDoc) {
+                // Listen for clicks on filemanager-download button in the iframe
+                var iframeWindow = document.getElementById('edrive-iframe').contentWindow;
+                
+                // Store original event handler
+                if (iframeWindow.jQuery) {
+                    var $iframeBody = iframeWindow.jQuery('body');
+                    
+                    // Override the filemanager-download click handler
+                    $iframeBody.off('click', '.filemanager-download');
+                    $iframeBody.on('click', '.filemanager-download', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Get selected rows from DataTable in iframe
+                        if (iframeWindow.CRM && iframeWindow.CRM.dataEDriveTable) {
+                            var selectedRows = iframeWindow.CRM.dataEDriveTable.rows({ selected: true }).data();
+                            
+                            if (selectedRows.length > 0) {
+                                var firstRow = selectedRows[0];
+                                
+                                // Call API to get real link
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'filemanager/getRealLink',
+                                    data: JSON.stringify({ 
+                                        "personID": iframeWindow.CRM.currentPersonID, 
+                                        "pathFile": firstRow.path 
+                                    })
+                                }, function(data) {
+                                    if (data && data.success) {
+                                        var fileUrl = data.address;
+                                        var fileName = firstRow.name || firstRow.path;
+                                        
+                                        // Validate file type if file_type array is provided
+                                        if (file_type && Array.isArray(file_type) && file_type.length > 0) {
+                                            // Extract file extension
+                                            var fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
+                                            
+                                            // Check if extension is in allowed types
+                                            var isValidType = file_type.some(function(type) {
+                                                return type.toLowerCase() === fileExtension || type.toLowerCase() === '.' + fileExtension;
+                                            });
+                                            
+                                            if (!isValidType) {
+                                                // File type not allowed - show error
+                                                if (error_file_type_title && error_file_type_message) {
+                                                    window.CRM.DisplayAlert(
+                                                        error_file_type_title,
+                                                        error_file_type_message
+                                                    );
+                                                }
+                                                
+                                                // Call error callback if provided
+                                                if (error_file_type_callback && typeof error_file_type_callback === 'function') {
+                                                    error_file_type_callback(fileName, fileExtension);
+                                                }
+                                                
+                                                return;
+                                            }
+                                        }
+                                        
+                                        // Call the callback with the file URL
+                                        callback(fileUrl);
+                                        
+                                        // Close the modal
+                                        edriveModal.modal('hide');
+                                        
+                                        // Clean up event listener
+                                        $(document).off('click.edriveDownload');
+                                    } else {
+                                        window.CRM.DisplayNormalAlert(
+                                            i18next.t('Error'),
+                                            i18next.t('Could not retrieve file URL')
+                                        );
+                                    }
+                                });
+                            } else {
+                                window.CRM.DisplayNormalAlert(
+                                    i18next.t('Warning'),
+                                    i18next.t('Please select a file first')
+                                );
+                            }
+                        }
+                    });
+                }
+            }
+        } catch(e) {
+            console.warn('Unable to access iframe content (might be CORS issue):', e);
+            // Fallback: open as window if iframe access is restricted
+            var browseWindow = window.open(
+                window.CRM.root + '/browser/browse.php?type=publicDocuments',
+                'edriveWindow',
+                'width=1000,height=700,resizable=yes'
+            );
+            
+            // Poll for callback from child window
+            var checkInterval = setInterval(function() {
+                if (browseWindow && browseWindow.closed) {
+                    clearInterval(checkInterval);
+                    edriveModal.modal('hide');
+                }
+                if (browseWindow && browseWindow.CRM && browseWindow.CRM.selectedFileUrl) {
+                    callback(browseWindow.CRM.selectedFileUrl);
+                    browseWindow.close();
+                    clearInterval(checkInterval);
+                    edriveModal.modal('hide');
+                }
+            }, 500);
+        }
+    }, 1000);
+};
+
 
 window.CRM.buildDialogNotice = function (iconClass, title, body, alertClass = 'alert-light border') {
     return `<div class="alert ${alertClass} mb-0">
