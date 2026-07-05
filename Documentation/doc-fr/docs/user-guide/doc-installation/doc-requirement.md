@@ -1,10 +1,10 @@
 ## Serveur
 
-* Un serveur sous Linux (Une Ubuntu 16.04LTS par exemple)
+* Un serveur sous Linux (Une Ubuntu 24.04LTS par exemple)
 * Un serveur LAMP : Linux Apache Mysql et Php est requis.
 * Sous NGinx vous pourriez rencontrer des difficultés (non testé).
-* Un php 8.1 au minimum est requis
-* Une base de données sous Mysql 5.7 ou plus
+* Un php 8.2 au minimum est requis
+* Une base de données sous MariaDB 10.11 ou plus
 * MariaDB fonctionne sans souci
 
 ## Ces mods sur Apache doivent être activés
