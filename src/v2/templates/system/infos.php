@@ -19,7 +19,7 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
                 <table class="table table-sm table-striped table-hover mb-0 text-sm">
                     <tr>
                         <td><?= Bootstrapper::getSoftwareName() ?> <?= _("Software Version") ?></td>
-                        <td><?= SystemService::getInstalledVersion() ?></td>
+                        <td><?= SystemService::getInstalledVersion() ?> (Build : <?= SystemService::getBuild() ?>)</td>
                     </tr>
                     <tr>
                         <td>RootPath</td>
