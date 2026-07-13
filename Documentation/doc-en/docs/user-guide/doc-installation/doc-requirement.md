@@ -1,10 +1,10 @@
 ## Server
 
 * A Linux server
-* A server LAMP : Linux Apache Mysql or Php is required
+* A server LAMP : Linux Apache MariaDB or Php is required
 * With NGinx one may have issue ( not tested yet)
-* php 8.1 is required at the minimum
-* A Mysql 5.7 database
+* php 8.2 is required at the minimum
+* A MariaDB 10.11 database or more is required
 * MariaDB also works
 
 ## Mods to activate on Apache:
