@@ -69,6 +69,15 @@ class SystemService
         return $version;
     }
 
+    static public function getBuild()
+    {
+        $composerFile = file_get_contents(SystemURLs::getDocumentRoot() . '/composer.json');
+        $composerJson = json_decode($composerFile, true);
+        $build = $composerJson['build'];
+
+        return $build;
+    }
+
     public function getConfigurationSetting($settingName, $settingValue)
     {
         MiscUtils::requireUserGroupMembership('bAdmin');

@@ -33,7 +33,7 @@ use EcclesiaCRM\PluginDependenciesQuery;
     </div>
     <strong><?= _('Copyright') ?> &copy; 2017-<?= SystemService::getCopyrightDate() ?> <a
             href="https://www.ecclesiacrm.com"
-            target="_blank"><?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?>
+            target="_blank"><?= Bootstrapper::getSoftwareName() ?> <?= SystemService::getDBMainVersion() ?> (Build : <?= SystemService::getBuild() ?>)
         </a>.</strong> <?= _('All rights reserved') ?>.
 </footer>
 
