@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-18T08:42:44.976Z\n"
+"POT-Creation-Date: 2026-07-14T16:01:01.170Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -975,6 +975,18 @@ msgstr "Учасники зареєструвалися"
 
 msgid "More info"
 msgstr "Більше інформації"
+
+msgid "EDrive File Browser"
+msgstr "Файловий браузер EDrive"
+
+msgid "Could not retrieve file URL"
+msgstr "Не вдалося отримати URL-адресу файлу"
+
+msgid "Warning"
+msgstr "Попередження"
+
+msgid "Please select a file first"
+msgstr "Будь ласка, спочатку виберіть файл"
 
 msgid ""
 "Warning! Do not select this option if you plan to add to an existing "

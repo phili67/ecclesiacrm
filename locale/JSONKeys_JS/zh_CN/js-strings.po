@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
+"POT-Creation-Date: 2026-07-14T16:01:01.170Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -981,6 +981,20 @@ msgstr "参会者报到"
 
 msgid "More info"
 msgstr "更多信息"
+
+msgid "EDrive File Browser"
+msgstr ""
+
+msgid "Could not retrieve file URL"
+msgstr ""
+
+#, fuzzy
+msgid "Warning"
+msgstr "警告 !!!!"
+
+#, fuzzy
+msgid "Please select a file first"
+msgstr "请选择成员的目标群体"
 
 msgid ""
 "Warning! Do not select this option if you plan to add to an existing "

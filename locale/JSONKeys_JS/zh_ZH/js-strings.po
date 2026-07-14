@@ -3452,6 +3452,18 @@ msgstr "请稍等，系统正在生成并下载 PDF 文件。"
 msgid "Available Cameras"
 msgstr "可选相机"
 
+msgid "EDrive File Browser"
+msgstr "EDrive 文件浏览器"
+
+msgid "Could not retrieve file URL"
+msgstr "无法获取文件 URL"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Please select a file first"
+msgstr "请先选择一个文件"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 
