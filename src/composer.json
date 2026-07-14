@@ -1,6 +1,6 @@
 {
   "name": "ecclesiacrm/crm",
-  "version": "8.1.0",
+  "version": "9.0.0",
   "build": "8334",
   "type": "project",
   "keywords": [
@@ -80,6 +80,7 @@
   "config": {
     "allow-plugins": {
       "php-http/discovery": true
+    },
     "support": {
         "email": "dev-support@ecclesiacrm.com",
         "issues": "http://www.ecclesiacrm.com/issues/",

@@ -816,15 +816,16 @@
     "current": {
         "versions": [
             "8.0.0",
-            "8.0.1"
+            "8.0.1",
+            "8.1.0"
         ],
         "prescripts": [
-            "/mysql/upgrade/8.1.0-pre-upgrade.php"
+            "/mysql/upgrade/9.0.0-pre-upgrade.php"
         ],
         "scripts": [
-            "/mysql/upgrade/8.1.0-upgrade.sql"
+            "/mysql/upgrade/9.0.0-upgrade.sql"
         ],
         "postscripts": [],
-        "dbVersion": "8.1.0"
+        "dbVersion": "9.0.0"
     }
 }
