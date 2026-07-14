@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
+"POT-Creation-Date: 2026-07-14T16:01:01.170Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -974,6 +974,18 @@ msgstr "Deltagere tjekkede ind"
 
 msgid "More info"
 msgstr "Mere info"
+
+msgid "EDrive File Browser"
+msgstr "EDrive Filbrowser"
+
+msgid "Could not retrieve file URL"
+msgstr "Det var ikke muligt at hente filens URL"
+
+msgid "Warning"
+msgstr "Advarsel"
+
+msgid "Please select a file first"
+msgstr "Vælg venligst en fil først"
 
 msgid ""
 "Warning! Do not select this option if you plan to add to an existing "

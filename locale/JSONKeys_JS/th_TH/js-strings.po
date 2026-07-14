@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
+"POT-Creation-Date: 2026-07-14T16:01:01.170Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -988,6 +988,19 @@ msgstr "ผู้เข้าราชการตรวจสอบอิน"
 
 msgid "More info"
 msgstr "ข้อมูลอีก"
+
+msgid "EDrive File Browser"
+msgstr ""
+
+msgid "Could not retrieve file URL"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+#, fuzzy
+msgid "Please select a file first"
+msgstr "กรุณาเลือกกลุ่มเป้าหมาย สำหรับสมาชิก"
 
 msgid ""
 "Warning! Do not select this option if you plan to add to an existing "
@@ -3400,8 +3413,8 @@ msgstr "สมาชิกและสมบัติทั้งหมดจะ
 #~ "You can add the content of the cart to the selected event below<br> - OR "
 #~ "- <br>Create first an event and add them after."
 #~ msgstr ""
-#~ "คุณสามารถเพิ่มเนื้อหาของรถเข็น เข้าไปด้วยเหตุการณ์ที่เลือกต่ำกว่า<br>- หรือ -"
-#~ "<br>สร้างเหตุการณ์แรก แล้วบวกมันหลังจากนั้น"
+#~ "คุณสามารถเพิ่มเนื้อหาของรถเข็น เข้าไปด้วยเหตุการณ์ที่เลือกต่ำกว่า<br>- หรือ "
+#~ "-<br>สร้างเหตุการณ์แรก แล้วบวกมันหลังจากนั้น"
 
 #, fuzzy
 #~ msgid ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-06-18T08:36:59.457Z\n"
+"POT-Creation-Date: 2026-07-14T16:01:01.170Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -998,6 +998,19 @@ msgstr "të pranishmit u lidhën"
 
 msgid "More info"
 msgstr "Më shumë informacione"
+
+msgid "EDrive File Browser"
+msgstr ""
+
+msgid "Could not retrieve file URL"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+#, fuzzy
+msgid "Please select a file first"
+msgstr "ju lutemi zgjedhni objektivin për anëtarët"
 
 msgid ""
 "Warning! Do not select this option if you plan to add to an existing "
@@ -3458,8 +3471,8 @@ msgstr ""
 #~ "You can add the content of the cart to the selected event below<br> - OR "
 #~ "- <br>Create first an event and add them after."
 #~ msgstr ""
-#~ "Mund të shtosh përmbajtjen e karrocës në ngjarjen e zgjedhur nën<br>- OR -"
-#~ "<br>, do të krijosh një ngjarje të parë dhe do t'i shtosh ato më pas."
+#~ "Mund të shtosh përmbajtjen e karrocës në ngjarjen e zgjedhur nën<br>- OR "
+#~ "-<br>, do të krijosh një ngjarje të parë dhe do t'i shtosh ato më pas."
 
 #, fuzzy
 #~ msgid ""
