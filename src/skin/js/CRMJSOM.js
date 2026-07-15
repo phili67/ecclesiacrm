@@ -2,7 +2,7 @@
  * EcclesiaCRM JavaScript Object Model Initialization Script
  */
 
-window.CRM.APIRequest = function (options, callback) {
+window.CRM.APIRequest = function (options, callback, callbackError = null) {
   if (!options.method) {
     options.method = "GET"
   }
@@ -28,7 +28,10 @@ window.CRM.APIRequest = function (options, callback) {
     })
     .catch(error => {
       // enter your logic for when there is an error (ex. error toast)
-      console.log(error)
+      console.log(error);
+      if (callbackError) {
+        callbackError(error);
+      }
     });
 }
 
@@ -1976,6 +1979,9 @@ window.CRM.synchronize = {
           }
         }
       }
+    }, function (data) {
+      console.log("Error in synchronize refresh");
+      window.location.replace(window.CRM.root + '/session/Lock');
     });
   }
 }
