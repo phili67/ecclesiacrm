@@ -2233,6 +2233,22 @@ window.CRM.edriveModalOpen = function(callback,
     // Apply fullheight styles
     edriveModal.addClass('edrive-browser-modal');
 
+    // Fix nested modal scrolling issue
+    edriveModal.on('hidden.bs.modal', function() {
+        // Check if there are other modals still open
+        var openModals = $('.modal.show').length;
+        if (openModals > 0) {
+            // Restore modal-open class for parent modal
+            $('body').addClass('modal-open');
+            // Don't force overflow hidden, let Bootstrap handle it
+        } else {
+            // All modals closed - remove modal-open and restore body scroll
+            $('body').removeClass('modal-open');
+            $('body').css('padding-right', '');
+            $('body').css('overflow', '');
+        }
+    });
+
     // Wait for iframe to load, then attach event listener to iframe content
     setTimeout(function() {
         try {
