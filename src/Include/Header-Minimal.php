@@ -48,7 +48,7 @@ use EcclesiaCRM\SessionUser;
         $css_files = 'path to unique css file without root';
         */
         if (is_array($css_files)) {
-            foreach ($css_file as $css) {
+            foreach ($css_files as $css) {
                 ?>
                 <link rel="stylesheet" type="text/css" href="<?= SystemURLs::getRootPath() ?><?= $css['path'] ?>">
                 <?php
