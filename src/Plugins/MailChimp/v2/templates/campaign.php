@@ -171,7 +171,7 @@ if ($campaign['status'] == 'sent') {
 </div>
 
 
-<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
+<script src="<?= $sRootPath ?>/Plugins/MailChimp/skin/js/AutomaticDarkMode.js"></script>
 
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
