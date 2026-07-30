@@ -43,9 +43,15 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
                 <h3 class="h4 mb-1"><i class="far fa-envelope mr-2 text-success"></i><?= dgettext("messages-MailChimp", 'MailChimp Management') ?></h3>
                 <p class="text-muted mb-0"><?= dgettext("messages-MailChimp", 'Create audiences, sync contacts, and manage campaign data.') ?></p>
             </div>
-            <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
-                <img class="logo-mailchimp" src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled() ? 'Mailchimp_Logo-Horizontal_White.png' : 'Mailchimp_Logo-Horizontal_Black.png' ?>" height="25"/>
+            <div style="float:right">
+            <a href="https://help.brevo.com/hc/<?= $lang ?>" target="_blank">
+                <img class="logo-brevo" src="<?= $sRootPath ?>/Plugins/SendInBlue/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Brevo-Logo_white.png':'Brevo-Logo.png' ?>" height=20/>
             </a>
+            &nbsp; | &nbsp;
+            <a href="https://help.brevo.com/hc/<?= $lang ?>" target="_blank">
+                <img class="logo-sendinblue" src="<?= $sRootPath ?>/Plugins/SendInBlue/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Sendinblue_Logo_white.png':'Sendinblue_Logo.png' ?>" height=20/>
+            </a>
+        </div>
         </div>
 
         <div class="alert alert-success mb-3">
@@ -81,7 +87,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
             <i class="fas fa-info-circle text-success mr-1"></i>
             <?= dgettext("messages-MailChimp", 'You can import the generated CSV file to external email system.') ?>
             <?= dgettext("messages-MailChimp", 'For MailChimp see') ?>
-            <a href="http://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list" target="_blank"><?= dgettext("messages-MailChimp", 'import subscribers to a list.') ?></a>
+            <a class="alert-link-mailchimp" href="http://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list" target="_blank"><?= dgettext("messages-MailChimp", 'import subscribers to a list.') ?></a>
         </div>
 
         <div class="card card-outline card-secondary shadow-sm">

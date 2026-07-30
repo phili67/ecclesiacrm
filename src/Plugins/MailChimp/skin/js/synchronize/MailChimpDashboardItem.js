@@ -1,5 +1,5 @@
 window.CRM.synchronize.renderers.MailchimpDisplay = function (data) {
-    if (data.isActive) {
+    if (data.isActive && data.MailChimpLists !== null && data.MailChimpLists.length > 0) {
         var len = data.MailChimpLists.length;
 
         // now we empty the menubar lists

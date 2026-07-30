@@ -382,6 +382,10 @@
     color: #c67a00;
 }
 
+.alert-link-mailchimp {
+  color: gray !important;
+}
+
 @media (max-width: 991.98px) {
     .mailchimp-settings-page .hero-grid {
         grid-template-columns: 1fr;
