@@ -715,7 +715,7 @@ $(function() {
                             render_container();
                         }, false);
                     } else if (data.error) {
-                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                        window.CRM.DisplayAlert(i18next.t("Error", {ns: 'MailChimp'}), i18next.t(data.error.detail, {ns: 'MailChimp'}));
                         window.CRM.closeDialogLoadingFunction();
                     }
                 });
@@ -794,8 +794,8 @@ $(function() {
         var email = $(this).data("id");
 
         bootbox.prompt({
-            title: '<i class="fas fa-user-cog text-primary mr-2"></i>' + i18next.t('Update subscriber status'),
-            message: window.CRM.buildDialogNotice('fa-envelope text-primary', i18next.t('Selected subscriber'), '<span class="font-weight-bold">' + email + '</span><br>' + i18next.t('Choose the status to apply to this subscriber.'), 'alert-light border'),
+            title: '<i class="fas fa-user-cog text-primary mr-2"></i>' + i18next.t('Update subscriber status', {ns: 'MailChimp'}),
+            message: window.CRM.buildDialogNotice('fa-envelope text-primary', i18next.t('Selected subscriber', {ns: 'MailChimp'}), '<span class="font-weight-bold">' + email + '</span><br>' + i18next.t('Choose the status to apply to this subscriber.', {ns: 'MailChimp'}), 'alert-light border') + "<br>",
             inputType: 'select',
             inputOptions: [
                 {
