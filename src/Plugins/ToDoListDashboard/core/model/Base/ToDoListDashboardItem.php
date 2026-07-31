@@ -422,7 +422,7 @@ abstract class ToDoListDashboardItem implements ActiveRecordInterface
      *
      * @psalm-return ($format is null ? DateTime|null : string|null)
      */
-    public function getDateTime($format = null)
+    public function getDateTime(?string $format = null)
     {
         if ($format === null) {
             return $this->tdl_l_i_date_time;
@@ -497,7 +497,7 @@ abstract class ToDoListDashboardItem implements ActiveRecordInterface
             if (is_string($v)) {
                 $v = in_array(strtolower($v), array('false', 'off', '-', 'no', 'n', '0', '')) ? false : true;
             } else {
-                $v = (boolean) $v;
+                $v = (bool) $v;
             }
         }
 

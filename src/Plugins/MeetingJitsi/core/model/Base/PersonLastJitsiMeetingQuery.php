@@ -71,7 +71,7 @@ abstract class PersonLastJitsiMeetingQuery extends ModelCriteria
      * @param string $modelName The phpName of a model, e.g. 'Book'
      * @param string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'pluginstore', $modelName = '\\PluginStore\\PersonLastJitsiMeeting', $modelAlias = null)
+    public function __construct($dbName = 'pluginstore', $modelName = '\\PluginStore\\PersonLastJitsiMeeting', ?string $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }

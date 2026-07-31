@@ -427,7 +427,7 @@ abstract class NewsDashboard implements ActiveRecordInterface
      *
      * @psalm-return ($format is null ? DateTime : string)
      */
-    public function getDateentered($format = null)
+    public function getDateentered(?string $format = null)
     {
         if ($format === null) {
             return $this->news_nw_dateentered;
@@ -449,7 +449,7 @@ abstract class NewsDashboard implements ActiveRecordInterface
      *
      * @psalm-return ($format is null ? DateTime|null : string|null)
      */
-    public function getDatelastedited($format = null)
+    public function getDatelastedited(?string $format = null)
     {
         if ($format === null) {
             return $this->news_nw_datelastedited;

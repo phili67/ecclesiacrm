@@ -467,7 +467,7 @@ abstract class ToDoListDashboard implements ActiveRecordInterface
             if (is_string($v)) {
                 $v = in_array(strtolower($v), array('false', 'off', '-', 'no', 'n', '0', '')) ? false : true;
             } else {
-                $v = (boolean) $v;
+                $v = (bool) $v;
             }
         }
 

@@ -382,7 +382,7 @@ abstract class PersonJitsiMeeting implements ActiveRecordInterface
      *
      * @psalm-return ($format is null ? DateTime|null : string|null)
      */
-    public function getCreationDate($format = null)
+    public function getCreationDate(?string $format = null)
     {
         if ($format === null) {
             return $this->jm_pm_cr_date;
