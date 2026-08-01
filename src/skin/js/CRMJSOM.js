@@ -1645,7 +1645,7 @@ window.CRM.tools = {
 };
 
 window.CRM.synchronize = {
-  isRedirecting: false,
+  isRedirecting: 0,
   renderers: {
     EventsCounters: function (data) {
       if (document.getElementById('BirthdateNumber') != null) {
@@ -1967,7 +1967,9 @@ window.CRM.synchronize = {
     }
     
     // Éviter les redirections en cascade
-    if (window.CRM.synchronize.isRedirecting) {
+    window.CRM.synchronize.isRedirecting++;
+        
+    if (window.CRM.synchronize.isRedirecting === 2) {
       return;
     }
     
@@ -1976,7 +1978,6 @@ window.CRM.synchronize = {
       path: 'synchronize/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root, ''),
     }, function (data) {
       if (data[0].timeOut) {
-        window.CRM.synchronize.isRedirecting = true;
         window.location.replace(window.CRM.root + '/session/Lock');
       } else {
         for (var key in data[1]) {
@@ -1993,10 +1994,9 @@ window.CRM.synchronize = {
       
       // Vérifier si c'est une erreur de session (401)
       //if (error && error.status === 401) {
-        if (!window.CRM.synchronize.isRedirecting) {
-          window.CRM.synchronize.isRedirecting = true;
+      //  if (window.CRM.synchronize.isRedirecting === 2) {
           window.location.replace(window.CRM.root + '/session/Lock');
-        }
+      //  }
       //}
     });
   }
