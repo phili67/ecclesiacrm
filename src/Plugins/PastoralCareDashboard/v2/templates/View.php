@@ -164,12 +164,12 @@ function renderStatsTable($Stats) {
                         <?php
                             $alertCfg = getPastoralAlertConfig($pastoralServiceStats['PastoralcareAlertTypeButton']);
                         ?>
-                        <div class="alert alert-<?= $pastoralServiceStats['PastoralcareAlertTypeButton'] ?> shadow-sm border-0 mb-3"
+                        <div class="alert alert-light shadow-sm border-0 mb-3"
                              role="alert"
                              style="border-left: 5px solid <?= $pastoralServiceStats['PastoralcareAlertTypeHR'] ?> !important; border-radius: 6px;">
                             <div class="d-flex align-items-center mb-1">
-                                <i class="<?= $alertCfg['icon'] ?> me-2 fs-5"></i>
-                                <strong><?= $alertCfg['title'] ?></strong>
+                                <i style="color: <?= $pastoralServiceStats['PastoralcareAlertTypeHR'] ?>" class="<?= $alertCfg['icon'] ?> me-2 fs-5"></i> &nbsp;
+                                <strong style="color: <?= $pastoralServiceStats['PastoralcareAlertTypeHR'] ?>"><?= $alertCfg['title'] ?></strong>
                             </div>
                             <div class="small"><?= $alertCfg['message'] ?></div>
                         </div>

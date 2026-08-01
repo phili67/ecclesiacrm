@@ -14,14 +14,14 @@ $(function() {
                     <a href="javascript:void(0)" class="product-title">${data.items[i].Title}
                         <span class="badge badge-warning float-right">${data.items[i].Date}</span>
                     </a>
-                    <span class="product-description">${+ data.items[i].Text}`;
+                    <span class="product-description">${data.items[i].Text}`;
             
 
             if (window.CRM.newsDashboardIsAdmin) {
                 res += `        <div class="row">
                             <div class="col-md-11">
-                                <button type="button" class="btn btn-danger btn-sm float-right remove-dashboard-news-note" data-id="${data.items[i].Id}"><i class="fas fa-trash"></i> ${i18next.t("Remove", {ns: 'NewsDashboard'})}</button>
-                                <button type="button" class="btn btn-primary btn-sm float-right edit-dashboard-news-note" data-id="${data.items[i].Id}" style="margin-right: 12px"><i class="fas fa-edit"></i> ${i18next.t("Edit", {ns: 'NewsDashboard'})}</button>
+                                <button type="button" class="btn btn-outline-danger btn-sm float-right remove-dashboard-news-note" data-id="${data.items[i].Id}"><i class="fas fa-trash"></i> ${i18next.t("Remove", {ns: 'NewsDashboard'})}</button>
+                                <button type="button" class="btn btn-outline-primary btn-sm float-right edit-dashboard-news-note" data-id="${data.items[i].Id}" style="margin-right: 12px"><i class="fas fa-edit"></i> ${i18next.t("Edit", {ns: 'NewsDashboard'})}</button>
                             </div>
                         </div>`;
             }
@@ -36,30 +36,43 @@ $(function() {
 
     const BootboxContentNewDashboard = (sTitleText, sDocType, sText) => {
 
-        var frm_str = `<div>
-            <div class="row">
-                <div class="col-md-3"><span class="text-red">*</span>${i18next.t('News Title', {ns: 'NewsDashboard'}) }":</div>
-                    <div class="col-md-9">
-                        <input type="text" id="NewsTitle" placeholder="${i18next.t("Set your News title", {ns: 'NewsDashboard'})}" size="30" maxlength="100" class="form-control form-control-sm"  width="100%" style="width: 100%" required>
-                    </div>
-                </div><br>
-                <div class="row div-title">
-                    <div class="col-md-3"><span class="text-red">*</span>${i18next.t('Choose your News Type', {ns: 'NewsDashboard'}) }":</div>
-                    <div class="col-md-9">
-                        <select name="NewsType" class="form-control form-control-sm" id="NewsType">
-                            <option value="infos">${i18next.t("Infos", {ns: 'NewsDashboard'})}</option>
-                            <option value="to_plan">${i18next.t("To plan", {ns: 'NewsDashboard'})}</option>
-                            <option value="to_note">${i18next.t("To note", {ns: 'NewsDashboard'})}</option>
-                            <option value="important">${i18next.t("Important", {ns: 'NewsDashboard'})}</option>
-                            <option value="very_important">${i18next.t("Very important", {ns: 'NewsDashboard'})}</option>
-                        </select>
+        var frm_str = `<div class="container-fluid px-0">
+            <div class="form-group row mb-3">
+                <label for="NewsTitle" class="col-md-3 col-form-label col-form-label-sm">
+                    <span class="text-danger">*</span>
+                    <i class="fas fa-heading text-muted mr-1"></i>${i18next.t('News Title', {ns: 'NewsDashboard'})}
+                </label>
+                <div class="col-md-9">
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-pen"></i></span>
+                        </div>
+                        <input type="text" id="NewsTitle" placeholder="${i18next.t("Set your News title", {ns: 'NewsDashboard'})}" maxlength="100" class="form-control" required>
                     </div>
                 </div>
-                <div class="row  eventNotes">
-                    <div class="col-md-12" style="padding-left:0px;padding-right:2px;">
-                        <textarea name="NewsDashboardText" cols="80" class="form-control form-control-sm" id="NewsDashboardText"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>
-                    </div>
-                </div>`;
+            </div>
+            <div class="form-group row mb-3">
+                <label for="NewsType" class="col-md-3 col-form-label col-form-label-sm">
+                    <span class="text-danger">*</span>
+                    <i class="fas fa-tag text-muted mr-1"></i>${i18next.t('Choose your News Type', {ns: 'NewsDashboard'})}
+                </label>
+                <div class="col-md-9">
+                    <select name="NewsType" class="form-control form-control-sm" id="NewsType">
+                        <option value="infos">${i18next.t("Infos", {ns: 'NewsDashboard'})}</option>
+                        <option value="to_plan">${i18next.t("To plan", {ns: 'NewsDashboard'})}</option>
+                        <option value="to_note">${i18next.t("To note", {ns: 'NewsDashboard'})}</option>
+                        <option value="important">${i18next.t("Important", {ns: 'NewsDashboard'})}</option>
+                        <option value="very_important">${i18next.t("Very important", {ns: 'NewsDashboard'})}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group mb-0 eventNotes">
+                <label for="NewsDashboardText" class="col-form-label col-form-label-sm">
+                    <i class="fas fa-align-left text-muted mr-1"></i>${i18next.t('News', {ns: 'NewsDashboard'})}
+                </label>
+                <textarea name="NewsDashboardText" class="form-control form-control-sm" id="NewsDashboardText"></textarea>
+            </div>
+        </div>`;
 
         var object = $('<div/>').html(frm_str).contents();
 
