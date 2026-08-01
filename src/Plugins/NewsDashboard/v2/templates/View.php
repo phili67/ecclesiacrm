@@ -78,8 +78,8 @@ if ( $role == 'admin' or SessionUser::isAdmin() ) {
                                 <?php if ($isAdmin) { ?>
                                 <div class="row">
                                     <div class="col-md-11">
-                                        <button type="button" class="btn btn-danger btn-sm float-right remove-dashboard-news-note" data-id="<?= $note->getId() ?>"><i class="fas fa-trash"></i> <?= dgettext("messages-NewsDashboard","Remove") ?></button>
-                                        <button type="button" class="btn btn-primary btn-sm float-right edit-dashboard-news-note" data-id="<?= $note->getId() ?>" style="margin-right: 12px"><i class="fas fa-edit"></i> <?= dgettext("messages-NewsDashboard","Edit") ?></button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm float-right remove-dashboard-news-note" data-id="<?= $note->getId() ?>"><i class="fas fa-trash"></i> <?= dgettext("messages-NewsDashboard","Remove") ?></button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm float-right edit-dashboard-news-note" data-id="<?= $note->getId() ?>" style="margin-right: 12px"><i class="fas fa-edit"></i> <?= dgettext("messages-NewsDashboard","Edit") ?></button>
                                     </div>
                                 </div>
                                 <?php } ?>

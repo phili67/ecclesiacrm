@@ -1458,7 +1458,7 @@ class CalendarService
                     . '       <input type="hidden" name="EName" value="' . $title . '">'
                     . '       <input type="hidden" name="EDesc" value="' . $desc . '">'
                     . '       <input type="hidden" name="EDate" value="' . OutputUtils::FormatDate($start, 1) . '">'
-                    . '       <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-info btn-xs ' . (!($eventRights) ? "disabled" : "") . '" >';
+                    . '       <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-outline-info btn-xs ' . (!($eventRights) ? "disabled" : "") . '" >';
 
                 if ($eventRights) {
                     $ret .= ' </form>';
@@ -1469,7 +1469,7 @@ class CalendarService
 
 
                 if ($eventRights) {
-                    $ret .= '                       <button data-id="' . $eventID . '" title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs checkout-event checkout-button-' . $eventID . '" >'
+                    $ret .= '                       <button data-id="' . $eventID . '" title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-outline-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs checkout-event checkout-button-' . $eventID . '" >'
                         . '                                 <i class="fas fa-check-circle"></i> ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? _("Make Check-out") : _("Check-out done"))
                         . '                         </button>';
                 } else {
@@ -1491,7 +1491,7 @@ class CalendarService
                     . '  <input type="hidden" name="EDesc" value="' . $desc . '">'
                     . '  <input type="hidden" name="EDate" value="' .  OutputUtils::FormatDate($start, 1) . '">'
                     //. '<span style="font-size: 12px;">' ._('No Attendance Recorded') . '</span><br>'
-                    . '  <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-info btn-xs" >'
+                    . '  <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-outline-info btn-xs" >'
                     . '</form>';
             }
 
