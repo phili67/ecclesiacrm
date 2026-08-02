@@ -171,14 +171,14 @@ use EcclesiaCRM\PluginDependenciesQuery;
                                 <i class="fas fa-chevron-right text-muted small"></i>
                             </div>
                         </a>
-                        <?php if (SessionUser::getUser()->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) { ?>
+                        <?php if ( SessionUser::getUser()->isDonationFundEnabled()  && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) : ?>
                             <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/fundlist">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span><i class="fas fa-donate mr-2 text-muted"></i><?= _('Edit Donation Funds') ?></span>
                                     <i class="fas fa-chevron-right text-muted small"></i>
                                 </div>
                             </a>
-                        <?php } ?>
+                        <?php endif; ?>
                         <?php if (SessionUser::getUser()->isPastoralCareEnabled()) { ?>
                             <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcarelist">
                                 <div class="d-flex justify-content-between align-items-center">
