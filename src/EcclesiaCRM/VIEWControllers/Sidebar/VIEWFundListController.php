@@ -31,7 +31,7 @@ class VIEWFundListController {
     public function renderFundList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer('templates/sidebar/');
 
-        if ( !( SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        if ( !( SessionUser::getUser()->isDonationFundEnabled() ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
