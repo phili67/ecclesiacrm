@@ -19,7 +19,39 @@ window.CRM.APIRequest = function (options, callback, callbackError) {
     },
     body: options.data
   })
-    .then(res => res.json())
+    .then(async res => {
+      var responseBody = await res.text();
+      var redirectedToSession = /\/session\/(Lock|login)/i.test(res.url);
+      var responseData = null;
+
+      try {
+        responseData = JSON.parse(responseBody);
+      } catch (e) {
+        responseData = null;
+      }
+
+      var sessionPage = /lockscreen-credentials|name=["']LoginForm["']/i.test(responseBody);
+
+      if (!res.ok || redirectedToSession || sessionPage) {
+
+        var apiError = new Error(
+          responseData && responseData.message
+            ? responseData.message
+            : (redirectedToSession || sessionPage
+              ? 'Session expired'
+              : ('HTTP ' + (res.status || 500)))
+        );
+        apiError.status = redirectedToSession || sessionPage ? 401 : res.status;
+        apiError.response = responseData;
+        throw apiError;
+      }
+
+      if (responseData === null) {
+        throw new Error('API response is not JSON');
+      }
+
+      return responseData;
+    })
     .then(data => {
       // enter you logic when the fetch is successful
       if (callback) {
@@ -1645,7 +1677,7 @@ window.CRM.tools = {
 };
 
 window.CRM.synchronize = {
-  isRedirecting: 0,
+  isRedirecting: false,
   renderers: {
     EventsCounters: function (data) {
       if (document.getElementById('BirthdateNumber') != null) {
@@ -1966,18 +1998,15 @@ window.CRM.synchronize = {
       return;
     }
     
-    // Éviter les redirections en cascade
-    window.CRM.synchronize.isRedirecting++;
-        
-    if (window.CRM.synchronize.isRedirecting === 2) {
-      return;
-    }
-    
     window.CRM.APIRequest({
       method: 'POST',
-      path: 'synchronize/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root, ''),
+      path: 'synchronize/page?currentpagename=' + encodeURIComponent(
+        window.CRM.PageName.replace(window.CRM.root, '')
+      ),
     }, function (data) {
-      if (data[0].timeOut) {
+      if (data && data[0] && data[0].timeOut) {
+        //alert(i18next.t("1. Your session has expired. You will be redirected to the login page."));
+
         window.location.replace(window.CRM.root + '/session/Lock');
       } else {
         for (var key in data[1]) {
@@ -1989,15 +2018,10 @@ window.CRM.synchronize = {
         }
       }
     }, function (error) {
-      // Gestion robuste des erreurs API
-      console.error("Error in synchronize refresh:", error);
-      
-      // Vérifier si c'est une erreur de session (401)
-      //if (error && error.status === 401) {
-      //  if (window.CRM.synchronize.isRedirecting === 2) {
-          window.location.replace(window.CRM.root + '/session/Lock');
-      //  }
-      //}
+      if (error && error.status === 401 && !window.CRM.synchronize.isRedirecting) {
+        window.CRM.synchronize.isRedirecting = true;
+        window.location.replace(window.CRM.root + '/session/Lock');
+      }
     });
   }
 }
