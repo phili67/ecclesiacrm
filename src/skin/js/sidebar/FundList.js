@@ -1,11 +1,11 @@
 window.CRM.ElementListener('#add-new-fund', 'click', function (event) {
   var modal = bootbox.dialog({
     message: BootboxContentFundList,
-    title: i18next.t("Add Fund"),
+    title: '<i class="fas fa-plus-circle mr-2 text-primary"></i>' + i18next.t("Add Fund"),
     size: 'large',
     buttons: [
       {
-        label: i18next.t("Save"),
+        label: '<i class="fas fa-save mr-1"></i>' + i18next.t("Save"),
         className: "btn btn-primary pull-left",
         callback: function () {
           let Activ = document.getElementById('activCheckbox').checked;
@@ -24,7 +24,7 @@ window.CRM.ElementListener('#add-new-fund', 'click', function (event) {
         }
       },
       {
-        label: i18next.t("Close"),
+        label: '<i class="fas fa-times mr-1"></i>' + i18next.t("Close"),
         className: "btn btn-default pull-left",
         callback: function () {
           console.log("just do something on close");
@@ -82,8 +82,20 @@ const loadTableEvents = () => {
     let fundId = event.currentTarget.dataset.id;
 
     bootbox.confirm({
-      title: i18next.t("Attention"),
-      message: i18next.t("If you delete the fund, <u><b>you'll lose all the connected datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"),
+      title: '<i class="fas fa-trash-alt mr-2 text-danger"></i>' + i18next.t("Attention"),
+      message: '<div class="alert alert-danger mb-2"><i class="fas fa-exclamation-triangle mr-1"></i> '
+        + i18next.t("If you delete the fund, <b>you'll lose all the connected datas.</b>")
+        + '</div><strong>' + i18next.t("Are you sure? This action can't be undone.") + '</strong>',
+      buttons: {
+        cancel: {
+          label: '<i class="fas fa-times mr-1"></i>' + i18next.t("Cancel"),
+          className: "btn-outline-secondary"
+        },
+        confirm: {
+          label: '<i class="fas fa-trash-alt mr-1"></i>' + i18next.t("Delete"),
+          className: "btn-danger"
+        }
+      },
       callback: function (result) {
         if (result) {
           window.CRM.APIRequest({
@@ -110,11 +122,11 @@ const loadTableEvents = () => {
     }, function (data) {
       var modal = bootbox.dialog({
         message: BootboxContentFundList,
-        title: i18next.t("Fund Editor"),
+        title: '<i class="fas fa-pen-to-square mr-2 text-primary"></i>' + i18next.t("Fund Editor"),
         size: 'large',
         buttons: [
           {
-            label: i18next.t("Save"),
+            label: '<i class="fas fa-save mr-1"></i>' + i18next.t("Save"),
             className: "btn btn-primary pull-left",
             callback: function () {
               let Activ = document.getElementById('activCheckbox').checked;
@@ -133,7 +145,7 @@ const loadTableEvents = () => {
             }
           },
           {
-            label: i18next.t("Close"),
+            label: '<i class="fas fa-times mr-1"></i>' + i18next.t("Close"),
             className: "btn btn-default pull-left",
             callback: function () {
               console.log("just do something on close");
