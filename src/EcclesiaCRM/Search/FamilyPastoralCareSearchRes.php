@@ -151,7 +151,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                                 "type" => " " . _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
-                                "Classification" => "",
+                                "Classification" => $care->getDate(SystemConfig::getValue('sDateFormatLong')) . " - " . $care->getPastoralCareType()->getTitle(),
                                 "ProNames" => "",
                                 "FamilyRole" => "",
                                 "members" => $res_members,

@@ -13,6 +13,7 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 
+
 class FamilyCustomSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
@@ -30,168 +31,121 @@ class FamilyCustomSearchRes extends BaseSearchRes
     {
         if (SystemConfig::getBooleanValue("bSearchIncludeFamilies")) {
             try {
-                $currentUser = SessionUser::getUser();
-                $searchNeedle = mb_strtolower($qry);
-                $matchAll = str_contains($qry, '*') && trim(str_replace('*', '', $qry)) === '';
+                $searchNeedle = strtolower($qry);
 
                 $ormFamCustomFields = FamilyCustomMasterQuery::Create()
                     ->orderByCustomOrder()
                     ->find();
-
-                if ($ormFamCustomFields->count() === 0) {
-                    return;
-                }
-
+                
+                $res = [];
                 $id = 1;
-
-                $shouldShowCart = $currentUser->isShowCartEnabled();
-                $rootPath = SystemURLs::getRootPath();
-                $shouldSeePrivacyData = $currentUser->isSeePrivacyDataEnabled();
-                $includeFamilyHoh = SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH");
-                $isQuickSearch = $this->isQuickSearch();
-                $familiesInCart = $shouldShowCart ? array_fill_keys(Cart::FamiliesInCart(), true) : [];
-
-                $famCustoms = FamilyCustomQuery::Create()
-                    ->setDistinct()
-                    ->leftJoinWithFamily()
+                
+                $famCustomQuery = FamilyCustomQuery::Create()
                     ->useFamilyQuery()
-                        ->filterByDateDeactivated(null);
-
-                if (!$isQuickSearch) {
-                    $famCustoms
-                        ->leftJoinWithPerson()
-                        ->usePersonQuery()
-                            ->filterByDateDeactivated(null)
-                        ->endUse();
-                }
-
-                $famCustoms->endUse();
+                    ->filterByDateDeactivated(null)
+                    ->endUse();
 
                 foreach ($ormFamCustomFields as $customfield) {
-                    $famCustoms->withColumn($customfield->getCustomField());
+                    $famCustomQuery->withColumn($customfield->getCustomField());
                 }
 
-                $famCustoms = $famCustoms->find();
+                $famCustoms = $famCustomQuery->find();
 
                 foreach ($famCustoms as $famCustom) {
-                    $family = $famCustom->getFamily();
-
-                    if ($family === null) {
-                        continue;
-                    }
-
                     foreach ($ormFamCustomFields as $customfield) {
                         $customFieldName = $customfield->getCustomField();
-                        $fieldValue = $famCustom->getVirtualColumn($customFieldName);
+                        $rawFieldData = $famCustom->getVirtualColumn($customFieldName);
 
-                        if (is_null($fieldValue)) {
-                            continue;
-                        }
+                        if (!is_null($rawFieldData)) {
+                            $currentFieldData = OutputUtils::displayCustomField($customfield->getTypeId(), trim($rawFieldData), $customfield->getCustomSpecial(), false);
+                            if ($currentFieldData !== null && strstr(strtolower($currentFieldData), $searchNeedle)) {
+                                if ($this->isQuickSearch()) {
+                                    $elt = [
+                                        'id' => 'family-custom-id-' . $id++,
+                                        "text" => $famCustom->getFamily()->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                        "uri" => $famCustom->getFamily()->getViewURI()
+                                    ];
+                                } else {
+                                    $members = $famCustom->getFamily()->getPeopleSorted();
 
-                        $currentFieldData = OutputUtils::displayCustomField(
-                            $customfield->getTypeId(),
-                            trim($fieldValue),
-                            $customfield->getCustomSpecial(),
-                            false
-                        );
+                                    $res_members = [];
+                                    $globalMembers = "";
 
-                        if ($currentFieldData === null) {
-                            continue;
-                        }
+                                    foreach ($members as $member) {
+                                        $res_members[] = $member->getId();
+                                        $globalMembers .= '• <a href="' . SystemURLs::getRootPath() . '/v2/people/person/view/' . $member->getId() . '">' . $member->getFirstName() . " " . $member->getLastName() . "</a><br>";
+                                    }
 
-                        $normalizedFieldData = mb_strtolower((string) $currentFieldData);
+                                    $inCart = Cart::FamilyInCart($famCustom->getFamily()->getId());
 
-                        if (!$matchAll && mb_strpos($normalizedFieldData, $searchNeedle) === false) {
-                            continue;
-                        }
+                                    $res = "";
+                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/editor/' . $famCustom->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                    }
+                                    $res .= '<span class="fa-stack">'
+                                        . '<i class="fas fa-square fa-stack-2x"></i>'
+                                        . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
+                                        . '</span>';
 
-                        $familyId = $family->getId();
+                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $res .= '</a>&nbsp;';
+                                    }
 
-                        if ($isQuickSearch) {
-                            $elt = [
-                                'id' => 'family-custom-id-' . $id++,
-                                'text' => $family->getFamilyString($includeFamilyHoh),
-                                'uri' => $family->getViewURI()
-                            ];
-                        } else {
-                            $members = $family->getPeopleSorted();
-                            $res_members = [];
-                            $globalMembers = '';
+                                    if ($inCart == false) {
+                                        if (SessionUser::getUser()->isShowCartEnabled()) {
+                                            $res .= '<a class="AddToFamilyCart" data-cartfamilyid="' . $famCustom->getFamily()->getId() . '">';
+                                        }
+                                        $res .= '                <span class="fa-stack">'
+                                            . '                <i class="fas fa-square fa-stack-2x"></i>'
+                                            . '                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
+                                            . '                </span>';
+                                        if (SessionUser::getUser()->isShowCartEnabled()) {
+                                            $res .= '                </a>';
+                                        }
+                                    } else {
+                                        if (SessionUser::getUser()->isShowCartEnabled()) {
+                                            $res .= '<a class="RemoveFromFamilyCart" data-cartfamilyid="' . $famCustom->getFamily()->getId() . '">';
+                                        }
+                                        $res  .= '                <span class="fa-stack">'
+                                            . '                <i class="fas fa-square fa-stack-2x"></i>'
+                                            . '                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
+                                            . '                </span>';
 
-                            foreach ($members as $member) {
-                                $memberId = $member->getId();
-                                $res_members[] = $memberId;
-                                $globalMembers .= '• <a href="' . $rootPath . '/v2/people/person/view/' . $memberId . '">' . $member->getFirstName() . ' ' . $member->getLastName() . '</a><br>';
-                            }
+                                        if (SessionUser::getUser()->isShowCartEnabled()) {
+                                            $res .= '               </a>';
+                                        }
+                                    }
 
-                            $inCart = isset($familiesInCart[$familyId]);
+                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $famCustom->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
+                                    }
+                                    $res .= '<span class="fa-stack">'
+                                        . '<i class="fas fa-square fa-stack-2x"></i>'
+                                        . '<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
+                                        . '</span>';
+                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $res .= '</a>&nbsp;';
+                                    }
 
-                            $res = '';
-                            if ($shouldShowCart) {
-                                $res .= '<a href="' . $rootPath . '/v2/people/family/editor/' . $familyId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
-                            }
-                            $res .= '<span class="fa-stack">'
-                                . '<i class="fas fa-square fa-stack-2x"></i>'
-                                . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
-                                . '</span>';
-
-                            if ($shouldShowCart) {
-                                $res .= '</a>&nbsp;';
-                            }
-
-                            if (!$inCart) {
-                                if ($shouldShowCart) {
-                                    $res .= '<a class="AddToFamilyCart" data-cartfamilyid="' . $familyId . '">';
+                                    $elt = [
+                                        "id" => $famCustom->getFamily()->getId(),
+                                        "img" => $famCustom->getFamily()->getJPGPhotoDatas(),
+                                        "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/v2/people/family/view/' . $famCustom->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $famCustom->getFamily()->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
+                                        "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $famCustom->getFamily()->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                        "type" => _($this->getGlobalSearchType()),
+                                        "realType" => $this->getGlobalSearchType(),
+                                        "Gender" => "",
+                                        "Classification" => trim((string) $currentFieldData),
+                                        "ProNames" => "",
+                                        "FamilyRole" => "",
+                                        "members" => $res_members,
+                                        "actions" => $res
+                                    ];
                                 }
-                                $res .= '                <span class="fa-stack">'
-                                    . '                <i class="fas fa-square fa-stack-2x"></i>'
-                                    . '                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
-                                    . '                </span>';
-                                if ($shouldShowCart) {
-                                    $res .= '                </a>';
-                                }
-                            } else {
-                                if ($shouldShowCart) {
-                                    $res .= '<a class="RemoveFromFamilyCart" data-cartfamilyid="' . $familyId . '">';
-                                }
-                                $res .= '                <span class="fa-stack">'
-                                    . '                <i class="fas fa-square fa-stack-2x"></i>'
-                                    . '                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
-                                    . '                </span>';
 
-                                if ($shouldShowCart) {
-                                    $res .= '               </a>';
-                                }
+                                array_push($this->results, $elt);
                             }
-
-                            if ($shouldShowCart) {
-                                $res .= '<a href="' . $rootPath . '/v2/people/family/view/' . $familyId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
-                            }
-                            $res .= '<span class="fa-stack">'
-                                . '<i class="fas fa-square fa-stack-2x"></i>'
-                                . '<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
-                                . '</span>';
-                            if ($shouldShowCart) {
-                                $res .= '</a>&nbsp;';
-                            }
-
-                            $elt = [
-                                'id' => $familyId,
-                                'img' => $family->getJPGPhotoDatas(),
-                                'searchresult' => _("Family") . ' : <a href="' . $rootPath . '/v2/people/family/view/' . $familyId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a> ' . _("Members") . ' : <br>' . $globalMembers,
-                                'address' => (!$shouldSeePrivacyData) ? _('Private Data') : $family->getFamilyString($includeFamilyHoh),
-                                'type' => _($this->getGlobalSearchType()),
-                                'realType' => $this->getGlobalSearchType(),
-                                'Gender' => '',
-                                'Classification' => '',
-                                'ProNames' => '',
-                                'FamilyRole' => '',
-                                'members' => $res_members,
-                                'actions' => $res
-                            ];
                         }
-
-                        $this->results[] = $elt;
                     }
                 }
             } catch (\Exception $e) {
