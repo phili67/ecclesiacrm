@@ -56,6 +56,7 @@ class PersonPropsSearchRes extends BaseSearchRes
                 $searchLikeString = '%' . $normalizedQuery . '%';
 
                 $person_Props = PersonQuery::create()
+                    ->setDistinct()
                     ->leftJoinWithFamily();
 
                 if (SystemConfig::getBooleanValue('bGDPR')) {
@@ -65,36 +66,37 @@ class PersonPropsSearchRes extends BaseSearchRes
                 $person_Props->addJoin(PersonTableMap::COL_PER_ID, Record2propertyR2pTableMap::COL_R2P_RECORD_ID,Criteria::LEFT_JOIN)
                     ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
                     ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
-                    ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
-                    ->addAsColumn('ProValue',Record2propertyR2pTableMap::COL_R2P_VALUE)
-                    ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
-                    ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
-                    ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
-                    ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
+                    ->addAsColumn('AllProNames', "(SELECT GROUP_CONCAT(DISTINCT all_property.pro_Name ORDER BY all_property.pro_Name SEPARATOR ', ')"
+                        . " FROM record2property_r2p all_record_property"
+                        . " INNER JOIN property_pro all_property ON all_property.pro_ID = all_record_property.r2p_pro_ID"
+                        . " WHERE all_record_property.r2p_record_ID = person_per.per_ID"
+                        . " AND all_property.pro_Class = 'p')")
                     ->where(PropertyTableMap::COL_PRO_CLASS."='p' AND (".PropertyTableMap::COL_PRO_NAME." ".$not_like."LIKE '".$searchLikeString."'  OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '" . $searchLikeString . "' )"
                     . " OR " . PersonTableMap::COL_PER_FIRSTNAME . " LIKE '" . $searchLikeString . "' OR " . PersonTableMap::COL_PER_LASTNAME . " LIKE '" . $searchLikeString . "'") //NOT LIKE 'a%';
-                    ->addAscendingOrderByColumn('ProName')
-                    ->addAscendingOrderByColumn('ProTypeName');
+                    ->addAscendingOrderByColumn(PropertyTableMap::COL_PRO_NAME)
+                    ->addAscendingOrderByColumn(PropertyTypeTableMap::COL_PRT_NAME);
 
                 if ($quickSearch) {
                     $person_Props->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
                 $person_Props = $person_Props->find();
-                    
 
                 if ( $person_Props->count() > 0 )
                 {
                     $id=1;
-
-                    
+                    $peopleByPersonId = [];
 
                     foreach ($person_Props as $per) {
-                                            $personId = $per->getId();
+                        $personId = $per->getId();
+                        if (isset($peopleByPersonId[$personId])) {
+                            continue;
+                        }
+                        $peopleByPersonId[$personId] = $per;
 
-                                            if ($quickSearch) {
+                        if ($quickSearch) {
                             $elt = ['id' => 'person-props-id-' . $id++,
-                                'text' => $per->getFullName() . " (" . $per->getProName() . ")",
+                                'text' => $per->getFullName() . " (" . $per->getAllProNames() . ")",
                                 'uri' => $per->getViewURI()
                             ];
                         } else {
@@ -166,8 +168,8 @@ class PersonPropsSearchRes extends BaseSearchRes
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
-                                "Classification" => $per->getProName() . (!empty($per->getProValue()) ? " : " . $per->getProValue() : ""),
-                                "ProNames" => "",
+                                "Classification" => $per->getAllProNames(),
+                                "ProNames" => $per->getAllProNames(),
                                 "FamilyRole" => "",
                                 "members" => "",
                                 "actions" => $res

@@ -79,8 +79,10 @@ class FamilyPropsSearchRes extends BaseSearchRes
                     //->addAsColumn('ProTypeDesc', PropertyTypeTableMap::COL_PRT_DESCRIPTION)
                     //->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
                     ->where('family_member_counts.MemberCount <> 1 AND Family.Id = family_member_counts.FamId')
-                    ->where(PropertyTableMap::COL_PRO_CLASS . "='f' AND (" . PropertyTableMap::COL_PRO_NAME . " LIKE '" . $searchLikeString . "' OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '" . $searchLikeString . "' )"
-                        . "OR " . FamilyTableMap::COL_FAM_NAME . " LIKE '" . $searchLikeString . "'");
+                    ->where(PropertyTableMap::COL_PRO_CLASS . "='f' 
+                        AND (" . PropertyTableMap::COL_PRO_NAME . " LIKE '" . $searchLikeString. "'"
+                        . " OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '" . $searchLikeString . "'"
+                        . " OR " . FamilyTableMap::COL_FAM_NAME . " LIKE '" . $searchLikeString . "')");
 
                 $families = $families->find();
                     

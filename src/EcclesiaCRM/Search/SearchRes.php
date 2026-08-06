@@ -13,7 +13,7 @@ class SearchRes implements \JsonSerializable {
         $this->type  = $type;
     }
 
-    public function jsonSerialize() {
+    public function jsonSerialize() : array {
         if ($this->type == "normal") {
             return ['children' => $this->array,
                 'text' => $this->name];
