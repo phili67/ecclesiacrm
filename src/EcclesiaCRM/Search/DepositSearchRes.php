@@ -33,20 +33,19 @@ class DepositSearchRes extends BaseSearchRes
 
     private function buildEditAction(string $uri): string
     {
-        $action = '';
+        $showCart = SessionUser::getUser()->isShowCartEnabled();
 
-        if (SessionUser::getUser()->isShowCartEnabled()) {
-            $action .= '<a href="' . $uri . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
-        }
-
-        $action .= '<span class="fa-stack">'
-            . '<i class="fas fa-square fa-stack-2x"></i>'
-            . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
-            . '</span>';
-
-        if (SessionUser::getUser()->isShowCartEnabled()) {
-            $action .= '</a>';
-        }
+        $action = $this->buildActionButtons([
+            [
+                'activate' => $showCart,
+                'type' => 'a',
+                'href' => $uri,
+                'icon' => '<i class="fas fa-pencil-alt"></i>',
+                'classes' => 'btn btn-sm btn-outline-primary',
+                'label' => '',
+                'datas' => ['toggle' => 'tooltip', 'placement' => 'top', 'title' => _('Edit')]
+            ]        
+        ]);        
 
         return $action;
     }
