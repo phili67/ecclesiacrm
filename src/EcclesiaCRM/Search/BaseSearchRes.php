@@ -26,6 +26,58 @@ abstract class BaseSearchRes {
                 $this->search_type = "normal";
             }
     }
+    /**
+     * @return string
+     * @description Build the action buttons for the search results
+     * each button is an array of [
+     *  'activate' => true/false,
+     *  'type' => 'a/button', 
+     *  'href' => 'link/or none', 
+     *  'icon' => '<i class="fa-inverse fa-cart-plus"></i>',
+     *  'classes' => 'btn btn-sm btn-outline-secondary',
+     *  'label' => 'button label', 
+     *  'title' => ['toggle' => 'tooltip', 'placement' => 'top', 'title' => _('View')],
+     *  'datas' => ['id' => '365', etc ...],
+     */
+    public function buildActionButtons (array $buttons) : string {
+        $res = '<div class="btn-group" role="group" aria-label="Basic example"> ';
+        foreach ($buttons as $button) {
+            if (!($button['activate'] ?? true)) {
+                continue;
+            }
+
+            $datas = $button['datas'] ?? [];
+            $tooltip = $button['tooltip'] ?? [
+                'toggle' => $datas['toggle'] ?? 'tooltip',
+                'placement' => $datas['placement'] ?? 'top',
+                'title' => $datas['title'] ?? $button['label']
+            ];
+
+            $attributes = '';
+            foreach ($datas as $data => $value) {
+                if (in_array($data, ['toggle', 'placement', 'title'], true)) {
+                    continue;
+                }
+                $attributes .= ' data-' . $data . '="' . $value . '"';
+            }
+
+            $attributes .= ' data-toggle="' . $tooltip['toggle'] . '"';
+            $attributes .= ' data-placement="' . $tooltip['placement'] . '"';
+            $attributes .= ' title="' . $tooltip['title'] . '"';
+
+            if (($button['type'] ?? 'button') === 'a') {
+                $res .= '<a class="' . $button['classes'] . '" ' . ($button['href'] ? 'href="' . $button['href'] . '"' : '') . $attributes . '>';
+                $res .= $button['icon'] . ' ' . $button['label'];
+                $res .= '</a>';
+            } else {
+                $res .= '<button type="button" class="' . $button['classes'] . '"' . $attributes . '>';
+                $res .= $button['icon'] . ' ' . $button['label'];
+                $res .= '</button>';
+            }
+        }
+        $res .= '</div>';
+        return $res;
+    }
 
     public function isQuickSearch()
     {

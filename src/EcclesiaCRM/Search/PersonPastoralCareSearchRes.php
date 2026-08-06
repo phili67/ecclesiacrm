@@ -102,41 +102,26 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
 
                             $inCart = isset($peopleInCart[$per->getId()]);
 
-                            $res = "";
-                            if ($shouldShowCart) {
-                                $res .= '<a href="' . $rootPath . '/v2/pastoralcare/person/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
-                            }
-                            $res .= '<span class="fa-stack">'
-                                .'<i class="fas fa-square fa-stack-2x"></i>'
-                                .'<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
-                                .'</span>';
-                            if ($shouldShowCart) {
-                                $res .= '</a>&nbsp;';
-                            }
-
-                            if ($inCart == false) {
-                                if ($shouldShowCart) {
-                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getId() . '">';
-                                }
-                                $res .= '                <span class="fa-stack">'
-                                    .'                <i class="fas fa-square fa-stack-2x"></i>'
-                                    .'                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
-                                    .'                </span>';
-                                if ($shouldShowCart) {
-                                    $res .= '                </a>  ';
-                                }
-                            } else {
-                                if ($shouldShowCart) {
-                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getId() . '">';
-                                }
-                                $res .= '                <span class="fa-stack">'
-                                    .'                <i class="fas fa-square fa-stack-2x"></i>'
-                                    .'                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
-                                    .'                </span>';
-                                if ($shouldShowCart) {
-                                    $res .= '                </a>  ';
-                                }
-                            }
+                            $res = $this->buildActionButtons([
+                                [
+                                    'activate' => $shouldShowCart,
+                                    'type' => 'a',
+                                    'href' => $rootPath . '/v2/pastoralcare/person/' . $per->getId(),
+                                    'icon' => '<i class="fas fa-pencil-alt"></i>',
+                                    'classes' => 'btn btn-sm btn-outline-primary',
+                                    'label' => '',
+                                    'datas' => ['toggle' => 'tooltip', 'placement' => 'top', 'title' => _('Edit')]
+                                ],                                
+                                [
+                                    'activate' => $shouldShowCart,
+                                    'type' => 'a',
+                                    'href' => '',
+                                    'icon' => (!$inCart ? '<i class="fas fa-cart-plus fa-inverse"></i>' : '<i class="fas fa-times"></i>'),
+                                    'classes' => 'btn btn-sm btn-primary' . ($inCart ? ' RemoveFromPeopleCart' : ' AddToPeopleCart'),
+                                    'label' => '',
+                                    'datas' => ['cartpersonid' => $per->getId(), 'toggle' => 'tooltip', 'placement' => 'top', 'title' => (!$inCart ? _('Add to Cart') : _('Remove from Cart'))]
+                                ]
+                            ]);                                                 
 
                             $elt = [
                                 "id" => $per->getId(),

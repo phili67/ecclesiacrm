@@ -14,6 +14,8 @@ $(function () {
     const reloadSearchResults = () => {
         cart = [];
 
+        window.CRM.dataSearchTable.page('first').draw('page');
+
         window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
             window.CRM.dataSearchTable.ajax.reload(function () {
                 window.CRM.closeDialogLoadingFunction();
@@ -460,6 +462,36 @@ $(function () {
         reloadSearchResults();
     });
 
+    var searchResultTypeOrder = [
+        'Persons',
+        'Addresses - Families',
+        'Person Properties',
+        'Person Custom Field',
+        'Person Group role assignments',
+        'Individual Pastoral Cares',
+        'Group Manager',
+        'Families',
+        'Family Custom Field',
+        'Families Properties',
+        'Family Pastoral Cares',
+        'Groups',
+        'Groups Properties',
+        'Deposits',
+        'Payments',
+        'Pledges',
+        'Volunteer Opportunities'
+    ];
+
+    $.fn.dataTable.ext.order['search-result-type'] = function (settings) {
+        var api = new $.fn.dataTable.Api(settings);
+
+        return api.rows({ order: 'index' }).data().toArray().map(function (row) {
+            var type = String(row.realType || '').trim();
+            var order = searchResultTypeOrder.indexOf(type);
+            return order === -1 ? searchResultTypeOrder.length : order;
+        });
+    };
+
     var dataTableSearchConfig = {
         ajax: {
             url: window.CRM.root + "/api/search/getresult/",
@@ -489,7 +521,7 @@ $(function () {
         },
         "searching": true,
         "deferRender": true,
-        orderFixed: [1, 'dsc'],
+        orderFixed: [1, 'asc'],
         columns: [
             {
                 width: 'auto',
@@ -521,6 +553,7 @@ $(function () {
                 title: i18next.t('Type'),
                 visible: false,
                 data: 'type',
+                orderDataType: 'search-result-type',
                 render: function (data, type, full, meta) {
                     return data;
                 }

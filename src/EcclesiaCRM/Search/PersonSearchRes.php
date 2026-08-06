@@ -302,56 +302,35 @@ class PersonSearchRes extends BaseSearchRes
                             $personId = $person->getId();
                             $inCart = isset($peopleInCart[$personId]);
 
-                            $res = "";
-                            if ($shouldShowCart) {
-                                $res .= '<a href="' . $rootPath . '/v2/people/person/editor/' . $personId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
-                            }
-                            $res .= '<span class="fa-stack">'
-                                . '<i class="fas fa-square fa-stack-2x"></i>'
-                                . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
-                                . '</span>';
-
-                            if ($shouldShowCart) {
-                                $res .= '</a>&nbsp;';
-                            }
-
-                            if ($inCart == false) {
-                                if ($shouldShowCart) {
-                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $personId . '">';
-                                }
-                                $res .= "\n"
-                                    . "                <span class=\"fa-stack\">\n"
-                                    . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
-                                    . "                <i class=\"fas fa-stack-1x fa-inverse fa-cart-plus\"></i>"
-                                    . "                </span>\n";
-
-                                if ($shouldShowCart) {
-                                    $res .= "                </a>  ";
-                                }
-                            } else {
-                                if ($shouldShowCart) {
-                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $personId . '">';
-                                }
-                                $res .= "\n"
-                                    . "                <span class=\"fa-stack\">\n"
-                                    . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
-                                    . "                <i class=\"fas fa-times fa-stack-1x fa-inverse\"></i>\n"
-                                    . "                </span>\n";
-                                if ($shouldShowCart) {
-                                    $res .= "                </a>  ";
-                                }
-                            }
-
-                            if ($shouldShowCart) {
-                                $res .= '&nbsp;<a href="' . $rootPath . '/v2/people/person/print/' . $personId . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
-                            }
-                            $res .= '<span class="fa-stack">'
-                                . '<i class="fas fa-square fa-stack-2x"></i>'
-                                . '<i class="fas fa-print fa-stack-1x fa-inverse"></i>'
-                                . '</span>';
-                            if ($shouldShowCart) {
-                                $res .= '</a>';
-                            }
+                            $res = $this->buildActionButtons([
+                                [
+                                    'activate' => $shouldShowCart,
+                                    'type' => 'a',
+                                    'href' => $rootPath . '/v2/people/person/editor/' . $personId,
+                                    'icon' => '<i class="fas fa-pencil-alt"></i>',
+                                    'classes' => 'btn btn-sm btn-outline-primary',
+                                    'label' => '',
+                                    'datas' => ['toggle' => 'tooltip', 'placement' => 'top', 'title' => _('Edit')]
+                                ],
+                                [
+                                    'activate' => $shouldShowCart,
+                                    'type' => 'a',
+                                    'href' => $rootPath . '/v2/people/person/view/' . $personId,
+                                    'icon' => '<i class="fas fa-search-plus"></i>',
+                                    'classes' => 'btn btn-sm btn-outline-secondary',
+                                    'label' => '',
+                                    'tooltip' => ['toggle' => 'tooltip', 'placement' => 'top', 'title' => _('View')]
+                                ],
+                                [
+                                    'activate' => $shouldShowCart,
+                                    'type' => 'a',
+                                    'href' => '',
+                                    'icon' => (!$inCart ? '<i class="fas fa-cart-plus fa-inverse"></i>' : '<i class="fas fa-times"></i>'),
+                                    'classes' => 'btn btn-sm btn-primary' . ($inCart ? ' RemoveFromPeopleCart' : ' AddToPeopleCart'),
+                                    'label' => '',
+                                    'datas' => ['cartpersonid' => $personId, 'toggle' => 'tooltip', 'placement' => 'top', 'title' => (!$inCart ? _('Add to Cart') : _('Remove from Cart'))]
+                                ]
+                            ]);                            
 
                             if ( $isStringSearch ) {
                                 if ($shouldSeePrivacyData) {
