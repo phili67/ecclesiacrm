@@ -33,48 +33,35 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
 
     private function getActionsMarkup(int $personId, bool $showCart, bool $inCart, string $rootPath): string
     {
-        $actions = '';
-
-        if ($showCart) {
-            $actions .= '<a href="' . $rootPath . '/v2/people/person/view/' . $personId . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
-        }
-
-        $actions .= '<span class="fa-stack">'
-            . '<i class="fas fa-square fa-stack-2x"></i>'
-            . '<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
-            . '</span>';
-
-        if ($showCart) {
-            $actions .= '</a>&nbsp;';
-        }
-
-        if (!$inCart) {
-            if ($showCart) {
-                $actions .= '<a class="AddToPeopleCart" data-cartpersonid="' . $personId . '">';
-            }
-
-            $actions .= '                <span class="fa-stack">'
-                . '                <i class="fas fa-square fa-stack-2x"></i>'
-                . '                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
-                . '                </span>';
-
-            if ($showCart) {
-                $actions .= '                </a>  ';
-            }
-        } else {
-            if ($showCart) {
-                $actions .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $personId . '">';
-            }
-
-            $actions .= '                <span class="fa-stack">'
-                . '                <i class="fas fa-square fa-stack-2x"></i>'
-                . '                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
-                . '                </span>';
-
-            if ($showCart) {
-                $actions .= '                </a>  ';
-            }
-        }
+        $actions = $this->buildActionButtons([
+            [
+                'activate' => $showCart,
+                'type' => 'a',
+                'href' => $rootPath . '/v2/people/person/view/' . $personId,
+                'icon' => '<i class="fas fa-pencil-alt"></i>',
+                'classes' => 'btn btn-sm btn-outline-primary',
+                'label' => '',
+                'datas' => ['toggle' => 'tooltip', 'placement' => 'top', 'title' => _('Edit')]
+            ],
+            [
+                'activate' => $showCart,
+                'type' => 'a',
+                'href' => $rootPath . '/v2/people/person/view/' . $personId,
+                'icon' => '<i class="fas fa-search-plus"></i>',
+                'classes' => 'btn btn-sm btn-outline-secondary',
+                'label' => '',
+                'tooltip' => ['toggle' => 'tooltip', 'placement' => 'top', 'title' => _('View')]
+            ],
+            [
+                'activate' => $showCart,
+                'type' => 'a',
+                'href' => '',
+                'icon' => (!$inCart ? '<i class="fas fa-cart-plus fa-inverse"></i>' : '<i class="fas fa-times"></i>'),
+                'classes' => 'btn btn-sm btn-primary' . ($inCart ? ' RemoveFromPeopleCart' : ' AddToPeopleCart'),
+                'label' => '',
+                'datas' => ['cartpersonid' => $personId, 'toggle' => 'tooltip', 'placement' => 'top', 'title' => (!$inCart ? _('Add to Cart') : _('Remove from Cart'))]
+            ]
+        ]);         
 
         return $actions;
     }
