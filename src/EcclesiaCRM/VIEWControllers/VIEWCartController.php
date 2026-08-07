@@ -140,7 +140,7 @@ class VIEWCartController {
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'CSPNonce' => SystemURLs::getCSPNonce(),
-            'sPageTitle'  => _('View Your Cart'),
+            'sPageTitle'  => '<i class="fas text-primary  fa-shopping-cart"></i>&nbsp;' . _('View Your Cart'),
             'iNumPersons' => $iNumPersons,
             'iNumFamilies' => $iNumFamilies,
             'sEmailLink' => $sEmailLink,
@@ -175,7 +175,7 @@ class VIEWCartController {
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'CSPNonce' => SystemURLs::getCSPNonce(),
-            'sPageTitle'  => _('Cart to Badges'),
+            'sPageTitle'  => '<i class="fas text-primary  fa-id-badge"></i>&nbsp;' . _('Cart to Badges'),
             'typeProblem' => $typeProblem
         ];
 
@@ -199,7 +199,7 @@ class VIEWCartController {
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'CSPNonce' => SystemURLs::getCSPNonce(),
-            'sPageTitle'  => _('Add Cart to Family')
+            'sPageTitle'  => '<i class="fas text-primary  fa-users"></i>&nbsp;' . _('Add Cart to Family')
         ];
 
         return $paramsArguments;

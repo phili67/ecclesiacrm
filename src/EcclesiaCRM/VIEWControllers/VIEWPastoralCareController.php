@@ -145,7 +145,7 @@ class VIEWPastoralCareController {
         $paramsArguments = [
             'sRootPath'            => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => $sPageTitle,
+            'sPageTitle'           => '<i class="fas text-primary fa-users"></i>&nbsp;' . $sPageTitle,
             'currentPastorId'      => $UserID,
             'sCSPNonce'            => $sCSPNonce,
             'members'              => $members->toArray()
@@ -180,7 +180,7 @@ class VIEWPastoralCareController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => $sPageTitle,
+            'sPageTitle'           => '<i class="fas text-primary fa-tachometer-alt"></i>&nbsp;' . $sPageTitle,
             'currentPastorId'      => $currentPastorId,
             'sDateFormatLong'      => $sDateFormatLong,
             'sCSPNonce'            => $sCSPNonce,
@@ -357,7 +357,7 @@ class VIEWPastoralCareController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => $sPageTitle,
+            'sPageTitle'           => '<i class="fas text-primary fa-user"></i>&nbsp;' . $sPageTitle,
             'isMailServiceActive'  => $mailService->isActive(),
             'ormPastoralCares'     => $ormPastoralCares,
             'currentPersonID'      => $currentPersonID,
@@ -495,7 +495,7 @@ class VIEWPastoralCareController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'         => $sRootDocument,
-            'sPageTitle'            => $sPageTitle,
+            'sPageTitle'            => '<i class="fas text-primary fa-family"></i>&nbsp;' . $sPageTitle,
             'ormPastoralCares'      => $ormPastoralCares,
             'currentFamilyID'       => $currentFamilyID,
             'currentPastorId'       => $currentPastorId,
@@ -555,7 +555,7 @@ class VIEWPastoralCareController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => $sPageTitle,
+            'sPageTitle'           => '<i class="fas text-primary fa-sort-amount-up-alt"></i>&nbsp;' . $sPageTitle,
             'currentPastorId'      => $currentPastorId,
             'ormPastoralTypeCares' => $ormPastoralTypeCares,
             'sDateFormatLong'      => $sDateFormatLong,
@@ -586,7 +586,7 @@ class VIEWPastoralCareController {
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary fa-user"></i>&nbsp;' . $sPageTitle,
             'iPersonID'                 => $iPersonID
         ];
 

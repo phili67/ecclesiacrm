@@ -48,7 +48,7 @@ class VIEWPropertyTypeListController {
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
             'CSPNonce'      => SystemURLs::getCSPNonce(),
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="fas fa-project-diagram mr-2 text-muted"></i>&nbsp;' . $sPageTitle,
             'isMenuOption' => SessionUser::getUser()->isMenuOptionsEnabled()
         ];
         return $paramsArguments;

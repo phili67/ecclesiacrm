@@ -186,7 +186,7 @@ class VIEWMapController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="far text-primary fa-map"></i>&nbsp;' . $sPageTitle,
             'iGroupID'      => $iGroupID,
             'icons'         => $icons,
             'persons'       => $persons,

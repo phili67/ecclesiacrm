@@ -132,7 +132,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary  fa-university"></i>&nbsp;' . $sPageTitle,
             'error'                     => false,
             'iDepositSlipID'            => $iDepositSlipID,
             'thisDeposit'               => $thisDeposit,
@@ -170,7 +170,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,            
+            'sPageTitle'                => '<i class="fas text-primary  fa-university"></i>&nbsp;' . $sPageTitle,
             'iDepositSlipID'            => $iDepositSlipID,
             'donationFunds'             => $donationFunds
         ];
@@ -201,7 +201,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas text-primary  fa-university"></i>&nbsp;' . $sPageTitle
         ];
 
         return $paramsArguments;
@@ -261,7 +261,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary  fa-bullhorn"></i>&nbsp;' . $sPageTitle,
             'sReportType'               => $sReportType,
             'ReturnMessage'             => $ReturnMessage,
             'year'                      => $year
@@ -301,7 +301,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas text-primary  fa-university"></i>&nbsp;' . $sPageTitle
         ];
 
         return $paramsArguments;
@@ -348,7 +348,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary  fa-bullhorn"></i>&nbsp;' . $sPageTitle,
             'iAutID'                    => $iAutID, 
             'iFamily'                   => $iFamily, 
             'linkBack'                  => str_replace("-","/", $linkBack),
@@ -382,7 +382,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas text-primary  fa-bullhorn"></i>&nbsp;' . $sPageTitle
         ];
 
         return $paramsArguments;
@@ -417,7 +417,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary  fa-bullhorn"></i>&nbsp;' . $sPageTitle,
             'iAutID'                    => $iAutID
         ];
 
@@ -989,7 +989,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary  fa-university"></i>&nbsp;' . $sPageTitle,
             'iCurrentDeposit'           => $iCurrentDeposit,
             'PledgeOrPayment'           => $PledgeOrPayment,
             'linkBack'                  => str_replace("-","/", $linkBack),
@@ -1106,7 +1106,7 @@ class VIEWDepositController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary  fa-university"></i>&nbsp;' . $sPageTitle,
             'iDepositSlipID'            => $iDepositSlipID,
             'dDate'                     => $dDate,
             'lwDate'                    => $lwDate,

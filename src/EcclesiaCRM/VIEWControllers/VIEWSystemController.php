@@ -73,7 +73,7 @@ class VIEWSystemController
             'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas fa-gear mr-2 text-info"></i>&nbsp;' . $sPageTitle,
         ];
 
         return $paramsArguments;
@@ -108,7 +108,7 @@ class VIEWSystemController
             'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary fa-reports"></i>&nbsp;' . $sPageTitle,
             'today'                     => $today,
             'year'                      => $year
         ];
@@ -145,7 +145,7 @@ class VIEWSystemController
             'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary fa-gear"></i>&nbsp;' . $sPageTitle,
             'mode'                      => $mode,
             'listID'                    => $listID
         ];
@@ -182,7 +182,7 @@ class VIEWSystemController
             'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary fa-users"></i>&nbsp;' . $sPageTitle,
             'all'                       => $all
         ];
 
@@ -214,7 +214,7 @@ class VIEWSystemController
             'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary fa-file-csv"></i>&nbsp;' . $sPageTitle,
             'Source'                       => $Source
         ];
 
@@ -261,7 +261,7 @@ class VIEWSystemController
             'sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary fa-calendar"></i>&nbsp;' . $sPageTitle,
             'Action'                    => $Action,
             'Event'                     => $Event,
             'Type'                      => $Type,
@@ -278,7 +278,7 @@ class VIEWSystemController
         $paramsArguments = [
             'sRootPath'       => SystemURLs::getRootPath(),
             'sRootDocument'   => SystemURLs::getDocumentRoot(),
-            'sPageTitle'      => $sPageTitle,
+            'sPageTitle'      => '<i class="fas text-primary fa-bug"></i>&nbsp;' . $sPageTitle,
             'isMenuOption'    => SessionUser::getUser()->isMenuOptionsEnabled()
         ];
 
@@ -319,7 +319,7 @@ class VIEWSystemController
         $paramsArguments = [
             'sRootPath'        => SystemURLs::getRootPath(),
             'sRootDocument'    => SystemURLs::getDocumentRoot(),
-            'sPageTitle'       => $sPageTitle,
+            'sPageTitle'       => '<i class="fas text-primary fa-database"></i>&nbsp;' . $sPageTitle,
             'upgrade'          => $upgrade,
             'dbVersion'        => SystemService::getDBVersion(),
             'InstalledVersion' => SystemService::getInstalledVersion()
@@ -360,7 +360,7 @@ class VIEWSystemController
         $paramsArguments = [
             'sRootPath'             => SystemURLs::getRootPath(),
             'sRootDocument'         => SystemURLs::getDocumentRoot(),
-            'sPageTitle'            => $sPageTitle,
+            'sPageTitle'            => '<i class="fas text-primary fa-download"></i>&nbsp;' . $sPageTitle,
             'Backup_In_Progress'    => $Backup_In_Progress,
             'BackupDone'            => $BackupDone,
             'Backup_Result_Datas'   => $Backup_Result_Datas
@@ -387,7 +387,7 @@ class VIEWSystemController
         $paramsArguments = [ 
             'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => $sPageTitle,
+            'sPageTitle'  => '<i class="fas fa-upload mr-2 text-warning"></i>&nbsp;' . $sPageTitle,
             'sCSPNonce'    => SystemURLs::getCSPNonce(),
             'encryptionMethod' => SystemConfig::getValue('sPGP')
         ];

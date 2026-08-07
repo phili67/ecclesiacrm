@@ -59,7 +59,7 @@ class VIEWGroupController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="fas fa-tachometer-alt"></i>&nbsp;' . $sPageTitle,
             'CSPNonce'      => $CSPNonce,
             'rsGroupTypes'  => $rsGroupTypes];
 
@@ -133,7 +133,7 @@ class VIEWGroupController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument'    => $sRootDocument,
-            'sPageTitle'       => $sPageTitle,
+            'sPageTitle'       => '<i class="fas fa-users"></i>&nbsp;' . $sPageTitle,
             'CSPNonce'         => $CSPNonce,
             'iGroupID'         => $iGroupID,
             'calendarID'       => $calendarID,
@@ -193,7 +193,7 @@ class VIEWGroupController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-users"></i>&nbsp;' . $sPageTitle,
             'iGroupID'                  => $iGroupID,
             'useCart'                   => $useCart,
             'imgs'                      => $imgs,
@@ -247,7 +247,7 @@ class VIEWGroupController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-edit"></i>&nbsp;' . $sPageTitle,
             'iGroupID'                  => $iGroupID,
             'theCurrentGroup'           => $theCurrentGroup,
             'groupService'              => $groupService,
@@ -294,7 +294,7 @@ class VIEWGroupController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-users mr-2 text-primary"></i>&nbsp;' . $sPageTitle,
             'iGroupID'                  => $iGroupID,
             'groupName'                 => $groupName,
             'groups'                    => $groups,
@@ -354,7 +354,7 @@ class VIEWGroupController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-gear"></i>&nbsp;' . $sPageTitle,
             'iGroupID'                  => $iGroupID,
             'iPersonID'                 => $iPersonID,
             'person'                    => $person,
@@ -412,7 +412,7 @@ class VIEWGroupController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-gear"></i>&nbsp;' . $sPageTitle,
             'iGroupID'                  => $iGroupID,
             'groupInfo'                 => $groupInfo,
             'is_group_manager'          => $is_group_manager

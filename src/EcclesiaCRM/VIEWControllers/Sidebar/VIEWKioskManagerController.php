@@ -48,7 +48,7 @@ class VIEWKioskManagerController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle
+            'sPageTitle'    => '<i class="fas text-primary fa-desktop"></i>&nbsp;' . $sPageTitle
         ];
         return $paramsArguments;
     }

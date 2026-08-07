@@ -43,7 +43,7 @@ class VIEWPluginsController {
     {
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => _('Plugins')
+            'sPageTitle'  => '<i class="fas text-primary fa-plug"></i>&nbsp;' . _('Plugins')
         ];
 
         return $paramsArguments;

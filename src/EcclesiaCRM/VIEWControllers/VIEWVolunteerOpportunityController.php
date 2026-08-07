@@ -50,7 +50,7 @@ class VIEWVolunteerOpportunityController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="fas text-primary fas fa-tachometer-alt"></i>&nbsp;' . $sPageTitle,
             'isVolunteerOpportunityEnabled' => SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()
         ];
         return $paramsArguments;
@@ -129,7 +129,7 @@ class VIEWVolunteerOpportunityController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument'    => $sRootDocument,
-            'sPageTitle'       => $sPageTitle,
+            'sPageTitle'       => '<i class="fas text-primary fa-hands-helping"></i>&nbsp;' . $sPageTitle,
             'CSPNonce'         => $CSPNonce,
             'volID'            => $volID,
             'persons'          => $persons,

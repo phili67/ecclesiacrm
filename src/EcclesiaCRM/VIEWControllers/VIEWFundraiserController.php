@@ -57,7 +57,7 @@ class VIEWFundraiserController {
 
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle' => $sPageTitle,
+            'sPageTitle' => '<i class="fas fa-bullhorn"></i>&nbsp;' . $sPageTitle,
             'iFundRaiserID' => $CurrentFundraiser
         ];
 

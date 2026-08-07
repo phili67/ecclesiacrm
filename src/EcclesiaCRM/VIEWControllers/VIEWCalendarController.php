@@ -67,7 +67,7 @@ class VIEWCalendarController {
 
         $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => _('Church Calendar'),
+            'sPageTitle'  => '<i class="fas text-primary  fa-calendar-alt"></i>&nbsp;' . _('Church Calendar'),
             'eventTypes'  => $eventTypes,
             'contentsExternalCssFont' => SystemConfig::getValue("bMailServiceContentsExternalCssFont"),
             'extraFont' => SystemConfig::getValue("bMailServiceExtraFont"),
@@ -125,11 +125,11 @@ class VIEWCalendarController {
         $sMapProvider   = SystemConfig::getValue('sMapProvider');
         $sGoogleMapKey  = SystemConfig::getValue('sGoogleMapKey');
 
-        $sPageTitle = _('Listing All Church Events');
+        $sPageTitle =  _('Listing All Church Events');
 
         $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => $sPageTitle,
+            'sPageTitle'  => '<i class="far fa-calendar"></i>&nbsp;' . $sPageTitle,
             'eventTypes'  => $eventTypes,
             'eType'       => $eType,
             'yVal'        => $yVal,
@@ -176,11 +176,11 @@ class VIEWCalendarController {
             $EvtDate = $_SESSION['EDate'];
         }
 
-        $sPageTitle = _('Event Attendees'). ":" . $EvtName;
+        $sPageTitle = _('Event Attendees') . ":" . $EvtName;
 
         $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => $sPageTitle,
+            'sPageTitle'  => '<i class="far fa-calendar"></i>&nbsp;' . $sPageTitle,
             'sAction'     => $sAction,
             'EventID'     => $EventID,
             'EvtName'     => $EvtName,
@@ -316,10 +316,12 @@ class VIEWCalendarController {
             $sPageTitle = _('Call the Register');
         }
 
+        $sPageTitle = $sPageTitle;
+
         $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'CSPNonce' => SystemURLs::getCSPNonce(),
-            'sPageTitle'  => $sPageTitle,
+            'sPageTitle'  => '<i class="fas text-primary  fa-bullhorn"></i>&nbsp;' . $sPageTitle,
             'contentsExternalCssFont' => $contentsExternalCssFont,
             'extraFont'   => $extraFont,
             'EventID'     => $EventID,
@@ -355,7 +357,7 @@ class VIEWCalendarController {
         $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'CSPNonce' => SystemURLs::getCSPNonce(),
-            'sPageTitle'  => $sPageTitle
+            'sPageTitle'  => '<i class="fas text-primary  fa-cog"></i>&nbsp;' . $sPageTitle
         ];
 
         return $paramsArguments;
@@ -380,7 +382,7 @@ class VIEWCalendarController {
         $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'CSPNonce' => SystemURLs::getCSPNonce(),
-            'sPageTitle'  => $sPageTitle
+            'sPageTitle'  => '<i class="far fa-calendar"></i>&nbsp;' . $sPageTitle
         ];
 
         return $paramsArguments;

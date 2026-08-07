@@ -48,8 +48,8 @@ class VIEWPastoralcareListController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle,
-            'isPastoralCareEnabled' => ( (SessionUser::getUser()->isMenuOptionsEnabled() || $personId > 0 && $personId == SessionUser::getUser()->getPersonId())?1:0 )
+            'sPageTitle'    => '<i class="fas fa-hands-helping mr-2 text-muted"></i>&nbsp;' . $sPageTitle,
+            'isPastoralCareEnabled' => ( (SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isPastoralCareEnabled())?1:0 )
         ];
         return $paramsArguments;
     }

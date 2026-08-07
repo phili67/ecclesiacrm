@@ -70,7 +70,7 @@ class VIEWBackupController {
         $paramsArguments = [ 
             'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => _('Backup Database')."/CRM",
+            'sPageTitle'  => '<i class="fas fa-database mr-2 text-info"></i>&nbsp;' . _('Backup Database')."/CRM",
             'hasGZIP' => SystemConfig::getBooleanValue('bGZIP'),
             'hasZIP' => SystemConfig::getBooleanValue('bZIP'),
             'encryptionMethod' => SystemConfig::getValue('sPGP'),
