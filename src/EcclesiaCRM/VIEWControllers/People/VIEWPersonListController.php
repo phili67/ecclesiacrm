@@ -100,7 +100,7 @@ class VIEWPersonListController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => $sPageTitle,
+            'sPageTitle'           => '<i class="fas fa-users text-primary"></i>&nbsp;' . $sPageTitle,
             'sMode'                => $sMode,
             'sCSPNonce'            => $sCSPNonce,
             'persons'              => $persons,

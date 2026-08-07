@@ -161,7 +161,7 @@ class VIEWPeopleController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => $sPageTitle,
+            'sPageTitle'           => '<i class="fas fa-tachometer-alt text-primary"></i>&nbsp;' . $sPageTitle,
             'sCSPNonce'            => $sCSPNonce,
             'personCount'          => $personCount,
             'personStats'          => $personStats,
@@ -241,7 +241,7 @@ class VIEWPeopleController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => $sPageTitle,
+            'sPageTitle'           => '<i class="fas text-primary fa-search"></i>&nbsp;' . $sPageTitle,
             'sCSPNonce'            => $sCSPNonce,
             'sMode'                => $sMode,
             'iGender'              => $iGender,
@@ -284,7 +284,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-user-plus mr-2 text-primary"></i>&nbsp;' . $sPageTitle,
             'iPersonID'                 => $iPersonID,
             'iFamilyID'                 => $iFamilyID
         ];
@@ -709,9 +709,9 @@ class VIEWPeopleController {
             'error'                 => false,
             'sRootPath'             => SystemURLs::getRootPath(),
             'sRootDocument'         => $sRootDocument,
-            'sPageTitle'            => $sPageTitle,
+            'sPageTitle'            => '<i class="fa fa-user text-primary"></i>&nbsp;' . $sPageTitle,
             'connection'            => $connection,// propel connection
-            'sPageTitleSpan'        => $sPageTitleSpan,
+            'sPageTitleSpan'        => '<i class="fa fa-user text-primary"></i>&nbsp;' . $sPageTitleSpan,
             'sCSPNonce'             => $sCSPNonce,
             'contentsExternalCssFont' => $contentsExternalCssFont,
             'extraFont'               => $extraFont,
@@ -1067,7 +1067,7 @@ class VIEWPeopleController {
             'error'                     => false,
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-people-roof mr-2 text-primary"></i>&nbsp;' . $sPageTitle,
             'sPageTitleSpan'            => $sPageTitleSpan,
             'sCSPNonce'                 => $sCSPNonce,
             'iFamilyID'                 => $iFamilyID,
@@ -1099,7 +1099,6 @@ class VIEWPeopleController {
             'iLittleMapZoom'            => $iLittleMapZoom,
             'sMapProvider'              => $sMapProvider,
             'sGoogleMapKey'             => $sGoogleMapKey,
-            'sPageTitle'                => $sPageTitle,
             'sPageTitleSpan'            => $sPageTitleSpan,
             'mode'                      => $mode,
             'timelineNotesServiceItems' => $timelineNotesServiceItems,
@@ -1126,7 +1125,7 @@ class VIEWPeopleController {
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
-            'sPageTitle'                => $sPageTitle        
+            'sPageTitle'                => '<i class="fas fa-map"></i>&nbsp;' . $sPageTitle
         ];
 
     }    
@@ -1283,7 +1282,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'sCSPNonce'                 => $sCSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-map-marker-alt"></i>&nbsp;' . $sPageTitle,
             'iFamily'                   => $iFamily,
             'families'                  => $families,
             'iNumNeighbors'             => $iNumNeighbors,
@@ -1321,7 +1320,7 @@ class VIEWPeopleController {
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-book text-primary"></i>&nbsp;' . $sPageTitle,
             'cartdir'                   => $cartdir
         ];
 
@@ -1340,12 +1339,12 @@ class VIEWPeopleController {
     public function argumentsPeopleLettersAndLabelsArray () {
         $sRootDocument   = SystemURLs::getDocumentRoot();
 
-        $sPageTitle = _("Data Audit/Verification");
+        $sPageTitle =  _("Data Audit/Verification");
 
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas fa-envelope-open-text mr-2 text-primary"></i>&nbsp;' . $sPageTitle
         ];
 
     }  
@@ -1368,7 +1367,7 @@ class VIEWPeopleController {
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas fa-hand-holding-usd mr-2 text-primary"></i>&nbsp;' . $sPageTitle
         ];
 
     }  
@@ -1394,7 +1393,7 @@ class VIEWPeopleController {
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-print"></i>&nbsp;' . $sPageTitle,
             'iPersonID'                 => $iPersonID
         ];
 
@@ -1424,7 +1423,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-people-roof mr-2 text-primary"></i>&nbsp;' . $sPageTitle,
             'iFamilyID'                 => $iFamilyID
         ];
     }      
@@ -1446,7 +1445,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas fa-sliders-h mr-2 text-muted"></i>&nbsp;' . $sPageTitle,
         ];
     } 
 
@@ -1467,7 +1466,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas fa-sliders-h mr-2 text-muted"></i>&nbsp;' . $sPageTitle
         ];
     } 
     
@@ -1521,7 +1520,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-clipboard-list"></i>&nbsp;' . $sPageTitle,
             'iFYID'                     => $iFYID, 
             'iFamily'                   => $iFamily, 
             'linkBack'                  => str_replace("-","/", $linkBack),
@@ -1548,7 +1547,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fas fa-clipboard-list"></i>&nbsp;' . $sPageTitle
         ];
     } 
 
@@ -1647,7 +1646,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-trash"></i>&nbsp;' . $sPageTitle,
             'iFamilyID'                 => $iFamilyID,
             'iDonationFamilyID'         => $iDonationFamilyID,
             'iPersonId'                 => $iPersonId,
@@ -1722,7 +1721,7 @@ class VIEWPeopleController {
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => SystemURLs::getDocumentRoot(),
             'CSPNonce'                  => SystemURLs::getCSPNonce(),
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-check"></i>&nbsp;' . $sPageTitle,
             'datas'                     => $datas,
             'exportType'                => $exportType,
             'ageWhere'                  => $ageWhere,

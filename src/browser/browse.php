@@ -45,7 +45,7 @@ if ($donatedItemID == NULL) {
 }
 
 // Set the page title and include HTML header
-$sPageTitle = _('File Manager');
+$sPageTitle = _('Edrive : Dashboard ');
 require '../Include/Header-Short.php';
 
 Header_body_scripts();
@@ -55,7 +55,7 @@ $user = SessionUser::getUser();
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title"><?= _('Edrive : File manager') ?></h3>       
+        <h3 class="card-title"><i class="fas fa-folder-open mr-2 text-primary"></i> <?= _('Edrive : File manager') ?></h3>       
 
         <div style="float:right">
             <button type="button" class="filemanager-download btn btn-warning btn-sm" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("Download") ?>" style="display: none;">

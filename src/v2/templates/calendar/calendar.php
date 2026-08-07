@@ -23,9 +23,9 @@ require $sRootDocument . '/Include/Header.php';
     <div class="row">
         <div class="col event-infos-sidebar-calendar">
             <div class="sticky-top">
-                <div class="card card-lightblue">
-                    <div class="card-header border-0">
-                        <h3 class="card-title"><?= _("Filters") ?></h3>
+                <div class="card card-secondary card-outline">
+                    <div class="card-header border-1">
+                        <h4 class="card-title"><i class="fas fa-filter"></i>&nbsp;<?= _("Filters") ?></h4>
                     </div>
                     <div class="row" style="padding:5px">
                         <div class="col-md-3">
@@ -56,7 +56,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
                     <hr class="hr-separator">
-                    <div class="row" style="padding: 3px">
+                    <div class="row" style="padding: 3px;padding-left: 10px;padding-right: 10px;">
                         <div class="cold-4">
                             <div
                                 class="custom-control custom-switch ustom-switch custom-switch-off-light custom-switch-on-info">
@@ -103,10 +103,10 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                 </div>
                 <div id="accordion">
-                    <div class="card card-primary card-calendar">
-                        <div class="card-header card-header-calendar" id="headingOne">
+                    <div class="card card-calendar card-secondary card-outline">
+                        <div class="card-header card-header-calendar border-0" id="headingOne">
                             <h3 class="card-title">
-                                <button class="btn btn-link text-white sidebar-calendar-button" data-toggle="collapse"
+                                <button class="btn btn-link sidebar-calendar-button" data-toggle="collapse"
                                         data-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
                                     <i class="fas fa-user"></i>&nbsp;<?= _("Personals") ?>
@@ -147,10 +147,10 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                         </div>
                     </div>
-                    <div class="card card-primary card-calendar">
-                        <div class="card-header card-header-calendar" id="headingTwo">
+                    <div class="card card-calendar">
+                        <div class="card-header card-header-calendar border-0" id="headingTwo">
                             <h3 class="card-title">
-                                <button class="btn btn-link btn-link text-white sidebar-calendar-button" data-toggle="collapse"
+                                <button class="btn btn-link btn-link sidebar-calendar-button" data-toggle="collapse"
                                         data-target="#collapseTwo"
                                         aria-expanded="true" aria-controls="collapseTwo">
                                     <i class="fas fa-building"></i>&nbsp;<i class="fab fa-windows"></i>&nbsp;<i
@@ -196,11 +196,11 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                         </div>
                     </div>
-                    <div class="card card-primary card-calendar">
+                    <div class="card card-calendar">
                         <div class="card-header card-header-calendar" id="headingThree">
                             <h5 class="mb-0">
                                 <h3 class="card-title">
-                                    <button class="btn btn-link btn-link text-white sidebar-calendar-button" data-toggle="collapse"
+                                    <button class="btn btn-link btn-link sidebar-calendar-button" data-toggle="collapse"
                                             data-target="#collapseThree"
                                             aria-expanded="true" aria-controls="collapseThree">
                                         <i class="fas fa-users"></i><?= !($sessionUsr->isManageGroupsEnabled()) ? '&nbsp;<i class="fa  fa-share"></i>&nbsp;' : "&nbsp;" ?>
@@ -235,10 +235,10 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                         </div>
                     </div>
-                    <div class="card card-primary card-calendar">
-                        <div class="card-header card-header-calendar" id="headingFour">
+                    <div class="card card-calendar">
+                        <div class="card-header card-header-calendar border-0" id="headingFour">
                             <h3 class="card-title">
-                                <button class="btn btn-link text-white collapsed sidebar-calendar-button" data-toggle="collapse"
+                                <button class="btn btn-link collapsed sidebar-calendar-button" data-toggle="collapse"
                                         data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                     <i class="fa  fa-share"></i>&nbsp;<?= _("Shared") . "  (" . _("Users") . ")" ?>
                                 </button>
@@ -274,7 +274,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
         <div class="col">
-            <div class="card">
+            <div class="card card-secondary card-outline">
                 <!-- THE CALENDAR -->
                 <div id="calendar"></div>
             </div>

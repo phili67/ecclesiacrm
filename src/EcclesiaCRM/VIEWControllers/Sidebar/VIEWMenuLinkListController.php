@@ -59,7 +59,7 @@ class VIEWMenuLinkListController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="fas text-primary fa-link"></i>&nbsp;' . $sPageTitle,
             'personId'      => $personId,
             'addCustomLink' => ( (SessionUser::getUser()->isMenuOptionsEnabled() || $personId > 0 && $personId == SessionUser::getUser()->getPersonId())?1:0 )
         ];

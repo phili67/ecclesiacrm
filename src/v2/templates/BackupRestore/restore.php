@@ -19,19 +19,15 @@ require $sRootDocument . '/Include/Header.php';
 
 <!-- Page Header -->
 <div class="d-flex align-items-center mb-4">
-    <div class="mr-3 text-warning" style="font-size:2.5rem;">
-        <i class="fas fa-upload"></i>
-    </div>
     <div>
-        <h2 class="mb-0"><?= _('Database Restore') ?></h2>
-        <p class="text-muted mb-0 small"><?= _('Restore a previously saved CRM backup') ?></p>
+        <p class="text-muted mb-0"><?= _('Restore a previously saved CRM backup') ?></p>
     </div>
 </div>
 
 <!-- Warning -->
-<div class="alert alert-warning">
-    <h5><i class="icon fas fa-exclamation-triangle"></i> <?= _('Warning') ?></h5>
-    <p class="mb-0"><?= _('CAUTION: This will completely erase the existing database, and replace it with the backup.') ?></p>
+<div class="alert alert-light alert-dismissible shadow-sm mb-3">
+    <h5><i class="icon fas fa-exclamation-triangle text-warning"></i> <?= _('Warning') ?></h5>
+    <p class="mb-0 text-muted"><?= _('CAUTION: This will completely erase the existing database, and replace it with the backup.') ?></p>
 </div>
 
 <!-- Restore Card -->

@@ -531,7 +531,7 @@ if ($sPhoneLink) {
                         }
                         ?>;
 
-    var sPageTitle = "<?= $sPageTitle ?>";
+    var sPageTitle = `<?= $sPageTitle ?>`;
 
     <?php if (!is_null($first_manager)) { ?>
         window.CRM.churchloc = {

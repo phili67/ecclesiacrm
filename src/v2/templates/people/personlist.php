@@ -16,7 +16,6 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
-    <h2 class="h4 mb-2 mb-md-0"><i class="fas fa-user-friends mr-2 text-primary"></i><?= _('Persons') ?></h2>
     <?php if ($bNotGDRP) { ?>
         <a class="btn btn-primary btn-sm" role="button" href="<?= $sRootPath ?>/v2/people/person/editor">
             <span class="fas fa-plus mr-1" aria-hidden="true"></span><?= _('Add New Person') ?>

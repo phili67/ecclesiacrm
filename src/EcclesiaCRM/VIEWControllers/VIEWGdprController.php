@@ -49,7 +49,7 @@ class VIEWGdprController {
     {
         $paramsArguments = ['sRootPath'        => SystemURLs::getRootPath(),
             'sRootDocument'    => SystemURLs::getDocumentRoot(),
-            'sPageTitle'       => _('GDPR Dashboard'),
+            'sPageTitle'       => '<i class="fas fa-tachometer-alt mr-2 text-primary"></i>&nbsp;' . _('GDPR Dashboard'),
             'gdprSigner'       => SystemConfig::getValue('sGdprDpoSigner'),
             'gdprSignerEmail'  => SystemConfig::getValue('sGdprDpoSignerEmail')
         ];
@@ -94,7 +94,7 @@ class VIEWGdprController {
 
         $paramsArguments = ['sRootPath'        => SystemURLs::getRootPath(),
             'sRootDocument'     => SystemURLs::getDocumentRoot(),
-            'sPageTitle'        => _('GDPR Data Structure'),
+            'sPageTitle'        => '<i class="fas fa-user-secret text-primary"></i>&nbsp;' . _('GDPR Data Structure'),
             'personCustMasts'   => $personCustMasts,
             'personInfos'       => $personInfos,
             'personProperties'  => $personProperties,

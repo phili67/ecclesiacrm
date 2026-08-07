@@ -40,7 +40,7 @@ class VIEWErrorController {
 
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle' => $sPageTitle,
+            'sPageTitle' => '<i class="fas fa-exclamation-triangle text-danger"></i>&nbsp;' . $sPageTitle,
             'Method' => $method,
             'uri' => $uri
         ];

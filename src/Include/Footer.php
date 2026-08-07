@@ -279,15 +279,15 @@ use EcclesiaCRM\PluginDependenciesQuery;
                                 <i class="fas fa-chevron-right text-muted small"></i>
                             </div>
                         </a>
-                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/import">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <span><i class="fas fa-upload mr-2 text-warning"></i><?= _('CSV Import') ?></span>
-                                <i class="fas fa-chevron-right text-muted small"></i>
-                            </div>
-                        </a>
                         <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/export">
                             <div class="d-flex align-items-center justify-content-between">
                                 <span><i class="fas fa-download mr-2 text-success"></i><?= _('CSV Export Records') ?></span>
+                                <i class="fas fa-chevron-right text-muted small"></i>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="<?= SystemURLs::getRootPath() ?>/v2/system/csv/import">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span><i class="fas fa-upload mr-2 text-warning"></i><?= _('CSV Import') ?></span>
                                 <i class="fas fa-chevron-right text-muted small"></i>
                             </div>
                         </a>

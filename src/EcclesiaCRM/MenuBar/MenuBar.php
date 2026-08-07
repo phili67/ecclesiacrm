@@ -553,7 +553,7 @@ class MenuBar extends Menu
 
                     if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
 
-                        $menuItem = new Menu ($listOption->getOptionName(), "fas fa-user", "#", true, $menu);
+                        $menuItem = new Menu ($listOption->getOptionName(), "fas fa-graduation-cap", "#", true, $menu);
 
                         foreach ($groups as $group) {
                             $str = $group->getName();
@@ -561,7 +561,7 @@ class MenuBar extends Menu
                                 $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
                             }
 
-                            $menuItemItem = new Menu ($str, "far fa-circle", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                            $menuItemItem = new Menu ($str, "fas fa-solid fa-children", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
                             $menuItemItem->addLink("v2/group/editor/" . $group->getID());
                             $menuItemItem->addLink("v2/group/props/Form/editor/" . $group->getID());
                             $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/sundayschool");
@@ -921,7 +921,7 @@ class MenuBar extends Menu
                 ->orderByName(Criteria::ASC)->find();
 
             foreach ($volunteerOpportunities as $volunteerOpportunity) {
-                $menuItem = new Menu ($volunteerOpportunity->getName(), "far fa-circle", "v2/volunteeropportunity/".$volunteerOpportunity->getId()."/view", true, $menu);
+                $menuItem = new Menu ($volunteerOpportunity->getName(), "fas fa-hands-helping", "v2/volunteeropportunity/".$volunteerOpportunity->getId()."/view", true, $menu);
                 $this->loopVolunteerMenuId($volunteerOpportunity->getId(),$menuItem);
                 //
             }

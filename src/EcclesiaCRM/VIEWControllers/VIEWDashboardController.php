@@ -186,7 +186,7 @@ class VIEWDashboardController {
 
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => $sPageTitle = _('Welcome to') . ' ' . ChurchMetaData::getChurchName(),                     
+            'sPageTitle'  => '<i class="fas text-primary fa-tachometer-alt"></i>&nbsp;' . _('Welcome to') . ' ' . ChurchMetaData::getChurchName(),
             'numFamilies' => $numFamilies,
             'numPersons' => $numPersons,
             'CSPNonce' => $sCSPNonce,

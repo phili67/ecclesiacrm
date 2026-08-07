@@ -10,7 +10,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 //Set the page title
-$sPageTitle = gettext('Pending Self Verify');
+$sPageTitle = '<i class="fas fa-hourglass-half mr-2 text-primary"></i>&nbsp;' . gettext('Pending Self Verify');
 require '../Include/Header.php';
 
 ?>

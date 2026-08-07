@@ -55,7 +55,7 @@ class VIEWSystemSettingsController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="fas text-danger fa-cogs"></i>&nbsp;' . $sPageTitle,
             'saved'         => $saved,
             'Mode'          => '',
             'categories'    => SystemConfig::getCategories()
@@ -86,7 +86,7 @@ class VIEWSystemSettingsController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="fas text-primary fa-cogs"></i>&nbsp;' . $sPageTitle,
             'Mode'          => $sMode,
             'categories'    => SystemConfig::getCategories()
         ];

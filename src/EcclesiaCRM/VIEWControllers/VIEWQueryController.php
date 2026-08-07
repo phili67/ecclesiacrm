@@ -65,7 +65,7 @@ class VIEWQueryController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas text-primary fa-list"></i>&nbsp;' . $sPageTitle,
             'aFinanceQueries'           => $aFinanceQueries,
             'connection'                => $connection,
             'statement'                 => $statement
@@ -106,7 +106,7 @@ class VIEWQueryController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-list"></i>&nbsp;' . $sPageTitle,
             'iQueryID'                  => $iQueryID,
             'aFinanceQueries'           => $aFinanceQueries
         ];
@@ -138,7 +138,7 @@ class VIEWQueryController {
         $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
             'CSPNonce'                  => $CSPNonce,
-            'sPageTitle'                => $sPageTitle
+            'sPageTitle'                => '<i class="fa-solid text-primary fa-terminal"></i>&nbsp;' . $sPageTitle,
         ];
 
         return $paramsArguments;

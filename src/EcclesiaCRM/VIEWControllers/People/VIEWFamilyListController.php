@@ -167,6 +167,23 @@ class VIEWFamilyListController {
         $sDateFormatLong = SystemConfig::getValue('sDateFormatLong');
         $sCSPNonce       = SystemURLs::getCSPNonce();
 
+        switch (strtolower($sMode)) {
+            case 'gdrp':
+                $sPageTitle = '<i class="fas fa-users-slash mr-2 text-primary"></i>&nbsp;' . _("GDPR Deactivated Families");
+                break;
+            case 'inactive':
+                $sPageTitle = '<i class="fas fa-users-slash mr-2 text-primary"></i>&nbsp;' . _("Inactive Families");
+                break;
+            case 'empty':
+                $sPageTitle = '<i class="fas fa-user-minus mr-2 text-primary"></i>&nbsp;' . _("Empty Addresses");
+                break;
+            case 'single':
+                $sPageTitle = '<i class="fas fa-user mr-2 text-primary"></i>&nbsp;' . _("Single Persons");
+                break;
+            default:
+                $sPageTitle = '<i class="fas fa-users mr-2 text-primary"></i>&nbsp;' ._("Family List");
+        }
+
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
             'sPageTitle'           => $sPageTitle,

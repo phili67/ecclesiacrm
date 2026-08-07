@@ -3,7 +3,7 @@
 /*******************************************************************************
  *
  *  filename    : templates/convertIndividualToAddress.php
- *  last change : 2023-06-21
+ *  last change : 2026-08-07
  *  website     : http://www.ecclesiacrm.com
  *                © 2023 Philippe Logel
  *
@@ -35,72 +35,6 @@ $iFamilyID = $lastEntry->getiFamilyID();
 $name = $lastEntry->getName();
 ?>
 
-<style>
-.timeline {
-  position: relative;
-  margin: 0 0 2rem 0;
-  padding: 0;
-  list-style: none;
-}
-.timeline:before {
-  content: '';
-  position: absolute;
-  left: 32px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #e9ecef;
-  border-radius: 2px;
-}
-.timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
-  padding-left: 70px;
-}
-.timeline-item:last-child { margin-bottom: 0; }
-.timeline-badge {
-  position: absolute;
-  left: 16px;
-  top: 0;
-  width: 32px;
-  height: 32px;
-  background: #0d6efd;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  z-index: 1;
-}
-.timeline-content {
-  background: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 1rem 1.5rem;
-  border-left: 4px solid #0d6efd;
-}
-.timeline-success { border-left-color: #198754; }
-.timeline-error { border-left-color: #dc3545; }
-.timeline-badge-success { background: #198754; }
-.timeline-badge-error { background: #dc3545; }
-.timeline-summary {
-  background: #f8f9fa;
-  border-radius: 0.5rem;
-  padding: 1rem 1.5rem;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-.timeline-summary .badge {
-  font-size: 0.7rem;
-  padding: 0.7em 1.2em;
-}
-</style>
-
-
 <div class="card card-primary card-outline shadow-sm mb-4">
     <div class="card-header border-0">
         <h3 class="card-title mb-0"><i class="fa-solid fa-people-roof"></i> <?= _("Family") . " ID" ?></h3>
@@ -117,11 +51,11 @@ $name = $lastEntry->getName();
         $converted = 0;
         $total = $ormList->count();
         ?>
-        <div class="timeline-summary mb-4">
+        <div class="timeline-individual-summary mb-4">
             <span class="badge bg-primary"><i class="fas fa-database me-1"></i> <?= _("Last entry ID") ?> : <b><?= $iFamilyID ?></b> (<?= $name ?>)</span>
             <span class="badge bg-info text-dark"><i class="fas fa-users me-1"></i> <?= _("To convert") ?> : <b><?= $total ?></b></span>
         </div>
-        <ul class="timeline">
+        <ul class="timeline-individual">
         <?php
         foreach ($ormList as $per) {
             if ($per->getId() == 1) continue; // in the case of the super Admin continue
@@ -143,21 +77,21 @@ $name = $lastEntry->getName();
                 ->addAsColumn('iNewFamilyID', 'MAX('.FamilyTableMap::COL_FAM_ID.')')
                 ->findOne();
             $iNewFamilyID = $lastEntry->getiNewFamilyID();
-            $badgeClass = 'timeline-badge-success';
-            $contentClass = 'timeline-success';
+            $badgeClass = 'timeline-individual-badge-success';
+            $contentClass = 'timeline-individual-success';
             $icon = 'fa-check';
             $msg = _("Successfully converted:") . ' <b>' . $per->getFirstName() . ' ' . $per->getLastName() . '</b> (per_ID = ' . $per->getId() . ') ' . _("is now part of the") . ' <b>' . $per->getLastName() . '</b> ' . _("Family") . ' (fam_ID = ' . $fam->getId() . ')';
             if ($iNewFamilyID != $iFamilyID) {
                 $hasError = true;
-                $badgeClass = 'timeline-badge-error';
-                $contentClass = 'timeline-error';
+                $badgeClass = 'timeline-individual-badge-error';
+                $contentClass = 'timeline-individual-error';
                 $icon = 'fa-times';
                 $msg = '<b>'._("Error with family ID").'</b>';
             }
             ?>
-            <li class="timeline-item">
-                <span class="timeline-badge <?= $badgeClass ?>"><i class="fas <?= $icon ?>"></i></span>
-                <div class="timeline-content <?= $contentClass ?>">
+            <li class="timeline-individual-item">
+                <span class="timeline-individual-badge <?= $badgeClass ?>"><i class="fas <?= $icon ?>"></i></span>
+                <div class="timeline-individual-content <?= $contentClass ?>">
                     <div class="fw-bold mb-1"><i class="fas fa-user me-1"></i><?= $per->getFirstName() . " " . $per->getLastName() ?> <span class="badge bg-light text-dark ms-2">per_ID = <?= $per->getId() ?></span></div>
                     <div><?= $msg ?></div>
                 </div>

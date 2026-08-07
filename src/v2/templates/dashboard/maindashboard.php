@@ -105,8 +105,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 <hr />
 
 <div class="mb-3 mt-2">
-    <h3 class="h5 mb-1"><i class="fas fa-tachometer-alt mr-2"></i><?= _("Dashboard") ?></h3>
-    <p class="text-muted small mb-0"><i class="fas fa-info-circle mr-1"></i><?= _("Quick access to your widgets and plugin insights") ?></p>
+    <p class="text-muted mb-0"><i class="fas fa-info-circle mr-1"></i><?= _("Quick access to your widgets and plugin insights") ?></p>
 </div>
 
 <!-- widgets -->

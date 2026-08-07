@@ -45,7 +45,7 @@ class VIEWRestoreController {
     {
         $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
-            'sPageTitle'  => _('Restore Database')."/CRM",
+            'sPageTitle'  => '<i class="fas fa-database mr-2 text-warning"></i>&nbsp;' . _('Restore Database')."/CRM",
             'encryptionMethod' => SystemConfig::getValue('sPGP')
         ];
 

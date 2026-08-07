@@ -47,7 +47,7 @@ class VIEWFundListController {
 
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="fas text-primary fa-donate"></i>&nbsp;' . $sPageTitle,
             'isMenuOption' => SessionUser::getUser()->isMenuOptionsEnabled()
         ];
         return $paramsArguments;

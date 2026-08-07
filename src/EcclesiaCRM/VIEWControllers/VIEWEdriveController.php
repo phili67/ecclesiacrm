@@ -46,7 +46,7 @@ class VIEWEdriveController {
     public function argumentsdashboardArray ()
     {        
         //Set the page title
-        $sPageTitle = _('Edrive : Dashboard ');
+        $sPageTitle = _('Edrive : File manager');
 
         $sRootDocument  = SystemURLs::getDocumentRoot();
         $CSPNonce       = SystemURLs::getCSPNonce();
@@ -57,7 +57,7 @@ class VIEWEdriveController {
             'sRootPath'          => SystemURLs::getRootPath(),
             'sRootDocument'      => $sRootDocument,
             'CSPNonce'           => $CSPNonce,
-            'sPageTitle'         => $sPageTitle,
+            'sPageTitle'         => '<i class="fas fa-folder-open mr-2 text-primary"></i>&nbsp;' . $sPageTitle,
             'user'               => $user,
             'personId'           => $personId
         ];

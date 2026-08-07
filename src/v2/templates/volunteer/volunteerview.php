@@ -297,9 +297,9 @@ $emailExportStateClass = $isEmailExportEnabled ? '' : 'disabled';
 
 <script nonce="<?= $CSPNonce ?>">
     window.CRM.volID = <?= $volID ?>;
-    window.CRM.volName = "<?= $thisVolOpp->getName() ?>";
+    window.CRM.volName = `<?= $thisVolOpp->getName() ?>`;
     var isShowable = true;
-    var sPageTitle = "<?= $sPageTitle ?>";
+    var sPageTitle = `<?= $sPageTitle ?>`;
 
     window.CRM.isActive = <?= ($thisVolOpp->getActive() == 'true') ? 'true' : 'false' ?>;
     window.CRM.isIncludeInEmailExport = <?= $thisVolOpp->isIncludeInEmailExport() ? 'true' : 'false' ?>;

@@ -62,7 +62,7 @@ class VIEWMeetingController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => $sPageTitle,
+            'sPageTitle'           => '<i class="fas text-primary fa-tachometer-alt"></i>&nbsp;' . $sPageTitle,
             'sCSPNonce'            => $sCSPNonce,
             'roomName'             => $roomName,
             'allRooms'             => (!is_null($allRooms))?$allRooms->toArray():null

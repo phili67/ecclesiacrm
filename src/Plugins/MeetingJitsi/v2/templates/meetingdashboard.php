@@ -116,7 +116,7 @@ require $sRootDocument . '/Include/Header.php';
     <?php } ?>
 
     // page construction
-    var sPageTitle = '<?= $sPageTitle ?>';
+    var sPageTitle = `<?= $sPageTitle ?>`;
 
     window.CRM.churchloc = {
         lat: parseFloat(<?= ChurchMetaData::getChurchLatitude() ?>),

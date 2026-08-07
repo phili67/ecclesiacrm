@@ -333,7 +333,7 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 <script nonce="<?= $sCSPNonce ?>">
-    var sPageTitle = '<?= $sPageTitle ?>';
+    var sPageTitle = `<?= $sPageTitle ?>`;
 
     window.CRM.churchloc = {
         lat: parseFloat(<?= ChurchMetaData::getChurchLatitude() ?>),

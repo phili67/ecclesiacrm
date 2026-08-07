@@ -66,7 +66,7 @@ class VIEWPropertyListController {
     public function argumentsPropertyListArray ($sType,$sTypeName)
     {
         //Set the page title
-        $sPageTitle = _("Property List") . " : " . $sTypeName;
+        $sPageTitle =  _("Property List") . " : " . $sTypeName;
 
         $sRootDocument  = SystemURLs::getDocumentRoot();
 
@@ -79,7 +79,7 @@ class VIEWPropertyListController {
         $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
             'sRootDocument' => $sRootDocument,
             'CSPNonce'      => SystemURLs::getCSPNonce(),
-            'sPageTitle'    => $sPageTitle,
+            'sPageTitle'    => '<i class="fas fa-tags mr-2 text-muted"></i>&nbsp;' . $sPageTitle,
             'propertyTypes' => $propertyTypes,
             'sType'         => $sType,
             'sTypeName'     => $sTypeName,

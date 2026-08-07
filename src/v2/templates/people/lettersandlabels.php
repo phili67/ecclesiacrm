@@ -118,8 +118,10 @@ if (isset($_POST['realAction']) && ($_POST['realAction'] == 'SubmitNewsLetter' |
     </a>
 </div>
 
-<div class="alert alert-info d-flex align-items-start">
-    <i class="fa-solid fa-circle-info mt-1 mr-2"></i>
+<hr>
+
+<div class="alert alert-light d-flex align-items-start shadow-sm" role="alert">
+    <i class="fa-solid fa-circle-info mt-1 mr-2 text-info"></i>
     <?=
     _("Here you can choose to run reports to confirm the data stored in CRM, for families or on an individual basis.<br>
         - in PDF format for printing<br>

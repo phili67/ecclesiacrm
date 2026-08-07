@@ -90,7 +90,7 @@ switch ($mode) {
         //In the same way, the plural isn't only add s
         $adjplusname = _('Family Role');
         $adjplusnameplural = _('Family Roles');
-        $sPageTitle = _('Family Roles Editor');
+        $sPageTitle = '<i class="fas fa-gear text-primary"></i>&nbsp;' . _('Family Roles Editor');
         $listID = 2;
         $embedded = false;
         break;
@@ -98,7 +98,7 @@ switch ($mode) {
         $noun = _('Classification');
         $adjplusname = _('Person Classification');
         $adjplusnameplural = _('Person Classifications');
-        $sPageTitle = _('Person Classifications Editor');
+        $sPageTitle = '<i class="fas fa-layer-group mr-2 text-muted"></i>&nbsp;' . _('Person Classifications Editor');
         $listID = 1;
         $embedded = false;
         break;
@@ -106,7 +106,7 @@ switch ($mode) {
         $noun = _('Type');
         $adjplusname = _('Sunday School Group Type');
         $adjplusnameplural = _('Sunday School Group Types');
-        $sPageTitle = _('Sunday School Group Types Editor');
+        $sPageTitle = '<i class="fas fa-school mr-2 text-muted"></i>&nbsp;' . _('Sunday School Group Types Editor');
         $listID = 3;
         $embedded = false;
         break;
@@ -114,7 +114,7 @@ switch ($mode) {
         $noun = _('Type');
         $adjplusname = _('Group Type');
         $adjplusnameplural = _('Group Types');
-        $sPageTitle = _('Group Types Editor');
+        $sPageTitle = '<i class="fas fa-sitemap mr-2 text-muted"></i>&nbsp;' . _('Group Types Editor');
         $listID = 3;
         $embedded = false;
         break;
@@ -122,7 +122,7 @@ switch ($mode) {
         $noun = _('Group');
         $adjplusname = _('Security Group');
         $adjplusnameplural = _('Security Groups');
-        $sPageTitle = _('Security Groups Editor');
+        $sPageTitle = '<i class="fas fa-shield-alt mr-2 text-muted"></i>&nbsp;' . _('Security Groups Editor');
         $listID = 5;
         $embedded = false;
         break;
@@ -147,7 +147,7 @@ switch ($mode) {
         $noun = _('Option');
         $adjplusname = _('Person Custom List Option');
         $adjplusnameplural = _('Person Custom List Options');
-        $sPageTitle = _('Person Custom List Options Editor');
+        $sPageTitle = '<i class="fas fa-list mr-2 text-muted"></i>&nbsp;' . _('Person Custom List Options Editor');
         $listID = $listID;
         $embedded = true;
 
@@ -163,7 +163,7 @@ switch ($mode) {
         $noun = _('Option');
         $adjplusname = _('Custom List Option');
         $adjplusnameplural = _('Custom List Options');
-        $sPageTitle = _('Custom List Options Editor');
+        $sPageTitle = '<i class="fas fa-list mr-2 text-muted"></i>&nbsp;' . _('Custom List Options Editor');
         $listID = $listID;
         $embedded = true;
 
@@ -179,7 +179,7 @@ switch ($mode) {
         $noun = _('Option');
         $adjplusname = _('Family Custom List Option');
         $adjplusnameplural = _('Family Custom List Options');
-        $sPageTitle = _('Family Custom List Options Editor');
+        $sPageTitle = '<i class="fas fa-list mr-2 text-muted"></i>&nbsp;' . _('Family Custom List Options Editor');
         $listID = $listID;
         $embedded = true;
 

@@ -218,6 +218,8 @@ class SidebarGeneralRolesController
                 return $response->withJson(['success' => false]);
         }
 
+        $sPageTitle = '<i class="fas text-primary fa-cogs"></i>&nbsp;' . $sPageTitle;
+
         $iNewNameError = 0;
 
 // Check if we're adding a field

@@ -20,19 +20,15 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="d-flex align-items-center mb-4">
-    <div class="mr-3 text-primary" style="font-size:2.5rem;">
-        <i class="fas fa-database"></i>
-    </div>
     <div>
-        <h2 class="mb-0"><?= _('Database Backup') ?></h2>
-        <p class="text-muted mb-0 small"><?= _('Create and download a secure backup of your CRM data') ?></p>
+        <p class="text-muted mb-0"><?= _('Create and download a secure backup of your CRM data') ?></p>
     </div>
 </div>
 
-<div class="alert alert-info alert-dismissible">
+<div class="alert alert-light alert-dismissible shadow-sm mb-3">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h5><i class="icon fas fa-info-circle"></i> <?= _('Backup Recommendations') ?></h5>
-    <ul class="mb-0">
+    <h5><i class="icon fas fa-info-circle text-info"></i> <?= _('Backup Recommendations') ?></h5>
+    <ul class="mb-0 text-muted">
         <li><?= _('You should make a manual backup at least once a week unless you already have a regular backup procedure for your systems.') ?></li>
         <li><?= _('After you download the backup file, you should make two copies. Put one of them in a fire-proof safe on-site and the other in a safe location off-site.') ?></li>
         <li><?= _('If you are concerned about confidentiality of data stored in the CRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others.') ?></li>

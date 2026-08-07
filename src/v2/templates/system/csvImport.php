@@ -43,13 +43,17 @@ use Propel\Runtime\Propel;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
-  <div>
-    <h3 class="h4 mb-1"><i class="fas fa-file-import mr-2 text-primary"></i><?= _('Import Data') ?></h3>
-    <p class="text-muted mb-0"><?= _('Import people and families from a CSV file using guided mapping.') ?></p>
-  </div>
-  <span class="badge badge-light border px-3 py-2"><?= _('CSV Wizard') ?></span>
+<div class="alert alert-light d-flex align-items-start shadow-sm" role="alert">
+    <div class="d-flex align-items-start">
+        <i class="fa-solid fa-circle-info text-primary mr-2 mt-1"></i>
+        <div>
+            <div class="font-weight-bold"><?= _('Import Data') ?></div>
+            <div class="small text-muted"><?= _('Import people and families from a CSV file using guided mapping.') ?></div>
+        </div>
+    </div>
 </div>
+
+
 
 <div class="card import-users card-outline card-primary" style="display:block;">
 <div class="card-header border-1">
