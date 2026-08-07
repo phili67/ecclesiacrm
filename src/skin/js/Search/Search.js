@@ -14,7 +14,7 @@ $(function () {
     const reloadSearchResults = () => {
         cart = [];
 
-        window.CRM.dataSearchTable.page('first').draw('page');
+        window.CRM.dataSearchTable?.page('first').draw('page');
 
         window.CRM.dialogLoadingFunction(i18next.t('In progress....'), function () {
             window.CRM.dataSearchTable.ajax.reload(function () {
