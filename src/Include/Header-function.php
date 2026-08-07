@@ -65,8 +65,13 @@ function Header_head_metatag($sPageTitle)
 {
     if (empty($sPageTitle)) return;
 ?>
-    <title>EcclesiaCRM: <?= $sPageTitle ?></title>
+    <title><?= Bootstrapper::getSoftwareName() ?>: <?= strip_tags(Header_remove_fontawesome($sPageTitle)) ?></title>
 <?php
+}
+
+function Header_remove_fontawesome($pageTitle)
+{
+    return preg_replace('/<i\b[^>]*class=["\'][^"\']*\b(?:fa|fas|far|fab|fal|fad)\b[^"\']*["\'][^>]*><\/i>\s*(?:&nbsp;|\s)*/i', '', $pageTitle);
 }
 
 function Header_modals()
