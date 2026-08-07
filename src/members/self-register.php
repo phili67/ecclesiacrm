@@ -11,7 +11,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 //Set the page title
-$sPageTitle = _('Families Self Registration');
+$sPageTitle = '<i class="fas fa-user-plus mr-2 text-primary"></i>&nbsp;' . _('Families Self Registration');
 require '../Include/Header.php';
 
 ?>
