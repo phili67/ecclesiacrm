@@ -9,14 +9,14 @@
  *
  ******************************************************************************/
 
- use EcclesiaCRM\Utils\OutputUtils;
- use EcclesiaCRM\dto\SystemConfig;
- 
- use EcclesiaCRM\ListOptionQuery;
- use EcclesiaCRM\GroupQuery;
- use EcclesiaCRM\PersonCustomMasterQuery;
- use EcclesiaCRM\FamilyCustomMasterQuery;
- 
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
+
 
 //Get Classifications for the drop-down
 $ormClassifications = ListOptionQuery::Create()
@@ -39,16 +39,18 @@ $famCustomFields = FamilyCustomMasterQuery::Create()->orderByCustomOrder()->find
 $numFamCustomFields = $famCustomFields->count();
 
 // Set the page title and include HTML header
-$sPageTitle = _('CSV Export');
+$sPageTitle = '<i class="fas fa-download mr-2 text-success"></i>' . _('CSV Export Records');
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
-    <div>
-        <h3 class="h4 mb-1"><i class="fas fa-file-csv mr-2 text-primary"></i><?= _('CSV Export') ?></h3>
-        <p class="text-muted mb-0"><?= _('Choose fields, apply filters, and generate your export file.') ?></p>
+<div class="alert alert-light d-flex align-items-start shadow-sm" role="alert">
+    <div class="d-flex align-items-start">
+        <i class="fa-solid fa-circle-info text-info mr-2 mt-1"></i>
+        <div>
+            <div class="font-weight-bold"><?= _('System Export Tool') ?></div>
+            <div class="small text-muted"><?= _('Choose fields, apply filters, and generate your export file.') ?></div>
+        </div>
     </div>
-    <span class="badge badge-light border px-3 py-2"><?= _('System Export Tool') ?></span>
 </div>
 
 <style>
@@ -238,7 +240,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <?php
     if ($numCustomFields > 0 || $numFamCustomFields > 0) {
-        ?>
+    ?>
         <div class="card card-outline card-secondary">
             <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-sliders-h mr-1"></i><?= _('Custom Field Selection') ?></h3>
@@ -248,62 +250,62 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="col-lg-6">
                         <?php
                         if ($numCustomFields > 0) {
-                            ?>
+                        ?>
                             <h5 class="mb-2"><?= _('Custom Person Fields') ?></h5>
                             <table class="table table-sm table-borderless" cellpadding="4" align="left">
                                 <?php
                                 // Display the custom fields
                                 foreach ($customFields as $customField) {
                                     if (OutputUtils::securityFilter($customField->getCustomFieldSec())) {
-                                        ?>
+                                ?>
                                         <tr>
                                             <td class="LabelColumn"><?= $customField->getCustomName() ?></td>
                                             <td class="TextColumn">
                                                 <div class="custom-control custom-switch mb-2">
                                                     <input type="checkbox" class="custom-control-input"
-                                                           id="person-<?= $customField->getCustomField() ?>"
-                                                           name="<?= $customField->getCustomField() ?>"
-                                                           value="1">
+                                                        id="person-<?= $customField->getCustomField() ?>"
+                                                        name="<?= $customField->getCustomField() ?>"
+                                                        value="1">
                                                     <label class="custom-control-label" for="person-<?= $customField->getCustomField() ?>"></label>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <?php
+                                <?php
                                     }
                                 } ?>
                             </table>
-                            <?php
+                        <?php
                         }
                         ?>
                     </div>
                     <div class="col-lg-6">
                         <?php
                         if ($numFamCustomFields > 0) {
-                            ?>
+                        ?>
                             <h5 class="mb-2"><?= _('Custom Family Fields') ?></h5>
                             <table class="table table-sm table-borderless" cellpadding="4" align="left">
                                 <?php
                                 // Display the family custom fields
                                 foreach ($famCustomFields as $famCustomField) {
                                     if (OutputUtils::securityFilter($famCustomField->getCustomFieldSec())) {
-                                        ?>
+                                ?>
                                         <tr>
                                             <td class="LabelColumn"><?= $famCustomField->getCustomName() ?></td>
                                             <td class="TextColumn">
                                                 <div class="custom-control custom-switch mb-2">
                                                     <input type="checkbox" class="custom-control-input"
-                                                           id="family-<?= $famCustomField->getCustomField() ?>"
-                                                           name="<?= $famCustomField->getCustomField() ?>"
-                                                           value="1">
+                                                        id="family-<?= $famCustomField->getCustomField() ?>"
+                                                        name="<?= $famCustomField->getCustomField() ?>"
+                                                        value="1">
                                                     <label class="custom-control-label" for="family-<?= $famCustomField->getCustomField() ?>"></label>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <?php
+                                <?php
                                     }
                                 } ?>
                             </table>
-                            <?php
+                        <?php
                         }
                         ?>
 
@@ -311,7 +313,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
         </div>
-        <?php
+    <?php
     }
     ?>
 
@@ -320,7 +322,7 @@ require $sRootDocument . '/Include/Header.php';
             <h3 class="card-title"><i class="fas fa-filter mr-1"></i><?= _('Filters') . ' (' . _('Ignored if you come from the CartView') . ')' ?></h3>
             <div class="card-tools pull-right">
                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#OtherFilters"
-                        aria-expanded="false" aria-controls="OtherFilters">
+                    aria-expanded="false" aria-controls="OtherFilters">
                     <i
                         class="fas fa-plus"></i>
                 </button>
@@ -334,7 +336,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Records to export') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#RecordFilters"
-                                        aria-expanded="false" aria-controls="RecordFilters">
+                                    aria-expanded="false" aria-controls="RecordFilters">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -358,7 +360,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Classification') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#ClassificationFilters"
-                                        aria-expanded="false" aria-controls="ClassificationFilters">
+                                    aria-expanded="false" aria-controls="ClassificationFilters">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -368,10 +370,10 @@ require $sRootDocument . '/Include/Header.php';
                             <select name="Classification[]" size="5" multiple class="form-control form-control-sm">
                                 <?php
                                 foreach ($ormClassifications as $rsClassification) {
-                                    ?>
+                                ?>
                                     <option
                                         value="<?= $rsClassification->getOptionID() ?>"><?= $rsClassification->getOptionName() ?></option>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </select>
@@ -385,7 +387,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Family Role') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#FamilyFilters"
-                                        aria-expanded="false" aria-controls="FamilyFilters">
+                                    aria-expanded="false" aria-controls="FamilyFilters">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -396,10 +398,10 @@ require $sRootDocument . '/Include/Header.php';
                             <select name="FamilyRole[]" size="5" multiple class="form-control form-control-sm">
                                 <?php
                                 foreach ($ormFamilyRoles as $ormFamilyRole) {
-                                    ?>
+                                ?>
                                     <option
                                         value="<?= $ormFamilyRole->getOptionID() ?>"><?= $ormFamilyRole->getOptionName() ?></option>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </select>
@@ -415,7 +417,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Gender') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#GenderFilters"
-                                        aria-expanded="false" aria-controls="GenderFilters">
+                                    aria-expanded="false" aria-controls="GenderFilters">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -437,7 +439,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Group Membership') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#GroupFilters"
-                                        aria-expanded="false" aria-controls="GroupFilters">
+                                    aria-expanded="false" aria-controls="GroupFilters">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -449,9 +451,9 @@ require $sRootDocument . '/Include/Header.php';
                             <select name="GroupID[]" size="5" multiple class="form-control form-control-sm">
                                 <?php
                                 foreach ($groups as $group) {
-                                    ?>
+                                ?>
                                     <option value="<?= $group->getId() ?>"><?= $group->getName() ?></option>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </select>
@@ -464,7 +466,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Membership Date') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#MembershipDateFilters"
-                                        aria-expanded="false" aria-controls="MembershipDateFilters">
+                                    aria-expanded="false" aria-controls="MembershipDateFilters">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -476,14 +478,14 @@ require $sRootDocument . '/Include/Header.php';
                                 <tr>
                                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                                     <td><input id="MembershipDate1" class="date-picker form-control form-control-sm" type="text"
-                                               name="MembershipDate1" size="11" maxlength="10"
-                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                            name="MembershipDate1" size="11" maxlength="10"
+                                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                                     <td><input id="MembershipDate2" class="date-picker form-control form-control-sm" type="text"
-                                               name="MembershipDate2" size="11" maxlength="10"
-                                               value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                            name="MembershipDate2" size="11" maxlength="10"
+                                            value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
+                                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                 </tr>
                             </table>
@@ -498,7 +500,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Birthday Date') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#BirthdayDateFilter"
-                                        aria-expanded="false" aria-controls="BirthdayDateFilter">
+                                    aria-expanded="false" aria-controls="BirthdayDateFilter">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -510,15 +512,15 @@ require $sRootDocument . '/Include/Header.php';
                                 <tr>
                                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                                     <td><input type="text" name="BirthDate1" class="date-picker  form-control form-control-sm"
-                                               size="11" maxlength="10" id="BirthdayDate1"
-                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                            size="11" maxlength="10" id="BirthdayDate1"
+                                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                                     <td><input type="text" name="BirthDate2" class="date-picker  form-control form-control-sm"
-                                               size="11" maxlength="10"
-                                               value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                               id="BirthdayDate2"
-                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                            size="11" maxlength="10"
+                                            value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
+                                            id="BirthdayDate2"
+                                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                 </tr>
                             </table>
@@ -531,7 +533,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Anniversary Date:') ?></h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#AnniversaryDateFilter"
-                                        aria-expanded="false" aria-controls="AnniversaryDateFilter">
+                                    aria-expanded="false" aria-controls="AnniversaryDateFilter">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -543,15 +545,15 @@ require $sRootDocument . '/Include/Header.php';
                                 <tr>
                                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                                     <td><input type="text" class="date-picker  form-control form-control-sm" name="AnniversaryDate1"
-                                               size="11" maxlength="10" id="AnniversaryDate1"
-                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                            size="11" maxlength="10" id="AnniversaryDate1"
+                                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                                     <td><input type="text" class="date-picker  form-control form-control-sm" name="AnniversaryDate2"
-                                               size="11" maxlength="10"
-                                               value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                               id="AnniversaryDate2"
-                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                            size="11" maxlength="10"
+                                            value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
+                                            id="AnniversaryDate2"
+                                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                 </tr>
                             </table>
@@ -564,7 +566,7 @@ require $sRootDocument . '/Include/Header.php';
                             <h3 class="card-title"><?= _('Date Entered:') ?></h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#DateEnteredFilter"
-                                        aria-expanded="false" aria-controls="DateEnteredFilter">
+                                    aria-expanded="false" aria-controls="DateEnteredFilter">
                                     <i
                                         class="fas fa-plus"></i>
                                 </button>
@@ -576,15 +578,15 @@ require $sRootDocument . '/Include/Header.php';
                                 <tr>
                                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                                     <td><input id="EnterDate1" type="text" name="EnterDate1" size="11"
-                                               maxlength="10" class="date-picker  form-control form-control-sm"
-                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                            maxlength="10" class="date-picker  form-control form-control-sm"
+                                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                                     <td><input id="EnterDate2" type="text" name="EnterDate2" size="11"
-                                               maxlength="10"
-                                               value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                               class="date-picker  form-control form-control-sm"
-                                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                            maxlength="10"
+                                            value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
+                                            class="date-picker  form-control form-control-sm"
+                                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                 </tr>
                             </table>

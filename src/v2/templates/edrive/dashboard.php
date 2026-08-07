@@ -22,7 +22,6 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
     <div>
-        <h3 class="h4 mb-1"><i class="fas fa-folder-open mr-2 text-primary"></i><?= _('Edrive : File manager') ?></h3>
         <p class="text-muted mb-0"><?= _('Manage your files, previews and internal sharing from one place.') ?></p>
     </div>
     <div class="text-muted small">

@@ -31,10 +31,17 @@ require $sRootDocument . '/Include/Header.php';
 <?php
   if (strtolower($sMode) == 'gdrp') {
 ?>
-<div class="alert alert-warning shadow-sm border-0">
-  <strong><?= _('WARNING: Some families may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?></strong><br>
-  <strong><?= _('WARNING: This action can not be undone and may have legal implications!') ?></strong>
+
+<div class="alert alert-light d-flex align-items-start shadow-sm" role="alert">
+    <div class="d-flex align-items-start">
+        <i class="fa-solid fa-circle-info text-danger mr-2 mt-1"></i>
+        <div>
+            <div class="font-weight-bold"><?= _('WARNING: Some families may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?></div>
+            <div class="text-danger"><strong><?= _('WARNING: This action can not be undone and may have legal implications!') ?></strong></div>
+        </div>
+    </div>
 </div>
+
 <?php
   }
 ?>
