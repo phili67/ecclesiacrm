@@ -61,7 +61,7 @@ if (isset($container)) {
     <!-- jQuery JS -->
     <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery/jquery.min.js"></script>
 
-    <title>EcclesiaCRM: <?= $sPageTitle ?></title>
+    <title><?=  Bootstrapper::getSoftwareName() ?> : <?= strip_tags(Header_remove_fontawesome($sPageTitle)) ?></title>
 
     <?php
     Header_fav_icons();

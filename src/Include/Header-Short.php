@@ -52,4 +52,4 @@ ob_start();
           <td valign="top">
             <br>
 
-            <p class="PageTitle"><?= gettext($sPageTitle) ?></p>
+            <p class="PageTitle"><?= Header_remove_fontawesome(gettext($sPageTitle)) ?></p>
