@@ -161,7 +161,7 @@ class VIEWPeopleController {
 
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
-            'sPageTitle'           => '<i class="fas fa-tachometer-alt"></i>&nbsp;' . $sPageTitle,
+            'sPageTitle'           => '<i class="fas fa-tachometer-alt text-primary"></i>&nbsp;' . $sPageTitle,
             'sCSPNonce'            => $sCSPNonce,
             'personCount'          => $personCount,
             'personStats'          => $personStats,
