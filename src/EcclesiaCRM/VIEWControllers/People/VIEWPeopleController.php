@@ -1320,7 +1320,7 @@ class VIEWPeopleController {
         return [
             'sRootPath'                 => SystemURLs::getRootPath(),
             'sRootDocument'             => $sRootDocument,
-            'sPageTitle'                => '<i class="fas fa-book"></i>&nbsp;' . $sPageTitle,
+            'sPageTitle'                => '<i class="fas fa-book text-primary"></i>&nbsp;' . $sPageTitle,
             'cartdir'                   => $cartdir
         ];
 
