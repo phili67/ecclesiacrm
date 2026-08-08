@@ -66,7 +66,6 @@ if ($campaign['status'] == 'sent') {
 
 <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
     <div>
-        <h3 class="h4 mb-1"><i class="fas fa-envelope-open-text mr-2 text-success"></i><?= dgettext("messages-MailChimp", 'Email Campaign Management') ?></h3>
         <p class="text-muted mb-0"><?= dgettext("messages-MailChimp", 'Compose content and schedule sending from one screen.') ?></p>
     </div>
     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">

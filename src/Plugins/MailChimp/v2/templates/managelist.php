@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
     <div>
-        <h3 class="h4 mb-1"><i class="fas fa-list mr-2 text-success"></i><?= dgettext("messages-MailChimp", 'Manage Email List') ?></h3>
+        <h3 class="h4 mb-1"></i><?= dgettext("messages-MailChimp", 'Manage Email List') ?></h3>
         <p class="text-muted mb-0"><?= dgettext("messages-MailChimp", 'Manage subscribers and campaigns for this audience.') ?></p>
     </div>
     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">

@@ -1,4 +1,5 @@
 <?php
+
 /*******************************************************************************
  *
  *  filename    : dashboard.php
@@ -11,47 +12,42 @@
 require $sRootDocument . '/Include/Header.php';
 
 if ($mailChimpStatus['title'] == 'Forbidden') {
-    ?>
+?>
     <div class="alert alert-danger">
         <h4><i class="fas fa-ban"></i> <?= dgettext("messages-MailChimp", 'MailChimp Problem') ?></h4>
         <?= dgettext("messages-MailChimp", "Mailchimp Status") ?> :<?= dgettext("messages-MailChimp", "Title") ?> : <?= $mailChimpStatus['title'] ?> <?= dgettext("messages-MailChimp", "status") ?>
         : <?= $mailChimpStatus['status'] ?> <?= dgettext("messages-MailChimp", "detail") ?> : <?= $mailChimpStatus['detail'] ?>
         <?php
         if (!empty($mailChimpStatus['errors'])) {
-            ?>
+        ?>
             <ul>
                 <?php
                 foreach ($mailChimpStatus['errors'] as $error) {
-                    ?>
+                ?>
                     <li>
-                        <?= dgettext("messages-MailChimp", "field") ?> : <?= $error['field'] ?>  <?= dgettext("messages-MailChimp", "Message") ?> : <?= $error['message'] ?>
+                        <?= dgettext("messages-MailChimp", "field") ?> : <?= $error['field'] ?> <?= dgettext("messages-MailChimp", "Message") ?> : <?= $error['message'] ?>
                     </li>
-                    <?php
+                <?php
                 }
                 ?>
             </ul>
-            <?php
+        <?php
         }
         ?>
     </div>
-    <?php
+<?php
 } else {
-    ?>
+?>
     <div class="mailchimp-message-is-activated" style="display: <?= $isMailChimpLoaded ? 'block' : 'none' ?>">
         <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
             <div>
-                <h3 class="h4 mb-1"><i class="far fa-envelope mr-2 text-success"></i><?= dgettext("messages-MailChimp", 'MailChimp Management') ?></h3>
                 <p class="text-muted mb-0"><?= dgettext("messages-MailChimp", 'Create audiences, sync contacts, and manage campaign data.') ?></p>
             </div>
             <div style="float:right">
-            <a href="https://help.brevo.com/hc/<?= $lang ?>" target="_blank">
-                <img class="logo-brevo" src="<?= $sRootPath ?>/Plugins/SendInBlue/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Brevo-Logo_white.png':'Brevo-Logo.png' ?>" height=20/>
-            </a>
-            &nbsp; | &nbsp;
-            <a href="https://help.brevo.com/hc/<?= $lang ?>" target="_blank">
-                <img class="logo-sendinblue" src="<?= $sRootPath ?>/Plugins/SendInBlue/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Sendinblue_Logo_white.png':'Sendinblue_Logo.png' ?>" height=20/>
-            </a>
-        </div>
+                <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
+                    <img class="logo-mailchimp" src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled() ? 'Mailchimp_Logo-Horizontal_White.png' : 'Mailchimp_Logo-Horizontal_Black.png' ?>" height="25" />
+                </a>
+            </div>
         </div>
 
         <div class="alert alert-success mb-3">
@@ -60,7 +56,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     </div>
 
     <div class="mailchimp-dashboard-list-visibility">
-        <div class="card card-outline card-success shadow-sm mb-3">           
+        <div class="card card-outline card-success shadow-sm mb-3">
             <div class="card-body py-3 d-flex flex-wrap align-items-center justify-content-between">
                 <div class="mb-2 mb-md-0 text-muted"><i class="fas fa-rocket mr-1"></i><?= dgettext("messages-MailChimp", 'Quick actions') ?></div>
                 <div class="d-flex flex-wrap">
@@ -91,7 +87,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
         </div>
 
         <div class="card card-outline card-secondary shadow-sm">
-             <div class="card-header border-1 d-flex justify-content-between align-items-center">
+            <div class="card-header border-1 d-flex justify-content-between align-items-center">
                 <h3 class="card-title mb-0">
                     <i class="fas fa-list-alt text-success me-2"></i> <?= dgettext("messages-MailChimp", 'All your lists') ?>
                 </h3>
@@ -103,7 +99,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     </div>
 
     <script src="<?= $sRootPath ?>/Plugins/MailChimp/skin/js/AutomaticDarkMode.js"></script>
-    
+
     <script nonce="<?= $sCSPNonce ?>">
         window.CRM.mailchimpIsActive = <?= $isMailChimpActiv ?>;
         window.CRM.getSupportURL = "<?= $getSupportURL ?>";
@@ -111,10 +107,10 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     </script>
 
     <script src="<?= $sRootPath ?>/Plugins/MailChimp/skin/js/Dashboard.js"></script>
-    
 
-    <?php
-    }
+
+<?php
+}
 ?>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

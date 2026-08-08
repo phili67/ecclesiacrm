@@ -63,7 +63,7 @@ class VIEWMailchimpController {
             'sRootPath'         => SystemURLs::getRootPath(),
             'sCSPNonce'         => SystemURLs::getCSPNonce(),
             'sRootDocument'     => SystemURLs::getDocumentRoot(),
-            'sPageTitle'        => $sPageTitle,
+            'sPageTitle'        => '<i class="fas fa-tachometer-alt text-success"></i> '.$sPageTitle,
             'mailchimp'         => $mailchimp,
             'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
             'mailChimpStatus'   => $mailChimpStatus,
@@ -96,8 +96,8 @@ class VIEWMailchimpController {
         $campaign        = $mailchimp->getCampaignFromId($campaignId);
         $reports = $mailchimp->getCampaignReport($campaignId);
 
-        $sPageTitle = dgettext("messages-MailChimp", 'Email Campaign').' : '.$campaign['settings']['title'];
-        $sPageTitleSpan = dgettext("messages-MailChimp", 'Email Campaign').' : '.$campaign['settings']['title'].' <b><span style="color:'.(($campaign['status'] == "sent")?'green':'gray').';float:right" >('.dgettext("messages-MailChimp", $campaign['status']).')</span></b>';
+        $sPageTitle = '<i class="far fas fa-envelope-open-text mr-2 text-success"></i> '.dgettext("messages-MailChimp", 'Email Campaign').' : '.$campaign['settings']['title'];
+        $sPageTitleSpan = '<i class="far fas fa-envelope-open-text mr-2 text-success"></i> '.dgettext("messages-MailChimp", 'Email Campaign').' : '.$campaign['settings']['title'].' <b><span style="color:'.(($campaign['status'] == "sent")?'green':'gray').';float:right" >('.dgettext("messages-MailChimp", $campaign['status']).')</span></b>';
 
         $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
             'sRootDocument'     => SystemURLs::getDocumentRoot(),
@@ -138,8 +138,8 @@ class VIEWMailchimpController {
 
         $list = $mailchimp->getListFromListId($listId);
 
-        $sPageTitle     = dgettext("messages-MailChimp", 'Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  ('.dgettext("messages-MailChimp", "GDPR").')':'');
-        $sPageTitleSpan = dgettext("messages-MailChimp", 'Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'.dgettext("messages-MailChimp", "GDPR").'</span>':'');
+        $sPageTitle     = '<i class="far fas fa-list mr-2 text-success"></i> '.dgettext("messages-MailChimp", 'Email List').' : '. $list['name'].(($list['marketing_permissions'])?'  ('.dgettext("messages-MailChimp", "GDPR").')':'');
+        $sPageTitleSpan = '<i class="far fas fa-list mr-2 text-success"></i> '.dgettext("messages-MailChimp", 'Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'.dgettext("messages-MailChimp", "GDPR").'</span>':'');
 
         $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
             'sRootDocument'     => SystemURLs::getDocumentRoot(),
@@ -246,7 +246,7 @@ class VIEWMailchimpController {
 
     public function argumentSettings ()
     {
-        $sPageTitle = 'MailChimp : ' . dgettext("messages-MailChimp", 'Settings');
+        $sPageTitle = '<i class="fas fa-gears mr-2 text-success"></i> MailChimp : ' . dgettext("messages-MailChimp", 'Settings');
 
         $sib_serv = new MailChimpService();
         $keys = MailChimpParamsQuery::create()->findOne();
