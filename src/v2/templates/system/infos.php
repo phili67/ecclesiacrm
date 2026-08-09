@@ -10,39 +10,39 @@ use EcclesiaCRM\Service\SystemService;
 include SystemURLs::getDocumentRoot() . '/Include/Header.php';
 ?>
 <div class="row infos-compact">
-    <div class="col-lg-4">
-        <div class="card card-outline card-primary shadow-sm">
+    <div class="col-lg-4 col-md-6 order-lg-2 pb-4">
+        <div class="card card-outline card-primary shadow-sm mb-4 h-100">
             <div class="card-header border-0 py-2">
                 <h3 class="card-title mb-0"><i class="fas fa-cubes mr-2"></i><?= _("CRM Installation Information") ?></h3>
             </div>
             <div class="card-body overflow-auto p-2">
-                <table class="table table-sm table-striped table-hover mb-0 text-sm">
+                <table class="table table-sm table-striped table-hover mb-0 text-sm align-middle">
                     <tr>
-                        <td><?= Bootstrapper::getSoftwareName() ?> <?= _("Software Version") ?></td>
-                        <td><?= SystemService::getInstalledVersion() ?> (Build : <?= SystemService::getBuild() ?>)</td>
+                        <td class="text-muted"><?= Bootstrapper::getSoftwareName() ?> <?= _("Software Version") ?></td>
+                        <td class="font-weight-bold text-right"><?= SystemService::getInstalledVersion() ?> (Build : <?= SystemService::getBuild() ?>)</td>
                     </tr>
                     <tr>
-                        <td>RootPath</td>
-                        <td><?= SystemURLs::getRootPath() ?></td>
+                        <td class="text-muted">RootPath</td>
+                        <td class="text-right text-break"><?= SystemURLs::getRootPath() ?></td>
                     </tr>
                     <tr>
-                        <td>DocumentRoot</td>
-                        <td><?= SystemURLs::getDocumentRoot() ?></td>
+                        <td class="text-muted">DocumentRoot</td>
+                        <td class="text-right text-break"><?= SystemURLs::getDocumentRoot() ?></td>
                     </tr>
                     <tr>
-                        <td>ImagesRoot</td>
-                        <td><?= SystemURLs::getImagesRoot() ?></td>
+                        <td class="text-muted">ImagesRoot</td>
+                        <td class="text-right text-break"><?= SystemURLs::getImagesRoot() ?></td>
                     </tr>
                     <tr>
-                        <td>URL</td>
-                        <td><?= SystemURLs::getURL() ?></td>
+                        <td class="text-muted">URL</td>
+                        <td class="text-right text-break"><?= SystemURLs::getURL() ?></td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
-        <div class="card card-outline card-info shadow-sm">
+    <div class="col-lg-4 col-md-6 order-lg-3 pb-4">
+        <div class="card card-outline card-info shadow-sm mb-4 h-100">
             <div class="card-header border-0 py-2">
                 <h3 class="card-title mb-0"><i class="fas fa-server mr-2"></i><?= _("System Information") ?></h3>
             </div>
@@ -64,8 +64,8 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
-        <div class="card card-outline card-secondary shadow-sm">
+    <div class="col-lg-4 col-md-6 order-lg-4 pb-4">
+        <div class="card card-outline card-secondary shadow-sm mb-4 h-100">
             <div class="card-header border-0 py-2">
                 <h3 class="card-title mb-0"><i class="fab fa-php mr-2"></i>PHP</h3>
             </div>
@@ -99,8 +99,8 @@ include SystemURLs::getDocumentRoot() . '/Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
-        <div class="card card-outline card-warning shadow-sm">
+    <div class="col-lg-4 col-md-6 order-lg-5 pb-4">
+        <div class="card card-outline card-warning shadow-sm mb-4 h-100">
             <div class="card-header border-0 py-2">
                 <h3 class="card-title mb-0"><i class="fas fa-globe mr-2"></i><?= _("Web Server") ?></h3>
             </div>
@@ -130,8 +130,8 @@ EOD;
             </div>
         </div>        
     </div>
-    <div class="col-lg-4">
-        <div class="card card-outline card-success shadow-sm">
+    <div class="col-lg-4 col-md-6 order-lg-6 pb-4">
+        <div class="card card-outline card-success shadow-sm mb-4 h-100">
             <div class="card-header border-0 py-2">
                 <h3 class="card-title mb-0"><i class="fas fa-database mr-2"></i><?= _("Database") ?></h3>
             </div>
@@ -153,53 +153,62 @@ EOD;
             </div>
         </div>        
     </div>
-    <div class="col-lg-4">
-        
-    </div>
-    <div class="col-lg-4">
-        <div class="card card-outline card-primary shadow-sm">
+    <div class="col-12 order-lg-1 pb-4">
+        <div class="card card-outline card-primary shadow-sm mb-4 h-100">
             <div class="card-header border-0 py-2">
                 <h3 class="card-title mb-0"><i class="fas fa-clipboard-check mr-2"></i><?= _("Application Prerequisites") ?></h3>
             </div>
             <div class="card-body overflow-auto p-2">
-                <table class="table table-sm table-striped table-hover mb-0 text-sm">
+                <div class="row">
                     <?php foreach (AppIntegrityService::getApplicationPrerequisites() as $prerequisite) { ?>
-                        <tr>
-                          <td><a href='<?=$prerequisite->getLink()?>'><?= $prerequisite->getName()?></a></td>
-                          <td><?= ($prerequisite->getMessage())?'<span class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i></span>':'<span class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i></span>' ?></td>
-                        </tr>
+                        <div class="col-lg-4 col-md-6 mb-2">
+                            <div class="border rounded p-2 h-100 d-flex justify-content-between align-items-center">
+                                <a href="<?=$prerequisite->getLink()?>" class="text-sm pr-2"><?= $prerequisite->getName()?></a>
+                                <?= ($prerequisite->getMessage())?'<span class="badge badge-success flex-shrink-0"><i class="fa fa-check mr-1" aria-hidden="true"></i>'._("OK").'</span>':'<span class="badge badge-danger flex-shrink-0"><i class="fa fa-times mr-1" aria-hidden="true"></i>'._("Failed").'</span>' ?>
+                            </div>
+                        </div>
                     <?php } ?>
-                </table>
+                </div>
             </div>
         </div>
-        <div class="card card-outline card-info shadow-sm">
+    </div>
+    <div class="col-lg-4 col-md-6 order-lg-7 pb-4">
+        <div class="card card-outline card-info shadow-sm mb-4 h-100">
             <div class="card-header border-0 py-2">
                 <h3 class="card-title mb-0"><i class="fas fa-envelope mr-2"></i><?= _("Email Information") ?></h3>
             </div>
             <div class="card-body overflow-auto p-2">
-                <table class="table table-sm table-striped table-hover mb-0 text-sm">
+                <table class="table table-sm table-striped table-hover mb-3 text-sm">
                     <tr>
                         <td>SMTP Host</td>
                         <td><?= SystemConfig::getValue("sSMTPHost") ?></td>
                     </tr>
                     <tr>
                         <td><?= _("Valid Mail Server Settings") ?></td>
-                        <td><?= SystemConfig::hasValidMailServerSettings() ? "true" : "false" ?></td>
+                        <td class="text-right"><span class="badge badge-<?= SystemConfig::hasValidMailServerSettings() ? "success" : "danger" ?>"><i class="fas fa-<?= SystemConfig::hasValidMailServerSettings() ? "check" : "times" ?> mr-1" aria-hidden="true"></i><?= SystemConfig::hasValidMailServerSettings() ? _("Valid") : _("Invalid") ?></span></td>
                     </tr>
                 </table>
 
-                                <hr>
+                <hr>
 
-                                <label class="text-muted small font-weight-bold text-uppercase mb-2"><?= _("System Infos") ?></label>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label class="text-muted small font-weight-bold text-uppercase mb-0"><?= _("System Infos") ?></label>
+                    <button type="button" class="btn btn-sm btn-outline-info" data-toggle="collapse" data-target="#systemInfosCollapse" aria-expanded="false" aria-controls="systemInfosCollapse" title="<?= _("Show system information") ?>">
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        <span class="sr-only"><?= _("Show system information") ?></span>
+                    </button>
+                </div>
 
-                <p id="mailTest"><?= _("Testing connection .....") ?></p>
+                <div id="systemInfosCollapse" class="collapse">
+                                <p id="mailTest" class="alert alert-light border mb-0" aria-live="polite" data-loading-message="<?= _("Testing connection .....") ?>"><?= _("Testing connection .....") ?></p>
+                                </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-8">
-                <div class="card card-outline card-danger shadow-sm">
-                        <div class="card-header border-0 py-2">
-                            <h3 class="card-title mb-0"><i class="fas fa-shield-alt mr-2"></i><?= _("Application Integrity Check") . ": " . AppIntegrityService::getIntegrityCheckStatus()?></h3>
+    <div class="col-12 order-lg-8 pb-4">
+        <div class="card card-outline card-danger shadow-sm mb-4">
+            <div class="card-header border-0 py-2">
+                <h3 class="card-title mb-0"><i class="fas fa-shield-alt mr-2"></i><?= _("Application Integrity Check") . ": " . AppIntegrityService::getIntegrityCheckStatus()?></h3>
             </div>
             <div class="card-body p-2">
                             <label class="text-muted small font-weight-bold text-uppercase mb-2"><?= _('Details:')?> CRM (<?=  AppIntegrityService::getIntegrityCheckMessage() ?>)</label>
@@ -209,7 +218,7 @@ EOD;
                     ?>
                     <p><?= _('Files failing integrity check') ?>:
                                         <table class="table table-sm table-striped table-hover text-sm display responsive no-wrap" width="100%" id="fileIntegrityCheckResultsTable">
-                      <thead>
+                      <thead class="thead-light">
                                             <tr>
                                             <th><?= _("FileName") ?></th>
                                             <th><?= _("Expected Hash") ?></th>
@@ -245,7 +254,7 @@ EOD;
                     ?>
                     <p><?= _('Files failing integrity check') ?>:
                                         <table class="table table-sm table-striped table-hover text-sm display responsive no-wrap" width="100%" id="pluginfileIntegrityCheckResultsTable">
-                      <thead>
+                      <thead class="thead-light">
                                             <tr>
                                             <th><?= _("Plugin") ?></th>
                                             <th><?= _("FileName") ?></th>
