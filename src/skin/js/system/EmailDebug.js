@@ -8,14 +8,20 @@
 
 
 $(function() {
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'system/testEmailConnection'
-    },function(data) {
-      if (data.success == true) {
-        $("#mailTest").html(data.result);
-      } else {
-        $("#mailTest").html(data.error);
-      }
+    $("#systemInfosCollapse").on("shown.bs.collapse", function() {
+      const mailTest = $("#mailTest");
+      mailTest.removeClass("alert-success alert-danger").addClass("alert-light");
+      mailTest.text(mailTest.data("loading-message"));
+
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'system/testEmailConnection'
+      }, function(data) {
+        if (data.success == true) {
+          mailTest.removeClass("alert-light alert-danger").addClass("alert-success").html(data.result);
+        } else {
+          mailTest.removeClass("alert-light alert-success").addClass("alert-danger").html(data.error);
+        }
+      });
     });
 });
