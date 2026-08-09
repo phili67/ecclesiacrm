@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21T13:16:10.659Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:28.186Z\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,6 +39,9 @@ msgstr "Belangrijk"
 msgid "Very important"
 msgstr "Zeer belangrijk"
 
+msgid "News"
+msgstr "Nieuws"
+
 msgid "News Editor"
 msgstr "Nieuwsredacteur"
 
@@ -50,9 +53,6 @@ msgstr "Je moet een Titel instellen voor je nieuws"
 
 #~ msgid "week(s)"
 #~ msgstr "week(en)"
-
-#~ msgid "News"
-#~ msgstr "Nieuws"
 
 #~ msgid "No news at this time"
 #~ msgstr "Geen nieuws op dit moment"

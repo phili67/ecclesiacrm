@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 18:38+0000\n"
+"POT-Creation-Date: 2026-08-09 19:37+0000\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,10 +10,11 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: browser/browse.php:48
-msgid "File Manager"
-msgstr "Gestore di file"
+msgid "Edrive : Dashboard "
+msgstr "Edrive : Cruscotto"
 
-#: browser/browse.php:58 v2/templates/edrive/dashboard.php:25
+#: browser/browse.php:58
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:49
 msgid "Edrive : File manager"
 msgstr "Edrive : Gestore di file"
 
@@ -25,50 +26,50 @@ msgstr "Scaricare"
 msgid "Insert"
 msgstr "Inserire"
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:39
+#: browser/browse.php:71 v2/templates/edrive/dashboard.php:38
 msgid "Download files"
 msgstr "Scarica i file"
 
-#: browser/browse.php:83 v2/templates/edrive/dashboard.php:50
+#: browser/browse.php:83 v2/templates/edrive/dashboard.php:49
 msgid "Files input"
 msgstr "Ingresso dei file"
 
-#: browser/browse.php:87 v2/templates/edrive/dashboard.php:54
+#: browser/browse.php:87 v2/templates/edrive/dashboard.php:53
 msgid "You can also drag and drop files into this area."
 msgstr "È anche possibile trascinare i file in quest'area."
 
-#: browser/browse.php:94 v2/templates/edrive/dashboard.php:61
+#: browser/browse.php:94 v2/templates/edrive/dashboard.php:60
 msgid "Download status"
 msgstr "Stato del download"
 
-#: browser/browse.php:108 v2/templates/edrive/dashboard.php:74
+#: browser/browse.php:108 v2/templates/edrive/dashboard.php:73
 msgid "Upload your files"
 msgstr "Caricare i file"
 
 #: browser/browse.php:111 v2/templates/cart/carttobadge.php:182
-#: v2/templates/cart/carttobadge.php:188 v2/templates/edrive/dashboard.php:77
+#: v2/templates/cart/carttobadge.php:188 v2/templates/edrive/dashboard.php:76
 #: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
 msgid "Upload"
 msgstr "Carica"
 
-#: browser/browse.php:124 v2/templates/edrive/dashboard.php:97
+#: browser/browse.php:124 v2/templates/edrive/dashboard.php:96
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 "Spostarsi su un livello o trascinare i file per spostarli su un livello."
 
-#: browser/browse.php:148 Include/Header-function.php:90
-#: Include/Header-function.php:152 Include/Header.php:243
+#: browser/browse.php:148 Include/Header-function.php:95
+#: Include/Header-function.php:157 Include/Header.php:243
 #: v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:42
+#: v2/templates/edrive/dashboard.php:121 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Chiudere"
 
-#: browser/browse.php:159 v2/templates/edrive/dashboard.php:133
+#: browser/browse.php:159 v2/templates/edrive/dashboard.php:132
 msgid "Internal sharing"
 msgstr "Condivisione interna"
 
-#: browser/browse.php:161 v2/templates/edrive/dashboard.php:135
+#: browser/browse.php:161 v2/templates/edrive/dashboard.php:134
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
@@ -79,12 +80,12 @@ msgstr ""
 "alla condivisione, ma non riesce a trovarla, è possibile inviargli il link "
 "interno per facilitare l'accesso."
 
-#: browser/browse.php:161 v2/templates/edrive/dashboard.php:135
+#: browser/browse.php:161 v2/templates/edrive/dashboard.php:134
 #: v2/templates/sidebar/systemsettings.php:396
 msgid "Definition"
 msgstr "Definizione"
 
-#: browser/browse.php:165 v2/templates/edrive/dashboard.php:139
+#: browser/browse.php:165 v2/templates/edrive/dashboard.php:138
 msgid ""
 "Choose people, define their access rights, then manage existing shares from "
 "the list below."
@@ -92,37 +93,37 @@ msgstr ""
 "Scegliere le persone, definire i loro diritti di accesso e gestire le "
 "condivisioni esistenti dall'elenco sottostante."
 
-#: browser/browse.php:169 v2/templates/edrive/dashboard.php:143
+#: browser/browse.php:169 v2/templates/edrive/dashboard.php:142
 msgid "Add users"
 msgstr "Aggiungi utenti"
 
-#: browser/browse.php:185 v2/templates/edrive/dashboard.php:159
+#: browser/browse.php:185 v2/templates/edrive/dashboard.php:158
 msgid "Send email notification"
 msgstr "Inviare una notifica via e-mail"
 
-#: browser/browse.php:190 v2/templates/edrive/dashboard.php:164
+#: browser/browse.php:190 v2/templates/edrive/dashboard.php:163
 msgid "Shared with"
 msgstr "Condiviso con"
 
-#: browser/browse.php:194 v2/templates/edrive/dashboard.php:168
+#: browser/browse.php:194 v2/templates/edrive/dashboard.php:167
 msgid "Delete all shares"
 msgstr "Eliminare tutte le azioni"
 
-#: browser/browse.php:197 v2/templates/edrive/dashboard.php:171
+#: browser/browse.php:197 v2/templates/edrive/dashboard.php:170
 msgid "Delete shares for the selected users"
 msgstr "Eliminare le condivisioni per gli utenti selezionati"
 
-#: browser/browse.php:206 v2/templates/edrive/dashboard.php:180
+#: browser/browse.php:206 v2/templates/edrive/dashboard.php:179
 msgid "Set Rights"
 msgstr "Impostare i diritti"
 
-#: browser/browse.php:211 v2/templates/edrive/dashboard.php:185
+#: browser/browse.php:211 v2/templates/edrive/dashboard.php:184
 msgid "Select your rights"
 msgstr "Seleziona i tuoi diritti"
 
 #: browser/browse.php:211 v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:185
+#: v2/templates/edrive/dashboard.php:184
 #: v2/templates/people/personEditor.php:1145
 msgid "or"
 msgstr "o"
@@ -131,11 +132,11 @@ msgstr "o"
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: v2/templates/edrive/dashboard.php:188
+#: v2/templates/edrive/dashboard.php:187
 msgid "[👀  ]"
 msgstr "[👀 ]"
 
-#: browser/browse.php:214 v2/templates/edrive/dashboard.php:188
+#: browser/browse.php:214 v2/templates/edrive/dashboard.php:187
 msgid "[R ]"
 msgstr ""
 
@@ -143,15 +144,15 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: v2/templates/edrive/dashboard.php:189
+#: v2/templates/edrive/dashboard.php:188
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-#: browser/browse.php:215 v2/templates/edrive/dashboard.php:189
+#: browser/browse.php:215 v2/templates/edrive/dashboard.php:188
 msgid "[RW]"
 msgstr ""
 
-#: browser/browse.php:224 v2/templates/edrive/dashboard.php:198
+#: browser/browse.php:224 v2/templates/edrive/dashboard.php:197
 msgid "Share By"
 msgstr "Condividi con"
 
@@ -216,7 +217,7 @@ msgstr "Video"
 #: v2/templates/pastoralcare/pastoralcareperson.php:479
 #: v2/templates/pastoralcare/pastoralcareperson.php:551
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:634
-#: v2/templates/people/lettersandlabels.php:247
+#: v2/templates/people/lettersandlabels.php:249
 #: v2/templates/people/personPrint.php:299
 #: v2/templates/people/personPrint.php:360
 #: v2/templates/people/personPrint.php:415
@@ -560,9 +561,8 @@ msgstr "Il POST al carrello richiede un EventID"
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:165
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:256
-#: v2/templates/people/lettersandlabels.php:229
-#: v2/templates/people/lettersandlabels.php:375
-#: v2/templates/people/personlist.php:19
+#: v2/templates/people/lettersandlabels.php:231
+#: v2/templates/people/lettersandlabels.php:377
 msgid "Persons"
 msgstr "Persone"
 
@@ -571,12 +571,13 @@ msgstr "Persone"
 #: EcclesiaCRM/APIControllers/SearchController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:317
 #: EcclesiaCRM/MenuBar/MenuBar.php:208 EcclesiaCRM/MenuBar/MenuBar.php:241
+#: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:261
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
-#: v2/templates/people/familylist.php:51
-#: v2/templates/people/lettersandlabels.php:410
+#: v2/templates/people/familylist.php:58
+#: v2/templates/people/lettersandlabels.php:412
 #: v2/templates/people/peopledashboard.php:114
 #: v2/templates/people/peoplelist.php:20 v2/templates/people/peoplelist.php:54
 #: v2/templates/sundayschool/sundayschooldashboard.php:62
@@ -671,10 +672,10 @@ msgstr "Aggiunto al gruppo"
 #: v2/templates/people/ConfirmReportCheck.php:160
 #: v2/templates/people/familyCustomFieldEditor.php:326
 #: v2/templates/people/familyCustomFieldEditor.php:390
-#: v2/templates/people/familylist.php:63 v2/templates/people/geopage.php:186
+#: v2/templates/people/familylist.php:70 v2/templates/people/geopage.php:186
 #: v2/templates/people/personCustomEditor.php:318
 #: v2/templates/people/personCustomEditor.php:382
-#: v2/templates/people/personlist.php:46
+#: v2/templates/people/personlist.php:45
 #: v2/templates/people/personPrint.php:436
 #: v2/templates/people/personPrint.php:598
 #: v2/templates/system/eventAttendance.php:191
@@ -698,9 +699,9 @@ msgstr "Nome"
 #: v2/templates/people/ConfirmReportCheck.php:161
 #: v2/templates/people/familyEditor.php:1194
 #: v2/templates/people/personEditor.php:961
-#: v2/templates/people/personlist.php:47
+#: v2/templates/people/personlist.php:46
 #: v2/templates/sundayschool/sundayschooldashboard.php:255
-#: v2/templates/system/csvExport.php:100 v2/templates/system/csvImport.php:179
+#: v2/templates/system/csvExport.php:102 v2/templates/system/csvImport.php:183
 #: v2/templates/user/userlist.php:55
 msgid "First Name"
 msgstr "Nome"
@@ -718,8 +719,8 @@ msgstr "Nome"
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
 #: EcclesiaCRM/utils/eGiveClass.php:132 EcclesiaCRM/utils/OutputUtils.php:387
 #: EcclesiaCRM/utils/OutputUtils.php:448
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1152
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1164
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1151
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1163
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:90
 #: v2/templates/deposit/autaPaymentEditor.php:291
 #: v2/templates/deposit/autaPaymentEditor.php:630
@@ -747,7 +748,7 @@ msgstr "Nome"
 #: v2/templates/people/personPrint.php:335
 #: v2/templates/people/selectDelete.php:205
 #: v2/templates/sidebar/systemsettings.php:374
-#: v2/templates/system/csvImport.php:346
+#: v2/templates/system/csvImport.php:350
 msgid "Unassigned"
 msgstr "Non assegnato"
 
@@ -805,7 +806,7 @@ msgstr "Scrivi un messaggio qui!"
 #: EcclesiaCRM/APIControllers/SearchController.php:61
 #: EcclesiaCRM/Search/AddressSearchRes.php:19
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
-#: v2/templates/people/lettersandlabels.php:228
+#: v2/templates/people/lettersandlabels.php:230
 msgid "Addresses"
 msgstr "Indirizzi"
 
@@ -833,7 +834,7 @@ msgid "Group assignments"
 msgstr "Assegnazioni di gruppo"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:103
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:20
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
 msgid "Family Custom Field"
 msgstr "Campo personalizzato famiglia"
 
@@ -870,7 +871,7 @@ msgid "Pledges"
 msgstr "Pegni"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:151
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:136
 #: v2/templates/people/personview.php:749
 #: v2/templates/people/personview.php:1292
 #: v2/templates/volunteer/volunteeropportunity.php:102
@@ -879,7 +880,7 @@ msgstr "Opportunità di volontariato"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:319
 #: EcclesiaCRM/APIControllers/SearchController.php:322
-#: EcclesiaCRM/Search/FamilySearchRes.php:201
+#: EcclesiaCRM/Search/FamilySearchRes.php:184
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:185
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:266
 #: v2/templates/people/peopledashboard.php:96
@@ -913,7 +914,7 @@ msgid "groupmasters"
 msgstr "groupmasters"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:453
-#: EcclesiaCRM/Search/PersonSearchRes.php:385
+#: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:143
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
 #: external/templates/registration/family-register-members.php:74
@@ -923,12 +924,12 @@ msgstr "groupmasters"
 #: v2/templates/people/personEditor.php:950
 #: v2/templates/people/personPrint.php:318
 #: v2/templates/people/personPrint.php:468
-#: v2/templates/system/csvExport.php:428 queryparameteroptions_qpo.php:2
+#: v2/templates/system/csvExport.php:430 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Maschio"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:453
-#: EcclesiaCRM/Search/PersonSearchRes.php:385
+#: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:146
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
 #: external/templates/registration/family-register-members.php:75
@@ -938,7 +939,7 @@ msgstr "Maschio"
 #: v2/templates/people/personEditor.php:951
 #: v2/templates/people/personPrint.php:318
 #: v2/templates/people/personPrint.php:468
-#: v2/templates/system/csvExport.php:429 queryparameteroptions_qpo.php:3
+#: v2/templates/system/csvExport.php:431 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Femminile"
 
@@ -951,7 +952,7 @@ msgstr "Femminile"
 #: v2/templates/people/personPrint.php:437
 #: v2/templates/sundayschool/sundayschoolview.php:224
 #: v2/templates/sundayschool/sundayschoolview.php:319
-#: v2/templates/system/csvExport.php:415 v2/templates/system/csvImport.php:183
+#: v2/templates/system/csvExport.php:417 v2/templates/system/csvImport.php:187
 #: queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Genere"
@@ -969,8 +970,8 @@ msgstr "Genere"
 #: v2/templates/people/peopledashboard.php:353
 #: v2/templates/people/personEditor.php:1734
 #: v2/templates/people/personPrint.php:388
-#: v2/templates/system/csvExport.php:226 v2/templates/system/csvExport.php:358
-#: v2/templates/system/csvImport.php:359
+#: v2/templates/system/csvExport.php:228 v2/templates/system/csvExport.php:360
+#: v2/templates/system/csvImport.php:363
 #: v2/templates/system/optionManager.php:98 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Classificazione"
@@ -979,7 +980,7 @@ msgstr "Classificazione"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:316
 #: v2/templates/people/personPrint.php:333
-#: v2/templates/system/csvExport.php:232 v2/templates/system/csvExport.php:385
+#: v2/templates/system/csvExport.php:234 v2/templates/system/csvExport.php:387
 #: v2/templates/system/optionManager.php:91 queryparameters_qrp.php:5
 msgid "Family Role"
 msgstr "Ruolo della famiglia"
@@ -1033,7 +1034,7 @@ msgid "Person Classification"
 msgstr "Classificazione delle persone"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:127
-#: v2/templates/people/lettersandlabels.php:258
+#: v2/templates/people/lettersandlabels.php:260
 #: v2/templates/system/optionManager.php:100
 msgid "Person Classifications"
 msgstr "Classificazioni delle persone"
@@ -1092,8 +1093,8 @@ msgstr "Editor dei tipi di gruppo"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:226
 #: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:123
 #: EcclesiaCRM/Search/GroupSearchRes.php:97
-#: EcclesiaCRM/Search/GroupSearchRes.php:211
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:173
+#: EcclesiaCRM/Search/GroupSearchRes.php:194
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:155
 #: EcclesiaCRM/Service/CalendarService.php:1567
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
@@ -1194,7 +1195,7 @@ msgstr "Editor delle opzioni dell'elenco personalizzato della famiglia"
 #: EcclesiaCRM/Emails/verify/PersonVerificationValidation.php:37
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:197
 #: EcclesiaCRM/Service/ConfirmReportService.php:132
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1515
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1514
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
 #: Include/Footer.php:109 Reports/GDPR/GDPRDataStructureExport.php:84
 #: v2/templates/deposit/autaPaymentEditor.php:279
@@ -1214,9 +1215,9 @@ msgstr "Persona"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:30
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:37
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:222
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:181
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:165
-#: EcclesiaCRM/Search/FamilySearchRes.php:199
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:132
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:150
+#: EcclesiaCRM/Search/FamilySearchRes.php:182
 #: EcclesiaCRM/Service/ConfirmReportService.php:636
 #: EcclesiaCRM/Service/TimelineService.php:222
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
@@ -1238,8 +1239,8 @@ msgstr "Persona"
 #: v2/templates/people/personPrint.php:328
 #: v2/templates/people/personview.php:700
 #: v2/templates/people/UpdateAllLatLon.php:67
-#: v2/templates/system/convertIndividualToAddress.php:106
-#: v2/templates/system/convertIndividualToAddress.php:149
+#: v2/templates/system/convertIndividualToAddress.php:40
+#: v2/templates/system/convertIndividualToAddress.php:83
 msgid "Family"
 msgstr "Famiglia"
 
@@ -1353,37 +1354,36 @@ msgstr "Conto attivato"
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:397
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:398
 #: EcclesiaCRM/APIControllers/VolunteerOpportunityController.php:399
-#: EcclesiaCRM/Search/AddressSearchRes.php:160
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:182
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:150
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:166
-#: EcclesiaCRM/Search/FamilySearchRes.php:200
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:167
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:172
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:175
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:145
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:165
-#: EcclesiaCRM/Search/PersonSearchRes.php:382
-#: EcclesiaCRM/Search/PersonSearchRes.php:386
-#: EcclesiaCRM/Search/PersonSearchRes.php:387
-#: EcclesiaCRM/Search/PersonSearchRes.php:388
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:139
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:240
+#: EcclesiaCRM/Search/AddressSearchRes.php:151
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:135
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:151
+#: EcclesiaCRM/Search/FamilySearchRes.php:183
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:148
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:169
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:157
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:148
+#: EcclesiaCRM/Search/PersonSearchRes.php:361
+#: EcclesiaCRM/Search/PersonSearchRes.php:365
+#: EcclesiaCRM/Search/PersonSearchRes.php:366
+#: EcclesiaCRM/Search/PersonSearchRes.php:367
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:88
 #: v2/templates/pastoralcare/pastoralcarefamily.php:229
 #: v2/templates/pastoralcare/pastoralcareperson.php:369
 #: v2/templates/pastoralcare/pastoralcareperson.php:437
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:624
-#: v2/templates/people/familylist.php:115
-#: v2/templates/people/familylist.php:116
-#: v2/templates/people/familylist.php:117
-#: v2/templates/people/familylist.php:118
-#: v2/templates/people/familylist.php:119
-#: v2/templates/people/familylist.php:120
+#: v2/templates/people/familylist.php:122
+#: v2/templates/people/familylist.php:123
+#: v2/templates/people/familylist.php:124
+#: v2/templates/people/familylist.php:125
+#: v2/templates/people/familylist.php:126
+#: v2/templates/people/familylist.php:127
 #: v2/templates/people/familyview.php:209
-#: v2/templates/people/familyview.php:959 v2/templates/people/personlist.php:93
-#: v2/templates/people/personlist.php:94 v2/templates/people/personlist.php:95
-#: v2/templates/people/personlist.php:96 v2/templates/people/personlist.php:97
-#: v2/templates/people/personlist.php:98 v2/templates/people/personview.php:228
+#: v2/templates/people/familyview.php:959 v2/templates/people/personlist.php:92
+#: v2/templates/people/personlist.php:93 v2/templates/people/personlist.php:94
+#: v2/templates/people/personlist.php:95 v2/templates/people/personlist.php:96
+#: v2/templates/people/personlist.php:97 v2/templates/people/personview.php:228
 #: v2/templates/people/personview.php:427
 #: v2/templates/people/personview.php:1714
 #: v2/templates/sundayschool/sundayschooldashboard.php:290
@@ -3583,7 +3583,7 @@ msgstr "Accoglienza della chiesa"
 #: v2/templates/cart/cartToFamily.php:302
 #: v2/templates/people/ConfirmReportCheck.php:122
 #: v2/templates/people/familyEditor.php:770
-#: v2/templates/people/lettersandlabels.php:182
+#: v2/templates/people/lettersandlabels.php:184
 #: v2/templates/people/personEditor.php:1145
 #: v2/templates/people/selectDelete.php:196
 #: v2/templates/people/selectDelete.php:334
@@ -3732,8 +3732,8 @@ msgstr "Accesso"
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:201
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:226
 #: ident/templates/verify/login-info.php:40 session/templates/session.php:256
-#: session/templates/session.php:359 v2/templates/BackupRestore/backup.php:107
-#: v2/templates/BackupRestore/backup.php:108 v2/templates/user/userlist.php:60
+#: session/templates/session.php:359 v2/templates/BackupRestore/backup.php:103
+#: v2/templates/BackupRestore/backup.php:104 v2/templates/user/userlist.php:60
 msgid "Password"
 msgstr "Password"
 
@@ -3781,7 +3781,6 @@ msgstr "Documenti"
 #: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/MenuBar/MenuBar.php:786
 #: EcclesiaCRM/MenuBar/MenuBar.php:834 EcclesiaCRM/MenuBar/MenuBar.php:860
 #: EcclesiaCRM/MenuBar/MenuBar.php:911 EcclesiaCRM/MenuBar/MenuBar.php:934
-#: v2/templates/dashboard/maindashboard.php:108
 #: v2/templates/pastoralcare/pastoralcarefamily.php:349
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:72
 #: v2/templates/pastoralcare/pastoralcareperson.php:488
@@ -3826,7 +3825,7 @@ msgid "List Church Events"
 msgstr "Elenco degli eventi della chiesa"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:168
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:352
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:354
 msgid "List Event Types"
 msgstr "Elenca i tipi di evento"
 
@@ -3844,17 +3843,17 @@ msgstr "Media"
 msgid "Meta Search Engine"
 msgstr "Motore di ricerca Meta"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:208 v2/templates/people/familylist.php:48
+#: EcclesiaCRM/MenuBar/MenuBar.php:208 v2/templates/people/familylist.php:55
 #: v2/templates/people/peopledashboard.php:132
 msgid "People"
 msgstr "Persone"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:230
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1319
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1318
 msgid "Directory reports"
 msgstr "Rapporti dell'elenco"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:235 v2/templates/people/personlist.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:235 v2/templates/people/personlist.php:21
 msgid "Add New Person"
 msgstr "Aggiungi nuova persona"
 
@@ -3875,6 +3874,7 @@ msgid "View Active Families"
 msgstr "Visualizza le famiglie attive"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:248
+#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:178
 msgid "Empty Addresses"
 msgstr "Indirizzi vuoti"
 
@@ -4098,8 +4098,8 @@ msgid "Memo"
 msgstr "Memo"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:305
-#: EcclesiaCRM/Search/DepositSearchRes.php:165
-#: EcclesiaCRM/Search/DepositSearchRes.php:261 Reports/AdvancedDeposit.php:318
+#: EcclesiaCRM/Search/DepositSearchRes.php:164
+#: EcclesiaCRM/Search/DepositSearchRes.php:260 Reports/AdvancedDeposit.php:318
 #: Reports/AdvancedDeposit.php:327 Reports/AdvancedDeposit.php:336
 #: Reports/FundRaiserStatement.php:129 Reports/FundRaiserStatement.php:173
 #: Reports/ReminderReport.php:325 Reports/ReminderReport.php:409
@@ -4121,7 +4121,7 @@ msgstr "Testimone"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:281
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:399
-#: v2/templates/people/familylist.php:68 v2/templates/people/personlist.php:52
+#: v2/templates/people/familylist.php:75 v2/templates/people/personlist.php:51
 msgid "Created"
 msgstr "Creato"
 
@@ -4339,16 +4339,16 @@ msgstr "di"
 #: v2/templates/people/directoryreport.php:287
 #: v2/templates/people/familyEditor.php:779
 #: v2/templates/people/familyEditor.php:813
-#: v2/templates/people/familylist.php:64 v2/templates/people/familyview.php:112
+#: v2/templates/people/familylist.php:71 v2/templates/people/familyview.php:112
 #: v2/templates/people/geopage.php:187
 #: v2/templates/people/personEditor.php:1158
 #: v2/templates/people/personEditor.php:1164
 #: v2/templates/people/personEditor.php:1310
 #: v2/templates/people/personEditor.php:1334
-#: v2/templates/people/personlist.php:48 v2/templates/people/personview.php:289
+#: v2/templates/people/personlist.php:47 v2/templates/people/personview.php:289
 #: v2/templates/people/UpdateAllLatLon.php:74
-#: v2/templates/system/csvExport.php:121 v2/templates/system/csvExport.php:127
-#: v2/templates/system/csvImport.php:185 v2/templates/system/csvImport.php:186
+#: v2/templates/system/csvExport.php:123 v2/templates/system/csvExport.php:129
+#: v2/templates/system/csvImport.php:189 v2/templates/system/csvImport.php:190
 msgid "Address"
 msgstr "Indirizzo"
 
@@ -4378,13 +4378,13 @@ msgstr "Città, Stato, CAP"
 #: v2/templates/pastoralcare/pastoralcareperson.php:294
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:243
 #: v2/templates/people/familyEditor.php:871
-#: v2/templates/people/familylist.php:65 v2/templates/people/familyview.php:171
+#: v2/templates/people/familylist.php:72 v2/templates/people/familyview.php:171
 #: v2/templates/people/personEditor.php:1498
 #: v2/templates/people/personEditor.php:1502
-#: v2/templates/people/personlist.php:49
+#: v2/templates/people/personlist.php:48
 #: v2/templates/people/personPrint.php:258
-#: v2/templates/people/personview.php:352 v2/templates/system/csvExport.php:169
-#: v2/templates/system/csvImport.php:191
+#: v2/templates/people/personview.php:352 v2/templates/system/csvExport.php:171
+#: v2/templates/system/csvImport.php:195
 #: v2/templates/system/eventAttendance.php:193 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Telefono di casa"
@@ -4479,7 +4479,7 @@ msgstr "Adulto/bambino"
 #: v2/templates/people/personview.php:915
 #: v2/templates/sundayschool/sundayschooldashboard.php:108
 #: v2/templates/sundayschool/sundayschoolview.php:43
-#: v2/templates/system/csvExport.php:190 v2/templates/system/csvImport.php:194
+#: v2/templates/system/csvExport.php:192 v2/templates/system/csvImport.php:198
 #: v2/templates/system/eventAttendance.php:192 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
@@ -4505,8 +4505,8 @@ msgstr "Compleanno"
 #: EcclesiaCRM/Service/ConfirmReportService.php:762
 #: EcclesiaCRM/Service/ConfirmReportService.php:772
 #: Reports/CanvassReports.php:280 v2/templates/group/groupreports.php:123
-#: v2/templates/people/familylist.php:66 v2/templates/people/personlist.php:50
-#: v2/templates/system/csvImport.php:193
+#: v2/templates/people/familylist.php:73 v2/templates/people/personlist.php:49
+#: v2/templates/system/csvImport.php:197
 msgid "Cell Phone"
 msgstr "Telefono cellulare"
 
@@ -4535,8 +4535,8 @@ msgstr "Membro/amico"
 #: v2/templates/people/personEditor.php:1527
 #: v2/templates/people/personEditor.php:1531
 #: v2/templates/people/personPrint.php:263
-#: v2/templates/people/personview.php:380 v2/templates/system/csvExport.php:175
-#: v2/templates/system/csvImport.php:192
+#: v2/templates/people/personview.php:380 v2/templates/system/csvExport.php:177
+#: v2/templates/system/csvImport.php:196
 msgid "Work Phone"
 msgstr "Telefono di lavoro"
 
@@ -4618,7 +4618,7 @@ msgstr "e"
 #: EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 Reports/DirectoryReport.php:331
 #: v2/templates/pastoralcare/pastoralcareperson.php:329
-#: v2/templates/people/personview.php:387 v2/templates/system/csvExport.php:196
+#: v2/templates/people/personview.php:387 v2/templates/system/csvExport.php:198
 msgid "Work/Other Email"
 msgstr "Lavoro/Altro Email"
 
@@ -4650,53 +4650,46 @@ msgstr "Studenti"
 msgid "Personal"
 msgstr "Personale"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:94
-#: EcclesiaCRM/Search/AddressSearchRes.php:119
-#: EcclesiaCRM/Search/AddressSearchRes.php:159
-#: EcclesiaCRM/Search/DepositSearchRes.php:39
-#: EcclesiaCRM/Search/DepositSearchRes.php:110
+#: EcclesiaCRM/Search/AddressSearchRes.php:100
+#: EcclesiaCRM/Search/AddressSearchRes.php:150
+#: EcclesiaCRM/Search/DepositSearchRes.php:46
+#: EcclesiaCRM/Search/DepositSearchRes.php:109
+#: EcclesiaCRM/Search/DepositSearchRes.php:158
 #: EcclesiaCRM/Search/DepositSearchRes.php:159
-#: EcclesiaCRM/Search/DepositSearchRes.php:160
-#: EcclesiaCRM/Search/DepositSearchRes.php:253
-#: EcclesiaCRM/Search/DepositSearchRes.php:256
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:131
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:168
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:181
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:112
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:149
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:117
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:152
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:165
-#: EcclesiaCRM/Search/FamilySearchRes.php:120
-#: EcclesiaCRM/Search/FamilySearchRes.php:155
-#: EcclesiaCRM/Search/FamilySearchRes.php:199
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:102
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:137
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:150
-#: EcclesiaCRM/Search/GroupSearchRes.php:112
-#: EcclesiaCRM/Search/GroupSearchRes.php:147
-#: EcclesiaCRM/Search/GroupSearchRes.php:160
-#: EcclesiaCRM/Search/GroupSearchRes.php:225
-#: EcclesiaCRM/Search/GroupSearchRes.php:273
+#: EcclesiaCRM/Search/DepositSearchRes.php:252
+#: EcclesiaCRM/Search/DepositSearchRes.php:255
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:88
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:107
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:132
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:118
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:134
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:150
+#: EcclesiaCRM/Search/FamilySearchRes.php:126
+#: EcclesiaCRM/Search/FamilySearchRes.php:182
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:108
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:133
+#: EcclesiaCRM/Search/GroupSearchRes.php:118
+#: EcclesiaCRM/Search/GroupSearchRes.php:143
+#: EcclesiaCRM/Search/GroupSearchRes.php:214
+#: EcclesiaCRM/Search/GroupSearchRes.php:239
 #: EcclesiaCRM/Search/PaymentSearchRes.php:57
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:116
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:165
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:166
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:122
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:171
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:124
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:173
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:174
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:107
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:144
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:115
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:164
-#: EcclesiaCRM/Search/PersonSearchRes.php:307
-#: EcclesiaCRM/Search/PersonSearchRes.php:381
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:101
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:138
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:202
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:239
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:121
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:146
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:147
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:143
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:168
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:130
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:155
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:156
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:113
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:122
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:147
+#: EcclesiaCRM/Search/PersonSearchRes.php:313
+#: EcclesiaCRM/Search/PersonSearchRes.php:360
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:44
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
 #: EcclesiaCRM/Search/PledgeSearchRes.php:86
 #: EcclesiaCRM/Search/PledgeSearchRes.php:101
 #: EcclesiaCRM/Service/CalendarService.php:1400
@@ -4705,23 +4698,84 @@ msgstr "Personale"
 #: v2/templates/fundraiser/donatedItemEditor.php:22
 #: v2/templates/fundraiser/fundRaiserEditor.php:139
 #: v2/templates/pastoralcare/pastoralcareperson.php:184
-#: v2/templates/people/familylist.php:97 v2/templates/people/familyview.php:99
+#: v2/templates/people/familylist.php:104 v2/templates/people/familyview.php:99
 #: v2/templates/people/familyview.php:504
-#: v2/templates/people/familyview.php:666 v2/templates/people/personlist.php:74
+#: v2/templates/people/familyview.php:666 v2/templates/people/personlist.php:73
 #: v2/templates/people/personview.php:234
 #: v2/templates/people/personview.php:981
 msgid "Edit"
 msgstr "Modifica"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:159
+#: EcclesiaCRM/Search/AddressSearchRes.php:109
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:116
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:134
+#: EcclesiaCRM/Search/FamilySearchRes.php:135
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:117
+#: EcclesiaCRM/Search/GroupSearchRes.php:127
+#: EcclesiaCRM/Search/GroupSearchRes.php:223
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:130
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:152
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:131
+#: EcclesiaCRM/Search/PersonSearchRes.php:322
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:53
+#: v2/templates/people/familylist.php:101 v2/templates/people/personlist.php:70
+#: v2/templates/people/personview.php:1060
+msgid "View"
+msgstr "Vedi"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:118
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:127
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:143
+#: EcclesiaCRM/Search/FamilySearchRes.php:144
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:126
+#: EcclesiaCRM/Search/GroupSearchRes.php:136
+#: EcclesiaCRM/Search/GroupSearchRes.php:232
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:161
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:148
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:122
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:140
+#: EcclesiaCRM/Search/PersonSearchRes.php:331
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:62
+#: v2/templates/group/groupview.php:46 v2/templates/people/familyview.php:281
+#: v2/templates/people/familyview.php:493
+#: v2/templates/people/personview.php:504
+#: v2/templates/people/personview.php:973 v2/templates/query/queryview.php:172
+#: v2/templates/volunteer/volunteerview.php:44
+msgid "Add to Cart"
+msgstr "Aggiungi al carrello"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:118
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:127
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:143
+#: EcclesiaCRM/Search/FamilySearchRes.php:144
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:126
+#: EcclesiaCRM/Search/GroupSearchRes.php:136
+#: EcclesiaCRM/Search/GroupSearchRes.php:232
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:161
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:148
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:122
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:140
+#: EcclesiaCRM/Search/PersonSearchRes.php:331
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:62
+#: v2/templates/group/groupview.php:42 v2/templates/people/familyview.php:274
+#: v2/templates/people/personview.php:494
+msgid "Remove from Cart"
+msgstr "Rimuovi dal carrello"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:150
 msgid "Addresse"
 msgstr "Indirizzo"
 
-#: EcclesiaCRM/Search/AddressSearchRes.php:159
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:181
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:149
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:165
-#: EcclesiaCRM/Search/FamilySearchRes.php:199
+#: EcclesiaCRM/Search/AddressSearchRes.php:150
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:132
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:134
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:150
+#: EcclesiaCRM/Search/FamilySearchRes.php:182
 #: ident/templates/verify/login-info.php:17
 #: v2/templates/cart/cartToFamily.php:188
 #: v2/templates/pastoralcare/pastoralcarefamily.php:373
@@ -4736,12 +4790,12 @@ msgstr "Indirizzo"
 msgid "Members"
 msgstr "Membri"
 
-#: EcclesiaCRM/Search/DepositSearchRes.php:165
-#: EcclesiaCRM/Search/DepositSearchRes.php:261
+#: EcclesiaCRM/Search/DepositSearchRes.php:164
+#: EcclesiaCRM/Search/DepositSearchRes.php:260
 msgid "Check number"
 msgstr "Numero di controllo"
 
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:149
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:134
 msgid "Family Pastoral Care"
 msgstr "Pastorale familiare"
 
@@ -4755,19 +4809,19 @@ msgstr "famiglie"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:72
 #: EcclesiaCRM/Service/PersonService.php:49
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1517
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1516
 msgid "family"
 msgstr "famiglia"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:73
 #: EcclesiaCRM/Search/FamilySearchRes.php:86
-#: EcclesiaCRM/Search/FamilySearchRes.php:201
+#: EcclesiaCRM/Search/FamilySearchRes.php:184
 msgid "single"
 msgstr "Persone singole"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:73
 #: EcclesiaCRM/Search/FamilySearchRes.php:86
-#: EcclesiaCRM/Search/FamilySearchRes.php:201
+#: EcclesiaCRM/Search/FamilySearchRes.php:184
 msgid "singles"
 msgstr "singoli"
 
@@ -4795,15 +4849,9 @@ msgid "groups"
 msgstr "gruppi"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:94
-#: EcclesiaCRM/Search/GroupSearchRes.php:208
+#: EcclesiaCRM/Search/GroupSearchRes.php:191
 msgid "Sunday Group"
 msgstr "Gruppo della domenica"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:260
-#: v2/templates/people/familylist.php:94 v2/templates/people/personlist.php:71
-#: v2/templates/people/personview.php:1060
-msgid "View"
-msgstr "Vedi"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:25
 msgid "Person Group role assignments"
@@ -4816,15 +4864,6 @@ msgstr "Insegnante"
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:45
 msgid "Student"
 msgstr "Studente"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:152
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:158
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:160
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:151
-#: EcclesiaCRM/Search/PersonSearchRes.php:346 Include/Header-function.php:228
-#: v2/templates/pastoralcare/pastoralcareperson.php:78
-msgid "Print"
-msgstr "Stampa"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
 msgid "Group Manager"
@@ -4842,11 +4881,11 @@ msgstr "gestori del gruppo"
 msgid "groupmanager"
 msgstr "groupmanager"
 
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:52
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:166
 msgid "volunteers"
 msgstr "volontari"
 
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:52
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:166
 msgid "volunteer"
 msgstr "volontario"
 
@@ -4866,12 +4905,13 @@ msgid "One or more files failed signature validation"
 msgstr "Uno o più file non hanno superato la validazione della firma"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:90
-#: v2/templates/system/integritycheck.php:76
+#: v2/templates/system/infos.php:34 v2/templates/system/integritycheck.php:76
 msgid "Failed"
 msgstr "Fallito"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:93
 #: EcclesiaCRM/Service/AppIntegrityService.php:102
+#: v2/templates/system/infos.php:230
 msgid "Passed"
 msgstr "Passato"
 
@@ -4984,7 +5024,7 @@ msgstr "Calendario personale"
 #: v2/templates/people/personEditor.php:1558
 #: v2/templates/people/personEditor.php:1562
 #: v2/templates/people/personPrint.php:268
-#: v2/templates/people/personview.php:340 v2/templates/system/csvExport.php:184
+#: v2/templates/people/personview.php:340 v2/templates/system/csvExport.php:186
 msgid "Mobile Phone"
 msgstr "Telefono cellulare"
 
@@ -5009,8 +5049,8 @@ msgstr "Ok"
 #: v2/templates/people/personEditor.php:955
 #: v2/templates/people/personPrint.php:653
 #: v2/templates/people/personPrint.php:710
-#: v2/templates/people/personPrint.php:768 v2/templates/system/csvExport.php:91
-#: v2/templates/system/csvImport.php:178
+#: v2/templates/people/personPrint.php:768 v2/templates/system/csvExport.php:93
+#: v2/templates/system/csvImport.php:182
 msgid "Title"
 msgstr "Titolo"
 
@@ -5018,7 +5058,7 @@ msgstr "Titolo"
 #: EcclesiaCRM/Service/ConfirmReportService.php:172
 #: v2/templates/people/familyEditor.php:1195
 #: v2/templates/people/personEditor.php:970
-#: v2/templates/system/csvExport.php:106 v2/templates/system/csvImport.php:180
+#: v2/templates/system/csvExport.php:108 v2/templates/system/csvImport.php:184
 msgid "Middle Name"
 msgstr "Secondo nome"
 
@@ -5032,7 +5072,7 @@ msgstr "Secondo nome"
 #: v2/templates/people/familyEditor.php:1196
 #: v2/templates/people/personEditor.php:979
 #: v2/templates/sundayschool/sundayschooldashboard.php:256
-#: v2/templates/system/csvExport.php:84 v2/templates/system/csvImport.php:181
+#: v2/templates/system/csvExport.php:86 v2/templates/system/csvImport.php:185
 msgid "Last Name"
 msgstr "Nome"
 
@@ -5046,7 +5086,7 @@ msgstr "Nome"
 #: v2/templates/people/personEditor.php:1194
 #: v2/templates/people/personEditor.php:1420
 #: v2/templates/people/UpdateAllLatLon.php:72
-#: v2/templates/system/csvExport.php:148 v2/templates/system/csvImport.php:189
+#: v2/templates/system/csvExport.php:150 v2/templates/system/csvImport.php:193
 msgid "Zip"
 msgstr "Zip"
 
@@ -5060,7 +5100,7 @@ msgstr "Zip"
 #: v2/templates/people/personEditor.php:1170
 #: v2/templates/people/personEditor.php:1358
 #: v2/templates/people/UpdateAllLatLon.php:70
-#: v2/templates/system/csvExport.php:133 v2/templates/system/csvImport.php:187
+#: v2/templates/system/csvExport.php:135 v2/templates/system/csvImport.php:191
 #: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Città"
@@ -5069,7 +5109,7 @@ msgstr "Città"
 #: EcclesiaCRM/Service/ConfirmReportService.php:834
 #: ident/templates/verify/verify-family-info.php:40
 #: ident/templates/verify/verify-person-info.php:53
-#: v2/templates/system/csvExport.php:252
+#: v2/templates/system/csvExport.php:254
 msgid "Custom Person Fields"
 msgstr "Campi persona personalizzati"
 
@@ -5102,7 +5142,7 @@ msgstr "Indirizzo2"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:176
 #: v2/templates/people/directoryreport.php:164
 #: v2/templates/people/familyEditor.php:960
-#: v2/templates/people/familyview.php:157 v2/templates/system/csvImport.php:198
+#: v2/templates/people/familyview.php:157 v2/templates/system/csvImport.php:202
 msgid "Wedding Date"
 msgstr "Data del matrimonio"
 
@@ -5115,7 +5155,7 @@ msgstr "Data del matrimonio"
 #: v2/templates/people/personEditor.php:1179
 #: v2/templates/people/personEditor.php:1386
 #: v2/templates/people/UpdateAllLatLon.php:71
-#: v2/templates/system/csvExport.php:142 v2/templates/system/csvImport.php:188
+#: v2/templates/system/csvExport.php:144 v2/templates/system/csvImport.php:192
 #: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Stato"
@@ -5134,7 +5174,7 @@ msgstr "Nessuno Stato US/CND"
 #: v2/templates/people/personEditor.php:1204
 #: v2/templates/people/personEditor.php:1450
 #: v2/templates/people/UpdateAllLatLon.php:73
-#: v2/templates/system/csvExport.php:163 v2/templates/system/csvImport.php:190
+#: v2/templates/system/csvExport.php:165 v2/templates/system/csvImport.php:194
 msgid "Country"
 msgstr "Paese"
 
@@ -5631,13 +5671,23 @@ msgid "Restore Database"
 msgstr "Ripristinare il database"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
+#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:181
 msgid "Single Persons"
 msgstr "Persone singole"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:162
+#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:184
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1046
 msgid "Family List"
 msgstr "Elenco delle famiglie"
+
+#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:172
+msgid "GDPR Deactivated Families"
+msgstr "Famiglie con il GDPR disattivato"
+
+#: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:175
+msgid "Inactive Families"
+msgstr "Famiglie inattive"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:157
 msgid "People Dashboard"
@@ -5687,65 +5737,65 @@ msgstr "Famiglia precedente"
 msgid "Next Family"
 msgstr "Prossima famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1124
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1123
 msgid "Update Latitude & Longitude"
 msgstr "Aggiorna la latitudine e la longitudine"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1278
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1277
 msgid "Family Geographic Utilities"
 msgstr "Utilità geografiche della famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1343
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1342
 #: v2/templates/people/peopledashboard.php:241
 msgid "Data Audit/Verification"
 msgstr "Verifica/Controllo dei dati"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1366
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1365
 #: v2/templates/people/peopledashboard.php:234
 msgid "Pledge Reminder Report"
 msgstr "Rapporto sul promemoria delle promesse"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1392
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1391
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:584
 msgid "Printable View"
 msgstr "Vista stampabile"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1421
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1420
 msgid "Family Editor"
 msgstr "Editore di famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1443
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1442
 msgid "Custom Person Fields Editor"
 msgstr "Editor di campi personali personalizzati"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1464
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1463
 msgid "Custom Family Fields Editor"
 msgstr "Editor dei campi famiglia personalizzati"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1515
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1517
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1514
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1516
 msgid "Canvass Input for the"
 msgstr "Ingresso al sondaggio per il"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1545
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1544
 #: v2/templates/people/canvassAutomation.php:110
 #: v2/templates/system/reportlist.php:46
 msgid "Canvass Automation"
 msgstr "Automazione del canvass"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1639
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1638
 msgid "Family Delete Confirmation"
 msgstr "Conferma della cancellazione della famiglia"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1641
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1640
 msgid "Person Delete Confirmation"
 msgstr "Conferma di cancellazione della persona"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1643
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1642
 msgid "Remove Address"
 msgstr "Rimuovi indirizzo"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1719
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:1718
 msgid "People Report Check Confirmation"
 msgstr "Conferma della verifica del rapporto sulle persone"
 
@@ -5798,7 +5848,7 @@ msgstr "Elenco di tutti gli eventi della chiesa"
 msgid "Event Attendees"
 msgstr "Partecipanti all'evento"
 
-#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:377
+#: EcclesiaCRM/VIEWControllers/VIEWCalendarController.php:379
 msgid "Edit Event Types"
 msgstr "Modifica dei tipi di evento"
 
@@ -5875,10 +5925,6 @@ msgstr "Editor dei pagamenti - Verrà creata una nuova ricevuta di deposito"
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:1104
 msgid "eGive Import"
 msgstr "eGive Importazione"
-
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:49
-msgid "Edrive : Dashboard "
-msgstr "Edrive : Cruscotto"
 
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:56
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:80
@@ -6001,7 +6047,7 @@ msgid "Sunday School Reports"
 msgstr "Rapporti della Scuola Domenicale"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:66
-#: Include/Footer.php:252 v2/templates/system/infos.php:193
+#: Include/Footer.php:252 v2/templates/system/infos.php:212
 msgid "System Infos"
 msgstr "Informazioni sul sistema"
 
@@ -6019,8 +6065,7 @@ msgstr "Convertire gli individui in indirizzi"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:211
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:258
-#: v2/templates/cart/cartview.php:56 v2/templates/system/csvExport.php:42
-#: v2/templates/system/csvExport.php:48 v2/templates/user/userseditor.php:383
+#: v2/templates/cart/cartview.php:56 v2/templates/user/userseditor.php:383
 msgid "CSV Export"
 msgstr "Esportazione CSV"
 
@@ -6037,12 +6082,11 @@ msgid "Upgrade"
 msgstr "Aggiornamento"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSystemController.php:385
-#: Include/Footer.php:284
+#: Include/Footer.php:290
 msgid "CSV Import"
 msgstr "Importazione CSV"
 
 #: EcclesiaCRM/VIEWControllers/VIEWUserController.php:84
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:213
 msgid "System Users Listing"
 msgstr "Elenco degli utenti del sistema"
 
@@ -6050,65 +6094,65 @@ msgstr "Elenco degli utenti del sistema"
 msgid "My User Settings"
 msgstr "Le mie impostazioni utente"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:329
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:336
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:328
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:335
 msgid "Login must be a least 3 characters!"
 msgstr "Il login deve essere di almeno 3 caratteri!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:554
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:623
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:553
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:622
 msgid "Login already in use, please select a different login!"
 msgstr "Login già in uso, seleziona un altro login!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:617
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:616
 msgid "The same as before"
 msgstr "Lo stesso di prima"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:886
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:885
 msgid "User Editor"
 msgstr "Editor utente"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1022
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1021
 msgid "You must enter a password in both boxes"
 msgstr "Devi inserire una password in entrambe le caselle"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1028
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1091
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1027
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1090
 msgid "You must enter the same password in both boxes"
 msgstr "Devi inserire la stessa password in entrambe le caselle"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1079
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1078
 msgid "Invalid password"
 msgstr "Password non valida"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1085
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1084
 msgid "You must enter your new password in both boxes"
 msgstr "Devi inserire la tua nuova password in entrambe le caselle"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1097
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1096
 msgid "Your password choice is too obvious. Please choose something else."
 msgstr ""
 "La scelta della tua password è troppo ovvia. Per favore, scegli "
 "qualcos'altro."
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1102
 msgid "Your new password must be at least"
 msgstr "La tua nuova password deve essere almeno"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1103
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1102
 msgid "characters"
 msgstr "personaggi"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1109
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1108
 msgid "You need to actually change your password (nice try, though!)"
 msgstr "Devi effettivamente cambiare la tua password (bel tentativo, però!)"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1112
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1111
 msgid "Your new password is too similar to your old one.  Be more creative!"
 msgstr ""
 "La tua nuova password è troppo simile a quella vecchia.  Sii più creativo!"
 
-#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1153
+#: EcclesiaCRM/VIEWControllers/VIEWUserController.php:1152
 msgid "User Password Change"
 msgstr "Modifica della password dell'utente"
 
@@ -6144,7 +6188,8 @@ msgid "Login Name"
 msgstr "Nome di accesso"
 
 #: external/templates/password/enter-username.php:46
-#: Include/Header-function.php:167 v2/templates/system/integritycheck.php:52
+#: Include/Header-function.php:172 v2/templates/system/infos.php:34
+#: v2/templates/system/integritycheck.php:52
 msgid "OK"
 msgstr "OK"
 
@@ -6332,9 +6377,9 @@ msgstr "Verifica della famiglia"
 #: ident/templates/verify/verify-person-info.php:81
 #: v2/templates/deposit/electronicPaymentList.php:100
 #: v2/templates/deposit/manageEnvelopes.php:138
-#: v2/templates/people/lettersandlabels.php:344
-#: v2/templates/people/lettersandlabels.php:349
-#: v2/templates/people/lettersandlabels.php:353
+#: v2/templates/people/lettersandlabels.php:346
+#: v2/templates/people/lettersandlabels.php:351
+#: v2/templates/people/lettersandlabels.php:355
 msgid "Confirm"
 msgstr "Confermare"
 
@@ -6367,7 +6412,7 @@ msgstr "Abbiamo riscontrato un errore nell'invio dei dati di verifica"
 
 #: ident/templates/verify/verify-family-info.php:109
 #: ident/templates/verify/verify-person-info.php:102
-#: Include/Header-function.php:138 v2/templates/calendar/checkin.php:300
+#: Include/Header-function.php:143 v2/templates/calendar/checkin.php:300
 #: v2/templates/calendar/eventnames.php:234
 #: v2/templates/deposit/autaPaymentEditor.php:538
 #: v2/templates/deposit/electronicPaymentList.php:82
@@ -6502,7 +6547,7 @@ msgstr "Utenti del sistema"
 msgid "Maintenance"
 msgstr "Manutenzione"
 
-#: Include/Footer.php:290
+#: Include/Footer.php:284 v2/templates/system/csvExport.php:42
 msgid "CSV Export Records"
 msgstr "Esportazione di record CSV"
 
@@ -6522,11 +6567,11 @@ msgstr "Tutti presi"
 msgid "There are no open tasks at the moment."
 msgstr "Al momento non ci sono compiti aperti."
 
-#: Include/Header-function.php:86
+#: Include/Header-function.php:91
 msgid "Issue Report!"
 msgstr "Rapporto di emissione!"
 
-#: Include/Header-function.php:88
+#: Include/Header-function.php:93
 msgid ""
 "Describe the problem or feature request clearly so it can be reviewed and "
 "reproduced quickly."
@@ -6534,11 +6579,11 @@ msgstr ""
 "Descrivete chiaramente il problema o la richiesta di funzionalità, in modo "
 "che possa essere esaminata e riprodotta rapidamente."
 
-#: Include/Header-function.php:98
+#: Include/Header-function.php:103
 msgid "Helpful reports save time"
 msgstr "I report utili fanno risparmiare tempo"
 
-#: Include/Header-function.php:99
+#: Include/Header-function.php:104
 msgid ""
 "Use a short title, list the action you took, and explain what you expected "
 "to happen."
@@ -6546,36 +6591,36 @@ msgstr ""
 "Utilizzate un titolo breve, elencate l'azione intrapresa e spiegate cosa vi "
 "aspettavate che accadesse."
 
-#: Include/Header-function.php:105
+#: Include/Header-function.php:110
 msgid "Enter a Title for your bug / feature report"
 msgstr "Inserisci un titolo per la tua segnalazione di bug/funzionalità"
 
-#: Include/Header-function.php:111
+#: Include/Header-function.php:116
 msgid "Example: Backup download button not visible after completion"
 msgstr ""
 "Esempio: Il pulsante di download del backup non è visibile dopo il "
 "completamento"
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:121
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Cosa stavi facendo quando hai notato l'opportunità del bug/funzione?"
 
-#: Include/Header-function.php:118
+#: Include/Header-function.php:123
 msgid ""
 "Describe the steps, the visible result, and any message shown on screen."
 msgstr ""
 "Descrivere i passaggi, il risultato visibile e qualsiasi messaggio "
 "visualizzato sullo schermo."
 
-#: Include/Header-function.php:119
+#: Include/Header-function.php:124
 msgid "Tip: mention the page, the action, and the expected result."
 msgstr "Suggerimento: menzionate la pagina, l'azione e il risultato atteso."
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:130
 msgid "Before you submit"
 msgstr "Prima di inviare"
 
-#: Include/Header-function.php:128
+#: Include/Header-function.php:133
 msgid ""
 "When you click \"submit,\" an error report will be posted to the CRM GitHub "
 "Issue tracker."
@@ -6583,11 +6628,11 @@ msgstr ""
 "Quando si fa clic su \"Invia\", viene inviata una segnalazione di errore al "
 "tracker GitHub Issue del CRM."
 
-#: Include/Header-function.php:129
+#: Include/Header-function.php:134
 msgid "Please do not include any confidential information."
 msgstr "Si prega di non includere alcuna informazione confidenziale."
 
-#: Include/Header-function.php:130
+#: Include/Header-function.php:135
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -6595,7 +6640,7 @@ msgstr ""
 "Alcune informazioni generali sul tuo sistema saranno inviate insieme alla "
 "richiesta, come la versione del server e le intestazioni del browser."
 
-#: Include/Header-function.php:131
+#: Include/Header-function.php:136
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
@@ -6603,38 +6648,43 @@ msgstr ""
 "Nessuna informazione personale identificabile sarà presentata a meno che non "
 "la includiate di proposito."
 
-#: Include/Header-function.php:140
+#: Include/Header-function.php:145
 msgid "Submit"
 msgstr "Invia"
 
-#: Include/Header-function.php:148
+#: Include/Header-function.php:153
 msgid "Issue Report done!"
 msgstr "Rapporto di emissione fatto!"
 
-#: Include/Header-function.php:150
+#: Include/Header-function.php:155
 msgid "Your report has been submitted successfully."
 msgstr "Il rapporto è stato inviato con successo."
 
-#: Include/Header-function.php:160
+#: Include/Header-function.php:165
 msgid "Successfully submitted Issue"
 msgstr "Problema presentato con successo"
 
-#: Include/Header-function.php:161
+#: Include/Header-function.php:166
 msgid "You can open the created issue directly on GitHub from the link below."
 msgstr ""
 "È possibile aprire il problema creato direttamente su GitHub dal link "
 "sottostante."
 
-#: Include/Header-function.php:164
+#: Include/Header-function.php:169
 msgid "View Issue on GitHub"
 msgstr "Visualizza il problema su GitHub"
 
-#: Include/Header-function.php:227
+#: Include/Header-function.php:232
 msgid "Change columns"
 msgstr "Cambiare le colonne"
 
-#: Include/Header.php:84 v2/templates/people/familylist.php:165
-#: v2/templates/people/lettersandlabels.php:236
+#: Include/Header-function.php:233
+#: v2/templates/pastoralcare/pastoralcareperson.php:78
+msgid "Print"
+msgstr "Stampa"
+
+#: Include/Header.php:84 v2/templates/people/familylist.php:172
+#: v2/templates/people/lettersandlabels.php:238
 #: v2/templates/people/peoplelist.php:110 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "Cerca"
@@ -6725,7 +6775,7 @@ msgid "Pending requests"
 msgstr "Richieste in sospeso"
 
 #: members/online-pending-verify.php:35 members/self-register.php:37
-#: members/self-verify-updates.php:38
+#: members/self-verify-updates.php:36
 #: v2/templates/deposit/financialReports.php:499
 #: v2/templates/people/canvassEditor.php:125
 #: v2/templates/people/ConfirmReportCheck.php:99
@@ -6750,11 +6800,11 @@ msgstr ""
 msgid "Recent requests"
 msgstr "Richieste recenti"
 
-#: members/self-verify-updates.php:14 members/self-verify-updates.php:32
+#: members/self-verify-updates.php:14 members/self-verify-updates.php:30
 msgid "Self Verify"
 msgstr "Autoverifica"
 
-#: members/self-verify-updates.php:25
+#: members/self-verify-updates.php:23
 msgid ""
 "Review family-submitted updates and open records to approve or complete "
 "changes."
@@ -6762,7 +6812,7 @@ msgstr ""
 "Esaminare gli aggiornamenti presentati dalle famiglie e i registri aperti "
 "per approvare o completare le modifiche."
 
-#: members/self-verify-updates.php:35
+#: members/self-verify-updates.php:33
 msgid "Pending updates"
 msgstr "In attesa di aggiornamenti"
 
@@ -7345,7 +7395,7 @@ msgstr "Oppure accedi come un altro utente"
 #: v2/templates/people/personview.php:310
 #: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/sundayschool/sundayschoolview.php:318
-#: v2/templates/system/csvImport.php:196
+#: v2/templates/system/csvImport.php:200
 msgid "Birth Date"
 msgstr "Data di nascita"
 
@@ -7378,19 +7428,15 @@ msgstr "Mamma Email"
 msgid "Properties"
 msgstr "Proprietà"
 
-#: v2/templates/BackupRestore/backup.php:27
-msgid "Database Backup"
-msgstr "Backup del database"
-
-#: v2/templates/BackupRestore/backup.php:28
+#: v2/templates/BackupRestore/backup.php:24
 msgid "Create and download a secure backup of your CRM data"
 msgstr "Creare e scaricare un backup sicuro dei dati del CRM"
 
-#: v2/templates/BackupRestore/backup.php:34
+#: v2/templates/BackupRestore/backup.php:30
 msgid "Backup Recommendations"
 msgstr "Raccomandazioni per il backup"
 
-#: v2/templates/BackupRestore/backup.php:36
+#: v2/templates/BackupRestore/backup.php:32
 msgid ""
 "You should make a manual backup at least once a week unless you already have "
 "a regular backup procedure for your systems."
@@ -7399,7 +7445,7 @@ msgstr ""
 "meno che non si disponga già di una procedura di backup regolare per i "
 "propri sistemi."
 
-#: v2/templates/BackupRestore/backup.php:37
+#: v2/templates/BackupRestore/backup.php:33
 msgid ""
 "After you download the backup file, you should make two copies. Put one of "
 "them in a fire-proof safe on-site and the other in a safe location off-site."
@@ -7408,7 +7454,7 @@ msgstr ""
 "una in una cassaforte ignifuga in loco e l'altra in un luogo sicuro fuori "
 "sede."
 
-#: v2/templates/BackupRestore/backup.php:38
+#: v2/templates/BackupRestore/backup.php:34
 msgid ""
 "If you are concerned about confidentiality of data stored in the CRM "
 "database, you should encrypt the backup data if it will be stored somewhere "
@@ -7418,7 +7464,7 @@ msgstr ""
 "CRM, dovreste crittografare i dati di backup se saranno archiviati in un "
 "luogo potenzialmente accessibile ad altri."
 
-#: v2/templates/BackupRestore/backup.php:39
+#: v2/templates/BackupRestore/backup.php:35
 msgid ""
 "For added backup security, you can e-mail the backup to yourself at an e-"
 "mail account hosted off-site or to a trusted friend. Be sure to use "
@@ -7429,78 +7475,74 @@ msgstr ""
 "amico fidato. In questo caso, però, assicuratevi di utilizzare la "
 "crittografia."
 
-#: v2/templates/BackupRestore/backup.php:45
+#: v2/templates/BackupRestore/backup.php:41
 msgid "Backup Options"
 msgstr "Opzioni di backup"
 
-#: v2/templates/BackupRestore/backup.php:49
+#: v2/templates/BackupRestore/backup.php:45
 msgid "Archive Format"
 msgstr "Formato archivio"
 
-#: v2/templates/BackupRestore/backup.php:57
-#: v2/templates/BackupRestore/backup.php:69
-#: v2/templates/BackupRestore/backup.php:80
+#: v2/templates/BackupRestore/backup.php:53
+#: v2/templates/BackupRestore/backup.php:65
+#: v2/templates/BackupRestore/backup.php:76
 msgid "Database only"
 msgstr "Solo database"
 
-#: v2/templates/BackupRestore/backup.php:79
+#: v2/templates/BackupRestore/backup.php:75
 msgid "Uncompressed"
 msgstr "Non compresso"
 
-#: v2/templates/BackupRestore/backup.php:89
+#: v2/templates/BackupRestore/backup.php:85
 msgid "Full Backup"
 msgstr "Backup completo"
 
-#: v2/templates/BackupRestore/backup.php:90
+#: v2/templates/BackupRestore/backup.php:86
 msgid "DB + Photos + Files"
 msgstr "DB + Foto + File"
 
-#: v2/templates/BackupRestore/backup.php:100
+#: v2/templates/BackupRestore/backup.php:96
 msgid "Encryption"
 msgstr "Crittografia"
 
-#: v2/templates/BackupRestore/backup.php:103
+#: v2/templates/BackupRestore/backup.php:99
 msgid "Encrypt backup file with a password?"
 msgstr "Crittografare il file di backup con una password?"
 
-#: v2/templates/BackupRestore/backup.php:107
-#: v2/templates/BackupRestore/restore.php:70
+#: v2/templates/BackupRestore/backup.php:103
+#: v2/templates/BackupRestore/restore.php:66
 msgid "encryption"
 msgstr "crittografia"
 
-#: v2/templates/BackupRestore/backup.php:111
+#: v2/templates/BackupRestore/backup.php:107
 msgid "Re-type Password"
 msgstr "Ridigitare la password"
 
-#: v2/templates/BackupRestore/backup.php:112
+#: v2/templates/BackupRestore/backup.php:108
 msgid "Confirm password"
 msgstr "Confermare la password"
 
-#: v2/templates/BackupRestore/backup.php:123
+#: v2/templates/BackupRestore/backup.php:119
 msgid "Generate and Download Backup"
 msgstr "Generare e scaricare il backup"
 
-#: v2/templates/BackupRestore/backup.php:126
+#: v2/templates/BackupRestore/backup.php:122
 msgid "Generate and Ship to External Storage"
 msgstr "Generare e spedire in un deposito esterno"
 
-#: v2/templates/BackupRestore/backup.php:133
+#: v2/templates/BackupRestore/backup.php:129
 msgid "Backup Status"
 msgstr "Stato del backup"
 
-#: v2/templates/BackupRestore/restore.php:26
-msgid "Database Restore"
-msgstr "Ripristino del database"
-
-#: v2/templates/BackupRestore/restore.php:27
+#: v2/templates/BackupRestore/restore.php:23
 msgid "Restore a previously saved CRM backup"
 msgstr "Ripristinare un backup del CRM precedentemente salvato"
 
-#: v2/templates/BackupRestore/restore.php:33
+#: v2/templates/BackupRestore/restore.php:29
 msgid "Warning"
 msgstr "Attenzione"
 
-#: v2/templates/BackupRestore/restore.php:34
+#: v2/templates/BackupRestore/restore.php:30
 msgid ""
 "CAUTION: This will completely erase the existing database, and replace it "
 "with the backup."
@@ -7508,11 +7550,11 @@ msgstr ""
 "ATTENZIONE: questa operazione cancella completamente il database esistente e "
 "lo sostituisce con il backup."
 
-#: v2/templates/BackupRestore/restore.php:40
+#: v2/templates/BackupRestore/restore.php:36
 msgid "Select Database Files"
 msgstr "Seleziona i file del database"
 
-#: v2/templates/BackupRestore/restore.php:46
+#: v2/templates/BackupRestore/restore.php:42
 msgid ""
 "If you upload a backup from ChurchInfo, or a previous version of "
 "EcclesiaCRM, it will be automatically upgraded to the current database "
@@ -7522,35 +7564,35 @@ msgstr ""
 "EcclesiaCRM, questo verrà automaticamente aggiornato allo schema attuale del "
 "database."
 
-#: v2/templates/BackupRestore/restore.php:51
+#: v2/templates/BackupRestore/restore.php:47
 msgid "Maximum upload size"
 msgstr "Dimensione massima di caricamento"
 
-#: v2/templates/BackupRestore/restore.php:57
+#: v2/templates/BackupRestore/restore.php:53
 msgid "Backup file"
 msgstr "File di backup"
 
-#: v2/templates/BackupRestore/restore.php:61
+#: v2/templates/BackupRestore/restore.php:57
 msgid "Choose file…"
 msgstr "Scegliere il file..."
 
-#: v2/templates/BackupRestore/restore.php:70
+#: v2/templates/BackupRestore/restore.php:66
 msgid "Password (if any)"
 msgstr "Password (se presente)"
 
-#: v2/templates/BackupRestore/restore.php:72
+#: v2/templates/BackupRestore/restore.php:68
 msgid "Leave blank if not encrypted"
 msgstr "Lasciare vuoto se non è crittografato"
 
-#: v2/templates/BackupRestore/restore.php:77
+#: v2/templates/BackupRestore/restore.php:73
 msgid "Upload and Restore"
 msgstr "Caricamento e ripristino"
 
-#: v2/templates/BackupRestore/restore.php:87
+#: v2/templates/BackupRestore/restore.php:83
 msgid "Restore Status"
 msgstr "Ripristino dello stato"
 
-#: v2/templates/BackupRestore/restore.php:89
+#: v2/templates/BackupRestore/restore.php:85
 msgid "No Restore Running"
 msgstr "Nessun ripristino in esecuzione"
 
@@ -7558,7 +7600,7 @@ msgstr "Nessun ripristino in esecuzione"
 #: v2/templates/deposit/financialReports.php:136
 #: v2/templates/fundraiser/findFundRaiser.php:18
 #: v2/templates/people/directoryreport.php:28
-#: v2/templates/people/peoplelist.php:29 v2/templates/system/csvExport.php:320
+#: v2/templates/people/peoplelist.php:29 v2/templates/system/csvExport.php:322
 msgid "Filters"
 msgstr "Filtri"
 
@@ -8009,8 +8051,8 @@ msgid "Color"
 msgstr "Colore"
 
 #: v2/templates/calendar/eventtypesedit.php:268
-#: v2/templates/people/familylist.php:77 v2/templates/people/familylist.php:132
-#: v2/templates/people/personlist.php:56 v2/templates/people/personlist.php:106
+#: v2/templates/people/familylist.php:84 v2/templates/people/familylist.php:139
+#: v2/templates/people/personlist.php:55 v2/templates/people/personlist.php:105
 #: v2/templates/system/optionManager.php:485
 msgid "Remove"
 msgstr "Rimuovi"
@@ -8420,31 +8462,31 @@ msgstr "Personalizzare la pagina"
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: v2/templates/dashboard/maindashboard.php:109
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "Quick access to your widgets and plugin insights"
 msgstr "Accesso rapido ai widget e alle informazioni sui plugin"
 
-#: v2/templates/dashboard/maindashboard.php:115
+#: v2/templates/dashboard/maindashboard.php:114
 msgid "Quick Widgets"
 msgstr "Widget rapidi"
 
-#: v2/templates/dashboard/maindashboard.php:138
+#: v2/templates/dashboard/maindashboard.php:137
 msgid "No widgets are currently available for your profile."
 msgstr "Al momento non sono disponibili widget per il vostro profilo."
 
-#: v2/templates/dashboard/maindashboard.php:149
+#: v2/templates/dashboard/maindashboard.php:148
 msgid "Top Plugins"
 msgstr "I migliori plugin"
 
-#: v2/templates/dashboard/maindashboard.php:176
+#: v2/templates/dashboard/maindashboard.php:175
 msgid "Left Column"
 msgstr "Colonna sinistra"
 
-#: v2/templates/dashboard/maindashboard.php:201
+#: v2/templates/dashboard/maindashboard.php:200
 msgid "Center Column"
 msgstr "Colonna centrale"
 
-#: v2/templates/dashboard/maindashboard.php:228
+#: v2/templates/dashboard/maindashboard.php:227
 msgid "Right Column"
 msgstr "Colonna destra"
 
@@ -8817,8 +8859,8 @@ msgstr "Filtra per tipo di pagamento:"
 #: v2/templates/people/directoryreport.php:117
 #: v2/templates/people/directoryreport.php:128
 #: v2/templates/people/directoryreport.php:139
-#: v2/templates/system/csvExport.php:378 v2/templates/system/csvExport.php:406
-#: v2/templates/system/csvExport.php:448
+#: v2/templates/system/csvExport.php:380 v2/templates/system/csvExport.php:408
+#: v2/templates/system/csvExport.php:450
 msgid "Use Ctrl Key to select multiple"
 msgstr "Usa il tasto Ctrl per selezionare più"
 
@@ -8926,7 +8968,7 @@ msgstr ""
 "anni<br> (0 per non richiedere una donazione):"
 
 #: v2/templates/deposit/financialReports.php:481
-#: v2/templates/system/csvExport.php:600
+#: v2/templates/system/csvExport.php:602
 msgid "Output Method:"
 msgstr "Metodo di uscita:"
 
@@ -9052,7 +9094,7 @@ msgid "Envelope Number"
 msgstr "Numero della busta"
 
 #: v2/templates/deposit/manageEnvelopes.php:179
-#: v2/templates/system/csvExport.php:154
+#: v2/templates/system/csvExport.php:156
 msgid "Envelope"
 msgstr "Busta"
 
@@ -9188,17 +9230,17 @@ msgstr "Anno solare"
 msgid "Enter a 4-digit year."
 msgstr "Inserire un anno a 4 cifre."
 
-#: v2/templates/edrive/dashboard.php:26
+#: v2/templates/edrive/dashboard.php:27
+msgid "EDrive workspace"
+msgstr "Spazio di lavoro EDrive"
+
+#: v2/templates/edrive/dashboard.php:28
 msgid "Manage your files, previews and internal sharing from one place."
 msgstr ""
 "Gestite i vostri file, le anteprime e la condivisione interna da un'unica "
 "postazione."
 
-#: v2/templates/edrive/dashboard.php:29
-msgid "EDrive workspace"
-msgstr "Spazio di lavoro EDrive"
-
-#: v2/templates/edrive/dashboard.php:90
+#: v2/templates/edrive/dashboard.php:89
 msgid "Files"
 msgstr "File"
 
@@ -9931,19 +9973,6 @@ msgstr "Campi di proprietà specifici del gruppo"
 msgid "Map this group"
 msgstr "Mappare questo gruppo"
 
-#: v2/templates/group/groupview.php:42 v2/templates/people/familyview.php:274
-#: v2/templates/people/personview.php:494
-msgid "Remove from Cart"
-msgstr "Rimuovi dal carrello"
-
-#: v2/templates/group/groupview.php:46 v2/templates/people/familyview.php:281
-#: v2/templates/people/familyview.php:493
-#: v2/templates/people/personview.php:504
-#: v2/templates/people/personview.php:973 v2/templates/query/queryview.php:172
-#: v2/templates/volunteer/volunteerview.php:44
-msgid "Add to Cart"
-msgstr "Aggiungi al carrello"
-
 #: v2/templates/group/groupview.php:52
 msgid ""
 "To add special Group roles or to modify the role by default or to enable "
@@ -10168,7 +10197,7 @@ msgstr "Clik"
 
 #: v2/templates/map/MapUsingGoogle.php:69
 #: v2/templates/map/MapUsingLeaflet.php:59
-#: v2/templates/system/csvImport.php:950
+#: v2/templates/system/csvImport.php:954
 msgid "here"
 msgstr "qui"
 
@@ -10470,8 +10499,8 @@ msgstr "Undefined"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:365
 #: v2/templates/people/personEditor.php:1753
 #: v2/templates/people/personPrint.php:383
-#: v2/templates/people/personview.php:177 v2/templates/system/csvExport.php:205
-#: v2/templates/system/csvExport.php:464 v2/templates/system/csvImport.php:197
+#: v2/templates/people/personview.php:177 v2/templates/system/csvExport.php:207
+#: v2/templates/system/csvExport.php:466 v2/templates/system/csvImport.php:201
 msgid "Membership Date"
 msgstr "Data di adesione"
 
@@ -10525,7 +10554,7 @@ msgstr "Accompagnamento, controllo e vigilanza"
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:360
 #: v2/templates/people/personEditor.php:1630
 #: v2/templates/people/personPrint.php:378
-#: v2/templates/system/csvImport.php:195
+#: v2/templates/system/csvImport.php:199
 msgid "Work / Other Email"
 msgstr "Lavoro / Altro Email"
 
@@ -10872,7 +10901,7 @@ msgid "Select classifications to include"
 msgstr "Seleziona le classificazioni da includere"
 
 #: v2/templates/people/directoryreport.php:95
-#: v2/templates/system/csvExport.php:437
+#: v2/templates/system/csvExport.php:439
 msgid "Group Membership"
 msgstr "Appartenenza al gruppo"
 
@@ -11264,7 +11293,7 @@ msgstr ""
 
 #: v2/templates/people/familyEditor.php:1197
 #: v2/templates/people/personEditor.php:988
-#: v2/templates/system/csvExport.php:112 v2/templates/system/csvImport.php:182
+#: v2/templates/system/csvExport.php:114 v2/templates/system/csvImport.php:186
 msgid "Suffix"
 msgstr "Suffisso"
 
@@ -11310,7 +11339,7 @@ msgstr "Salvare e aggiungere una persona alla famiglia"
 msgid "Add Family"
 msgstr "Aggiungi famiglia"
 
-#: v2/templates/people/familylist.php:35
+#: v2/templates/people/familylist.php:39
 msgid ""
 "WARNING: Some families may have some records of donations and may NOT be "
 "deleted until these donations are associated with another person or Family."
@@ -11319,42 +11348,42 @@ msgstr ""
 "e NON possono essere cancellate finché queste donazioni non sono associate "
 "ad un'altra persona o Famiglia."
 
-#: v2/templates/people/familylist.php:36 v2/templates/people/personlist.php:32
+#: v2/templates/people/familylist.php:40 v2/templates/people/personlist.php:31
 #: v2/templates/people/selectDelete.php:201
 msgid "WARNING: This action can not be undone and may have legal implications!"
 msgstr ""
 "ATTENZIONE: Questa azione non può essere annullata e può avere implicazioni "
 "legali!"
 
-#: v2/templates/people/familylist.php:49
+#: v2/templates/people/familylist.php:56
 msgid "Browse households and family records from a single list."
 msgstr "Sfogliare le famiglie e i documenti di famiglia da un unico elenco."
 
-#: v2/templates/people/familylist.php:52
+#: v2/templates/people/familylist.php:59
 msgid "Browse, edit and manage family records from one place."
 msgstr ""
 "Sfogliare, modificare e gestire i documenti di famiglia da un'unica "
 "postazione."
 
-#: v2/templates/people/familylist.php:55
+#: v2/templates/people/familylist.php:62
 #: v2/templates/people/personview.php:1374
 msgid "records"
 msgstr "record"
 
-#: v2/templates/people/familylist.php:67 v2/templates/people/personlist.php:51
+#: v2/templates/people/familylist.php:74 v2/templates/people/personlist.php:50
 msgid "email"
 msgstr "e-mail"
 
-#: v2/templates/people/familylist.php:69 v2/templates/people/personlist.php:53
+#: v2/templates/people/familylist.php:76 v2/templates/people/personlist.php:52
 msgid "Edited"
 msgstr "Modificato"
 
-#: v2/templates/people/familylist.php:72 v2/templates/people/personlist.php:55
+#: v2/templates/people/familylist.php:79 v2/templates/people/personlist.php:54
 msgid "Deactivation date"
 msgstr "Data di disattivazione"
 
-#: v2/templates/people/familylist.php:145
-#: v2/templates/people/personlist.php:120
+#: v2/templates/people/familylist.php:152
+#: v2/templates/people/personlist.php:119
 msgid "Remove All"
 msgstr "Rimuovi tutto"
 
@@ -11692,7 +11721,7 @@ msgstr "Intersecare con il carrello"
 msgid "Remove All from Cart"
 msgstr "Rimuovi tutto dal carrello"
 
-#: v2/templates/people/lettersandlabels.php:124
+#: v2/templates/people/lettersandlabels.php:126
 msgid ""
 "Here you can choose to run reports to confirm the data stored in CRM, for "
 "families or on an individual basis.<br>\n"
@@ -11709,128 +11738,128 @@ msgstr ""
 "delle e-mail è molto elevato).<br>\n"
 "        - di persona tramite codice QR per confermare i dati."
 
-#: v2/templates/people/lettersandlabels.php:133
+#: v2/templates/people/lettersandlabels.php:135
 msgid "Reports management"
 msgstr "Gestione dei rapporti"
 
-#: v2/templates/people/lettersandlabels.php:139
+#: v2/templates/people/lettersandlabels.php:141
 msgid "Envelope label"
 msgstr "Etichetta per busta"
 
-#: v2/templates/people/lettersandlabels.php:143
+#: v2/templates/people/lettersandlabels.php:145
 msgid "Confirm data letter"
 msgstr "Conferma la lettera dei dati"
 
-#: v2/templates/people/lettersandlabels.php:147
+#: v2/templates/people/lettersandlabels.php:149
 msgid "Confirm data in person"
 msgstr "Confermare i dati di persona"
 
-#: v2/templates/people/lettersandlabels.php:151
+#: v2/templates/people/lettersandlabels.php:153
 msgid "Confirm data Email"
 msgstr "Conferma i dati Email"
 
-#: v2/templates/people/lettersandlabels.php:169
+#: v2/templates/people/lettersandlabels.php:171
 msgid "Reports Options"
 msgstr "Opzioni dei report"
 
-#: v2/templates/people/lettersandlabels.php:178
+#: v2/templates/people/lettersandlabels.php:180
 msgid "Recipient Naming Method"
 msgstr "Metodo di denominazione del destinatario"
 
-#: v2/templates/people/lettersandlabels.php:181
+#: v2/templates/people/lettersandlabels.php:183
 msgid "Salutation Utility"
 msgstr "Utilità di saluto"
 
-#: v2/templates/people/lettersandlabels.php:188
-#: v2/templates/people/lettersandlabels.php:341
+#: v2/templates/people/lettersandlabels.php:190
+#: v2/templates/people/lettersandlabels.php:343
 msgid "These options will be used for all reports generated from this page."
 msgstr ""
 "Queste opzioni verranno utilizzate per tutti i report generati da questa "
 "pagina."
 
-#: v2/templates/people/lettersandlabels.php:191
+#: v2/templates/people/lettersandlabels.php:193
 msgid "Newsletter labels"
 msgstr "Etichette per newsletter"
 
-#: v2/templates/people/lettersandlabels.php:194
+#: v2/templates/people/lettersandlabels.php:196
 msgid "Confirm data labels"
 msgstr "Confermare le etichette dei dati"
 
-#: v2/templates/people/lettersandlabels.php:206
+#: v2/templates/people/lettersandlabels.php:208
 msgid "People Reports"
 msgstr "Rapporti sulle persone"
 
-#: v2/templates/people/lettersandlabels.php:215
+#: v2/templates/people/lettersandlabels.php:217
 msgid "With a link (QR code) and form submission"
 msgstr "Tramite un link (codice QR) e l'invio del modulo"
 
-#: v2/templates/people/lettersandlabels.php:225
+#: v2/templates/people/lettersandlabels.php:227
 msgid "Selection Scope"
 msgstr "Ambito di selezione"
 
-#: v2/templates/people/lettersandlabels.php:244
+#: v2/templates/people/lettersandlabels.php:246
 msgid "Selected"
 msgstr "Selezionato"
 
-#: v2/templates/people/lettersandlabels.php:250
+#: v2/templates/people/lettersandlabels.php:252
 msgid "Clear selected"
 msgstr "Cancella selezionati"
 
-#: v2/templates/people/lettersandlabels.php:275
+#: v2/templates/people/lettersandlabels.php:277
 msgid "Age Range"
 msgstr "Fascia d'età"
 
-#: v2/templates/people/lettersandlabels.php:278 queryparameters_qrp.php:2
+#: v2/templates/people/lettersandlabels.php:280 queryparameters_qrp.php:2
 msgid "Minimum Age"
 msgstr "Età minima"
 
-#: v2/templates/people/lettersandlabels.php:281 queryparameters_qrp.php:23
+#: v2/templates/people/lettersandlabels.php:283 queryparameters_qrp.php:23
 msgid "The minimum age for which you want records returned."
 msgstr "L'età minima per la quale vuoi che vengano restituiti i record."
 
-#: v2/templates/people/lettersandlabels.php:286 queryparameters_qrp.php:3
+#: v2/templates/people/lettersandlabels.php:288 queryparameters_qrp.php:3
 msgid "Maximum Age"
 msgstr "Età massima"
 
-#: v2/templates/people/lettersandlabels.php:289 queryparameters_qrp.php:24
+#: v2/templates/people/lettersandlabels.php:291 queryparameters_qrp.php:24
 msgid "The maximum age for which you want records returned."
 msgstr "L'età massima per la quale vuoi che vengano restituiti i record."
 
-#: v2/templates/people/lettersandlabels.php:300
+#: v2/templates/people/lettersandlabels.php:302
 msgid "Person Custom Fields"
 msgstr "Campi personalizzati della persona"
 
-#: v2/templates/people/lettersandlabels.php:319
+#: v2/templates/people/lettersandlabels.php:321
 msgid "Family Custom Fields"
 msgstr "Campi personalizzati della famiglia"
 
-#: v2/templates/people/lettersandlabels.php:362
+#: v2/templates/people/lettersandlabels.php:364
 msgid "Email Confirmation"
 msgstr "Conferma via e-mail"
 
-#: v2/templates/people/lettersandlabels.php:380
+#: v2/templates/people/lettersandlabels.php:382
 msgid "Pending Persons"
 msgstr "Persone in attesa"
 
-#: v2/templates/people/lettersandlabels.php:387
-#: v2/templates/people/lettersandlabels.php:422
+#: v2/templates/people/lettersandlabels.php:389
+#: v2/templates/people/lettersandlabels.php:424
 msgid "Delete Pending"
 msgstr "Cancella in attesa"
 
-#: v2/templates/people/lettersandlabels.php:393
+#: v2/templates/people/lettersandlabels.php:395
 msgid "Confirmed persons"
 msgstr "Persone confermate"
 
-#: v2/templates/people/lettersandlabels.php:400
-#: v2/templates/people/lettersandlabels.php:435
+#: v2/templates/people/lettersandlabels.php:402
+#: v2/templates/people/lettersandlabels.php:437
 msgid "Delete Done Confirmation"
 msgstr "Eliminazione Conferma di completamento"
 
-#: v2/templates/people/lettersandlabels.php:415
+#: v2/templates/people/lettersandlabels.php:417
 msgid "Pending Families"
 msgstr "Famiglie in attesa"
 
-#: v2/templates/people/lettersandlabels.php:428
+#: v2/templates/people/lettersandlabels.php:430
 msgid "Confirmed Families"
 msgstr "Famiglie confermate"
 
@@ -12183,7 +12212,7 @@ msgid "Jr., Sr., III"
 msgstr "Jr., Sr., III"
 
 #: v2/templates/people/personEditor.php:994
-#: v2/templates/system/csvExport.php:498
+#: v2/templates/system/csvExport.php:500
 msgid "Birthday Date"
 msgstr "Data di nascita"
 
@@ -12341,7 +12370,7 @@ msgstr ""
 "Rivedere le informazioni di cui sopra prima di salvare. È possibile tornare "
 "in un secondo momento per completare i dettagli mancanti."
 
-#: v2/templates/people/personlist.php:31
+#: v2/templates/people/personlist.php:30
 msgid ""
 "WARNING: Some persons may have some records of donations and may NOT be "
 "deleted until these donations are associated with another person or Family."
@@ -12350,7 +12379,7 @@ msgstr ""
 "NON possono essere cancellate finché queste donazioni non sono associate ad "
 "un'altra persona o Famiglia."
 
-#: v2/templates/people/personlist.php:39
+#: v2/templates/people/personlist.php:38
 msgid "Person Directory"
 msgstr "Elenco persone"
 
@@ -12861,7 +12890,7 @@ msgid "Check all boxes"
 msgstr "Spuntare tutte le caselle"
 
 #: v2/templates/plugins/plugins.php:89 v2/templates/plugins/plugins.php:126
-#: v2/templates/system/infos.php:250 v2/templates/system/integritycheck.php:135
+#: v2/templates/system/infos.php:306 v2/templates/system/integritycheck.php:135
 #: v2/templates/system/integritycheck.php:230
 #: v2/templates/user/usersettings.php:375
 #: v2/templates/user/usersettings.php:428
@@ -13430,176 +13459,172 @@ msgstr "Mostrare gli studenti con il genere"
 msgid "Add Student"
 msgstr "Aggiungi studente"
 
-#: v2/templates/system/convertIndividualToAddress.php:121
+#: v2/templates/system/convertIndividualToAddress.php:55
 msgid "Last entry ID"
 msgstr "ID dell'ultima voce"
 
-#: v2/templates/system/convertIndividualToAddress.php:122
+#: v2/templates/system/convertIndividualToAddress.php:56
 msgid "To convert"
 msgstr "Per convertire"
 
-#: v2/templates/system/convertIndividualToAddress.php:149
+#: v2/templates/system/convertIndividualToAddress.php:83
 msgid "Successfully converted:"
 msgstr "Conversione riuscita:"
 
-#: v2/templates/system/convertIndividualToAddress.php:149
+#: v2/templates/system/convertIndividualToAddress.php:83
 msgid "is now part of the"
 msgstr "fa ora parte del"
 
-#: v2/templates/system/convertIndividualToAddress.php:155
+#: v2/templates/system/convertIndividualToAddress.php:89
 msgid "Error with family ID"
 msgstr "Errore con l'ID della famiglia"
 
-#: v2/templates/system/convertIndividualToAddress.php:180
+#: v2/templates/system/convertIndividualToAddress.php:114
 msgid "Convert Next"
 msgstr "Convertire Avanti"
 
-#: v2/templates/system/convertIndividualToAddress.php:186
+#: v2/templates/system/convertIndividualToAddress.php:120
 msgid "Convert All"
 msgstr "Convertire tutti"
 
-#: v2/templates/system/convertIndividualToAddress.php:193
+#: v2/templates/system/convertIndividualToAddress.php:127
 msgid "Nothing to convert !"
 msgstr "Niente da convertire!"
 
-#: v2/templates/system/csvExport.php:49
+#: v2/templates/system/csvExport.php:50
+msgid "System Export Tool"
+msgstr "Strumento di esportazione del sistema"
+
+#: v2/templates/system/csvExport.php:51
 msgid "Choose fields, apply filters, and generate your export file."
 msgstr ""
 "Scegliete i campi, applicate i filtri e generate il vostro file di "
 "esportazione."
 
-#: v2/templates/system/csvExport.php:51
-msgid "System Export Tool"
-msgstr "Strumento di esportazione del sistema"
-
-#: v2/templates/system/csvExport.php:72
+#: v2/templates/system/csvExport.php:74
 msgid "Field Selection"
 msgstr "Selezione del campo"
 
-#: v2/templates/system/csvExport.php:79
+#: v2/templates/system/csvExport.php:81
 msgid "Id"
 msgstr "Id"
 
-#: v2/templates/system/csvExport.php:85
+#: v2/templates/system/csvExport.php:87
 msgid "Required"
 msgstr "Richiesto"
 
-#: v2/templates/system/csvExport.php:211
+#: v2/templates/system/csvExport.php:213
 msgid "Birth / Anniversary Date"
 msgstr "Data di nascita/anniversario"
 
-#: v2/templates/system/csvExport.php:217
+#: v2/templates/system/csvExport.php:219
 msgid "Age / Years Married"
 msgstr "Età / Anni sposati"
 
-#: v2/templates/system/csvExport.php:234
+#: v2/templates/system/csvExport.php:236
 msgid "Depends whether using person or family output method"
 msgstr "Dipende se si usa il metodo di uscita persona o famiglia"
 
-#: v2/templates/system/csvExport.php:244
+#: v2/templates/system/csvExport.php:246
 msgid "Custom Field Selection"
 msgstr "Selezione del campo personalizzato"
 
-#: v2/templates/system/csvExport.php:283
+#: v2/templates/system/csvExport.php:285
 msgid "Custom Family Fields"
 msgstr "Campi famiglia personalizzati"
 
-#: v2/templates/system/csvExport.php:320
+#: v2/templates/system/csvExport.php:322
 msgid "Ignored if you come from the CartView"
 msgstr "Ignorato se si proviene dalla CartView"
 
-#: v2/templates/system/csvExport.php:334
+#: v2/templates/system/csvExport.php:336
 msgid "Records to export"
 msgstr "Record da esportare"
 
-#: v2/templates/system/csvExport.php:346
+#: v2/templates/system/csvExport.php:348
 msgid "Based on filters below.."
 msgstr "In base ai filtri sottostanti."
 
-#: v2/templates/system/csvExport.php:349
+#: v2/templates/system/csvExport.php:351
 msgid "People in Cart (filters ignored)"
 msgstr "Persone nel carrello (filtri ignorati)"
 
-#: v2/templates/system/csvExport.php:427
+#: v2/templates/system/csvExport.php:429
 msgid "Don't Filter"
 msgstr "Non filtrare"
 
-#: v2/templates/system/csvExport.php:477 v2/templates/system/csvExport.php:511
-#: v2/templates/system/csvExport.php:544 v2/templates/system/csvExport.php:577
+#: v2/templates/system/csvExport.php:479 v2/templates/system/csvExport.php:513
+#: v2/templates/system/csvExport.php:546 v2/templates/system/csvExport.php:579
 msgid "From:"
 msgstr "Da:"
 
-#: v2/templates/system/csvExport.php:482 v2/templates/system/csvExport.php:516
-#: v2/templates/system/csvExport.php:549 v2/templates/system/csvExport.php:582
+#: v2/templates/system/csvExport.php:484 v2/templates/system/csvExport.php:518
+#: v2/templates/system/csvExport.php:551 v2/templates/system/csvExport.php:584
 msgid "To:"
 msgstr "A:"
 
-#: v2/templates/system/csvExport.php:531
+#: v2/templates/system/csvExport.php:533
 msgid "Anniversary Date:"
 msgstr "Data dell'anniversario:"
 
-#: v2/templates/system/csvExport.php:564
+#: v2/templates/system/csvExport.php:566
 msgid "Date Entered:"
 msgstr "Data di inserimento:"
 
-#: v2/templates/system/csvExport.php:605
+#: v2/templates/system/csvExport.php:607
 msgid "Export type"
 msgstr "Tipo di esportazione"
 
-#: v2/templates/system/csvExport.php:607
+#: v2/templates/system/csvExport.php:609
 msgid "CSV Individual Records"
 msgstr "CSV record individuali"
 
-#: v2/templates/system/csvExport.php:608
+#: v2/templates/system/csvExport.php:610
 msgid "CSV Combine Families"
 msgstr "CSV Combina famiglie"
 
-#: v2/templates/system/csvExport.php:609
+#: v2/templates/system/csvExport.php:611
 msgid "Add Individuals to Cart"
 msgstr "Aggiungi gli individui al carrello"
 
-#: v2/templates/system/csvExport.php:615
+#: v2/templates/system/csvExport.php:617
 msgid "Skip records with incomplete mail address"
 msgstr "Salta i record con indirizzo postale incompleto"
 
-#: v2/templates/system/csvExport.php:619
+#: v2/templates/system/csvExport.php:621
 msgid "Create File"
 msgstr "Creare un file"
 
-#: v2/templates/system/csvImport.php:48 v2/templates/system/csvImport.php:56
+#: v2/templates/system/csvImport.php:50 v2/templates/system/csvImport.php:60
 msgid "Import Data"
 msgstr "Importazione di dati"
 
-#: v2/templates/system/csvImport.php:49
+#: v2/templates/system/csvImport.php:51
 msgid "Import people and families from a CSV file using guided mapping."
 msgstr ""
 "Importare persone e famiglie da un file CSV utilizzando la mappatura guidata."
 
-#: v2/templates/system/csvImport.php:51
-msgid "CSV Wizard"
-msgstr "Procedura guidata CSV"
-
-#: v2/templates/system/csvImport.php:81
+#: v2/templates/system/csvImport.php:85
 msgid "No file selected for upload."
 msgstr "Nessun file selezionato per il caricamento."
 
-#: v2/templates/system/csvImport.php:109
+#: v2/templates/system/csvImport.php:113
 msgid "Total number of rows in the CSV file:"
 msgstr "Numero totale di righe nel file CSV:"
 
-#: v2/templates/system/csvImport.php:168
+#: v2/templates/system/csvImport.php:172
 msgid "Now map each CSV column to the destination field below."
 msgstr "Ora mappate ogni colonna CSV al campo di destinazione sottostante."
 
-#: v2/templates/system/csvImport.php:177
+#: v2/templates/system/csvImport.php:181
 msgid "Ignore this Field"
 msgstr "Ignora questo campo"
 
-#: v2/templates/system/csvImport.php:184
+#: v2/templates/system/csvImport.php:188
 msgid "Donation Envelope"
 msgstr "Busta per le donazioni"
 
-#: v2/templates/system/csvImport.php:212
+#: v2/templates/system/csvImport.php:216
 msgid ""
 "An error occurs when you import the CSV file. You've to select values above "
 "in the select fields."
@@ -13607,19 +13632,19 @@ msgstr ""
 "Si verifica un errore quando si importa il file CSV. Devi selezionare i "
 "valori sopra nei campi di selezione."
 
-#: v2/templates/system/csvImport.php:221
+#: v2/templates/system/csvImport.php:225
 msgid "Scroll right to see the other columns"
 msgstr "Scorri a destra per vedere le altre colonne"
 
-#: v2/templates/system/csvImport.php:222
+#: v2/templates/system/csvImport.php:226
 msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
 msgstr "Controlla il giusto <b>formato della data</b> e sceglilo sotto !!!!!"
 
-#: v2/templates/system/csvImport.php:223
+#: v2/templates/system/csvImport.php:227
 msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
 msgstr "<b>IMPORTANTE !</b> Associa il <b>gender</b> a una colonna."
 
-#: v2/templates/system/csvImport.php:229
+#: v2/templates/system/csvImport.php:233
 msgid ""
 "Tip: map at least First Name, Last Name, Gender and Date format before "
 "starting import."
@@ -13627,15 +13652,15 @@ msgstr ""
 "Suggerimento: mappare almeno i formati Nome, Cognome, Sesso e Data prima di "
 "avviare l'importazione."
 
-#: v2/templates/system/csvImport.php:234
+#: v2/templates/system/csvImport.php:238
 msgid "Important Options"
 msgstr "Opzioni importanti"
 
-#: v2/templates/system/csvImport.php:241
+#: v2/templates/system/csvImport.php:245
 msgid "Ignore first CSV row (to exclude a header)"
 msgstr "Ignora la prima riga del CSV (per escludere un'intestazione)"
 
-#: v2/templates/system/csvImport.php:249
+#: v2/templates/system/csvImport.php:253
 msgid ""
 "Put all the persons in the cart, to import them in a group, sundayschool "
 "group, etc...."
@@ -13643,64 +13668,64 @@ msgstr ""
 "Mettere tutte le persone nel carrello, per importarle in un gruppo, gruppo "
 "domenicale, ecc...."
 
-#: v2/templates/system/csvImport.php:265
+#: v2/templates/system/csvImport.php:269
 msgid "Make Family records based on last name and address"
 msgstr "Fare record di famiglia basati su cognome e indirizzo"
 
-#: v2/templates/system/csvImport.php:290
+#: v2/templates/system/csvImport.php:294
 msgid "Date Format"
 msgstr "Formato della data"
 
-#: v2/templates/system/csvImport.php:290
+#: v2/templates/system/csvImport.php:294
 msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
 msgstr ""
 "NOTA: I separatori (trattini, ecc.) o la loro mancanza non hanno importanza"
 
-#: v2/templates/system/csvImport.php:300
+#: v2/templates/system/csvImport.php:304
 msgid "Advanced options"
 msgstr "Opzioni avanzate"
 
-#: v2/templates/system/csvImport.php:309
+#: v2/templates/system/csvImport.php:313
 msgid "Patriarch"
 msgstr "Patriarca"
 
-#: v2/templates/system/csvImport.php:310
+#: v2/templates/system/csvImport.php:314
 msgid "Matriarch"
 msgstr "Matriarca"
 
-#: v2/templates/system/csvImport.php:314
+#: v2/templates/system/csvImport.php:318
 msgid "Family Type: used with Make Family records... option above"
 msgstr "Family Type: usato con l'opzione Make Family records... sopra"
 
-#: v2/templates/system/csvImport.php:330
+#: v2/templates/system/csvImport.php:334
 msgid "Default country if none specified otherwise"
 msgstr "Paese predefinito se nessuno specificato altrimenti"
 
-#: v2/templates/system/csvImport.php:363
+#: v2/templates/system/csvImport.php:367
 msgid "Perform Import"
 msgstr "Eseguire l'importazione"
 
-#: v2/templates/system/csvImport.php:727 v2/templates/system/csvImport.php:817
+#: v2/templates/system/csvImport.php:731 v2/templates/system/csvImport.php:821
 msgid "Imported"
 msgstr "Importato"
 
-#: v2/templates/system/csvImport.php:926
+#: v2/templates/system/csvImport.php:930
 msgid "ERROR: the uploaded CSV file no longer exists!"
 msgstr "ERRORE: il file CSV caricato non esiste più!"
 
-#: v2/templates/system/csvImport.php:936
+#: v2/templates/system/csvImport.php:940
 msgid "Steps to import users"
 msgstr "Passi per importare utenti"
 
-#: v2/templates/system/csvImport.php:939
+#: v2/templates/system/csvImport.php:943
 msgid "Your CSV file must have a header row, as follows"
 msgstr "Il file CSV deve avere una riga di intestazione, come segue"
 
-#: v2/templates/system/csvImport.php:940
+#: v2/templates/system/csvImport.php:944
 msgid "with the CSV delemiter \" ; \""
 msgstr "con il delimitatore CSV \"; \""
 
-#: v2/templates/system/csvImport.php:941
+#: v2/templates/system/csvImport.php:945
 msgid ""
 "Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;zip "
 "code;State;Country;phone;cell phone;work phone;email;work email"
@@ -13709,11 +13734,11 @@ msgstr ""
 "2;Città;CAP;Stato;Nazione;telefono;cellulare;telefono di lavoro;email;email "
 "di lavoro"
 
-#: v2/templates/system/csvImport.php:942
+#: v2/templates/system/csvImport.php:946
 msgid "with the CSV delemiter \" , \""
 msgstr "con il delimitatore CSV \" , \""
 
-#: v2/templates/system/csvImport.php:942
+#: v2/templates/system/csvImport.php:946
 msgid ""
 "Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,zip "
 "code,State,phone,cell phone,work phone,email,work email"
@@ -13722,11 +13747,11 @@ msgstr ""
 "2, città, codice postale, stato, telefono, telefono cellulare, telefono di "
 "lavoro, e-mail, e-mail di lavoro"
 
-#: v2/templates/system/csvImport.php:945
+#: v2/templates/system/csvImport.php:949
 msgid "Don't forget the <b>gender</b> and the <b>title</b>"
 msgstr "Non dimenticare il <b>genere</b> e il <b>titolo</b>"
 
-#: v2/templates/system/csvImport.php:946
+#: v2/templates/system/csvImport.php:950
 msgid ""
 "You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
 "Title column and rename the label header to gender</b>"
@@ -13734,7 +13759,7 @@ msgstr ""
 "Puoi formattare le tue colonne in Excel LibreOffice Calc e <b>duplicare la "
 "colonna Titolo e rinominare l'intestazione dell'etichetta in Sesso</b>"
 
-#: v2/templates/system/csvImport.php:947
+#: v2/templates/system/csvImport.php:951
 msgid ""
 "The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
 "a women, girl, female</b> ..."
@@ -13742,13 +13767,13 @@ msgstr ""
 "La colonna gender deve essere impostata su <b>1 per un uomo, ragazzo, "
 "maschio</b> e <b>2 per una donna, ragazza, femmina</b> ..."
 
-#: v2/templates/system/csvImport.php:950
+#: v2/templates/system/csvImport.php:954
 msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
 msgstr ""
 "Preparate il vostro CRM e aggiungete abbastanza campi personali "
 "personalizzati, per fare questo cliccate"
 
-#: v2/templates/system/csvImport.php:953
+#: v2/templates/system/csvImport.php:957
 msgid ""
 "All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
 "7/1/2018"
@@ -13756,16 +13781,16 @@ msgstr ""
 "Tutte le date dovrebbero essere formulate come: 2018-7-1 o 1/7/2018 o "
 "7-1-2018 o 7/1/2018"
 
-#: v2/templates/system/csvImport.php:960
+#: v2/templates/system/csvImport.php:964
 msgid "The next step should be, if not select the other CSV seperator"
 msgstr ""
 "Il prossimo passo dovrebbe essere, se non selezionare l'altro separatore CSV"
 
-#: v2/templates/system/csvImport.php:966 v2/templates/system/csvImport.php:1004
+#: v2/templates/system/csvImport.php:970 v2/templates/system/csvImport.php:1008
 msgid "Upload CSV File"
 msgstr "Carica il file CSV"
 
-#: v2/templates/system/csvImport.php:974
+#: v2/templates/system/csvImport.php:978
 msgid ""
 "<b>DON'T FORGET</b>\n"
 "              <br>• Your csv table must contain a <b>header</b> row with "
@@ -13780,11 +13805,11 @@ msgstr ""
 "               1235 - e la colonna  4568 gender 7899  deve essere nella "
 "forma (con 1 per il genere maschile, 2 per il genere femminile)"
 
-#: v2/templates/system/csvImport.php:979
+#: v2/templates/system/csvImport.php:983
 msgid "Select <b>NOW</b> your <b>CSV separator</b>"
 msgstr "Seleziona <b>NOW</b> il tuo <b>secondo separatore CSV</b>"
 
-#: v2/templates/system/csvImport.php:990
+#: v2/templates/system/csvImport.php:994
 msgid ""
 "• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
 "b> ......... "
@@ -13792,24 +13817,24 @@ msgstr ""
 "- Ultimo impostato correttamente tutte le date come : <b>YYYY-MM-DD o DD/MM/"
 "YYYY</b> ........."
 
-#: v2/templates/system/csvImport.php:993
+#: v2/templates/system/csvImport.php:997
 msgid "This is proposed in the next step, read carefully your table."
 msgstr ""
 "Questo è proposto nel prossimo passo, leggete attentamente la vostra tabella."
 
-#: v2/templates/system/csvImport.php:1012
+#: v2/templates/system/csvImport.php:1016
 msgid "Clear Data"
 msgstr "Cancella dati"
 
-#: v2/templates/system/csvImport.php:1015
+#: v2/templates/system/csvImport.php:1019
 msgid "Clear Persons and Families"
 msgstr "Persone e famiglie chiare"
 
-#: v2/templates/system/csvImport.php:1022
+#: v2/templates/system/csvImport.php:1026
 msgid "Data import successful."
 msgstr "Importazione dei dati riuscita."
 
-#: v2/templates/system/csvImport.php:1022
+#: v2/templates/system/csvImport.php:1026
 msgid "persons were imported"
 msgstr "le persone sono state importate"
 
@@ -13893,70 +13918,149 @@ msgstr "Non ci sono eventi in questa categoria"
 msgid "There are no Records"
 msgstr "Non ci sono Record"
 
-#: v2/templates/system/infos.php:16
-msgid "CRM Installation Information"
-msgstr "Informazioni sull'installazione del CRM"
-
-#: v2/templates/system/infos.php:21
-msgid "Software Version"
-msgstr "Versione software"
-
-#: v2/templates/system/infos.php:47
+#: v2/templates/system/infos.php:16 v2/templates/system/infos.php:77
 msgid "System Information"
 msgstr "Informazioni sul sistema"
 
-#: v2/templates/system/infos.php:105
-msgid "Web Server"
-msgstr "Server web"
+#: v2/templates/system/infos.php:17
+msgid ""
+"Review the health of your CRM installation, its technical environment and "
+"the services it uses."
+msgstr ""
+"Verifica lo stato di salute della tua installazione CRM, il suo ambiente "
+"tecnico e i servizi che utilizza."
 
-#: v2/templates/system/infos.php:136
-msgid "Database"
-msgstr "Database"
+#: v2/templates/system/infos.php:19
+msgid "Administration overview"
+msgstr "Panoramica sull'amministrazione"
 
-#: v2/templates/system/infos.php:141
-msgid "Database Version"
-msgstr "Versione del database"
-
-#: v2/templates/system/infos.php:145
-msgid "Database Server Version"
-msgstr "Versione del server di database"
-
-#: v2/templates/system/infos.php:162
+#: v2/templates/system/infos.php:25
 msgid "Application Prerequisites"
 msgstr "Prerequisiti dell'applicazione"
 
-#: v2/templates/system/infos.php:177
+#: v2/templates/system/infos.php:26
+msgid ""
+"Start here: these checks identify missing or invalid requirements before "
+"troubleshooting the application."
+msgstr ""
+"Inizia da qui: questi controlli consentono di individuare eventuali "
+"requisiti mancanti o non validi prima di procedere alla risoluzione dei "
+"problemi dell'applicazione."
+
+#: v2/templates/system/infos.php:45
+msgid "CRM Installation Information"
+msgstr "Informazioni sull'installazione del CRM"
+
+#: v2/templates/system/infos.php:46
+msgid "Paths and version details for this CRM installation."
+msgstr ""
+"Percorsi e dettagli sulla versione relativi a questa installazione del CRM."
+
+#: v2/templates/system/infos.php:51
+msgid "Software Version"
+msgstr "Versione software"
+
+#: v2/templates/system/infos.php:78
+msgid "The server environment hosting this application."
+msgstr "L'ambiente server che ospita questa applicazione."
+
+#: v2/templates/system/infos.php:102
+msgid "PHP runtime limits and execution environment."
+msgstr "Limiti di runtime di PHP e ambiente di esecuzione."
+
+#: v2/templates/system/infos.php:137
+msgid "Web Server"
+msgstr "Server web"
+
+#: v2/templates/system/infos.php:138
+msgid "Web server software and available modules."
+msgstr "Software per server web e moduli disponibili."
+
+#: v2/templates/system/infos.php:169
+msgid "Database"
+msgstr "Database"
+
+#: v2/templates/system/infos.php:170
+msgid "Database connection and server version used by the CRM."
+msgstr "Connessione al database e versione del server utilizzate dal CRM."
+
+#: v2/templates/system/infos.php:175
+msgid "Database Version"
+msgstr "Versione del database"
+
+#: v2/templates/system/infos.php:179
+msgid "Database Server Version"
+msgstr "Versione del server di database"
+
+#: v2/templates/system/infos.php:193
 msgid "Email Information"
 msgstr "Informazioni sull'e-mail"
 
-#: v2/templates/system/infos.php:186
+#: v2/templates/system/infos.php:194
+msgid "SMTP settings used to send messages from the CRM."
+msgstr "Impostazioni SMTP utilizzate per l'invio dei messaggi dal CRM."
+
+#: v2/templates/system/infos.php:203
 msgid "Valid Mail Server Settings"
 msgstr "Impostazioni valide del server di posta"
 
-#: v2/templates/system/infos.php:195
+#: v2/templates/system/infos.php:204
+msgid "Valid"
+msgstr "Valido"
+
+#: v2/templates/system/infos.php:204
+msgid "Invalid"
+msgstr "Non valido"
+
+#: v2/templates/system/infos.php:213
+msgid "Open this section to test the mail server connection."
+msgstr "Apri questa sezione per verificare la connessione al server di posta."
+
+#: v2/templates/system/infos.php:215 v2/templates/system/infos.php:217
+msgid "Show system information"
+msgstr "Mostra le informazioni di sistema"
+
+#: v2/templates/system/infos.php:222
 msgid "Testing connection ....."
 msgstr "Test di connessione ....."
 
-#: v2/templates/system/infos.php:202
+#: v2/templates/system/infos.php:236
 msgid "Application Integrity Check"
 msgstr "Controllo dell'integrità dell'applicazione"
 
-#: v2/templates/system/infos.php:205 v2/templates/system/infos.php:242
+#: v2/templates/system/infos.php:237
+msgid "Compares protected application files with their expected signatures."
+msgstr ""
+"Confronta i file protetti dell'applicazione con le relative firme previste."
+
+#: v2/templates/system/infos.php:241 v2/templates/system/infos.php:243
+msgid "Show integrity check details"
+msgstr "Mostra i dettagli del controllo di integrità"
+
+#: v2/templates/system/infos.php:259 v2/templates/system/infos.php:297
 #: v2/templates/system/integritycheck.php:87
 msgid "Details:"
 msgstr "Dettagli:"
 
-#: v2/templates/system/infos.php:210 v2/templates/system/infos.php:246
+#: v2/templates/system/infos.php:259 v2/templates/system/infos.php:297
+msgid "One or more files failed the integrity check"
+msgstr "Uno o più file non hanno superato il controllo di integrità"
+
+#: v2/templates/system/infos.php:259 v2/templates/system/infos.php:297
+msgid "All files passed the integrity check"
+msgstr "Tutti i file hanno superato il controllo di integrità"
+
+#: v2/templates/system/infos.php:264 v2/templates/system/infos.php:302
 #: v2/templates/system/integritycheck.php:93
 #: v2/templates/system/integritycheck.php:188
 msgid "Files failing integrity check"
 msgstr "File che falliscono il controllo di integrità"
 
-#: v2/templates/system/infos.php:214 v2/templates/system/infos.php:251
+#: v2/templates/system/infos.php:268 v2/templates/system/infos.php:307
 msgid "FileName"
 msgstr "NomeFile"
 
-#: v2/templates/system/infos.php:215 v2/templates/system/infos.php:252
+#: v2/templates/system/infos.php:269 v2/templates/system/infos.php:308
 #: v2/templates/system/integritycheck.php:112
 #: v2/templates/system/integritycheck.php:155
 #: v2/templates/system/integritycheck.php:207
@@ -13964,7 +14068,7 @@ msgstr "NomeFile"
 msgid "Expected Hash"
 msgstr "Hash atteso"
 
-#: v2/templates/system/infos.php:216 v2/templates/system/infos.php:253
+#: v2/templates/system/infos.php:270 v2/templates/system/infos.php:309
 #: v2/templates/system/integritycheck.php:120
 #: v2/templates/system/integritycheck.php:163
 #: v2/templates/system/integritycheck.php:215
@@ -13972,7 +14076,7 @@ msgstr "Hash atteso"
 msgid "Actual Hash"
 msgstr "Hash reale"
 
-#: v2/templates/system/infos.php:228 v2/templates/system/infos.php:267
+#: v2/templates/system/infos.php:282 v2/templates/system/infos.php:323
 #: v2/templates/system/integritycheck.php:104
 #: v2/templates/system/integritycheck.php:147
 #: v2/templates/system/integritycheck.php:199
@@ -15779,6 +15883,18 @@ msgstr "Diversi giorni"
 
 msgid "Giving Report"
 msgstr "Rapporto sulle donazioni"
+
+#~ msgid "File Manager"
+#~ msgstr "Gestore di file"
+
+#~ msgid "Database Backup"
+#~ msgstr "Backup del database"
+
+#~ msgid "Database Restore"
+#~ msgstr "Ripristino del database"
+
+#~ msgid "CSV Wizard"
+#~ msgstr "Procedura guidata CSV"
 
 #~ msgid "Letters and mailing labels for data confirmations"
 #~ msgstr "Lettere ed etichette per la conferma dei dati"

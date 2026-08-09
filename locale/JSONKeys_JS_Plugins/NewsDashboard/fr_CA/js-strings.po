@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21T13:16:21.660Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:35.053Z\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,6 +38,9 @@ msgstr "Important"
 
 msgid "Very important"
 msgstr "Très important"
+
+msgid "News"
+msgstr ""
 
 msgid "News Editor"
 msgstr "Editeur de News"

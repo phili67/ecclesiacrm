@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-06T14:05:38.823Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:49.246Z\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -291,6 +291,17 @@ msgid ""
 msgstr ""
 "Sedang memuat semua langganan kepala keluarga pertama dari "
 "EcclesiaCRM<br>Proses ini mungkin akan memakan waktu cukup lama!"
+
+#, fuzzy
+msgid "Update subscriber status"
+msgstr "Mengubah status pelanggan..."
+
+#, fuzzy
+msgid "Selected subscriber"
+msgstr "Hapus pelanggan"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr ""
 
 msgid "Changing status ..."
 msgstr "Sedang memperbarui status ..."

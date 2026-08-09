@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-06T14:04:25.740Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:21.177Z\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -279,6 +279,17 @@ msgid ""
 "could take a while !"
 msgstr ""
 "正在从 EcclesiaCRM 加载所有家庭的首任负责人订阅者<br>这可能需要一段时间！"
+
+#, fuzzy
+msgid "Update subscriber status"
+msgstr "正在更改订阅者的状态..."
+
+#, fuzzy
+msgid "Selected subscriber"
+msgstr "删除订阅者"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr ""
 
 msgid "Changing status ..."
 msgstr "正在更改状态……"

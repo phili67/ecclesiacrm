@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-06T14:05:33.008Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:46.956Z\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -289,6 +289,17 @@ msgid ""
 msgstr ""
 "Az EcclesiaCRM-ből<br> az összes család első vezetőjének előfizetőinek "
 "betöltése… Ez eltarthat egy darabig!"
+
+#, fuzzy
+msgid "Update subscriber status"
+msgstr "Az előfizetők állapotának módosítása..."
+
+#, fuzzy
+msgid "Selected subscriber"
+msgstr "Előfizető törlése"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr ""
 
 msgid "Changing status ..."
 msgstr "Állapot változik..."

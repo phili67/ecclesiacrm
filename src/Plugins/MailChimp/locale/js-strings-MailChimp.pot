@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-07-17T19:39:05.038Z\n"
-"PO-Revision-Date: 2026-07-17T19:39:05.038Z\n"
+"POT-Creation-Date: 2026-08-09T19:39:07.924Z\n"
+"PO-Revision-Date: 2026-08-09T19:39:07.924Z\n"
 
 msgid "Yes"
 msgstr ""
@@ -274,6 +274,15 @@ msgstr ""
 msgid ""
 "Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
 "could take a while !"
+msgstr ""
+
+msgid "Update subscriber status"
+msgstr ""
+
+msgid "Selected subscriber"
+msgstr ""
+
+msgid "Choose the status to apply to this subscriber."
 msgstr ""
 
 msgid "Changing status ..."

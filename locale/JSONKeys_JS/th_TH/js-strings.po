@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-07-14T16:01:01.170Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -988,6 +988,9 @@ msgstr "ผู้เข้าราชการตรวจสอบอิน"
 
 msgid "More info"
 msgstr "ข้อมูลอีก"
+
+msgid "1. Your session has expired. You will be redirected to the login page."
+msgstr ""
 
 msgid "EDrive File Browser"
 msgstr ""
@@ -2465,12 +2468,15 @@ msgstr "คำเตือน: ด้วยการลบสนามนี้ 
 msgid "Add Fund"
 msgstr "Add Fund"
 
-msgid ""
-"If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
-"u><br><b>Are you sure? This action can't be undone.</b>"
+#, fuzzy
+msgid "If you delete the fund, <b>you'll lose all the connected datas.</b>"
 msgstr ""
 "ถ้าคุณลบกองทุน<u><b>คุณจะสูญเสียความติดต่อกับทุกอย่าง</b>6781<br><b>คุณแน่ใจหรือไม่ "
 "การกระทำนี้ไม่สามารถแก้ไขได้</b>"
+
+#, fuzzy
+msgid "Are you sure? This action can't be undone."
+msgstr "คุณแน่ใจเหรอ? นี่มันไม่สามารถแก้ไขได้"
 
 msgid "Fund Editor"
 msgstr "บรรณาธิการการใช้งาน"

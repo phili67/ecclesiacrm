@@ -266,6 +266,15 @@ msgid ""
 "could take a while !"
 msgstr ""
 
+msgid "Update subscriber status"
+msgstr ""
+
+msgid "Selected subscriber"
+msgstr ""
+
+msgid "Choose the status to apply to this subscriber."
+msgstr ""
+
 msgid "Changing status ..."
 msgstr ""
 

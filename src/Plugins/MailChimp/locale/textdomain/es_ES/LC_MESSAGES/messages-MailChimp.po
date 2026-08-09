@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 08:39+0000\n"
+"POT-Creation-Date: 2026-08-08 11:30+0000\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,17 +72,17 @@ msgid "GDPR"
 msgstr "RGPD"
 
 #: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:179
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:68
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:70
 msgid "Find Duplicate Emails"
 msgstr "Buscar correos electrónicos duplicados"
 
 #: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:205
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:71
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:73
 msgid "Persons Not In MailChimp"
 msgstr "Personas que no están en MailChimp"
 
 #: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:230
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:74
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:76
 msgid "Families Not In MailChimp"
 msgstr "Familias que no están en MailChimp"
 
@@ -107,85 +107,81 @@ msgid "Unsubscribed"
 msgstr "Darse de baja"
 
 #: ../src/Plugins/MailChimp/v2/templates/campaign.php:69
-msgid "Email Campaign Management"
-msgstr "Gestión de campañas de correo electrónico"
-
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:70
 msgid "Compose content and schedule sending from one screen."
 msgstr "Redacta el contenido y programa el envío desde una sola pantalla."
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:79
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:59
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:78
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:61
 #: ../src/Plugins/MailChimp/v2/templates/managelist.php:30
 msgid "Quick actions"
 msgstr "Acciones rápidas"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:82
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:81
 msgid "Save Campaign"
 msgstr "Guardar campaña"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:85
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:84
 msgid "Send"
 msgstr "Enviar"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:88
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:87
 #: ../src/Plugins/MailChimp/v2/templates/managelist.php:48
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:97
 msgid "Mail Subject"
 msgstr "Asunto del correo electrónico"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:97
 msgid "Content"
 msgstr "Contenido"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:102
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:101
 msgid "Subject"
 msgstr "Asunto"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:104
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:103
 msgid "Your Mail Subject"
 msgstr "Asunto del correo"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:109
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:108
 msgid "You can use the button \"Merge Tags\" below, to customize your content"
 msgstr ""
 "Puedes utilizar el botón «Combinar etiquetas» que aparece a continuación "
 "para personalizar tu contenido"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:120
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:119
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:136
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:135
 msgid "Schedule"
 msgstr "Horario"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:146
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:145
 msgid "You've first to create a content below to schedule a campaign."
 msgstr ""
 "Primero tienes que crear un contenido a continuación para programar una "
 "campaña."
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:147
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:146
 msgid ""
-"Campaigns may only be scheduled to send on the quarter-hour "
-"(:00, :15, :30, :45)."
+"Campaigns may only be scheduled to send on the quarter-hour (:00, :15, :30, "
+":45)."
 msgstr ""
-"Las campañas solo pueden programarse para enviarse cada cuarto de hora "
-"(:00, :15, :30, :45)."
+"Las campañas solo pueden programarse para enviarse cada cuarto de hora (:00, "
+":15, :30, :45)."
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:150
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:149
 msgid "Date"
 msgstr "Fecha"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:159
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:158
 msgid "Time"
 msgstr "Hora"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:167
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:166
 msgid ""
 "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
 "over."
@@ -193,37 +189,33 @@ msgstr ""
 "Para validar, guarda tu campaña haciendo clic en el botón <b>«Guardar "
 "campaña»</b>."
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:16
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
 msgid "MailChimp Problem"
 msgstr "Problema con MailChimp"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
 msgid "Mailchimp Status"
 msgstr "Estado de Mailchimp"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
 msgid "Title"
 msgstr "Título"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
 msgid "status"
 msgstr "estado"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:19
 msgid "detail"
 msgstr "detalle"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:28
 msgid "field"
 msgstr "campo"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:28
 msgid "Message"
 msgstr "Mensaje"
-
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:43
-msgid "MailChimp Management"
-msgstr "Gestión de MailChimp"
 
 #: ../src/Plugins/MailChimp/v2/templates/dashboard.php:44
 msgid "Create audiences, sync contacts, and manage campaign data."
@@ -231,37 +223,37 @@ msgstr ""
 "Crea segmentaciones, sincroniza contactos y gestiona los datos de las "
 "campañas."
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:52
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:54
 msgid "MailChimp is working correctly"
 msgstr "MailChimp funciona correctamente"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:61
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:63
 msgid "Create an audience or List"
 msgstr "Crear un grupo de destinatarios o una lista"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:62
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:64
 msgid "Create list"
 msgstr "Crear lista"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:65
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:67
 msgid "Generate CSV"
 msgstr "Generar CSV"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:82
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:84
 msgid "You can import the generated CSV file to external email system."
 msgstr ""
 "Puedes importar el archivo CSV generado a un sistema de correo electrónico "
 "externo."
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:83
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:85
 msgid "For MailChimp see"
 msgstr "Para MailChimp, consulta"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:84
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:86
 msgid "import subscribers to a list."
 msgstr "Importar suscriptores a una lista."
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:90
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:92
 msgid "All your lists"
 msgstr "Todas tus listas"
 
@@ -628,3 +620,9 @@ msgstr "Aún no hay cambios locales."
 #: ../src/Plugins/MailChimp/v2/templates/settings.php:245
 msgid "Save MailChimp settings"
 msgstr "Guardar la configuración de MailChimp"
+
+#~ msgid "Email Campaign Management"
+#~ msgstr "Gestión de campañas de correo electrónico"
+
+#~ msgid "MailChimp Management"
+#~ msgstr "Gestión de MailChimp"

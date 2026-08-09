@@ -3464,6 +3464,15 @@ msgstr "警告"
 msgid "Please select a file first"
 msgstr "请先选择一个文件"
 
+msgid "1. Your session has expired. You will be redirected to the login page."
+msgstr "1. 您的会话已过期。您将被重定向至登录页面。"
+
+msgid "If you delete the fund, <b>you'll lose all the connected datas.</b>"
+msgstr "如果您删除该基金，<b>您将丢失所有相关数据。</b>"
+
+msgid "Are you sure? This action can't be undone."
+msgstr "您确定吗？此操作无法撤销。"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

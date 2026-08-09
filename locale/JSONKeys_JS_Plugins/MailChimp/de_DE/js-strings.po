@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-06T14:05:27.374Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:44.748Z\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,6 +294,17 @@ msgid ""
 msgstr ""
 "Alle Abonnenten der Familienoberhäupter aus EcclesiaCRM werden geladen "
 "<br>Das kann eine Weile dauern!"
+
+#, fuzzy
+msgid "Update subscriber status"
+msgstr "Status der Abonnenten wird geändert..."
+
+#, fuzzy
+msgid "Selected subscriber"
+msgstr "Abonnenten löschen"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr ""
 
 msgid "Changing status ..."
 msgstr "Status wird geändert ..."

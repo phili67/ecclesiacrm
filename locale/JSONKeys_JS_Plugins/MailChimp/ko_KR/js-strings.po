@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-06T14:06:50.038Z\n"
+"POT-Creation-Date: 2026-08-09T17:51:18.616Z\n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -286,6 +286,17 @@ msgid ""
 msgstr ""
 "EcclesiaCRM에서 모든 가족의 대표자 및 구독자 목록을 불러오고 있습니다<br>조"
 "금 시간이 걸릴 수 있습니다!"
+
+#, fuzzy
+msgid "Update subscriber status"
+msgstr "구독자 상태 변경 중..."
+
+#, fuzzy
+msgid "Selected subscriber"
+msgstr "구독자 삭제"
+
+msgid "Choose the status to apply to this subscriber."
+msgstr ""
 
 msgid "Changing status ..."
 msgstr "상태 변경 중..."

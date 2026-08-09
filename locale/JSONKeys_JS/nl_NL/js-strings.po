@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-07-14T16:01:01.170Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -994,6 +994,9 @@ msgstr "Deelnemers ingecheckt"
 
 msgid "More info"
 msgstr "Meer info"
+
+msgid "1. Your session has expired. You will be redirected to the login page."
+msgstr "1. Je sessie is verlopen. Je wordt doorgestuurd naar de inlogpagina."
 
 msgid "EDrive File Browser"
 msgstr "EDrive-bestandsbrowser"
@@ -2422,12 +2425,12 @@ msgstr ""
 msgid "Add Fund"
 msgstr "Fonds toevoegen"
 
-msgid ""
-"If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
-"u><br><b>Are you sure? This action can't be undone.</b>"
+msgid "If you delete the fund, <b>you'll lose all the connected datas.</b>"
 msgstr ""
-"Als u het fonds verwijdert, <u><b>verliest u alle gekoppelde gegevens.</b></"
-"u><br><b>Weet u het zeker? Deze actie kan niet ongedaan worden gemaakt.</b>"
+"Als je het fonds verwijdert, <b>raak je alle bijbehorende gegevens kwijt.</b>"
+
+msgid "Are you sure? This action can't be undone."
+msgstr "Weet je het zeker? Deze handeling kan niet ongedaan worden gemaakt."
 
 msgid "Fund Editor"
 msgstr "Fondsredacteur"

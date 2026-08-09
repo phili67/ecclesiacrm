@@ -28,6 +28,9 @@ msgstr ""
 msgid "Very important"
 msgstr ""
 
+msgid "News"
+msgstr ""
+
 msgid "News Editor"
 msgstr ""
 

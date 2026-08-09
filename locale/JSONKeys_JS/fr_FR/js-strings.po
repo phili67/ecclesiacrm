@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-07-14T16:01:01.170Z\n"
+"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -996,6 +996,11 @@ msgstr "Participants à un Appel non validés"
 
 msgid "More info"
 msgstr "Plus d'info"
+
+msgid "1. Your session has expired. You will be redirected to the login page."
+msgstr ""
+"1. Votre session a expiré. Vous allez être redirigé(e) vers la page de "
+"connexion."
 
 msgid "EDrive File Browser"
 msgstr "Navigateur de fichiers EDrive"
@@ -2441,12 +2446,12 @@ msgstr ""
 msgid "Add Fund"
 msgstr "Ajouter un fond"
 
-msgid ""
-"If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
-"u><br><b>Are you sure? This action can't be undone.</b>"
+msgid "If you delete the fund, <b>you'll lose all the connected datas.</b>"
 msgstr ""
-"Si vous effacez ce fond, <u><b>Vous perdrez toutes les données associées.</"
-"b></u><br><b>Etes-vous sûr ? Cette action est irréversible.</b>"
+"Si vous supprimez le fonds, <b>vous perdrez toutes les données associées.</b>"
+
+msgid "Are you sure? This action can't be undone."
+msgstr "Vous êtes sûr ? Cette action est irréversible."
 
 msgid "Fund Editor"
 msgstr "Editeur de fond"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 08:37+0000\n"
+"POT-Creation-Date: 2026-08-08 11:30+0000\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,17 +72,17 @@ msgid "GDPR"
 msgstr "《通用数据保护条例》（GDPR）"
 
 #: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:179
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:68
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:70
 msgid "Find Duplicate Emails"
 msgstr "查找重复的电子邮件"
 
 #: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:205
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:71
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:73
 msgid "Persons Not In MailChimp"
 msgstr "未在 MailChimp 中的联系人"
 
 #: ../src/Plugins/MailChimp/core/VIEWControllers/VIEWMailchimpController.php:230
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:74
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:76
 msgid "Families Not In MailChimp"
 msgstr "未在 MailChimp 中的家庭"
 
@@ -107,149 +107,141 @@ msgid "Unsubscribed"
 msgstr "已取消订阅"
 
 #: ../src/Plugins/MailChimp/v2/templates/campaign.php:69
-msgid "Email Campaign Management"
-msgstr "电子邮件营销活动管理"
-
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:70
 msgid "Compose content and schedule sending from one screen."
 msgstr "在一个界面中即可撰写内容并安排发送。"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:79
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:59
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:78
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:61
 #: ../src/Plugins/MailChimp/v2/templates/managelist.php:30
 msgid "Quick actions"
 msgstr "快速操作"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:82
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:81
 msgid "Save Campaign"
 msgstr "保存活动"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:85
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:84
 msgid "Send"
 msgstr "发送"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:88
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:87
 #: ../src/Plugins/MailChimp/v2/templates/managelist.php:48
 msgid "Delete"
 msgstr "删除"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:97
 msgid "Mail Subject"
 msgstr "邮件主题"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:98
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:97
 msgid "Content"
 msgstr "内容"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:102
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:101
 msgid "Subject"
 msgstr "主题"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:104
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:103
 msgid "Your Mail Subject"
 msgstr "您的邮件主题"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:109
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:108
 msgid "You can use the button \"Merge Tags\" below, to customize your content"
 msgstr "您可以使用下方的“合并标签”按钮，来自定义您的内容"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:120
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:119
 msgid "Tags"
 msgstr "标签"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:136
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:135
 msgid "Schedule"
 msgstr "日程安排"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:146
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:145
 msgid "You've first to create a content below to schedule a campaign."
 msgstr "您需要先在下方创建内容，才能安排活动。"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:147
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:146
 msgid ""
-"Campaigns may only be scheduled to send on the quarter-hour "
-"(:00, :15, :30, :45)."
+"Campaigns may only be scheduled to send on the quarter-hour (:00, :15, :30, "
+":45)."
 msgstr "营销活动只能安排在每15分钟整（:00、:15、:30、:45）发送。"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:150
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:149
 msgid "Date"
 msgstr "日期"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:159
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:158
 msgid "Time"
 msgstr "时间"
 
-#: ../src/Plugins/MailChimp/v2/templates/campaign.php:167
+#: ../src/Plugins/MailChimp/v2/templates/campaign.php:166
 msgid ""
 "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
 "over."
 msgstr "要进行验证，请点击<b>“保存活动”</b>按钮保存您的活动。"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:16
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
 msgid "MailChimp Problem"
 msgstr "MailChimp 问题"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
 msgid "Mailchimp Status"
 msgstr "Mailchimp 状态"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
 msgid "Title"
 msgstr "标题"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:17
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
 msgid "status"
 msgstr "状态"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:18
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:19
 msgid "detail"
 msgstr "详情"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:28
 msgid "field"
 msgstr "字段"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:27
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:28
 msgid "Message"
 msgstr "消息"
-
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:43
-msgid "MailChimp Management"
-msgstr "MailChimp 管理"
 
 #: ../src/Plugins/MailChimp/v2/templates/dashboard.php:44
 msgid "Create audiences, sync contacts, and manage campaign data."
 msgstr "创建受众群体、同步联系人并管理营销活动数据。"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:52
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:54
 msgid "MailChimp is working correctly"
 msgstr "MailChimp 运行正常"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:61
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:63
 msgid "Create an audience or List"
 msgstr "创建受众或列表"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:62
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:64
 msgid "Create list"
 msgstr "创建列表"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:65
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:67
 msgid "Generate CSV"
 msgstr "生成 CSV"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:82
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:84
 msgid "You can import the generated CSV file to external email system."
 msgstr "您可以将生成的 CSV 文件导入到外部邮件系统中。"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:83
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:85
 msgid "For MailChimp see"
 msgstr "关于 MailChimp，请参阅"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:84
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:86
 msgid "import subscribers to a list."
 msgstr "将订阅者导入列表。"
 
-#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:90
+#: ../src/Plugins/MailChimp/v2/templates/dashboard.php:92
 msgid "All your lists"
 msgstr "您的所有列表"
 
@@ -592,3 +584,9 @@ msgstr "目前尚未进行本地修改。"
 #: ../src/Plugins/MailChimp/v2/templates/settings.php:245
 msgid "Save MailChimp settings"
 msgstr "保存 MailChimp 设置"
+
+#~ msgid "Email Campaign Management"
+#~ msgstr "电子邮件营销活动管理"
+
+#~ msgid "MailChimp Management"
+#~ msgstr "MailChimp 管理"
