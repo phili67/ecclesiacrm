@@ -20,14 +20,14 @@ use EcclesiaCRM\Utils\MiscUtils;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+
+<div class="alert alert-light border d-flex align-items-start mb-4">
+    <i class="fas fa-lightbulb text-primary mt-1 mr-3"></i>
     <div>
-        <p class="text-muted mb-0"><?= _('Manage your files, previews and internal sharing from one place.') ?></p>
+        <strong class="d-block mb-1"><?= _('EDrive workspace') ?></strong>
+        <span class="text-muted"><?= _('Manage your files, previews and internal sharing from one place.') ?></span>
     </div>
-    <div class="text-muted small">
-        <i class="fas fa-cloud mr-1"></i><?= _('EDrive workspace') ?>
-    </div>
-</div>
+</div>    
 
 <div class="card shadow-sm">
     <div class="card-body">
