@@ -827,10 +827,12 @@ $(function () {
                 filesToUpload.forEach((file, index) => {
                     const formData = new FormData();
                     formData.append('noteInputFile', file);
+                    formData.append('csrfToken', window.CRM.csrfToken);
 
                     const req = new XMLHttpRequest();
                     req.open('POST', window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID);
                     req.setRequestHeader('Authorization', 'Bearer ' + window.CRM.jwtToken);
+                    req.setRequestHeader('X-CSRF-Token', window.CRM.csrfToken);
                     req.ecrmPlace = index;
 
                     req.upload.addEventListener('progress', (event) => {

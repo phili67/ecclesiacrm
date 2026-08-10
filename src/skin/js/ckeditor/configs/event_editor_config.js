@@ -4,8 +4,10 @@
  */
 
 CKEDITOR.editorConfig = function (config) {
+    config.fileTools_requestHeaders = { 'X-CSRF-Token': window.CRM.csrfToken };
     config.height = '250px';
     config.contentsCss = window.CRM.contentsExternalCssFont;
+    config.versionCheck = false;
 
     var documentTools = ['Preview', 'Print'];
 

@@ -957,6 +957,15 @@ class DocumentFileManagerController
             return $response->withStatus(401);
         }
 
+        $parsedBody = $request->getParsedBody();
+        $csrfToken = $request->getHeaderLine('X-CSRF-Token');
+        if ($csrfToken === '' && is_array($parsedBody)) {
+            $csrfToken = $parsedBody['csrfToken'] ?? '';
+        }
+        if (!DocumentSecurityUtils::isValidCsrfToken($csrfToken)) {
+            return $this->buildUploadErrorResponse($response, _('Invalid CSRF token.'), 403);
+        }
+
         $user = UserQuery::create()->findPk($args['personID']);
 
         if (is_null($user)) {

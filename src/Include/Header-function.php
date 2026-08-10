@@ -21,6 +21,7 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\DocumentSecurityUtils;
 
 use EcclesiaCRM\Theme;
 use EcclesiaCRM\Utils\GeoUtils;
@@ -224,6 +225,7 @@ function Header_body_scripts()
             all_plugins_i18keys: <?= $pluginInfos['pluginNames'] ?>,
             isMailerAvailable: <?= $pluginInfos['isMailerAvalaible'] ?>,
             jwtToken: '<?= SessionUser::getUser()->getJwtTokenForApi() ?>',
+            csrfToken: <?= json_encode(DocumentSecurityUtils::getCsrfToken(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>,
             plugin: {
                 dataTable : {
                    "language": {

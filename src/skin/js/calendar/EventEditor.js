@@ -444,6 +444,7 @@ function installAndfinishEventEditorWindow() {
             uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
             imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
             filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+            fileTools_requestHeaders: { 'X-CSRF-Token': window.CRM.csrfToken },
             filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments',
             skin:theme
         });

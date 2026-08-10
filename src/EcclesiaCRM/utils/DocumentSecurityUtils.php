@@ -4,6 +4,21 @@ namespace EcclesiaCRM\Utils;
 
 class DocumentSecurityUtils
 {
+    public static function getCsrfToken(): string
+    {
+        if (empty($_SESSION['DocumentCsrfToken'])) {
+            $_SESSION['DocumentCsrfToken'] = bin2hex(random_bytes(32));
+        }
+
+        return $_SESSION['DocumentCsrfToken'];
+    }
+
+    public static function isValidCsrfToken(?string $token): bool
+    {
+        return is_string($token)
+            && hash_equals(self::getCsrfToken(), $token);
+    }
+
     private const FORBIDDEN_UPLOAD_EXTENSIONS = [
         'php', 'php3', 'php4', 'php5', 'php7', 'php8', 'phtml', 'phar', 'js', 'mjs', 'cjs',
         'jsp', 'asp', 'aspx', 'cgi', 'pl', 'py', 'sh', 'bash', 'exe', 'com', 'jar', 'msi',

@@ -5,9 +5,11 @@
  */
 
 CKEDITOR.editorConfig = function (config) {
+    config.fileTools_requestHeaders = { 'X-CSRF-Token': window.CRM.csrfToken };
     config.height = '400px';
     config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
     config.contentsCss = window.CRM.contentsExternalCssFont;
+    config.versionCheck = false;
 
     //the next line add the new font to the combobox in CKEditor
     config.font_names = "Arial/Arial, Helvetica, sans-serif;Comic Sans MS/Comic Sans MS, cursive;Courier New/Courier New, Courier, monospace;Georgia/Georgia, serif;Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;Tahoma/Tahoma, Geneva, sans-serif;Times New Roman/Times New Roman, Times, serif;Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;Verdana/Verdana, Geneva, sans-serif";
