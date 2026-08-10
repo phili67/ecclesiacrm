@@ -14,6 +14,7 @@ require_once 'Header-Security.php';
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\DocumentSecurityUtils;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -32,7 +33,8 @@ use EcclesiaCRM\SessionUser;
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         window.CRM = {
             root: "<?= SystemURLs::getRootPath() ?>",
-            jwtToken: '<?= SessionUser::getUser()->getJwtTokenForApi() ?>'
+            jwtToken: '<?= SessionUser::getUser()->getJwtTokenForApi() ?>',
+            csrfToken: <?= json_encode(DocumentSecurityUtils::getCsrfToken(), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>
         };
     </script>
     <?php if (isset($css_files)) {

@@ -33,6 +33,7 @@ $(function() {
                     uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
                     imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
                     filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
+                    fileTools_requestHeaders: { 'X-CSRF-Token': window.CRM.csrfToken },
                     filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=privateDocuments',
                     skin: theme
                 });

@@ -49,6 +49,11 @@ if ( ! (SessionUser::isActive() && SessionUser::getUser()->isEDrive()) ) {
   return;
 }
 
+$csrfToken = $_SERVER['HTTP_X_CSRF_TOKEN'] ?? ($_POST['csrfToken'] ?? null);
+if (!DocumentSecurityUtils::isValidCsrfToken(is_string($csrfToken) ? $csrfToken : null)) {
+  uploadErrorResponse('Invalid CSRF token.', 403);
+}
+
 
 $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
 
