@@ -57,6 +57,13 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-enable imagick
 
+# install libreoffice for doc office preview 
+RUN apt-get update && apt-get install -y \
+    libreoffice-impress \
+    libreoffice-core \
+    libreoffice-writer \
+    libreoffice-calc
+
 # Other PHP8 Extensions
 
 RUN docker-php-ext-install pdo_mysql && \

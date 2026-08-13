@@ -368,7 +368,9 @@ class DocumentFileManagerController
                 
                 if (is_link("$currentNoteDir/$file")) {
                     $item['link'] = true;
-                }                
+                }    
+                
+                $isSOfficeInstalled = MiscUtils::isSofficeInstalled();
 
                 if (!(
                     strtolower($extension) == 'mp4' || strtolower($extension) == 'mov' || strtolower($extension) == 'ogg' || strtolower($extension) == 'm4a'
@@ -376,8 +378,11 @@ class DocumentFileManagerController
                     || strtolower($extension) == 'php' || strtolower($extension) == 'js' || strtolower($extension) == 'mm' || strtolower($extension) == 'vcf'
                     || strtolower($extension) == 'pdf' || strtolower($extension) == 'mp3' || strtolower($extension) == 'py' || strtolower($extension) == 'ru'
                     || strtolower($extension) == 'm' || strtolower($extension) == 'vbs' || strtolower($extension) == 'admx' || strtolower($extension) == 'adml'
-                    || strtolower($extension) == 'ics' || strtolower($extension) == 'csv' || strtolower($extension) == 'sql' || strtolower($extension) == 'docx'
-                    || strtolower($extension) == 'xlsx' || strtolower($extension) == 'xls' || strtolower($extension) == 'pptx' || strtolower($extension) == 'rtf'
+                    || strtolower($extension) == 'ics' || strtolower($extension) == 'csv' || strtolower($extension) == 'sql' 
+                    || strtolower($extension) == 'docx' || (strtolower($extension) == 'doc' && $isSOfficeInstalled)
+                    || strtolower($extension) == 'xlsx' || (strtolower($extension) == 'xls' && $isSOfficeInstalled)
+                    || strtolower($extension) == 'pptx' || (strtolower($extension) == 'ppt' && $isSOfficeInstalled)
+                    || strtolower($extension) == 'rtf'
                 )) {
                     $res = MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath() . "/api/filemanager/getFile/" . $params->personID . "/" . $userName . $currentPath . $params->name);
 
