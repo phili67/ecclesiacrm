@@ -23,7 +23,7 @@ module.exports = function (grunt) {
         return DTLangs.toString();
     };
 
-    const sass = require('node-sass');
+    const sass = require('sass');
 
     var datatTablesVer = "1.12.1";
 
