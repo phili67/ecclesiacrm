@@ -64,6 +64,12 @@ src/Plugins/NewsDashboard/core/model/Map
 src/Plugins/ToDoListDashboard/core/model/Base
 src/Plugins/ToDoListDashboard/core/model/Map
 
+src/Plugins/MailChimp/core/model/Base/
+src/Plugins/MeetingJitsi/core/model/Base/
+src/Plugins/NewsDashboard/core/model/Base/
+src/Plugins/NoteDashboard/core/model/Base/
+src/Plugins/ToDoListDashboard/core/model/Base/
+
 src/signatures.json
 src/integrityCheck.json
 src/tmp_attach
@@ -97,7 +103,6 @@ package-lock.json
 ._.DS_Store
 
 # ignore
-
 upload-71-plateform.sh
 upload-github-release.sh
 upload-imathgeo.com
