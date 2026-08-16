@@ -95,14 +95,17 @@ class MiscUtils
     /**
      * Remove the directory and its content (all files and subdirectories), useFull in system upgrade.
      * @param string $path the directory name
+     * @param bool $contentOnly if true, only the content of the directory will be removed, not the directory itself
      */
-    public static function removeDirectory($path)
+    public static function removeDirectory($path, $contentOnly = false)
     {
         $files = glob($path . '/*');
         foreach ($files as $file) {
-            is_dir($file) ? self::removeDirectory($file) : unlink($file);
+            is_dir($file) ? self::removeDirectory($file, false) : unlink($file);
         }
-        rmdir($path);
+        if (!$contentOnly) {
+            rmdir($path);
+        }
     }
 
     // Generates SQL for custom field update
