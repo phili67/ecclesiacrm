@@ -782,6 +782,96 @@ class MiscUtils
         return $tmpDirectory;
     }
 
+    private static function getOfficePreviewCachePath(string $sourcePath, string $extension): ?string
+    {
+        if (!is_file($sourcePath)) {
+            return null;
+        }
+
+        $sourceKey = sha1($sourcePath);
+        $versionKey = sha1($extension . '|' . filesize($sourcePath) . '|' . filemtime($sourcePath));
+        return self::temporyDirectory() . DIRECTORY_SEPARATOR . 'filemanager-office-' . $sourceKey . '-' . $versionKey . '.pdf';
+    }
+
+    private static function convertOfficeFileToPdf(string $sourcePath, string $extension): ?string
+    {
+        $generatedPdfPath = self::getOfficePreviewCachePath($sourcePath, $extension);
+        if ($generatedPdfPath === null) {
+            return null;
+        }
+
+        if (is_file($generatedPdfPath) && filesize($generatedPdfPath) > 0) {
+            return $generatedPdfPath;
+        }
+
+        $filename = pathinfo($generatedPdfPath, PATHINFO_FILENAME);
+        $temporaryDirectory = self::temporyDirectory() . DIRECTORY_SEPARATOR;
+        $temporarySourcePath = $temporaryDirectory . $filename . '.' . $extension;
+        if (!copy($sourcePath, $temporarySourcePath)) {
+            LoggerUtils::getAppLogger()->error("Unable to copy office file to $temporarySourcePath");
+            return null;
+        }
+
+        $profileDirectory = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'soffice-' . $filename;
+        mkdir($profileDirectory, 0700, true);
+        $command = 'soffice --headless -env:UserInstallation=' . escapeshellarg('file://' . $profileDirectory)
+            . ' --convert-to pdf --outdir ' . escapeshellarg($temporaryDirectory)
+            . ' ' . escapeshellarg($temporarySourcePath);
+        $commandOutput = [];
+        $exitCode = 0;
+        exec($command . ' 2>&1', $commandOutput, $exitCode);
+
+        if (is_dir($profileDirectory)) {
+            self::delTree($profileDirectory);
+        }
+        if (is_file($temporarySourcePath)) {
+            unlink($temporarySourcePath);
+        }
+
+        LoggerUtils::getAppLogger()->info('soffice exit code: ' . $exitCode);
+        LoggerUtils::getAppLogger()->info('soffice output: ' . implode("\n", $commandOutput));
+        if ($exitCode !== 0 || !is_file($generatedPdfPath) || filesize($generatedPdfPath) === 0) {
+            LoggerUtils::getAppLogger()->error('soffice failed to generate ' . $generatedPdfPath);
+            return null;
+        }
+
+        return $generatedPdfPath;
+    }
+
+    public static function removeOfficePreviewCache(string $sourcePath): void
+    {
+        if (is_dir($sourcePath)) {
+            $iterator = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS)
+            );
+            foreach ($iterator as $fileInfo) {
+                if ($fileInfo->isFile()) {
+                    self::removeOfficePreviewCache($fileInfo->getPathname());
+                }
+            }
+            return;
+        }
+
+        if (is_file($sourcePath)) {
+            $extension = pathinfo($sourcePath, PATHINFO_EXTENSION);
+            foreach (array_unique([$extension, strtolower($extension), strtoupper($extension)]) as $extensionVariant) {
+                $legacyCacheKey = sha1($sourcePath . '|' . filesize($sourcePath) . '|' . filemtime($sourcePath) . '|' . $extensionVariant);
+                $legacyCachePath = self::temporyDirectory() . DIRECTORY_SEPARATOR . 'filemanager-office-' . $legacyCacheKey . '.pdf';
+                if (is_file($legacyCachePath)) {
+                    unlink($legacyCachePath);
+                }
+            }
+        }
+
+        $sourceKey = sha1($sourcePath);
+        $cachePattern = self::temporyDirectory() . DIRECTORY_SEPARATOR . 'filemanager-office-' . $sourceKey . '-*.pdf';
+        foreach (glob($cachePattern) ?: [] as $cachePath) {
+            if (is_file($cachePath)) {
+                unlink($cachePath);
+            }
+        }
+    }
+
     public static function simpleEmbedFiles($path, $realPath = NULL, $height = '200px')
     {        
         $filename = basename($path);
@@ -791,12 +881,13 @@ class MiscUtils
 
         $res = "";
 
-        // clean the directory
-        $tmpDirectory = self::temporyDirectory();
-        
-        foreach (new \DirectoryIterator($tmpDirectory) as $fileInfo) {
-            if (!$fileInfo->isDot()) {
-                unlink($fileInfo->getPathname());
+        foreach (new \DirectoryIterator(self::temporyDirectory()) as $fileInfo) {
+            if (!$fileInfo->isDot() && $fileInfo->isFile()) {
+                $temporaryFilename = $fileInfo->getFilename();
+                if (strpos($temporaryFilename, 'eventworkflow-') !== 0
+                    && strpos($temporaryFilename, 'filemanager-office-') !== 0) {
+                    unlink($fileInfo->getPathname());
+                }
             }
         }
 
@@ -881,65 +972,33 @@ class MiscUtils
                 break;            
             case "docx":
                 if (self::isSofficeInstalled()) {
-                    LoggerUtils::getAppLogger()->info("Je démarre la conversion du fichier PPTX en PDF avec soffice");
-                    $filename = MiscUtils::gen_uuid();
-
+                    LoggerUtils::getAppLogger()->info("Je démarre la conversion du fichier DOCX en PDF avec soffice");
                     $sourcePath = SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath;
-                    $temporaryDirectory = SystemURLs::getDocumentRoot() . "/Images/tmp/";
-                    $temporaryDocxPath = $temporaryDirectory . $filename . ".docx";
-                    if (!copy($sourcePath, $temporaryDocxPath)) {
-                        LoggerUtils::getAppLogger()->error("Unable to copy DOCX file to $temporaryDocxPath");
+                    $generatedPdfPath = self::convertOfficeFileToPdf($sourcePath, 'docx');
+                    if ($generatedPdfPath === null) {
                         break;
                     }
-
-                    LoggerUtils::getAppLogger()->info("Converting $temporaryDocxPath to PDF using soffice");
-
-                    $profileDirectory = sys_get_temp_dir() . DIRECTORY_SEPARATOR . "soffice-" . $filename;
-                    mkdir($profileDirectory, 0700, true);
-                    $profileUri = "file://" . $profileDirectory;
-                    $command = "soffice --headless -env:UserInstallation=" . escapeshellarg($profileUri)
-                        . " --convert-to pdf --outdir " . escapeshellarg($temporaryDirectory)
-                        . " " . escapeshellarg($temporaryDocxPath);
-
-                    $generatedPdfPath = $temporaryDirectory . $filename . ".pdf";
-
-                    LoggerUtils::getAppLogger()->info("Executing command: $command");
-
-                    LoggerUtils::getAppLogger()->info("Output PDF will be saved to $generatedPdfPath");
-                    $commandOutput = [];
-                    $exitCode = 0;
-                    exec($command . " 2>&1", $commandOutput, $exitCode);
-                    if (is_dir($profileDirectory)) {
-                        self::delTree($profileDirectory);
-                    }
-                    LoggerUtils::getAppLogger()->info("soffice exit code: $exitCode");
-                    LoggerUtils::getAppLogger()->info("soffice output: " . implode("\n", $commandOutput));
-                    if ($exitCode !== 0) {
-                        LoggerUtils::getAppLogger()->error("soffice failed with exit code $exitCode");
-                        break;
-                    }
-                    if (!file_exists($generatedPdfPath)) {
-                        LoggerUtils::getAppLogger()->error("soffice completed but did not generate $generatedPdfPath");
-                        break;
-                    }
-                    unlink($temporaryDocxPath);
-                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . basename($generatedPdfPath);
                 } else {
                     // Read contents                          
-                    $phpWord = PHPWordIOFactory::load(SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath);
+                    $sourcePath = SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath;
+                    $generatedPdfPath = self::getOfficePreviewCachePath($sourcePath, 'docx');
+                    if ($generatedPdfPath === null) {
+                        break;
+                    }
 
-                    $rendererName = \PhpOffice\PhpWord\Settings::PDF_RENDERER_TCPDF;
-                    $rendererLibraryPath = SystemURLs::getDocumentRoot() . ('/vendor/tecnickcom/tcpdf');
-                    \PhpOffice\PhpWord\Settings::setPdfRenderer($rendererName, $rendererLibraryPath);
+                    if (!is_file($generatedPdfPath) || filesize($generatedPdfPath) === 0) {
+                        $phpWord = PHPWordIOFactory::load($sourcePath);
 
-                    $objWriter = PHPWordIOFactory::createWriter($phpWord, 'PDF');
+                        $rendererName = \PhpOffice\PhpWord\Settings::PDF_RENDERER_TCPDF;
+                        $rendererLibraryPath = SystemURLs::getDocumentRoot() . ('/vendor/tecnickcom/tcpdf');
+                        \PhpOffice\PhpWord\Settings::setPdfRenderer($rendererName, $rendererLibraryPath);
 
-                    $filename = MiscUtils::gen_uuid();
-                    $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
-                    $objWriter->save($realPath);
+                        $objWriter = PHPWordIOFactory::createWriter($phpWord, 'PDF');
+                        $objWriter->save($generatedPdfPath);
+                    }
 
-
-                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . basename($generatedPdfPath);
                 }
 
                 $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
@@ -1047,55 +1106,26 @@ class MiscUtils
             case "xls":
             case "xlsx":
                 if (self::isSofficeInstalled()) {
-                    LoggerUtils::getAppLogger()->info("Je démarre la conversion du fichier PPTX en PDF avec soffice");
-                    $filename = MiscUtils::gen_uuid();
-
+                    LoggerUtils::getAppLogger()->info("Je démarre la conversion du fichier XLSX en PDF avec soffice");
                     $sourcePath = SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath;
-                    $temporaryDirectory = SystemURLs::getDocumentRoot() . "/Images/tmp/";
-                    $temporaryXlsxPath = $temporaryDirectory . $filename . ".docx";
-                    if (!copy($sourcePath, $temporaryXlsxPath)) {
-                        LoggerUtils::getAppLogger()->error("Unable to copy XLSX file to $temporaryXlsxPath");
+                    $generatedPdfPath = self::convertOfficeFileToPdf($sourcePath, $extension);
+                    if ($generatedPdfPath === null) {
                         break;
                     }
-
-                    LoggerUtils::getAppLogger()->info("Converting $temporaryXlsxPath to PDF using soffice");
-
-                    $profileDirectory = sys_get_temp_dir() . DIRECTORY_SEPARATOR . "soffice-" . $filename;
-                    mkdir($profileDirectory, 0700, true);
-                    $profileUri = "file://" . $profileDirectory;
-                    $command = "soffice --headless -env:UserInstallation=" . escapeshellarg($profileUri)
-                        . " --convert-to pdf --outdir " . escapeshellarg($temporaryDirectory)
-                        . " " . escapeshellarg($temporaryXlsxPath);
-
-                    $generatedPdfPath = $temporaryDirectory . $filename . ".pdf";
-
-                    LoggerUtils::getAppLogger()->info("Executing command: $command");
-
-                    LoggerUtils::getAppLogger()->info("Output PDF will be saved to $generatedPdfPath");
-                    $commandOutput = [];
-                    $exitCode = 0;
-                    exec($command . " 2>&1", $commandOutput, $exitCode);
-                    if (is_dir($profileDirectory)) {
-                        self::delTree($profileDirectory);
-                    }
-                    LoggerUtils::getAppLogger()->info("soffice exit code: $exitCode");
-                    LoggerUtils::getAppLogger()->info("soffice output: " . implode("\n", $commandOutput));
-                    if ($exitCode !== 0) {
-                        LoggerUtils::getAppLogger()->error("soffice failed with exit code $exitCode");
-                        break;
-                    }
-                    if (!file_exists($generatedPdfPath)) {
-                        LoggerUtils::getAppLogger()->error("soffice completed but did not generate $generatedPdfPath");
-                        break;
-                    }
-                    unlink($temporaryXlsxPath);
-                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . basename($generatedPdfPath);
                 } else {
                 // Read contents                          
-                    $spreadsheet = PHPSpreadSheetIOFactory::load(SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath);
+                    $sourcePath = SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath;
+                    $generatedPdfPath = self::getOfficePreviewCachePath($sourcePath, $extension);
+                    if ($generatedPdfPath === null) {
+                        break;
+                    }
 
-                    $xls_data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-                    $sheet = $spreadsheet->getActiveSheet();
+                    if (!is_file($generatedPdfPath) || filesize($generatedPdfPath) === 0) {
+                        $spreadsheet = PHPSpreadSheetIOFactory::load($sourcePath);
+
+                        $xls_data = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+                        $sheet = $spreadsheet->getActiveSheet();
 
                         $sheet->setShowGridlines(true);
 
@@ -1134,14 +1164,11 @@ class MiscUtils
                         ->setColor(new Color('000000'));
 
                     PHPSpreadSheetIOFactory::registerWriter('Pdf', PHPSpreadSheePDF\Tcpdf::class);
-                    $objWriter = new PHPSpreadSheePDF\Tcpdf($spreadsheet);
+                        $objWriter = new PHPSpreadSheePDF\Tcpdf($spreadsheet);
+                        $objWriter->save($generatedPdfPath);
+                    }
 
-                    $filename = MiscUtils::gen_uuid();
-                    $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
-                    $objWriter->save($realPath);
-
-
-                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . basename($generatedPdfPath);
                 }
 
                 $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
@@ -1206,62 +1233,28 @@ class MiscUtils
             case "pptx":
                 if (self::isSofficeInstalled()) {
                     LoggerUtils::getAppLogger()->info("Je démarre la conversion du fichier PPTX en PDF avec soffice");
-                    $filename = MiscUtils::gen_uuid();
-
                     $sourcePath = SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath;
-                    $temporaryDirectory = SystemURLs::getDocumentRoot() . "/Images/tmp/";
-                    $temporaryPptxPath = $temporaryDirectory . $filename . ".pptx";
-                    if (!copy($sourcePath, $temporaryPptxPath)) {
-                        LoggerUtils::getAppLogger()->error("Unable to copy PPTX file to $temporaryPptxPath");
+                    $generatedPdfPath = self::convertOfficeFileToPdf($sourcePath, 'pptx');
+                    if ($generatedPdfPath === null) {
                         break;
                     }
-
-                    LoggerUtils::getAppLogger()->info("Converting $temporaryPptxPath to PDF using soffice");
-
-                    $profileDirectory = sys_get_temp_dir() . DIRECTORY_SEPARATOR . "soffice-" . $filename;
-                    mkdir($profileDirectory, 0700, true);
-                    $profileUri = "file://" . $profileDirectory;
-                    $command = "soffice --headless -env:UserInstallation=" . escapeshellarg($profileUri)
-                        . " --convert-to pdf --outdir " . escapeshellarg($temporaryDirectory)
-                        . " " . escapeshellarg($temporaryPptxPath);
-
-                    $generatedPdfPath = $temporaryDirectory . $filename . ".pdf";
-
-                    LoggerUtils::getAppLogger()->info("Executing command: $command");
-
-                    LoggerUtils::getAppLogger()->info("Output PDF will be saved to $generatedPdfPath");
-                    $commandOutput = [];
-                    $exitCode = 0;
-                    exec($command . " 2>&1", $commandOutput, $exitCode);
-                    if (is_dir($profileDirectory)) {
-                        self::delTree($profileDirectory);
-                    }
-                    LoggerUtils::getAppLogger()->info("soffice exit code: $exitCode");
-                    LoggerUtils::getAppLogger()->info("soffice output: " . implode("\n", $commandOutput));
-                    if ($exitCode !== 0) {
-                        LoggerUtils::getAppLogger()->error("soffice failed with exit code $exitCode");
-                        break;
-                    }
-                    if (!file_exists($generatedPdfPath)) {
-                        LoggerUtils::getAppLogger()->error("soffice completed but did not generate $generatedPdfPath");
-                        break;
-                    }
-                    unlink($temporaryPptxPath);
-                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . basename($generatedPdfPath);
                 } else {
                     LoggerUtils::getAppLogger()->warning("soffice is not installed or not available in PATH");
-                    $reader = \PhpOffice\PhpPresentation\IOFactory::createReader("PowerPoint2007");
+                    $sourcePath = SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath;
+                    $generatedPdfPath = self::getOfficePreviewCachePath($sourcePath, 'pptx');
+                    if ($generatedPdfPath === null) {
+                        break;
+                    }
 
-                    $spreadsheet = $reader->load(SystemURLs::getDocumentRoot() . DIRECTORY_SEPARATOR . $realPath);
+                    if (!is_file($generatedPdfPath) || filesize($generatedPdfPath) === 0) {
+                        $reader = \PhpOffice\PhpPresentation\IOFactory::createReader("PowerPoint2007");
+                        $presentation = $reader->load($sourcePath);
+                        $PDFWriter = new \PhpOffice\PhpPresentation\Writer\PDF\DomPDF($presentation);
+                        $PDFWriter->save($generatedPdfPath);
+                    }
 
-                    $PDFWriter = new \PhpOffice\PhpPresentation\Writer\PDF\DomPDF($spreadsheet);
-
-                    $filename = MiscUtils::gen_uuid();
-                    $realPath = SystemURLs::getDocumentRoot() . "/Images/tmp/" . $filename . ".pdf";
-
-                    $PDFWriter->save($realPath);
-
-                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . $filename . ".pdf";
+                    $realPath = SystemURLs::getRootPath() . "/Images/tmp/" . basename($generatedPdfPath);
                 }
 
                 $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
