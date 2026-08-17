@@ -31,8 +31,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Propel;
 
 
-use EcclesiaCRM\Backup\RestoreBackup;
-use EcclesiaCRM\Backup\CreateBackup;
 use EcclesiaCRM\Backup\DownloadManager;
 use EcclesiaCRM\dto\SystemConfig;
 
@@ -56,7 +54,7 @@ class SystemBackupRestoreController
 
         $logger->info("Start normal Backup");
 
-        $cmd = "php ".SystemURLs::getDocumentRoot()."/backuptools/backup.php iRemote=".$input->iRemote." iArchiveType='".$input->iArchiveType."' bEncryptBackup=".(($input->bEncryptBackup==true)?"true":"false")." password='".$input->password."'";
+        $cmd = "php ".SystemURLs::getDocumentRoot()."/tools/backup.php iRemote=".$input->iRemote." iArchiveType='".$input->iArchiveType."' bEncryptBackup=".(($input->bEncryptBackup==true)?"true":"false")." password='".$input->password."'";
 
         shell_exec($cmd. "> /dev/null 2>/dev/null &" );// execute commande without 
 
@@ -79,7 +77,7 @@ class SystemBackupRestoreController
 
         $logger->info("Start remote Backup");
 
-       $cmd = "php ".SystemURLs::getDocumentRoot()."/backuptools/backup.php iRemote=".$input->iRemote." iArchiveType='".$input->iArchiveType."' bEncryptBackup=".(($input->bEncryptBackup==true)?"true":"false")." password='".$input->password."'";
+       $cmd = "php ".SystemURLs::getDocumentRoot()."/tools/backup.php iRemote=".$input->iRemote." iArchiveType='".$input->iArchiveType."' bEncryptBackup=".(($input->bEncryptBackup==true)?"true":"false")." password='".$input->password."'";
 
         shell_exec($cmd. "> /dev/null 2>/dev/null &" );// execute commande without 
 
@@ -95,12 +93,48 @@ class SystemBackupRestoreController
             return $response->withStatus(401);
         }
 
-        $fileName = $_FILES['restoreFile'];
+        $fileName = $_FILES['restoreFile'] ?? null;
+        if (empty($fileName) || ($fileName['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+            $response = $response->withJson(['result' => false, 'message' => _('No valid restore file was uploaded.')]);
+            return $response->withStatus(400);
+        }
 
-        $restoreJob = new RestoreBackup($fileName);
-        $restore = $restoreJob->run();
+        $restoreRoot = SystemURLs::getDocumentRoot() . '/tmp_attach';
+        $restoreName = basename($fileName['name']);
+        if ($restoreName === '' || $restoreName === '.' || $restoreName === DIRECTORY_SEPARATOR) {
+            $response = $response->withJson(['result' => false, 'message' => _('The restore file name is invalid.')]);
+            return $response->withStatus(400);
+        }
 
-        return $response->withJson(get_object_vars($restore));
+        $restorePath = $restoreRoot . '/restore_' . bin2hex(random_bytes(8)) . '_' . $restoreName;
+        if (!move_uploaded_file($fileName['tmp_name'], $restorePath)) {
+            $response = $response->withJson(['result' => false, 'message' => _('Unable to store the restore file.')]);
+            return $response->withStatus(500);
+        }
+
+        $progressFile = $restoreRoot . '/restore_in_progress.txt';
+        $maintenanceFile = $restoreRoot . '/maintenance_mode';
+        $resultFile = $restoreRoot . '/restore_result.json';
+        if (file_exists($resultFile)) {
+            unlink($resultFile);
+        }
+
+        $date = date('c');
+        file_put_contents($maintenanceFile, $date);
+        file_put_contents($progressFile, $date);
+
+        $restorePassword = $_POST['restorePassword'] ?? '';
+        $command = 'php ' . escapeshellarg(SystemURLs::getDocumentRoot() . '/tools/restore.php')
+            . ' file=' . escapeshellarg($restorePath)
+            . ' name=' . escapeshellarg($restoreName)
+            . ' password=' . escapeshellarg($restorePassword)
+            . ' cleanup=true';
+
+        $logger = $this->container->get('Logger');
+        $logger->info('Start restore from command line');
+        shell_exec($command . ' > /dev/null 2>/dev/null &');
+
+        return $response->withJson(['result' => true, 'in_progress' => true, 'maintenance' => true, 'start' => $date]);
     }
 
     public function download (ServerRequest $request, Response $response, array $args): Response
@@ -205,6 +239,39 @@ class SystemBackupRestoreController
             'RemoteBackup' => $RemoteBackup,
             'message' => $message,
             'Backup_Result_Datas' => $Backup_Result_Datas
+        ]);
+    }
+
+    public function getRestoreResult (ServerRequest $request, Response $response, array $args): Response
+    {
+        if ( !SessionUser::isAdmin() ) {
+            return $response->withStatus(401);
+        }
+
+        $restoreRoot = SystemURLs::getDocumentRoot() . '/tmp_attach';
+        $restoreDone = false;
+        $restoreInProgress = file_exists($restoreRoot . '/restore_in_progress.txt');
+        $maintenanceMode = file_exists($restoreRoot . '/maintenance_mode');
+        $restoreResult = [];
+        $message = '';
+
+        if (file_exists($restoreRoot . '/restore_result.json')) {
+            $restoreDone = true;
+            $restoreResult = json_decode(file_get_contents($restoreRoot . '/restore_result.json'), true) ?: [];
+            $message = $restoreResult['message'] ?? '';
+        }
+
+        if ($restoreInProgress) {
+            $message = _('Background restore in progress');
+        }
+
+        return $response->withJson([
+            'RestoreDone' => $restoreDone,
+            'Restore_In_Progress' => $restoreInProgress,
+            'MaintenanceMode' => $maintenanceMode,
+            'success' => $restoreResult['success'] ?? null,
+            'message' => $message,
+            'Restore_Result_Datas' => $restoreResult,
         ]);
     }
 }

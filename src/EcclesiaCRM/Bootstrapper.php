@@ -31,6 +31,7 @@ namespace EcclesiaCRM
       private static $localeInfo;
       private static $sSoftwareName;
       private static $sSoftwareIcon;
+      private static $maintenanceMode;
 
       /**
        *
@@ -42,7 +43,7 @@ namespace EcclesiaCRM
 
       public static function init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, 
             $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false,
-            $sSoftwareName="EcclesiaCRM", $sSoftwareIcon='icon-small.png')
+            $sSoftwareName="EcclesiaCRM", $sSoftwareIcon='icon-small.png', $maintenanceMode=false)
       {
           global $debugBootstrapper;
           self::$databaseServerName = $sSERVERNAME;
@@ -55,6 +56,7 @@ namespace EcclesiaCRM
           self::$localeInfo = NULL;
           self::$sSoftwareName = $sSoftwareName;
           self::$sSoftwareIcon = $sSoftwareIcon;
+          self::$maintenanceMode = $maintenanceMode;
 
           try {
               SystemURLs::init($sRootPath, $URL, dirname(dirname(__FILE__)));
@@ -100,6 +102,12 @@ namespace EcclesiaCRM
           LoggerUtils::ResetAppLoggerLevel();
       }
 
+      public static function getMaintenanceMode(): bool
+      {
+          return self::$maintenanceMode;
+      }
+
+     
       /***
        * Gets a LocaleInfo object for the currently configured system sLanguage
        *
