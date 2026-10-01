@@ -1,5 +1,20 @@
 <?php
 
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2025 Philippe Logel all right reserved not MIT licence
+//                This code can't be included in another software
+//
+//  Updated : 2026/08/17
+//
+
+
+/*
+Via the crontab
+usage : Usage: php "path_to_dir"/tools/restore.php file=/path/to/backup [password/restorePassword=...] [cleanup=true]
+don't forget : chown -R www-data:www-data "path_to_dir"/tmp_attach
+ */
+
 declare(strict_types=1);
 
 require_once dirname(__DIR__) . '/Include/Config.php';
@@ -54,7 +69,6 @@ $resultFile = $documentRoot . '/tmp_attach/restore_result.json';
 $restorePassword = $input['restorePassword'] ?? $input['password'] ?? '';
 $cleanupSource = filter_var($input['cleanup'] ?? false, FILTER_VALIDATE_BOOLEAN);
 
-$_POST['restorePassword'] = $restorePassword;
 $_SERVER['REQUEST_METHOD'] = 'CLI';
 $_SERVER['REQUEST_URI'] = $_SERVER['REQUEST_URI'] ?? '';
 
@@ -77,7 +91,7 @@ try {
         'size' => filesize($sourcePath),
     ];
 
-    $restoreJob = new RestoreBackup($restoreFile);
+    $restoreJob = new RestoreBackup($restoreFile, $restorePassword);
     $restore = $restoreJob->run();
     $result = [
         'success' => true,
