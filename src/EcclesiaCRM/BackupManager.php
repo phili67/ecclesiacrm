@@ -30,6 +30,9 @@ use ZipArchive;
 use Defuse\Crypto\File;
 use SlimDownloadEnd\SlimDownLoadStreamInterface;
 
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\CollectionsinstancesQuery;
+
 abstract class BackupType
 {
     // archive type
@@ -84,7 +87,7 @@ class RestoreBackup extends JobBase
 {
     /**
      *
-     * @var string
+        * @var array
      */
     protected $file;
     /**
@@ -153,10 +156,10 @@ class RestoreBackup extends JobBase
     private function IsIncomingFileFailed()
     {
         // Not actually sure what this is supposed to do, but it was working before??
-        return $_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST) && empty($_FILES) && $_SERVER['CONTENT_LENGTH'] > 0;
+        return ($_SERVER['REQUEST_METHOD'] ?? '') == 'POST' && empty($_POST) && empty($_FILES) && ($_SERVER['CONTENT_LENGTH'] ?? 0) > 0;
     }
 
-    public function __construct($file)
+    public function __construct(array $file, $restorePassword = '')
     {
         if ($this->IsIncomingFileFailed()) {
             $message = _('The selected file exceeds this servers maximum upload size of') . ": " . SystemService::getMaxUploadFileSize();
@@ -167,9 +170,10 @@ class RestoreBackup extends JobBase
         $this->Messages = [];
 
         $this->file = $file;
-        $this->restorePassword = InputUtils::FilterString($_POST['restorePassword']);
+        $this->file['name'] = basename((string) ($this->file['name'] ?? ''));
+        $this->restorePassword = $restorePassword;
 
-        $path = $file['name'];
+        $path = $this->file['name'];
         $type = pathinfo($path, PATHINFO_EXTENSION);
         if ($type == "gpg") {// in the case of a GPG encryption
             $this->gpg_encrypted = true;
@@ -191,7 +195,7 @@ class RestoreBackup extends JobBase
 
     private function DecryptBackupFileGPG()
     {
-        LoggerUtils::getAppLogger()->info("Decrypting backup file: " . $this->file);
+        LoggerUtils::getAppLogger()->info("Decrypting backup file: " . $this->file['name']);
         putenv('GNUPGHOME=/tmp');
         $this->encryptCommand = "gpg --batch --passphrase " . $this->restorePassword . " " . $this->uploadedFileDestination;
         system($this->encryptCommand);
@@ -262,15 +266,33 @@ class RestoreBackup extends JobBase
         $SQLfile = $this->backupDir . "/EcclesiaCRM-Database.sql";
         if (file_exists($SQLfile)) {
             SQLUtils::sqlImport($SQLfile, $connection);
+            
             // restore the Images folder
             MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/Images');
             FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/Images/', SystemURLs::getImagesRoot());
+            
             // restore the Webdav private folder
             MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/private');
             FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/private/', SystemURLs::getEDrivePrivateRoot());
+            
             // restore the Webdav public folder
             MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/public');
             FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/public/', SystemURLs::getEDrivePublicRoot());
+
+            // TODO : restore all the share files and folders for all the users
+            foreach (UserQuery::create()->find() as $user) {
+                $userName = $user->getUserName();
+                $path = 
+
+                $collectionInstances = CollectionsinstancesQuery::create()
+                    ->findByPrincipaluri('principals/'.$userName);
+
+                foreach ($collectionInstances as $collectionInstance) {
+                    $guestPath = SystemURLs::getDocumentRoot()."/".$collectionInstance->getGuestpath();
+                    unlink($guestPath);
+                }                           
+            }
+        
         } else {
             FileSystemUtils::recursiveRemoveDirectory($this->backupDir, true);
             throw new \Exception(_("Backup archive does not contain a database") . ": " . $this->file['name']);
@@ -281,7 +303,16 @@ class RestoreBackup extends JobBase
     {
         $this->uploadedFileDestination = $this->backupDir . $this->file['name'];
 
-        move_uploaded_file($this->file['tmp_name'], $this->uploadedFileDestination);
+        if (PHP_SAPI === 'cli') {
+            $fileMoved = copy($this->file['tmp_name'], $this->uploadedFileDestination);
+        } else {
+            $fileMoved = move_uploaded_file($this->file['tmp_name'], $this->uploadedFileDestination);
+        }
+
+        if (!$fileMoved) {
+            FileSystemUtils::recursiveRemoveDirectory($this->backupDir, true);
+            throw new \Exception(_('Unable to move the restore file') . ': ' . $this->file['name']);
+        }
 
         if ($this->restorePassword == true) {
             if ($this->gpg_encrypted == true) {
@@ -316,6 +347,11 @@ class RestoreBackup extends JobBase
         SystemConfig::setValue('sLastIntegrityCheckTimeStamp', null);
 
         return $this;
+    }
+
+    public function getMessages(): array
+    {
+        return $this->Messages;
     }
 }
 

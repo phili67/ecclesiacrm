@@ -31,6 +31,8 @@ unlink(SystemURLs::getDocumentRoot() . "/EcclesiaCRM/VIEWControllers/VIEWMailchi
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/js/email/");
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/routes/email/");
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/v2/templates/email/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/images/temp/", true);// we remove only the content of the temp directory, not the directory itself
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/backuptools/");// now the backuptools name directory is now renamed to tools
 
 
 $logger->info("End of delete :  all unusefull files");

@@ -14,12 +14,28 @@ $(function () {
 
     // DOM callback for all the project
     window.CRM.reloadEDriveTable = function (callback) {
+        // Sauvegarde des lignes actuellement sélectionnées (par leur "name" qui sert d'id unique)
+        var selectedNames = $.map(window.CRM.dataEDriveTable.rows({ selected: true }).data(), function (item) {
+            return item['name'];
+        });
+
         window.CRM.dataEDriveTable.ajax.reload(function (json) {
             installDragAndDrop();
+
+            // Restauration de la sélection après le rechargement
+            if (selectedNames.length) {
+                window.CRM.dataEDriveTable.rows().every(function () {
+                    var rowData = this.data();
+                    if (rowData && $.inArray(rowData['name'], selectedNames) !== -1) {
+                        this.select();
+                    }
+                });
+            }
+
             if (callback) {
                 callback();
             }
-        });
+        }, false);
     }
 
     // EDrive

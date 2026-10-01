@@ -11,7 +11,7 @@
 
 /*
 Via the crontab
-usage : php "path_to_dir"/backuptools/backup.php iRemote=0 iArchiveType="3" bEncryptBackup=false password=""
+usage : php "path_to_dir"/tools/backup.php iRemote=0 iArchiveType="3" bEncryptBackup=false password=""
 don't forget : chown -R www-data:www-data "path_to_dir"/tmp_attach
  */
 
