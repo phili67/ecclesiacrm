@@ -37,19 +37,31 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
     $group->post('/addperson', DocumentShareController::class . ':addPersonToShare' );
     /*
      * @! share a note to a personID from currentPersonID for sabre
-     * #! param: ref->int :: personID
      * #! param: ref->int :: currentPersonID
-     * #! param: ref->array :: all the rows
+     * #! param: ref->int :: personToShareID
+     * #! param: ref->array :: rows (all the rows)
+     * #! param: ref->string :: access
+     * #! param: ref->bool :: notification
      */
     $group->post('/addpersonsabre', DocumentShareController::class . ':addPersonSabreToShare' );    
     /*
-     * @! share a note to a familyID from currentPersonID 
-     * #! param: ref->int :: familyID
-     * #! param: ref->int :: noteId
+     * @! share a file(s) to a familyID from currentPersonID 
+     * #! param: ref->int :: currentPersonID
+     * #! param: ref->array :: noteId
+     * #! param: ref->int :: personToShareID
+     * #! param: ref->bool :: notification
+     * #! param: ref->string :: access
+     */
+    $group->post('/addfamily', DocumentShareController::class . ':addFamilyToShare' );
+    /*
+     * @! share a file(s) to a familyID for currentPersonID 
+     * #! param: ref->int :: currentPersonID
+     * #! param: ref->int :: familyToShareID
+     * #! param: ref->array :: rows
      * #! param: ref->int :: currentPersonID
      * #! param: ref->bool :: notification
      */
-    $group->post('/addfamily', DocumentShareController::class . ':addFamilyToShare' );
+    $group->post('/addfamilysabre', DocumentShareController::class . ':addFamilyToShareSabre' );
     /*
      * @! share a note to a groupID from currentPersonID 
      * #! param: ref->int :: groupID
@@ -58,6 +70,15 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      * #! param: ref->bool :: notification
      */
     $group->post('/addgroup', DocumentShareController::class . ':addGroupToShare' );
+    /*
+     * @! share a note to a groupID from currentPersonID 
+     * #! param: ref->int :: currentPersonID
+     * #! param: ref->int :: groupToShareID
+     * #! param: ref->array :: rows
+     * #! param: ref->int :: currentPersonID
+     * #! param: ref->bool :: notification
+     */
+    $group->post('/addgroupsabre', DocumentShareController::class . ':addGroupToShareSabre' );
     /*
      * @! remove a personID from a share note 
      * #! param: ref->int :: personID
