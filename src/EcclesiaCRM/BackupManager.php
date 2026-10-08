@@ -23,6 +23,9 @@ use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 
+use EcclesiaCRM\WebDav\Utils\SabreUtils;
+use Sabre\DAV\Xml\Element\Sharee;
+
 use PharData;
 use Ifsnop\Mysqldump\Mysqldump;
 use Propel\Runtime\Propel;
@@ -32,6 +35,7 @@ use SlimDownloadEnd\SlimDownLoadStreamInterface;
 
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\CollectionsinstancesQuery;
+use EcclesiaCRM\CollectionsQuery;
 
 abstract class BackupType
 {
@@ -279,18 +283,52 @@ class RestoreBackup extends JobBase
             MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/public');
             FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/public/', SystemURLs::getEDrivePublicRoot());
 
-            // TODO : restore all the share files and folders for all the users
+            // restore all the share files and folders for all the users
             foreach (UserQuery::create()->find() as $user) {
-                $userName = $user->getUserName();
-                $path = 
+                $userName = $user->getUserName();                
+            
+                $ownerPrinpals = 'principals/'.$userName;
+                
+                $collections = CollectionsQuery::create()
+                    ->findByPrincipaluri($ownerPrinpals);
 
-                $collectionInstances = CollectionsinstancesQuery::create()
-                    ->findByPrincipaluri('principals/'.$userName);
+                foreach ($collections as $collection) {
+                    // we  get all the last part before private/.....
+                    $ownerPaths = $user->getUserRootDir()."/". strstr($collection->getOwnerpath(),"private");
+                
+                    // file name
+                    $ownerNameCollection = basename($ownerPaths);
 
-                foreach ($collectionInstances as $collectionInstance) {
-                    $guestPath = SystemURLs::getDocumentRoot()."/".$collectionInstance->getGuestpath();
-                    unlink($guestPath);
-                }                           
+                    $collectionInstances = CollectionsinstancesQuery::create()
+                        ->findByCollectionid($collection->getId());
+                    
+                    foreach ($collectionInstances as $collectionInstance) {
+                        $ownerPersonId = $collection->getOwnerid();
+                        $userToShare = UserQuery::create()->findOneByPersonId($collectionInstance->getGuestid());
+
+                        if ($userToShare === null) {
+                            continue;
+                        }
+                        
+                        $access = $collectionInstance->getAccess();
+                        $userToShareUserName = $userToShare->getUserName();
+
+                        $sharees = [];
+                        $sharees[] = new Sharee([
+                            'href' => "mailto:".$userToShare->getPerson()->getEmail(),
+                            'access' => $access,
+                            /// Everyone is always immediately accepted, for now.
+                            'inviteStatus' => (int) null,
+                            'properties' => ['{DAV:}displayname' => $userToShare->getPerson()->getFullName()],
+                            'principal' => 'principals/'.$userToShareUserName
+                        ]);
+
+                        // we delete the old collection instance before re-sharing it
+                        $collectionInstance->delete();
+
+                        SabreUtils::shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees);
+                    }
+                }                                        
             }
         
         } else {

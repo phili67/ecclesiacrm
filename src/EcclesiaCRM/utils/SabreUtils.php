@@ -105,6 +105,7 @@ class SabreUtils {
         
         foreach ($rows as $row) {
             $ownerPaths = $currentUser->getUserRootDir()."/".$row['path']; ///private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/wsl1.png
+            // file name
             $ownerNameCollection = basename($ownerPaths);
             $sharees = [];
             $sharees[] = new Sharee([
@@ -174,9 +175,7 @@ class SabreUtils {
                     ->_or()
                     ->filterByEmail($email)
                 ->endUse()
-                ->findOne();    
-
-            
+                ->findOne();            
                 
             $guestPath = $guestUser->getUserDir() . "/". $ownerNameCollection;
             
