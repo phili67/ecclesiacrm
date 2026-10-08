@@ -14,6 +14,8 @@ use PhpOffice\PhpSpreadsheet\Calculation\Logical\Boolean;
 use Sabre\DAV\Xml\Element\Sharee;
 use Sabre\DAV\Sharing\Plugin as SPlugin;
 
+use EcclesiaCRM\Emails\DocumentEmail;
+
 
 class SabreUtils {
 
@@ -84,6 +86,49 @@ class SabreUtils {
         return SPlugin::ACCESS_READWRITE;
     }
 
+    /*
+        This function is usefull in DocumentShareController.php
+    */
+
+    public static function processShareToPerson(int $currentPersonID, int $personToShareID, string $access, array $rows, bool $notification) : void {        
+        $currentUser = UserQuery::create()->findOneByPersonId($currentPersonID);
+        $ownerPersonId = $currentUser->getPersonId();
+        $currentUserName = $currentUser->getUserName();
+        
+        $ownerPrinpals = 'principals/'.$currentUserName;
+
+        $userToShare = UserQuery::create()->findOneByPersonId($personToShareID);
+        if (is_null($userToShare)) {
+            return;
+        }
+        $userToShareUserName = $userToShare->getUserName();        
+        
+        foreach ($rows as $row) {
+            $ownerPaths = $currentUser->getUserRootDir()."/".$row['path']; ///private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/wsl1.png
+            // file name
+            $ownerNameCollection = basename($ownerPaths);
+            $sharees = [];
+            $sharees[] = new Sharee([
+                'href' => "mailto:".$userToShare->getPerson()->getEmail(),
+                'access' => $access,
+                /// Everyone is always immediately accepted, for now.
+                'inviteStatus' => (int) null,
+                'properties' => ['{DAV:}displayname' => $userToShare->getPerson()->getFullName()],
+                'principal' => 'principals/'.$userToShareUserName
+            ]);
+
+            SabreUtils::shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees);
+
+            // send notification !!
+            if (isset ($notification)  && $notification) {                    
+                if ( !empty($userToShare) ){
+                    $email = new DocumentEmail($userToShare, gettext("You can visualize it in your account, in the time Line or the notes tab."));
+                    $email->send();
+                }
+            }
+        }
+    }
+
     /**
      * share a file or a folder
      * 
@@ -130,9 +175,7 @@ class SabreUtils {
                     ->_or()
                     ->filterByEmail($email)
                 ->endUse()
-                ->findOne();    
-
-            
+                ->findOne();            
                 
             $guestPath = $guestUser->getUserDir() . "/". $ownerNameCollection;
             

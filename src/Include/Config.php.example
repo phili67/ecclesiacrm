@@ -14,6 +14,8 @@ $sUSER = '||DB_USER||';
 $sPASSWORD = '||DB_PASSWORD||';
 $sDATABASE = '||DB_NAME||';
 
+$maintenanceMode = false;
+
 // Root path of your EcclesiaCRM installation ( THIS MUST BE SET CORRECTLY! )
 //
 // Examples:

@@ -113,59 +113,22 @@ class DocumentShareController
         }
 
         return $response->withJson(['status' => "failed"]);
-    }
+    }    
 
     // new way through sabre !
     public function addPersonSabreToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->currentPersonID) && isset ($params->rows) && isset($params->personToShareID) && isset ($params->notification) && isset($params->access)) {
+        if (isset ($params->currentPersonID) 
+            && isset ($params->rows) 
+            && isset($params->personToShareID) 
+            && isset ($params->notification) 
+            && isset($params->access)) {
             $access = $params->access;
+            $rows = $params->rows;
+            $notification = $params->notification;
 
-            $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
-            $ownerPersonId = $currentUser->getPersonId();
-            $currentUserName = $currentUser->getUserName();
-            
-            $ownerPrinpals = 'principals/'.$currentUserName;
-
-            $userToShare = UserQuery::create()->findOneByPersonId($params->personToShareID);
-            $userToShareUserName = $userToShare->getUserName();
-
-            /*$noteShare = NoteShareQuery::Create()->filterBySharePerId($userToShare->getPersonId())->findOneByNoteId($params->noteId);
-
-            // share in the timeline too
-            if ( empty($noteShare) && $params->currentPersonID != $params->personID && $params->noteId > 0) {
-                $noteShare = new NoteShare();
-
-                $noteShare->setSharePerId($userToShare->getPersonId());
-                $noteShare->setNoteId($params->noteId);
-
-                $noteShare->save();
-            }*/
-            
-            foreach ($params->rows as $row) {
-                $ownerPaths = $currentUser->getUserRootDir()."/".$row['path']; ///private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/wsl1.png
-                $ownerNameCollection = basename($ownerPaths);
-                $sharees = [];
-                $sharees[] = new Sharee([
-                    'href' => "mailto:".$userToShare->getPerson()->getEmail(),
-                    'access' => $access,
-                    /// Everyone is always immediately accepted, for now.
-                    'inviteStatus' => (int) null,
-                    'properties' => ['{DAV:}displayname' => $userToShare->getPerson()->getFullName()],
-                    'principal' => 'principals/'.$userToShareUserName
-                ]);
-
-                SabreUtils::shareFileOrDirectory($ownerPersonId, $ownerPaths, $ownerPrinpals, $ownerNameCollection, $sharees);
-
-                // send notification !!
-                if (isset ($params->notification)  && $params->notification) {                    
-                    if ( !empty($userToShare) ){
-                        $email = new DocumentEmail($userToShare, gettext("You can visualize it in your account, in the time Line or the notes tab."));
-                        $email->send();
-                    }
-                }
-            }
+            SabreUtils::processShareToPerson($params->currentPersonID, $params->personToShareID, $access, $rows, $notification);
             
             return $response->withJson(['status' => "success"]);            
         }
@@ -207,11 +170,36 @@ class DocumentShareController
         return $response->withJson(['status' => "success"]);
     }
 
+    public function addFamilyToShareSabre (ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        if (isset ($params->currentPersonID)
+            && isset ($params->familyToShareID) 
+            && isset ($params->rows)                          
+            && isset ($params->notification)
+            && isset($params->access) ) {
+
+            $access = $params->access;
+            $rows = $params->rows;
+            $notification = $params->notification;
+            
+            $members = FamilyQuery::Create()->findOneById($params->familyToShareID)->getActivatedPeople();
+
+            foreach ($members as $member) {
+                if ($member->getId() > 0) {
+                    SabreUtils::processShareToPerson($params->currentPersonID, $member->getId(), $access, $rows, $notification);                                                                         
+                }
+            }
+        }
+
+        return $response->withJson(['status' => "success"]);
+    }
+
     public function addGroupToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->groupID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
-            $members = GroupQuery::Create()->findOneById($params->groupID)->getPerson2group2roleP2g2rs();
+        if (isset ($params->groupToShareID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
+            $members = GroupQuery::Create()->findOneById($params->groupToShareID)->getPerson2group2roleP2g2rs();
 
             foreach ($members as $member) {
                 if ($member->getPersonId() > 0) {
@@ -238,8 +226,33 @@ class DocumentShareController
             }
         }
 
-        return $response->withJson(['status' => $params->groupID]);
+        return $response->withJson(['status' => $params->groupToShareID]);
     }
+
+    public function addGroupToShareSabre (ServerRequest $request, Response $response, array $args): Response {
+        $params = (object)$request->getParsedBody();
+
+        if (isset ($params->currentPersonID)
+            && isset ($params->groupToShareID) 
+            && isset ($params->rows)                          
+            && isset ($params->notification)
+            && isset($params->access) ) {
+
+            $access = $params->access;
+            $rows = $params->rows;
+            $notification = $params->notification;
+            
+            $members = GroupQuery::Create()->findOneById($params->groupToShareID)->getPerson2group2roleP2g2rs();
+
+            foreach ($members as $member) {
+                if ($member->getPersonId() > 0) {
+                    SabreUtils::processShareToPerson($params->currentPersonID, $member->getPersonId(), $access, $rows, $notification);                                                                         
+                }
+            }
+        }
+
+        return $response->withJson(['status' => "success"]);
+    } 
 
     public function deletePersonFromShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();

@@ -41,5 +41,6 @@ $app->group('/database', function (RouteCollectorProxy $group) {
     * #! param: ref->string :: filename
     */
     $group->get('/backup/result', SystemBackupRestoreController::class . ':getBackupResult' );
+    $group->get('/restore/result', SystemBackupRestoreController::class . ':getRestoreResult' );
 
 });

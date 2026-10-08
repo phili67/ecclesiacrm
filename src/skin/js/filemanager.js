@@ -14,12 +14,28 @@ $(function () {
 
     // DOM callback for all the project
     window.CRM.reloadEDriveTable = function (callback) {
+        // Sauvegarde des lignes actuellement sélectionnées (par leur "name" qui sert d'id unique)
+        var selectedNames = $.map(window.CRM.dataEDriveTable.rows({ selected: true }).data(), function (item) {
+            return item['name'];
+        });
+
         window.CRM.dataEDriveTable.ajax.reload(function (json) {
             installDragAndDrop();
+
+            // Restauration de la sélection après le rechargement
+            if (selectedNames.length) {
+                window.CRM.dataEDriveTable.rows().every(function () {
+                    var rowData = this.data();
+                    if (rowData && $.inArray(rowData['name'], selectedNames) !== -1) {
+                        this.select();
+                    }
+                });
+            }
+
             if (callback) {
                 callback();
             }
-        });
+        }, false);
     }
 
     // EDrive
@@ -923,7 +939,7 @@ $(function () {
         allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params) {
-                return window.CRM.root + "/api/people/searchonlyuserwithedrive/" + params.term;
+                return window.CRM.root + "/api/people/search/" + params.term;
             },
             headers: {
                 "Authorization": "Bearer " + window.CRM.jwtToken
@@ -962,9 +978,45 @@ $(function () {
                 })
             }, function (data) {
                 window.CRM.reloadEDriveTable(function () {
+                    addSharedPersonsSabre();
                     realRows.select();
                 });
-                addSharedPersonsSabre();
+                
+            });
+        } else if (e.params.data.groupID !== undefined) {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addgroupsabre',
+                data: JSON.stringify({
+                    "currentPersonID": window.CRM.currentPersonID,
+                    "groupToShareID": e.params.data.groupID,
+                    "rows": rows,
+                    "access": access, // by default read and write
+                    "notification": notification
+                })
+            }, function (data) {
+                window.CRM.reloadEDriveTable(function () {
+                    addSharedPersonsSabre();
+                    realRows.select();
+                });
+                
+            });
+        } else if (e.params.data.familyID !== undefined) {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addfamilysabre',
+                data: JSON.stringify({
+                    "currentPersonID": window.CRM.currentPersonID,
+                    "familyToShareID": e.params.data.familyID,
+                    "rows": rows,
+                    "access": access, // by default read and write
+                    "notification": notification
+                })
+            }, function (data) {
+                window.CRM.reloadEDriveTable(function () {
+                    addSharedPersonsSabre();
+                    realRows.select();
+                });                
             });
         }
     });
