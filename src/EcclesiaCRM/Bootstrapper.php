@@ -107,6 +107,15 @@ namespace EcclesiaCRM
           return self::$maintenanceMode;
       }
 
+      public static function getMaintenanceLock(): void
+      {
+        http_response_code(503);
+	    header('Retry-After: 10');
+	    header('Content-Type: text/html; charset=UTF-8');
+	    echo '<!doctype html><html lang="en"><head><meta charset="UTF-8"><title>Maintenance mode</title></head><body><h1>Maintenance mode</h1><p>The CRM is temporarily unavailable while a restore is in progress.</p></body></html>';
+	    exit();
+      }
+
      
       /***
        * Gets a LocaleInfo object for the currently configured system sLanguage
