@@ -1,5 +1,12 @@
 window.CRM.restoreTimer = null;
 
+const restoreFileLabel = document.querySelector('label[for="restoreFile"]');
+const defaultRestoreFileLabel = restoreFileLabel.textContent;
+
+window.CRM.ElementListener('#restoreFile', 'change', function (event) {
+    restoreFileLabel.textContent = event.target.files[0]?.name || defaultRestoreFileLabel;
+});
+
 const showRestoreResult = (data) => {
     if (!data.RestoreDone) {
         if (data.MaintenanceMode) {
