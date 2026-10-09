@@ -41,6 +41,24 @@ namespace EcclesiaCRM
               copy($src, $dst);
           }
       }
+
+      public static function moveOrCopyDirectory($src, $dst)
+      {
+          if (is_dir($src) && !is_link($src) && is_dir(dirname($dst))) {
+              $sourceInfo = stat($src);
+              $destinationInfo = stat(dirname($dst));
+
+              // Avoid copying extracted files a second time when both paths share a filesystem.
+              if ($sourceInfo !== false
+                  && $destinationInfo !== false
+                  && $sourceInfo['dev'] === $destinationInfo['dev']
+                  && rename($src, $dst)) {
+                  return;
+              }
+          }
+
+          self::recursiveCopyDirectory($src, $dst);
+      }
       
       public static function deleteFiles($path, $extArray)
       {
