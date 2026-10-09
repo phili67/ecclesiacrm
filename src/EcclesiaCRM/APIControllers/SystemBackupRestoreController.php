@@ -112,17 +112,6 @@ class SystemBackupRestoreController
             return $response->withStatus(500);
         }
 
-        $progressFile = $restoreRoot . '/restore_in_progress.txt';
-        $maintenanceFile = $restoreRoot . '/maintenance_mode';
-        $resultFile = $restoreRoot . '/restore_result.json';
-        if (file_exists($resultFile)) {
-            unlink($resultFile);
-        }
-
-        $date = date('c');
-        file_put_contents($maintenanceFile, $date);
-        file_put_contents($progressFile, $date);
-
         $restorePassword = $_POST['restorePassword'] ?? '';
         $command = 'php ' . escapeshellarg(SystemURLs::getDocumentRoot() . '/tools/restore.php')
             . ' file=' . escapeshellarg($restorePath)
@@ -132,6 +121,10 @@ class SystemBackupRestoreController
 
         $logger = $this->container->get('Logger');
         $logger->info('Start restore from command line');
+
+        $date = date('Y-m-d H:i:s');
+        
+        // asynchronous execution of the restore command
         shell_exec($command . ' > /dev/null 2>/dev/null &');
 
         return $response->withJson(['result' => true, 'in_progress' => true, 'maintenance' => true, 'start' => $date]);
