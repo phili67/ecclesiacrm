@@ -23,6 +23,9 @@ use EcclesiaCRM\Slim\Error\handlers;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
+if (\EcclesiaCRM\Bootstrapper::getMaintenanceMode()) {
+    \EcclesiaCRM\Bootstrapper::getMaintenanceLock();
+}
 
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
 
