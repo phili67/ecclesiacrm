@@ -37,6 +37,70 @@ namespace EcclesiaCRM
      *
      * @param string path to sql file
      */
+      public static function sqlImportOptimized($fileName, $pdo)
+      {
+          $pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, 0);
+
+          $delimiter = ';';
+          $fileName = str_replace("//","/",$fileName);
+          $file = fopen($fileName, 'r');
+          $isFirstRow = true;
+          $isMultiLineComment = false;
+          $sql = '';
+
+          while (!feof($file)) {
+              $row = fgets($file);
+
+              // remove BOM for utf-8 encoded file
+              if ($isFirstRow) {
+                  $row = preg_replace('/^\x{EF}\x{BB}\x{BF}/', '', $row);
+                  $isFirstRow = false;
+              }
+
+              // 1. ignore empty string and comment row
+              if (trim($row) == '' || preg_match('/^\s*(#|--\s)/sUi', $row)) {
+                  continue;
+              }
+
+              // 2. clear comments
+              $row = trim(self::clearSQL($row, $isMultiLineComment));
+
+              // 3. parse delimiter row
+              if (preg_match('/^DELIMITER\s+[^ ]+/sUi', $row)) {
+                  $delimiter = preg_replace('/^DELIMITER\s+([^ ]+)$/sUi', '$1', $row);
+                  continue;
+              }
+
+              // 4. separate sql queries by delimiter
+              $offset = 0;
+              while (strpos($row, $delimiter, $offset) !== false) {
+                  $delimiterOffset = strpos($row, $delimiter, $offset);
+                  if (self::isQuoted($delimiterOffset, $row)) {
+                      $offset = $delimiterOffset + strlen($delimiter);
+                  } else {
+                      $sql = trim($sql.' '.trim(mb_substr($row, 0, $delimiterOffset)));
+                      self::query($sql, $pdo);
+                      $row = mb_substr($row, $delimiterOffset + strlen($delimiter));
+                      $offset = 0;
+                      $sql = '';
+                  }
+              }
+              $sql = trim($sql.' '.$row);
+          }
+          if (strlen($sql) > 0) {
+              self::query($row, $pdo);
+          }
+
+          fclose($file);
+
+          $pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, 1);
+      }
+
+      /**
+     * Import SQL from file.
+     *
+     * @param string path to sql file
+     */
       public static function sqlImport($fileName, $pdo)
       {
           $pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, 0);
