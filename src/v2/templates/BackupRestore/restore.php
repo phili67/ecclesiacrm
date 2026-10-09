@@ -53,7 +53,7 @@ require $sRootDocument . '/Include/Header.php';
                 <label for="restoreFile" class="font-weight-bold"><?= _('Backup file') ?></label>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="restoreFile" id="restoreFile" multiple>
+                        <input type="file" class="custom-file-input" name="restoreFile" id="restoreFile">
                         <label class="custom-file-label" for="restoreFile"><?= _('Choose file…') ?></label>
                     </div>
                 </div>
