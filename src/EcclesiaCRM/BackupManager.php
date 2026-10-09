@@ -264,26 +264,45 @@ class RestoreBackup extends JobBase
     private function RestoreFullArchive_TAR_GZ()
     {
         $connection = Propel::getConnection();
+        $logger = LoggerUtils::getAppLogger();
+        $phaseStartedAt = microtime(true);
+        $restoreResultFile = SystemURLs::getDocumentRoot() . '/tmp_attach/restore_result.json';
 
         $phar = new PharData($this->uploadedFileDestination);
         $phar->extractTo($this->backupDir);
+        $logger->info(sprintf('Restore archive extraction completed in %.2f seconds', microtime(true) - $phaseStartedAt));
+        file_put_contents($restoreResultFile, json_encode(['status' => 'extracted', 'timestamp' => date('Y-m-d H:i:s')]));
+        
+
         $SQLfile = $this->backupDir . "/EcclesiaCRM-Database.sql";
         if (file_exists($SQLfile)) {
+            $phaseStartedAt = microtime(true);
             SQLUtils::sqlImport($SQLfile, $connection);
-            
+            $logger->info(sprintf('Restore SQL import completed in %.2f seconds', microtime(true) - $phaseStartedAt));
+            file_put_contents($restoreResultFile, json_encode(['status' => 'sql_imported', 'timestamp' => date('Y-m-d H:i:s')]));
             // restore the Images folder
+            $phaseStartedAt = microtime(true);
             MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/Images');
-            FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/Images/', SystemURLs::getImagesRoot());
+            FileSystemUtils::moveOrCopyDirectory($this->backupDir . '/Images/', SystemURLs::getImagesRoot());
+            $logger->info(sprintf('Restore images completed in %.2f seconds', microtime(true) - $phaseStartedAt));
+            file_put_contents($restoreResultFile, json_encode(['status' => 'images_restored', 'timestamp' => date('Y-m-d H:i:s')]));
             
             // restore the Webdav private folder
+            $phaseStartedAt = microtime(true);
             MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/private');
-            FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/private/', SystemURLs::getEDrivePrivateRoot());
+            FileSystemUtils::moveOrCopyDirectory($this->backupDir . '/private/', SystemURLs::getEDrivePrivateRoot());
+            $logger->info(sprintf('Restore private WebDAV files completed in %.2f seconds', microtime(true) - $phaseStartedAt));
+            file_put_contents($restoreResultFile, json_encode(['status' => 'private_webdav_restored', 'timestamp' => date('Y-m-d H:i:s')]));
             
             // restore the Webdav public folder
+            $phaseStartedAt = microtime(true);
             MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/public');
-            FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/public/', SystemURLs::getEDrivePublicRoot());
+            FileSystemUtils::moveOrCopyDirectory($this->backupDir . '/public/', SystemURLs::getEDrivePublicRoot());
+            $logger->info(sprintf('Restore public WebDAV files completed in %.2f seconds', microtime(true) - $phaseStartedAt));
+            file_put_contents($restoreResultFile, json_encode(['status' => 'public_webdav_restored', 'timestamp' => date('Y-m-d H:i:s')]));
 
             // restore all the share files and folders for all the users
+            $phaseStartedAt = microtime(true);
             foreach (UserQuery::create()->find() as $user) {
                 $userName = $user->getUserName();                
             
@@ -294,13 +313,13 @@ class RestoreBackup extends JobBase
 
                 foreach ($collections as $collection) {
                     // we  get all the last part before private/.....
-                    $ownerPaths = $user->getUserRootDir()."/". strstr($collection->getOwnerpath(),"private");
+                    $ownerPaths = $user->getUserRootDir()."/". strstr($collection->getOwnerpath(),$userName);
                 
                     // file name
                     $ownerNameCollection = basename($ownerPaths);
 
                     $collectionInstances = CollectionsinstancesQuery::create()
-                        ->findByCollectionid($collection->getId());
+                        ->findByCollectionsId($collection->getId());
                     
                     foreach ($collectionInstances as $collectionInstance) {
                         $ownerPersonId = $collection->getOwnerid();
@@ -330,7 +349,8 @@ class RestoreBackup extends JobBase
                     }
                 }                                        
             }
-        
+            $logger->info(sprintf('Restore WebDAV shares completed in %.2f seconds', microtime(true) - $phaseStartedAt));
+            file_put_contents($restoreResultFile, json_encode(['status' => 'webdav_shares_restored', 'timestamp' => date('Y-m-d H:i:s')]));
         } else {
             FileSystemUtils::recursiveRemoveDirectory($this->backupDir, true);
             throw new \Exception(_("Backup archive does not contain a database") . ": " . $this->file['name']);
@@ -512,6 +532,10 @@ class CreateBackup extends JobBase
         $phar->addFile($this->SQLFile, 'EcclesiaCRM-Database.sql');
         // the images files
         $imageFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getImagesRoot()));
+
+        MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/Images/tmp/');
+        $temDir = MiscUtils::temporyDirectory();        
+        
         foreach ($imageFiles as $imageFile) {
             if (!$imageFile->isDir()) {
                 $localName = str_replace(SystemURLs::getDocumentRoot() . '/', '', $imageFile->getRealPath());
