@@ -31,12 +31,15 @@ sudo apt install -y --no-install-recommends php-mysql php-curl php-gd php-msgpac
 
 sudo apt install -y unzip ufw
 
-# install libreoffice for doc office preview 
+# install libreoffice for doc office preview and dependencies
 sudo apt update && sudo apt install -y \
     libreoffice-impress \
     libreoffice-core \
     libreoffice-writer \
-    libreoffice-calc
+    libreoffice-calc \
+    ghostscript \
+    poppler-utils \
+    fonts-liberation
 
 # set the default php.ini settings
 sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 128M/' /etc/php/8.3/apache2/php.ini

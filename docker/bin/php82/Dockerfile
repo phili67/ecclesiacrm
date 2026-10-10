@@ -88,6 +88,13 @@ libpng-dev && \
     docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg && \
     docker-php-ext-install gd
 
+# to use the preview of office file
+RUN apt-get -y update && apt-get install -y \
+      ghostscript \
+      poppler-utils \
+      fonts-liberation
+
+
 # Insure an SSL directory exists
 RUN mkdir -p /etc/apache2/ssl
 
