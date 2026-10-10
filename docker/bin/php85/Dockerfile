@@ -57,7 +57,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-enable imagick
 
-# install libreoffice for doc office preview 
+# install libreoffice for doc office preview
 RUN apt-get update && apt-get install -y \
     libreoffice-impress \
     libreoffice-core \
@@ -87,6 +87,12 @@ libpng-dev && \
     rm -rf /var/lib/apt/lists/* && \
     docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg && \
     docker-php-ext-install gd
+
+# to use the preview of office file
+RUN apt-get -y update && apt-get install -y \
+      ghostscript \
+      poppler-utils \
+      fonts-liberation
 
 # Insure an SSL directory exists
 RUN mkdir -p /etc/apache2/ssl
