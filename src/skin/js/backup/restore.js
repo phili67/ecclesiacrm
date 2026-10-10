@@ -166,6 +166,19 @@ const checkIfFinished = () => {
     resultFunction();
 };
 
+const showRestoreUploadError = (fileName, message) => {
+    renderRestoreProgress({
+        RestoreDone: true,
+        success: false,
+        Restore_Result_Datas: {
+            status: 'failed',
+            failedStage: 'uploading_file',
+            fileName,
+        },
+    });
+    $('#restorestatus').css('color', 'red').text(message || i18next.t('Restore Error.'));
+};
+
 window.CRM.ElementListener('#restoredatabase', 'submit', function (event) {
     event.preventDefault();
 
@@ -189,7 +202,7 @@ window.CRM.ElementListener('#restoredatabase', 'submit', function (event) {
     const passwordInput = document.getElementById('restorePassword');
     formData.append('restorePassword', passwordInput ? passwordInput.value : '');
 
-    renderRestoreProgress({
+    const uploadStepLabel = renderRestoreProgress({
         RestoreDone: false,
         Restore_In_Progress: true,
         Restore_Result_Datas: {
@@ -198,7 +211,7 @@ window.CRM.ElementListener('#restoredatabase', 'submit', function (event) {
         },
     });
     document.getElementById('restoreUploadPercent').textContent = '0%';
-    $('#restorestatus').css('color', 'orange').text(i18next.t('Uploading backup file'));
+    $('#restorestatus').css('color', 'orange').text(uploadStepLabel);
 
     const request = new XMLHttpRequest();
     request.open('POST', window.CRM.root + '/api/database/restore');
@@ -218,38 +231,20 @@ window.CRM.ElementListener('#restoredatabase', 'submit', function (event) {
         try {
             data = JSON.parse(request.responseText);
         } catch (error) {
-            $('#restorestatus').css('color', 'red').text(i18next.t('Restore Error.'));
+            showRestoreUploadError(file.name);
             console.log(error.name + ' ' + error.message);
             return;
         }
 
         if (request.status < 200 || request.status >= 300 || data.result !== true) {
-            renderRestoreProgress({
-                RestoreDone: true,
-                success: false,
-                Restore_Result_Datas: {
-                    status: 'failed',
-                    failedStage: 'uploading_file',
-                    fileName: file.name,
-                },
-            });
-            $('#restorestatus').css('color', 'red').text(data.message || i18next.t('Restore Error.'));
+            showRestoreUploadError(file.name, data.message);
             return;
         }
 
         checkIfFinished();
     });
     request.addEventListener('error', () => {
-        renderRestoreProgress({
-            RestoreDone: true,
-            success: false,
-            Restore_Result_Datas: {
-                status: 'failed',
-                failedStage: 'uploading_file',
-                fileName: file.name,
-            },
-        });
-        $('#restorestatus').css('color', 'red').text(i18next.t('Restore Error.'));
+        showRestoreUploadError(file.name);
     });
     request.send(formData);
 
