@@ -48,7 +48,6 @@ require $sRootDocument . '/Include/Header.php';
         </p>
 
         <form id="restoredatabase" action="<?= $sRootPath ?>/api/database/restore" method="POST" enctype="multipart/form-data">
-
             <div class="form-group">
                 <label for="restoreFile" class="font-weight-bold"><?= _('Backup file') ?></label>
                 <div class="input-group">
@@ -69,7 +68,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <?php endif; ?>
 
-            <button type="submit" class="btn btn-warning">
+            <button type="submit" id="restoreSubmitButton" class="btn btn-warning" disabled>
                 <i class="fas fa-upload mr-1"></i> <?= _('Upload and Restore') ?>
             </button>
 
@@ -86,11 +85,48 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <div class="card-body">
+        <div id="restoreProgress" class="d-none mb-3" aria-live="polite">
+            <ol id="restoreProgressSteps" class="list-group">
+                <li class="list-group-item d-flex align-items-center py-2" data-restore-step="uploading_file">
+                    <i class="fas fa-circle text-muted mr-2" aria-hidden="true"></i>
+                    <span class="restore-step-label"><?= _('Uploading backup file') ?></span>
+                    <span id="restoreUploadPercent" class="ml-auto"></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-2" data-restore-step="extracting_archive">
+                    <i class="fas fa-circle text-muted mr-2" aria-hidden="true"></i>
+                    <span class="restore-step-label"><?= _('Extracting backup archive') ?></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-2" data-restore-step="importing_database">
+                    <i class="fas fa-circle text-muted mr-2" aria-hidden="true"></i>
+                    <span class="restore-step-label"><?= _('Importing database') ?></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-2" data-restore-step="restoring_images">
+                    <i class="fas fa-circle text-muted mr-2" aria-hidden="true"></i>
+                    <span class="restore-step-label"><?= _('Restoring images') ?></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-2" data-restore-step="restoring_private_webdav">
+                    <i class="fas fa-circle text-muted mr-2" aria-hidden="true"></i>
+                    <span class="restore-step-label"><?= _('Restoring private WebDAV files') ?></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-2" data-restore-step="restoring_public_webdav">
+                    <i class="fas fa-circle text-muted mr-2" aria-hidden="true"></i>
+                    <span class="restore-step-label"><?= _('Restoring public WebDAV files') ?></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-2" data-restore-step="restoring_webdav_shares">
+                    <i class="fas fa-circle text-muted mr-2" aria-hidden="true"></i>
+                    <span class="restore-step-label"><?= _('Restoring shared files') ?></span>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-2" data-restore-step="upgrading_database">
+                    <i class="fas fa-circle text-muted mr-2" aria-hidden="true"></i>
+                    <span class="restore-step-label"><?= _('Updating database') ?></span>
+                </li>
+            </ol>
+        </div>
         <div id="restoreMessages"></div>
         <div id="restoreNextStep"></div>
     </div>
 </div>
 
-<script src="<?= $sRootPath ?>/skin/js/backup/restore.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/backup/restore.js?v=<?= filemtime($sRootDocument . '/skin/js/backup/restore.js') ?>"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

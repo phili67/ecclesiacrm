@@ -248,10 +248,14 @@ class SystemBackupRestoreController
         $restoreResult = [];
         $message = '';
 
-        if (file_exists($restoreRoot . '/restore_result.json')) {
-            $restoreDone = true;
-            $restoreResult = json_decode(file_get_contents($restoreRoot . '/restore_result.json'), true) ?: [];
-            $message = $restoreResult['message'] ?? '';
+        $restoreResultFile = $restoreRoot . '/restore_result.json';
+        if (file_exists($restoreResultFile)) {
+            $decodedResult = json_decode((string) file_get_contents($restoreResultFile), true);
+            if (is_array($decodedResult)) {
+                $restoreResult = $decodedResult;
+                $restoreDone = array_key_exists('success', $restoreResult);
+                $message = $restoreResult['message'] ?? '';
+            }
         }
 
         if ($restoreInProgress) {
