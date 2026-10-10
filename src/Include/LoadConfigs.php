@@ -32,16 +32,18 @@ if (!isset($sSoftwareName)) {
     $sSoftwareName = "EcclesiaCRM";
 }
 
+if (!isset($maintenanceMode)) {
+    $maintenanceMode = false;
+}
+
 $maintenanceLock = dirname(__DIR__) . '/tmp_attach/maintenance_mode';
 if (file_exists($maintenanceLock)) {
     $maintenanceMode = true;
 }
 
-
 if (!isset($sSoftwareIcon)) {
     $sSoftwareIcon = 'icon-small.png';
 }
-
 
 Bootstrapper::init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, 
                     $URL, defined("davserver"), $sSoftwareName, $sSoftwareIcon, $maintenanceMode);

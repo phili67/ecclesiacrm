@@ -81,6 +81,11 @@ file_put_contents($progressFile, date('c'));
 $exitCode = 0;
 
 try {
+    file_put_contents($resultFile, json_encode([
+        'status' => 'preparing',
+        'fileName' => $fileName,
+        'timestamp' => date(DATE_ATOM),
+    ]));
     LoggerUtils::getAppLogger()->info('Entering maintenance mode for restore');
     LoggerUtils::getAppLogger()->info('Start restore from command line: ' . $fileName);
 
@@ -94,6 +99,9 @@ try {
     $restoreJob = new RestoreBackup($restoreFile, $restorePassword);
     $restore = $restoreJob->run();
     $result = [
+        'status' => 'completed',
+        'fileName' => $fileName,
+        'timestamp' => date(DATE_ATOM),
         'success' => true,
         'Messages' => $restore->getMessages(),
     ];
@@ -102,7 +110,12 @@ try {
     LoggerUtils::getAppLogger()->info('Restore from command line completed');
     fwrite(STDOUT, "Restore complete.\n");
 } catch (Throwable $exception) {
+    $previousProgress = json_decode((string) file_get_contents($resultFile), true);
     $result = [
+        'status' => 'failed',
+        'fileName' => $fileName,
+        'timestamp' => date(DATE_ATOM),
+        'failedStage' => is_array($previousProgress) ? ($previousProgress['status'] ?? null) : null,
         'success' => false,
         'message' => $exception->getMessage(),
     ];
