@@ -50,7 +50,7 @@ nav:
     - 'Mise en place du CRM':
         - 'Configuration requise': 'user-guide/doc-installation/doc-requirement.md'
         - "Procédure d'Installation": 'user-guide/doc-installation/doc-install.md'
-        - 'Édition en ligne (Collabora)': 'user-guide/doc-installation/doc-collabora.md'
+        - 'Edition en ligne pour eDrive (Collabora)': 'user-guide/doc-installation/doc-collabora.md'
     - 'Gestion des personnes':
         - 'Présentation': 'user-guide/doc-admin/person/doc-persons.md'
         - 'Créer une personne': 'user-guide/doc-admin/person/doc-create-person.md'
