@@ -27,10 +27,16 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Slim\dependencies;
 use EcclesiaCRM\Slim\Error\handlers;
 
+$rootPath = str_replace('/api/index.php', '', $_SERVER['SCRIPT_NAME']);
+
+// the WOPI routes are called by the Collabora server : no user session, the WOPI access token is checked instead
+if (str_starts_with((string)parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), $rootPath . '/api/wopi/')) {
+    require __DIR__ . '/wopi-host.php';
+    exit;
+}
+
 // security access, if no user exit
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('session/login');
-
-$rootPath = str_replace('/api/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 // Instantiate the app
 $container = new Container();
@@ -95,6 +101,7 @@ require_once __DIR__.'/routes/calendar/calendar-eventsV2.php';
 require_once __DIR__.'/routes/documents/documents-document.php';
 require_once __DIR__.'/routes/documents/documents-ckeditor.php';
 require_once __DIR__.'/routes/documents/documents-filemanager.php';
+require_once __DIR__.'/routes/documents/documents-collabora.php';
 require_once __DIR__.'/routes/documents/documents-sharedocument.php';
 
 // finance routes

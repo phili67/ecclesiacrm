@@ -24,6 +24,11 @@ $csp = array(
     "connect-src 'self' ibibles.net www.bing.com  nominatim.openstreetmap.org cke4.ckeditor.com maps.googleapis.com",
     "report-uri ".$actual_link.SystemURLs::getRootPath()."/api/system/csp-report"
 );
+if (!empty(SystemConfig::getValue("sCollaboraURL"))) {
+    $csp = array_map(function ($directive) {
+        return str_starts_with($directive, "frame-src") ? $directive . " " . rtrim(SystemConfig::getValue("sCollaboraURL"), "/") : $directive;
+    }, $csp);
+}
 if (SystemConfig::getBooleanValue("bHSTSEnable")) {
     header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
 }

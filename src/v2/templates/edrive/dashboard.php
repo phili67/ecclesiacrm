@@ -14,6 +14,7 @@
  *
  ******************************************************************************/
 
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\MiscUtils;
 
@@ -212,6 +213,7 @@ require $sRootDocument . '/Include/Header.php';
     window.CRM.browserImage = false,
     window.CRM.currentpath = '<?= $user->getCurrentpath() ?>';
     window.CRM.isPublicFolder = false;
+    window.CRM.collaboraEnabled = <?= !empty(SystemConfig::getValue('sCollaboraURL')) ? 'true' : 'false' ?>;
     window.CRM.isCurrentPathPublicFolder = false;
 </script>
 

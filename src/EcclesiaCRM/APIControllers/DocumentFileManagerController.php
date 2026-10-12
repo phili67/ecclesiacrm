@@ -14,6 +14,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\ImageTreatment;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\Service\CollaboraService;
 use EcclesiaCRM\Utils\DocumentSecurityUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -181,6 +182,8 @@ class DocumentFileManagerController
         $currentNoteDir = SystemURLs::getDocumentRoot() ."/". $realNoteDir . "/" . $userName . $currentpath;
         $sabrepath = $realNoteDir . "/" . $userName . $currentpath;
         
+        $collabora = new CollaboraService();
+
         $result = [];
         $files = array_diff(scandir($currentNoteDir), array('.', '..', '.DS_Store', '._.DS_Store'));
         foreach ($files as $file) {
@@ -240,6 +243,7 @@ class DocumentFileManagerController
 
             $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';
             $item['currentpath'] = $currentpath;
+            $item['canEdit'] = !$item['dir'] && !$item['link'] && $collabora->isEditable($file) && !$item['locked'];
 
             $result[] = $item;
         }
@@ -586,6 +590,10 @@ class DocumentFileManagerController
 
                 $ret = unlink($currentNoteDir);
 
+                if ($ret) {
+                    (new CollaboraService())->deleteAllVersions($currentNoteDir);
+                }
+
                 return $response->withJson(['success' => $ret, "numberOfFiles" => $this->numberOfFiles($params->personID)]);
             }
         }
@@ -663,7 +671,9 @@ class DocumentFileManagerController
                         SabreUtils::removeSharedFileOrCollection($principalUri, $sabrePath);
                         // end of the sabre part
                         
-                        if (unlink($currentNoteDir)) {                                                        
+                        if (unlink($currentNoteDir)) {
+                            (new CollaboraService())->deleteAllVersions($currentNoteDir);
+
                             $searchLikeString = $userName . $currentpath . $file . '%';
                             $searchLikeString = str_replace("//", "/", $searchLikeString);
 
@@ -805,6 +815,8 @@ class DocumentFileManagerController
                         }                                                
 
                         if (rename($currentDest, $newDest)) {
+                            (new CollaboraService())->moveVersions($currentDest, $newDest);
+
                             SabreUtils::moveSharedFileOrCollection($principalUri, $oldPath, $newPath);
                             // end of sabre
                         
@@ -921,6 +933,10 @@ class DocumentFileManagerController
                 }
 
                 if (rename($oldName, $newName)) {
+                    if ($params->type == 'file') {
+                        (new CollaboraService())->moveVersions($oldName, $newName);
+                    }
+
                     SabreUtils::moveSharedFileOrCollection($principalUri, $oldPath, $newPath);
 
                     $searchLikeString = $userName . $currentpath . $params->oldName;

@@ -1,0 +1,14 @@
+@import url("../branding.css");
+
+/* The CRM icon replaces the Collabora one in the document header and in the About dialog */
+html:not([data-theme=dark]) .document-logo,
+html[data-theme=dark] .document-logo {
+  background-image: url("logo.png") !important;
+  background-size: 28px !important;
+}
+
+#integrator-logo {
+  flex: 0 0 128px;
+  height: 96px;
+  background: url("logo.png") no-repeat center/96px;
+}
