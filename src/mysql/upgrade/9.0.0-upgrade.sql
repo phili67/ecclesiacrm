@@ -26,3 +26,20 @@ CREATE TABLE `plugin_dependencies` (
 -- 2026-07-01 12:00:00
 ALTER TABLE user_usr DROP COLUMN usr_MailChimp;
 
+--
+-- Table structure for table `wopi_tokens` : access tokens used by Collabora Online (WOPI protocol)
+--
+
+CREATE TABLE `wopi_tokens` (
+  `token` CHAR(64) NOT NULL,
+  `file_id` CHAR(40) NOT NULL COMMENT 'sha1 of owner person id and relative path',
+  `owner_id` mediumint(9) unsigned NOT NULL COMMENT 'person id of the eDrive owner',
+  `user_id` mediumint(9) unsigned NOT NULL COMMENT 'person id of the user who edits the file',
+  `rel_path` VARCHAR(1024) NOT NULL COMMENT 'path of the file in the owner eDrive',
+  `can_write` TINYINT(1) NOT NULL DEFAULT 1,
+  `expires_at` DATETIME NOT NULL,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`token`),
+  INDEX `idx_wopi_expires` (`expires_at`),
+  INDEX `idx_wopi_file` (`file_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

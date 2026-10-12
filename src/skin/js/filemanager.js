@@ -191,6 +191,8 @@ $(function () {
                     if (!full.dir && !full.link) {
                         var ret = `<div class="btn-group">
    <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
+   ${full.canEdit ? `<button type="button" class="btn btn-outline-info btn-sm px-2 py-1 editFile" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Edit')}"><i class="fa-solid fa-pen-to-square file-action-icon"></i></button>` : ''}
+   ${full.canEdit ? `<button type="button" class="btn btn-outline-secondary btn-sm px-2 py-1 fileVersions" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Versions')}"><i class="fa-solid fa-clock-rotate-left file-action-icon"></i></button>` : ''}
    <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
 </div>`;
                         return ret;
@@ -356,6 +358,34 @@ $(function () {
         }
     });
 
+    if (window.CRM.collaboraEnabled) {
+        const newDocumentTypes = [
+            { type: 'docx', icon: 'fa-file-word', label: i18next.t('Word document') },
+            { type: 'xlsx', icon: 'fa-file-excel', label: i18next.t('Excel spreadsheet') },
+            { type: 'pptx', icon: 'fa-file-powerpoint', label: i18next.t('PowerPoint presentation') },
+            { type: 'odg', icon: 'fa-pen-ruler', label: i18next.t('Draw drawing') }
+        ];
+
+        window.CRM.plugin.dataTable.buttons.push({
+            extend: 'collection',
+            text: '<i class="fas fa-file-circle-plus"></i> ' + i18next.t("New document"),
+            className: 'btn btn-secondary btn-sm new-document',
+            attr: {
+                id: 'new-document',
+                'title': i18next.t("New document")
+            },
+            autoClose: true,
+            buttons: newDocumentTypes.map(function (item) {
+                return {
+                    text: '<i class="fas ' + item.icon + ' mr-2"></i>' + item.label,
+                    action: function () {
+                        createCollaboraDocument(item.type, item.label);
+                    }
+                };
+            })
+        });
+    }
+
     window.CRM.plugin.dataTable.buttons.push({
         text: '<i class="fas fa-sync-alt"></i> ' + i18next.t("Actualize files"),
         className: 'btn btn-secondary btn-sm drag-elements filemanager-refresh',
@@ -410,6 +440,212 @@ $(function () {
     });
 
 
+    // open the document in Collabora Online : the window is opened in the click event (popup blockers)
+    // and it posts the WOPI access token to the Collabora editor in an iframe
+    function openCollaboraWindow() {
+        // a window with features (not a simple tab) is opened in the foreground by the browsers (Safari opens the tabs in the background)
+        const win = window.open('', '_blank', `popup=yes,left=0,top=0,width=${screen.availWidth},height=${screen.availHeight}`);
+
+        if (!win) {
+            bootbox.alert(i18next.t('Please allow pop-up windows for this site.'));
+        }
+
+        return win;
+    }
+
+    // win : window already opened in the click event (for a new document), otherwise it is opened here
+    function openCollaboraEditor(name, win) {
+        win = win || openCollaboraWindow();
+
+        if (!win) {
+            return;
+        }
+
+        win.document.write('<p style="font-family:sans-serif">' + i18next.t('Loading') + '...</p>');
+        win.focus();
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'collabora/edit',
+            data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": name })
+        }, function (data) {
+            if (!data || !data.success) {
+                win.close();
+                return;
+            }
+
+            const esc = (value) => $('<div>').text(value).html().replace(/"/g, '&quot;');
+
+            const collaboraOrigin = new URL(data.url).origin;
+
+            win.document.open();
+            win.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${esc(data.title)}</title>
+<style>html,body{margin:0;height:100%;overflow:hidden}iframe{width:100%;height:100%;border:0}</style></head>
+<body><form id="collabora-form" method="post" target="collabora-frame" action="${esc(data.url)}">
+<input type="hidden" name="access_token" value="${esc(data.access_token)}">
+<input type="hidden" name="access_token_ttl" value="${esc(String(data.access_token_ttl))}">
+</form><iframe name="collabora-frame" allow="clipboard-read ${esc(collaboraOrigin)}; clipboard-write ${esc(collaboraOrigin)}; fullscreen ${esc(collaboraOrigin)}"></iframe></body></html>`);
+            win.document.close();
+            win.document.getElementById('collabora-form').submit();
+            win.focus();
+
+            // PostMessage API : the host tells Collabora that it is ready to receive the messages, and closes the window with the editor
+            // (the listener is added after document.close(), because document.open() removes the previous ones)
+            win.addEventListener('message', function (event) {
+                if (event.origin !== collaboraOrigin) {
+                    return;
+                }
+
+                let message = event.data;
+                if (typeof message === 'string') {
+                    try {
+                        message = JSON.parse(message);
+                    } catch (e) {
+                        return;
+                    }
+                }
+
+                if (message.MessageId === 'App_LoadingStatus' && message.Values && message.Values.Status === 'Frame_Ready') {
+                    win.frames['collabora-frame'].postMessage(JSON.stringify({ MessageId: 'Host_PostmessageReady', SendTime: Date.now() }), collaboraOrigin);
+                } else if (message.MessageId === 'UI_Close') {
+                    win.close();
+                }
+            });
+        }, function (error) {
+            win.close();
+            bootbox.alert(i18next.t(error.message));
+        });
+    }
+
+    // versions of a document : list, download, restore and delete
+    function openVersionsDialog(name) {
+        const escapeHtml = (value) => $('<div>').text(value).html().replace(/"/g, '&quot;');
+
+        const dialog = bootbox.dialog({
+            title: '<i class="fa-solid fa-clock-rotate-left mr-2"></i>' + i18next.t('Versions') + ' : ' + escapeHtml(name),
+            message: '<div class="versions-content"><i class="fas fa-spinner fa-spin"></i></div>',
+            size: 'large',
+            onEscape: true,
+            buttons: {
+                close: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Close'),
+                    className: 'btn btn-secondary'
+                }
+            }
+        });
+
+        const request = function (path, version, callback) {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: path,
+                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": name, "version": version })
+            }, callback, function (error) {
+                bootbox.alert(i18next.t(error.message));
+            });
+        };
+
+        const render = function () {
+            request('collabora/versions', null, function (data) {
+                let rows = `<tr class="table-active"><td>${escapeHtml(data.currentDate)} <span class="badge badge-primary">${i18next.t('Current version')}</span></td><td>${escapeHtml(data.currentSize)}</td><td></td></tr>`;
+
+                $.each(data.versions, function (index, version) {
+                    rows += `<tr>
+<td>${escapeHtml(version.date)}</td>
+<td>${escapeHtml(version.size)}</td>
+<td class="text-right"><div class="btn-group">
+<button type="button" class="btn btn-outline-primary btn-sm version-download" data-version="${version.id}" title="${i18next.t('Download')}"><i class="fa-solid fa-download"></i></button>
+<button type="button" class="btn btn-outline-success btn-sm version-restore" data-version="${version.id}" title="${i18next.t('Restore')}"><i class="fa-solid fa-rotate-left"></i></button>
+<button type="button" class="btn btn-outline-danger btn-sm version-delete" data-version="${version.id}" title="${i18next.t('Delete')}"><i class="fa-solid fa-trash-can"></i></button>
+</div></td></tr>`;
+                });
+
+                if (!data.versions.length) {
+                    rows += `<tr><td colspan="3" class="text-muted">${i18next.t('No previous version')}</td></tr>`;
+                }
+
+                dialog.find('.versions-content').html(`<table class="table table-sm mb-0"><thead><tr><th>${i18next.t('Modification Date')}</th><th>${i18next.t('Size')}</th><th></th></tr></thead><tbody>${rows}</tbody></table>`);
+            });
+        };
+
+        dialog.on('click', '.version-download', function () {
+            const version = $(this).data('version');
+            const dot = name.lastIndexOf('.');
+
+            window.CRM.APIDownloadRequest({
+                method: 'POST',
+                path: 'collabora/versions/download',
+                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": name, "version": version }),
+                name: (dot > 0 ? name.substring(0, dot) : name) + ' (' + version + ')',
+                extension: dot > 0 ? name.substring(dot + 1) : 'txt'
+            });
+        });
+
+        dialog.on('click', '.version-restore', function () {
+            const version = $(this).data('version');
+
+            bootbox.confirm({
+                title: i18next.t('Restore this version ?'),
+                message: i18next.t('The current content is kept as a version. If the document is open in the editor, close it first.'),
+                callback: function (result) {
+                    if (result) {
+                        request('collabora/versions/restore', version, function () {
+                            window.CRM.reloadEDriveTable();
+                            render();
+                        });
+                    }
+                }
+            });
+        });
+
+        dialog.on('click', '.version-delete', function () {
+            const version = $(this).data('version');
+
+            bootbox.confirm({
+                title: i18next.t('Delete this version ?'),
+                message: i18next.t("This can't be undone !!!!"),
+                callback: function (result) {
+                    if (result) {
+                        request('collabora/versions/delete', version, render);
+                    }
+                }
+            });
+        });
+
+        render();
+    }
+
+    // create an empty document in the current folder and open it in Collabora
+    function createCollaboraDocument(type, label) {
+        bootbox.prompt(label + ' : ' + i18next.t('Set the document name'), function (result) {
+            if (result == null || result.trim() == '') {
+                return;
+            }
+
+            // the window is opened in the click event of the dialog (popup blockers)
+            const win = openCollaboraWindow();
+            if (!win) {
+                return;
+            }
+
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'collabora/create',
+                data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": result.trim(), "type": type })
+            }, function (data) {
+                if (!data || !data.success) {
+                    win.close();
+                    return;
+                }
+
+                window.CRM.reloadEDriveTable();
+                openCollaboraEditor(data.name, win);
+            }, function (error) {
+                win.close();
+                bootbox.alert(i18next.t(error.message));
+            });
+        });
+    }
+
     // click in the table
     $('#edrive-table tbody').on('click', 'tr', function(event) {
         var data = window.CRM.dataEDriveTable.row(this).data();
@@ -426,10 +662,22 @@ $(function () {
             && $(event.target).closest('.change-folder').length == 0 
             && $(event.target).closest('.fa-download').length == 0 
             && $(event.target).closest('.shareFile').length == 0 
+            && $(event.target).closest('.editFile').length == 0 
+            && $(event.target).closest('.fileVersions').length == 0 
             && !shiftKey && !ctrlKey && !optionKey && !altKey) {
             // not click on a folder link : ie click on the line to select and show preview and not click on the line to open the folder    
             openFilePreviewDialog(id);
             return;        
+        }
+
+        if (clickedCellIndex > 0 && $(event.target).closest('.editFile').length > 0) {
+            openCollaboraEditor(id);
+            return;
+        }
+
+        if (clickedCellIndex > 0 && $(event.target).closest('.fileVersions').length > 0) {
+            openVersionsDialog(id);
+            return;
         }
 
         if (clickedCellIndex > 0 && $(event.target).closest('.shareFile').length > 0) {

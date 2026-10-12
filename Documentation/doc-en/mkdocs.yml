@@ -48,6 +48,7 @@ nav:
       - 'Setting Up EcclesiaCRM':
           - 'System requirements': 'user-guide/doc-installation/doc-requirement.md'
           - "Installation process": 'user-guide/doc-installation/doc-install.md'
+          - 'Online Document Editing for eDrive (Collabora Online)': 'user-guide/doc-installation/doc-collabora.md'
       - 'Persons managements':
           - 'Overview': 'user-guide/doc-admin/person/doc-persons.md'
           - 'Create a person': 'user-guide/doc-admin/person/doc-create-person.md'
