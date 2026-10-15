@@ -22,6 +22,9 @@ echo "## DOCUMENTS FILES" >> api.md
 php slim-doc.php -i ../src/api/routes/documents/documents-ckeditor.php -o output_file.md -n"ckeditor"
 cat output_file.md >> api.md
 
+php slim-doc.php -i ../src/api/routes/documents/documents-collabora.php -o output_file.md -n"collabora"
+cat output_file.md >> api.md
+
 php slim-doc.php -i ../src/api/routes/documents/documents-document.php -o output_file.md -n"document"
 cat output_file.md >> api.md
 
@@ -29,6 +32,9 @@ php slim-doc.php -i ../src/api/routes/documents/documents-filemanager.php -o out
 cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/documents/documents-sharedocument.php -o output_file.md -n"sharedocument"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/documents/documents-wopi.php -o output_file.md -n"template"
 cat output_file.md >> api.md
 
 #finances
@@ -91,7 +97,7 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/sidebar/sidebar-roles.php -o output_file.md -n"roles"
 cat output_file.md >> api.md
 
-php slim-doc.php -i ../src/api/routes/sidebar/sidebar-volunteeropportunity.php -o output_file.md -n"volunteeropportunity"
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-systemsettings.php -o output_file.md -n"system settings"
 cat output_file.md >> api.md
 
 # pastoral care
@@ -173,10 +179,9 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/kiosks.php -o output_file.md -n"kiosks"
 cat output_file.md >> api.md
 
-#mailchimp
-php slim-doc.php -i ../src/api/routes/mailchimp.php -o output_file.md -n"mailchimp"
+# volunteer
+php slim-doc.php -i ../src/api/routes/volunteer/volunteeropportunity.php -o output_file.md -n"volunteeropportunity"
 cat output_file.md >> api.md
-
 
 # now we copy the file at the right place
 cp api.md doc-fr/docs/user-guide/doc-dev/doc-api/
