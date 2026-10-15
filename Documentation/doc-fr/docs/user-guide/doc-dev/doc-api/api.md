@@ -301,6 +301,62 @@ Route | Method | function | Description
 * `{ref}`->`string` :: text
 
 ---
+## API "collabora"
+
+   in route : "/api/routes/documents/documents-collabora.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/edit` | POST | DocumentCollaboraController::class . ':edit' | get the Collabora editor url and the WOPI access token of a file of the current folder
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: name
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/create` | POST | DocumentCollaboraController::class . ':create' | create an empty document (docx, xlsx, pptx, odg) in the current folder
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: name
+* `{ref}`->`string` :: type
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/versions` | POST | DocumentCollaboraController::class . ':versions' | list the previous versions of a document of the current folder
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: name
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/versions/download` | POST | DocumentCollaboraController::class . ':downloadVersion' | download a previous version of a document
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: name
+* `{ref}`->`string` :: version
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/versions/restore` | POST | DocumentCollaboraController::class . ':restoreVersion' | restore a previous version of a document (the current content is kept as a version)
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: name
+* `{ref}`->`string` :: version
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/versions/delete` | POST | DocumentCollaboraController::class . ':deleteVersion' | delete a previous version of a document
+
+* `{ref}`->`int` :: personID
+* `{ref}`->`string` :: name
+* `{ref}`->`string` :: version
+
+---
 ## API "document"
 
    in route : "/api/routes/documents/documents-document.php"
@@ -494,17 +550,31 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/addpersonsabre` | POST | DocumentShareController::class . ':addPersonSabreToShare' | share a note to a personID from currentPersonID for sabre
 
-* `{ref}`->`int` :: personID
 * `{ref}`->`int` :: currentPersonID
-* `{ref}`->`array` :: all the rows
+* `{ref}`->`int` :: personToShareID
+* `{ref}`->`array` :: rows (all the rows)
+* `{ref}`->`string` :: access
+* `{ref}`->`bool` :: notification
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addfamily` | POST | DocumentShareController::class . ':addFamilyToShare' | share a note to a familyID from currentPersonID 
+`/addfamily` | POST | DocumentShareController::class . ':addFamilyToShare' | share a file(s) to a familyID from currentPersonID 
 
-* `{ref}`->`int` :: familyID
-* `{ref}`->`int` :: noteId
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`array` :: noteId
+* `{ref}`->`int` :: personToShareID
+* `{ref}`->`bool` :: notification
+* `{ref}`->`string` :: access
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addfamilysabre` | POST | DocumentShareController::class . ':addFamilyToShareSabre' | share a file(s) to a familyID for currentPersonID 
+
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`int` :: familyToShareID
+* `{ref}`->`array` :: rows
 * `{ref}`->`int` :: currentPersonID
 * `{ref}`->`bool` :: notification
 
@@ -515,6 +585,17 @@ Route | Method | function | Description
 
 * `{ref}`->`int` :: groupID
 * `{ref}`->`int` :: noteId
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`bool` :: notification
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addgroupsabre` | POST | DocumentShareController::class . ':addGroupToShareSabre' | share a note to a groupID from currentPersonID 
+
+* `{ref}`->`int` :: currentPersonID
+* `{ref}`->`int` :: groupToShareID
+* `{ref}`->`array` :: rows
 * `{ref}`->`int` :: currentPersonID
 * `{ref}`->`bool` :: notification
 
@@ -577,6 +658,28 @@ Route | Method | function | Description
 
 * `{ref}`->`int` :: currentPersonID
 * `{ref}`->`array` :: rows
+
+---
+## API "template"
+
+   in route : "/api/routes/documents/documents-wopi.php"
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/files/{id:[a-f0-9]{40}}` | GET | DocumentWopiController::class . ':checkFileInfo' | CheckFileInfo
+
+* `{ref}`->`string` :: id
+* `{ref}`->`string` :: access_token (query)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/files/{id:[a-f0-9]{40}}/contents` | GET | DocumentWopiController::class . ':getFile' | GetFile
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/files/{id:[a-f0-9]{40}}/contents` | POST | DocumentWopiController::class . ':putFile' | PutFile
 
 ---
 ## API "deposits"
@@ -938,7 +1041,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/isMailChimpActive` | POST | PeopleFamilyController::class . ":isMailChimpActiveFamily" | Return if mailchimp is activated for family
+`/isMailServiceActive` | POST | PeopleFamilyController::class . ":isMailServiceActiveFamily" | Return if mail service is activated for family
 
 * `{id}`->`int` :: familyId as id
 * `{ref}`->`string` :: email as ref
@@ -1389,6 +1492,22 @@ Route | Method | function | Description
 `/person/classification/assign` | POST | PeopleController::class . ':postPersonClassification' | Returns all classifications
 
 ---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/updateStatus` | POST | PeopleController::class . ':postFamilyUpdateStatus' | Upate the status of a family
+
+* `{id}`->`int` :: ID
+* `{id}`->`int` :: Status
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/updateStatus` | POST | PeopleController::class . ':postPersonUpdateStatus' | Upate the status of a person
+
+* `{id}`->`int` :: ID
+* `{id}`->`int` :: Status
+
+---
 ## API "persons"
 
    in route : "/api/routes/people/people-persons.php"
@@ -1463,7 +1582,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/isMailChimpActive` | POST | PeoplePersonController::class . ":isMailChimpActivePerson" | Return if MailChimp is activated
+`/isMailServiceActive` | POST | PeoplePersonController::class . ":isMailServiceActivePerson" | Return if Mail Service is activated
 
 * `{id}`->`int` :: personId as id
 * `{ref}`->`string` :: email as ref
@@ -1471,7 +1590,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{personId:[0-9]+}/activate/{status}` | POST | PeoplePersonController::class . ":activateDeacticate" | Return if MailChimp is activated
+`/{personId:[0-9]+}/activate/{status}` | POST | PeoplePersonController::class . ":activateDeacticate" | Return if Mail Service is activated
 
 * `{id}`->`int` :: personId as id
 * `{ref}`->`string` :: email as ref
@@ -1554,16 +1673,6 @@ Route | Method | function | Description
 
 * `{id}`->`int` :: orderID
 * `{id}`->`int` :: field
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/duplicate/emails` | GET | PeoplePersonController::class . ":duplicateEmails" | duplicate emails in mailchimp
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/NotInMailChimp/emails/{type}` | GET | PeoplePersonController::class . ":notInMailChimpEmails" | not in email for mailchimp
 
 ---
 Route | Method | function | Description
@@ -1667,6 +1776,18 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/getresult/` | POST | SearchController::class . ':getSearchResult' | Get search result for the main seach view
+
+* `{ref}`->`string` :: query
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getresulttypes/` | GET | SearchController::class . ':getSearchTypes' | Get available search result types for the main search view
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getresultpersonids/` | POST | SearchController::class . ':getSearchPeopleIds' | Get all person ids for the current main search filters
 
 * `{ref}`->`string` :: query
 
@@ -1884,20 +2005,16 @@ Route | Method | function | Description
 * `{ref}`->`string` :: Description
 
 ---
-## API "roles"
+## API "system settings"
 
-   in route : "/api/routes/sidebar/sidebar-roles.php"
+   in route : "/api/routes/sidebar/sidebar-systemsettings.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/all` | GET | SidebarRolesController::class . ':getAllRoles' | get all roles
+`/saveSettings` | POST | SidebarSystemSettingsController::class . ':saveSettings' | save system settings
 
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/persons/assign` | POST | SidebarRolesController::class . ':rolePersonAssign' | get all roles
-
-* `{ref}`->`string` :: Description
+* `{ref}`->`array` :: new_value
+* `{ref}`->`array` :: type
 
 ---
 ## PASTORAL CARE
@@ -2151,6 +2268,11 @@ Route | Method | function | Description
 `/backup/result` | GET | SystemBackupRestoreController::class . ':getBackupResult' | Clear all people from the database (admin)
 
 * `{ref}`->`string` :: filename
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/restore/result` | GET | SystemBackupRestoreController::class . ':getRestoreResult' | No description
 
 ---
 ## API "gdrp"
@@ -2805,222 +2927,55 @@ Route | Method | function | Description
 * `{ref}`->`int` :: kioskId
 
 ---
-## API "mailchimp"
+## API "volunteeropportunity"
 
-   in route : "/api/routes/mailchimp.php"
+   in route : "/api/routes/volunteer/volunteeropportunity.php"
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/search/{query}` | GET | MailchimpController::class . ':searchList' | Search in the list field : *, family name, group, etc ...
-
-* `{ref}`->`string` :: query
+`/{volID:[0-9]+}/settings/active/{value}` | POST | VolunteerOpportunityController::class . ":settingsActiveValue" | get all volunteer opportunities in cart (IDs)
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/list/{listID}` | GET | MailchimpController::class . ':oneList' | get one list info (['MailChimpList' => $list,'MailChimpCampaign' => $campaign,'membersCount' => count($mailchimp->getListMembersFromListId($args['listID']))])
-
-* `{ref}`->`int` :: listID
+`/{volID:[0-9]+}/settings/managers/{value}` | POST | VolunteerOpportunityController::class . ":settingsManagersValue" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/lists` | GET | MailchimpController::class . ':lists' | get all lists ['MailChimpLists' => $lists,'MailChimpCampaigns' => $campaigns, 'firstLoaded' => !$isLoaded, 'isActive' => $isActive]
-
-* `{ref}`->`int` :: listID
+`/{volID:[0-9]+}/settings/email/export/{value}` | POST | VolunteerOpportunityController::class . ":settingsEmailExportValue" | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/listmembers/{listID}` | GET | MailchimpController::class . ':listmembers' | get all members list for listID
+`/addressbook/extract/{volID:[0-9]+}` | GET | VolunteerOpportunityController::class . ":addressBook" | delete volunteer opportunities by id
 
-* `{ref}`->`int` :: listID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/createlist` | POST | MailchimpController::class . ':createList' | create a list
-
-* `{ref}`->`string` :: ListTitle
-* `{ref}`->`string` :: Subject
-* `{ref}`->`string` :: PermissionReminder
-* `{ref}`->`bool` :: ArchiveBars
-* `{ref}`->`bool` :: Status (private | public)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/modifylist` | POST | MailchimpController::class . ':modifyList' | modify list by list id
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`string` :: name
-* `{ref}`->`string` :: subject
-* `{ref}`->`string` :: permission_reminder
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/deleteallsubscribers` | POST | MailchimpController::class . ':deleteallsubscribers' | delete all subscribers
-
-* `{ref}`->`int` :: list_id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/deletelist` | POST | MailchimpController::class . ':deleteList' | delete list by list ID
-
-* `{ref}`->`int` :: list_id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/removeTag` | POST | MailchimpController::class . ':removeTag' | remove TagID in the List by list ID
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`int` :: tag_ID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/removeAllTagsForMembers` | POST | MailchimpController::class . ':removeAllTagsForMembers' | remove all tags in list ID by an array of emails
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`array` :: emails
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/addTag` | POST | MailchimpController::class . ':addTag' | add a tag to all members by emails array or create a tag (-1) by name for all emails array.
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`string` :: tag (could be -1 : in this case, you'll create a new tag)
-* `{ref}`->`string` :: name (in case tag is -1)
-* `{ref}`->`array` :: emails
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/getAllTags` | POST | MailchimpController::class . ':getAllTags' | get all tags for for list by id
-
-* `{ref}`->`int` :: list_id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/list/removeTagForMembers` | POST | MailchimpController::class . ':removeTagForMembers' | remove tag for all members (emails array) in list Id
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`int` :: tag
-* `{ref}`->`array` :: emails
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/actions/create` | POST | MailchimpController::class . ':campaignCreate' | Create a campaign for tagID with subject etc ....
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`string` :: subject
-* `{ref}`->`string` :: title
-* `{ref}`->`string` :: tagId
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/actions/delete` | POST | MailchimpController::class . ':campaignDelete' | Delete campaign by id
-
-* `{ref}`->`int` :: campaign_id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/actions/send` | POST | MailchimpController::class . ':campaignSend' | Send campaign by id
-
-* `{ref}`->`int` :: campaign_id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/actions/save` | POST | MailchimpController::class . ':campaignSave' | Save a campaign
-
-* `{ref}`->`int` :: campaign_id
-* `{ref}`->`string` :: subject
-* `{ref}`->`string` :: oldStatus ("save" | "paused" | scheduled)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/campaign/{campaignID}/content` | GET | MailchimpController::class . ':campaignContent' | Get html contect of a campaign
-
-* `{ref}`->`int` :: campaignID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/status` | POST | MailchimpController::class . ':statusList' | update the list status
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`string` :: status ("save" | "paused" | scheduled)
-* `{ref}`->`string` :: email
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/suppress` | POST | MailchimpController::class . ':suppress' | delete email in the list id
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`string` :: email (one email)
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/suppressMembers` | POST | MailchimpController::class . ':suppressMembers' | delete emails in the list id
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`array` :: array of emails
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addallnewsletterpersons` | POST | MailchimpController::class . ':addallnewsletterpersons' | add all members checked by newsletter checkbox in the CRM
-
-* `{ref}`->`int` :: list_id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addallpersons` | POST | MailchimpController::class . ':addallpersons' | add all persons in the CRM who have a email or work email to list ID
-
-* `{ref}`->`int` :: list_id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addperson` | POST | MailchimpController::class . ':addPerson' | add one person ID to list ID
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`int` :: personID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addfamily` | POST | MailchimpController::class . ':addFamily' | add one family ID to list ID
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`int` :: familyID
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addAllFamilies` | POST | MailchimpController::class . ':addAllFamilies' | add all families to list ID
-
-* `{ref}`->`int` :: list_id
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/addgroup` | POST | MailchimpController::class . ':addGroup' | add all group members by ID to list ID
-
-* `{ref}`->`int` :: list_id
-* `{ref}`->`int` :: fgroupID
+* `{ref}`->`int` :: id
+* `{ref}`->`string` :: Name
+* `{ref}`->`string` :: desc
+* `{ref}`->`bool` :: state
+* `{ref}`->`int` :: id
+* `{ref}`->`string` :: Name
+* `{ref}`->`string` :: desc
+* `{ref}`->`bool` :: state
+* `{ref}`->`int` :: id
+* `{ref}`->`int` :: voldId
+* `{ref}`->`int` :: parentId
+* `{ref}`->`int` :: voldId
+* `{ref}`->`int` :: colId
+* `{ref}`->`int` :: voldId
+* `{ref}`->`int` :: iconId
+* `{ref}`->`int` :: volId     
+* `{ref}`->`int` :: volID  
+* `{ref}`->`int` :: PersonID
+* `{ref}`->`int` :: volID  
+* `{ref}`->`int` :: PersonID
+* `{ref}`->`int` :: volID  
+* `{ref}`->`array` :: selectedPersons
+* `{ref}`->`int` :: volID  
+* `{ref}`->`array` :: selectedPersons
+* `{ref}`->`int` :: volID  
+* `{ref}`->`int` :: PersonID
+* `{id}`->`int` :: volID
 
 ---
