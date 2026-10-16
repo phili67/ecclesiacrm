@@ -23,6 +23,26 @@
     }
 }
 
+.ck.ck-editor.crm-checkin-notes-editor {
+    .ck-toolbar,
+    .ck-editor__main > .ck-editor__editable,
+    .ck-editor__main > .ck-editor__editable.ck-focused {
+        background-color: var(--checkin-notes-background) !important;
+    }
+
+    .ck-toolbar {
+        border-color: #f39c12;
+    }
+
+    .ck-button {
+        color: #212529;
+    }
+
+    .ck-editor__main > .ck-editor__editable {
+        color: #212529 !important;
+    }
+}
+
 .ckeditor-html5-video video {
     max-width: 100%;
 }
