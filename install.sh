@@ -17,7 +17,6 @@ fi
 # to run the installation
 npm run install
 
-cp node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.no.min.js node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.nb.min.js
 
 npm run postinstall
 npm run orm-gen
@@ -31,4 +30,3 @@ chown -R www-data:www-data src
 # install composer ...
 cd src
 composer i
-
