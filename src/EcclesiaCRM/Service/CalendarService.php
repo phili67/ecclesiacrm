@@ -28,6 +28,7 @@ use EcclesiaCRM\EventCounts;
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
@@ -1766,7 +1767,7 @@ class CalendarService
         }
 
         $event->setType($eventTypeID);
-        $event->setText($eventNotes);
+        $event->setText(InputUtils::FilterRichTextHTML($eventNotes));
         $event->setTypeName($eventTypeName);
         $event->setInActive($eventInActive);
         $event->setAllday((is_null($allDay) or $allDay == false) ? 0 : 1);
@@ -2168,7 +2169,7 @@ class CalendarService
         }
 
         $old_event->setType($eventTypeID);
-        $old_event->setText($eventNotes);
+        $old_event->setText(InputUtils::FilterRichTextHTML($eventNotes));
         $old_event->setTypeName($eventTypeName);
         $old_event->setInActive($eventInActive);
         $old_event->setAllday((is_null($allDay) or $allDay == false) ? 0 : 1);

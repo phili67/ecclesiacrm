@@ -51,7 +51,7 @@ class InputUtils
         'span' => ['originaltitle', 'copyright', 'update', 'sources', 'key', 'songcommentsimple', 'songcommentbox'],
     ];
 
-    private static $PresentationStyleProperties = [
+    private static $RichTextStyleProperties = [
         'color',
         'background-color',
         'font-family',
@@ -83,10 +83,20 @@ class InputUtils
             return '';
         }
 
+        return self::sanitizeHtml($sInput, true, true);
+    }
+
+    public static function FilterRichTextHTML($sInput)
+    {
+        $sInput = trim($sInput);
+        if ($sInput === '') {
+            return '';
+        }
+
         return self::sanitizeHtml($sInput, true);
     }
 
-    private static function sanitizeHtml(string $html, bool $allowPresentationFormatting = false): string
+    private static function sanitizeHtml(string $html, bool $allowRichTextFormatting = false, bool $allowPresentationClasses = false): string
     {
         $dom = new \DOMDocument();
         libxml_use_internal_errors(true);
@@ -101,7 +111,7 @@ class InputUtils
             return '';
         }
 
-        self::cleanNode($root, $dom, $allowPresentationFormatting);
+        self::cleanNode($root, $dom, $allowRichTextFormatting, $allowPresentationClasses);
 
         $result = '';
         foreach (iterator_to_array($root->childNodes) as $child) {
@@ -111,7 +121,7 @@ class InputUtils
         return $result;
     }
 
-    private static function cleanNode(\DOMNode $node, \DOMDocument $dom, bool $allowPresentationFormatting = false): void
+    private static function cleanNode(\DOMNode $node, \DOMDocument $dom, bool $allowRichTextFormatting = false, bool $allowPresentationClasses = false): void
     {
         $children = iterator_to_array($node->childNodes);
 
@@ -133,10 +143,11 @@ class InputUtils
 
             $tagName = strtolower($child->tagName);
 
-            if (!array_key_exists($tagName, self::$AllowedHTMLTags)) {
+            if (!array_key_exists($tagName, self::$AllowedHTMLTags)
+                && !($allowRichTextFormatting && in_array($tagName, ['strong', 'em'], true))) {
                 // Balise interdite : on nettoie récursivement puis on "déroule"
                 // (on garde le contenu texte/enfants, comportement proche de strip_tags)
-                self::cleanNode($child, $dom, $allowPresentationFormatting);
+                self::cleanNode($child, $dom, $allowRichTextFormatting, $allowPresentationClasses);
 
                 while ($child->firstChild) {
                     $node->insertBefore($child->firstChild, $child);
@@ -146,11 +157,12 @@ class InputUtils
             }
 
             // Balise autorisée : filtrage des attributs
-            $allowedAttrs = self::$AllowedHTMLTags[$tagName];
-            if ($allowPresentationFormatting && in_array($tagName, ['div', 'p', 'span'], true)) {
+            $allowedAttrs = self::$AllowedHTMLTags[$tagName] ?? [];
+            $richTextStyleTags = ['div', 'p', 'span', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+            if ($allowRichTextFormatting && in_array($tagName, $richTextStyleTags, true)) {
                 $allowedAttrs[] = 'style';
             }
-            if ($allowPresentationFormatting && array_key_exists($tagName, self::$PresentationHTMLClasses)) {
+            if ($allowPresentationClasses && array_key_exists($tagName, self::$PresentationHTMLClasses)) {
                 $allowedAttrs[] = 'class';
             }
             $attributesToRemove = [];
@@ -167,15 +179,15 @@ class InputUtils
                     if (!self::isSafeUri($attr->value)) {
                         $attributesToRemove[] = $attr->name;
                     }
-                } elseif ($allowPresentationFormatting && $attrName === 'class') {
+                } elseif ($allowPresentationClasses && $attrName === 'class') {
                     $classes = self::filterPresentationClasses($tagName, $attr->value);
                     if ($classes === '') {
                         $attributesToRemove[] = $attr->name;
                     } else {
                         $child->setAttribute($attr->name, $classes);
                     }
-                } elseif ($allowPresentationFormatting && $attrName === 'style') {
-                    $styles = self::filterPresentationStyles($attr->value);
+                } elseif ($allowRichTextFormatting && $attrName === 'style') {
+                    $styles = self::filterRichTextStyles($attr->value);
                     if ($styles === '') {
                         $attributesToRemove[] = $attr->name;
                     } else {
@@ -188,7 +200,7 @@ class InputUtils
                 $child->removeAttribute($attrName);
             }
 
-            self::cleanNode($child, $dom, $allowPresentationFormatting);
+            self::cleanNode($child, $dom, $allowRichTextFormatting, $allowPresentationClasses);
         }
     }
 
@@ -200,7 +212,7 @@ class InputUtils
         return implode(' ', array_values(array_intersect($classList ?: [], $allowedClasses)));
     }
 
-    private static function filterPresentationStyles(string $styles): string
+    private static function filterRichTextStyles(string $styles): string
     {
         $safeStyles = [];
 
@@ -212,7 +224,7 @@ class InputUtils
 
             $property = strtolower(trim(substr($declaration, 0, $separator)));
             $value = trim(substr($declaration, $separator + 1));
-            if (!in_array($property, self::$PresentationStyleProperties, true) || !self::isSafePresentationStyleValue($property, $value)) {
+            if (!in_array($property, self::$RichTextStyleProperties, true) || !self::isSafePresentationStyleValue($property, $value)) {
                 continue;
             }
 

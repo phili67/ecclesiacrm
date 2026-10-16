@@ -105,7 +105,7 @@
 
     function buildToolbar(preset, options) {
         if (preset === 'minimal') {
-            return ['bold', 'italic', 'underline', '|', 'alignment'];
+            return ['bold', 'italic', 'underline', '|', 'fontColor', 'fontBackgroundColor', '|', 'alignment'];
         }
 
         const toolbar = [
