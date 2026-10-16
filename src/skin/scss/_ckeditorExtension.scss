@@ -6,6 +6,10 @@
     border-color: #3c8dbc;
 }
 
+body.modal-open .ck.ck-balloon-panel {
+    z-index: 1060 !important;
+}
+
 .ck.ck-editor.crm-dark-editor {
     .ck-editor__main > .ck-editor__editable {
         background: #343a40;
@@ -20,6 +24,26 @@
 
     .ck-button {
         color: #f8f9fa;
+    }
+}
+
+.ck.ck-editor.crm-checkin-notes-editor {
+    .ck-toolbar,
+    .ck-editor__main > .ck-editor__editable,
+    .ck-editor__main > .ck-editor__editable.ck-focused {
+        background-color: var(--checkin-notes-background) !important;
+    }
+
+    .ck-toolbar {
+        border-color: #f39c12;
+    }
+
+    .ck-button {
+        color: #212529;
+    }
+
+    .ck-editor__main > .ck-editor__editable {
+        color: #212529 !important;
     }
 }
 

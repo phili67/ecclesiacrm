@@ -401,24 +401,24 @@ $(function() {
             $('#checkedinTable').DataTable().page.len($(this).val()).draw();
         });
 
-        var theme = 'default';
-        if (window.CRM.bDarkMode) {
-            theme = 'default';
-        }
-
-       
         var editor = window.CRM.createEditor('NoteText', {
             preset: 'minimal',
             language: window.CRM.lang,
         });
 
         editor.then(function (instance) {
-            var editable = instance.ui.view.editable.element;
-            editable.style.backgroundColor = '#fffb8cfc';
-            editable.style.borderColor = '#f39c12';
-            editable.style.color = '#212529';
-
             var editorContainer = instance.ui.view.element;
+            var editable = instance.ui.view.editable.element;
+            var notesBackground = window.CRM.bDarkMode ? '#f39c12' : '#fffb8cfc';
+            var notesPanel = editorContainer.closest('.crm-checkin-notes-panel');
+
+            editorContainer.classList.add('crm-checkin-notes-editor');
+            editorContainer.style.setProperty('--checkin-notes-background', notesBackground);
+            notesPanel.style.setProperty('background-color', notesBackground, 'important');
+            editable.style.setProperty('background-color', notesBackground, 'important');
+            editable.style.borderColor = '#f39c12';
+            editable.style.setProperty('color', '#212529', 'important');
+
             editorContainer.style.border = 'none';
             editorContainer.style.boxShadow = 'none';
             editorContainer.style.marginLeft = '-4px';

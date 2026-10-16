@@ -324,7 +324,7 @@ require $sRootDocument . '/Include/Header.php';
                         <i class="fas fa-sticky-note mr-1"></i><?= _("Notes") ?>
                     </h3>
                 </div>
-                <div class="card-body bg-warning text-dark p-1">
+                <div class="card-body bg-warning text-dark p-1 crm-checkin-notes-panel">
                     <small><label for="NoteText" class="mb-2 text-dark"><i class="fa fa-info-circle" style="font-size:0.6rem;"></i> <?= _("Add some notes") ?></label></small>
                     <textarea id="NoteText" name="NoteText" class="form-control bg-warning text-dark border-warning" style="min-height: 300px;"
                               rows="12"><?= $sNoteText ?></textarea>

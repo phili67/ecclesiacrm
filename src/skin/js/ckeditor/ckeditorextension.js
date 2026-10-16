@@ -115,7 +115,7 @@
             'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeFormat', '|',
             'alignment', 'outdent', 'indent', 'numberedList', 'bulletedList', 'blockQuote', '|',
             'link',
-            'insertTable', 'mediaEmbed', 'insertVideo', 'htmlEmbed',
+            'insertTable', 'mediaEmbed', 'insertVideo', //'htmlEmbed',
             'horizontalLine', 'pageBreak', 'specialCharacters', 'emoji'
         ];
 
@@ -1249,7 +1249,7 @@
                     CK.Underline, CK.Strikethrough, CK.Subscript, CK.Superscript,
                     CK.Font, CK.FontFamily, CK.FontSize, CK.FontColor, CK.FontBackgroundColor,
                     CK.Alignment, CK.List, CK.ListProperties, CK.Indent, CK.BlockQuote,
-                    CK.Link, CK.Table, CK.TableToolbar, CK.Image, CK.ImageToolbar,
+                    CK.Link, CK.Table, CK.TableToolbar, CK.TableColumnResize, CK.Image, CK.ImageToolbar,
                     CK.TableProperties, CK.TableCellProperties, CK.ImageCaption,
                     CK.ImageStyle, CK.ImageResize,
                     CK.MediaEmbed, CK.HtmlEmbed, CK.SourceEditing, CK.GeneralHtmlSupport,
@@ -1299,6 +1299,11 @@
                             {name: 'source', attributes: ['src', 'type']},
                             {name: 'iframe', attributes: ['src', 'width', 'height', 'allow', 'allowfullscreen', 'frameborder']},
                             {name: /^(p|h[1-6]|td|th|table)$/, styles: ['text-align', 'vertical-align', 'width', 'height', 'border', 'background-color']},
+                            {name: 'figure', classes: ['table'], styles: ['width', 'height']},
+                            {name: /^(td|th|table)$/, attributes: ['width', 'height']},
+                            {name: /^(td|th)$/, attributes: ['colspan', 'rowspan']},
+                            {name: 'colgroup'},
+                            {name: 'col', attributes: ['width', 'height'], styles: ['width', 'height']},
                             {name: 'span', classes: ['math-tex'], styles: ['color', 'background-color', 'font-family', 'font-size', 'font-weight', 'font-style', 'text-decoration']},
                             {name: 'img', attributes: ['src', 'alt', 'width', 'height'], styles: ['width', 'height', 'max-width', 'float']},
                             {name: 'font', attributes: ['face', 'color', 'size']},
@@ -1307,6 +1312,11 @@
                     },
                     mediaEmbed: {previewsInData: true}
                 };
+
+                const modal = element.closest('.modal');
+                if (modal) {
+                    config.ui = {overlayContainer: modal};
+                }
 
                 if (typeof options.initialData === 'string') {
                     config.initialData = options.initialData;

@@ -23,8 +23,9 @@ class InputUtils
         'pre'        => [],
         'address'    => [],
         'img'        => ['src', 'alt', 'width', 'height'],
-        'table'      => [],
-        'td' => [], 'tr' => [], 'th' => [], 'thead' => [], 'caption' => [],
+        'table'      => ['width', 'height'],
+        'colgroup' => [], 'col' => ['width', 'height'],
+        'td' => ['width', 'height', 'colspan', 'rowspan'], 'tr' => [], 'th' => ['width', 'height', 'colspan', 'rowspan'], 'thead' => [], 'tbody' => [], 'caption' => [],
         'ol' => [], 'li' => [], 'ul' => [],
         'p'          => [],
         'sub' => [], 'sup' => [],
@@ -47,6 +48,7 @@ class InputUtils
         'div' => ['title', 'author', 'lyrics', 'chorus', 'footer', 'song', 'songchorus', 'songcomment'],
         'p' => ['songtitle', 'songsubtitle'],
         'table' => ['songline'],
+        'figure' => ['table'],
         'tr' => ['songlyricchord', 'songlyricline'],
         'span' => ['originaltitle', 'copyright', 'update', 'sources', 'key', 'songcommentsimple', 'songcommentbox'],
     ];
@@ -54,6 +56,9 @@ class InputUtils
     private static $RichTextStyleProperties = [
         'color',
         'background-color',
+        'border-color',
+        'width',
+        'height',
         'font-family',
         'font-size',
         'font-style',
@@ -144,7 +149,7 @@ class InputUtils
             $tagName = strtolower($child->tagName);
 
             if (!array_key_exists($tagName, self::$AllowedHTMLTags)
-                && !($allowRichTextFormatting && in_array($tagName, ['strong', 'em'], true))) {
+                && !($allowRichTextFormatting && in_array($tagName, ['strong', 'em', 'figure'], true))) {
                 // Balise interdite : on nettoie récursivement puis on "déroule"
                 // (on garde le contenu texte/enfants, comportement proche de strip_tags)
                 self::cleanNode($child, $dom, $allowRichTextFormatting, $allowPresentationClasses);
@@ -158,11 +163,13 @@ class InputUtils
 
             // Balise autorisée : filtrage des attributs
             $allowedAttrs = self::$AllowedHTMLTags[$tagName] ?? [];
-            $richTextStyleTags = ['div', 'p', 'span', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+            $richTextStyleTags = ['div', 'p', 'span', 'figure', 'table', 'col', 'td', 'th', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
             if ($allowRichTextFormatting && in_array($tagName, $richTextStyleTags, true)) {
                 $allowedAttrs[] = 'style';
             }
-            if ($allowPresentationClasses && array_key_exists($tagName, self::$PresentationHTMLClasses)) {
+            $allowFigureTableClass = $allowRichTextFormatting && $tagName === 'figure';
+            if (($allowPresentationClasses || $allowFigureTableClass)
+                && array_key_exists($tagName, self::$PresentationHTMLClasses)) {
                 $allowedAttrs[] = 'class';
             }
             $attributesToRemove = [];
@@ -175,11 +182,19 @@ class InputUtils
                     continue;
                 }
 
-                if (in_array($attrName, ['href', 'src', 'poster'], true)) {
+                if (in_array($attrName, ['colspan', 'rowspan'], true)) {
+                    if (!self::isSafeTableSpanAttribute($attrName, $attr->value)) {
+                        $attributesToRemove[] = $attr->name;
+                    }
+                } elseif (in_array($attrName, ['width', 'height'], true)) {
+                    if (!self::isSafeDimensionAttribute($attr->value)) {
+                        $attributesToRemove[] = $attr->name;
+                    }
+                } elseif (in_array($attrName, ['href', 'src', 'poster'], true)) {
                     if (!self::isSafeUri($attr->value)) {
                         $attributesToRemove[] = $attr->name;
                     }
-                } elseif ($allowPresentationClasses && $attrName === 'class') {
+                } elseif (($allowPresentationClasses || $allowFigureTableClass) && $attrName === 'class') {
                     $classes = self::filterPresentationClasses($tagName, $attr->value);
                     if ($classes === '') {
                         $attributesToRemove[] = $attr->name;
@@ -243,11 +258,16 @@ class InputUtils
         switch ($property) {
             case 'color':
             case 'background-color':
+            case 'border-color':
                 return preg_match('/^(#[0-9a-f]{3,4}|#[0-9a-f]{6}|#[0-9a-f]{8}|[a-z]{1,24}|(?:rgb|rgba|hsl|hsla)\(\s*[-+.\d,%\s\/]+\))$/i', $value) === 1;
             case 'font-family':
                 return preg_match('/^[\p{L}\p{N}\s,"\x27-]{1,120}$/u', $value) === 1;
             case 'font-size':
                 return preg_match('/^(?:xx-small|x-small|small|medium|large|x-large|xx-large|smaller|larger|\d+(?:\.\d+)?(?:px|pt|em|rem|%))$/i', $value) === 1;
+            case 'width':
+            case 'height':
+                return in_array(strtolower($value), ['auto', 'min-content', 'max-content', 'fit-content'], true)
+                    || preg_match('/^(?:0|(?:\d+(?:\.\d+)?|\.\d+)(?:px|pt|pc|in|cm|mm|em|rem|ex|ch|vw|vh|vmin|vmax|%))$/i', $value) === 1;
             case 'font-style':
                 return in_array(strtolower($value), ['normal', 'italic', 'oblique'], true);
             case 'font-weight':
@@ -259,6 +279,21 @@ class InputUtils
             default:
                 return false;
         }
+    }
+
+    private static function isSafeDimensionAttribute(string $value): bool
+    {
+        return preg_match('/^(?:\d+(?:\.\d+)?|\.\d+)(?:px|pt|pc|in|cm|mm|em|rem|ex|ch|vw|vh|vmin|vmax|%)?$/i', trim($value)) === 1;
+    }
+
+    private static function isSafeTableSpanAttribute(string $attribute, string $value): bool
+    {
+        if (!ctype_digit($value)) {
+            return false;
+        }
+
+        $span = (int)$value;
+        return $span <= 1000 && ($attribute === 'rowspan' || $span > 0);
     }
 
     private static function isSafeUri(string $uri): bool
