@@ -197,7 +197,7 @@ class PastoralCareController
             $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
             $pstCare->setVisible($input->visibilityStatus);
-            $pstCare->setText(InputUtils::FilterHTML($input->noteText));
+            $pstCare->setText(InputUtils::FilterRichTextHTML($input->noteText));
 
             $pstCare->save();
 
@@ -267,7 +267,7 @@ class PastoralCareController
             $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
             $pstCare->setVisible($input->visibilityStatus);
-            $pstCare->setText(InputUtils::FilterHTML($input->noteText));
+            $pstCare->setText(InputUtils::FilterRichTextHTML($input->noteText));
 
             $pstCare->save();
 
@@ -303,7 +303,7 @@ class PastoralCareController
             $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
             $pstCare->setVisible($input->visibilityStatus);
-            $pstCare->setText(InputUtils::FilterHTML($input->noteText));
+            $pstCare->setText(InputUtils::FilterRichTextHTML($input->noteText));
 
             $pstCare->save();
 
@@ -326,7 +326,7 @@ class PastoralCareController
                     $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
                     $pstCare->setVisible($input->visibilityStatus);
-                    $pstCare->setText(InputUtils::FilterHTML($input->noteText));
+                    $pstCare->setText(InputUtils::FilterRichTextHTML($input->noteText));
 
                     $pstCare->save();
                 }
@@ -398,7 +398,7 @@ class PastoralCareController
             $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
             $pstCare->setVisible($input->visibilityStatus);
-            $pstCare->setText(InputUtils::FilterHTML($input->noteText));
+            $pstCare->setText(InputUtils::FilterRichTextHTML($input->noteText));
 
             $pstCare->save();
 

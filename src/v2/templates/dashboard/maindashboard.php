@@ -265,7 +265,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
 
 <script src="<?= $sRootPath ?>/skin/js/dashboard.js"></script>
 
-<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/ckeditor5/ckeditor5.umd.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

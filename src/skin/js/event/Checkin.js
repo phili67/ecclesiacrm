@@ -24,7 +24,7 @@ $(function() {
         },function(data) {
             if (data.CalendarNumber > 0) {
                 if (window.CRM.editor != null) {
-                    CKEDITOR.remove(window.CRM.editor);
+                    window.CRM.destroyEditor(window.CRM.editor);
                     window.CRM.editor = null;
                 }
 
@@ -240,7 +240,7 @@ $(function() {
 
     $(document).on("click", "#validateAttendees", function () {
         var eventId = window.CRM.EventID;
-        var noteText = CKEDITOR.instances['NoteText'].getData();//$('form #eventNotes').val();
+        var noteText = window.CRM.getEditor('NoteText').getData();//$('form #eventNotes').val();
 
         window.CRM.APIRequest({
             method: 'POST',
@@ -401,37 +401,32 @@ $(function() {
             $('#checkedinTable').DataTable().page.len($(this).val()).draw();
         });
 
-        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+        var theme = 'default';
         if (window.CRM.bDarkMode) {
-            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+            theme = 'default';
         }
 
        
-        var editor = CKEDITOR.replace('NoteText', {
-            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_minimal.js',
+        var editor = window.CRM.createEditor('NoteText', {
+            preset: 'minimal',
             language: window.CRM.lang,
-            skin:theme
         });
 
-        editor.on('instanceReady', function () {
-            var editableBody = editor.document.getBody();
+        editor.then(function (instance) {
+            var editable = instance.ui.view.editable.element;
+            editable.style.backgroundColor = '#fffb8cfc';
+            editable.style.borderColor = '#f39c12';
+            editable.style.color = '#212529';
 
-            editableBody.setStyle('background-color', '#fffb8cfc');
-            editableBody.setStyle('border-color', '#f39c12');            
-            editableBody.setStyle('color', '#212529');
-
-            // 2. Supprimer la bordure et l'ombre de l'interface globale
-            if (editor.container) {
-                editor.container.setStyle('border', 'none');
-                editor.container.setStyle('box-shadow', 'none');
-                editor.container.setStyle('margin-left', '-4px');
-                editor.container.setStyle('margin-right', '-4px');
-                editor.container.setStyle('margin-bottom', '-4px');
-            }
+            var editorContainer = instance.ui.view.element;
+            editorContainer.style.border = 'none';
+            editorContainer.style.boxShadow = 'none';
+            editorContainer.style.marginLeft = '-4px';
+            editorContainer.style.marginRight = '-4px';
+            editorContainer.style.marginBottom = '-4px';
         });
         
 
-        add_ckeditor_buttons(editor);
 
         $('.collapse').on('shown.bs.collapse', function () {
             $(this).parent().find(".fa-chevron-down").removeClass("fa-chevron-down").addClass("fa-chevron-up");

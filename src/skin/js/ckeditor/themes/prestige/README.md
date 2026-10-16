@@ -1,1 +1,0 @@
-# Prestige Theme for CKEditor

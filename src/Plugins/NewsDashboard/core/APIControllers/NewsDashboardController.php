@@ -75,7 +75,7 @@ class NewsDashboardController
             $news->setDateentered(new \DateTime('now'));
             $news->setDatelastedited(new \DateTime('now'));
             $news->setTitle(InputUtils::FilterHTML($input->title));
-            $news->setText(InputUtils::FilterHTML($input->text));
+            $news->setText(InputUtils::FilterRichTextHTML($input->text));
             $news->setType($input->type);
 
             $news->save();
@@ -101,7 +101,7 @@ class NewsDashboardController
                 $news->setDateentered(new \DateTime('now'));
                 $news->setDatelastedited(new \DateTime('now'));
                 $news->setTitle(InputUtils::FilterHTML($input->title));
-                $news->setText(InputUtils::FilterHTML($input->text));
+                $news->setText(InputUtils::FilterRichTextHTML($input->text));
                 $news->setType($input->type);
 
                 $news->save();

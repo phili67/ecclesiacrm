@@ -40,7 +40,7 @@ $(function() {
             var text = data.text;
 
             if (window.CRM.editor != null) {
-                CKEDITOR.remove(window.CRM.editor);
+                window.CRM.destroyEditor(window.CRM.editor);
                 window.CRM.editor = null;
             }
 
@@ -49,20 +49,18 @@ $(function() {
 
             $('form #NoteText').val(text);
 
-            var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+            var theme = 'default';
             if (window.CRM.bDarkMode) {
-                theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+                theme = 'default';
             }
 
             if (window.CRM.editor == null) {               
-                window.CRM.editor = CKEDITOR.replace('NoteText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                window.CRM.editor = window.CRM.createEditor('NoteText', {
+                    preset: 'event',
                     language: window.CRM.lang,
                     width: '100%',
-                    skin: theme
                 });
                 
-                add_ckeditor_buttons(window.CRM.editor);
             }
 
             modal.modal("show");
@@ -98,27 +96,25 @@ $(function() {
         var visible = $(this).data('visible');
 
         if (window.CRM.editor != null) {
-            CKEDITOR.remove(window.CRM.editor);
+            window.CRM.destroyEditor(window.CRM.editor);
             window.CRM.editor = null;
         }
 
         // this will create the toolbar for the textarea
         modal = createPastoralCareWindow(typeid, typeDesc, visible);
 
-        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+        var theme = 'default';
         if (window.CRM.bDarkMode) {
-            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+            theme = 'default';
         }
 
         if (window.CRM.editor == null) {            
-            window.CRM.editor = CKEDITOR.replace('NoteText', {
-                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+            window.CRM.editor = window.CRM.createEditor('NoteText', {
+                preset: 'event',
                 language: window.CRM.lang,
                 width: '100%',
-                skin: theme
             });
 
-            add_ckeditor_buttons(window.CRM.editor);
         }
 
         modal.modal("show");
@@ -162,7 +158,7 @@ $(function() {
                     className: "btn btn-primary",
                     callback: function () {
                         var visibilityStatus = $('input[name="visibilityStatus"]:checked').val();
-                        var NoteText = CKEDITOR.instances['NoteText'].getData();//$('form #NoteText').val();
+                        var NoteText = window.CRM.getEditor('NoteText').getData();//$('form #NoteText').val();
                         var includeFamMembers = $('#includeFamilyMembers').is(":checked");
 
                         if (id == -1) {

@@ -164,27 +164,53 @@ require_once __DIR__.'/routes/plugins/plugins.php';
 // fundraiser route
 require_once __DIR__.'/routes/fundraiser/fundraiser.php';
 
-// we load the plugins
-if (SessionUser::getCurrentPageName() == 'v2/dashboard') {
-    // only dashboard plugins are loaded on the maindashboard page
-    $plugins = PluginQuery::create()
-        ->filterByCategory('Dashboard', Criteria::EQUAL )
-        ->findByActiv(true);
+$isDashboardPage = SessionUser::getCurrentPageName() == 'v2/dashboard';
+$plugins = PluginQuery::create()
+    ->filterByCategory('Dashboard', $isDashboardPage ? Criteria::EQUAL : Criteria::NOT_EQUAL)
+    ->findByActiv(true);
 
-
-} else {
-    $plugins = PluginQuery::create()
-        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL )
-        ->findByActiv(true);
-}
-
+$loadedPluginNames = [];
 foreach ($plugins as $plugin) {
+    $loadedPluginNames[strtolower($plugin->getName())] = true;
     $path = __DIR__.'/../Plugins/'.$plugin->getName().'/api/plgnapi.php';
     if (file_exists($path)) {
         require_once $path;
     }
 }
 
+// Load only the active plugin matching this API prefix when page-based loading omitted it.
+$requestPath = (string)parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$apiBasePath = $rootPath.'/api/';
+
+if (str_starts_with($requestPath, $apiBasePath)) {
+    $routePrefix = explode('/', substr($requestPath, strlen($apiBasePath)), 2)[0];
+    $pluginNameCandidates = [$routePrefix];
+    if (preg_match('/plugin$/i', $routePrefix) === 1) {
+        $pluginNameCandidates[] = substr($routePrefix, 0, -6);
+    }
+
+    foreach ($pluginNameCandidates as $pluginName) {
+        $normalizedPluginName = strtolower($pluginName);
+        if ($normalizedPluginName === '' || isset($loadedPluginNames[$normalizedPluginName])) {
+            continue;
+        }
+
+        $plugin = PluginQuery::create()
+            ->filterByName($pluginName)
+            ->findOneByActiv(true);
+
+        if (is_null($plugin)) {
+            continue;
+        }
+
+        $path = __DIR__.'/../Plugins/'.$plugin->getName().'/api/plgnapi.php';
+        if (file_exists($path)) {
+            require_once $path;
+        }
+
+        break;
+    }
+}
+
 // Run app
 $app->run();
-

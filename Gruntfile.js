@@ -54,12 +54,6 @@ module.exports = function (grunt) {
             skin: {
                 files: [
                     // includes files within path and its sub-directories
-                    {// cp -Rf ckeditorExtraPlugins/html5video src/skin/external/ckeditor/plugins
-                        expand: true,
-                        cwd: 'ckeditorExtraPlugins/html5video',
-                        src: ['*.*', 'dialogs/*','icons/*', 'lang/*'],
-                        dest: 'src/skin/external/ckeditor/plugins/html5video/'
-                    },
                     {
                         expand: true,
                         filter: 'isFile',
@@ -102,9 +96,21 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        cwd:'node_modules/ckeditor4/',
-                        src: ['*.js','*.css','*.json','lang/**/*','adapters/**/*','plugins/**/*','skins/**/*'],
-                        dest: 'src/skin/external/ckeditor/'
+                        cwd:'node_modules/ckeditor5/dist/browser/',
+                        src: ['ckeditor5.umd.js', 'ckeditor5.css', 'ckeditor5-content.css'],
+                        dest: 'src/skin/external/ckeditor5/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/ckeditor5/dist/translations/',
+                        src: ['*.umd.js'],
+                        dest: 'src/skin/external/ckeditor5/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/ckeditor5/',
+                        src: ['COPYING.GPL'],
+                        dest: 'src/skin/external/ckeditor5/'
                     },
                     {
                         expand: true,
@@ -779,4 +785,3 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-curl');
     //grunt.loadNpmTasks('grunt-poeditor-ab');
 }
-

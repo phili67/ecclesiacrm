@@ -168,7 +168,7 @@ class PeopleAttendeesController
             $event = EventQuery::Create()
                 ->findOneById($requestValues->eventID);
 
-            $event->setText(InputUtils::FilterHTML($requestValues->noteText));
+            $event->setText(InputUtils::FilterRichTextHTML($requestValues->noteText));
 
             $event->save();
 

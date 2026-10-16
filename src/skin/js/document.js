@@ -11,44 +11,35 @@ $(function() {
 
     $(document).on("click", "#createDocument", function () {
         if (window.CRM.editor) {
-            CKEDITOR.remove(window.CRM.editor);
+            window.CRM.destroyEditor(window.CRM.editor);
             window.CRM.editor = null;
         }
 
         var modal = DocumentEditorWindow('create', 0);
 
-        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+        var theme = 'default';
         if (window.CRM.bDarkMode) {
-            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+            theme = 'default';
         }
 
         // this will create the toolbar for the textarea
         if (window.CRM.editor == null) {
             if (window.CRM.bEDrive) {
-                window.CRM.editor = CKEDITOR.replace('documentText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
+                window.CRM.editor = window.CRM.createEditor('documentText', {
+                    preset: 'notes',
                     language: window.CRM.lang,
                     width: '100%',
-                    extraPlugins: 'uploadfile,uploadimage,filebrowser',
-                    uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                    imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
-                    filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                    fileTools_requestHeaders: { 'X-CSRF-Token': window.CRM.csrfToken },
-                    filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=privateDocuments',
-                    skin: theme
+                    uploadType: 'privateImages',
                 });
             } else {
-                window.CRM.editor = CKEDITOR.replace('documentText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
+                window.CRM.editor = window.CRM.createEditor('documentText', {
+                    preset: 'notes',
                     language: window.CRM.lang,
-                    skin: theme,
                     width: '100%'
                 });
             }
 
 
-            add_ckeditor_buttons(window.CRM.editor);
-            add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
         }
 
         modal.modal("show");
@@ -66,42 +57,34 @@ $(function() {
         },function (data) {
             if (data.success) {
                 if (window.CRM.editor) {
-                    CKEDITOR.remove(window.CRM.editor);
+                    window.CRM.destroyEditor(window.CRM.editor);
                     window.CRM.editor = null;
                 }
 
                 var modal = DocumentEditorWindow('edit', docID);
 
-                var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+                var theme = 'default';
                 if (window.CRM.bDarkMode) {
-                    theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+                    theme = 'default';
                 }
 
                 // this will create the toolbar for the textarea
                 if (window.CRM.editor == null) {
                     if (window.CRM.bEDrive) {
-                        window.CRM.editor = CKEDITOR.replace('documentText', {
-                            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
+                        window.CRM.editor = window.CRM.createEditor('documentText', {
+                            preset: 'notes',
                             language: window.CRM.lang,
                             width: '100%',
-                            extraPlugins: 'uploadfile,uploadimage,filebrowser,html5video',
-                            uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                            imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
-                            filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                            filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=privateDocuments',
-                            skin: theme
+                            uploadType: 'privateImages',
                         });
                     } else {
-                        window.CRM.editor = CKEDITOR.replace('documentText', {
-                            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
+                        window.CRM.editor = window.CRM.createEditor('documentText', {
+                            preset: 'notes',
                             language: window.CRM.lang,
                             width: '100%',
-                            skin: theme
                         });
                     }
 
-                    add_ckeditor_buttons(window.CRM.editor);
-                    add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
                 }
 
                 modal.modal("show");
@@ -109,7 +92,9 @@ $(function() {
                 $('#documentTitle').val(data.note.Title);
                 $("#documentType").val(data.note.Type);
                 $("#private").prop("checked", data.note.Private);
-                CKEDITOR.instances['documentText'].setData(data.note.Text);
+                window.CRM.editor.then(function (editor) {
+                    editor.setData(data.note.Text);
+                });
             } else {
                 window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t(data.message));
             }
@@ -288,7 +273,7 @@ $(function() {
                         if (DocumentTitle != "") {
                             var Type = $("#documentType").val();
                             var Private = $('#private').is(':checked');
-                            var htmlBody = CKEDITOR.instances['documentText'].getData();
+                            var htmlBody = window.CRM.getEditor('documentText').getData();
 
                             if (mode == 'create') {
                                 window.CRM.APIRequest({

@@ -17,7 +17,7 @@ $(function() {
         },function(data) {
             if (data.CalendarNumber > 0) {
                 if (window.CRM.editor != null) {
-                    CKEDITOR.remove(window.CRM.editor);
+                    window.CRM.destroyEditor(window.CRM.editor);
                     window.CRM.editor = null;
                 }
 

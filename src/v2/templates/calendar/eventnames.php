@@ -358,7 +358,7 @@ if (isset($_POST['Action']) and InputUtils::LegacyFilterInput($_POST['Action']) 
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/ckeditor5/ckeditor5.umd.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 <script nonce="<?= $CSPNonce ?>">

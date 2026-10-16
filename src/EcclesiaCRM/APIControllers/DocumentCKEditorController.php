@@ -48,17 +48,7 @@ class DocumentCKEditorController
             array_push($templatesArr, $elt);
         }
 
-        $the_real_templates = json_encode($templatesArr);
-
-        return "// Register a template definition set named \"default\".
-CKEDITOR.addTemplates( 'default',
-{
-  // The name of the subfolder that contains the preview images of the templates.
-  imagesPath : CKEDITOR.getUrl( CKEDITOR.plugins.getPath( 'templates' ) + 'templates/images/' ),
-
-  // Template definitions.
-  templates :".$the_real_templates."
-});";
+        return $response->withJson($templatesArr);
     }
 
     public function alltemplates (ServerRequest $request, Response $response, array $args): Response {

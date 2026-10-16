@@ -227,7 +227,7 @@ $(function() {
             data: JSON.stringify({"eventID":eventID})
         },function(calEvent) {
             if (window.CRM.editor != null) {
-                CKEDITOR.remove(window.CRM.editor);
+                window.CRM.destroyEditor(window.CRM.editor);
                 window.CRM.editor = null;
             }
 
@@ -275,32 +275,25 @@ $(function() {
             $('.date-recurrence').hide();
             $(".eventNotes").hide();
 
-            var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+            var theme = 'default';
             if (window.CRM.bDarkMode) {
-                theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+                theme = 'default';
             }
 
             // this will create the toolbar for the textarea
             if (window.CRM.editor == null) {
                 if (window.CRM.bEDrive) {
-                    window.CRM.editor = CKEDITOR.replace('eventNotes',{
-                        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                    window.CRM.editor = window.CRM.createEditor('eventNotes',{
+                        preset: 'event',
                         language : window.CRM.lang,
                         width : '100%',
-                        extraPlugins : 'uploadfile,uploadimage,filebrowser,html5video',
-                        uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-                        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
-                        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-                        fileTools_requestHeaders: { 'X-CSRF-Token': window.CRM.csrfToken },
-                        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments',
-                        skin:theme
+                        uploadType: 'publicImages',
                     });
                 } else {
-                    window.CRM.editor = CKEDITOR.replace('eventNotes',{
-                        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                    window.CRM.editor = window.CRM.createEditor('eventNotes',{
+                        preset: 'event',
                         language : window.CRM.lang,
                         width : '100%',
-                        skin:theme
                     });
                 }                
             }
@@ -459,7 +452,7 @@ $(function() {
         },function(data) {
             if (data.CalendarNumber > 0) {
                 if (window.CRM.editor != null) {
-                    CKEDITOR.remove(window.CRM.editor);
+                    window.CRM.destroyEditor(window.CRM.editor);
                     window.CRM.editor = null;                    
                 }
 
@@ -477,30 +470,23 @@ $(function() {
                 $("#typeEventrecurrence").prop("disabled", true);
                 $("#endDateEventrecurrence").prop("disabled", true);
 
-                let theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+                let theme = 'default';
                 if (window.CRM.bDarkMode) {
-                    theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+                    theme = 'default';
                 }
 
                 if (window.CRM.bEDrive) {
-                    window.CRM.editor = CKEDITOR.replace('eventNotes',{
-                        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                    window.CRM.editor = window.CRM.createEditor('eventNotes',{
+                        preset: 'event',
                         language : window.CRM.lang,
                         width : '100%',
-                        extraPlugins : 'uploadfile,uploadimage,filebrowser,html5video',
-                        uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-                        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
-                        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-                        fileTools_requestHeaders: { 'X-CSRF-Token': window.CRM.csrfToken },
-                        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments',
-                        skin:theme
+                        uploadType: 'publicImages',
                     });
                 } else {
-                    window.CRM.editor = CKEDITOR.replace('eventNotes',{
-                        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                    window.CRM.editor = window.CRM.createEditor('eventNotes',{
+                        preset: 'event',
                         language : window.CRM.lang,
                         width : '100%',
-                        skin:theme
                     });
                 }                
 
