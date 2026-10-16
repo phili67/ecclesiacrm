@@ -23,6 +23,19 @@ $pluginName = $pluginName ?? SessionUser::getPluginName();
 <!-- Custom EcclesiaCRM styles -->
 <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/ecclesiacrm.min.css">
 
+<!-- Additional fonts of the CRM (bMailServiceContentsExternalCssFont, separated by semicolons) -->
+<?php
+foreach (explode(';', (string) SystemConfig::getValue('bMailServiceContentsExternalCssFont')) as $fontCssUrl) {
+    $fontCssUrl = trim($fontCssUrl);
+    if ($fontCssUrl === '' || !preg_match('#^(https?:)?//#i', $fontCssUrl)) {
+        continue;
+    }
+    ?>
+<link rel="stylesheet" type="text/css" href="<?= htmlspecialchars($fontCssUrl, ENT_QUOTES, 'UTF-8') ?>">
+<?php
+}
+?>
+
 <!-- custom plugins css files -->
 <?php
 // we load the plugin
