@@ -6,6 +6,10 @@
     border-color: #3c8dbc;
 }
 
+body.modal-open .ck.ck-balloon-panel {
+    z-index: 1060 !important;
+}
+
 .ck.ck-editor.crm-dark-editor {
     .ck-editor__main > .ck-editor__editable {
         background: #343a40;
