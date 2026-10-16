@@ -19,7 +19,7 @@ $(function () {
             return config.editorAssetsPromise;
         }
 
-        if (window.CKEDITOR && typeof window.add_ckeditor_buttons === 'function') {
+        if (window.CKEDITOR && typeof window.CRM.createEditor === 'function') {
             config.editorAssetsPromise = Promise.resolve();
 
             return config.editorAssetsPromise;
@@ -36,7 +36,7 @@ $(function () {
 
     function destroyPastoralEditor() {
         if (window.CRM.editor != null) {
-            CKEDITOR.remove(window.CRM.editor);
+            window.CRM.destroyEditor(window.CRM.editor);
             window.CRM.editor = null;
         }
     }
@@ -204,7 +204,7 @@ $(function () {
                         className: 'btn btn-primary',
                         callback: function () {
                             var visibilityStatus = $('input[name="visibilityStatus"]:checked').val();
-                            var noteText = CKEDITOR.instances.NoteText.getData();
+                            var noteText = window.CRM.getEditor('NoteText').getData();
                             var includeFamMembers = entityType === 'family' ? $('#includeFamilyMembers').is(':checked') : false;
                             var applyToWholeFamily = entityType === 'person' && $('#birthdayApplyToWholeFamily').is(':checked');
 
@@ -264,19 +264,17 @@ $(function () {
             });
 
             dialog.on('shown.bs.modal', function () {
-                var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+                var theme = 'default';
                 if (window.CRM.bDarkMode) {
-                    theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+                    theme = 'default';
                 }
 
-                window.CRM.editor = CKEDITOR.replace('NoteText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                window.CRM.editor = window.CRM.createEditor('NoteText', {
+                    preset: 'event',
                     language: window.CRM.lang,
                     width: '100%',
-                    skin: theme
                 });
 
-                add_ckeditor_buttons(window.CRM.editor);
             });
 
             dialog.on('hidden.bs.modal', function () {

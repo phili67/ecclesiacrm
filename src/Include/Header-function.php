@@ -212,6 +212,8 @@ function Header_body_scripts()
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
             iLittleMapZoom:<?= SystemConfig::getValue('iLittleMapZoom')?>,
             sNominatimLink:"<?= SystemConfig::getValue('sNominatimLink')?>",
+            contentsExternalCssFont: <?= json_encode((string) SystemConfig::getValue('bMailServiceContentsExternalCssFont'), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>,
+            extraFont: <?= json_encode((string) SystemConfig::getValue('bMailServiceExtraFont'), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>,
             iPersonId:<?= SessionUser::getUser()->getPersonId() ?>,
             sEntityName:"<?= SystemConfig::getValue('sEntityName') ?>",
             sLogLevel:<?= SystemConfig::getValue('sLogLevel') ?>,

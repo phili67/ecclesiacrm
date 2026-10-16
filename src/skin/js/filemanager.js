@@ -426,8 +426,11 @@ $(function () {
                             window.close();
                         });
                     } else {
-                        var funcNum = getUrlParam('CKEditorFuncNum');
-                        window.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
+                        window.opener.postMessage({
+                            type: 'crm-file-selected',
+                            url: fileUrl,
+                            fileName: data.fileName || value.name
+                        }, window.location.origin);
                         window.close();
                     }
                 }

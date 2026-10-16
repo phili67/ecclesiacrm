@@ -126,5 +126,5 @@ if ($isMailchimpActiv) {
 </script>
 
 <script src="<?= $sRootPath ?>/Plugins/MailChimp/skin/js/ManageList.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/ckeditor5/ckeditor5.umd.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>

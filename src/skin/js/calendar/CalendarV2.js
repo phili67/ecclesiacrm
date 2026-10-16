@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         return;
                                     }
                                     if (window.CRM.editor != null) {
-                                        CKEDITOR.remove(window.CRM.editor);
+                                        window.CRM.destroyEditor(window.CRM.editor);
                                         window.CRM.editor = null;
                                     }
 
@@ -713,7 +713,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.CalendarNumber > 0){
                     // We create the dialog
                     if (window.CRM.editor != null) {
-                        CKEDITOR.remove(window.CRM.editor);
+                        window.CRM.destroyEditor(window.CRM.editor);
                         window.CRM.editor = null;
                     }
 
@@ -753,9 +753,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     $("#typeEventrecurrence").prop("disabled", true);
                     $("#endDateEventrecurrence").prop("disabled", true);
 
-                    var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+                    var theme = 'default';
                     if (window.CRM.bDarkMode) {
-                        theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+                        theme = 'default';
                     }
 
                     // this will create the toolbar for the textarea

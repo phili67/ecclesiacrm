@@ -70,7 +70,7 @@ window.CRM.mail = function (subject, body, route, extraParams, callback ) {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                     className: "btn btn-default",
                     callback: function () {
-                        CKEDITOR.remove(window.CRM.editor);
+                        window.CRM.destroyEditor(window.CRM.editor);
                         window.CRM.editor = null;
                     }
                 },
@@ -83,7 +83,7 @@ window.CRM.mail = function (subject, body, route, extraParams, callback ) {
                         if (subject != null) {
                             mailSubject = $('#MailSubject').val();
                         }
-                        var htmlBody = CKEDITOR.instances['MailText'].getData();
+                        var htmlBody = window.CRM.getEditor('MailText').getData();
 
                         var params = {
                             "mailSubject": mailSubject,
@@ -99,7 +99,7 @@ window.CRM.mail = function (subject, body, route, extraParams, callback ) {
                         }, function (data) {
                             if (callback) {
                                 callback(data);
-                                CKEDITOR.remove(window.CRM.editor);
+                                window.CRM.destroyEditor(window.CRM.editor);
                                 window.CRM.editor = null;
                             }
                         });
@@ -108,7 +108,7 @@ window.CRM.mail = function (subject, body, route, extraParams, callback ) {
             ],
             show: false,
             onEscape: function () {
-                CKEDITOR.remove(window.CRM.editor);
+                window.CRM.destroyEditor(window.CRM.editor);
                 window.CRM.editor = null;
             }
         });
@@ -118,37 +118,28 @@ window.CRM.mail = function (subject, body, route, extraParams, callback ) {
             e.stopImmediatePropagation();
         });
 
-        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+        var theme = 'default';
         if (window.CRM.bDarkMode) {
-            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+            theme = 'default';
         }
 
         // this will create the toolbar for the textarea
         if (window.CRM.editor == null) {
             if (window.CRM.bEDrive) {
-                window.CRM.editor = CKEDITOR.replace('MailText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
+                window.CRM.editor = window.CRM.createEditor('MailText', {
+                    preset: 'notes',
                     language: window.CRM.lang,
                     width: '100%',
-                    extraPlugins: 'uploadfile,uploadimage,filebrowser,html5video',
-                    uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                    imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
-                    filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
-                    fileTools_requestHeaders: { 'X-CSRF-Token': window.CRM.csrfToken },
-                    filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=privateDocuments',
-                    skin: theme
+                    uploadType: 'privateImages',
                 });
             } else {
-                window.CRM.editor = CKEDITOR.replace('MailText', {
-                    customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
+                window.CRM.editor = window.CRM.createEditor('MailText', {
+                    preset: 'notes',
                     language: window.CRM.lang,
                     width: '100%',
-                    skin: theme
                 });
             }
 
-            add_ckeditor_buttons(window.CRM.editor);
-            add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
         }
 
         return modal;

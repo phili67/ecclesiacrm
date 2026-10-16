@@ -100,8 +100,7 @@ $(function() {
                         var userID = window.CRM.userID;
 
                         if (NewsTitle != "") {
-                            window.CRM.NewsDashboardEditor.updateElement();
-                            var htmlBody = window.CRM.NewsDashboardEditor.getData();                            
+                            var htmlBody = window.CRM.getEditor('NewsDashboardText').getData();
                             var Type = $("#NewsType").val();                            
 
                             if (mode == 'create') {
@@ -182,24 +181,23 @@ $(function() {
             }, function (data) {
                 if (data.status == "success") {
                     if (window.CRM.NewsDashboardEditor) {
-                        CKEDITOR.remove(window.CRM.NewsDashboardEditor);
+                        window.CRM.destroyEditor(window.CRM.NewsDashboardEditor);
                         window.CRM.NewsDashboardEditor = null;
                     }
 
                     var modal = NewsEditorWindow('edit', newsID);
 
-                    var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+                    var theme = 'default';
                     if (window.CRM.bDarkMode) {
-                        theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+                        theme = 'default';
                     }
 
                     // this will create the toolbar for the textarea
                     if (window.CRM.NewsDashboardEditor == null) {                        
-                        window.CRM.NewsDashboardEditor = CKEDITOR.replace('NewsDashboardText', {
-                            customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_minimal.js',
+                        window.CRM.NewsDashboardEditor = window.CRM.createEditor('NewsDashboardText', {
+                            preset: 'minimal',
                             language: window.CRM.lang,
                             width: '100%',
-                            skin: theme
                         });                   
                     }
 
@@ -207,7 +205,9 @@ $(function() {
 
                     $('#NewsTitle').val(data.note.Title);
                     $("#NewsType").val(data.note.Type);
-                    CKEDITOR.instances['NewsDashboardText'].setData(data.note.Text);
+                    window.CRM.NewsDashboardEditor.then(function (editor) {
+                        editor.setData(data.note.Text);
+                    });
                 } else {
                     window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t(data.message));
                 }
@@ -239,23 +239,22 @@ $(function() {
     
     window.CRM.ElementListener('#add-dashboard-news-note', 'click', function(event) {
         if (window.CRM.NewsDashboardEditor) {
-            CKEDITOR.remove(window.CRM.NewsDashboardEditor);
+            window.CRM.destroyEditor(window.CRM.NewsDashboardEditor);
             window.CRM.NewsDashboardEditor = null;
         }
 
         var modal = NewsEditorWindow('create', 0);
 
-        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+        var theme = 'default';
         if (window.CRM.bDarkMode) {
-            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+            theme = 'default';
         }
 
         // this will create the toolbar for the textarea
         if (window.CRM.NewsDashboardEditor == null) {            
-            window.CRM.NewsDashboardEditor = CKEDITOR.replace('NewsDashboardText', {
-                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config_minimal.js',
+            window.CRM.NewsDashboardEditor = window.CRM.createEditor('NewsDashboardText', {
+                preset: 'minimal',
                 language: window.CRM.lang,
-                skin: theme,
                 width: '100%'
             });
         }

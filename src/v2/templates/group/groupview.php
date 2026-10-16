@@ -556,7 +556,7 @@ if ($sPhoneLink) {
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"
     type="text/javascript"></script>
 
-<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/ckeditor5/ckeditor5.umd.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 

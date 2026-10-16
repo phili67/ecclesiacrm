@@ -41,7 +41,7 @@ class DocumentDocumentController
             $note->setFamId($input->famID);
             $note->setPrivate($input->bPrivate);
             $note->setTitle(InputUtils::FilterHTML($input->title));
-            $note->setText(InputUtils::FilterHTML($input->text));
+            $note->setText(InputUtils::FilterPresentationHTML($input->text));
             $note->setType($input->type);
             $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setDateLastEdited(new \DateTime());
@@ -134,7 +134,7 @@ class DocumentDocumentController
 
             $note->setPrivate($input->bPrivate);
             $note->setTitle(InputUtils::FilterHTML($input->title));
-            $note->setText(InputUtils::FilterHTML($input->text));
+            $note->setText(InputUtils::FilterPresentationHTML($input->text));
             $note->setType($input->type);
             $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setDateLastEdited(new \DateTime());

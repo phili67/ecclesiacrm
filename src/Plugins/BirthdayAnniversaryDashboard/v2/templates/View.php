@@ -459,14 +459,14 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
                     });
                 };
 
-                var ckeditorSrc = '<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js';
+                var ckeditorSrc = '<?= $sRootPath ?>/skin/external/ckeditor5/ckeditor5.umd.js';
                 var ckeditorExtensionSrc = '<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js';
 
                 window.CRM.BirthdayAnniversaryDashboard.editorAssetsPromise = (window.CKEDITOR
                     ? window.Promise.resolve()
                     : loadScript(ckeditorSrc)
                 ).then(function () {
-                    return typeof window.add_ckeditor_buttons === 'function'
+                    return typeof window.CRM.createEditor === 'function'
                         ? window.Promise.resolve()
                         : loadScript(ckeditorExtensionSrc);
                 });
@@ -475,4 +475,3 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
     </script>
     <?php
 }
-

@@ -11,36 +11,28 @@ $(function() {
     var editor = null;
 
     // this will create the toolbar for the textarea
-    var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+    var theme = 'default';
     if (window.CRM.bDarkMode) {
-        theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+        theme = 'default';
     }
 
     if (editor == null) {
         if (window.CRM.bEDrive) {
-            editor = CKEDITOR.replace('campaignContent', {
-                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/campaign_editor_config.js',
+            editor = window.CRM.createEditor('campaignContent', {
+                preset: 'campaign',
                 language: window.CRM.lang,
                 width: '100%',
-                extraPlugins: 'uploadfile,uploadimage,filebrowser,html5video',
-                uploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
-                imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicImages',
-                filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
-                filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=publicDocuments',
-                skin: theme
+                uploadType: 'publicImages',
             });
         } else {
-            editor = CKEDITOR.replace('campaignContent', {
-                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/campaign_editor_config.js',
+            editor = window.CRM.createEditor('campaignContent', {
+                preset: 'campaign',
                 language: window.CRM.lang,
                 width: '100%',
-                skin: theme
             });
         }
 
 
-        add_ckeditor_buttons(editor);
-        add_ckeditor_buttons_merge_tag_mailchimp(editor);
     }
 
     window.CRM.APIRequest({
@@ -48,7 +40,9 @@ $(function() {
         path: 'mailchimp/campaign/' + window.CRM.campaign_Id + '/content'
     },function (data) {
         if (data.success) {
-            editor.setData(data.content);
+            editor.then(function (instance) {
+                instance.setData(data.content);
+            });
         } else if (data.error) {
             window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
         }
@@ -86,7 +80,7 @@ $(function() {
 
     $(document).on("click", "#saveCampaign", function () {
         var subject = $("#CampaignSubject").val();
-        var content = CKEDITOR.instances['campaignContent'].getData();
+        var content = window.CRM.getEditor('campaignContent').getData();
         var isSchedule = $('#checkboxaCampaignSchedule').is(":checked");
         var realScheduleDate = '';
 
