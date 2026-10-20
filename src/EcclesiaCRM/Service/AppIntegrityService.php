@@ -431,3 +431,4 @@ class AppIntegrityService
       return $check;
   }
 }
+

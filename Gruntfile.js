@@ -545,7 +545,6 @@ module.exports = function (grunt) {
                     cwd: 'src/',
                     src: [
                         '**/*.php',
-                        '**/*.png',
                         '**/*.js',
                         '**/*.css',
                         '**/*.map',
@@ -562,6 +561,9 @@ module.exports = function (grunt) {
                         '**/**/*.txt',
                         'skin/external/**/**/*.json',
                         'skin/external/**/*.GPL',
+                        'skin/**/*.png',
+                        'skin/**/*.jpeg',
+                        'skin/**/**/*.jpeg',
                         '!Plugins/**',
                         '!EcclesiaCRM/model/PluginStore/**',
                         '!**/.gitignore',
