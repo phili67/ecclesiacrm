@@ -552,6 +552,7 @@ module.exports = function (grunt) {
                         '**/*.yml',
                         '**/*.yml',
                         '**/*.svg',
+                        '**/*.html',
                         '**/*.scss',
                         '**/*.ttf',
                         '**/*.woff2',
