@@ -1369,9 +1369,9 @@ class CalendarService
             $event['title_desc'] .= "<br/>(" . $desc  . ")";
         }
 
-        $event['title_full'] =
+        $event['title_full'] = '';
 
-            $event['start'] = $start;
+        $event['start'] = $start;
         $event['start_name'] = (new \DateTime($start))->format(SystemConfig::getValue('sDateFormatLong') . ' H:i');
         $event['origStart'] = $start;
         $event['organizer'] = (!is_null($organizer) ? str_replace('mailto:', '', $organizer) : '');
@@ -1379,7 +1379,7 @@ class CalendarService
 
         $event['month'] = (int)explode('-', $start)[1];
 
-        $datefmt = new \IntlDateFormatter(SystemConfig::getValue('sLanguage'), NULL, NULL, NULL, NULL, 'MMMM');
+        $datefmt = new \IntlDateFormatter(SystemConfig::getValue('sLanguage'), 0, 0, NULL, NULL, 'MMMM');
         $event['month_name'] = MiscUtils::mb_ucfirst($datefmt->format(\DateTime::createFromFormat('!m', $event['month'])));
 
 

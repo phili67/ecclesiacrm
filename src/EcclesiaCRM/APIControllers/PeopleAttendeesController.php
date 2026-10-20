@@ -186,17 +186,19 @@ class PeopleAttendeesController
             ];
 
             foreach ($eventAttents as $eventAttent) {
-                if ( $eventAttent->getCheckinId() > 0 and !is_null($eventAttent->getCheckinDate()) and is_null($eventAttent->getCheckoutDate()) ) {
+                if ( $eventAttent->getCheckinId() > 0 and is_null($eventAttent->getCheckoutDate()) ) {
                     $eventAttent->setCheckoutDate(date('Y-m-d H:i:s'));
+                    $eventAttent->setCheckinDate(date('Y-m-d H:i:s'));
                     $stats['checkcout']++;
                     $stats['difference']--;
 
                     $res['button'] = "danger";
-                } else if ( $eventAttent->getCheckinId() > 0 and !is_null($eventAttent->getCheckinDate()) and !is_null($eventAttent->getCheckoutDate()) ) {
+                    $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
+                } else if ( $eventAttent->getCheckinId() > 0 and !is_null($eventAttent->getCheckoutDate()) ) {
+                    $eventAttent->setCheckinDate(NULL);
                     $eventAttent->setCheckoutDate(NULL);
+                    $eventAttent->setCheckoutId(null);
                 }
-
-                $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
 
                 $eventAttent->save();
             }
