@@ -158,6 +158,8 @@ unlink(SystemURLs::getDocumentRoot() . "/skin/js/ckeditor/themes/prestige/sass/p
 unlink(SystemURLs::getDocumentRoot() . "/skin/js/ckeditor/themes/prestige/skin.js");
 unlink(SystemURLs::getDocumentRoot() . "/skin/js/ckeditor/themes/prestige/white_bevel.png");
 
-
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/js/ckeditor/configs/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/js/ckeditor/ckeditorExtraPlugin/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot() . "/skin/js/ckeditor/themes/");
 
 $logger->info("End of delete :  all unusefull files");
