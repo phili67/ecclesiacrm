@@ -324,7 +324,7 @@ $(function() {
             buttons: {
                 delete: {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Delete Event"),
-                    className: 'btn btn-danger',
+                    className: 'btn btn-outline-danger',
                     callback: function () {
                         if (recurrent == 0) {
                             bootbox.confirm(i18next.t("Are you sure to delete this event?"), function (confirmed) {
@@ -356,7 +356,7 @@ $(function() {
                                 buttons: {
                                     cancel: {
                                         label: i18next.t('No'),
-                                        className: 'btn btn-success'
+                                        className: 'btn btn-outline-success'
                                     },
                                     add: {
                                         label: i18next.t('Only this event'),
@@ -382,7 +382,7 @@ $(function() {
                                     },
                                     confirm: {
                                         label: i18next.t('Every Events linked to this Event'),
-                                        className: 'btn btn-danger',
+                                        className: 'btn btn-outline-danger',
                                         callback: function () {
                                             window.CRM.APIRequest({
                                                 method: 'POST',
@@ -501,14 +501,14 @@ $(function() {
 
     $(document).on("click", ".checkout-event", function () {
         var eventId = $(this).data("id");
-        var foundDanger = $(this).hasClass('btn-danger');
+        var foundDanger = $(this).hasClass('btn-outline-danger');
 
         var message = i18next.t("Undo Check-out");
-        var color = 'btn-danger'
+        var color = 'btn-outline-danger'
 
         if (foundDanger) {
             message = i18next.t("Make Check-out");
-            color = 'btn-success';
+            color = 'btn-outline-success';
         }
 
         var box = bootbox.dialog({
@@ -539,12 +539,12 @@ $(function() {
                             data: JSON.stringify({"eventID": eventId, "noteText": ""})
                         },function (data) {
                             if (foundDanger) {
-                                $(".checkout-button-"+eventId).removeClass("btn-danger");
-                                $(".checkout-button-"+eventId).addClass("btn-success");
+                                $(".checkout-button-"+eventId).removeClass("btn-outline-danger");
+                                $(".checkout-button-"+eventId).addClass("btn-outline-success");
                                 $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Check-out done"));
                             } else {
-                                $(".checkout-button-"+eventId).addClass("btn-danger");
-                                $(".checkout-button-"+eventId).removeClass("btn-success");
+                                $(".checkout-button-"+eventId).addClass("btn-outline-danger");
+                                $(".checkout-button-"+eventId).removeClass("btn-outline-success");
                                 $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Make Check-out"));
                             }
                             $("#allEventAttendees-"+eventId).html(data.results['stats']['total']);
