@@ -51,7 +51,10 @@ class AppIntegrityService
       if (file_exists($signatureFile)) {
         $signatureData = json_decode(file_get_contents($signatureFile));
         if (sha1(json_encode($signatureData->files, JSON_UNESCAPED_SLASHES)) == $signatureData->sha1) {
+          // Build a list of known files from signatures
+          $knownFiles = [];
           foreach ($signatureData->files as $file) {
+            $knownFiles[$file->filename] = $file->sha1;
             $currentFile = SystemURLs::getDocumentRoot() . '/' . $file->filename;
             if (file_exists($currentFile)) {
               $actualHash = sha1_file($currentFile);
@@ -61,6 +64,12 @@ class AppIntegrityService
             } else {
                 $signatureFailures['CRM'][] = ['filename' => $file->filename, 'status' => 'File Missing'];
             }
+          }
+          
+          // Check for extra files that were added
+          $extraFiles = AppIntegrityService::findAddedFiles(SystemURLs::getDocumentRoot(), $knownFiles);
+          foreach ($extraFiles as $filename) {
+            $signatureFailures['CRM'][] = ['filename' => $filename, 'status' => 'File Added'];
           }
         } else {
           return ['status' => 'failure', 'message' => _('Signature definition file signature failed validation'), 'files' => []];
@@ -125,7 +134,10 @@ class AppIntegrityService
               if (file_exists($signatureFile)) {
                   $signatureData = json_decode(file_get_contents($signatureFile));
                   if (sha1(json_encode($signatureData->files, JSON_UNESCAPED_SLASHES)) == $signatureData->sha1) {
+                      // Build a list of known files from signatures
+                      $knownFiles = [];
                       foreach ($signatureData->files as $file) {
+                          $knownFiles[$file->filename] = $file->sha1;
                           $currentFile = SystemURLs::getDocumentRoot() . '/' . $file->filename;
                           if (file_exists($currentFile)) {
                               $actualHash = sha1_file($currentFile);
@@ -156,6 +168,118 @@ class AppIntegrityService
   }
 
 
+
+  private static function findAddedFiles(string $basePath, array $knownFiles, string $prefix = ''): array
+  {
+    $addedFiles = [];
+    AppIntegrityService::recursiveFileSearch($basePath, $basePath, $knownFiles, $addedFiles, $prefix);
+    return $addedFiles;
+  }
+
+  private static function recursiveFileSearch(string $basePath, string $currentPath, array $knownFiles, array &$addedFiles, string $prefix = ''): void
+  {
+    $directoryIterator = new \RecursiveDirectoryIterator($currentPath, \RecursiveDirectoryIterator::SKIP_DOTS);
+    
+    // Filter directories to skip entire branches before iteration
+    $filterIterator = new \RecursiveCallbackFilterIterator($directoryIterator, function ($current, $key, $iterator) {
+      if ($current->isDir()) {
+        $realPath = str_replace('\\', '/', $current->getRealPath());
+        if (AppIntegrityService::shouldSkipDirectory($realPath)) {
+          return false;
+        }
+      }
+      return true;
+    });
+    
+    $recursiveIterator = new \RecursiveIteratorIterator($filterIterator);
+
+    foreach ($recursiveIterator as $file) {
+      if ($file->isFile()) {
+        $realPath = str_replace('\\', '/', $file->getRealPath());
+        $basePath = str_replace('\\', '/', $basePath);
+        $relativeFilePath = str_replace($basePath . '/', '', $realPath);
+        
+        // Exclude certain files from integrity check
+        if (AppIntegrityService::shouldIgnoreFile($relativeFilePath)) {
+          continue;
+        }
+
+        $signaturePath = $prefix . $relativeFilePath;
+        if (!isset($knownFiles[$signaturePath])) {
+          $addedFiles[] = $signaturePath;
+        }
+      }
+    }
+  }
+
+  private static function shouldIgnoreFile(string $filePath): bool
+  {
+    // List of file patterns to ignore
+    $ignorePatterns = [
+      '.gitignore',
+      '.htaccess',
+      'signatures.json',
+      '.DS_Store',
+      'Thumbs.db',
+      'Include/Config.php',
+      'Include/Config.php.example',
+      'php.ini_REGISTER_GLOBALS_OFF',
+      'Reports/CanvassQuestions.txt',
+      'Include/collabora-templates/empty.docx',
+      'Include/collabora-templates/empty.odt',
+      'Include/collabora-templates/empty.xlsx',
+      'Include/collabora-templates/empty.pptx',
+      'Include/collabora-templates/empty.odp',
+      'Include/collabora-templates/empty.odg',
+      'skin/collabora/edrive/logo.png',
+      'index.html',
+      'fonts/Roboto-Regular.ttf',
+      'icon-large.png',
+      'icon-small.png',
+      'views/email/BaseEmail.html',
+      'integrityCheck.json',
+      'composer.json',
+      'composer.lock'
+    ];
+
+    foreach ($ignorePatterns as $pattern) {
+      if (stripos($filePath, $pattern) !== false) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  private static function shouldSkipDirectory(string $filePath): bool
+  {
+    // Directories to completely skip during recursive search
+    $skipPatterns = [
+      'node_modules/',
+      '.git/',
+      'vendor/',
+      'target/',
+      '__pycache__/',
+      '/Images',
+      '/Favicons',
+      '/Logs',
+      '/Cache',
+      '/mysql',
+      '/private',
+      '/public',
+      '/locale',
+      '/data',
+      '/Plugins',
+    ];
+
+    foreach ($skipPatterns as $pattern) {
+      if (stripos($filePath, $pattern) !== false) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 
   private static function testImagesWriteable(): bool
   {
@@ -307,3 +431,4 @@ class AppIntegrityService
       return $check;
   }
 }
+
