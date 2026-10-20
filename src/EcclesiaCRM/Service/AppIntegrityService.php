@@ -232,7 +232,7 @@ class AppIntegrityService
       'Include/collabora-templates/empty.odp',
       'Include/collabora-templates/empty.odg',
       'skin/collabora/edrive/logo.png',
-      'index.html',
+      'tmp_attach/collabora_discovery.json',
       'fonts/Roboto-Regular.ttf',
       'icon-large.png',
       'icon-small.png',
