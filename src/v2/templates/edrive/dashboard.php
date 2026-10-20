@@ -117,7 +117,7 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="card-header">
                             <div class="d-flex align-items-start justify-content-between">
                                 <div class="mr-3">
-                                    <div class="preview-title h5 mb-0"></div>
+                                    <div class="preview-title h6 mb-0"></div>
                                 </div>
                                 <button type="button" class="close close-file-preview" data-dismiss="alert" aria-label="<?= _("Close") ?>">
                                     <span aria-hidden="true">×</span>
@@ -126,7 +126,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
 
-                    <div class="share-part card card-outline card-secondary shadow-sm mb-3">
+                    <div class="share-part card shadow-sm mb-3">
                         <div class="card-header">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
@@ -193,7 +193,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
 
-                    <div class="share-part-another-user card card-outline card-warning shadow-sm" style="display: none; ">
+                    <div class="share-part-another-user card shadow-sm" style="display: none; ">
                         <div class="card-header">
                             <h3 class="card-title mb-0"><i class="fas fa-link mr-1 text-warning"></i> <?= _("Share By") ?></h3>
                         </div>
