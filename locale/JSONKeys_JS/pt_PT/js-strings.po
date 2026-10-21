@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,15 +32,11 @@ msgstr "Backup em segundo plano em andamento"
 msgid "Backup Error."
 msgstr "Erro de backup."
 
-msgid "The selected file exceeds this servers maximum upload size of"
+msgid "Maintenance mode"
 msgstr ""
-"O arquivo selecionado excede o tamanho máximo de upload deste servidor de"
 
 msgid "Restore Running, Please wait."
 msgstr "Restore Running, por favor, espere."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Restaurar a cópia de segurança, não fechar a janela!"
 
 msgid "Restore Complete"
 msgstr "Restaurar Completo"
@@ -50,6 +46,14 @@ msgstr "Login para a base de dados restaurada"
 
 msgid "Restore Error."
 msgstr "Restaurar erro."
+
+#, fuzzy
+msgid "Please select a backup file."
+msgstr "Por favor, selecione o grupo alvo para membros"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"O arquivo selecionado excede o tamanho máximo de upload deste servidor de"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Tem a certeza, quer apagar esta imagem?"
@@ -561,66 +565,71 @@ msgstr "Classificação"
 msgid "Family Role"
 msgstr "Papel de Família"
 
-msgid "CKEditor Template Creation"
-msgstr "Criação do modelo do CKEditor"
+#, fuzzy
+msgid "Upload progress"
+msgstr "Em progresso...."
 
-msgid "Template Name"
-msgstr "Nome do modelo"
+#, fuzzy
+msgid "Print preview"
+msgstr "Pré-visualização"
 
-msgid "Explanation field cannot be empty."
-msgstr "O campo de explicação não pode estar vazio."
+msgid "Preview"
+msgstr "Pré-visualização"
 
-msgid "Template Description"
-msgstr "Descrição do modelo"
-
-msgid "Save as Word file in EDrive"
-msgstr "Guardar como ficheiro Word no EDrive"
-
-msgid "Word file name"
-msgstr "nome do ficheiro Word"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
+msgid "Print"
 msgstr ""
-"O arquivo será carregado no seu EDrive<br>>pequeno> Esta parte é apenas para "
-"teste <b>(Beta)</b>.</pequeno>"
-
-msgid "Your note is saved in your EDrive"
-msgstr "A sua nota é guardada no seu EDrive"
 
 msgid "(No templates defined)"
 msgstr "(Sem modelos definidos)"
 
-msgid "Content Templates"
-msgstr "Modelos de Conteúdo"
-
-msgid "Please select the template to open in the editor"
-msgstr "Selecione o modelo a ser aberto no editor"
-
-msgid "Template Options"
-msgstr "Opções do modelo"
-
-msgid "Modify"
-msgstr "Modificar"
-
-msgid "Modify the template you select"
-msgstr "Modifique o modelo que você selecionar"
-
-msgid "Delete the template you select"
-msgstr "Eliminar o modelo que seleccionou"
-
-msgid "Are you sure to delete this template? This can't be undone."
-msgstr "Tem a certeza que vai apagar este modelo? Isto não pode ser desfeito."
+#, fuzzy
+msgid "Unable to load content templates."
+msgstr "Nenhum evento agora."
 
 msgid "Replace actual content"
 msgstr "Substituir o conteúdo real"
 
+msgid "Content Templates"
+msgstr "Modelos de Conteúdo"
+
+msgid "Apply"
+msgstr ""
+
+msgid "Template Name"
+msgstr "Nome do modelo"
+
+msgid "Template Description"
+msgstr "Descrição do modelo"
+
 msgid "Manage templates"
 msgstr "Gerir modelos"
 
+msgid "Modify"
+msgstr "Modificar"
+
+msgid "Explanation field cannot be empty."
+msgstr "O campo de explicação não pode estar vazio."
+
+#, fuzzy
+msgid "Unable to update content template."
+msgstr "Nenhum evento agora."
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "Tem a certeza que vai apagar este modelo? Isto não pode ser desfeito."
+
+#, fuzzy
+msgid "Unable to delete content template."
+msgstr "Nenhum evento agora."
+
+msgid "CKEditor Template Creation"
+msgstr "Criação do modelo do CKEditor"
+
 msgid "Save templates"
 msgstr "Salvar modelos"
+
+#, fuzzy
+msgid "Unable to save content template."
+msgstr "Nenhum evento agora."
 
 msgid "Apply templates"
 msgstr "Aplicar modelos"
@@ -628,23 +637,44 @@ msgstr "Aplicar modelos"
 msgid "Save As Word File in EDrive"
 msgstr "Salvar como arquivo do Word no EDrive"
 
+msgid "Word file name"
+msgstr "nome do ficheiro Word"
+
+#, fuzzy
+msgid "Unable to save file."
+msgstr "Nenhum evento agora."
+
+msgid "Success"
+msgstr "Sucesso"
+
+msgid "Your note is saved in your EDrive"
+msgstr "A sua nota é guardada no seu EDrive"
+
 msgid "First Name"
 msgstr "Primeiro Nome"
 
 msgid "Last Name"
 msgstr "Sobrenome"
 
-msgid "Phone"
-msgstr "Telefone"
+#, fuzzy
+msgid "List: Name"
+msgstr "Nome da Lista"
 
-msgid "Company"
+#, fuzzy
+msgid "List: Company"
 msgstr "Empresa"
 
-msgid "Unsub"
+#, fuzzy
+msgid "List: Description"
+msgstr "Descrição"
+
+#, fuzzy
+msgid "List: Unsub"
 msgstr "Unsub"
 
-msgid "VCard"
-msgstr "VCard"
+#, fuzzy
+msgid "List: VCard"
+msgstr "Cartão de crédito"
 
 msgid "Date"
 msgstr "Data"
@@ -652,8 +682,94 @@ msgstr "Data"
 msgid "Language"
 msgstr "Idioma"
 
+msgid "Phone"
+msgstr "Telefone"
+
 msgid "Merge Tags"
 msgstr "Fundir Etiquetas"
+
+#, fuzzy
+msgid "Add Math Formula"
+msgstr "Adicionar cesta ao grupo"
+
+msgid "Browse EDrive"
+msgstr ""
+
+msgid "Please allow pop-up windows for this site."
+msgstr ""
+
+#, fuzzy
+msgid "Please select a valid image file."
+msgstr "Por favor, selecione o grupo alvo para membros"
+
+#, fuzzy
+msgid "Download file"
+msgstr "Erro de download"
+
+msgid "Insert image URL"
+msgstr ""
+
+#, fuzzy
+msgid "Image URL"
+msgstr "URL base"
+
+msgid "Insert"
+msgstr ""
+
+#, fuzzy
+msgid "Please enter a valid image URL."
+msgstr "Por favor, selecione o grupo alvo para membros"
+
+msgid "Insert video"
+msgstr ""
+
+#, fuzzy
+msgid "Video URL"
+msgstr "Vídeo"
+
+#, fuzzy
+msgid "Poster URL"
+msgstr "URL base"
+
+msgid "Width"
+msgstr ""
+
+#, fuzzy
+msgid "Height"
+msgstr "Definir Direitos"
+
+msgid "Show controls"
+msgstr ""
+
+msgid "Responsive video"
+msgstr ""
+
+msgid "Autoplay"
+msgstr ""
+
+msgid "Loop"
+msgstr ""
+
+msgid "Allow download"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Center"
+msgstr ""
+
+#, fuzzy
+msgid "Right"
+msgstr "Definir Direitos"
+
+#, fuzzy
+msgid "Please enter a valid video URL."
+msgstr "Por favor, selecione o grupo alvo para membros"
+
+#, fuzzy
+msgid "Please enter valid video dimensions."
+msgstr "Por favor, selecione o grupo alvo para membros"
 
 msgid "Subject:"
 msgstr "Assunto:"
@@ -1203,9 +1319,6 @@ msgstr "Utilizador"
 msgid "No event now."
 msgstr "Não há evento agora."
 
-msgid "Success"
-msgstr "Sucesso"
-
 msgid "Attention"
 msgstr "Atenção"
 
@@ -1224,9 +1337,6 @@ msgstr "Esta acção nunca poderá ser desfeita !!!!"
 
 msgid "preview currently being created"
 msgstr "visualização que está sendo criada atualmente"
-
-msgid "Preview"
-msgstr "Pré-visualização"
 
 #, fuzzy
 msgid "Document preview"
@@ -1248,6 +1358,10 @@ msgstr ""
 
 msgid "Icon"
 msgstr "Ícone"
+
+#, fuzzy
+msgid "Versions"
+msgstr "Versão"
 
 msgid "Modification Date"
 msgstr "Data de modificação"
@@ -1276,8 +1390,61 @@ msgstr "Criar uma pasta"
 msgid "Set your Folder name"
 msgstr "Defina o seu nome de pasta"
 
+#, fuzzy
+msgid "Word document"
+msgstr "documento"
+
+msgid "Excel spreadsheet"
+msgstr ""
+
+msgid "PowerPoint presentation"
+msgstr ""
+
+msgid "Draw drawing"
+msgstr ""
+
+#, fuzzy
+msgid "New document"
+msgstr "documento"
+
 msgid "Actualize files"
 msgstr "Atualizar arquivos"
+
+#, fuzzy
+msgid "Loading"
+msgstr "A carregar o vídeo..."
+
+#, fuzzy
+msgid "Current version"
+msgstr "Versão instalada"
+
+#, fuzzy
+msgid "Download"
+msgstr "Erro de download"
+
+#, fuzzy
+msgid "Restore"
+msgstr "Restaurar erro."
+
+msgid "No previous version"
+msgstr ""
+
+#, fuzzy
+msgid "Restore this version ?"
+msgstr "Eliminar esta pessoa?"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+
+#, fuzzy
+msgid "Delete this version ?"
+msgstr "Eliminar esta pessoa?"
+
+#, fuzzy
+msgid "Set the document name"
+msgstr "Defina o título do seu documento"
 
 msgid "Set a File/Folder name"
 msgstr "Definir um nome de arquivo/pasta"
@@ -3074,6 +3241,34 @@ msgstr ""
 "Todos os membros e propriedades do grupo serão destruídos.  Os próprios "
 "membros do grupo não serão alterados."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Restaurar a cópia de segurança, não fechar a janela!"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "Guardar como ficheiro Word no EDrive"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "O arquivo será carregado no seu EDrive<br>>pequeno> Esta parte é apenas "
+#~ "para teste <b>(Beta)</b>.</pequeno>"
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "Selecione o modelo a ser aberto no editor"
+
+#~ msgid "Template Options"
+#~ msgstr "Opções do modelo"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Modifique o modelo que você selecionar"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "Eliminar o modelo que seleccionou"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "A carregar o vídeo..."
 
@@ -3435,9 +3630,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Edit list settings"
 #~ msgstr "Editar Configurações Gerais"
-
-#~ msgid "List Name"
-#~ msgstr "Nome da Lista"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Mudando o estado dos assinantes..."

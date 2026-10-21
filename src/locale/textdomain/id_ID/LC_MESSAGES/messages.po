@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-09 19:37+0000\n"
+"POT-Creation-Date: 2026-10-21 13:57+0200\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,63 +28,63 @@ msgstr "Download"
 msgid "Insert"
 msgstr "Menyisipkan"
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:38
+#: browser/browse.php:71 v2/templates/edrive/dashboard.php:39
 msgid "Download files"
 msgstr "Unduh file"
 
-#: browser/browse.php:83 v2/templates/edrive/dashboard.php:49
+#: browser/browse.php:83 v2/templates/edrive/dashboard.php:50
 #, fuzzy
 msgid "Files input"
 msgstr "Berkas hilang"
 
-#: browser/browse.php:87 v2/templates/edrive/dashboard.php:53
+#: browser/browse.php:87 v2/templates/edrive/dashboard.php:54
 msgid "You can also drag and drop files into this area."
 msgstr "Anda juga dapat menyeret dan melepaskan file ke area ini."
 
-#: browser/browse.php:94 v2/templates/edrive/dashboard.php:60
+#: browser/browse.php:94 v2/templates/edrive/dashboard.php:61
 msgid "Download status"
 msgstr "Status unduhan"
 
-#: browser/browse.php:108 v2/templates/edrive/dashboard.php:73
+#: browser/browse.php:108 v2/templates/edrive/dashboard.php:74
 #, fuzzy
 msgid "Upload your files"
 msgstr "Upload file Anda"
 
 #: browser/browse.php:111 v2/templates/cart/carttobadge.php:182
-#: v2/templates/cart/carttobadge.php:188 v2/templates/edrive/dashboard.php:76
+#: v2/templates/cart/carttobadge.php:188 v2/templates/edrive/dashboard.php:77
 #: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
 msgid "Upload"
 msgstr "Upload"
 
-#: browser/browse.php:124 v2/templates/edrive/dashboard.php:96
+#: browser/browse.php:124 v2/templates/edrive/dashboard.php:97
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 
-#: browser/browse.php:148 Include/Header-function.php:95
-#: Include/Header-function.php:157 Include/Header.php:243
+#: browser/browse.php:148 Include/Header-function.php:96
+#: Include/Header-function.php:158 Include/Header.php:243
 #: v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:121 v2/templates/group/groupedit.php:42
+#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Dekat"
 
-#: browser/browse.php:159 v2/templates/edrive/dashboard.php:132
+#: browser/browse.php:159 v2/templates/edrive/dashboard.php:133
 msgid "Internal sharing"
 msgstr ""
 
-#: browser/browse.php:161 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:161 v2/templates/edrive/dashboard.php:135
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
 "locate it, you can send them the internal link to facilitate access."
 msgstr ""
 
-#: browser/browse.php:161 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:161 v2/templates/edrive/dashboard.php:135
 #: v2/templates/sidebar/systemsettings.php:396
 msgid "Definition"
 msgstr "Definisi"
 
-#: browser/browse.php:165 v2/templates/edrive/dashboard.php:138
+#: browser/browse.php:165 v2/templates/edrive/dashboard.php:139
 msgid ""
 "Choose people, define their access rights, then manage existing shares from "
 "the list below."
@@ -92,42 +92,42 @@ msgstr ""
 "Pilih orang, tentukan hak akses mereka, lalu kelola saham yang ada dari "
 "daftar di bawah ini."
 
-#: browser/browse.php:169 v2/templates/edrive/dashboard.php:142
+#: browser/browse.php:169 v2/templates/edrive/dashboard.php:143
 msgid "Add users"
 msgstr "Menambahkan pengguna"
 
-#: browser/browse.php:185 v2/templates/edrive/dashboard.php:158
+#: browser/browse.php:185 v2/templates/edrive/dashboard.php:159
 #, fuzzy
 msgid "Send email notification"
 msgstr "File modifikasi"
 
-#: browser/browse.php:190 v2/templates/edrive/dashboard.php:163
+#: browser/browse.php:190 v2/templates/edrive/dashboard.php:164
 msgid "Shared with"
 msgstr "Dibagikan dengan"
 
-#: browser/browse.php:194 v2/templates/edrive/dashboard.php:167
+#: browser/browse.php:194 v2/templates/edrive/dashboard.php:168
 #, fuzzy
 msgid "Delete all shares"
 msgstr "Hapus semua kamar"
 
-#: browser/browse.php:197 v2/templates/edrive/dashboard.php:170
+#: browser/browse.php:197 v2/templates/edrive/dashboard.php:171
 #, fuzzy
 msgid "Delete shares for the selected users"
 msgstr "Menghapus Donasi dari Orang yang Dipilih"
 
-#: browser/browse.php:206 v2/templates/edrive/dashboard.php:179
+#: browser/browse.php:206 v2/templates/edrive/dashboard.php:180
 #, fuzzy
 msgid "Set Rights"
 msgstr "Benar"
 
-#: browser/browse.php:211 v2/templates/edrive/dashboard.php:184
+#: browser/browse.php:211 v2/templates/edrive/dashboard.php:185
 #, fuzzy
 msgid "Select your rights"
 msgstr "Atur elemen Anda"
 
 #: browser/browse.php:211 v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:184
+#: v2/templates/edrive/dashboard.php:185
 #: v2/templates/people/personEditor.php:1145
 msgid "or"
 msgstr "Atau"
@@ -135,28 +135,28 @@ msgstr "Atau"
 #: browser/browse.php:214
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: v2/templates/edrive/dashboard.php:187
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
+#: v2/templates/edrive/dashboard.php:188
 msgid "[👀  ]"
 msgstr "[👀]"
 
-#: browser/browse.php:214 v2/templates/edrive/dashboard.php:187
+#: browser/browse.php:214 v2/templates/edrive/dashboard.php:188
 msgid "[R ]"
 msgstr ""
 
 #: browser/browse.php:215
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:385
-#: v2/templates/edrive/dashboard.php:188
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
+#: v2/templates/edrive/dashboard.php:189
 msgid "[👀 ✐]"
 msgstr "[👀 Ϩ"
 
-#: browser/browse.php:215 v2/templates/edrive/dashboard.php:188
+#: browser/browse.php:215 v2/templates/edrive/dashboard.php:189
 msgid "[RW]"
 msgstr ""
 
-#: browser/browse.php:224 v2/templates/edrive/dashboard.php:197
+#: browser/browse.php:224 v2/templates/edrive/dashboard.php:198
 msgid "Share By"
 msgstr "Bagikan Oleh"
 
@@ -167,8 +167,8 @@ msgstr "Bagikan Oleh"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:625
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:695
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:715
-#: EcclesiaCRM/Service/CalendarService.php:2083
-#: EcclesiaCRM/Service/CalendarService.php:2115
+#: EcclesiaCRM/Service/CalendarService.php:2084
+#: EcclesiaCRM/Service/CalendarService.php:2116
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "Dua pemesanan sumber daya tidak dapat berada di slot waktu yang sama."
 
@@ -232,7 +232,7 @@ msgid "None"
 msgstr "Tidak ada"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:225
-#: EcclesiaCRM/Service/CalendarService.php:1570
+#: EcclesiaCRM/Service/CalendarService.php:1571
 msgid "Share"
 msgstr "Berbagi"
 
@@ -336,13 +336,50 @@ msgstr "catatan yang berhasil dihapus dari sukarelawan yang dipilih."
 msgid "No person found for preview"
 msgstr "Tidak ada orang yang ditemukan untuk pratinjau"
 
-#: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:171
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:279
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1033
+#: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:161
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:283
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1063
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:628
-#: uploader/upload.php:171
+#: uploader/upload.php:176
 msgid "Create file"
 msgstr "Buat file"
+
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:41
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:91
+#: v2/templates/query/querylist.php:53 v2/templates/query/querylist.php:88
+msgid "Forbidden"
+msgstr "Dilarang"
+
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:48
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:53
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:58
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:70
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:158
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:185
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:201
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:218
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:303
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:317
+msgid "Document not found"
+msgstr "Dokumen tidak ditemukan"
+
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:102
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:107
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:114
+msgid "Invalid name"
+msgstr "Nama tidak valid"
+
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:118
+msgid "The file already exists"
+msgstr "Berkas tersebut sudah ada"
+
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:122
+msgid "Unable to create the file"
+msgstr "Tidak dapat membuat berkas tersebut"
+
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:205
+msgid "Unable to restore this version"
+msgstr "Tidak dapat memulihkan versi ini"
 
 #: EcclesiaCRM/APIControllers/DocumentDocumentController.php:78
 #: EcclesiaCRM/model/EcclesiaCRM/Note.php:37
@@ -354,109 +391,108 @@ msgstr "Dokumen ini dibuka"
 msgid "Minutes left"
 msgstr "Menit tersisa"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:230
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:365
-#: EcclesiaCRM/utils/MiscUtils.php:780
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:233
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:369
+#: EcclesiaCRM/utils/MiscUtils.php:883
 msgid "Folder"
 msgstr "Folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:299
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:313
-msgid "Document not found"
-msgstr "Dokumen tidak ditemukan"
-
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:523
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:562
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:532
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:571
 msgid "Right of access to folder problem"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:588
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:951
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:601
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:972
 msgid "Contact error at api"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:615
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:628
 msgid "You can't erase the public folder !"
 msgstr "Kau tak bisa menghapus map publik!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:623
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:655
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:727
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:799
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:911
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:636
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:668
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:742
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:814
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:928
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:709
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:857
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:874
 msgid "A Folder"
 msgstr "Seorang Folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:709
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:777
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:857
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:792
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:874
 msgid "already exists at this place."
 msgstr "sudah ada di tempat ini."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:757
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:772
 msgid "Folder modification"
 msgstr "Modifikasi Folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:759
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:826
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:774
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:843
 msgid "File modification"
 msgstr "File modifikasi"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:777
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:792
 msgid "A File"
 msgstr "Sebuah File"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:869
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:886
 msgid "New Folder"
 msgstr "New Folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:893
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:910
 msgid "can't rename public folder"
 msgstr "tidak dapat mengganti nama folder publik"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:915
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:932
 msgid "The file or folder name already exists!!!"
 msgstr "Nama file atau folder sudah ada!!!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:963
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:987
+msgid "Invalid CSRF token."
+msgstr "Token CSRF tidak valid."
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:993
 msgid "User account not found."
 msgstr "Akun pengguna tidak ditemukan."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:971
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1001
 msgid "Invalid target path."
 msgstr "Jalur target tidak valid."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:975
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1005
 msgid "No uploaded file received."
 msgstr "Tidak ada file yang diunggah yang diterima."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:981
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1016
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1011
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1046
 msgid "Upload problem !!!"
 msgstr "Masalah pengunggahan !!!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:985
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1015
 msgid "Invalid uploaded file."
 msgstr "File yang diunggah tidak valid."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:990
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1020
 msgid "Invalid file name."
 msgstr "Nama file tidak valid."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:996
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1026
 msgid "This file type is not allowed."
 msgstr "Jenis file ini tidak diperbolehkan."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1001
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1031
 msgid "Target directory is invalid."
 msgstr "Direktori target tidak valid."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1012
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1042
 msgid ""
 "A file with the same name already exists. The uploaded file was renamed "
 "automatically."
@@ -465,10 +501,10 @@ msgstr ""
 "secara otomatis."
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:106
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:164
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:198
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:232
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:327
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:161
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:220
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:340
+#: EcclesiaCRM/utils/SabreUtils.php:125
 msgid ""
 "You can visualize it in your account, in the time Line or the notes tab."
 msgstr ""
@@ -498,58 +534,58 @@ msgstr "Tunai"
 msgid "Checks"
 msgstr "Cek"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:291
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:293
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Boy"
 msgstr "Nak"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:292
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:294
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Girl"
 msgstr "Girl"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:294
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:296
 msgid "Man"
 msgstr "Man"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:295
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:297
 msgid "Woman"
 msgstr "Wanita"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:374
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:406
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:376
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:408
 msgid "POST to cart requires a personID and an eventID"
 msgstr "POST untuk kereta membutuhkan personil dan peristiwa"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:469
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:490
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:706
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:727
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:471
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:492
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:708
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:729
 msgid "Create From sunday school class view"
 msgstr "Menciptakan dari pandangan kelas Minggu"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:493
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:730
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:495
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:732
 msgid "Attendance"
 msgstr "Perhatian"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:531
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:562
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:597
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:632
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:533
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:564
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:599
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:634
 msgid "POST to cart requires a EventID"
 msgstr "POST ke gerobak membutuhkan EventID"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:546
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:548
 #, fuzzy
 msgid "POST to delete attendees requires a EventID and personID"
 msgstr "POST untuk kereta membutuhkan personil dan peristiwa"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:774
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:776
 msgid "POST to cart requires an EventID"
 msgstr "POST ke gerobak membutuhkan sebuah EventID"
 
@@ -614,9 +650,9 @@ msgstr "Status Diperbarui"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:731
-#: EcclesiaCRM/Service/CalendarService.php:288
-#: EcclesiaCRM/Service/CalendarService.php:1023
-#: EcclesiaCRM/Service/CalendarService.php:1423
+#: EcclesiaCRM/Service/CalendarService.php:289
+#: EcclesiaCRM/Service/CalendarService.php:1024
+#: EcclesiaCRM/Service/CalendarService.php:1424
 #: EcclesiaCRM/Service/ConfirmReportService.php:118
 #: EcclesiaCRM/Service/ConfirmReportService.php:579
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
@@ -758,8 +794,8 @@ msgstr "Tidak ditugaskan"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:626
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:729
-#: EcclesiaCRM/Service/CalendarService.php:288
-#: EcclesiaCRM/Service/CalendarService.php:1023
+#: EcclesiaCRM/Service/CalendarService.php:289
+#: EcclesiaCRM/Service/CalendarService.php:1024
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:433
@@ -791,7 +827,7 @@ msgid "Person Activated"
 msgstr "Orang diaktifkan"
 
 #: EcclesiaCRM/APIControllers/PluginsController.php:131
-#: EcclesiaCRM/BackupManager.php:245 EcclesiaCRM/BackupManager.php:426
+#: EcclesiaCRM/BackupManager.php:256 EcclesiaCRM/BackupManager.php:543
 msgid "Impossible to open"
 msgstr "Mustahil untuk membuka"
 
@@ -1096,7 +1132,7 @@ msgstr "Grup Ketik Editor"
 #: EcclesiaCRM/Search/GroupSearchRes.php:97
 #: EcclesiaCRM/Search/GroupSearchRes.php:194
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:155
-#: EcclesiaCRM/Service/CalendarService.php:1567
+#: EcclesiaCRM/Service/CalendarService.php:1568
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
 #: Include/Footer.php:135 v2/templates/calendar/calendar.php:49
@@ -1302,24 +1338,40 @@ msgstr "Peran tidak bisa ditugaskan."
 msgid "Error"
 msgstr "Kesalahan"
 
-#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:168
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:98
+msgid "No valid restore file was uploaded."
+msgstr "Tidak ada berkas pemulihan yang valid yang diunggah."
+
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:105
+msgid "The restore file name is invalid."
+msgstr "Nama berkas pemulihan tidak valid."
+
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:111
+msgid "Unable to store the restore file."
+msgstr "Tidak dapat menyimpan berkas pemulihan."
+
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:195
 msgid "The people and families has been cleared from the database."
 msgstr "Orang-orang dan keluarga telah dibersihkan dari database."
 
-#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:185
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:212
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWBackupController.php:53
 msgid "Backup Complete, Ready for Download."
 msgstr "Backup Complete, Ready for Download."
 
-#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:193
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:220
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWBackupController.php:61
 msgid "Background backup In progress"
 msgstr "Pencadangan latar belakang Sedang berlangsung"
 
-#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:199
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:226
 #: EcclesiaCRM/VIEWControllers/BackupRestore/VIEWBackupController.php:67
 msgid "Backup Generated and copied to remote server"
 msgstr "Cadangan Dibuat dan disalin ke server jarak jauh"
+
+#: EcclesiaCRM/APIControllers/SystemBackupRestoreController.php:262
+msgid "Background restore in progress"
+msgstr "Pemulihan latar belakang sedang berlangsung"
 
 #: EcclesiaCRM/APIControllers/SystemController.php:94
 msgid "SMTP Host is not setup, please visit the settings page"
@@ -1394,27 +1446,31 @@ msgstr "Akun diaktifkan"
 msgid "Private Data"
 msgstr "Private Data"
 
-#: EcclesiaCRM/BackupManager.php:162
+#: EcclesiaCRM/BackupManager.php:169
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "File yang terpilih melebihi ukuran upload server ini maksimum"
 
-#: EcclesiaCRM/BackupManager.php:182
+#: EcclesiaCRM/BackupManager.php:190
 msgid "GPG Backup need a password to work"
 msgstr "GPG Backup membutuhkan password untuk bekerja"
 
-#: EcclesiaCRM/BackupManager.php:276
+#: EcclesiaCRM/BackupManager.php:378
 msgid "Backup archive does not contain a database"
 msgstr "Arsip cadangan tidak berisi database"
 
-#: EcclesiaCRM/BackupManager.php:308
+#: EcclesiaCRM/BackupManager.php:394
+msgid "Unable to move the restore file"
+msgstr "Tidak dapat memindahkan berkas pemulihan"
+
+#: EcclesiaCRM/BackupManager.php:419
 msgid "Unknown File Type"
 msgstr "Tipe File yang tak dikenal"
 
-#: EcclesiaCRM/BackupManager.php:308
+#: EcclesiaCRM/BackupManager.php:419
 msgid "from file"
 msgstr "dari file"
 
-#: EcclesiaCRM/BackupManager.php:315
+#: EcclesiaCRM/BackupManager.php:427
 msgid ""
 "As part of the restore, external backups have been disabled.  If you wish to "
 "continue automatic backups, you must manuall re-enable the "
@@ -2533,8 +2589,8 @@ msgid "Invalid Person"
 msgstr "Orang yang tidak valid"
 
 #: EcclesiaCRM/dto/SystemConfig.php:48
-#: EcclesiaCRM/Service/CalendarService.php:1749
-#: EcclesiaCRM/Service/CalendarService.php:2144
+#: EcclesiaCRM/Service/CalendarService.php:1750
+#: EcclesiaCRM/Service/CalendarService.php:2145
 msgid "NONE"
 msgstr "NONE"
 
@@ -3381,123 +3437,149 @@ msgstr "Atur alamat ekspor)"
 
 #: EcclesiaCRM/dto/SystemConfig.php:264
 msgid ""
-"Link to a style sheet for a particular font. This is useful for the font "
-"menu of ckeditor : https://fonts.googleapis.com/css?"
+"Links to a style sheet for a particular font, separated by semicolons. This "
+"is useful for the font menu of ckeditor : https://fonts.googleapis.com/css?"
 "family=Abril+Fatface:400,400i,700,700i,900,900i|"
 "Roboto:400,400i,700,700i,900,900i"
 msgstr ""
-"Terhubung dengan gaya sprei untuk font tertentu. Ini berguna untuk menu font "
-"of ckeditor: https://fonts.googleapis.com/css? keluarga = Abril + "
-"Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i"
+"Tautan ke lembar gaya untuk jenis huruf tertentu, dipisahkan dengan titik "
+"koma. Ini berguna untuk menu jenis huruf di CKEditor: https://"
+"fonts.googleapis.com/css?family=Abril+Fatface:400,400i,700,700i,900,900i|"
+"Roboto:400,400i,700,700i,900,900i"
 
 #: EcclesiaCRM/dto/SystemConfig.php:265
 msgid ""
-"Here we put the font in the form fontnametodisplay/yourfontname. It is "
-"useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
+"Here we put the fonts in the form fontnametodisplay/yourfontname, separated "
+"by semicolons. It is useful for the font menu of ckeditor, for example : "
+"Abril/Abril Fatface"
 msgstr ""
-"Di sini kita menempatkan font dalam bentuk font Nametodis play/yourfont "
-"name. Ini berguna untuk menu festival font of ckeditor, misalnya: Abril/"
-"Abril Fatface"
+"Di sini kita mencantumkan nama font dalam format fontnametodisplay/"
+"namafontanda, dipisahkan dengan titik koma. Hal ini berguna untuk menu font "
+"di CKEditor, misalnya: Abril/Abril Fatface"
 
 #: EcclesiaCRM/dto/SystemConfig.php:266
+msgid ""
+"Collabora Online server URL (for example https://collabora.mychurch.org). "
+"Leave empty to disable the online document editing in the eDrive."
+msgstr ""
+"URL server Collabora Online (misalnya https://collabora.mychurch.org). "
+"Biarkan kosong untuk menonaktifkan fitur pengeditan dokumen daring di eDrive."
+
+#: EcclesiaCRM/dto/SystemConfig.php:267
+msgid ""
+"Public URL of this CRM, reachable by the Collabora server (WOPI host). Leave "
+"empty to use the current host."
+msgstr ""
+"URL publik CRM ini, yang dapat diakses melalui server Collabora (host WOPI). "
+"Biarkan kosong untuk menggunakan host saat ini."
+
+#: EcclesiaCRM/dto/SystemConfig.php:268
+msgid ""
+"Maximum number of previous versions kept for each document edited online (0 "
+"= no version kept)."
+msgstr ""
+"Jumlah maksimum versi sebelumnya yang disimpan untuk setiap dokumen yang "
+"diedit secara daring (0 = tidak ada versi yang disimpan)."
+
+#: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Use Pastoralcare."
 msgstr "Gunakan Pastoralcare."
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:270
 msgid "Use Edrive."
 msgstr "Gunakan Edrive."
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:271
 msgid "Enable volunteer opportunities"
 msgstr "Mengaktifkan kesempatan menjadi sukarelawan"
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:272
 msgid "Entity Name"
 msgstr "Nama Entitas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid "Entity Address"
 msgstr "Alamat Entitas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:271
+#: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Entity City"
 msgstr "Kota Entitas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:272
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Entity State"
 msgstr "Status Entitas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Entity Zip"
 msgstr "Entitas Zip"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Entity Phone"
 msgstr "Telepon Entitas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Entity Email"
 msgstr "Email Entitas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "Entity Checking Account Number"
 msgstr "Nomor Rekening Giro Entitas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Your Entity's Website"
 msgstr "Situs Web Entitas Anda"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Your Entity's Facebook Page"
 msgstr "Halaman Facebook Entitas Anda"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:283
 msgid "Your Entity's Twitter Page"
 msgstr "Halaman Twitter Entitas Anda"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Latitude of the entity, used to center the Google map"
 msgstr "Garis lintang entitas, digunakan untuk memusatkan peta Google"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Longitude of the entity, used to center the Google map"
 msgstr "Bujur entitas, digunakan untuk memusatkan peta Google"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:292
 msgid "Entity Information"
 msgstr "Informasi Entitas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:293
 msgid "Enabled Features"
 msgstr "Fitur yang diaktifkan"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291 Include/Footer.php:52
+#: EcclesiaCRM/dto/SystemConfig.php:294 Include/Footer.php:52
 #: Include/Footer.php:54 Include/Footer.php:218 Include/Footer.php:308
 msgid "System Settings"
 msgstr "Setting sistem"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:295
 msgid "Localization"
 msgstr "Localisasi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:296
 msgid "User setup"
 msgstr "Pengguna setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:294
+#: EcclesiaCRM/dto/SystemConfig.php:297
 msgid "People Setup"
 msgstr "Orang-orang Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:295
+#: EcclesiaCRM/dto/SystemConfig.php:298
 msgid "Email Setup"
 msgstr "Email Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:296 v2/templates/map/MapUsingGoogle.php:96
+#: EcclesiaCRM/dto/SystemConfig.php:299 v2/templates/map/MapUsingGoogle.php:96
 #: v2/templates/map/MapUsingLeaflet.php:82
 msgid "Map Settings"
 msgstr "Peta Setting"
 
-#: EcclesiaCRM/dto/SystemConfig.php:297 EcclesiaCRM/MenuBar/MenuBar.php:784
+#: EcclesiaCRM/dto/SystemConfig.php:300 EcclesiaCRM/MenuBar/MenuBar.php:784
 #: Reports/GDPR/GDPRDataStructureExport.php:158
 #: v2/templates/gdpr/gdprdatastructure.php:140
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:29
@@ -3508,46 +3590,46 @@ msgstr "Peta Setting"
 msgid "Pastoral Care"
 msgstr "Pendeta Care"
 
-#: EcclesiaCRM/dto/SystemConfig.php:298
+#: EcclesiaCRM/dto/SystemConfig.php:301
 msgid "Sundayschool Attendance"
 msgstr "Minggu ATtendance"
 
-#: EcclesiaCRM/dto/SystemConfig.php:299
+#: EcclesiaCRM/dto/SystemConfig.php:302
 msgid "Integration"
 msgstr "Integrasi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:300 EcclesiaCRM/MenuBar/MenuBar.php:136
+#: EcclesiaCRM/dto/SystemConfig.php:303 EcclesiaCRM/MenuBar/MenuBar.php:136
 #: v2/templates/dashboard/maindashboard.php:30
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:301
+#: EcclesiaCRM/dto/SystemConfig.php:304
 msgid "Quick Search"
 msgstr "Cepat cari"
 
-#: EcclesiaCRM/dto/SystemConfig.php:302
+#: EcclesiaCRM/dto/SystemConfig.php:305
 msgid "Report Settings"
 msgstr "Laporan Setting"
 
-#: EcclesiaCRM/dto/SystemConfig.php:303
+#: EcclesiaCRM/dto/SystemConfig.php:306
 msgid "Financial Settings"
 msgstr "Perlengkapan keuangan"
 
-#: EcclesiaCRM/dto/SystemConfig.php:304
+#: EcclesiaCRM/dto/SystemConfig.php:307
 #: v2/templates/system/upgrade/UpgradeCRM.php:45
 msgid "Backup"
 msgstr "Backup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:305
+#: EcclesiaCRM/dto/SystemConfig.php:308
 msgid "Users Specific Schedule Tasks"
 msgstr "Pengguna Specific Schedule Tasks"
 
-#: EcclesiaCRM/dto/SystemConfig.php:359 EcclesiaCRM/dto/SystemConfig.php:368
-#: EcclesiaCRM/dto/SystemConfig.php:378
+#: EcclesiaCRM/dto/SystemConfig.php:362 EcclesiaCRM/dto/SystemConfig.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:381
 msgid "An invalid configuration name has been requested"
 msgstr "Sebuah nama konfigurasi yang tidak valid telah diminta"
 
-#: EcclesiaCRM/dto/SystemConfig.php:393
+#: EcclesiaCRM/dto/SystemConfig.php:396
 msgid "An invalid configuration id has been requested"
 msgstr "Sebuah ID konfigurasi yang tidak valid telah diminta"
 
@@ -3742,7 +3824,7 @@ msgstr "Harap verifikasi informasi Anda"
 msgid "Private Space"
 msgstr "Ruang pribadi"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:117 EcclesiaCRM/utils/MiscUtils.php:476
+#: EcclesiaCRM/MenuBar/MenuBar.php:117 EcclesiaCRM/utils/MiscUtils.php:489
 #: external/templates/registration/family-register-members.php:112
 #: Include/Header.php:225
 msgid "Home"
@@ -4478,7 +4560,7 @@ msgstr "Email"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:400
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:599
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:702
-#: EcclesiaCRM/Service/CalendarService.php:52
+#: EcclesiaCRM/Service/CalendarService.php:53
 #: EcclesiaCRM/Service/ConfirmReportService.php:77
 #: EcclesiaCRM/Service/ConfirmReportService.php:290
 #: EcclesiaCRM/Service/ConfirmReportService.php:507
@@ -4682,7 +4764,7 @@ msgstr "Pribadi"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
 #: EcclesiaCRM/Search/PledgeSearchRes.php:86
 #: EcclesiaCRM/Search/PledgeSearchRes.php:101
-#: EcclesiaCRM/Service/CalendarService.php:1400
+#: EcclesiaCRM/Service/CalendarService.php:1401
 #: v2/templates/calendar/eventnames.php:318
 #: v2/templates/calendar/eventnames.php:320
 #: v2/templates/fundraiser/donatedItemEditor.php:22
@@ -4879,45 +4961,45 @@ msgstr "Sukarelawan"
 msgid "volunteer"
 msgstr "Sukarelawan"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:66
-#: EcclesiaCRM/Service/AppIntegrityService.php:143
+#: EcclesiaCRM/Service/AppIntegrityService.php:75
+#: EcclesiaCRM/Service/AppIntegrityService.php:155
 msgid "Signature definition file signature failed validation"
 msgstr "Tanda tanda definisi file tanda tangan gagal validasi"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:69
-#: EcclesiaCRM/Service/AppIntegrityService.php:146
+#: EcclesiaCRM/Service/AppIntegrityService.php:78
+#: EcclesiaCRM/Service/AppIntegrityService.php:158
 msgid "Signature definition File Missing"
 msgstr "Signation Definisi File hilang"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:78
-#: EcclesiaCRM/Service/AppIntegrityService.php:152
+#: EcclesiaCRM/Service/AppIntegrityService.php:87
+#: EcclesiaCRM/Service/AppIntegrityService.php:164
 msgid "One or more files failed signature validation"
 msgstr "Satu atau lebih file gagal validasi tanda tangan"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:90
+#: EcclesiaCRM/Service/AppIntegrityService.php:99
 #: v2/templates/system/infos.php:34 v2/templates/system/integritycheck.php:76
 msgid "Failed"
 msgstr "Gagal."
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:93
 #: EcclesiaCRM/Service/AppIntegrityService.php:102
+#: EcclesiaCRM/Service/AppIntegrityService.php:111
 #: v2/templates/system/infos.php:230
 msgid "Passed"
 msgstr "Lulus"
 
-#: EcclesiaCRM/Service/CalendarService.php:51
+#: EcclesiaCRM/Service/CalendarService.php:52
 #: v2/templates/calendar/eventattendeesedit.php:32
 #: v2/templates/cart/carttobadge.php:106
 msgid "Event"
 msgstr "Event"
 
-#: EcclesiaCRM/Service/CalendarService.php:53
+#: EcclesiaCRM/Service/CalendarService.php:54
 #: EcclesiaCRM/Service/ConfirmReportService.php:85
 #: EcclesiaCRM/Service/ConfirmReportService.php:310
 msgid "Anniversary"
 msgstr "Ulang tahun."
 
-#: EcclesiaCRM/Service/CalendarService.php:1403
+#: EcclesiaCRM/Service/CalendarService.php:1404
 #: EcclesiaCRM/Service/ConfirmReportService.php:541
 #: ident/templates/verify/verify-family-info.php:47
 #: ident/templates/verify/verify-person-info.php:62
@@ -4947,56 +5029,56 @@ msgstr "Ulang tahun."
 msgid "Delete"
 msgstr "Hapus"
 
-#: EcclesiaCRM/Service/CalendarService.php:1406
+#: EcclesiaCRM/Service/CalendarService.php:1407
 #, fuzzy
 msgid "Info"
 msgstr "Infos"
 
-#: EcclesiaCRM/Service/CalendarService.php:1438
+#: EcclesiaCRM/Service/CalendarService.php:1439
 #: v2/templates/calendar/checkin.php:93
 msgid "Check-in"
 msgstr "Periksa"
 
-#: EcclesiaCRM/Service/CalendarService.php:1439
+#: EcclesiaCRM/Service/CalendarService.php:1440
 #: v2/templates/calendar/checkin.php:107
 msgid "Check-out"
 msgstr "Check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:1440
+#: EcclesiaCRM/Service/CalendarService.php:1441
 msgid "Rest"
 msgstr "Istirahatlah."
 
-#: EcclesiaCRM/Service/CalendarService.php:1461
-#: EcclesiaCRM/Service/CalendarService.php:1494
+#: EcclesiaCRM/Service/CalendarService.php:1462
+#: EcclesiaCRM/Service/CalendarService.php:1495
 #: v2/templates/calendar/checkin.php:43
 #: v2/templates/calendar/eventattendeesedit.php:44
 msgid "Attendees"
 msgstr "Perhatian"
 
-#: EcclesiaCRM/Service/CalendarService.php:1472
 #: EcclesiaCRM/Service/CalendarService.php:1473
-#: EcclesiaCRM/Service/CalendarService.php:1476
+#: EcclesiaCRM/Service/CalendarService.php:1474
 #: EcclesiaCRM/Service/CalendarService.php:1477
+#: EcclesiaCRM/Service/CalendarService.php:1478
 #: v2/templates/calendar/eventattendeesedit.php:130
 #: v2/templates/calendar/eventattendeesedit.php:131
 #: v2/templates/calendar/eventattendeesedit.php:134
 msgid "Make Check-out"
 msgstr "Periksa-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:1473
-#: EcclesiaCRM/Service/CalendarService.php:1477
+#: EcclesiaCRM/Service/CalendarService.php:1474
+#: EcclesiaCRM/Service/CalendarService.php:1478
 msgid "Check-out done"
 msgstr "Check-out dilakukan"
 
-#: EcclesiaCRM/Service/CalendarService.php:1519
+#: EcclesiaCRM/Service/CalendarService.php:1520
 msgid "No Attendance Recorded"
 msgstr "Tidak ada catatan pengawasan"
 
-#: EcclesiaCRM/Service/CalendarService.php:1533
+#: EcclesiaCRM/Service/CalendarService.php:1534
 msgid "login"
 msgstr "Login"
 
-#: EcclesiaCRM/Service/CalendarService.php:1564
+#: EcclesiaCRM/Service/CalendarService.php:1565
 #: v2/templates/calendar/eventslist.php:52
 msgid "Personal Calendar"
 msgstr "Kalender pribadi"
@@ -5221,7 +5303,7 @@ msgid "by"
 msgstr "By"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:780 EcclesiaCRM/utils/MiscUtils.php:1038
+#: EcclesiaCRM/utils/MiscUtils.php:883 EcclesiaCRM/utils/MiscUtils.php:1287
 msgid "File"
 msgstr "Berkas"
 
@@ -5456,29 +5538,29 @@ msgstr "SE"
 msgid "SSE"
 msgstr "SE"
 
-#: EcclesiaCRM/utils/InputUtils.php:34
+#: EcclesiaCRM/utils/InputUtils.php:331
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:787
 #: v2/templates/fundraiser/fundRaiserEditor.php:38
 msgid "Not a valid date"
 msgstr "Bukan kencan yang valid"
 
-#: EcclesiaCRM/utils/InputUtils.php:46
+#: EcclesiaCRM/utils/InputUtils.php:343
 msgid "Invalid Year"
 msgstr "Tahun yang tidak valid"
 
-#: EcclesiaCRM/utils/InputUtils.php:49
+#: EcclesiaCRM/utils/InputUtils.php:346
 msgid "Out of range: Allowable values are 1901 to 2155"
 msgstr "Diluar jangkauan: nilai Allowable adalah 1901 sampai 2155"
 
-#: EcclesiaCRM/utils/InputUtils.php:62 EcclesiaCRM/utils/InputUtils.php:78
+#: EcclesiaCRM/utils/InputUtils.php:359 EcclesiaCRM/utils/InputUtils.php:375
 msgid "Invalid Number"
 msgstr "Nomor yang tidak valid"
 
-#: EcclesiaCRM/utils/InputUtils.php:65
+#: EcclesiaCRM/utils/InputUtils.php:362
 msgid "Number too large. Must be between -2147483648 and 2147483647"
 msgstr "Nomornya terlalu besar. Pasti antara -2147483648 dan 2147483647"
 
-#: EcclesiaCRM/utils/InputUtils.php:81
+#: EcclesiaCRM/utils/InputUtils.php:378
 msgid "Money amount too large. Maximum is $999999999.99"
 msgstr "Jumlah uang terlalu besar. Maksimum adalah $ 99999999999999.99"
 
@@ -5534,51 +5616,52 @@ msgstr "Abaikan Inlengkap dan alamat BR"
 msgid "File Type"
 msgstr "Berkas tipe"
 
-#: EcclesiaCRM/utils/MiscUtils.php:816 EcclesiaCRM/utils/MiscUtils.php:838
-#: EcclesiaCRM/utils/MiscUtils.php:894 EcclesiaCRM/utils/MiscUtils.php:994
-#: EcclesiaCRM/utils/MiscUtils.php:1016
+#: EcclesiaCRM/utils/MiscUtils.php:948 EcclesiaCRM/utils/MiscUtils.php:973
+#: EcclesiaCRM/utils/MiscUtils.php:1009 EcclesiaCRM/utils/MiscUtils.php:1065
+#: EcclesiaCRM/utils/MiscUtils.php:1179 EcclesiaCRM/utils/MiscUtils.php:1230
+#: EcclesiaCRM/utils/MiscUtils.php:1265
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Kau harus menggunakan PDF penonton atau download file di sini"
 
-#: EcclesiaCRM/utils/MiscUtils.php:901 EcclesiaCRM/utils/MiscUtils.php:906
-#: EcclesiaCRM/utils/MiscUtils.php:910 EcclesiaCRM/utils/MiscUtils.php:1105
+#: EcclesiaCRM/utils/MiscUtils.php:1072 EcclesiaCRM/utils/MiscUtils.php:1077
+#: EcclesiaCRM/utils/MiscUtils.php:1081 EcclesiaCRM/utils/MiscUtils.php:1354
 msgid "Your browser does not support the audio element."
 msgstr "Browser Anda tidak mendukung elemen audio."
 
-#: EcclesiaCRM/utils/MiscUtils.php:916 EcclesiaCRM/utils/MiscUtils.php:923
-#: EcclesiaCRM/utils/MiscUtils.php:932 EcclesiaCRM/utils/MiscUtils.php:1115
-#: EcclesiaCRM/utils/MiscUtils.php:1126 EcclesiaCRM/utils/MiscUtils.php:1141
+#: EcclesiaCRM/utils/MiscUtils.php:1087 EcclesiaCRM/utils/MiscUtils.php:1094
+#: EcclesiaCRM/utils/MiscUtils.php:1103 EcclesiaCRM/utils/MiscUtils.php:1364
+#: EcclesiaCRM/utils/MiscUtils.php:1375 EcclesiaCRM/utils/MiscUtils.php:1390
 msgid "Your browser does not support the video tag."
 msgstr "Browser Anda tidak mendukung tag video."
 
-#: EcclesiaCRM/utils/MiscUtils.php:1047 EcclesiaCRM/utils/MiscUtils.php:1079
-#: EcclesiaCRM/utils/MiscUtils.php:1088 EcclesiaCRM/utils/MiscUtils.php:1103
-#: EcclesiaCRM/utils/MiscUtils.php:1112 EcclesiaCRM/utils/MiscUtils.php:1122
-#: EcclesiaCRM/utils/MiscUtils.php:1135
+#: EcclesiaCRM/utils/MiscUtils.php:1296 EcclesiaCRM/utils/MiscUtils.php:1328
+#: EcclesiaCRM/utils/MiscUtils.php:1337 EcclesiaCRM/utils/MiscUtils.php:1352
+#: EcclesiaCRM/utils/MiscUtils.php:1361 EcclesiaCRM/utils/MiscUtils.php:1371
+#: EcclesiaCRM/utils/MiscUtils.php:1384
 msgid "Expand"
 msgstr "Perluasan"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1187
+#: EcclesiaCRM/utils/MiscUtils.php:1436
 msgid "Classic Document"
 msgstr "Dokumen klasik"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1190
+#: EcclesiaCRM/utils/MiscUtils.php:1439
 msgid "Classic Video"
 msgstr "Video klasik"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1193
+#: EcclesiaCRM/utils/MiscUtils.php:1442
 msgid "Classic File"
 msgstr "File klasik"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1196
+#: EcclesiaCRM/utils/MiscUtils.php:1445
 msgid "Classic Audio"
 msgstr "Klasik Audio"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1302
+#: EcclesiaCRM/utils/MiscUtils.php:1551
 msgid "Select Fiscal Year"
 msgstr "Pilih Fiscal Tahun"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1910
+#: EcclesiaCRM/utils/MiscUtils.php:2159
 #: v2/templates/deposit/autoPaymentClearAccount.php:28
 msgid "Cannot execute query."
 msgstr "Tidak boleh mengeksekusi pertanyaan."
@@ -6173,7 +6256,7 @@ msgid "Login Name"
 msgstr "Nama yang bagus"
 
 #: external/templates/password/enter-username.php:46
-#: Include/Header-function.php:172 v2/templates/system/infos.php:34
+#: Include/Header-function.php:173 v2/templates/system/infos.php:34
 #: v2/templates/system/integritycheck.php:52
 msgid "OK"
 msgstr "Oke."
@@ -6398,7 +6481,7 @@ msgstr "Kami menemukan kesalahan yang mengajukan data verifikasi Anda"
 
 #: ident/templates/verify/verify-family-info.php:109
 #: ident/templates/verify/verify-person-info.php:102
-#: Include/Header-function.php:143 v2/templates/calendar/checkin.php:300
+#: Include/Header-function.php:144 v2/templates/calendar/checkin.php:300
 #: v2/templates/calendar/eventnames.php:234
 #: v2/templates/deposit/autaPaymentEditor.php:538
 #: v2/templates/deposit/electronicPaymentList.php:82
@@ -6552,11 +6635,11 @@ msgstr "Semua terjebak"
 msgid "There are no open tasks at the moment."
 msgstr "Tidak ada tugas terbuka saat ini."
 
-#: Include/Header-function.php:91
+#: Include/Header-function.php:92
 msgid "Issue Report!"
 msgstr "Laporan Issue!"
 
-#: Include/Header-function.php:93
+#: Include/Header-function.php:94
 msgid ""
 "Describe the problem or feature request clearly so it can be reviewed and "
 "reproduced quickly."
@@ -6564,11 +6647,11 @@ msgstr ""
 "Jelaskan masalah atau permintaan fitur dengan jelas agar dapat ditinjau dan "
 "direproduksi dengan cepat."
 
-#: Include/Header-function.php:103
+#: Include/Header-function.php:104
 msgid "Helpful reports save time"
 msgstr "Laporan yang bermanfaat menghemat waktu"
 
-#: Include/Header-function.php:104
+#: Include/Header-function.php:105
 msgid ""
 "Use a short title, list the action you took, and explain what you expected "
 "to happen."
@@ -6576,34 +6659,34 @@ msgstr ""
 "Gunakan judul yang singkat, cantumkan tindakan yang Anda lakukan, dan "
 "jelaskan apa yang Anda harapkan terjadi."
 
-#: Include/Header-function.php:110
+#: Include/Header-function.php:111
 msgid "Enter a Title for your bug / feature report"
 msgstr "Masukkan gelar untuk bug Anda/laporan fitur"
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:117
 msgid "Example: Backup download button not visible after completion"
 msgstr "Contoh: Tombol unduh cadangan tidak terlihat setelah selesai"
 
-#: Include/Header-function.php:121
+#: Include/Header-function.php:122
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Apa yang kau lakukan saat kau melihat kesempatan fitur?"
 
-#: Include/Header-function.php:123
+#: Include/Header-function.php:124
 msgid ""
 "Describe the steps, the visible result, and any message shown on screen."
 msgstr ""
 "Jelaskan langkah-langkah, hasil yang terlihat, dan pesan apa pun yang "
 "ditampilkan di layar."
 
-#: Include/Header-function.php:124
+#: Include/Header-function.php:125
 msgid "Tip: mention the page, the action, and the expected result."
 msgstr "Saran: sebutkan halaman, tindakan, dan hasil yang diharapkan."
 
-#: Include/Header-function.php:130
+#: Include/Header-function.php:131
 msgid "Before you submit"
 msgstr "Sebelum Anda mengirim"
 
-#: Include/Header-function.php:133
+#: Include/Header-function.php:134
 msgid ""
 "When you click \"submit,\" an error report will be posted to the CRM GitHub "
 "Issue tracker."
@@ -6611,11 +6694,11 @@ msgstr ""
 "Ketika Anda mengklik \"kirim,\" laporan kesalahan akan diposting ke pelacak "
 "Masalah CRM GitHub."
 
-#: Include/Header-function.php:134
+#: Include/Header-function.php:135
 msgid "Please do not include any confidential information."
 msgstr "Tolong jangan termasuk informasi rahasia."
 
-#: Include/Header-function.php:135
+#: Include/Header-function.php:136
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -6623,7 +6706,7 @@ msgstr ""
 "Beberapa informasi umum tentang sistem Anda akan dikirim bersama dengan "
 "permintaan seperti Server versi dan browser headers."
 
-#: Include/Header-function.php:136
+#: Include/Header-function.php:137
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
@@ -6631,37 +6714,37 @@ msgstr ""
 "Tidak ada informasi pribadi yang diidentifikasi akan dikirim kecuali Anda "
 "sengaja memasukkannya."
 
-#: Include/Header-function.php:145
+#: Include/Header-function.php:146
 msgid "Submit"
 msgstr "Tundukkan"
 
-#: Include/Header-function.php:153
+#: Include/Header-function.php:154
 msgid "Issue Report done!"
 msgstr "Laporan selesai!"
 
-#: Include/Header-function.php:155
+#: Include/Header-function.php:156
 msgid "Your report has been submitted successfully."
 msgstr "Laporan Anda telah berhasil dikirimkan."
 
-#: Include/Header-function.php:165
+#: Include/Header-function.php:166
 msgid "Successfully submitted Issue"
 msgstr "Sukses menyerahkan Issue"
 
-#: Include/Header-function.php:166
+#: Include/Header-function.php:167
 msgid "You can open the created issue directly on GitHub from the link below."
 msgstr ""
 "Anda dapat membuka isu yang dibuat secara langsung di GitHub dari tautan di "
 "bawah ini."
 
-#: Include/Header-function.php:169
+#: Include/Header-function.php:170
 msgid "View Issue on GitHub"
 msgstr "Lihat issue di GitHub"
 
-#: Include/Header-function.php:232
+#: Include/Header-function.php:236
 msgid "Change columns"
 msgstr "Ganti kolom"
 
-#: Include/Header-function.php:233
+#: Include/Header-function.php:237
 #: v2/templates/pastoralcare/pastoralcareperson.php:78
 msgid "Print"
 msgstr "Cetak."
@@ -7491,7 +7574,7 @@ msgid "Encrypt backup file with a password?"
 msgstr "Mengirim file cadangan dengan password?"
 
 #: v2/templates/BackupRestore/backup.php:103
-#: v2/templates/BackupRestore/restore.php:66
+#: v2/templates/BackupRestore/restore.php:65
 msgid "encryption"
 msgstr "Enkripsi"
 
@@ -7548,33 +7631,65 @@ msgstr ""
 msgid "Maximum upload size"
 msgstr "Upload maksimum"
 
-#: v2/templates/BackupRestore/restore.php:53
+#: v2/templates/BackupRestore/restore.php:52
 msgid "Backup file"
 msgstr "File cadangan"
 
-#: v2/templates/BackupRestore/restore.php:57
+#: v2/templates/BackupRestore/restore.php:56
 msgid "Choose file…"
 msgstr "Pilih file..."
 
-#: v2/templates/BackupRestore/restore.php:66
+#: v2/templates/BackupRestore/restore.php:65
 msgid "Password (if any)"
 msgstr "Password (jika ada)"
 
-#: v2/templates/BackupRestore/restore.php:68
+#: v2/templates/BackupRestore/restore.php:67
 msgid "Leave blank if not encrypted"
 msgstr "Biarkan kosong jika tidak dienkripsi"
 
-#: v2/templates/BackupRestore/restore.php:73
+#: v2/templates/BackupRestore/restore.php:72
 msgid "Upload and Restore"
 msgstr "Unggah dan Pulihkan"
 
-#: v2/templates/BackupRestore/restore.php:83
+#: v2/templates/BackupRestore/restore.php:82
 msgid "Restore Status"
 msgstr "Kembalikan Status"
 
-#: v2/templates/BackupRestore/restore.php:85
+#: v2/templates/BackupRestore/restore.php:84
 msgid "No Restore Running"
 msgstr "Tidak ada Pengembalian"
+
+#: v2/templates/BackupRestore/restore.php:92
+msgid "Uploading backup file"
+msgstr "Mengunggah berkas cadangan"
+
+#: v2/templates/BackupRestore/restore.php:97
+msgid "Extracting backup archive"
+msgstr "Mengekstrak arsip cadangan"
+
+#: v2/templates/BackupRestore/restore.php:101
+msgid "Importing database"
+msgstr "Mengimpor basis data"
+
+#: v2/templates/BackupRestore/restore.php:105
+msgid "Restoring images"
+msgstr "Memulihkan gambar"
+
+#: v2/templates/BackupRestore/restore.php:109
+msgid "Restoring private WebDAV files"
+msgstr "Memulihkan berkas WebDAV pribadi"
+
+#: v2/templates/BackupRestore/restore.php:113
+msgid "Restoring public WebDAV files"
+msgstr "Memulihkan berkas WebDAV publik"
+
+#: v2/templates/BackupRestore/restore.php:117
+msgid "Restoring shared files"
+msgstr "Memulihkan file yang dibagikan"
+
+#: v2/templates/BackupRestore/restore.php:121
+msgid "Updating database"
+msgstr "Memperbarui basis data"
 
 #: v2/templates/calendar/calendar.php:28
 #: v2/templates/deposit/financialReports.php:136
@@ -9208,15 +9323,15 @@ msgstr "Tahun Kalender"
 msgid "Enter a 4-digit year."
 msgstr "Masukkan 4 digit tahun."
 
-#: v2/templates/edrive/dashboard.php:27
+#: v2/templates/edrive/dashboard.php:28
 msgid "EDrive workspace"
 msgstr "Ruang kerja EDrive"
 
-#: v2/templates/edrive/dashboard.php:28
+#: v2/templates/edrive/dashboard.php:29
 msgid "Manage your files, previews and internal sharing from one place."
 msgstr "Kelola file, pratinjau, dan berbagi internal Anda dari satu tempat."
 
-#: v2/templates/edrive/dashboard.php:89
+#: v2/templates/edrive/dashboard.php:90
 msgid "Files"
 msgstr "File"
 
@@ -12888,10 +13003,6 @@ msgstr ""
 "Pilih kategori kueri, lalu buka kueri untuk menjalankannya dengan atau tanpa "
 "parameter."
 
-#: v2/templates/query/querylist.php:53 v2/templates/query/querylist.php:88
-msgid "Forbidden"
-msgstr "Dilarang"
-
 #: v2/templates/query/querysql.php:33 v2/templates/query/querysql.php:81
 msgid "An error occured: "
 msgstr "Sebuah kesalahan terjadi:"
@@ -16420,9 +16531,6 @@ msgstr "Memberikan Laporan"
 
 #~ msgid "Authorize.NET"
 #~ msgstr "- Authorize.NET"
-
-#~ msgid "Upgrade database"
-#~ msgstr "Database terbaru"
 
 #~ msgid "Upgrade EcclesiaCRM"
 #~ msgstr "Upgrade Ecclesiaccrm"

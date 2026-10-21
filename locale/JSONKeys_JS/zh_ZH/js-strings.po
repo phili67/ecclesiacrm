@@ -3473,6 +3473,171 @@ msgstr "如果您删除该基金，<b>您将丢失所有相关数据。</b>"
 msgid "Are you sure? This action can't be undone."
 msgstr "您确定吗？此操作无法撤销。"
 
+msgid "Maintenance mode"
+msgstr "维护模式"
+
+msgid "Please select a backup file."
+msgstr "请选择一个备份文件。"
+
+msgid "Upload progress"
+msgstr "上传进度"
+
+msgid "Print preview"
+msgstr "打印预览"
+
+msgid "Print"
+msgstr "打印"
+
+msgid "Unable to load content templates."
+msgstr "无法加载内容模板。"
+
+msgid "Unable to update content template."
+msgstr "无法更新内容模板。"
+
+msgid "Unable to delete content template."
+msgstr "无法删除内容模板。"
+
+msgid "Unable to save content template."
+msgstr "无法保存内容模板。"
+
+msgid "Unable to save file."
+msgstr "无法保存文件。"
+
+msgid "List: Name"
+msgstr "列表：姓名"
+
+msgid "List: Company"
+msgstr "列表：公司"
+
+msgid "List: Description"
+msgstr "列表：描述"
+
+msgid "List: Unsub"
+msgstr "列表：取消订阅"
+
+msgid "List: VCard"
+msgstr "列表：VCard"
+
+msgid "Add Math Formula"
+msgstr "添加数学公式"
+
+msgid "Browse EDrive"
+msgstr "浏览 EDrive"
+
+msgid "Please allow pop-up windows for this site."
+msgstr "请允许本网站显示弹出窗口。"
+
+msgid "Please select a valid image file."
+msgstr "请选择一个有效的图像文件。"
+
+msgid "Download file"
+msgstr "下载文件"
+
+msgid "Insert image URL"
+msgstr "插入图片网址"
+
+msgid "Image URL"
+msgstr "图片网址"
+
+msgid "Insert"
+msgstr "插入"
+
+msgid "Please enter a valid image URL."
+msgstr "请输入一个有效的图片网址。"
+
+msgid "Insert video"
+msgstr "插入视频"
+
+msgid "Video URL"
+msgstr "视频网址"
+
+msgid "Poster URL"
+msgstr "海报网址"
+
+msgid "Width"
+msgstr "宽度"
+
+msgid "Height"
+msgstr "高度"
+
+msgid "Show controls"
+msgstr "显示控件"
+
+msgid "Responsive video"
+msgstr "响应式视频"
+
+msgid "Autoplay"
+msgstr "自动播放"
+
+msgid "Loop"
+msgstr "循环"
+
+msgid "Allow download"
+msgstr "允许下载"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Center"
+msgstr "中心"
+
+msgid "Right"
+msgstr "对"
+
+msgid "Please enter a valid video URL."
+msgstr "请输入一个有效的视频网址。"
+
+msgid "Please enter valid video dimensions."
+msgstr "请输入有效的视频尺寸。"
+
+msgid "Versions"
+msgstr "版本"
+
+msgid "Word document"
+msgstr "Word文档"
+
+msgid "Excel spreadsheet"
+msgstr "Excel 电子表格"
+
+msgid "PowerPoint presentation"
+msgstr "PowerPoint 演示文稿"
+
+msgid "Draw drawing"
+msgstr "画画"
+
+msgid "New document"
+msgstr "新文档"
+
+msgid "Loading"
+msgstr "正在加载"
+
+msgid "Current version"
+msgstr "当前版本"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Restore"
+msgstr "还原"
+
+msgid "No previous version"
+msgstr "无先前版本"
+
+msgid "Restore this version ?"
+msgstr "恢复此版本？"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"当前内容已保存为一个版本。如果该文档在编辑器中处于打开状态，请先将其关闭。"
+
+msgid "Delete this version ?"
+msgstr "删除此版本？"
+
+msgid "Set the document name"
+msgstr "设置文档名称"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

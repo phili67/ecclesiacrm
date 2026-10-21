@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,16 +32,11 @@ msgstr "Backup în fundal în desfășurare"
 msgid "Backup Error."
 msgstr "Eroare de rezervă."
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
-"Fișierul selectat depășește dimensiunea maximă de încărcare a serverelor, "
-"care este de"
+msgid "Maintenance mode"
+msgstr "Modul de întreținere"
 
 msgid "Restore Running, Please wait."
 msgstr "Restaurarea este în curs de execuție, vă rugăm să așteptați."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Restaurați copia de rezervă, nu închideți fereastra !"
 
 msgid "Restore Complete"
 msgstr "Restaurare completă"
@@ -51,6 +46,14 @@ msgstr "Autentificare la baza de date restaurată"
 
 msgid "Restore Error."
 msgstr "Eroare de restaurare."
+
+msgid "Please select a backup file."
+msgstr "Vă rugăm să selectați un fișier de rezervă."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Fișierul selectat depășește dimensiunea maximă de încărcare a serverelor, "
+"care este de"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Sunteți sigur că doriți să ștergeți această imagine?"
@@ -562,68 +565,67 @@ msgstr "Clasificare"
 msgid "Family Role"
 msgstr "Rolul familiei"
 
-msgid "CKEditor Template Creation"
-msgstr "Crearea de șabloane CKEditor"
+msgid "Upload progress"
+msgstr "Progresul încărcării"
 
-msgid "Template Name"
-msgstr "Nume șablon"
+msgid "Print preview"
+msgstr "Previzualizare tipărire"
 
-msgid "Explanation field cannot be empty."
-msgstr "Câmpul \"Explicație\" nu poate fi gol."
+msgid "Preview"
+msgstr "Previzualizare"
 
-msgid "Template Description"
-msgstr "Descriere șablon"
-
-msgid "Save as Word file in EDrive"
-msgstr "Salvați ca fișier Word în EDrive"
-
-msgid "Word file name"
-msgstr "Numele fișierului Word"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
-msgstr ""
-"Fișierul va fi încărcat pe EDrive<br><small>Această parte este doar pentru "
-"testare <b>(Beta)</b>.</small>"
-
-msgid "Your note is saved in your EDrive"
-msgstr "Nota dvs. este salvată în EDrive"
+msgid "Print"
+msgstr "Tipărire"
 
 msgid "(No templates defined)"
 msgstr "(Nu sunt definite șabloane)"
 
+msgid "Unable to load content templates."
+msgstr "Nu se pot încărca șabloanele de conținut."
+
+msgid "Replace actual content"
+msgstr "Înlocuiți conținutul real"
+
 msgid "Content Templates"
 msgstr "Modele de conținut"
 
-msgid "Please select the template to open in the editor"
-msgstr "Vă rugăm să selectați șablonul pentru a-l deschide în editor"
+msgid "Apply"
+msgstr "Aplicați"
 
-msgid "Template Options"
-msgstr "Opțiuni de șablon"
+msgid "Template Name"
+msgstr "Nume șablon"
+
+msgid "Template Description"
+msgstr "Descriere șablon"
+
+msgid "Manage templates"
+msgstr "Gestionați șabloanele"
 
 msgid "Modify"
 msgstr "Modificați"
 
-msgid "Modify the template you select"
-msgstr "Modificați șablonul pe care l-ați selectat"
+msgid "Explanation field cannot be empty."
+msgstr "Câmpul \"Explicație\" nu poate fi gol."
 
-msgid "Delete the template you select"
-msgstr "Ștergeți șablonul pe care l-ați selectat"
+msgid "Unable to update content template."
+msgstr "Nu se poate actualiza șablonul de conținut."
 
 msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 "Sunteți sigur că doriți să ștergeți acest șablon? Acest lucru nu poate fi "
 "anulat."
 
-msgid "Replace actual content"
-msgstr "Înlocuiți conținutul real"
+msgid "Unable to delete content template."
+msgstr "Nu se poate șterge șablonul de conținut."
 
-msgid "Manage templates"
-msgstr "Gestionați șabloanele"
+msgid "CKEditor Template Creation"
+msgstr "Crearea de șabloane CKEditor"
 
 msgid "Save templates"
 msgstr "Salvați șabloanele"
+
+msgid "Unable to save content template."
+msgstr "Nu se poate salva șablonul de conținut."
 
 msgid "Apply templates"
 msgstr "Aplicați șabloane"
@@ -631,23 +633,38 @@ msgstr "Aplicați șabloane"
 msgid "Save As Word File in EDrive"
 msgstr "Salvați ca fișier Word în EDrive"
 
+msgid "Word file name"
+msgstr "Numele fișierului Word"
+
+msgid "Unable to save file."
+msgstr "Nu se poate salva fișierul."
+
+msgid "Success"
+msgstr "Succes"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Nota dvs. este salvată în EDrive"
+
 msgid "First Name"
 msgstr "Primul nume"
 
 msgid "Last Name"
 msgstr "Numele de familie"
 
-msgid "Phone"
-msgstr "Telefon"
+msgid "List: Name"
+msgstr "Listă: Nume"
 
-msgid "Company"
-msgstr "Compania"
+msgid "List: Company"
+msgstr "Listă: Companie"
 
-msgid "Unsub"
-msgstr "Unsub"
+msgid "List: Description"
+msgstr "Listă: Descriere"
 
-msgid "VCard"
-msgstr "VCard"
+msgid "List: Unsub"
+msgstr "Listă: Dezabonare"
+
+msgid "List: VCard"
+msgstr "Listă: VCard"
 
 msgid "Date"
 msgstr "Data"
@@ -655,8 +672,83 @@ msgstr "Data"
 msgid "Language"
 msgstr "Limba"
 
+msgid "Phone"
+msgstr "Telefon"
+
 msgid "Merge Tags"
 msgstr "Îmbinarea etichetelor"
+
+msgid "Add Math Formula"
+msgstr "Adăugare formulă matematică"
+
+msgid "Browse EDrive"
+msgstr "Răsfoiește EDrive"
+
+msgid "Please allow pop-up windows for this site."
+msgstr "Vă rugăm să permiteți afișarea ferestrelor pop-up pe acest site."
+
+msgid "Please select a valid image file."
+msgstr "Vă rugăm să selectați un fișier imagine valid."
+
+msgid "Download file"
+msgstr "Descărcați fișierul"
+
+msgid "Insert image URL"
+msgstr "Inserați adresa URL a imaginii"
+
+msgid "Image URL"
+msgstr "URL-ul imaginii"
+
+msgid "Insert"
+msgstr "Inserați"
+
+msgid "Please enter a valid image URL."
+msgstr "Vă rugăm să introduceți o adresă URL validă pentru imagine."
+
+msgid "Insert video"
+msgstr "Inserează videoclipul"
+
+msgid "Video URL"
+msgstr "URL-ul videoclipului"
+
+msgid "Poster URL"
+msgstr "URL-ul afișului"
+
+msgid "Width"
+msgstr "Lățime"
+
+msgid "Height"
+msgstr "Înălțime"
+
+msgid "Show controls"
+msgstr "Afișează comenzile"
+
+msgid "Responsive video"
+msgstr "Video adaptabil"
+
+msgid "Autoplay"
+msgstr "Redare automată"
+
+msgid "Loop"
+msgstr "Buclă"
+
+msgid "Allow download"
+msgstr "Permite descărcarea"
+
+msgid "Left"
+msgstr "Stânga"
+
+msgid "Center"
+msgstr "Centru"
+
+msgid "Right"
+msgstr "Da"
+
+msgid "Please enter a valid video URL."
+msgstr "Vă rugăm să introduceți o adresă URL validă pentru un videoclip."
+
+msgid "Please enter valid video dimensions."
+msgstr "Vă rugăm să introduceți dimensiuni valide pentru videoclip."
 
 msgid "Subject:"
 msgstr "Subiect:"
@@ -1183,9 +1275,6 @@ msgstr "Utilizator"
 msgid "No event now."
 msgstr "Nu există niciun eveniment acum."
 
-msgid "Success"
-msgstr "Succes"
-
 msgid "Attention"
 msgstr "Atenție"
 
@@ -1206,9 +1295,6 @@ msgstr "Această acțiune nu poate fi anulată niciodată !!!!"
 msgid "preview currently being created"
 msgstr "previzualizare în curs de creare"
 
-msgid "Preview"
-msgstr "Previzualizare"
-
 msgid "Document preview"
 msgstr "Previzualizare document"
 
@@ -1226,6 +1312,9 @@ msgstr "Fișierul selectat nu poate fi redat în modul previzualizare."
 
 msgid "Icon"
 msgstr "Icoana"
+
+msgid "Versions"
+msgstr "Versiuni"
 
 msgid "Modification Date"
 msgstr "Data modificării"
@@ -1254,8 +1343,54 @@ msgstr "Crearea unui dosar"
 msgid "Set your Folder name"
 msgstr "Setați numele dosarului dvs."
 
+msgid "Word document"
+msgstr "Document Word"
+
+msgid "Excel spreadsheet"
+msgstr "fișier Excel"
+
+msgid "PowerPoint presentation"
+msgstr "Prezentare PowerPoint"
+
+msgid "Draw drawing"
+msgstr "Desenează un desen"
+
+msgid "New document"
+msgstr "Document nou"
+
 msgid "Actualize files"
 msgstr "Actualizați fișierele"
+
+msgid "Loading"
+msgstr "Se încarcă"
+
+msgid "Current version"
+msgstr "Versiunea actuală"
+
+msgid "Download"
+msgstr "Descărcare"
+
+msgid "Restore"
+msgstr "Restaurare"
+
+msgid "No previous version"
+msgstr "Nu există versiuni anterioare"
+
+msgid "Restore this version ?"
+msgstr "Să restabilim această versiune?"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"Conținutul actual este salvat ca versiune. Dacă documentul este deschis în "
+"editor, închideți-l mai întâi."
+
+msgid "Delete this version ?"
+msgstr "Să ștergem această versiune?"
+
+msgid "Set the document name"
+msgstr "Setați numele documentului"
 
 msgid "Set a File/Folder name"
 msgstr "Setați un nume de fișier/folder"
@@ -2987,6 +3122,34 @@ msgid ""
 "altered."
 msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Restaurați copia de rezervă, nu închideți fereastra !"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "Salvați ca fișier Word în EDrive"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "Fișierul va fi încărcat pe EDrive<br><small>Această parte este doar "
+#~ "pentru testare <b>(Beta)</b>.</small>"
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "Vă rugăm să selectați șablonul pentru a-l deschide în editor"
+
+#~ msgid "Template Options"
+#~ msgstr "Opțiuni de șablon"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Modificați șablonul pe care l-ați selectat"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "Ștergeți șablonul pe care l-ați selectat"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "Încărcare video..."
 
@@ -3185,9 +3348,6 @@ msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați
 #~ "Selectați o etichetă pentru a o elimina sau selectați toate etichetele "
 #~ "pentru o curățare completă a membrilor selectați."
 
-#~ msgid "Apply"
-#~ msgstr "Aplicați"
-
 #~ msgid "Removing tags..."
 #~ msgstr "Îndepărtarea etichetelor..."
 
@@ -3381,9 +3541,6 @@ msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați
 #~ msgstr ""
 #~ "Actualizați detaliile principale utilizate de această listă și de "
 #~ "campaniile sale."
-
-#~ msgid "List Name"
-#~ msgstr "Nume listă"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Schimbarea stării abonaților..."

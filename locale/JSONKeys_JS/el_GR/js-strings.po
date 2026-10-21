@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,16 +34,11 @@ msgstr "Δημιουργία αντιγράφων ασφαλείας στο πα
 msgid "Backup Error."
 msgstr "Σφάλμα δημιουργίας αντιγράφων ασφαλείας."
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
-"Το επιλεγμένο αρχείο υπερβαίνει το μέγιστο μέγεθος μεταφόρτωσης αυτού του "
-"διακομιστή"
+msgid "Maintenance mode"
+msgstr "Λειτουργία συντήρησης"
 
 msgid "Restore Running, Please wait."
 msgstr "Η επαναφορά εκτελείται, παρακαλώ περιμένετε."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Επαναφορά αντιγράφου ασφαλείας, μην κλείσετε το παράθυρο !"
 
 msgid "Restore Complete"
 msgstr "Ολοκλήρωση της επαναφοράς"
@@ -53,6 +48,14 @@ msgstr "Σύνδεση στην αποκατεστημένη βάση δεδομ
 
 msgid "Restore Error."
 msgstr "Σφάλμα επαναφοράς."
+
+msgid "Please select a backup file."
+msgstr "Παρακαλώ επιλέξτε ένα αρχείο αντιγράφου ασφαλείας."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Το επιλεγμένο αρχείο υπερβαίνει το μέγιστο μέγεθος μεταφόρτωσης αυτού του "
+"διακομιστή"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Είστε σίγουρος ότι θέλετε να διαγράψετε αυτή την εικόνα;"
@@ -569,68 +572,67 @@ msgstr "Ταξινόμηση"
 msgid "Family Role"
 msgstr "Οικογενειακός ρόλος"
 
-msgid "CKEditor Template Creation"
-msgstr "Δημιουργία προτύπου CKEditor"
+msgid "Upload progress"
+msgstr "Πρόοδος μεταφόρτωσης"
 
-msgid "Template Name"
-msgstr "Όνομα προτύπου"
+msgid "Print preview"
+msgstr "Προεπισκόπηση εκτύπωσης"
 
-msgid "Explanation field cannot be empty."
-msgstr "Το πεδίο \"Επεξήγηση\" δεν μπορεί να είναι κενό."
+msgid "Preview"
+msgstr "Προεπισκόπηση"
 
-msgid "Template Description"
-msgstr "Περιγραφή προτύπου"
-
-msgid "Save as Word file in EDrive"
-msgstr "Αποθήκευση ως αρχείο Word στο EDrive"
-
-msgid "Word file name"
-msgstr "Όνομα αρχείου Word"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
-msgstr ""
-"Το αρχείο θα μεταφορτωθεί στο EDrive σας<br><small>Αυτό το μέρος είναι μόνο "
-"για δοκιμή <b>(Beta)</b>.</small>."
-
-msgid "Your note is saved in your EDrive"
-msgstr "Η σημείωσή σας αποθηκεύεται στο EDrive σας"
+msgid "Print"
+msgstr "Εκτύπωση"
 
 msgid "(No templates defined)"
 msgstr "(Δεν έχουν οριστεί πρότυπα)"
 
+msgid "Unable to load content templates."
+msgstr "Δεν είναι δυνατή η φόρτωση των προτύπων περιεχομένου."
+
+msgid "Replace actual content"
+msgstr "Αντικαταστήστε το πραγματικό περιεχόμενο"
+
 msgid "Content Templates"
 msgstr "Πρότυπα περιεχομένου"
 
-msgid "Please select the template to open in the editor"
-msgstr "Παρακαλούμε επιλέξτε το πρότυπο για να το ανοίξετε στον επεξεργαστή"
+msgid "Apply"
+msgstr "Εφαρμογή"
 
-msgid "Template Options"
-msgstr "Επιλογές προτύπου"
+msgid "Template Name"
+msgstr "Όνομα προτύπου"
+
+msgid "Template Description"
+msgstr "Περιγραφή προτύπου"
+
+msgid "Manage templates"
+msgstr "Διαχείριση προτύπων"
 
 msgid "Modify"
 msgstr "Τροποποίηση"
 
-msgid "Modify the template you select"
-msgstr "Τροποποιήστε το πρότυπο που επιλέξατε"
+msgid "Explanation field cannot be empty."
+msgstr "Το πεδίο \"Επεξήγηση\" δεν μπορεί να είναι κενό."
 
-msgid "Delete the template you select"
-msgstr "Διαγραφή του προτύπου που επιλέξατε"
+msgid "Unable to update content template."
+msgstr "Δεν είναι δυνατή η ενημέρωση του προτύπου περιεχομένου."
 
 msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το πρότυπο; Αυτό δεν μπορεί να "
 "αναιρεθεί."
 
-msgid "Replace actual content"
-msgstr "Αντικαταστήστε το πραγματικό περιεχόμενο"
+msgid "Unable to delete content template."
+msgstr "Δεν είναι δυνατή η διαγραφή του προτύπου περιεχομένου."
 
-msgid "Manage templates"
-msgstr "Διαχείριση προτύπων"
+msgid "CKEditor Template Creation"
+msgstr "Δημιουργία προτύπου CKEditor"
 
 msgid "Save templates"
 msgstr "Αποθήκευση προτύπων"
+
+msgid "Unable to save content template."
+msgstr "Δεν είναι δυνατή η αποθήκευση του προτύπου περιεχομένου."
 
 msgid "Apply templates"
 msgstr "Εφαρμογή προτύπων"
@@ -638,23 +640,38 @@ msgstr "Εφαρμογή προτύπων"
 msgid "Save As Word File in EDrive"
 msgstr "Αποθήκευση ως αρχείο Word στο EDrive"
 
+msgid "Word file name"
+msgstr "Όνομα αρχείου Word"
+
+msgid "Unable to save file."
+msgstr "Δεν είναι δυνατή η αποθήκευση του αρχείου."
+
+msgid "Success"
+msgstr "Επιτυχία"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Η σημείωσή σας αποθηκεύεται στο EDrive σας"
+
 msgid "First Name"
 msgstr "Όνομα"
 
 msgid "Last Name"
 msgstr "Επώνυμο"
 
-msgid "Phone"
-msgstr "Τηλέφωνο"
+msgid "List: Name"
+msgstr "Λίστα: Όνομα"
 
-msgid "Company"
-msgstr "Εταιρεία"
+msgid "List: Company"
+msgstr "Λίστα: Εταιρεία"
 
-msgid "Unsub"
-msgstr "Αντικατάσταση"
+msgid "List: Description"
+msgstr "Λίστα: Περιγραφή"
 
-msgid "VCard"
-msgstr "VCard"
+msgid "List: Unsub"
+msgstr "Λίστα: Απεγγραφή"
+
+msgid "List: VCard"
+msgstr "Λίστα: VCard"
 
 msgid "Date"
 msgstr "Ημερομηνία"
@@ -662,8 +679,85 @@ msgstr "Ημερομηνία"
 msgid "Language"
 msgstr "Γλώσσα"
 
+msgid "Phone"
+msgstr "Τηλέφωνο"
+
 msgid "Merge Tags"
 msgstr "Συγχώνευση ετικετών"
+
+msgid "Add Math Formula"
+msgstr "Προσθήκη μαθηματικού τύπου"
+
+msgid "Browse EDrive"
+msgstr "Περιήγηση στο EDrive"
+
+msgid "Please allow pop-up windows for this site."
+msgstr ""
+"Παρακαλούμε να επιτρέψετε την εμφάνιση αναδυόμενων παραθύρων σε αυτόν τον "
+"ιστότοπο."
+
+msgid "Please select a valid image file."
+msgstr "Παρακαλώ επιλέξτε ένα έγκυρο αρχείο εικόνας."
+
+msgid "Download file"
+msgstr "Λήψη αρχείου"
+
+msgid "Insert image URL"
+msgstr "Εισαγωγή διεύθυνσης URL εικόνας"
+
+msgid "Image URL"
+msgstr "Διεύθυνση URL της εικόνας"
+
+msgid "Insert"
+msgstr "Εισαγωγή"
+
+msgid "Please enter a valid image URL."
+msgstr "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση URL εικόνας."
+
+msgid "Insert video"
+msgstr "Εισαγωγή βίντεο"
+
+msgid "Video URL"
+msgstr "Διεύθυνση URL βίντεο"
+
+msgid "Poster URL"
+msgstr "Διεύθυνση URL της αφίσας"
+
+msgid "Width"
+msgstr "Πλάτος"
+
+msgid "Height"
+msgstr "Ύψος"
+
+msgid "Show controls"
+msgstr "Εμφάνιση στοιχείων ελέγχου"
+
+msgid "Responsive video"
+msgstr "Βίντεο με προσαρμοστική εμφάνιση"
+
+msgid "Autoplay"
+msgstr "Αυτόματη αναπαραγωγή"
+
+msgid "Loop"
+msgstr "Βρόχος"
+
+msgid "Allow download"
+msgstr "Να επιτρέπεται η λήψη"
+
+msgid "Left"
+msgstr "Αριστερά"
+
+msgid "Center"
+msgstr "Κέντρο"
+
+msgid "Right"
+msgstr "Σωστά"
+
+msgid "Please enter a valid video URL."
+msgstr "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση URL βίντεο."
+
+msgid "Please enter valid video dimensions."
+msgstr "Παρακαλώ εισάγετε έγκυρες διαστάσεις βίντεο."
 
 msgid "Subject:"
 msgstr "Θέμα:"
@@ -1189,9 +1283,6 @@ msgstr "Χρήστης"
 msgid "No event now."
 msgstr "Δεν υπάρχει εκδήλωση τώρα."
 
-msgid "Success"
-msgstr "Επιτυχία"
-
 msgid "Attention"
 msgstr "Προσοχή"
 
@@ -1209,9 +1300,6 @@ msgstr "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί
 
 msgid "preview currently being created"
 msgstr "προεπισκόπηση υπό δημιουργία"
-
-msgid "Preview"
-msgstr "Προεπισκόπηση"
 
 msgid "Document preview"
 msgstr "Προεπισκόπηση εγγράφου"
@@ -1231,6 +1319,9 @@ msgstr ""
 
 msgid "Icon"
 msgstr "Εικονίδιο"
+
+msgid "Versions"
+msgstr "Εκδόσεις"
 
 msgid "Modification Date"
 msgstr "Ημερομηνία τροποποίησης"
@@ -1259,8 +1350,54 @@ msgstr "Δημιουργία φακέλου"
 msgid "Set your Folder name"
 msgstr "Ορίστε το όνομα του φακέλου σας"
 
+msgid "Word document"
+msgstr "Έγγραφο του Word"
+
+msgid "Excel spreadsheet"
+msgstr "Φύλλο υπολογισμών του Excel"
+
+msgid "PowerPoint presentation"
+msgstr "Παρουσίαση PowerPoint"
+
+msgid "Draw drawing"
+msgstr "Σχέδιο σχεδίου"
+
+msgid "New document"
+msgstr "Νέο έγγραφο"
+
 msgid "Actualize files"
 msgstr "Επικαιροποίηση αρχείων"
+
+msgid "Loading"
+msgstr "Φόρτωση"
+
+msgid "Current version"
+msgstr "Τρέχουσα έκδοση"
+
+msgid "Download"
+msgstr "Λήψη"
+
+msgid "Restore"
+msgstr "Επαναφορά"
+
+msgid "No previous version"
+msgstr "Δεν υπάρχει προηγούμενη έκδοση"
+
+msgid "Restore this version ?"
+msgstr "Να επαναφέρετε αυτή την έκδοση;"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"Το τρέχον περιεχόμενο αποθηκεύεται ως έκδοση. Εάν το έγγραφο είναι ανοιχτό "
+"στον επεξεργαστή, κλείστε το πρώτα."
+
+msgid "Delete this version ?"
+msgstr "Να διαγραφεί αυτή η έκδοση;"
+
+msgid "Set the document name"
+msgstr "Ορίστε το όνομα του εγγράφου"
 
 msgid "Set a File/Folder name"
 msgstr "Ορισμός ονόματος αρχείου/φακέλου"
@@ -2998,6 +3135,34 @@ msgid ""
 "altered."
 msgstr "Όλα τα μέλη θα καταστραφούν.  Τα ίδια τα μέλη δεν θα μεταβληθούν."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Επαναφορά αντιγράφου ασφαλείας, μην κλείσετε το παράθυρο !"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "Αποθήκευση ως αρχείο Word στο EDrive"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "Το αρχείο θα μεταφορτωθεί στο EDrive σας<br><small>Αυτό το μέρος είναι "
+#~ "μόνο για δοκιμή <b>(Beta)</b>.</small>."
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "Παρακαλούμε επιλέξτε το πρότυπο για να το ανοίξετε στον επεξεργαστή"
+
+#~ msgid "Template Options"
+#~ msgstr "Επιλογές προτύπου"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Τροποποιήστε το πρότυπο που επιλέξατε"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "Διαγραφή του προτύπου που επιλέξατε"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "Φόρτωση βίντεο..."
 
@@ -3199,9 +3364,6 @@ msgstr "Όλα τα μέλη θα καταστραφούν.  Τα ίδια τα 
 #~ "Επιλέξτε μια ετικέτα για να την αφαιρέσετε ή επιλέξτε όλες τις ετικέτες "
 #~ "για πλήρη καθαρισμό των επιλεγμένων μελών."
 
-#~ msgid "Apply"
-#~ msgstr "Εφαρμογή"
-
 #~ msgid "Removing tags..."
 #~ msgstr "Αφαίρεση ετικετών..."
 
@@ -3396,9 +3558,6 @@ msgstr "Όλα τα μέλη θα καταστραφούν.  Τα ίδια τα 
 #~ msgstr ""
 #~ "Ενημερώστε τα κύρια στοιχεία που χρησιμοποιούνται από αυτή τη λίστα και "
 #~ "τις καμπάνιες της."
-
-#~ msgid "List Name"
-#~ msgstr "Όνομα λίστας"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Αλλαγή κατάστασης συνδρομητών..."

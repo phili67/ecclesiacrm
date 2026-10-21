@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,16 +32,11 @@ msgstr "Säkerhetskopiering av bakgrund pågår"
 msgid "Backup Error."
 msgstr "Fel vid säkerhetskopiering."
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
-"Den valda filen överskrider den maximala uppladdningsstorleken på denna "
-"server på"
+msgid "Maintenance mode"
+msgstr "Underhållsläge"
 
 msgid "Restore Running, Please wait."
 msgstr "Återställning pågår, vänligen vänta."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Återställ säkerhetskopian, stäng inte fönstret!"
 
 msgid "Restore Complete"
 msgstr "Återställning slutförd"
@@ -51,6 +46,14 @@ msgstr "Logga in på den återställda databasen"
 
 msgid "Restore Error."
 msgstr "Återställningsfel."
+
+msgid "Please select a backup file."
+msgstr "Välj en säkerhetskopia."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Den valda filen överskrider den maximala uppladdningsstorleken på denna "
+"server på"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Är du säker på att du vill radera den här bilden?"
@@ -560,68 +563,67 @@ msgstr "Klassificering"
 msgid "Family Role"
 msgstr "Familjens roll"
 
-msgid "CKEditor Template Creation"
-msgstr "Skapande av mallar i CKEditor"
+msgid "Upload progress"
+msgstr "Lägesrapportering för uppladdningen"
 
-msgid "Template Name"
-msgstr "Mallens namn"
+msgid "Print preview"
+msgstr "Förhandsgranskning av utskrift"
 
-msgid "Explanation field cannot be empty."
-msgstr "Förklaringsfältet får inte vara tomt."
+msgid "Preview"
+msgstr "Förhandsgranska"
 
-msgid "Template Description"
-msgstr "Beskrivning av mallen"
-
-msgid "Save as Word file in EDrive"
-msgstr "Spara som Word-fil i EDrive"
-
-msgid "Word file name"
-msgstr "Word-filens namn"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
-msgstr ""
-"Filen kommer att laddas upp till din EDrive<br><small>Denna del är endast "
-"för test <b>(Beta)</b>.</small>"
-
-msgid "Your note is saved in your EDrive"
-msgstr "Din anteckning sparas i din EDrive"
+msgid "Print"
+msgstr "Skriv ut"
 
 msgid "(No templates defined)"
 msgstr "(Inga mallar definierade)"
 
+msgid "Unable to load content templates."
+msgstr "Det går inte att ladda innehållsmallarna."
+
+msgid "Replace actual content"
+msgstr "Ersätt det faktiska innehållet"
+
 msgid "Content Templates"
 msgstr "Mallar för innehåll"
 
-msgid "Please select the template to open in the editor"
-msgstr "Välj den mall som ska öppnas i redigeringsverktyget"
+msgid "Apply"
+msgstr "Tillämpa"
 
-msgid "Template Options"
-msgstr "Alternativ för mallar"
+msgid "Template Name"
+msgstr "Mallens namn"
+
+msgid "Template Description"
+msgstr "Beskrivning av mallen"
+
+msgid "Manage templates"
+msgstr "Hantera mallar"
 
 msgid "Modify"
 msgstr "Ändra"
 
-msgid "Modify the template you select"
-msgstr "Ändra den mall du valt"
+msgid "Explanation field cannot be empty."
+msgstr "Förklaringsfältet får inte vara tomt."
 
-msgid "Delete the template you select"
-msgstr "Ta bort den mall som du har valt"
+msgid "Unable to update content template."
+msgstr "Det går inte att uppdatera innehållsmallen."
 
 msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 "Är du säker på att du vill ta bort den här mallen? Detta kan inte göras "
 "ogjort."
 
-msgid "Replace actual content"
-msgstr "Ersätt det faktiska innehållet"
+msgid "Unable to delete content template."
+msgstr "Det går inte att ta bort innehållsmallen."
 
-msgid "Manage templates"
-msgstr "Hantera mallar"
+msgid "CKEditor Template Creation"
+msgstr "Skapande av mallar i CKEditor"
 
 msgid "Save templates"
 msgstr "Spara mallar"
+
+msgid "Unable to save content template."
+msgstr "Det går inte att spara innehållsmallen."
 
 msgid "Apply templates"
 msgstr "Tillämpa mallar"
@@ -629,23 +631,38 @@ msgstr "Tillämpa mallar"
 msgid "Save As Word File in EDrive"
 msgstr "Spara som Word-fil i EDrive"
 
+msgid "Word file name"
+msgstr "Word-filens namn"
+
+msgid "Unable to save file."
+msgstr "Det går inte att spara filen."
+
+msgid "Success"
+msgstr "Framgång"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Din anteckning sparas i din EDrive"
+
 msgid "First Name"
 msgstr "Förnamn"
 
 msgid "Last Name"
 msgstr "Efternamn"
 
-msgid "Phone"
-msgstr "Telefon"
+msgid "List: Name"
+msgstr "Lista: Namn"
 
-msgid "Company"
-msgstr "Företag"
+msgid "List: Company"
+msgstr "Lista: Företag"
 
-msgid "Unsub"
-msgstr "Avsluta"
+msgid "List: Description"
+msgstr "Lista: Beskrivning"
 
-msgid "VCard"
-msgstr "VCard"
+msgid "List: Unsub"
+msgstr "Lista: Avregistrera"
+
+msgid "List: VCard"
+msgstr "Lista: VCard"
 
 msgid "Date"
 msgstr "Datum"
@@ -653,8 +670,83 @@ msgstr "Datum"
 msgid "Language"
 msgstr "Språk"
 
+msgid "Phone"
+msgstr "Telefon"
+
 msgid "Merge Tags"
 msgstr "Slå ihop taggar"
+
+msgid "Add Math Formula"
+msgstr "Lägg till matematisk formel"
+
+msgid "Browse EDrive"
+msgstr "Utforska EDrive"
+
+msgid "Please allow pop-up windows for this site."
+msgstr "Vänligen tillåt popup-fönster på den här webbplatsen."
+
+msgid "Please select a valid image file."
+msgstr "Välj en giltig bildfil."
+
+msgid "Download file"
+msgstr "Ladda ner filen"
+
+msgid "Insert image URL"
+msgstr "Infoga bildens URL"
+
+msgid "Image URL"
+msgstr "Bildens webbadress"
+
+msgid "Insert"
+msgstr "Infoga"
+
+msgid "Please enter a valid image URL."
+msgstr "Ange en giltig bild-URL."
+
+msgid "Insert video"
+msgstr "Infoga video"
+
+msgid "Video URL"
+msgstr "Videolänk"
+
+msgid "Poster URL"
+msgstr "Länk till affischen"
+
+msgid "Width"
+msgstr "Bredd"
+
+msgid "Height"
+msgstr "Höjd"
+
+msgid "Show controls"
+msgstr "Visa kontroller"
+
+msgid "Responsive video"
+msgstr "Responsiv video"
+
+msgid "Autoplay"
+msgstr "Automatisk uppspelning"
+
+msgid "Loop"
+msgstr "Slinga"
+
+msgid "Allow download"
+msgstr "Tillåt nedladdning"
+
+msgid "Left"
+msgstr "Vänster"
+
+msgid "Center"
+msgstr "Mitten"
+
+msgid "Right"
+msgstr "Okej"
+
+msgid "Please enter a valid video URL."
+msgstr "Ange en giltig videolänk."
+
+msgid "Please enter valid video dimensions."
+msgstr "Ange giltiga videomått."
 
 msgid "Subject:"
 msgstr "Ämne:"
@@ -1180,9 +1272,6 @@ msgstr "Användare"
 msgid "No event now."
 msgstr "Inga evenemang nu."
 
-msgid "Success"
-msgstr "Framgång"
-
 msgid "Attention"
 msgstr "Uppmärksamhet"
 
@@ -1201,9 +1290,6 @@ msgstr "Denna åtgärd kan aldrig göras ogjord !!!!"
 msgid "preview currently being created"
 msgstr "förhandsvisning håller på att skapas"
 
-msgid "Preview"
-msgstr "Förhandsgranska"
-
 msgid "Document preview"
 msgstr "Förhandsgranskning av dokument"
 
@@ -1221,6 +1307,9 @@ msgstr "Den valda filen kan inte återges i förhandsgranskningsläget."
 
 msgid "Icon"
 msgstr "Ikon"
+
+msgid "Versions"
+msgstr "Versioner"
 
 msgid "Modification Date"
 msgstr "Datum för ändring"
@@ -1249,8 +1338,54 @@ msgstr "Skapa en mapp"
 msgid "Set your Folder name"
 msgstr "Ange ditt mappnamn"
 
+msgid "Word document"
+msgstr "Word-dokument"
+
+msgid "Excel spreadsheet"
+msgstr "Excel-kalkylblad"
+
+msgid "PowerPoint presentation"
+msgstr "PowerPoint-presentation"
+
+msgid "Draw drawing"
+msgstr "Rita en teckning"
+
+msgid "New document"
+msgstr "Nytt dokument"
+
 msgid "Actualize files"
 msgstr "Aktualisera filer"
+
+msgid "Loading"
+msgstr "Laddar"
+
+msgid "Current version"
+msgstr "Aktuell version"
+
+msgid "Download"
+msgstr "Ladda ner"
+
+msgid "Restore"
+msgstr "Återställ"
+
+msgid "No previous version"
+msgstr "Ingen tidigare version"
+
+msgid "Restore this version ?"
+msgstr "Återställa den här versionen?"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"Det aktuella innehållet sparas som en version. Om dokumentet är öppet i "
+"redigeraren måste du först stänga det."
+
+msgid "Delete this version ?"
+msgstr "Ska den här versionen tas bort?"
+
+msgid "Set the document name"
+msgstr "Ange dokumentets namn"
 
 msgid "Set a File/Folder name"
 msgstr "Ange ett fil-/mappnamn"
@@ -2950,6 +3085,34 @@ msgstr ""
 "Alla medlemskap kommer att förstöras.  Medlemmarna själva kommer inte att "
 "förändras."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Återställ säkerhetskopian, stäng inte fönstret!"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "Spara som Word-fil i EDrive"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "Filen kommer att laddas upp till din EDrive<br><small>Denna del är endast "
+#~ "för test <b>(Beta)</b>.</small>"
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "Välj den mall som ska öppnas i redigeringsverktyget"
+
+#~ msgid "Template Options"
+#~ msgstr "Alternativ för mallar"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Ändra den mall du valt"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "Ta bort den mall som du har valt"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "Laddar video..."
 
@@ -3148,9 +3311,6 @@ msgstr ""
 #~ "Välj en tagg som ska tas bort, eller välj alla taggar för en fullständig "
 #~ "rensning av de valda medlemmarna."
 
-#~ msgid "Apply"
-#~ msgstr "Tillämpa"
-
 #~ msgid "Removing tags..."
 #~ msgstr "Ta bort taggar..."
 
@@ -3341,9 +3501,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Uppdatera de viktigaste uppgifterna som används av denna lista och dess "
 #~ "kampanjer."
-
-#~ msgid "List Name"
-#~ msgstr "Namn på listan"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Byte av prenumeranter..."

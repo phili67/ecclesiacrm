@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -33,15 +33,11 @@ msgstr "Виконується фонове резервне копіюванн�
 msgid "Backup Error."
 msgstr "Помилка резервного копіювання."
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
-"Вибраний файл перевищує максимальний розмір завантаження на цьому сервері"
+msgid "Maintenance mode"
+msgstr "Режим технічного обслуговування"
 
 msgid "Restore Running, Please wait."
 msgstr "Відновити запуск, будь ласка, зачекайте."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Відновіть резервну копію, не закривайте вікно!"
 
 msgid "Restore Complete"
 msgstr "Відновлення завершено"
@@ -51,6 +47,13 @@ msgstr "Вхід до відновленої бази даних"
 
 msgid "Restore Error."
 msgstr "Відновити помилку."
+
+msgid "Please select a backup file."
+msgstr "Будь ласка, виберіть файл резервної копії."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Вибраний файл перевищує максимальний розмір завантаження на цьому сервері"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Ви впевнені, що хочете видалити це зображення?"
@@ -556,66 +559,65 @@ msgstr "Класифікація"
 msgid "Family Role"
 msgstr "Роль сім'ї"
 
-msgid "CKEditor Template Creation"
-msgstr "Створення шаблону CKEditor"
+msgid "Upload progress"
+msgstr "Хід завантаження"
 
-msgid "Template Name"
-msgstr "Назва шаблону"
+msgid "Print preview"
+msgstr "Попередній перегляд друку"
 
-msgid "Explanation field cannot be empty."
-msgstr "Поле пояснення не може бути порожнім."
+msgid "Preview"
+msgstr "Попередній перегляд"
 
-msgid "Template Description"
-msgstr "Опис шаблону"
-
-msgid "Save as Word file in EDrive"
-msgstr "Зберегти як файл Word в EDrive"
-
-msgid "Word file name"
-msgstr "Ім'я файлу у форматі Word"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
-msgstr ""
-"Файл буде завантажено на ваш EDrive<br><small>Ця частина є лише тестовою "
-"<b>(Beta)</b>.</small>."
-
-msgid "Your note is saved in your EDrive"
-msgstr "Ваша нотатка зберігається у вашому EDrive"
+msgid "Print"
+msgstr "Друк"
 
 msgid "(No templates defined)"
 msgstr "(Шаблонів не визначено)"
 
-msgid "Content Templates"
-msgstr "Шаблони вмісту"
-
-msgid "Please select the template to open in the editor"
-msgstr "Виберіть шаблон для відкриття в редакторі"
-
-msgid "Template Options"
-msgstr "Параметри шаблону"
-
-msgid "Modify"
-msgstr "Змінити"
-
-msgid "Modify the template you select"
-msgstr "Змінити вибраний шаблон"
-
-msgid "Delete the template you select"
-msgstr "Видаліть вибраний шаблон"
-
-msgid "Are you sure to delete this template? This can't be undone."
-msgstr "Ви дійсно хочете видалити цей шаблон? Це не можна скасувати."
+msgid "Unable to load content templates."
+msgstr "Не вдалося завантажити шаблони вмісту."
 
 msgid "Replace actual content"
 msgstr "Замінити фактичний вміст"
 
+msgid "Content Templates"
+msgstr "Шаблони вмісту"
+
+msgid "Apply"
+msgstr "Подати заявку"
+
+msgid "Template Name"
+msgstr "Назва шаблону"
+
+msgid "Template Description"
+msgstr "Опис шаблону"
+
 msgid "Manage templates"
 msgstr "Керування шаблонами"
 
+msgid "Modify"
+msgstr "Змінити"
+
+msgid "Explanation field cannot be empty."
+msgstr "Поле пояснення не може бути порожнім."
+
+msgid "Unable to update content template."
+msgstr "Не вдалося оновити шаблон вмісту."
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "Ви дійсно хочете видалити цей шаблон? Це не можна скасувати."
+
+msgid "Unable to delete content template."
+msgstr "Не вдалося видалити шаблон вмісту."
+
+msgid "CKEditor Template Creation"
+msgstr "Створення шаблону CKEditor"
+
 msgid "Save templates"
 msgstr "Зберегти шаблони"
+
+msgid "Unable to save content template."
+msgstr "Не вдалося зберегти шаблон вмісту."
 
 msgid "Apply templates"
 msgstr "Застосувати шаблони"
@@ -623,23 +625,38 @@ msgstr "Застосувати шаблони"
 msgid "Save As Word File in EDrive"
 msgstr "Зберегти як файл Word в EDrive"
 
+msgid "Word file name"
+msgstr "Ім'я файлу у форматі Word"
+
+msgid "Unable to save file."
+msgstr "Не вдалося зберегти файл."
+
+msgid "Success"
+msgstr "Успіх"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Ваша нотатка зберігається у вашому EDrive"
+
 msgid "First Name"
 msgstr "Ім'я та прізвище"
 
 msgid "Last Name"
 msgstr "Прізвище"
 
-msgid "Phone"
-msgstr "Телефон"
+msgid "List: Name"
+msgstr "Список: Ім'я"
 
-msgid "Company"
-msgstr "Компанія"
+msgid "List: Company"
+msgstr "Список: Компанія"
 
-msgid "Unsub"
-msgstr "Невідомий"
+msgid "List: Description"
+msgstr "Список: Опис"
 
-msgid "VCard"
-msgstr "VCard"
+msgid "List: Unsub"
+msgstr "Список: Відписатися"
+
+msgid "List: VCard"
+msgstr "Список: VCard"
 
 msgid "Date"
 msgstr "Дата"
@@ -647,8 +664,83 @@ msgstr "Дата"
 msgid "Language"
 msgstr "Мова"
 
+msgid "Phone"
+msgstr "Телефон"
+
 msgid "Merge Tags"
 msgstr "Об'єднати теги"
+
+msgid "Add Math Formula"
+msgstr "Додати математичну формулу"
+
+msgid "Browse EDrive"
+msgstr "Переглянути EDrive"
+
+msgid "Please allow pop-up windows for this site."
+msgstr "Будь ласка, дозвольте відкриття спливаючих вікон на цьому сайті."
+
+msgid "Please select a valid image file."
+msgstr "Будь ласка, виберіть файл зображення, що відповідає вимогам."
+
+msgid "Download file"
+msgstr "Завантажити файл"
+
+msgid "Insert image URL"
+msgstr "Вставити URL-адресу зображення"
+
+msgid "Image URL"
+msgstr "URL зображення"
+
+msgid "Insert"
+msgstr "Вставити"
+
+msgid "Please enter a valid image URL."
+msgstr "Введіть дійсну URL-адресу зображення."
+
+msgid "Insert video"
+msgstr "Вставити відео"
+
+msgid "Video URL"
+msgstr "URL-адреса відео"
+
+msgid "Poster URL"
+msgstr "Посилання на плакат"
+
+msgid "Width"
+msgstr "Ширина"
+
+msgid "Height"
+msgstr "Висота"
+
+msgid "Show controls"
+msgstr "Показати елементи керування"
+
+msgid "Responsive video"
+msgstr "Адаптивне відео"
+
+msgid "Autoplay"
+msgstr "Автовідтворення"
+
+msgid "Loop"
+msgstr "Цикл"
+
+msgid "Allow download"
+msgstr "Дозволити завантаження"
+
+msgid "Left"
+msgstr "Ліворуч"
+
+msgid "Center"
+msgstr "Центр"
+
+msgid "Right"
+msgstr "Право"
+
+msgid "Please enter a valid video URL."
+msgstr "Введіть дійсне URL-адресу відео."
+
+msgid "Please enter valid video dimensions."
+msgstr "Вкажіть, будь ласка, допустимі розміри відео."
 
 msgid "Subject:"
 msgstr "Тема:"
@@ -1172,9 +1264,6 @@ msgstr "Користувач"
 msgid "No event now."
 msgstr "Зараз нічого не відбувається."
 
-msgid "Success"
-msgstr "Успіх"
-
 msgid "Attention"
 msgstr "Увага!"
 
@@ -1193,9 +1282,6 @@ msgstr "Ця дія ніколи не може бути скасована !!!!"
 msgid "preview currently being created"
 msgstr "попередній перегляд наразі створюється"
 
-msgid "Preview"
-msgstr "Попередній перегляд"
-
 msgid "Document preview"
 msgstr "Попередній перегляд документа"
 
@@ -1213,6 +1299,9 @@ msgstr "Вибраний файл не можна відобразити в ре
 
 msgid "Icon"
 msgstr "Ікона"
+
+msgid "Versions"
+msgstr "Версії"
 
 msgid "Modification Date"
 msgstr "Дата зміни Дата зміни"
@@ -1241,8 +1330,54 @@ msgstr "Створити папку"
 msgid "Set your Folder name"
 msgstr "Встановіть ім'я папки"
 
+msgid "Word document"
+msgstr "Документ у форматі Word"
+
+msgid "Excel spreadsheet"
+msgstr "Електронна таблиця Excel"
+
+msgid "PowerPoint presentation"
+msgstr "Презентація в PowerPoint"
+
+msgid "Draw drawing"
+msgstr "Намалюй малюнок"
+
+msgid "New document"
+msgstr "Новий документ"
+
 msgid "Actualize files"
 msgstr "Актуалізація файлів"
+
+msgid "Loading"
+msgstr "Завантаження"
+
+msgid "Current version"
+msgstr "Поточна версія"
+
+msgid "Download"
+msgstr "Завантажити"
+
+msgid "Restore"
+msgstr "Відновити"
+
+msgid "No previous version"
+msgstr "Попередніх версій немає"
+
+msgid "Restore this version ?"
+msgstr "Відновити цю версію?"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"Поточний вміст зберігається як версія. Якщо документ відкрито в редакторі, "
+"спочатку закрийте його."
+
+msgid "Delete this version ?"
+msgstr "Видалити цю версію?"
+
+msgid "Set the document name"
+msgstr "Вкажіть назву документа"
 
 msgid "Set a File/Folder name"
 msgstr "Задати ім'я файлу/папки"
@@ -2936,6 +3071,34 @@ msgid ""
 "altered."
 msgstr "Все членство буде знищено.  Самі члени не будуть змінені."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Відновіть резервну копію, не закривайте вікно!"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "Зберегти як файл Word в EDrive"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "Файл буде завантажено на ваш EDrive<br><small>Ця частина є лише тестовою "
+#~ "<b>(Beta)</b>.</small>."
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "Виберіть шаблон для відкриття в редакторі"
+
+#~ msgid "Template Options"
+#~ msgstr "Параметри шаблону"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Змінити вибраний шаблон"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "Видаліть вибраний шаблон"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "Завантаження відео..."
 
@@ -3132,9 +3295,6 @@ msgstr "Все членство буде знищено.  Самі члени н
 #~ "Виберіть один тег для видалення або всі теги для повного очищення "
 #~ "вибраних учасників."
 
-#~ msgid "Apply"
-#~ msgstr "Подати заявку"
-
 #~ msgid "Removing tags..."
 #~ msgstr "Видалення тегів..."
 
@@ -3323,9 +3483,6 @@ msgstr "Все членство буде знищено.  Самі члени н
 #~ msgid "Update the main details used by this list and its campaigns."
 #~ msgstr ""
 #~ "Оновіть основні дані, що використовуються цим списком та його кампаніями."
-
-#~ msgid "List Name"
-#~ msgstr "Назва списку Ім'я"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Зміна стану абонентів..."
