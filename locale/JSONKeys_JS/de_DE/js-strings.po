@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,15 +32,11 @@ msgstr "Laufende Hintergrundsicherung"
 msgid "Backup Error."
 msgstr "Backup-Fehler."
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
-"Die ausgewählte Datei überschreitet die maximale Uploadgröße des Servers von"
+msgid "Maintenance mode"
+msgstr "Wartungsmodus"
 
 msgid "Restore Running, Please wait."
 msgstr "Wiederherstellung läuft, bitte warten."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Backup wiederherstellen, nicht das Fenster schließen!"
 
 msgid "Restore Complete"
 msgstr "Wiederherstellung abgeschlossen"
@@ -50,6 +46,13 @@ msgstr "Anmeldung zur wiederhergestellten Datenbank"
 
 msgid "Restore Error."
 msgstr "Fehler wiederherstellen."
+
+msgid "Please select a backup file."
+msgstr "Bitte wählen Sie eine Sicherungsdatei aus."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Die ausgewählte Datei überschreitet die maximale Uploadgröße des Servers von"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Sind Sie sicher, dass Sie dieses Bild löschen möchten?"
@@ -568,68 +571,67 @@ msgstr "Klassifizierung"
 msgid "Family Role"
 msgstr "Die Rolle der Familie"
 
-msgid "CKEditor Template Creation"
-msgstr "CKEditor Vorlagenerstellung"
+msgid "Upload progress"
+msgstr "Upload-Fortschritt"
 
-msgid "Template Name"
-msgstr "Vorlage Name"
+msgid "Print preview"
+msgstr "Druckvorschau"
 
-msgid "Explanation field cannot be empty."
-msgstr "Das Feld Erläuterung darf nicht leer sein."
+msgid "Preview"
+msgstr "Vorschau"
 
-msgid "Template Description"
-msgstr "Vorlage Beschreibung"
-
-msgid "Save as Word file in EDrive"
-msgstr "Als Word-Datei in EDrive speichern"
-
-msgid "Word file name"
-msgstr "Name der Word-Datei"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
-msgstr ""
-"Die Datei wird auf Ihr EDrive hochgeladen<br><small>Dieser Teil ist nur zu "
-"Testzwecken <b>(Beta)</b>.</small>"
-
-msgid "Your note is saved in your EDrive"
-msgstr "Ihre Notiz wird in Ihrem EDrive gespeichert"
+msgid "Print"
+msgstr "Drucken"
 
 msgid "(No templates defined)"
 msgstr "(Keine Vorlagen definiert)"
 
+msgid "Unable to load content templates."
+msgstr "Inhaltsvorlagen können nicht geladen werden."
+
+msgid "Replace actual content"
+msgstr "Ersetzen Sie den aktuellen Inhalt"
+
 msgid "Content Templates"
 msgstr "Inhaltsvorlagen"
 
-msgid "Please select the template to open in the editor"
-msgstr "Bitte wählen Sie die Vorlage zum Öffnen im Editor aus"
+msgid "Apply"
+msgstr "Bewerbung"
 
-msgid "Template Options"
-msgstr "Optionen für Vorlagen"
+msgid "Template Name"
+msgstr "Vorlage Name"
+
+msgid "Template Description"
+msgstr "Vorlage Beschreibung"
+
+msgid "Manage templates"
+msgstr "Vorlagen verwalten"
 
 msgid "Modify"
 msgstr "Ändern Sie"
 
-msgid "Modify the template you select"
-msgstr "Ändern Sie die von Ihnen gewählte Vorlage"
+msgid "Explanation field cannot be empty."
+msgstr "Das Feld Erläuterung darf nicht leer sein."
 
-msgid "Delete the template you select"
-msgstr "Löschen Sie die ausgewählte Vorlage"
+msgid "Unable to update content template."
+msgstr "Die Inhaltsvorlage konnte nicht aktualisiert werden."
 
 msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 "Sind Sie sicher, dass Sie diese Vorlage löschen wollen? Dies kann nicht "
 "rückgängig gemacht werden."
 
-msgid "Replace actual content"
-msgstr "Ersetzen Sie den aktuellen Inhalt"
+msgid "Unable to delete content template."
+msgstr "Die Inhaltsvorlage kann nicht gelöscht werden."
 
-msgid "Manage templates"
-msgstr "Vorlagen verwalten"
+msgid "CKEditor Template Creation"
+msgstr "CKEditor Vorlagenerstellung"
 
 msgid "Save templates"
 msgstr "Vorlagen speichern"
+
+msgid "Unable to save content template."
+msgstr "Die Inhaltsvorlage konnte nicht gespeichert werden."
 
 msgid "Apply templates"
 msgstr "Vorlagen anwenden"
@@ -637,23 +639,38 @@ msgstr "Vorlagen anwenden"
 msgid "Save As Word File in EDrive"
 msgstr "Als Word-Datei in EDrive speichern"
 
+msgid "Word file name"
+msgstr "Name der Word-Datei"
+
+msgid "Unable to save file."
+msgstr "Die Datei konnte nicht gespeichert werden."
+
+msgid "Success"
+msgstr "Erfolg"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Ihre Notiz wird in Ihrem EDrive gespeichert"
+
 msgid "First Name"
 msgstr "Vorname"
 
 msgid "Last Name"
 msgstr "Nachname"
 
-msgid "Phone"
-msgstr "Telefon"
+msgid "List: Name"
+msgstr "Liste: Name"
 
-msgid "Company"
-msgstr "Unternehmen"
+msgid "List: Company"
+msgstr "Liste: Unternehmen"
 
-msgid "Unsub"
-msgstr "Abbestellen"
+msgid "List: Description"
+msgstr "Liste: Beschreibung"
 
-msgid "VCard"
-msgstr "VCard"
+msgid "List: Unsub"
+msgstr "Liste: Abmelden"
+
+msgid "List: VCard"
+msgstr "Liste: VCard"
 
 msgid "Date"
 msgstr "Datum"
@@ -661,8 +678,83 @@ msgstr "Datum"
 msgid "Language"
 msgstr "Sprache"
 
+msgid "Phone"
+msgstr "Telefon"
+
 msgid "Merge Tags"
 msgstr "Tags zusammenführen"
+
+msgid "Add Math Formula"
+msgstr "Mathematische Formel hinzufügen"
+
+msgid "Browse EDrive"
+msgstr "EDrive durchsuchen"
+
+msgid "Please allow pop-up windows for this site."
+msgstr "Bitte lassen Sie Pop-up-Fenster auf dieser Website zu."
+
+msgid "Please select a valid image file."
+msgstr "Bitte wählen Sie eine gültige Bilddatei aus."
+
+msgid "Download file"
+msgstr "Datei herunterladen"
+
+msgid "Insert image URL"
+msgstr "Bild-URL einfügen"
+
+msgid "Image URL"
+msgstr "Bild-URL"
+
+msgid "Insert"
+msgstr "Einfügen"
+
+msgid "Please enter a valid image URL."
+msgstr "Bitte geben Sie eine gültige Bild-URL ein."
+
+msgid "Insert video"
+msgstr "Video einfügen"
+
+msgid "Video URL"
+msgstr "Video-URL"
+
+msgid "Poster URL"
+msgstr "URL des Posters"
+
+msgid "Width"
+msgstr "Breite"
+
+msgid "Height"
+msgstr "Höhe"
+
+msgid "Show controls"
+msgstr "Steuerelemente anzeigen"
+
+msgid "Responsive video"
+msgstr "Responsives Video"
+
+msgid "Autoplay"
+msgstr "Automatische Wiedergabe"
+
+msgid "Loop"
+msgstr "Schleife"
+
+msgid "Allow download"
+msgstr "Download zulassen"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Center"
+msgstr "Mitte"
+
+msgid "Right"
+msgstr "Richtig"
+
+msgid "Please enter a valid video URL."
+msgstr "Bitte geben Sie eine gültige Video-URL ein."
+
+msgid "Please enter valid video dimensions."
+msgstr "Bitte geben Sie gültige Videoabmessungen ein."
 
 msgid "Subject:"
 msgstr "Thema:"
@@ -1206,9 +1298,6 @@ msgstr "Benutzer"
 msgid "No event now."
 msgstr "Jetzt keine Veranstaltung."
 
-msgid "Success"
-msgstr "Erfolg"
-
 msgid "Attention"
 msgstr "Achtung"
 
@@ -1229,9 +1318,6 @@ msgstr "Diese Aktion kann nicht rückgängig gemacht werden !!!!"
 msgid "preview currently being created"
 msgstr "Vorschau wird gerade erstellt"
 
-msgid "Preview"
-msgstr "Vorschau"
-
 msgid "Document preview"
 msgstr "Vorschau des Dokuments"
 
@@ -1249,6 +1335,9 @@ msgstr "Die ausgewählte Datei kann im Vorschaumodus nicht gerendert werden."
 
 msgid "Icon"
 msgstr "Icon"
+
+msgid "Versions"
+msgstr "Versionen"
 
 msgid "Modification Date"
 msgstr "Datum der Änderung"
@@ -1277,8 +1366,54 @@ msgstr "Erstellen eines Ordners"
 msgid "Set your Folder name"
 msgstr "Legen Sie Ihren Ordnernamen fest"
 
+msgid "Word document"
+msgstr "Word-Dokument"
+
+msgid "Excel spreadsheet"
+msgstr "Excel-Tabelle"
+
+msgid "PowerPoint presentation"
+msgstr "PowerPoint-Präsentation"
+
+msgid "Draw drawing"
+msgstr "Zeichnung zeichnen"
+
+msgid "New document"
+msgstr "Neues Dokument"
+
 msgid "Actualize files"
 msgstr "Dateien aktualisieren"
+
+msgid "Loading"
+msgstr "Wird geladen"
+
+msgid "Current version"
+msgstr "Aktuelle Version"
+
+msgid "Download"
+msgstr "Herunterladen"
+
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+msgid "No previous version"
+msgstr "Keine vorherige Version"
+
+msgid "Restore this version ?"
+msgstr "Diese Version wiederherstellen?"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"Der aktuelle Inhalt wird als Version gespeichert. Wenn das Dokument im "
+"Editor geöffnet ist, schließen Sie es bitte zuerst."
+
+msgid "Delete this version ?"
+msgstr "Diese Version löschen?"
+
+msgid "Set the document name"
+msgstr "Dokumentnamen festlegen"
 
 msgid "Set a File/Folder name"
 msgstr "Einen Datei-/Ordnernamen festlegen"
@@ -3021,6 +3156,34 @@ msgstr ""
 "Die gesamte Mitgliedschaft wird vernichtet.  Die Mitglieder selbst werden "
 "nicht verändert."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Backup wiederherstellen, nicht das Fenster schließen!"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "Als Word-Datei in EDrive speichern"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "Die Datei wird auf Ihr EDrive hochgeladen<br><small>Dieser Teil ist nur "
+#~ "zu Testzwecken <b>(Beta)</b>.</small>"
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "Bitte wählen Sie die Vorlage zum Öffnen im Editor aus"
+
+#~ msgid "Template Options"
+#~ msgstr "Optionen für Vorlagen"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Ändern Sie die von Ihnen gewählte Vorlage"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "Löschen Sie die ausgewählte Vorlage"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "Video laden..."
 
@@ -3220,9 +3383,6 @@ msgstr ""
 #~ "Wählen Sie eine Markierung aus, die entfernt werden soll, oder wählen Sie "
 #~ "alle Markierungen aus, um alle ausgewählten Mitglieder zu bereinigen."
 
-#~ msgid "Apply"
-#~ msgstr "Bewerbung"
-
 #~ msgid "Removing tags..."
 #~ msgstr "Entfernen von Tags..."
 
@@ -3415,9 +3575,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Aktualisieren Sie die wichtigsten Angaben für diese Liste und ihre "
 #~ "Kampagnen."
-
-#~ msgid "List Name"
-#~ msgstr "Liste Name"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Ändern des Teilnehmerstatus..."

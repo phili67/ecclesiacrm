@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,14 +32,11 @@ msgstr "正在进行后台备份"
 msgid "Backup Error."
 msgstr "备份错误。"
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "所选文件超过了本服务器的最大上传尺寸"
+msgid "Maintenance mode"
+msgstr ""
 
 msgid "Restore Running, Please wait."
 msgstr "恢复运行，请等待。"
-
-msgid "Restore backup, don't close the window !"
-msgstr "恢复备份，不要关闭窗口 ！"
 
 msgid "Restore Complete"
 msgstr "恢复完成"
@@ -49,6 +46,13 @@ msgstr "登录恢复的数据库"
 
 msgid "Restore Error."
 msgstr "复原错误。"
+
+#, fuzzy
+msgid "Please select a backup file."
+msgstr "请选择成员的目标群体"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "所选文件超过了本服务器的最大上传尺寸"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "你确定要删除这个图片吗？"
@@ -544,66 +548,71 @@ msgstr "种类"
 msgid "Family Role"
 msgstr "家庭角色"
 
-msgid "CKEditor Template Creation"
-msgstr "CKEditor模板创建"
+#, fuzzy
+msgid "Upload progress"
+msgstr "进行中"
 
-msgid "Template Name"
-msgstr "模板名称"
+#, fuzzy
+msgid "Print preview"
+msgstr "预览"
 
-msgid "Explanation field cannot be empty."
-msgstr "解释字段不能为空。"
+msgid "Preview"
+msgstr "预览"
 
-msgid "Template Description"
-msgstr "模板描述"
-
-msgid "Save as Word file in EDrive"
-msgstr "在EDrive中保存为Word文件"
-
-msgid "Word file name"
-msgstr "Word文件名"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
+msgid "Print"
 msgstr ""
-"该文件将被上传到你的EDrive中<br><small>这部分仅用于测试<b>（Beta）</b>.</"
-"small>。"
-
-msgid "Your note is saved in your EDrive"
-msgstr "你的笔记被保存在你的EDrive中"
 
 msgid "(No templates defined)"
 msgstr "(没有定义模板)"
 
-msgid "Content Templates"
-msgstr "内容模板"
-
-msgid "Please select the template to open in the editor"
-msgstr "请选择要在编辑器中打开的模板"
-
-msgid "Template Options"
-msgstr "模板选项"
-
-msgid "Modify"
-msgstr "修改"
-
-msgid "Modify the template you select"
-msgstr "修改你选择的模板"
-
-msgid "Delete the template you select"
-msgstr "删除你选择的模板"
-
-msgid "Are you sure to delete this template? This can't be undone."
-msgstr "你确定要删除这个模板吗？这是不可能撤销的。"
+#, fuzzy
+msgid "Unable to load content templates."
+msgstr "现在没有活动。"
 
 msgid "Replace actual content"
 msgstr "替换实际内容"
 
+msgid "Content Templates"
+msgstr "内容模板"
+
+msgid "Apply"
+msgstr ""
+
+msgid "Template Name"
+msgstr "模板名称"
+
+msgid "Template Description"
+msgstr "模板描述"
+
 msgid "Manage templates"
 msgstr "管理模板"
 
+msgid "Modify"
+msgstr "修改"
+
+msgid "Explanation field cannot be empty."
+msgstr "解释字段不能为空。"
+
+#, fuzzy
+msgid "Unable to update content template."
+msgstr "现在没有活动。"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "你确定要删除这个模板吗？这是不可能撤销的。"
+
+#, fuzzy
+msgid "Unable to delete content template."
+msgstr "现在没有活动。"
+
+msgid "CKEditor Template Creation"
+msgstr "CKEditor模板创建"
+
 msgid "Save templates"
 msgstr "保存模板"
+
+#, fuzzy
+msgid "Unable to save content template."
+msgstr "现在没有活动。"
 
 msgid "Apply templates"
 msgstr "应用模板"
@@ -611,23 +620,44 @@ msgstr "应用模板"
 msgid "Save As Word File in EDrive"
 msgstr "在EDrive中保存为Word文件"
 
+msgid "Word file name"
+msgstr "Word文件名"
+
+#, fuzzy
+msgid "Unable to save file."
+msgstr "现在没有活动。"
+
+msgid "Success"
+msgstr "成功"
+
+msgid "Your note is saved in your EDrive"
+msgstr "你的笔记被保存在你的EDrive中"
+
 msgid "First Name"
 msgstr "名字"
 
 msgid "Last Name"
 msgstr "姓氏"
 
-msgid "Phone"
-msgstr "电话"
+#, fuzzy
+msgid "List: Name"
+msgstr "列表名称"
 
-msgid "Company"
+#, fuzzy
+msgid "List: Company"
 msgstr "公司"
 
-msgid "Unsub"
+#, fuzzy
+msgid "List: Description"
+msgstr "描述"
+
+#, fuzzy
+msgid "List: Unsub"
 msgstr "取消订阅"
 
-msgid "VCard"
-msgstr "创业卡"
+#, fuzzy
+msgid "List: VCard"
+msgstr "信用卡"
 
 msgid "Date"
 msgstr "日期"
@@ -635,8 +665,94 @@ msgstr "日期"
 msgid "Language"
 msgstr "语言"
 
+msgid "Phone"
+msgstr "电话"
+
 msgid "Merge Tags"
 msgstr "合并标签"
+
+#, fuzzy
+msgid "Add Math Formula"
+msgstr "添加购物车到组"
+
+msgid "Browse EDrive"
+msgstr ""
+
+msgid "Please allow pop-up windows for this site."
+msgstr ""
+
+#, fuzzy
+msgid "Please select a valid image file."
+msgstr "请选择成员的目标群体"
+
+#, fuzzy
+msgid "Download file"
+msgstr "下载错误"
+
+msgid "Insert image URL"
+msgstr ""
+
+#, fuzzy
+msgid "Image URL"
+msgstr "基准网址"
+
+msgid "Insert"
+msgstr ""
+
+#, fuzzy
+msgid "Please enter a valid image URL."
+msgstr "请选择成员的目标群体"
+
+msgid "Insert video"
+msgstr ""
+
+#, fuzzy
+msgid "Video URL"
+msgstr "视频"
+
+#, fuzzy
+msgid "Poster URL"
+msgstr "基准网址"
+
+msgid "Width"
+msgstr ""
+
+#, fuzzy
+msgid "Height"
+msgstr "设置权利"
+
+msgid "Show controls"
+msgstr ""
+
+msgid "Responsive video"
+msgstr ""
+
+msgid "Autoplay"
+msgstr ""
+
+msgid "Loop"
+msgstr ""
+
+msgid "Allow download"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Center"
+msgstr ""
+
+#, fuzzy
+msgid "Right"
+msgstr "设置权利"
+
+#, fuzzy
+msgid "Please enter a valid video URL."
+msgstr "请选择成员的目标群体"
+
+#, fuzzy
+msgid "Please enter valid video dimensions."
+msgstr "请选择成员的目标群体"
 
 msgid "Subject:"
 msgstr "主题"
@@ -1182,9 +1298,6 @@ msgstr "用户"
 msgid "No event now."
 msgstr "现在没有活动。"
 
-msgid "Success"
-msgstr "成功"
-
 msgid "Attention"
 msgstr "注意"
 
@@ -1202,9 +1315,6 @@ msgstr "这一行动永远不能被撤销 !!!!"
 
 msgid "preview currently being created"
 msgstr "正在创建预览"
-
-msgid "Preview"
-msgstr "预览"
 
 #, fuzzy
 msgid "Document preview"
@@ -1226,6 +1336,10 @@ msgstr ""
 
 msgid "Icon"
 msgstr "图标"
+
+#, fuzzy
+msgid "Versions"
+msgstr "版本"
 
 msgid "Modification Date"
 msgstr "修改日期"
@@ -1254,8 +1368,61 @@ msgstr "创建文件夹"
 msgid "Set your Folder name"
 msgstr "设置你的文件夹名称"
 
+#, fuzzy
+msgid "Word document"
+msgstr "文件"
+
+msgid "Excel spreadsheet"
+msgstr ""
+
+msgid "PowerPoint presentation"
+msgstr ""
+
+msgid "Draw drawing"
+msgstr ""
+
+#, fuzzy
+msgid "New document"
+msgstr "文件"
+
 msgid "Actualize files"
 msgstr "实现文件"
+
+#, fuzzy
+msgid "Loading"
+msgstr "正在加载视频..."
+
+#, fuzzy
+msgid "Current version"
+msgstr "安装的版本"
+
+#, fuzzy
+msgid "Download"
+msgstr "下载错误"
+
+#, fuzzy
+msgid "Restore"
+msgstr "复原错误。"
+
+msgid "No previous version"
+msgstr ""
+
+#, fuzzy
+msgid "Restore this version ?"
+msgstr "删除这个人？"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+
+#, fuzzy
+msgid "Delete this version ?"
+msgstr "删除这个人？"
+
+#, fuzzy
+msgid "Set the document name"
+msgstr "设置你的文件标题"
 
 msgid "Set a File/Folder name"
 msgstr "设置一个文件/文件夹名称"
@@ -2990,6 +3157,34 @@ msgid ""
 "altered."
 msgstr "所有组的成员和属性都将被销毁。  组成员本身不会被改变。"
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "恢复备份，不要关闭窗口 ！"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "在EDrive中保存为Word文件"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "该文件将被上传到你的EDrive中<br><small>这部分仅用于测试<b>（Beta）</b>.</"
+#~ "small>。"
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "请选择要在编辑器中打开的模板"
+
+#~ msgid "Template Options"
+#~ msgstr "模板选项"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "修改你选择的模板"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "删除你选择的模板"
+
+#~ msgid "VCard"
+#~ msgstr "创业卡"
+
 #~ msgid "Loading video..."
 #~ msgstr "正在加载视频..."
 
@@ -3340,9 +3535,6 @@ msgstr "所有组的成员和属性都将被销毁。  组成员本身不会被�
 #, fuzzy
 #~ msgid "Edit list settings"
 #~ msgstr "编辑一般设置"
-
-#~ msgid "List Name"
-#~ msgstr "列表名称"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "改变订阅者的状态..."

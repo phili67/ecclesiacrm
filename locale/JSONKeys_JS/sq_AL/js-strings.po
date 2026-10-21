@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,14 +33,11 @@ msgstr ""
 msgid "Backup Error."
 msgstr ""
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "dosja e zgjedhur e tejkalon këtë server masën e ngarkimit me maksimum"
+msgid "Maintenance mode"
+msgstr ""
 
 msgid "Restore Running, Please wait."
 msgstr "Ristatorja. Të lutem prit."
-
-msgid "Restore backup, don't close the window !"
-msgstr ""
 
 msgid "Restore Complete"
 msgstr "Rivendosja e kompletuar"
@@ -50,6 +47,13 @@ msgstr "Po kërkojmë për ta rivendosur Databazën"
 
 msgid "Restore Error."
 msgstr "Rivendose gabim."
+
+#, fuzzy
+msgid "Please select a backup file."
+msgstr "ju lutemi zgjedhni objektivin për anëtarët"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "dosja e zgjedhur e tejkalon këtë server masën e ngarkimit me maksimum"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Je i sigurt që dëshiron ta fshish këtë imazh?"
@@ -558,66 +562,71 @@ msgstr "Klasifikimi"
 msgid "Family Role"
 msgstr "Familja Rol"
 
-msgid "CKEditor Template Creation"
-msgstr "Krijimi i tempullit të KEditorit"
+#, fuzzy
+msgid "Upload progress"
+msgstr "në progres..."
 
-msgid "Template Name"
-msgstr "Emri i tempullit"
+#, fuzzy
+msgid "Print preview"
+msgstr "Previetni"
 
-msgid "Explanation field cannot be empty."
-msgstr "fusha e Shpërthimit nuk mund të jetë bosh."
+msgid "Preview"
+msgstr "Previetni"
 
-msgid "Template Description"
-msgstr "destinacioni i tempullit"
-
-msgid "Save as Word file in EDrive"
-msgstr "ruaj si dosje fjalësh në episod"
-
-msgid "Word file name"
-msgstr "fjalë të mbushura"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
+msgid "Print"
 msgstr ""
-"Dosje do të ngarkohet në Edrive<br><small>, kjo pjesë është vetëm për testim "
-"vetëm<b>(Beta)</b>.</small>"
-
-msgid "Your note is saved in your EDrive"
-msgstr "shënimi yt është i ruajtur në episiv"
 
 msgid "(No templates defined)"
 msgstr "(Nuk ka përkthyes të përcaktuar)"
 
-msgid "Content Templates"
-msgstr "tempullat e dendur"
-
-msgid "Please select the template to open in the editor"
-msgstr "ju lutem zgjidhni tempullin për t'u hapur në redaktor"
-
-msgid "Template Options"
-msgstr "Mundësitë e tempullit"
-
-msgid "Modify"
-msgstr "Modifiko."
-
-msgid "Modify the template you select"
-msgstr "Modifiko tempullin që zgjedh"
-
-msgid "Delete the template you select"
-msgstr "fshije tempullin që zgjedh"
-
-msgid "Are you sure to delete this template? This can't be undone."
-msgstr "Je i sigurt që do ta fshish këtë tempull? kjo nuk mund të prishet."
+#, fuzzy
+msgid "Unable to load content templates."
+msgstr "Nuk ka ngjarje tani."
 
 msgid "Replace actual content"
 msgstr "zëvendësoni përmbajtjen aktuale"
 
+msgid "Content Templates"
+msgstr "tempullat e dendur"
+
+msgid "Apply"
+msgstr ""
+
+msgid "Template Name"
+msgstr "Emri i tempullit"
+
+msgid "Template Description"
+msgstr "destinacioni i tempullit"
+
 msgid "Manage templates"
 msgstr "Manazhi përkohësisht"
 
+msgid "Modify"
+msgstr "Modifiko."
+
+msgid "Explanation field cannot be empty."
+msgstr "fusha e Shpërthimit nuk mund të jetë bosh."
+
+#, fuzzy
+msgid "Unable to update content template."
+msgstr "Nuk ka ngjarje tani."
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "Je i sigurt që do ta fshish këtë tempull? kjo nuk mund të prishet."
+
+#, fuzzy
+msgid "Unable to delete content template."
+msgstr "Nuk ka ngjarje tani."
+
+msgid "CKEditor Template Creation"
+msgstr "Krijimi i tempullit të KEditorit"
+
 msgid "Save templates"
 msgstr "kurseji tempujt"
+
+#, fuzzy
+msgid "Unable to save content template."
+msgstr "Nuk ka ngjarje tani."
 
 msgid "Apply templates"
 msgstr "Aplikimi përkthen"
@@ -625,23 +634,44 @@ msgstr "Aplikimi përkthen"
 msgid "Save As Word File in EDrive"
 msgstr "Ruani \"dosja e Botës në Edrive\""
 
+msgid "Word file name"
+msgstr "fjalë të mbushura"
+
+#, fuzzy
+msgid "Unable to save file."
+msgstr "Nuk ka ngjarje tani."
+
+msgid "Success"
+msgstr "sukses."
+
+msgid "Your note is saved in your EDrive"
+msgstr "shënimi yt është i ruajtur në episiv"
+
 msgid "First Name"
 msgstr "Emri i parë"
 
 msgid "Last Name"
 msgstr "emri i fundit"
 
-msgid "Phone"
-msgstr "Telefoni"
+#, fuzzy
+msgid "List: Name"
+msgstr "emri i listes"
 
-msgid "Company"
+#, fuzzy
+msgid "List: Company"
 msgstr "kompania."
 
-msgid "Unsub"
+#, fuzzy
+msgid "List: Description"
+msgstr "Përshkrim"
+
+#, fuzzy
+msgid "List: Unsub"
 msgstr "I panjohur"
 
-msgid "VCard"
-msgstr "VKard."
+#, fuzzy
+msgid "List: VCard"
+msgstr "karta e kreditit"
 
 msgid "Date"
 msgstr "Takim"
@@ -649,8 +679,94 @@ msgstr "Takim"
 msgid "Language"
 msgstr "Gjuhën."
 
+msgid "Phone"
+msgstr "Telefoni"
+
 msgid "Merge Tags"
 msgstr "Merrni shenjat"
+
+#, fuzzy
+msgid "Add Math Formula"
+msgstr "shto karrocën në grup"
+
+msgid "Browse EDrive"
+msgstr ""
+
+msgid "Please allow pop-up windows for this site."
+msgstr ""
+
+#, fuzzy
+msgid "Please select a valid image file."
+msgstr "ju lutemi zgjedhni objektivin për anëtarët"
+
+#, fuzzy
+msgid "Download file"
+msgstr "ngarkoni dosjet tuaja"
+
+msgid "Insert image URL"
+msgstr ""
+
+#, fuzzy
+msgid "Image URL"
+msgstr "Baza Url"
+
+msgid "Insert"
+msgstr ""
+
+#, fuzzy
+msgid "Please enter a valid image URL."
+msgstr "ju lutemi zgjedhni objektivin për anëtarët"
+
+msgid "Insert video"
+msgstr ""
+
+#, fuzzy
+msgid "Video URL"
+msgstr "video."
+
+#, fuzzy
+msgid "Poster URL"
+msgstr "Baza Url"
+
+msgid "Width"
+msgstr ""
+
+#, fuzzy
+msgid "Height"
+msgstr "Përgatisni të drejtat"
+
+msgid "Show controls"
+msgstr ""
+
+msgid "Responsive video"
+msgstr ""
+
+msgid "Autoplay"
+msgstr ""
+
+msgid "Loop"
+msgstr ""
+
+msgid "Allow download"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Center"
+msgstr ""
+
+#, fuzzy
+msgid "Right"
+msgstr "Përgatisni të drejtat"
+
+#, fuzzy
+msgid "Please enter a valid video URL."
+msgstr "ju lutemi zgjedhni objektivin për anëtarët"
+
+#, fuzzy
+msgid "Please enter valid video dimensions."
+msgstr "ju lutemi zgjedhni objektivin për anëtarët"
 
 #, fuzzy
 msgid "Subject:"
@@ -1204,9 +1320,6 @@ msgstr "përdorues."
 msgid "No event now."
 msgstr "Nuk ka ngjarje tani."
 
-msgid "Success"
-msgstr "sukses."
-
 msgid "Attention"
 msgstr "vëmendje"
 
@@ -1224,9 +1337,6 @@ msgstr "Ky aksion nuk mund të bëhet kurrë! !!!!"
 
 msgid "preview currently being created"
 msgstr ""
-
-msgid "Preview"
-msgstr "Previetni"
 
 #, fuzzy
 msgid "Document preview"
@@ -1248,6 +1358,10 @@ msgstr ""
 
 msgid "Icon"
 msgstr "ikonë."
+
+#, fuzzy
+msgid "Versions"
+msgstr "Versioni"
 
 msgid "Modification Date"
 msgstr "Takim për modifikim"
@@ -1278,8 +1392,60 @@ msgid "Set your Folder name"
 msgstr "vendos emrin tënd folder"
 
 #, fuzzy
+msgid "Word document"
+msgstr "dokument"
+
+msgid "Excel spreadsheet"
+msgstr ""
+
+msgid "PowerPoint presentation"
+msgstr ""
+
+msgid "Draw drawing"
+msgstr ""
+
+#, fuzzy
+msgid "New document"
+msgstr "dokument"
+
+#, fuzzy
 msgid "Actualize files"
 msgstr "Aktualize"
+
+#, fuzzy
+msgid "Loading"
+msgstr "video..."
+
+#, fuzzy
+msgid "Current version"
+msgstr "version i instaluar"
+
+msgid "Download"
+msgstr ""
+
+#, fuzzy
+msgid "Restore"
+msgstr "Rivendose gabim."
+
+msgid "No previous version"
+msgstr ""
+
+#, fuzzy
+msgid "Restore this version ?"
+msgstr "ta fshijmë këtë person?"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+
+#, fuzzy
+msgid "Delete this version ?"
+msgstr "ta fshijmë këtë person?"
+
+#, fuzzy
+msgid "Set the document name"
+msgstr "vendosni titullin tuaj të dokumentit"
 
 msgid "Set a File/Folder name"
 msgstr "vendos emrin e filmit/folder"
@@ -3071,6 +3237,31 @@ msgstr ""
 "Të gjitha anëtarësimi në grup dhe pronat do të shkatërrohen. vetë anëtarët e "
 "grupit nuk do të ndryshojnë."
 
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "ruaj si dosje fjalësh në episod"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "Dosje do të ngarkohet në Edrive<br><small>, kjo pjesë është vetëm për "
+#~ "testim vetëm<b>(Beta)</b>.</small>"
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "ju lutem zgjidhni tempullin për t'u hapur në redaktor"
+
+#~ msgid "Template Options"
+#~ msgstr "Mundësitë e tempullit"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Modifiko tempullin që zgjedh"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "fshije tempullin që zgjedh"
+
+#~ msgid "VCard"
+#~ msgstr "VKard."
+
 #~ msgid "Loading video..."
 #~ msgstr "video..."
 
@@ -3433,9 +3624,6 @@ msgstr ""
 #~ msgid "Edit list settings"
 #~ msgstr "Seksionet e Gjeneralit Edit"
 
-#~ msgid "List Name"
-#~ msgstr "emri i listes"
-
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Ndryshimi i abonentëve shtet..."
 
@@ -3580,9 +3768,6 @@ msgstr ""
 
 #~ msgid "Files input"
 #~ msgstr "Informacion dokumentesh"
-
-#~ msgid "Upload your files"
-#~ msgstr "ngarkoni dosjet tuaja"
 
 #~ msgid "Upload"
 #~ msgstr "ngarkoje."

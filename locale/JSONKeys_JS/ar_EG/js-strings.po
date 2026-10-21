@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,14 +32,11 @@ msgstr "النسخ الاحتياطي في الخلفية قيد التنفيذ"
 msgid "Backup Error."
 msgstr "خطأ في النسخ الاحتياطي."
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "الملف المختار يتجاوز حجم الخوادم بأقصى حجم"
+msgid "Maintenance mode"
+msgstr "وضع الصيانة"
 
 msgid "Restore Running, Please wait."
 msgstr "استعادة الركض، رجاءً إنتظر"
-
-msgid "Restore backup, don't close the window !"
-msgstr "Restaurer la sauvegarde, ne pas fermer la fenêtre !"
 
 msgid "Restore Complete"
 msgstr "استعادة كامل"
@@ -49,6 +46,12 @@ msgstr "نبقى على قاعدة البيانات"
 
 msgid "Restore Error."
 msgstr "استعادة الخطأ"
+
+msgid "Please select a backup file."
+msgstr "يرجى اختيار ملف نسخة احتياطية."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "الملف المختار يتجاوز حجم الخوادم بأقصى حجم"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "هل أنت متأكد، تريد حذف هذه الصورة؟"
@@ -551,66 +554,65 @@ msgstr "التصنيف"
 msgid "Family Role"
 msgstr "دور العائلة"
 
-msgid "CKEditor Template Creation"
-msgstr "CKEDITor Templeate Creation"
+msgid "Upload progress"
+msgstr "تقدم عملية التحميل"
 
-msgid "Template Name"
-msgstr "اسم معبد"
+msgid "Print preview"
+msgstr "معاينة الطباعة"
 
-msgid "Explanation field cannot be empty."
-msgstr "حقل التفسير لا يمكن أن يكون فارغاً"
+msgid "Preview"
+msgstr "سابق"
 
-msgid "Template Description"
-msgstr "وصف معبد"
-
-msgid "Save as Word file in EDrive"
-msgstr "(وفر ملف الكلمات في (إيدرايف"
-
-msgid "Word file name"
-msgstr "اسم ملف الكلمة"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
-msgstr ""
-"الملف سيرفع إلى محرك EDRIV<br><small>هذا الجزء لاختبار فقط<b>(بيتا)</b>.</"
-"small>"
-
-msgid "Your note is saved in your EDrive"
-msgstr "ملاحظتك محفوظة في محرك الكهربائي"
+msgid "Print"
+msgstr "طباعة"
 
 msgid "(No templates defined)"
 msgstr "(لا نماذج محددة)"
 
-msgid "Content Templates"
-msgstr "معبد محتوى"
-
-msgid "Please select the template to open in the editor"
-msgstr "رجاءً إختار النموذج لفتح في المحرر"
-
-msgid "Template Options"
-msgstr "خيارات معبدة"
-
-msgid "Modify"
-msgstr "تعديل"
-
-msgid "Modify the template you select"
-msgstr "تعديل النموذج الذي تختاره"
-
-msgid "Delete the template you select"
-msgstr "حذف النموذج الذي تختاره"
-
-msgid "Are you sure to delete this template? This can't be undone."
-msgstr "هل أنت متأكد من حذف هذا النموذج؟ لا يمكن إلغاء هذا"
+msgid "Unable to load content templates."
+msgstr "تعذر تحميل قوالب المحتوى."
 
 msgid "Replace actual content"
 msgstr "يستعاض عن المحتوى الفعلي"
 
+msgid "Content Templates"
+msgstr "معبد محتوى"
+
+msgid "Apply"
+msgstr "قدم طلبك"
+
+msgid "Template Name"
+msgstr "اسم معبد"
+
+msgid "Template Description"
+msgstr "وصف معبد"
+
 msgid "Manage templates"
 msgstr "تدبّر النماذج"
 
+msgid "Modify"
+msgstr "تعديل"
+
+msgid "Explanation field cannot be empty."
+msgstr "حقل التفسير لا يمكن أن يكون فارغاً"
+
+msgid "Unable to update content template."
+msgstr "تعذر تحديث قالب المحتوى."
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "هل أنت متأكد من حذف هذا النموذج؟ لا يمكن إلغاء هذا"
+
+msgid "Unable to delete content template."
+msgstr "تعذر حذف قالب المحتوى."
+
+msgid "CKEditor Template Creation"
+msgstr "CKEDITor Templeate Creation"
+
 msgid "Save templates"
 msgstr "وفر النماذج"
+
+msgid "Unable to save content template."
+msgstr "تعذر حفظ قالب المحتوى."
 
 msgid "Apply templates"
 msgstr "تطبيق نماذج"
@@ -618,23 +620,38 @@ msgstr "تطبيق نماذج"
 msgid "Save As Word File in EDrive"
 msgstr "وفر كملفف الكلمات في \"إيدريف\""
 
+msgid "Word file name"
+msgstr "اسم ملف الكلمة"
+
+msgid "Unable to save file."
+msgstr "تعذر حفظ الملف."
+
+msgid "Success"
+msgstr "النجاح"
+
+msgid "Your note is saved in your EDrive"
+msgstr "ملاحظتك محفوظة في محرك الكهربائي"
+
 msgid "First Name"
 msgstr "الاسم الأول"
 
 msgid "Last Name"
 msgstr "الاسم الأخير"
 
-msgid "Phone"
-msgstr "الهاتف"
+msgid "List: Name"
+msgstr "القائمة: الاسم"
 
-msgid "Company"
-msgstr "Company"
+msgid "List: Company"
+msgstr "القائمة: الشركة"
 
-msgid "Unsub"
-msgstr "الجاني"
+msgid "List: Description"
+msgstr "القائمة: الوصف"
 
-msgid "VCard"
-msgstr "VCard"
+msgid "List: Unsub"
+msgstr "القائمة: إلغاء الاشتراك"
+
+msgid "List: VCard"
+msgstr "القائمة: VCard"
 
 msgid "Date"
 msgstr "التاريخ"
@@ -642,8 +659,83 @@ msgstr "التاريخ"
 msgid "Language"
 msgstr "اللغة"
 
+msgid "Phone"
+msgstr "الهاتف"
+
 msgid "Merge Tags"
 msgstr "علامات دمج"
+
+msgid "Add Math Formula"
+msgstr "إضافة صيغة رياضية"
+
+msgid "Browse EDrive"
+msgstr "تصفح EDrive"
+
+msgid "Please allow pop-up windows for this site."
+msgstr "يرجى السماح بظهور النوافذ المنبثقة لهذا الموقع."
+
+msgid "Please select a valid image file."
+msgstr "يرجى اختيار ملف صورة صالح."
+
+msgid "Download file"
+msgstr "تنزيل الملف"
+
+msgid "Insert image URL"
+msgstr "أدخل عنوان URL للصورة"
+
+msgid "Image URL"
+msgstr "رابط الصورة"
+
+msgid "Insert"
+msgstr "إدراج"
+
+msgid "Please enter a valid image URL."
+msgstr "يرجى إدخال عنوان URL صالح للصورة."
+
+msgid "Insert video"
+msgstr "إدراج مقطع فيديو"
+
+msgid "Video URL"
+msgstr "رابط الفيديو"
+
+msgid "Poster URL"
+msgstr "رابط الملصق"
+
+msgid "Width"
+msgstr "العرض"
+
+msgid "Height"
+msgstr "الارتفاع"
+
+msgid "Show controls"
+msgstr "إظهار عناصر التحكم"
+
+msgid "Responsive video"
+msgstr "فيديو متكيف مع الحجم"
+
+msgid "Autoplay"
+msgstr "التشغيل التلقائي"
+
+msgid "Loop"
+msgstr "حلقة"
+
+msgid "Allow download"
+msgstr "السماح بالتنزيل"
+
+msgid "Left"
+msgstr "يسار"
+
+msgid "Center"
+msgstr "الوسط"
+
+msgid "Right"
+msgstr "صحيح"
+
+msgid "Please enter a valid video URL."
+msgstr "يرجى إدخال رابط فيديو صالح."
+
+msgid "Please enter valid video dimensions."
+msgstr "يرجى إدخال أبعاد فيديو صالحة."
 
 msgid "Subject:"
 msgstr "Sujet :"
@@ -1152,9 +1244,6 @@ msgstr "المستخدم"
 msgid "No event now."
 msgstr "لا حدث الآن"
 
-msgid "Success"
-msgstr "النجاح"
-
 msgid "Attention"
 msgstr "انتباه"
 
@@ -1173,9 +1262,6 @@ msgstr "هذا العمل لا يمكن أن يُلغى !\""
 msgid "preview currently being created"
 msgstr "معاينة قيد الإنشاء حالياً"
 
-msgid "Preview"
-msgstr "سابق"
-
 msgid "Document preview"
 msgstr "معاينة المستند"
 
@@ -1193,6 +1279,9 @@ msgstr "لا يمكن عرض الملف المحدد في وضع المعاين�
 
 msgid "Icon"
 msgstr "Icon"
+
+msgid "Versions"
+msgstr "الإصدارات"
 
 msgid "Modification Date"
 msgstr "موعد التعديل"
@@ -1221,8 +1310,54 @@ msgstr "إنشاء مجلد"
 msgid "Set your Folder name"
 msgstr "ضع اسمك"
 
+msgid "Word document"
+msgstr "مستند Word"
+
+msgid "Excel spreadsheet"
+msgstr "جدول بيانات إكسل"
+
+msgid "PowerPoint presentation"
+msgstr "عرض تقديمي ببرنامج PowerPoint"
+
+msgid "Draw drawing"
+msgstr "رسم رسم"
+
+msgid "New document"
+msgstr "وثيقة جديدة"
+
 msgid "Actualize files"
 msgstr "تفعيل الملفات"
+
+msgid "Loading"
+msgstr "جاري التحميل"
+
+msgid "Current version"
+msgstr "الإصدار الحالي"
+
+msgid "Download"
+msgstr "تنزيل"
+
+msgid "Restore"
+msgstr "استعادة"
+
+msgid "No previous version"
+msgstr "لا توجد نسخة سابقة"
+
+msgid "Restore this version ?"
+msgstr "هل تريد استعادة هذا الإصدار؟"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"يتم حفظ المحتوى الحالي كإصدار. إذا كان المستند مفتوحًا في المحرر، فيرجى "
+"إغلاقه أولاً."
+
+msgid "Delete this version ?"
+msgstr "هل تريد حذف هذه النسخة؟"
+
+msgid "Set the document name"
+msgstr "تحديد اسم المستند"
 
 msgid "Set a File/Folder name"
 msgstr "ضع اسم ملف/فولدر"
@@ -2902,6 +3037,34 @@ msgid ""
 "altered."
 msgstr "سيتم تدمير جميع الأعضاء.  لن يتم تغيير الأعضاء أنفسهم."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Restaurer la sauvegarde, ne pas fermer la fenêtre !"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "(وفر ملف الكلمات في (إيدرايف"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "الملف سيرفع إلى محرك EDRIV<br><small>هذا الجزء لاختبار فقط<b>(بيتا)</b>.</"
+#~ "small>"
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "رجاءً إختار النموذج لفتح في المحرر"
+
+#~ msgid "Template Options"
+#~ msgstr "خيارات معبدة"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "تعديل النموذج الذي تختاره"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "حذف النموذج الذي تختاره"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "تحميل الفيديو..."
 
@@ -3096,9 +3259,6 @@ msgstr "سيتم تدمير جميع الأعضاء.  لن يتم تغيير ا�
 #~ "اختر علامة واحدة لإزالتها، أو اختر جميع العلامات لإجراء تنظيف كامل "
 #~ "للأعضاء المحددين."
 
-#~ msgid "Apply"
-#~ msgstr "قدم طلبك"
-
 #~ msgid "Removing tags..."
 #~ msgstr "إزالة العلامات..."
 
@@ -3282,9 +3442,6 @@ msgstr "سيتم تدمير جميع الأعضاء.  لن يتم تغيير ا�
 
 #~ msgid "Update the main details used by this list and its campaigns."
 #~ msgstr "تحديث التفاصيل الرئيسية التي تستخدمها هذه القائمة وحملاتها."
-
-#~ msgid "List Name"
-#~ msgstr "الاسم المدرج"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "تغيير حالة المشتركين..."

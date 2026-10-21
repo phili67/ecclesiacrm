@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,16 +32,11 @@ msgstr "Sauvegarde en arrière-plan en cours"
 msgid "Backup Error."
 msgstr "Erreur de sauvegarde."
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
-"Les fichiers sélectionnés dépassent la capacité fixée de téléchargement du "
-"serveur de"
+msgid "Maintenance mode"
+msgstr "Mode maintenance"
 
 msgid "Restore Running, Please wait."
 msgstr "Restauration en cours, Veuillez patienter."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Restaurer la sauvegarde, ne pas fermer la fenêtre !"
 
 msgid "Restore Complete"
 msgstr "Restauration terminée"
@@ -51,6 +46,14 @@ msgstr "Connectez-vous à la base restaurée"
 
 msgid "Restore Error."
 msgstr "Erreur de restauration."
+
+msgid "Please select a backup file."
+msgstr "Veuillez sélectionner un fichier de sauvegarde."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Les fichiers sélectionnés dépassent la capacité fixée de téléchargement du "
+"serveur de"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Etes-vous sûr de vouloir supprimer cette image ?"
@@ -570,68 +573,67 @@ msgstr "Classification"
 msgid "Family Role"
 msgstr "Rôle Familial"
 
-msgid "CKEditor Template Creation"
-msgstr "Création de modèle CKEditor"
+msgid "Upload progress"
+msgstr "Progression du téléchargement"
 
-msgid "Template Name"
-msgstr "Nom du modèle"
+msgid "Print preview"
+msgstr "Aperçu avant impression"
 
-msgid "Explanation field cannot be empty."
-msgstr "Champs explicatif ne peuvent être vide"
+msgid "Preview"
+msgstr "Aperçu"
 
-msgid "Template Description"
-msgstr "Description du modèle"
-
-msgid "Save as Word file in EDrive"
-msgstr "Enregistrer sous format Word dans EDrive"
-
-msgid "Word file name"
-msgstr "Nom du fichier Word"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
-msgstr ""
-"Ce fichier sera télécharger dans EDrive<br><small>Cette partie est en "
-"<b>Beta</b> testing</small>"
-
-msgid "Your note is saved in your EDrive"
-msgstr "Votre note est enregistrée dans votre EDrive"
+msgid "Print"
+msgstr "Imprimer"
 
 msgid "(No templates defined)"
 msgstr "(Aucun modèle disponible)"
 
+msgid "Unable to load content templates."
+msgstr "Impossible de charger les modèles de contenu."
+
+msgid "Replace actual content"
+msgstr "Remplacer le contenu actuel"
+
 msgid "Content Templates"
 msgstr "Contenu des modèles"
 
-msgid "Please select the template to open in the editor"
-msgstr "Veuillez sélectionner le modèle à ouvrir dans l'éditeur"
+msgid "Apply"
+msgstr "Appliquer"
 
-msgid "Template Options"
-msgstr "Options des modèles"
+msgid "Template Name"
+msgstr "Nom du modèle"
+
+msgid "Template Description"
+msgstr "Description du modèle"
+
+msgid "Manage templates"
+msgstr "Gérer Modèles"
 
 msgid "Modify"
 msgstr "Modifier"
 
-msgid "Modify the template you select"
-msgstr "Modifier le modèle sélectionné"
+msgid "Explanation field cannot be empty."
+msgstr "Champs explicatif ne peuvent être vide"
 
-msgid "Delete the template you select"
-msgstr "Supprimer modèle sélectionné"
+msgid "Unable to update content template."
+msgstr "Impossible de mettre à jour le modèle de contenu."
 
 msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 "Etes-vous sûr de vouloir supprimer ce modèle ? Cette action ne peut être "
 "annulée."
 
-msgid "Replace actual content"
-msgstr "Remplacer le contenu actuel"
+msgid "Unable to delete content template."
+msgstr "Impossible de supprimer le modèle de contenu."
 
-msgid "Manage templates"
-msgstr "Gérer Modèles"
+msgid "CKEditor Template Creation"
+msgstr "Création de modèle CKEditor"
 
 msgid "Save templates"
 msgstr "Enregistrer Modèles"
+
+msgid "Unable to save content template."
+msgstr "Impossible d'enregistrer le modèle de contenu."
 
 msgid "Apply templates"
 msgstr "Appliquer Modèles"
@@ -639,23 +641,38 @@ msgstr "Appliquer Modèles"
 msgid "Save As Word File in EDrive"
 msgstr "Enregistrer dans EDrive sous format Word"
 
+msgid "Word file name"
+msgstr "Nom du fichier Word"
+
+msgid "Unable to save file."
+msgstr "Impossible d'enregistrer le fichier."
+
+msgid "Success"
+msgstr "confirmé"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Votre note est enregistrée dans votre EDrive"
+
 msgid "First Name"
 msgstr "Prénom"
 
 msgid "Last Name"
 msgstr "Nom"
 
-msgid "Phone"
-msgstr "Téléphone"
+msgid "List: Name"
+msgstr "Liste : Nom"
 
-msgid "Company"
-msgstr "Compagnie"
+msgid "List: Company"
+msgstr "Liste : Entreprise"
 
-msgid "Unsub"
-msgstr "Désabonner"
+msgid "List: Description"
+msgstr "Liste : Description"
 
-msgid "VCard"
-msgstr "VCard"
+msgid "List: Unsub"
+msgstr "Liste : Se désabonner"
+
+msgid "List: VCard"
+msgstr "Liste : VCard"
 
 msgid "Date"
 msgstr "Date"
@@ -663,8 +680,83 @@ msgstr "Date"
 msgid "Language"
 msgstr "Langage"
 
+msgid "Phone"
+msgstr "Téléphone"
+
 msgid "Merge Tags"
 msgstr "Champ de fusion"
+
+msgid "Add Math Formula"
+msgstr "Ajouter une formule mathématique"
+
+msgid "Browse EDrive"
+msgstr "Parcourir EDrive"
+
+msgid "Please allow pop-up windows for this site."
+msgstr "Veuillez autoriser les fenêtres contextuelles sur ce site."
+
+msgid "Please select a valid image file."
+msgstr "Veuillez sélectionner un fichier image valide."
+
+msgid "Download file"
+msgstr "Télécharger le fichier"
+
+msgid "Insert image URL"
+msgstr "Insérer l'URL de l'image"
+
+msgid "Image URL"
+msgstr "URL de l'image"
+
+msgid "Insert"
+msgstr "Insérer"
+
+msgid "Please enter a valid image URL."
+msgstr "Veuillez saisir l'URL d'une image valide."
+
+msgid "Insert video"
+msgstr "Insérer une vidéo"
+
+msgid "Video URL"
+msgstr "URL de la vidéo"
+
+msgid "Poster URL"
+msgstr "URL de l'affiche"
+
+msgid "Width"
+msgstr "Largeur"
+
+msgid "Height"
+msgstr "Hauteur"
+
+msgid "Show controls"
+msgstr "Afficher les commandes"
+
+msgid "Responsive video"
+msgstr "Vidéo adaptative"
+
+msgid "Autoplay"
+msgstr "Lecture automatique"
+
+msgid "Loop"
+msgstr "Boucle"
+
+msgid "Allow download"
+msgstr "Autoriser le téléchargement"
+
+msgid "Left"
+msgstr "À gauche"
+
+msgid "Center"
+msgstr "Centre"
+
+msgid "Right"
+msgstr "C'est vrai"
+
+msgid "Please enter a valid video URL."
+msgstr "Veuillez saisir une URL de vidéo valide."
+
+msgid "Please enter valid video dimensions."
+msgstr "Veuillez saisir des dimensions de vidéo valides."
 
 msgid "Subject:"
 msgstr "Sujet :"
@@ -1195,9 +1287,6 @@ msgstr "Utilisateur"
 msgid "No event now."
 msgstr "Aucun événement en ce moment."
 
-msgid "Success"
-msgstr "confirmé"
-
 msgid "Attention"
 msgstr "Attention"
 
@@ -1218,9 +1307,6 @@ msgstr "Cette action ne peut être annulée !!!!"
 msgid "preview currently being created"
 msgstr "aperçu en cours de création"
 
-msgid "Preview"
-msgstr "Aperçu"
-
 msgid "Document preview"
 msgstr "Aperçu du document"
 
@@ -1239,6 +1325,9 @@ msgstr ""
 
 msgid "Icon"
 msgstr "Icône"
+
+msgid "Versions"
+msgstr "Versions"
 
 msgid "Modification Date"
 msgstr "Date de modifcation"
@@ -1267,8 +1356,54 @@ msgstr "Créer un dossier"
 msgid "Set your Folder name"
 msgstr "Sélectionner un nom de dossier"
 
+msgid "Word document"
+msgstr "Document Word"
+
+msgid "Excel spreadsheet"
+msgstr "fiche de calcul Excel"
+
+msgid "PowerPoint presentation"
+msgstr "Présentation PowerPoint"
+
+msgid "Draw drawing"
+msgstr "Dessiner un dessin"
+
+msgid "New document"
+msgstr "Nouveau document"
+
 msgid "Actualize files"
 msgstr "Actualiser les fichiers"
+
+msgid "Loading"
+msgstr "Chargement en cours"
+
+msgid "Current version"
+msgstr "Version actuelle"
+
+msgid "Download"
+msgstr "Télécharger"
+
+msgid "Restore"
+msgstr "Restaurer"
+
+msgid "No previous version"
+msgstr "Aucune version antérieure"
+
+msgid "Restore this version ?"
+msgstr "Restaurer cette version ?"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"Le contenu actuel est enregistré en tant que version. Si le document est "
+"ouvert dans l'éditeur, fermez-le d'abord."
+
+msgid "Delete this version ?"
+msgstr "Supprimer cette version ?"
+
+msgid "Set the document name"
+msgstr "Définir le nom du document"
 
 msgid "Set a File/Folder name"
 msgstr "Sélectionner un nom de Fichier/dossier"
@@ -3003,6 +3138,34 @@ msgstr ""
 "Tous les membres seront détruits.  Les membres eux-mêmes ne seront pas "
 "modifiés."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Restaurer la sauvegarde, ne pas fermer la fenêtre !"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "Enregistrer sous format Word dans EDrive"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "Ce fichier sera télécharger dans EDrive<br><small>Cette partie est en "
+#~ "<b>Beta</b> testing</small>"
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "Veuillez sélectionner le modèle à ouvrir dans l'éditeur"
+
+#~ msgid "Template Options"
+#~ msgstr "Options des modèles"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Modifier le modèle sélectionné"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "Supprimer modèle sélectionné"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "Chargement vidéo ..."
 
@@ -3205,9 +3368,6 @@ msgstr ""
 #~ "Sélectionnez une balise à supprimer ou choisissez toutes les balises pour "
 #~ "un nettoyage complet des membres sélectionnés."
 
-#~ msgid "Apply"
-#~ msgstr "Appliquer"
-
 #~ msgid "Removing tags..."
 #~ msgstr "Chargement des données ..."
 
@@ -3400,9 +3560,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Mettre à jour les principales données utilisées par cette liste et ses "
 #~ "campagnes."
-
-#~ msgid "List Name"
-#~ msgstr "Nom De la liste"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Changement le statut de l'abonnée ..."

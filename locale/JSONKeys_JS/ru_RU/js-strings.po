@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-08-09T17:50:15.482Z\n"
+"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,14 +32,11 @@ msgstr "Выполняется фоновое резервное копиров�
 msgid "Backup Error."
 msgstr "Ошибка резервного копирования."
 
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "Выбранный файл превышает максимальный размер загрузки этого сервера"
+msgid "Maintenance mode"
+msgstr "Режим обслуживания"
 
 msgid "Restore Running, Please wait."
 msgstr "Восстановление запущено, пожалуйста, подождите."
-
-msgid "Restore backup, don't close the window !"
-msgstr "Восстановите резервную копию, не закрывайте окно!"
 
 msgid "Restore Complete"
 msgstr "Восстановление завершено"
@@ -49,6 +46,12 @@ msgstr "Вход в восстановленную базу данных"
 
 msgid "Restore Error."
 msgstr "Ошибка восстановления."
+
+msgid "Please select a backup file."
+msgstr "Пожалуйста, выберите файл резервной копии."
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "Выбранный файл превышает максимальный размер загрузки этого сервера"
 
 msgid "Are you sure, you want to delete this image ?"
 msgstr "Вы уверены, что хотите удалить это изображение?"
@@ -557,67 +560,66 @@ msgstr "Классификация"
 msgid "Family Role"
 msgstr "Роль семьи"
 
-msgid "CKEditor Template Creation"
-msgstr "Создание шаблонов в CKEditor"
+msgid "Upload progress"
+msgstr "Ход загрузки"
 
-msgid "Template Name"
-msgstr "Имя шаблона"
+msgid "Print preview"
+msgstr "Предварительный просмотр печати"
 
-msgid "Explanation field cannot be empty."
-msgstr "Поле пояснения не может быть пустым."
+msgid "Preview"
+msgstr "Предварительный просмотр"
 
-msgid "Template Description"
-msgstr "Описание шаблона"
-
-msgid "Save as Word file in EDrive"
-msgstr "Сохранить как файл Word в EDrive"
-
-msgid "Word file name"
-msgstr "Имя файла Word"
-
-msgid ""
-"The file will be uploaded to your EDrive<br><small>This part is for test "
-"only <b>(Beta)</b>.</small>"
-msgstr ""
-"Файл будет загружен на ваш EDrive<br><small>Эта часть предназначена только "
-"для тестирования <b>(Beta)</b>.</small>."
-
-msgid "Your note is saved in your EDrive"
-msgstr "Ваша заметка сохраняется в EDrive"
+msgid "Print"
+msgstr "Распечатать"
 
 msgid "(No templates defined)"
 msgstr "(Шаблоны не определены)"
 
+msgid "Unable to load content templates."
+msgstr "Не удалось загрузить шаблоны контента."
+
+msgid "Replace actual content"
+msgstr "Заменить фактическое содержание"
+
 msgid "Content Templates"
 msgstr "Шаблоны контента"
 
-msgid "Please select the template to open in the editor"
-msgstr "Выберите шаблон для открытия в редакторе"
+msgid "Apply"
+msgstr "Применить"
 
-msgid "Template Options"
-msgstr "Параметры шаблона"
+msgid "Template Name"
+msgstr "Имя шаблона"
+
+msgid "Template Description"
+msgstr "Описание шаблона"
+
+msgid "Manage templates"
+msgstr "Управление шаблонами"
 
 msgid "Modify"
 msgstr "Изменить"
 
-msgid "Modify the template you select"
-msgstr "Изменение выбранного шаблона"
+msgid "Explanation field cannot be empty."
+msgstr "Поле пояснения не может быть пустым."
 
-msgid "Delete the template you select"
-msgstr "Удалить выбранный шаблон"
+msgid "Unable to update content template."
+msgstr "Не удалось обновить шаблон контента."
 
 msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 "Вы уверены, что хотите удалить этот шаблон? Это не может быть отменено."
 
-msgid "Replace actual content"
-msgstr "Заменить фактическое содержание"
+msgid "Unable to delete content template."
+msgstr "Не удалось удалить шаблон контента."
 
-msgid "Manage templates"
-msgstr "Управление шаблонами"
+msgid "CKEditor Template Creation"
+msgstr "Создание шаблонов в CKEditor"
 
 msgid "Save templates"
 msgstr "Сохранить шаблоны"
+
+msgid "Unable to save content template."
+msgstr "Не удалось сохранить шаблон контента."
 
 msgid "Apply templates"
 msgstr "Применять шаблоны"
@@ -625,23 +627,38 @@ msgstr "Применять шаблоны"
 msgid "Save As Word File in EDrive"
 msgstr "Сохранить как файл Word в EDrive"
 
+msgid "Word file name"
+msgstr "Имя файла Word"
+
+msgid "Unable to save file."
+msgstr "Не удалось сохранить файл."
+
+msgid "Success"
+msgstr "Успех"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Ваша заметка сохраняется в EDrive"
+
 msgid "First Name"
 msgstr "Имя"
 
 msgid "Last Name"
 msgstr "Фамилия"
 
-msgid "Phone"
-msgstr "Телефон"
+msgid "List: Name"
+msgstr "Список: Имя"
 
-msgid "Company"
-msgstr "Компания"
+msgid "List: Company"
+msgstr "Список: Компания"
 
-msgid "Unsub"
-msgstr "Unsub"
+msgid "List: Description"
+msgstr "Список: Описание"
 
-msgid "VCard"
-msgstr "VCard"
+msgid "List: Unsub"
+msgstr "Список: Отписаться"
+
+msgid "List: VCard"
+msgstr "Список: VCard"
 
 msgid "Date"
 msgstr "Дата"
@@ -649,8 +666,83 @@ msgstr "Дата"
 msgid "Language"
 msgstr "Язык"
 
+msgid "Phone"
+msgstr "Телефон"
+
 msgid "Merge Tags"
 msgstr "Теги слияния"
+
+msgid "Add Math Formula"
+msgstr "Добавить математическую формулу"
+
+msgid "Browse EDrive"
+msgstr "Просмотр EDrive"
+
+msgid "Please allow pop-up windows for this site."
+msgstr "Пожалуйста, разрешите открытие всплывающих окон на этом сайте."
+
+msgid "Please select a valid image file."
+msgstr "Пожалуйста, выберите допустимый файл изображения."
+
+msgid "Download file"
+msgstr "Скачать файл"
+
+msgid "Insert image URL"
+msgstr "Вставить URL-адрес изображения"
+
+msgid "Image URL"
+msgstr "URL изображения"
+
+msgid "Insert"
+msgstr "Вставить"
+
+msgid "Please enter a valid image URL."
+msgstr "Введите действительный URL-адрес изображения."
+
+msgid "Insert video"
+msgstr "Вставить видео"
+
+msgid "Video URL"
+msgstr "URL-адрес видео"
+
+msgid "Poster URL"
+msgstr "URL плаката"
+
+msgid "Width"
+msgstr "Ширина"
+
+msgid "Height"
+msgstr "Высота"
+
+msgid "Show controls"
+msgstr "Показать элементы управления"
+
+msgid "Responsive video"
+msgstr "Адаптивное видео"
+
+msgid "Autoplay"
+msgstr "Автовоспроизведение"
+
+msgid "Loop"
+msgstr "Цикл"
+
+msgid "Allow download"
+msgstr "Разрешить загрузку"
+
+msgid "Left"
+msgstr "Влево"
+
+msgid "Center"
+msgstr "Центр"
+
+msgid "Right"
+msgstr "Верно"
+
+msgid "Please enter a valid video URL."
+msgstr "Пожалуйста, введите действительный URL-адрес видео."
+
+msgid "Please enter valid video dimensions."
+msgstr "Пожалуйста, введите допустимые размеры видео."
 
 msgid "Subject:"
 msgstr "Тема:"
@@ -1175,9 +1267,6 @@ msgstr "Пользователь"
 msgid "No event now."
 msgstr "Сейчас никаких событий."
 
-msgid "Success"
-msgstr "Успех"
-
 msgid "Attention"
 msgstr "Внимание"
 
@@ -1195,9 +1284,6 @@ msgstr "Это действие никогда не может быть отме
 
 msgid "preview currently being created"
 msgstr "предварительный просмотр находится в стадии создания"
-
-msgid "Preview"
-msgstr "Предварительный просмотр"
 
 msgid "Document preview"
 msgstr "Предварительный просмотр документов"
@@ -1217,6 +1303,9 @@ msgstr ""
 
 msgid "Icon"
 msgstr "Икона"
+
+msgid "Versions"
+msgstr "Версии"
 
 msgid "Modification Date"
 msgstr "Дата модификации"
@@ -1245,8 +1334,54 @@ msgstr "Создать папку"
 msgid "Set your Folder name"
 msgstr "Задайте имя папки"
 
+msgid "Word document"
+msgstr "Документ Word"
+
+msgid "Excel spreadsheet"
+msgstr "таблица Excel"
+
+msgid "PowerPoint presentation"
+msgstr "Презентация в формате PowerPoint"
+
+msgid "Draw drawing"
+msgstr "Нарисовать рисунок"
+
+msgid "New document"
+msgstr "Новый документ"
+
 msgid "Actualize files"
 msgstr "Актуализация файлов"
+
+msgid "Loading"
+msgstr "Загрузка"
+
+msgid "Current version"
+msgstr "Текущая версия"
+
+msgid "Download"
+msgstr "Скачать"
+
+msgid "Restore"
+msgstr "Восстановить"
+
+msgid "No previous version"
+msgstr "Предыдущих версий нет"
+
+msgid "Restore this version ?"
+msgstr "Восстановить эту версию?"
+
+msgid ""
+"The current content is kept as a version. If the document is open in the "
+"editor, close it first."
+msgstr ""
+"Текущее содержимое сохраняется в виде версии. Если документ открыт в "
+"редакторе, сначала закройте его."
+
+msgid "Delete this version ?"
+msgstr "Удалить эту версию?"
+
+msgid "Set the document name"
+msgstr "Укажите название документа"
 
 msgid "Set a File/Folder name"
 msgstr "Задайте имя файла/папки"
@@ -2950,6 +3085,34 @@ msgid ""
 "altered."
 msgstr "Все члены будут уничтожены.  Сами члены не будут изменены."
 
+#~ msgid "Restore backup, don't close the window !"
+#~ msgstr "Восстановите резервную копию, не закрывайте окно!"
+
+#~ msgid "Save as Word file in EDrive"
+#~ msgstr "Сохранить как файл Word в EDrive"
+
+#~ msgid ""
+#~ "The file will be uploaded to your EDrive<br><small>This part is for test "
+#~ "only <b>(Beta)</b>.</small>"
+#~ msgstr ""
+#~ "Файл будет загружен на ваш EDrive<br><small>Эта часть предназначена "
+#~ "только для тестирования <b>(Beta)</b>.</small>."
+
+#~ msgid "Please select the template to open in the editor"
+#~ msgstr "Выберите шаблон для открытия в редакторе"
+
+#~ msgid "Template Options"
+#~ msgstr "Параметры шаблона"
+
+#~ msgid "Modify the template you select"
+#~ msgstr "Изменение выбранного шаблона"
+
+#~ msgid "Delete the template you select"
+#~ msgstr "Удалить выбранный шаблон"
+
+#~ msgid "VCard"
+#~ msgstr "VCard"
+
 #~ msgid "Loading video..."
 #~ msgstr "Загрузка видео..."
 
@@ -3148,9 +3311,6 @@ msgstr "Все члены будут уничтожены.  Сами члены 
 #~ "Выберите один тег для удаления или выберите все теги для полной очистки "
 #~ "выбранных членов."
 
-#~ msgid "Apply"
-#~ msgstr "Применить"
-
 #~ msgid "Removing tags..."
 #~ msgstr "Удаление меток..."
 
@@ -3343,9 +3503,6 @@ msgstr "Все члены будут уничтожены.  Сами члены 
 #~ msgid "Update the main details used by this list and its campaigns."
 #~ msgstr ""
 #~ "Обновите основные данные, используемые в этом списке и его кампаниях."
-
-#~ msgid "List Name"
-#~ msgstr "Название списка"
 
 #~ msgid "Changing subscribers state..."
 #~ msgstr "Изменение состояния абонентов..."
