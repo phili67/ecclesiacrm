@@ -10,6 +10,11 @@
 
     const CRM = window.CRM;
     const CK = window.CKEDITOR;
+    const i18next = {
+        t: function (key) {
+            return window.i18next ? window.i18next.t(key) : key;
+        }
+    };
     const editorPromises = new Map();
     const editorInstances = new Map();
     const pendingDestructions = new Map();
@@ -20,16 +25,31 @@
         throw new Error('CKEditor 5 must be loaded before ckeditorextension.js.');
     }
 
-    function translate(key) {
-        return window.i18next ? i18next.t(key) : key;
+    function dialogTitle(icon, title, color = 'text-primary') {
+        return '<span class="crm-ckeditor-dialog-title"><i class="fas ' + icon + ' ' + color
+            + ' mr-2" aria-hidden="true"></i>' + title + '</span>';
+    }
+
+    function dialogButton(icon, label, className) {
+        return {
+            label: '<i class="fas ' + icon + ' mr-1" aria-hidden="true"></i>' + label,
+            className: className
+        };
     }
 
     function reportEditorError(error) {
         console.error('CKEditor 5 error:', error);
         if (CRM.DisplayNormalAlert) {
-            CRM.DisplayNormalAlert(translate('Error'), error.message || String(error));
+            CRM.DisplayNormalAlert(i18next.t('Error'), error.message || String(error));
         } else if (window.bootbox) {
-            bootbox.alert(error.message || String(error));
+            bootbox.alert({
+                title: dialogTitle('fa-exclamation-triangle', i18next.t('Error'), 'text-danger'),
+                message: error.message || String(error),
+                className: 'crm-ckeditor-dialog',
+                buttons: {
+                    ok: dialogButton('fa-check', i18next.t('OK'), 'btn-primary')
+                }
+            });
         }
     }
 
@@ -247,7 +267,7 @@
         const progressTrack = document.createElement('div');
         progressTrack.className = 'crm-ckeditor-upload-progress-track';
         progressTrack.setAttribute('role', 'progressbar');
-        progressTrack.setAttribute('aria-label', translate('Upload progress'));
+        progressTrack.setAttribute('aria-label', i18next.t('Upload progress'));
         progressTrack.setAttribute('aria-valuemin', '0');
         progressTrack.setAttribute('aria-valuemax', '100');
         progressTrack.setAttribute('aria-valuenow', '0');
@@ -488,8 +508,13 @@
     function addButton(editor, name, label, icon, callback) {
         editor.ui.componentFactory.add(name, function (locale) {
             const button = new CK.ButtonView(locale);
+            button.extendTemplate({
+                attributes: {
+                    'data-crm-editor-button': name
+                }
+            });
             button.set({
-                label: translate(label),
+                label: label,
                 tooltip: true,
                 icon: icon,
                 withText: false
@@ -511,20 +536,25 @@
         if (result && result.status === 'success') {
             return true;
         }
-        reportEditorError(new Error(translate(message)));
+        reportEditorError(new Error(message));
         return false;
     }
 
     function previewEditor(editor, shouldPrint) {
         const iframe = document.createElement('iframe');
-        iframe.title = translate(shouldPrint ? 'Print preview' : 'Preview');
+        iframe.title = shouldPrint ? i18next.t('Print preview') : i18next.t('Preview');
         iframe.sandbox = 'allow-same-origin allow-modals';
         iframe.style.width = '100%';
         iframe.style.height = '60vh';
         const dialog = window.bootbox.dialog({
-            title: translate(shouldPrint ? 'Print' : 'Preview'),
+            title: dialogTitle(shouldPrint ? 'fa-print' : 'fa-eye',
+                shouldPrint ? i18next.t('Print') : i18next.t('Preview')),
             message: $(iframe),
-            size: 'large'
+            size: 'large',
+            className: 'crm-ckeditor-dialog',
+            buttons: {
+                close: dialogButton('fa-times', i18next.t('Close'), 'btn-secondary')
+            }
         });
         iframe.srcdoc = '<!doctype html><html><head><meta charset="utf-8"></head><body>' +
             editor.getData() + '</body></html>';
@@ -575,7 +605,7 @@
         let selectedTemplate = null;
 
         if (!templates.length) {
-            list.textContent = translate('(No templates defined)');
+            list.textContent = i18next.t('(No templates defined)');
         }
 
         templates.forEach(function (template) {
@@ -644,7 +674,7 @@
     function openTemplateList(editor, mode) {
         apiRequest('ckeditor/alltemplates', {personID: CRM.iPersonId}, function (templates) {
             if (!Array.isArray(templates)) {
-                reportEditorError(new Error(translate('Unable to load content templates.')));
+                reportEditorError(new Error(i18next.t('Unable to load content templates.')));
                 return;
             }
 
@@ -663,22 +693,17 @@
             const replaceCheckbox = document.createElement('input');
             replaceCheckbox.type = 'checkbox';
             replaceCheckbox.checked = true;
-            replaceLabel.append(replaceCheckbox, document.createTextNode(' ' + translate('Replace actual content')));
+            replaceLabel.append(replaceCheckbox, document.createTextNode(' ' + i18next.t('Replace actual content')));
             content.append(browser.element, replaceLabel);
 
             window.bootbox.dialog({
-                title: translate('Content Templates'),
+                title: dialogTitle('fa-file-alt', i18next.t('Content Templates')),
                 message: $(content),
                 size: 'large',
                 className: 'crm-template-dialog',
                 buttons: {
-                    cancel: {
-                        label: translate('Cancel'),
-                        className: 'btn-secondary'
-                    },
-                    apply: {
-                        label: translate('Apply'),
-                        className: 'btn-primary',
+                    cancel: dialogButton('fa-times', i18next.t('Cancel'), 'btn-secondary'),
+                    apply: Object.assign(dialogButton('fa-check', i18next.t('Apply'), 'btn-primary'), {
                         callback: function () {
                             if (!selectedTemplate) {
                                 return false;
@@ -693,7 +718,7 @@
                                 desc: selectedTemplate.description
                             };
                         }
-                    }
+                    })
                 }
             });
         });
@@ -703,12 +728,12 @@
         const form = document.createElement('div');
         const titleInput = document.createElement('input');
         titleInput.className = 'form-control';
-        titleInput.placeholder = translate('Template Name');
-        titleInput.setAttribute('aria-label', translate('Template Name'));
+        titleInput.placeholder = i18next.t('Template Name');
+        titleInput.setAttribute('aria-label', i18next.t('Template Name'));
         const descriptionInput = document.createElement('input');
         descriptionInput.className = 'form-control';
-        descriptionInput.placeholder = translate('Template Description');
-        descriptionInput.setAttribute('aria-label', translate('Template Description'));
+        descriptionInput.placeholder = i18next.t('Template Description');
+        descriptionInput.setAttribute('aria-label', i18next.t('Template Description'));
 
         const fields = document.createElement('div');
         fields.className = 'crm-template-fields';
@@ -728,18 +753,13 @@
         form.append(browser.element, fields);
 
         window.bootbox.dialog({
-            title: translate('Manage templates'),
+            title: dialogTitle('fa-folder-open', i18next.t('Manage templates')),
             message: $(form),
             size: 'large',
             className: 'crm-template-dialog',
             buttons: {
-                cancel: {
-                    label: translate('Cancel'),
-                    className: 'btn-secondary'
-                },
-                modify: {
-                    label: translate('Modify'),
-                    className: 'btn-default',
+                cancel: dialogButton('fa-times', i18next.t('Cancel'), 'btn-secondary'),
+                modify: Object.assign(dialogButton('fa-pen', i18next.t('Modify'), 'btn-default'), {
                     callback: function () {
                         if (!selectedTemplate) {
                             return false;
@@ -747,7 +767,7 @@
                         const title = titleInput.value.trim();
                         const description = descriptionInput.value.trim();
                         if (!title || !description) {
-                            reportEditorError(new Error(translate('Explanation field cannot be empty.')));
+                            reportEditorError(new Error(i18next.t('Explanation field cannot be empty.')));
                             return false;
                         }
 
@@ -756,7 +776,7 @@
                             title: title,
                             desc: description
                         }, function (result) {
-                            if (!checkApiSuccess(result, 'Unable to update content template.')) {
+                            if (!checkApiSuccess(result, i18next.t('Unable to update content template.'))) {
                                 return;
                             }
                             selectedTemplate.title = title;
@@ -770,23 +790,27 @@
                         });
                         return false;
                     }
-                },
-                delete: {
-                    label: translate('Delete'),
-                    className: 'btn-danger',
+                }),
+                delete: Object.assign(dialogButton('fa-trash', i18next.t('Delete'), 'btn-danger'), {
                     callback: function () {
                         if (!selectedTemplate) {
                             return false;
                         }
                         const template = selectedTemplate;
                         window.bootbox.confirm({
-                            message: translate("Are you sure to delete this template? This can't be undone."),
+                            title: dialogTitle('fa-trash', i18next.t('Delete'), 'text-danger'),
+                            message: i18next.t("Are you sure to delete this template? This can't be undone."),
+                            className: 'crm-ckeditor-dialog',
+                            buttons: {
+                                cancel: dialogButton('fa-times', i18next.t('Cancel'), 'btn-secondary'),
+                                confirm: dialogButton('fa-trash', i18next.t('Delete'), 'btn-danger')
+                            },
                             callback: function (confirmed) {
                                 if (!confirmed) {
                                     return;
                                 }
                                 apiRequest('ckeditor/deletetemplate', {templateID: template.id}, function (result) {
-                                    if (!checkApiSuccess(result, 'Unable to delete content template.')) {
+                                    if (!checkApiSuccess(result, i18next.t('Unable to delete content template.'))) {
                                         return;
                                     }
                                     window.bootbox.hideAll();
@@ -796,10 +820,8 @@
                         });
                         return false;
                     }
-                },
-                ok: {
-                    label: translate('OK'),
-                    className: 'btn-primary',
+                }),
+                ok: Object.assign(dialogButton('fa-check', i18next.t('OK'), 'btn-primary'), {
                     callback: function () {
                         if (!selectedTemplate) {
                             return false;
@@ -810,7 +832,7 @@
                             desc: selectedTemplate.description
                         };
                     }
-                }
+                })
             }
         });
     }
@@ -819,33 +841,29 @@
         const form = document.createElement('div');
         const titleInput = document.createElement('input');
         titleInput.className = 'form-control mb-2';
-        titleInput.placeholder = translate('Template Name');
+        titleInput.placeholder = i18next.t('Template Name');
         titleInput.value = title || '';
         const descriptionInput = document.createElement('input');
         descriptionInput.className = 'form-control';
-        descriptionInput.placeholder = translate('Template Description');
+        descriptionInput.placeholder = i18next.t('Template Description');
         descriptionInput.value = description || '';
         form.append(titleInput, descriptionInput);
 
         window.bootbox.dialog({
-            title: translate('CKEditor Template Creation'),
+            title: dialogTitle('fa-file-alt', i18next.t('CKEditor Template Creation')),
             message: $(form),
+            className: 'crm-ckeditor-dialog',
             buttons: {
-                cancel: {
-                    label: translate('Cancel'),
-                    className: 'btn-secondary'
-                },
-                save: {
-                    label: translate('Save'),
-                    className: 'btn-primary',
+                cancel: dialogButton('fa-times', i18next.t('Cancel'), 'btn-secondary'),
+                save: Object.assign(dialogButton('fa-save', i18next.t('Save'), 'btn-primary'), {
                     callback: function () {
                         if (!titleInput.value.trim() || !descriptionInput.value.trim()) {
-                            reportEditorError(new Error(translate('Explanation field cannot be empty.')));
+                            reportEditorError(new Error(i18next.t('Explanation field cannot be empty.')));
                             return false;
                         }
                         callback(titleInput.value.trim(), descriptionInput.value.trim());
                     }
-                }
+                })
             }
         });
     }
@@ -860,7 +878,7 @@
             const preset = editor.config.get('crm.preset');
 
             if (preset === 'notes' || preset === 'campaign') {
-                addButton(editor, 'saveTemplate', 'Save templates', CK.IconDocumentWithCheckmark, function () {
+                addButton(editor, 'saveTemplate', i18next.t('Save templates'), CK.IconDocumentWithCheckmark, function () {
                     const previous = CRM.ckedt || {};
                     promptTemplateFields(previous.title, previous.desc, function (title, description) {
                         CRM.ckedt = {title: title, desc: description};
@@ -870,25 +888,30 @@
                             desc: description,
                             text: editor.getData()
                         }, function (result) {
-                            if (!checkApiSuccess(result, 'Unable to save content template.')) {
+                            if (!checkApiSuccess(result, i18next.t('Unable to save content template.'))) {
                                 return;
                             }
                         });
                     });
                 });
 
-                addButton(editor, 'manageTemplates', 'Manage templates', CK.IconDocumentWithLoupe, function () {
+                addButton(editor, 'manageTemplates', i18next.t('Manage templates'), CK.IconDocumentWithLoupe, function () {
                     openTemplateList(editor, 'manage');
                 });
 
-                addButton(editor, 'applyTemplate', 'Apply templates', CK.IconTemplate, function () {
+                addButton(editor, 'applyTemplate', i18next.t('Apply templates'), CK.IconTemplate, function () {
                     openTemplateList(editor, 'apply');
                 });
 
                 if (CRM.bEDrive) {
-                    addButton(editor, 'saveAsWordFile', 'Save As Word File in EDrive', CK.IconExportWord, function () {
+                    addButton(editor, 'saveAsWordFile', i18next.t('Save As Word File in EDrive'), CK.IconExportWord, function () {
                         window.bootbox.prompt({
-                            title: translate('Word file name'),
+                            title: dialogTitle('fa-file-alt', i18next.t('Word file name')),
+                            className: 'crm-ckeditor-dialog',
+                            buttons: {
+                                cancel: dialogButton('fa-times', i18next.t('Cancel'), 'btn-secondary'),
+                                confirm: dialogButton('fa-save', i18next.t('Save'), 'btn-primary')
+                            },
                             callback: function (title) {
                                 if (!title) {
                                     return;
@@ -899,10 +922,17 @@
                                     text: editor.getData()
                                 }, function (result) {
                                     if (!result.success) {
-                                        reportEditorError(new Error(translate('Unable to save file.')));
+                                        reportEditorError(new Error(i18next.t('Unable to save file.')));
                                         return;
                                     }
-                                    window.bootbox.alert(translate('Your note is saved in your EDrive'));
+                                    window.bootbox.alert({
+                                        title: dialogTitle('fa-check-circle', i18next.t('Success'), 'text-success'),
+                                        message: i18next.t('Your note is saved in your EDrive'),
+                                        className: 'crm-ckeditor-dialog',
+                                        buttons: {
+                                            ok: dialogButton('fa-check', i18next.t('OK'), 'btn-success')
+                                        }
+                                    });
                                 });
                             }
                         });
@@ -918,25 +948,30 @@
                             return [tag.label, tag.value];
                         })
                         : [
-                            ['First Name', '*|FNAME|*'],
-                            ['Last Name', '*|LNAME|*'],
-                            ['Email', '*|EMAIL|*'],
-                            ['List: Name', '*|LIST:NAME|*'],
-                            ['List: Company', '*|LIST:COMPANY|*'],
-                            ['List: Description', '*|LIST:DESCRIPTION|*'],
-                            ['List: Unsub', '*|UNSUB|*'],
-                            ['List: VCard', '*|LIST:ADDRESS_VCARD|*'],
-                            ['Date', '*|DATE:' + CRM.sDateFormatLong + '|*'],
-                            ['Language', '*|TRANSLATE:' + CRM.lang + '|*']
+                            [i18next.t('First Name'), '*|FNAME|*'],
+                            [i18next.t('Last Name'), '*|LNAME|*'],
+                            [i18next.t('Email'), '*|EMAIL|*'],
+                            [i18next.t('List: Name'), '*|LIST:NAME|*'],
+                            [i18next.t('List: Company'), '*|LIST:COMPANY|*'],
+                            [i18next.t('List: Description'), '*|LIST:DESCRIPTION|*'],
+                            [i18next.t('List: Unsub'), '*|UNSUB|*'],
+                            [i18next.t('List: VCard'), '*|LIST:ADDRESS_VCARD|*'],
+                            [i18next.t('Date'), '*|DATE:' + CRM.sDateFormatLong + '|*'],
+                            [i18next.t('Language'), '*|TRANSLATE:' + CRM.lang + '|*']
                         ];
 
                     if (!Array.isArray(configuredTags) && CRM.bWithAddressPhone) {
-                        tags.splice(3, 0, ['Address', '*|ADDRESS|*'], ['Phone', '*|PHONE|*']);
+                        tags.splice(3, 0, [i18next.t('Address'), '*|ADDRESS|*'], [i18next.t('Phone'), '*|PHONE|*']);
                     }
 
                     const dropdown = CK.createDropdown(locale);
+                    dropdown.buttonView.extendTemplate({
+                        attributes: {
+                            'data-crm-editor-button': 'mergeTags'
+                        }
+                    });
                     dropdown.buttonView.set({
-                        label: translate('Merge Tags'),
+                        label: i18next.t('Merge Tags'),
                         tooltip: true,
                         icon: CK.IconInsertMergeField,
                         withText: false
@@ -945,7 +980,7 @@
                     const items = new CK.Collection();
                     const valuesByLabel = new Map();
                     tags.forEach(function (tag) {
-                        const label = translate(tag[0]);
+                        const label = i18next.t(tag[0]);
                         valuesByLabel.set(label, tag[1]);
                         items.add({
                             type: 'button',
@@ -957,7 +992,7 @@
                     });
 
                     CK.addListToDropdown(dropdown, items, {
-                        ariaLabel: translate('Merge Tags'),
+                        ariaLabel: i18next.t('Merge Tags'),
                         role: 'menu'
                     });
                     dropdown.on('execute', function (event) {
@@ -972,9 +1007,14 @@
                     return dropdown;
                 });
 
-                addButton(editor, 'insertMath', 'Add Math Formula', CK.IconCode, function () {
+                addButton(editor, 'insertMath', i18next.t('Add Math Formula'), CK.IconCode, function () {
                     window.bootbox.prompt({
-                        title: translate('Add Math Formula'),
+                        title: dialogTitle('fa-calculator', i18next.t('Add Math Formula')),
+                        className: 'crm-ckeditor-dialog',
+                        buttons: {
+                            cancel: dialogButton('fa-times', i18next.t('Cancel'), 'btn-secondary'),
+                            confirm: dialogButton('fa-check', i18next.t('OK'), 'btn-primary')
+                        },
                         callback: function (formula) {
                             if (!formula) {
                                 return;
@@ -995,15 +1035,15 @@
                 });
             }
 
-            addButton(editor, 'preview', 'Preview', CK.IconEye, function () {
+            addButton(editor, 'preview', i18next.t('Preview'), CK.IconEye, function () {
                 previewEditor(editor, false);
             });
-            addButton(editor, 'print', 'Print', CK.IconPrint, function () {
+            addButton(editor, 'print', i18next.t('Print'), CK.IconPrint, function () {
                 previewEditor(editor, true);
             });
 
             if (CRM.bEDrive) {
-                addButton(editor, 'browseImage', 'Browse EDrive', CK.IconBrowseFiles, function () {
+                addButton(editor, 'browseImage', i18next.t('Browse EDrive'), CK.IconBrowseFiles, function () {
                     const fileType = (editor.config.get('crm.uploadType') || 'publicImages')
                         .replace('Documents', 'Images');
                     const popup = window.open(
@@ -1012,7 +1052,7 @@
                         'width=1000,height=700,resizable=yes,scrollbars=yes'
                     );
                     if (!popup) {
-                        reportEditorError(new Error(translate('Please allow pop-up windows for this site.')));
+                        reportEditorError(new Error(i18next.t('Please allow pop-up windows for this site.')));
                         return;
                     }
 
@@ -1029,11 +1069,11 @@
                         try {
                             fileUrl = new URL(event.data.url, window.location.origin);
                         } catch (error) {
-                            reportEditorError(new Error(translate('Please select a valid image file.')));
+                            reportEditorError(new Error(i18next.t('Please select a valid image file.')));
                             return;
                         }
                         if (fileUrl.protocol !== 'http:' && fileUrl.protocol !== 'https:') {
-                            reportEditorError(new Error(translate('Please select a valid image file.')));
+                            reportEditorError(new Error(i18next.t('Please select a valid image file.')));
                             return;
                         }
                         const selectedFileName = typeof event.data.fileName === 'string'
@@ -1049,7 +1089,7 @@
                         } else {
                             const link = document.createElement('a');
                             link.href = fileUrl.href;
-                            link.textContent = fileName || translate('Download file');
+                            link.textContent = fileName || i18next.t('Download file');
                             insertHtml(editor, link.outerHTML);
                         }
                     }
@@ -1064,9 +1104,14 @@
                 });
             }
 
-            addButton(editor, 'insertImageUrl', 'Insert image URL', CK.IconImageUrl, function () {
+            addButton(editor, 'insertImageUrl', i18next.t('Insert image URL'), CK.IconImageUrl, function () {
                 window.bootbox.prompt({
-                    title: translate('Image URL'),
+                    title: dialogTitle('fa-image', i18next.t('Image URL')),
+                    className: 'crm-ckeditor-dialog',
+                    buttons: {
+                        cancel: dialogButton('fa-times', i18next.t('Cancel'), 'btn-secondary'),
+                        confirm: dialogButton('fa-check', i18next.t('Insert'), 'btn-primary')
+                    },
                     callback: function (source) {
                         if (!source) {
                             return;
@@ -1075,11 +1120,11 @@
                         try {
                             sourceUrl = new URL(source, window.location.origin);
                         } catch (error) {
-                            reportEditorError(new Error(translate('Please enter a valid image URL.')));
+                            reportEditorError(new Error(i18next.t('Please enter a valid image URL.')));
                             return;
                         }
                         if (sourceUrl.protocol !== 'http:' && sourceUrl.protocol !== 'https:') {
-                            reportEditorError(new Error(translate('Please enter a valid image URL.')));
+                            reportEditorError(new Error(i18next.t('Please enter a valid image URL.')));
                             return;
                         }
                         const image = document.createElement('img');
@@ -1090,14 +1135,14 @@
                 });
             });
 
-            addButton(editor, 'insertVideo', 'Insert video', CK.IconMedia, function () {
+            addButton(editor, 'insertVideo', i18next.t('Insert video'), CK.IconMedia, function () {
                 const form = document.createElement('div');
                 const fields = {};
                 const textField = function (key, label, type) {
                     const wrapper = document.createElement('div');
                     wrapper.className = 'form-group';
                     const labelElement = document.createElement('label');
-                    labelElement.textContent = translate(label);
+                    labelElement.textContent = label;
                     const input = document.createElement('input');
                     input.className = 'form-control';
                     input.type = type || 'text';
@@ -1114,56 +1159,53 @@
                     input.checked = checked;
                     const labelElement = document.createElement('label');
                     labelElement.className = 'form-check-label';
-                    labelElement.textContent = translate(label);
+                    labelElement.textContent = label;
                     wrapper.append(input, labelElement);
                     form.appendChild(wrapper);
                     fields[key] = input;
                 };
 
-                textField('source', 'Video URL', 'url');
-                textField('poster', 'Poster URL', 'url');
-                textField('width', 'Width');
-                textField('height', 'Height');
-                textField('title', 'Title');
-                checkboxField('controls', 'Show controls', true);
-                checkboxField('responsive', 'Responsive video', true);
-                checkboxField('autoplay', 'Autoplay', false);
-                checkboxField('loop', 'Loop', false);
-                checkboxField('allowDownload', 'Allow download', true);
+                textField('source', i18next.t('Video URL'), 'url');
+                textField('poster', i18next.t('Poster URL'), 'url');
+                textField('width', i18next.t('Width'));
+                textField('height', i18next.t('Height'));
+                textField('title', i18next.t('Title'));
+                checkboxField('controls', i18next.t('Show controls'), true);
+                checkboxField('responsive', i18next.t('Responsive video'), true);
+                checkboxField('autoplay', i18next.t('Autoplay'), false);
+                checkboxField('loop', i18next.t('Loop'), false);
+                checkboxField('allowDownload', i18next.t('Allow download'), true);
 
                 const alignment = document.createElement('select');
                 alignment.className = 'form-control mt-2';
-                [['none', 'None'], ['left', 'Left'], ['center', 'Center'], ['right', 'Right']]
+                [['none', i18next.t('None')], ['left', i18next.t('Left')],
+                    ['center', i18next.t('Center')], ['right', i18next.t('Right')]]
                     .forEach(function (option) {
                         const item = document.createElement('option');
                         item.value = option[0];
-                        item.textContent = translate(option[1]);
+                        item.textContent = option[1];
                         alignment.appendChild(item);
                     });
                 form.appendChild(alignment);
 
                 window.bootbox.dialog({
-                    title: translate('Insert video'),
+                    title: dialogTitle('fa-video', i18next.t('Insert video')),
                     message: $(form),
+                    className: 'crm-ckeditor-dialog',
                     buttons: {
-                        cancel: {
-                            label: translate('Cancel'),
-                            className: 'btn-secondary'
-                        },
-                        insert: {
-                            label: translate('Insert'),
-                            className: 'btn-primary',
+                        cancel: dialogButton('fa-times', i18next.t('Cancel'), 'btn-secondary'),
+                        insert: Object.assign(dialogButton('fa-video', i18next.t('Insert'), 'btn-primary'), {
                             callback: function () {
                                 let sourceUrl;
                                 try {
                                     sourceUrl = new URL(fields.source.value, window.location.origin);
                                 } catch (error) {
-                                    reportEditorError(new Error(translate('Please enter a valid video URL.')));
+                                    reportEditorError(new Error(i18next.t('Please enter a valid video URL.')));
                                     return false;
                                 }
                                 if (!fields.source.value ||
                                     (sourceUrl.protocol !== 'http:' && sourceUrl.protocol !== 'https:')) {
-                                    reportEditorError(new Error(translate('Please enter a valid video URL.')));
+                                    reportEditorError(new Error(i18next.t('Please enter a valid video URL.')));
                                     return false;
                                 }
 
@@ -1198,18 +1240,18 @@
                                     try {
                                         posterUrl = new URL(fields.poster.value, window.location.origin);
                                     } catch (error) {
-                                        reportEditorError(new Error(translate('Please enter a valid image URL.')));
+                                        reportEditorError(new Error(i18next.t('Please enter a valid image URL.')));
                                         return false;
                                     }
                                     if (posterUrl.protocol !== 'http:' && posterUrl.protocol !== 'https:') {
-                                        reportEditorError(new Error(translate('Please enter a valid image URL.')));
+                                        reportEditorError(new Error(i18next.t('Please enter a valid image URL.')));
                                         return false;
                                     }
                                     video.poster = posterUrl.href;
                                 }
                                 if ((fields.width.value && !/^[1-9]\d*$/.test(fields.width.value)) ||
                                     (fields.height.value && !/^[1-9]\d*$/.test(fields.height.value))) {
-                                    reportEditorError(new Error(translate('Please enter valid video dimensions.')));
+                                    reportEditorError(new Error(i18next.t('Please enter valid video dimensions.')));
                                     return false;
                                 }
                                 if (/^\d+$/.test(fields.width.value)) {
@@ -1228,7 +1270,7 @@
                                 wrapper.appendChild(video);
                                 insertHtml(editor, wrapper.outerHTML);
                             }
-                        }
+                        })
                     }
                 });
             });

@@ -62,6 +62,35 @@ body.dark-mode .ck.ck-button:not(.ck-disabled):focus {
     color: #f8f9fa;
 }
 
+$crm-ckeditor-icon-colors: (
+    saveTemplate: #198754,
+    manageTemplates: #0d6efd,
+    applyTemplate: #6f42c1,
+    saveAsWordFile: #2b579a,
+    mergeTags: #0d9488,
+    insertMath: #6f42c1,
+    preview: #0d6efd,
+    print: #fd7e14,
+    browseImage: #17a2b8,
+    insertImageUrl: #20a879,
+    insertVideo: #dc3545
+);
+
+@each $button, $color in $crm-ckeditor-icon-colors {
+    .ck.ck-button[data-crm-editor-button="#{$button}"] {
+        color: $color;
+
+        .ck-icon {
+            color: $color;
+        }
+
+        &:not(.ck-disabled):hover,
+        &:not(.ck-disabled):focus {
+            color: $color;
+        }
+    }
+}
+
 .ck.ck-editor.crm-checkin-notes-editor {
     .ck-toolbar,
     .ck-editor__main > .ck-editor__editable,
