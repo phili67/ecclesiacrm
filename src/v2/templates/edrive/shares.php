@@ -68,10 +68,12 @@ $pageTitle = $direction === 'received' ? _('Shared with me') : _('Shared with ot
                 {
                     data: 'name',
                     render: function (data, type, row) {
-                        const disabled = row.canPreview ? '' : ' disabled';
-                        return type === 'display'
-                            ? `<button type="button" class="btn btn-link p-0 preview-shared-document"${disabled}>${escapeHtml(data)}</button>`
-                            : data;
+                        if (type !== 'display') {
+                            return data;
+                        }
+                        return row.canNavigate && row.openUrl
+                            ? `<a class="shared-document-location-link" href="${escapeHtml(row.openUrl)}">${escapeHtml(data)}</a>`
+                            : escapeHtml(data);
                     }
                 },
                 {

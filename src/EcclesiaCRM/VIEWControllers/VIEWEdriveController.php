@@ -18,6 +18,8 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Service\CollaboraService;
+use EcclesiaCRM\Service\SharedDocumentService;
+use EcclesiaCRM\Utils\DocumentSecurityUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 
 use Slim\Views\PhpRenderer;
@@ -54,6 +56,53 @@ class VIEWEdriveController {
     public function renderSharedWithOthers (ServerRequest $request, Response $response, array $args): Response
     {
         return $this->renderShares($response, 'sent');
+    }
+
+    public function openSharedLocation (ServerRequest $request, Response $response, array $args): Response
+    {
+        $user = SessionUser::getUser();
+        if (!$user->isEDriveEnabled()) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        $sharedDocument = (new SharedDocumentService())->resolve((int)$args['shareId'], SessionUser::getId());
+        if (is_null($sharedDocument) || is_null($sharedDocument['navigationRelativePath'])) {
+            return $response->withStatus(404);
+        }
+
+        $relativePath = $sharedDocument['navigationRelativePath'];
+        $targetName = basename($relativePath);
+        $targetRelativePath = dirname($relativePath);
+        if ($targetRelativePath === '.') {
+            $targetRelativePath = '';
+        }
+
+        $currentPath = DocumentSecurityUtils::normalizeDirectoryPath($targetRelativePath);
+        if (is_null($currentPath)) {
+            return $response->withStatus(404);
+        }
+
+        $targetDirectory = rtrim(SystemURLs::getDocumentRoot(), '/')
+            . '/' . trim($user->getUserDir(), '/')
+            . '/' . trim($currentPath, '/');
+        $documentRoot = realpath(SystemURLs::getDocumentRoot());
+        $realTargetDirectory = realpath($targetDirectory);
+        if ($documentRoot === false || $realTargetDirectory === false
+            || !is_dir($realTargetDirectory)
+            || ($realTargetDirectory !== $documentRoot
+                && strpos($realTargetDirectory, $documentRoot . DIRECTORY_SEPARATOR) !== 0)) {
+            return $response->withStatus(404);
+        }
+
+        $user->setCurrentpath($currentPath);
+        $user->save();
+        $_SESSION['user'] = $user;
+
+        return $response->withStatus(302)
+            ->withHeader(
+                'Location',
+                SystemURLs::getRootPath() . '/v2/edrive/dashboard?select=' . rawurlencode($targetName)
+            );
     }
 
     private function renderShares (Response $response, string $direction): Response
@@ -119,6 +168,11 @@ class VIEWEdriveController {
                 && $collabora->isEditable($name);
             $canDownload = $readable && !$isDirectory
                 && ($direction === 'sent' || $status === 2);
+            $navigationPath = str_replace('\\', '/', (string)$relativePath);
+            $userDirectory = rtrim($user->getUserDir(), '/') . '/';
+            $canNavigate = $available
+                && ($direction === 'sent' || $status === 2)
+                && strpos($navigationPath, $userDirectory) === 0;
 
             $shareRows[] = [
                 'shareId' => (int)$share['shareId'],
@@ -131,6 +185,10 @@ class VIEWEdriveController {
                 'accessLevel' => $access,
                 'access' => $access === 2 ? _('Read only') : ($access === 3 ? _('Read and write') : _('Unknown')),
                 'canPreview' => $available && ($direction === 'sent' || $status === 2),
+                'canNavigate' => $canNavigate,
+                'openUrl' => $canNavigate
+                    ? SystemURLs::getRootPath() . '/v2/edrive/open-shared/' . (int)$share['shareId']
+                    : null,
                 'canEdit' => $canEdit,
                 'canDownload' => $canDownload,
                 'downloadUrl' => $canDownload

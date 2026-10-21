@@ -74,12 +74,23 @@ class SharedDocumentService
             return null;
         }
 
+        $currentUser = $isOwner ? $owner : UserQuery::create()->findOneByPersonId($personId);
+        $currentUserPath = $isOwner ? $ownerPath : str_replace('\\', '/', (string)$share->getGuestpath());
+        $currentUserBasePath = is_null($currentUser)
+            ? ''
+            : rtrim($currentUser->getUserDir(), '/') . '/';
+        $navigationRelativePath = $currentUserBasePath !== ''
+            && strpos($currentUserPath, $currentUserBasePath) === 0
+            ? DocumentSecurityUtils::normalizeRelativePath(substr($currentUserPath, strlen($currentUserBasePath)))
+            : null;
+
         return [
             'share' => $share,
             'owner' => $owner,
             'ownerId' => $ownerId,
             'ownerPath' => $ownerPath,
             'relativePath' => substr($ownerPath, strlen($ownerBasePath)),
+            'navigationRelativePath' => $navigationRelativePath,
             'path' => $realPath,
             'name' => basename($ownerPath),
             'isDirectory' => is_dir($realPath),

@@ -155,7 +155,7 @@ $(function () {
                 data: 'icon',
                 render: function (data, type, full, meta) {
                     let locked_icon = '';
-                    if (full.locked) {
+                    if (full.locked && full.link) {
                         locked_icon = ' <i class="fa-solid fa-lock"></i>';
                     }
                     if (!full.dir) {
@@ -252,6 +252,30 @@ $(function () {
         "initComplete": function (settings, json) {            
             if (window.CRM.isPublicFolder) {
                 $(".flex-wrap").removeClass('shift-flex-wrapper-right');
+            }
+
+            const currentUrl = new URL(window.location.href);
+            const itemToSelect = currentUrl.searchParams.get('select');
+            if (itemToSelect) {
+                const table = this.api();
+                const normalizeName = (name) => String(name || '').replace(/^\/+/, '');
+                const targetIndex = table.rows().indexes().toArray().find(function (index) {
+                    return normalizeName(table.row(index).data().name) === normalizeName(itemToSelect);
+                });
+
+                if (targetIndex !== undefined) {
+                    const targetRow = table.row(targetIndex);
+                    targetRow.select();
+                    const targetNode = targetRow.node();
+                    targetNode.classList.add('edrive-location-highlight');
+                    targetNode.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    window.setTimeout(function () {
+                        targetNode.classList.remove('edrive-location-highlight');
+                    }, 3000);
+                }
+
+                currentUrl.searchParams.delete('select');
+                window.history.replaceState({}, document.title, currentUrl.toString());
             }
         }
     };
@@ -1549,6 +1573,11 @@ $(function () {
                 color: #212529 !important;
                 filter: none !important;
                 opacity: 1 !important;
+            }
+            .edriveRow.edrive-location-highlight,
+            .edriveRow.edrive-location-highlight.selected {
+                outline: 3px solid #ffc107;
+                outline-offset: -3px;
             }
         `;
         document.head.appendChild(style);
