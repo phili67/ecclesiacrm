@@ -17,6 +17,11 @@ $app->group('/collabora', function (RouteCollectorProxy $group) {
      */
     $group->post('/edit', DocumentCollaboraController::class . ':edit' );
     /*
+     * @! get the Collabora editor URL for a file shared with the current person
+     * #! param: ref->int :: shareId
+     */
+    $group->post('/editShared', DocumentCollaboraController::class . ':editShared' );
+    /*
      * @! create an empty document (docx, xlsx, pptx, odg) in the current folder
      * #! param: ref->int :: personID
      * #! param: ref->string :: name

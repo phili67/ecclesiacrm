@@ -458,66 +458,7 @@ $(function () {
 
     // win : window already opened in the click event (for a new document), otherwise it is opened here
     function openCollaboraEditor(name, win) {
-        win = win || openCollaboraWindow();
-
-        if (!win) {
-            return;
-        }
-
-        win.document.write('<p style="font-family:sans-serif">' + i18next.t('Loading') + '...</p>');
-        win.focus();
-
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'collabora/edit',
-            data: JSON.stringify({ "personID": window.CRM.currentPersonID, "name": name })
-        }, function (data) {
-            if (!data || !data.success) {
-                win.close();
-                return;
-            }
-
-            const esc = (value) => $('<div>').text(value).html().replace(/"/g, '&quot;');
-
-            const collaboraOrigin = new URL(data.url).origin;
-
-            win.document.open();
-            win.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${esc(data.title)}</title>
-<style>html,body{margin:0;height:100%;overflow:hidden}iframe{width:100%;height:100%;border:0}</style></head>
-<body><form id="collabora-form" method="post" target="collabora-frame" action="${esc(data.url)}">
-<input type="hidden" name="access_token" value="${esc(data.access_token)}">
-<input type="hidden" name="access_token_ttl" value="${esc(String(data.access_token_ttl))}">
-</form><iframe name="collabora-frame" allow="clipboard-read ${esc(collaboraOrigin)}; clipboard-write ${esc(collaboraOrigin)}; fullscreen ${esc(collaboraOrigin)}"></iframe></body></html>`);
-            win.document.close();
-            win.document.getElementById('collabora-form').submit();
-            win.focus();
-
-            // PostMessage API : the host tells Collabora that it is ready to receive the messages, and closes the window with the editor
-            // (the listener is added after document.close(), because document.open() removes the previous ones)
-            win.addEventListener('message', function (event) {
-                if (event.origin !== collaboraOrigin) {
-                    return;
-                }
-
-                let message = event.data;
-                if (typeof message === 'string') {
-                    try {
-                        message = JSON.parse(message);
-                    } catch (e) {
-                        return;
-                    }
-                }
-
-                if (message.MessageId === 'App_LoadingStatus' && message.Values && message.Values.Status === 'Frame_Ready') {
-                    win.frames['collabora-frame'].postMessage(JSON.stringify({ MessageId: 'Host_PostmessageReady', SendTime: Date.now() }), collaboraOrigin);
-                } else if (message.MessageId === 'UI_Close') {
-                    win.close();
-                }
-            });
-        }, function (error) {
-            win.close();
-            bootbox.alert(i18next.t(error.message));
-        });
+        window.CRM.openEDriveCollaboraEditor(name, null, win);
     }
 
     // versions of a document : list, download, restore and delete

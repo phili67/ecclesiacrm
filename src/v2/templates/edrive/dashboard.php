@@ -223,6 +223,7 @@ require $sRootDocument . '/Include/Header.php';
     src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
 <!-- !Drag and Drop -->
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/edrive/CollaboraEditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

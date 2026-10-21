@@ -32,6 +32,16 @@ $app->group('/filemanager', function (RouteCollectorProxy $group) {
      */
     $group->post('/getPreview', DocumentFileManagerController::class . ':getPreview' );
     /*
+     * @! preview a file or folder shared with the current person
+     * #! param: ref->int :: shareId
+     */
+    $group->post('/getSharedPreview', DocumentFileManagerController::class . ':getSharedPreview' );
+    /*
+     * @! retrieve a shared file for an authenticated inline preview
+     * #! param: ref->int :: shareId
+     */
+    $group->get('/getSharedFile/{shareId:[0-9]+}[/{name:.*}]', DocumentFileManagerController::class . ':getSharedFile' );
+    /*
      * @! change to folder name for personID
      * #! param: ref->int :: personID
      * #! param: ref->string :: folder

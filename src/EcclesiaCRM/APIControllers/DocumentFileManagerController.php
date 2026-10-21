@@ -15,12 +15,14 @@ use EcclesiaCRM\dto\ImageTreatment;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Service\CollaboraService;
+use EcclesiaCRM\Service\SharedDocumentService;
 use EcclesiaCRM\Utils\DocumentSecurityUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\WebDav\Utils\SabreUtils;
 use Slim\Exception\HttpNotFoundException;
+use Slim\Psr7\Stream;
 
 class DocumentFileManagerController
 {
@@ -419,6 +421,92 @@ class DocumentFileManagerController
         }
 
         return $response->withStatus(404);
+    }
+
+    public function getSharedPreview(ServerRequest $request, Response $response, array $args): Response
+    {
+        $params = (object)$request->getParsedBody();
+        if (!SessionUser::getUser()->isEDriveEnabled() || !isset($params->shareId)) {
+            return $response->withJson(['success' => false], 403);
+        }
+
+        $sharedDocument = (new SharedDocumentService())->resolve((int)$params->shareId, SessionUser::getId());
+        if (is_null($sharedDocument) || !is_readable($sharedDocument['path'])) {
+            return $response->withJson(['success' => false], 404);
+        }
+
+        $shareUrl = SystemURLs::getRootPath() . '/api/filemanager/getSharedFile/'
+            . (int)$params->shareId . '/' . rawurlencode($sharedDocument['name']);
+        $icon = $sharedDocument['isDirectory']
+            ? SystemURLs::getRootPath() . '/Images/Icons/FOLDER.png'
+            : MiscUtils::FileIcon($sharedDocument['name']);
+
+        if ($sharedDocument['isDirectory']) {
+            $escapedName = htmlspecialchars($sharedDocument['name'], ENT_QUOTES, 'UTF-8');
+            $preview = '<div class="text-center p-4"><img src="' . htmlspecialchars($icon, ENT_QUOTES, 'UTF-8')
+                . '" width="64" alt=""><div class="font-weight-bold mt-3">' . $escapedName
+                . '</div><div class="text-muted">' . _('Shared folder') . '</div></div>';
+        } else {
+            $preview = MiscUtils::simpleEmbedFiles($shareUrl, $sharedDocument['ownerPath'], '200px', $shareUrl)['content'];
+        }
+
+        return $response->withJson([
+            'success' => true,
+            'name' => $sharedDocument['name'],
+            'icon' => $icon,
+            'downloadUrl' => $shareUrl . '?download=1',
+            'isDirectory' => $sharedDocument['isDirectory'],
+            'path' => $preview
+        ]);
+    }
+
+    public function getSharedFile(ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!SessionUser::getUser()->isEDriveEnabled()) {
+            return $response->withStatus(403);
+        }
+
+        $sharedDocument = (new SharedDocumentService())->resolve((int)$args['shareId'], SessionUser::getId());
+        if (is_null($sharedDocument) || !is_file($sharedDocument['path']) || !is_readable($sharedDocument['path'])) {
+            return $response->withStatus(404);
+        }
+
+        $file = fopen($sharedDocument['path'], 'rb');
+        if ($file === false) {
+            return $response->withStatus(404);
+        }
+
+        $contentType = mime_content_type($sharedDocument['path']);
+        if ($contentType === false) {
+            $contentType = 'application/octet-stream';
+        }
+        $inlineContentTypes = [
+            'application/pdf',
+            'audio/mp4',
+            'audio/mpeg',
+            'audio/ogg',
+            'audio/x-m4a',
+            'audio/wav',
+            'audio/x-wav',
+            'image/gif',
+            'image/jpeg',
+            'image/png',
+            'video/mp4',
+            'video/ogg',
+            'video/quicktime'
+        ];
+        $forceDownload = filter_var($request->getQueryParams()['download'] ?? false, FILTER_VALIDATE_BOOLEAN);
+        $contentDisposition = !$forceDownload && in_array($contentType, $inlineContentTypes, true)
+            ? 'inline'
+            : 'attachment';
+
+        return $response
+            ->withHeader('Content-Type', $contentType)
+            ->withHeader('Content-Length', (string)filesize($sharedDocument['path']))
+            ->withHeader('Content-Disposition', $contentDisposition . "; filename*=UTF-8''" . rawurlencode($sharedDocument['name']))
+            ->withHeader('X-Content-Type-Options', 'nosniff')
+            ->withHeader('Cache-Control', 'private, no-store')
+            ->withBody(new Stream($file));
     }
 
     public function changeFolder(ServerRequest $request, Response $response, array $args): Response

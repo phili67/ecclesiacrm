@@ -70,6 +70,7 @@ $jwtIgnoreRoutes = [
     SystemURLs::getRootPath()."/api/volunteeropportunity/addressbook/extract/",
     SystemURLs::getRootPath()."/api/cart/addressbook/extract",
     SystemURLs::getRootPath()."/api/filemanager/getPreview",
+    SystemURLs::getRootPath()."/api/filemanager/getSharedFile/",
     SystemURLs::getRootPath()."/api/deposits"
 ];
 
