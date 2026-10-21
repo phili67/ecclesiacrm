@@ -189,34 +189,8 @@ $(function() {
     });
 
     $(".sDarkMode").on('change',function () {
-        var color = $('.sStyleSideBarColor').val();
-        var mode = $(this).val() == "dark" ? 'dark' : 'light';
-        var sidebar = $('.main-sidebar');
-        var sidebar_class = 'sidebar-' + mode + '-' + color;
-        sidebar_skins.map(function (skin) {
-            sidebar.removeClass(skin)
-        })
-
-        sidebar.addClass(sidebar_class)
-
-        if (mode == "dark") {
-            $('.sidebar-mini').addClass('dark-mode');
-            $('.table-dropdown-menu').addClass('dark-mode');
-
-        } else if (mode == "light") {
-            $('.sidebar-mini').removeClass('dark-mode');
-            $('.table-dropdown-menu').removeClass('dark-mode');
-        } else {
-            let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            if(matched) {
-                $('.sidebar-mini').addClass('dark-mode');
-                $('.table-dropdown-menu').addClass('dark-mode');
-            } else {
-                $('.sidebar-mini').removeClass('dark-mode');
-                $('.table-dropdown-menu').removeClass('dark-mode');
-            }
-        }
+        window.CRM.sLightDarkMode = $(this).val();
+        window.CRM.darkMode(window.CRM.sLightDarkMode);
     });
 
     $(".sStyleNavBarColor").on('change',function () {

@@ -147,28 +147,24 @@ $(function() {
         });
     });
 
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        var mode = 'dark';
-        if (e.matches) {
-            mode = 'dark';
-        } else {
-            mode = 'light';
-        }
+    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const applySystemTheme = function (persist = false) {
+        const mode = colorScheme.matches ? 'dark' : 'light';
+        const modeChanged = window.CRM.bDarkMode !== colorScheme.matches;
+        window.CRM.darkMode(mode, persist || modeChanged);
+    };
 
-        window.CRM.darkMode(mode, true);                    
-    });
-
-    // for the profile menu
-    let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;   
-    var mode = 'dark';     
-    
-    if(matched) {// we're on dark mode  
-        mode = 'dark';     
-    } else {
-        mode = 'light';     
+    if (colorScheme.addEventListener) {
+        colorScheme.addEventListener('change', function () {
+            applySystemTheme(true);
+        });
+    } else if (colorScheme.addListener) {
+        colorScheme.addListener(function () {
+            applySystemTheme(true);
+        });
     }
-    
-    window.CRM.darkMode(mode, true);
+
+    applySystemTheme();
     
     /*
       * Hacky fix for a bug in select2 with jQuery 3.6.0's new nested-focus "protection"

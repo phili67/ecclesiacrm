@@ -2176,13 +2176,14 @@ var sidebar_skins = [
 ];
 
 window.CRM.darkMode = function (mode, save = false) {
-  let classes = $('.main-sidebar').attr('class').split(/\s+/);
-  const resultat = classes.find(classe => classe.startsWith("sidebar-"));
-  color = resultat.split('sidebar-dark-')[1];
-
-  if (color === undefined) {
-    color = resultat.split('sidebar-light-')[1];
+  if (mode === 'automatic') {
+    mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
+
+  const sidebar = $('.main-sidebar');
+  const sidebarClasses = (sidebar.attr('class') || '').split(/\s+/);
+  const currentSidebarSkin = sidebarClasses.find(classe => /^sidebar-(dark|light)-/.test(classe));
+  const color = currentSidebarSkin ? currentSidebarSkin.replace(/^sidebar-(dark|light)-/, '') : null;
 
   if(mode == 'dark') {// we're on dark mode            
       $('.control-sidebar').removeClass('control-sidebar-light');
@@ -2198,8 +2199,11 @@ window.CRM.darkMode = function (mode, save = false) {
       $('.main-header').addClass('navbar-dark');
       $('.brand-link').removeClass('navbar-light');
       $('.brand-link').addClass('navbar-dark');
-      
+
       window.CRM.bDarkMode = true;
+      document.querySelectorAll('.ck.ck-editor').forEach(function (editor) {
+        editor.classList.add('crm-dark-editor');
+      });
   } else {// we're in light mode
       $('.control-sidebar').removeClass('control-sidebar-dark');
       $('.control-sidebar').addClass('control-sidebar-light');
@@ -2217,17 +2221,21 @@ window.CRM.darkMode = function (mode, save = false) {
       
             
       window.CRM.bDarkMode = false;
+      document.querySelectorAll('.ck.ck-editor').forEach(function (editor) {
+        editor.classList.remove('crm-dark-editor');
+      });
   }
 
-  let sidebar = $('.main-sidebar');
-  let sidebar_class = 'sidebar-' + mode + '-' + color;
-  sidebar_skins.map(function (skin) {
+  if (color) {
+    const sidebarClass = 'sidebar-' + mode + '-' + color;
+    sidebar_skins.forEach(function (skin) {
       sidebar.removeClass(skin);
-  })
-
-  sidebar.addClass(sidebar_class);
+    });
+    sidebar.addClass(sidebarClass);
+  }
 
   if (save) {
+    window.CRM.sLightDarkMode = mode;
     window.CRM.APIRequest({
       method: 'POST',
       path: 'users/setDarkMode',
