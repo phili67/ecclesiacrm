@@ -43,8 +43,8 @@
         const translationKey = window.CKEDITOR_TRANSLATIONS &&
             (window.CKEDITOR_TRANSLATIONS[normalizedLocale] || window.CKEDITOR_TRANSLATIONS[language]);
 
-        if (translationKey) {
-            return Promise.resolve([translationKey]);
+        if (translationKey && Object.keys(translationKey.dictionary || {}).length > 0) {
+            return Promise.resolve();
         }
 
         const script = document.createElement('script');
@@ -53,11 +53,11 @@
             script.onload = function () {
                 const translations = window.CKEDITOR_TRANSLATIONS &&
                     window.CKEDITOR_TRANSLATIONS[language];
-                if (!translations) {
+                if (!translations || Object.keys(translations.dictionary || {}).length === 0) {
                     reject(new Error('CKEditor 5 translation was not registered: ' + language));
                     return;
                 }
-                resolve([translations]);
+                resolve();
             };
             script.onerror = function () {
                 reject(new Error('Unable to load CKEditor 5 translation: ' + language));
@@ -65,6 +65,39 @@
         });
         document.head.appendChild(script);
         return loaded;
+    }
+
+    function isDarkModeEnabled() {
+        if (CRM.sLightDarkMode === 'automatic') {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        return Boolean(CRM.bDarkMode);
+    }
+
+    function syncEditorTheme() {
+        const darkMode = isDarkModeEnabled();
+        editorInstances.forEach(function (editor) {
+            if (editor.state !== 'destroyed') {
+                editor.ui.view.element.classList.toggle('crm-dark-editor', darkMode);
+            }
+        });
+    }
+
+    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (colorScheme.addEventListener) {
+        colorScheme.addEventListener('change', function () {
+            if (CRM.sLightDarkMode === 'automatic') {
+                CRM.bDarkMode = colorScheme.matches;
+                syncEditorTheme();
+            }
+        });
+    } else if (colorScheme.addListener) {
+        colorScheme.addListener(function () {
+            if (CRM.sLightDarkMode === 'automatic') {
+                CRM.bDarkMode = colorScheme.matches;
+                syncEditorTheme();
+            }
+        });
     }
 
     function loadStyles() {
@@ -1243,7 +1276,7 @@
                 loadStyles();
                 return readTranslation(locale);
             })
-            .then(function (translations) {
+            .then(function () {
                 const plugins = [
                     CK.Essentials, CK.Paragraph, CK.Autoformat, CK.Heading, CK.Bold, CK.Italic,
                     CK.Underline, CK.Strikethrough, CK.Subscript, CK.Superscript,
@@ -1271,7 +1304,6 @@
                         shouldNotGroupWhenFull: true
                     },
                     language: {ui: language, content: language},
-                    translations: translations,
                     crm: {
                         preset: preset,
                         uploadType: uploadType,
@@ -1343,10 +1375,8 @@
                 return instance.then(function (editor) {
                     const editingArea = editor.ui.view.editable.element;
                     editingArea.style.minHeight = preset === 'minimal' || preset === 'event' ? '250px' : '400px';
-                    if (CRM.bDarkMode) {
-                        editor.ui.view.element.classList.add('crm-dark-editor');
-                    }
                     editorInstances.set(id, editor);
+                    editor.ui.view.element.classList.toggle('crm-dark-editor', isDarkModeEnabled());
                     editorIds.set(editor, id);
                     return editor;
                 });
