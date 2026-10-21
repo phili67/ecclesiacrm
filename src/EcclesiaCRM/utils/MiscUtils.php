@@ -875,10 +875,11 @@ class MiscUtils
         }
     }
 
-    public static function simpleEmbedFiles($path, $realPath = NULL, $height = '200px')
+    public static function simpleEmbedFiles($path, $realPath = NULL, $height = '200px', $previewUrl = NULL)
     {        
         $filename = basename($path);
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $previewUrl = $previewUrl ?? $realPath;
 
         $name = ($extension == "") ? (_("Folder") . " : " . $filename) : (_("File") . " : <a href=\"" . $path . "\">\"" . $filename . "\"</a><br>");
 
@@ -948,7 +949,7 @@ class MiscUtils
                     $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
                     $res .= "</object>";                    
                 } else {
-                    $res .= '<img src="'. $realPath .'/Images/Icons/DOC.png" width="100">';
+                    $res .= '<img src="'. SystemURLs::getRootPath() .'/Images/Icons/DOC.png" width="100">';
                 }
                 break;
             case "rtf":
@@ -1053,16 +1054,17 @@ class MiscUtils
             case "ics":            
             case "sql":
                 $content = file_get_contents(dirname(__FILE__) . "/../.." . $realPath);
-                $content = nl2br(mb_convert_encoding($content, 'UTF-8', mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
+                $content = mb_convert_encoding($content, 'UTF-8', mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true));
+                $content = nl2br(htmlspecialchars($content, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
 
                 $res .= '<div class="filemanager-text-container">';
                 $res .= $content;
                 $res .= '</div>';
                 break;
             case "pdf":
-                $res .= "<object data=\"" . $realPath . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
-                $res .= "<embed src=\"" . $realPath . "\" type=\"application/pdf\" />\n";
-                $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
+                $res .= "<object data=\"" . $previewUrl . "\" type=\"application/pdf\" class=\"pdf-preview-filemanager\">";
+                $res .= "<embed src=\"" . $previewUrl . "\" type=\"application/pdf\" />\n";
+                $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $previewUrl . '">télécharger le fichier.</a></p>';
                 $res .= "</object>";
                 break;
             case "mp3":
@@ -1078,25 +1080,25 @@ class MiscUtils
                 break;
             case "m4a":
                 $res .= " type : $extension<br>";
-                $res .= "<audio src=\"" . $realPath . "\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">" . _("Your browser does not support the audio element.") . "</audio>";
+                $res .= "<audio src=\"" . $previewUrl . "\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">" . _("Your browser does not support the audio element.") . "</audio>";
                 break;
             case  "mp4":
                 $res .= "type : $extension<br>";
                 $res .= "<video width=\"100%\" controls  preload=\"auto\">\n";
-                $res .= "<source src=\"" . $realPath . "\" type=\"video/mp4\">\n";
+                $res .= "<source src=\"" . $previewUrl . "\" type=\"video/mp4\">\n";
                 $res .= _("Your browser does not support the video tag.") . "\n";
                 $res .= "</video>";
                 break;
             case  "ogg":
                 $res .= "type : $extension<br>";
                 $res .= "<video width=\"100%\" height=\"240\" controls  preload=\"auto\">\n";
-                $res .= "<source src=\"" . $realPath . "\" type=\"video/ogg\">\n";
+                $res .= "<source src=\"" . $previewUrl . "\" type=\"video/ogg\">\n";
                 $res .= _("Your browser does not support the video tag.") . "\n";
                 $res .= "</video>";
                 break;
             case "mov":
                 $res .= "type : $extension<br>";
-                $res .= "<video src=\"" . $realPath . "\"\n";
+                $res .= "<video src=\"" . $previewUrl . "\"\n";
                 $res .= "     controls\n";
                 $res .= "     autoplay\n";
                 $res .= "     height=\"270\" width=\"100%\"  preload=\"none\">\n";
@@ -1104,7 +1106,7 @@ class MiscUtils
                 $res .= "</video>";
                 break;
             case "zip":
-                $res .= '<img src="' . $realPath . '/Images/Icons/ZIP.png" width="100">';
+                $res .= '<img src="' . SystemURLs::getRootPath() . '/Images/Icons/ZIP.png" width="100">';
                 break;
             case "xls":
             case "xlsx":
@@ -1230,7 +1232,7 @@ class MiscUtils
                     $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
                     $res .= "</object>";                
                 } else {
-                    $res .= '<img src="'. $realPath .'/Images/Icons/PPT.png" width="100">';
+                    $res .= '<img src="'. SystemURLs::getRootPath() .'/Images/Icons/PPT.png" width="100">';
                 }
                 break;
             case "pptx":

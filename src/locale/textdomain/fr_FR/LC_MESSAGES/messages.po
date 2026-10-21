@@ -106,6 +106,39 @@ msgstr "Envoyer une notification par courrier électronique"
 msgid "Shared with"
 msgstr "Partagé avec"
 
+msgid "Shared with me"
+msgstr "Partagés avec moi"
+
+msgid "Shared with others"
+msgstr "Partagés avec d'autres"
+
+msgid "Read only"
+msgstr "Lecture seule"
+
+msgid "Read and write"
+msgstr "Lecture et écriture"
+
+msgid "No response"
+msgstr "Aucune réponse"
+
+msgid "Accepted"
+msgstr "Accepté"
+
+msgid "Declined"
+msgstr "Refusé"
+
+msgid "Unavailable"
+msgstr "Indisponible"
+
+msgid "Size"
+msgstr "Taille"
+
+msgid "Modification Date"
+msgstr "Date de modification"
+
+msgid "Shared folder"
+msgstr "Dossier partagé"
+
 #: browser/browse.php:194 v2/templates/edrive/dashboard.php:168
 msgid "Delete all shares"
 msgstr "Supprimer toutes les actions"

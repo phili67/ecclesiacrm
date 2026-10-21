@@ -20,4 +20,7 @@ use EcclesiaCRM\VIEWControllers\VIEWEdriveController;
 
 $app->group('/edrive', function (RouteCollectorProxy $group) {
     $group->get('/dashboard', VIEWEdriveController::class . ':renderDashbord');
+    $group->get('/shared-with-me', VIEWEdriveController::class . ':renderSharedWithMe');
+    $group->get('/shared-with-others', VIEWEdriveController::class . ':renderSharedWithOthers');
+    $group->get('/open-shared/{shareId:[0-9]+}', VIEWEdriveController::class . ':openSharedLocation');
 });

@@ -858,6 +858,8 @@ class MenuBar extends Menu
             $menu = new Menu (_("EDrive"), "fa fa-cloud", "#", SessionUser::getUser()->isFinanceEnabled());
 
             $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", "v2/edrive/dashboard", true, $menu);
+            $menuItem = new Menu (_("Shared with me"), "fas fa-folder-open", "v2/edrive/shared-with-me", true, $menu);
+            $menuItem = new Menu (_("Shared with others"), "fas fa-share-alt", "v2/edrive/shared-with-others", true, $menu);
 
             $this->addPluginMenus('EDrive', $menu, 'inside_category_menu');
             $this->addMenu($menu);       

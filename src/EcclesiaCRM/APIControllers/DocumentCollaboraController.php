@@ -12,6 +12,7 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Service\CollaboraService;
+use EcclesiaCRM\Service\SharedDocumentService;
 use EcclesiaCRM\Utils\DocumentSecurityUtils;
 
 /**
@@ -71,6 +72,57 @@ class DocumentCollaboraController
         }
 
         [$token, $ttl] = $collabora->createToken(SessionUser::getId(), SessionUser::getId(), $relativePath, $canWrite);
+
+        return $response->withJson([
+            'success' => true,
+            'url' => $url,
+            'access_token' => $token,
+            'access_token_ttl' => $ttl,
+            'title' => $fileName
+        ]);
+    }
+
+    public function editShared(ServerRequest $request, Response $response, array $args): Response
+    {
+        $params = (object)$request->getParsedBody();
+        if (!SessionUser::getUser()->isEDriveEnabled() || !isset($params->shareId)) {
+            return $this->error($response, _('Forbidden'), 403);
+        }
+
+        $collabora = new CollaboraService();
+        $sharedDocument = (new SharedDocumentService())->resolve((int)$params->shareId, SessionUser::getId());
+        if (is_null($sharedDocument) || !$sharedDocument['canWrite']) {
+            return $this->error($response, _('Forbidden'), 403);
+        }
+
+        $fileName = $sharedDocument['name'];
+        if (!$collabora->isEditable($fileName)) {
+            return $this->error($response, _('Document not found'), 404);
+        }
+
+        $file = $collabora->resolveUserFile($sharedDocument['owner'], $sharedDocument['relativePath']);
+        if (is_null($file) || $file[0] !== $sharedDocument['path']) {
+            return $this->error($response, _('Document not found'), 404);
+        }
+
+        [$path, $relativePath] = $file;
+        $canWrite = $sharedDocument['canWrite'] && is_writable($path) && is_writable(dirname($path));
+        if (!$canWrite) {
+            return $this->error($response, _('Forbidden'), 403);
+        }
+
+        $fileId = $collabora->getFileId($sharedDocument['ownerId'], $relativePath);
+        $url = $collabora->getEditorURL($fileName, $fileId, Bootstrapper::GetCurrentLocale()->getShortLocale());
+        if (is_null($url)) {
+            return $this->error($response, _('Document not found'), 404);
+        }
+
+        [$token, $ttl] = $collabora->createToken(
+            SessionUser::getId(),
+            $sharedDocument['ownerId'],
+            $relativePath,
+            true
+        );
 
         return $response->withJson([
             'success' => true,

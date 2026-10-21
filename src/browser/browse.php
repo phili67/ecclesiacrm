@@ -301,5 +301,5 @@ $user = SessionUser::getUser();
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Footer.js"></script>
 
-
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/edrive/CollaboraEditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
