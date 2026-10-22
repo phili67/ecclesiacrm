@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
+"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1201,6 +1201,9 @@ msgstr "Crea documento"
 msgid "You have to set a Title for your document"
 msgstr "Devi impostare un titolo per il tuo documento"
 
+msgid "Loading"
+msgstr "Caricamento in corso"
+
 msgid "Free Event Attendees"
 msgstr "Partecipanti all'evento gratuito"
 
@@ -1356,9 +1359,6 @@ msgstr "Nuovo documento"
 
 msgid "Actualize files"
 msgstr "Attualizzare i file"
-
-msgid "Loading"
-msgstr "Caricamento in corso"
 
 msgid "Current version"
 msgstr "Versione attuale"

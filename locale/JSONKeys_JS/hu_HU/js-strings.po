@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
+"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1200,6 +1200,9 @@ msgstr "Dokumentum létrehozása"
 msgid "You have to set a Title for your document"
 msgstr "Meg kell adnia a dokumentum címét"
 
+msgid "Loading"
+msgstr "Betöltés"
+
 msgid "Free Event Attendees"
 msgstr "Ingyenes esemény résztvevői"
 
@@ -1355,9 +1358,6 @@ msgstr "Új dokumentum"
 
 msgid "Actualize files"
 msgstr "Aktualizálja a fájlokat"
-
-msgid "Loading"
-msgstr "Betöltés"
 
 msgid "Current version"
 msgstr "Jelenlegi verzió"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
+"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1243,6 +1243,10 @@ msgstr "Tạo ra một cái."
 msgid "You have to set a Title for your document"
 msgstr "Anh phải đặt một tờ Title cho tài liệu của mình"
 
+#, fuzzy
+msgid "Loading"
+msgstr "Đang tải video..."
+
 msgid "Free Event Attendees"
 msgstr "Những người Attendees tự do"
 
@@ -1410,10 +1414,6 @@ msgstr "Giấy tờ đâu?"
 #, fuzzy
 msgid "Actualize files"
 msgstr "Tản ra"
-
-#, fuzzy
-msgid "Loading"
-msgstr "Đang tải video..."
 
 #, fuzzy
 msgid "Current version"

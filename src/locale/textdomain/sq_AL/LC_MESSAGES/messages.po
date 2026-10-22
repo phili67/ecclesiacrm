@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 10:53+0200\n"
+"POT-Creation-Date: 2026-10-22 21:42+0200\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,7 @@ msgid "Edrive : Dashboard "
 msgstr "main dashbord"
 
 #: browser/browse.php:58
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:49
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:225
 #, fuzzy
 msgid "Edrive : File manager"
 msgstr "menaxher i dosjeve"
@@ -105,6 +105,7 @@ msgid "Send email notification"
 msgstr "modifikim dosjesh"
 
 #: browser/browse.php:190 v2/templates/edrive/dashboard.php:164
+#: v2/templates/edrive/shares.php:7
 #, fuzzy
 msgid "Shared with"
 msgstr "I ndarë."
@@ -247,6 +248,7 @@ msgstr "Pronar."
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:284
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:286
+#: v2/templates/edrive/shares.php:32
 msgid "Access"
 msgstr "qasje."
 
@@ -346,50 +348,56 @@ msgid "No person found for preview"
 msgstr ""
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:161
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:283
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1063
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:285
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1151
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:628
 #: uploader/upload.php:176
 msgid "Create file"
 msgstr "krijo dosjen"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:41
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:91
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:42
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:89
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:95
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:111
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:143
 #: v2/templates/query/querylist.php:53 v2/templates/query/querylist.php:88
 msgid "Forbidden"
 msgstr "U ndalohet"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:48
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:53
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:58
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:70
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:158
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:185
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:201
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:218
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:303
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:317
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:49
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:54
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:59
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:71
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:100
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:105
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:117
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:210
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:237
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:253
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:270
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:305
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:319
 msgid "Document not found"
 msgstr "Dokumenti nuk gjendet"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:102
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:107
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:114
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:154
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:159
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:166
 #, fuzzy
 msgid "Invalid name"
 msgstr "Shpëto emrin"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:118
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:170
 #, fuzzy
 msgid "The file already exists"
 msgstr "Ky emër fushe ekziston."
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:122
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:174
 #, fuzzy
 msgid "Unable to create the file"
 msgstr "Dav krijon dosjen"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:205
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:257
 #, fuzzy
 msgid "Unable to restore this version"
 msgstr "nuk mund të rivendosë fjalëkalimin"
@@ -404,118 +412,124 @@ msgstr "Ky dokument hapet nga"
 msgid "Minutes left"
 msgstr "minutat majtas"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:233
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:369
-#: EcclesiaCRM/utils/MiscUtils.php:883
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:235
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:371
+#: EcclesiaCRM/utils/MiscUtils.php:884
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
 msgid "Folder"
 msgstr "Folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:532
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:571
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:448
+#, fuzzy
+msgid "Shared folder"
+msgstr "I ndarë"
+
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:620
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:659
 msgid "Right of access to folder problem"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:601
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:972
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:689
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1060
 #, fuzzy
 msgid "Contact error at api"
 msgstr "Të gjitha kontaktet me pronat"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:628
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:716
 msgid "You can't erase the public folder !"
 msgstr "nuk mund ta fshish dosjen publike!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:636
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:668
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:742
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:814
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:928
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:756
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:830
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:902
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1016
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:874
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
 msgid "A Folder"
 msgstr "Një Folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:792
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:874
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
 msgid "already exists at this place."
 msgstr "tashmë ekziston në këtë vend."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:772
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:860
 msgid "Folder modification"
 msgstr "modifikim folder"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:774
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:843
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:862
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:931
 msgid "File modification"
 msgstr "modifikim dosjesh"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:792
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
 msgid "A File"
 msgstr "Dosje"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:886
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:974
 msgid "New Folder"
 msgstr "Folder i ri"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:910
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:998
 #, fuzzy
 msgid "can't rename public folder"
 msgstr "nuk mund ta fshish dosjen publike!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:932
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1020
 #, fuzzy
 msgid "The file or folder name already exists!!!"
 msgstr "Ky emër fushe ekziston."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:987
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1075
 #, fuzzy
 msgid "Invalid CSRF token."
 msgstr "Viti i pavlefshëm"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:993
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1081
 #, fuzzy
 msgid "User account not found."
 msgstr "Dokumenti nuk gjendet"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1001
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1089
 #, fuzzy
 msgid "Invalid target path."
 msgstr "data e lindjes."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1005
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1093
 #, fuzzy
 msgid "No uploaded file received."
 msgstr "ngarko një dosje në edrive"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1011
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1046
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1099
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1134
 msgid "Upload problem !!!"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1015
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1103
 #, fuzzy
 msgid "Invalid uploaded file."
 msgstr "familja invalide"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1020
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1108
 #, fuzzy
 msgid "Invalid file name."
 msgstr "Shpëto emrin"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1026
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1114
 #, fuzzy
 msgid "This file type is not allowed."
 msgstr "nuk lejohet."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1031
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1119
 msgid "Target directory is invalid."
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1042
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1130
 msgid ""
 "A file with the same name already exists. The uploaded file was renamed "
 "automatically."
@@ -556,58 +570,58 @@ msgstr "Para në dorë"
 msgid "Checks"
 msgstr "çeqe."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:293
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:309
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Boy"
 msgstr "Djalë"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:294
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:310
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Girl"
 msgstr "Vajzë."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:296
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:312
 msgid "Man"
 msgstr "- Po."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:297
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:313
 msgid "Woman"
 msgstr "grua"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:376
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:408
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:392
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:424
 msgid "POST to cart requires a personID and an eventID"
 msgstr "POST për karrocë kërkon personazh dhe një ngjarje"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:471
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:492
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:708
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:729
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:487
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:508
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:724
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:745
 msgid "Create From sunday school class view"
 msgstr "do të krijohet nga pamja e klasës së ditës së dielë"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:495
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:732
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:511
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:748
 msgid "Attendance"
 msgstr "Kujdes"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:533
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:564
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:599
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:634
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:549
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:580
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:615
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:650
 msgid "POST to cart requires a EventID"
 msgstr "POST për karrocë kërkon një EventID"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:548
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:564
 #, fuzzy
 msgid "POST to delete attendees requires a EventID and personID"
 msgstr "POST për karrocë kërkon personazh dhe një ngjarje"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:776
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:792
 msgid "POST to cart requires an EventID"
 msgstr "POST për karrocë kërkon një EventID"
 
@@ -723,8 +737,8 @@ msgstr "Grupi i shtuar"
 #: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
 #: Reports/PDFLabel.php:859 v2/templates/calendar/eventattendeesedit.php:54
 #: v2/templates/calendar/eventnames.php:280
-#: v2/templates/cart/cartToFamily.php:224 v2/templates/group/groupbadge.php:139
-#: v2/templates/group/groupedit.php:97
+#: v2/templates/cart/cartToFamily.php:224 v2/templates/edrive/shares.php:29
+#: v2/templates/group/groupbadge.php:139 v2/templates/group/groupedit.php:97
 #: v2/templates/group/groupPropsEditor.php:235
 #: v2/templates/group/groupview.php:400
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:418
@@ -952,7 +966,7 @@ msgstr "Persona të vetëm"
 
 #: EcclesiaCRM/APIControllers/SearchController.php:324
 #: EcclesiaCRM/APIControllers/SearchController.php:327
-#: EcclesiaCRM/MenuBar/MenuBar.php:909
+#: EcclesiaCRM/MenuBar/MenuBar.php:911
 #: EcclesiaCRM/sabre/CardDav/CardDavPDO.php:126
 #: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:47
 #: EcclesiaCRM/VIEWControllers/VIEWVolunteerOpportunityController.php:124
@@ -1112,7 +1126,7 @@ msgstr "redaktor i klasifikimit të personave"
 #: Reports/GDPR/GDPRListExport.php:68
 #: v2/templates/deposit/electronicPaymentList.php:154
 #: v2/templates/deposit/finddepositslip.php:54
-#: v2/templates/gdpr/gdprdatastructure.php:41
+#: v2/templates/edrive/shares.php:30 v2/templates/gdpr/gdprdatastructure.php:41
 #: v2/templates/group/groupPropsFormEditor.php:290
 #: v2/templates/group/groupPropsFormEditor.php:351
 #: v2/templates/people/familyCustomFieldEditor.php:317
@@ -3831,8 +3845,9 @@ msgid "Your CRM account was updated"
 msgstr "llogaria jote Ecclesiacrm është përditësuar"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/plugins/plugins.php:92 v2/templates/user/userlist.php:65
-#: v2/templates/user/userseditor.php:711 v2/templates/user/userseditor.php:779
+#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:92
+#: v2/templates/user/userlist.php:65 v2/templates/user/userseditor.php:711
+#: v2/templates/user/userseditor.php:779
 msgid "Status"
 msgstr "gjendja."
 
@@ -3907,7 +3922,7 @@ msgstr "dokumente"
 #: EcclesiaCRM/MenuBar/MenuBar.php:210 EcclesiaCRM/MenuBar/MenuBar.php:519
 #: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/MenuBar/MenuBar.php:786
 #: EcclesiaCRM/MenuBar/MenuBar.php:834 EcclesiaCRM/MenuBar/MenuBar.php:860
-#: EcclesiaCRM/MenuBar/MenuBar.php:911 EcclesiaCRM/MenuBar/MenuBar.php:934
+#: EcclesiaCRM/MenuBar/MenuBar.php:913 EcclesiaCRM/MenuBar/MenuBar.php:936
 #: v2/templates/pastoralcare/pastoralcarefamily.php:349
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:72
 #: v2/templates/pastoralcare/pastoralcareperson.php:488
@@ -4116,32 +4131,46 @@ msgstr "lista e pagesave elektronike"
 msgid "EDrive"
 msgstr "Edrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:871
+#: EcclesiaCRM/MenuBar/MenuBar.php:861
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:216
+#: v2/templates/edrive/shares.php:8 v2/templates/edrive/shares.php:19
+#, fuzzy
+msgid "Shared with me"
+msgstr "I ndarë."
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:862
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:216
+#: v2/templates/edrive/shares.php:8 v2/templates/edrive/shares.php:21
+#, fuzzy
+msgid "Shared with others"
+msgstr "I ndarë."
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:873
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
 msgid "Fundraiser"
 msgstr "Funddreiser"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:873
+#: EcclesiaCRM/MenuBar/MenuBar.php:875
 msgid "Create New Fundraiser"
 msgstr "Krijo fondacione të reja"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:874
+#: EcclesiaCRM/MenuBar/MenuBar.php:876
 msgid "View All Fundraisers"
 msgstr "shikoni të gjithë të fonderuarit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:876
+#: EcclesiaCRM/MenuBar/MenuBar.php:878
 msgid "Edit Last Fundraiser"
 msgstr "Edit i fundit fondacion"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:958
+#: EcclesiaCRM/MenuBar/MenuBar.php:960
 msgid "Data/Reports"
 msgstr "raporte të dhënash"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:960
+#: EcclesiaCRM/MenuBar/MenuBar.php:962
 msgid "Reports Menu"
 msgstr "raporto manu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:963 v2/templates/user/userseditor.php:462
+#: EcclesiaCRM/MenuBar/MenuBar.php:965 v2/templates/user/userseditor.php:462
 msgid "Query Menu"
 msgstr "query manu"
 
@@ -4333,6 +4362,8 @@ msgstr "Të dhënat familjare u vërtetuan"
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
 #: EcclesiaCRM/utils/OutputUtils.php:300 EcclesiaCRM/utils/OutputUtils.php:548
 #: EcclesiaCRM/utils/OutputUtils.php:566
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:203
 #: v2/templates/people/familyEditor.php:1277
 msgid "Unknown"
 msgstr "I panjohur"
@@ -5373,11 +5404,12 @@ msgid "by"
 msgstr "nga"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:883 EcclesiaCRM/utils/MiscUtils.php:1287
+#: EcclesiaCRM/utils/MiscUtils.php:884 EcclesiaCRM/utils/MiscUtils.php:1289
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
 msgid "File"
 msgstr "Dosjen."
 
-#: EcclesiaCRM/Service/TimelineService.php:355
+#: EcclesiaCRM/Service/TimelineService.php:355 v2/templates/edrive/shares.php:7
 msgid "Shared by"
 msgstr "I ndarë"
 
@@ -5689,52 +5721,52 @@ msgstr "Interpoli<br>Adresat"
 msgid "File Type"
 msgstr "filmo tipin"
 
-#: EcclesiaCRM/utils/MiscUtils.php:948 EcclesiaCRM/utils/MiscUtils.php:973
-#: EcclesiaCRM/utils/MiscUtils.php:1009 EcclesiaCRM/utils/MiscUtils.php:1065
-#: EcclesiaCRM/utils/MiscUtils.php:1179 EcclesiaCRM/utils/MiscUtils.php:1230
-#: EcclesiaCRM/utils/MiscUtils.php:1265
+#: EcclesiaCRM/utils/MiscUtils.php:949 EcclesiaCRM/utils/MiscUtils.php:974
+#: EcclesiaCRM/utils/MiscUtils.php:1010 EcclesiaCRM/utils/MiscUtils.php:1067
+#: EcclesiaCRM/utils/MiscUtils.php:1181 EcclesiaCRM/utils/MiscUtils.php:1232
+#: EcclesiaCRM/utils/MiscUtils.php:1267
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Duhet të përdorësh një shikues PDF ose të shkarkosh dosjen këtu"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1072 EcclesiaCRM/utils/MiscUtils.php:1077
-#: EcclesiaCRM/utils/MiscUtils.php:1081 EcclesiaCRM/utils/MiscUtils.php:1354
+#: EcclesiaCRM/utils/MiscUtils.php:1074 EcclesiaCRM/utils/MiscUtils.php:1079
+#: EcclesiaCRM/utils/MiscUtils.php:1083 EcclesiaCRM/utils/MiscUtils.php:1356
 msgid "Your browser does not support the audio element."
 msgstr "shfletuesi juaj nuk e mbështet elementin audio."
 
-#: EcclesiaCRM/utils/MiscUtils.php:1087 EcclesiaCRM/utils/MiscUtils.php:1094
-#: EcclesiaCRM/utils/MiscUtils.php:1103 EcclesiaCRM/utils/MiscUtils.php:1364
-#: EcclesiaCRM/utils/MiscUtils.php:1375 EcclesiaCRM/utils/MiscUtils.php:1390
+#: EcclesiaCRM/utils/MiscUtils.php:1089 EcclesiaCRM/utils/MiscUtils.php:1096
+#: EcclesiaCRM/utils/MiscUtils.php:1105 EcclesiaCRM/utils/MiscUtils.php:1366
+#: EcclesiaCRM/utils/MiscUtils.php:1377 EcclesiaCRM/utils/MiscUtils.php:1392
 msgid "Your browser does not support the video tag."
 msgstr "shfletuesi juaj nuk e mbështet etiketën e videos."
 
-#: EcclesiaCRM/utils/MiscUtils.php:1296 EcclesiaCRM/utils/MiscUtils.php:1328
-#: EcclesiaCRM/utils/MiscUtils.php:1337 EcclesiaCRM/utils/MiscUtils.php:1352
-#: EcclesiaCRM/utils/MiscUtils.php:1361 EcclesiaCRM/utils/MiscUtils.php:1371
-#: EcclesiaCRM/utils/MiscUtils.php:1384
+#: EcclesiaCRM/utils/MiscUtils.php:1298 EcclesiaCRM/utils/MiscUtils.php:1330
+#: EcclesiaCRM/utils/MiscUtils.php:1339 EcclesiaCRM/utils/MiscUtils.php:1354
+#: EcclesiaCRM/utils/MiscUtils.php:1363 EcclesiaCRM/utils/MiscUtils.php:1373
+#: EcclesiaCRM/utils/MiscUtils.php:1386
 msgid "Expand"
 msgstr "zgjerohu."
 
-#: EcclesiaCRM/utils/MiscUtils.php:1436
+#: EcclesiaCRM/utils/MiscUtils.php:1438
 msgid "Classic Document"
 msgstr "Dokumenti klasik"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1439
+#: EcclesiaCRM/utils/MiscUtils.php:1441
 msgid "Classic Video"
 msgstr "Video klasike"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1442
+#: EcclesiaCRM/utils/MiscUtils.php:1444
 msgid "Classic File"
 msgstr "dosja klasike"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1445
+#: EcclesiaCRM/utils/MiscUtils.php:1447
 msgid "Classic Audio"
 msgstr "audio klasike"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1551
+#: EcclesiaCRM/utils/MiscUtils.php:1553
 msgid "Select Fiscal Year"
 msgstr "Zgjidh Vitin Fiskal"
 
-#: EcclesiaCRM/utils/MiscUtils.php:2159
+#: EcclesiaCRM/utils/MiscUtils.php:2161
 #: v2/templates/deposit/autoPaymentClearAccount.php:28
 msgid "Cannot execute query."
 msgstr "nuk mund ta ekzekutoj një pyetje."
@@ -6075,6 +6107,38 @@ msgstr "redaktori i pagesës do të krijohet"
 #: EcclesiaCRM/VIEWControllers/VIEWDepositController.php:1104
 msgid "eGive Import"
 msgstr "importi eup"
+
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
+#, fuzzy
+msgid "Unavailable"
+msgstr "nuk është e disponueshme"
+
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+msgid "Read only"
+msgstr ""
+
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+msgid "Read and write"
+msgstr ""
+
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:199
+msgid "No response"
+msgstr ""
+
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:200
+msgid "Accepted"
+msgstr ""
+
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:201
+#, fuzzy
+msgid "Declined"
+msgstr "timeline"
+
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:202
+#: v2/templates/system/infos.php:204
+#, fuzzy
+msgid "Invalid"
+msgstr "Viti i pavlefshëm"
 
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:56
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:80
@@ -8976,6 +9040,7 @@ msgid "Year"
 msgstr "Vit."
 
 #: v2/templates/deposit/electronicPaymentList.php:185
+#: v2/templates/edrive/shares.php:36
 #: v2/templates/group/groupPropsFormEditor.php:350
 #: v2/templates/group/groupview.php:31
 #: v2/templates/people/familyCustomFieldEditor.php:388
@@ -9512,6 +9577,20 @@ msgstr ""
 #, fuzzy
 msgid "Files"
 msgstr "Dosjen."
+
+#: v2/templates/edrive/shares.php:28 v2/templates/system/optionManager.php:428
+msgid "Icon"
+msgstr ""
+
+#: v2/templates/edrive/shares.php:34
+#, fuzzy
+msgid "Size"
+msgstr "\"Shkëmbimi i Font\""
+
+#: v2/templates/edrive/shares.php:35
+#, fuzzy
+msgid "Modification Date"
+msgstr "Njoftimi"
 
 #: v2/templates/error/404.php:17
 msgid "Oops! Can't find route for "
@@ -14329,11 +14408,6 @@ msgstr "Seksionet e Gjeneralit Edit"
 msgid "Valid"
 msgstr ""
 
-#: v2/templates/system/infos.php:204
-#, fuzzy
-msgid "Invalid"
-msgstr "Viti i pavlefshëm"
-
 #: v2/templates/system/infos.php:213
 msgid "Open this section to test the mail server connection."
 msgstr ""
@@ -14544,10 +14618,6 @@ msgstr "Dupliko"
 #: v2/templates/system/optionManager.php:414
 msgid "are not allowed."
 msgstr "nuk lejohet."
-
-#: v2/templates/system/optionManager.php:428
-msgid "Icon"
-msgstr ""
 
 #: v2/templates/system/optionManager.php:429
 msgid "Visibility"
