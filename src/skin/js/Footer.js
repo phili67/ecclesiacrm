@@ -28,6 +28,28 @@ for (var ns in window.CRM.all_plugins_i18keys) {
 }
 
 $(function() {
+    const calendarSidebarStateKey = 'calendarSidebarWasCollapsed';
+    const isCalendarPage = /\/v2\/calendar\/?$/.test(window.location.pathname);
+    const savedCalendarSidebarState = sessionStorage.getItem(calendarSidebarStateKey);
+
+    if (isCalendarPage) {
+        if (savedCalendarSidebarState === null) {
+            sessionStorage.setItem(calendarSidebarStateKey, document.body.classList.contains('sidebar-collapse'));
+        }
+
+        if (!document.body.classList.contains('sidebar-collapse')) {
+            $('[data-widget="pushmenu"]').PushMenu('toggle');
+        }
+    } else if (savedCalendarSidebarState !== null) {
+        const wasSidebarCollapsed = savedCalendarSidebarState === 'true';
+
+        if (document.body.classList.contains('sidebar-collapse') !== wasSidebarCollapsed) {
+            $('[data-widget="pushmenu"]').PushMenu('toggle');
+        }
+
+        sessionStorage.removeItem(calendarSidebarStateKey);
+    }
+
     // all bootbox are now localized
     bootbox.setDefaults({locale: window.CRM.lang});
 
