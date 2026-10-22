@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-21T08:53:15.548Z\n"
+"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1192,6 +1192,9 @@ msgstr "Створити документ"
 msgid "You have to set a Title for your document"
 msgstr "Ви маєте задати заголовок для вашого документа"
 
+msgid "Loading"
+msgstr "Завантаження"
+
 msgid "Free Event Attendees"
 msgstr "Безкоштовне відвідування заходу"
 
@@ -1347,9 +1350,6 @@ msgstr "Новий документ"
 
 msgid "Actualize files"
 msgstr "Актуалізація файлів"
-
-msgid "Loading"
-msgstr "Завантаження"
 
 msgid "Current version"
 msgstr "Поточна версія"
