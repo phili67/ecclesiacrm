@@ -225,6 +225,6 @@ require $sRootDocument . '/Include/Header.php';
 <!-- !Drag and Drop -->
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/edrive/CollaboraEditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js?v=<?= filemtime($sRootDocument . '/skin/js/filemanager.js') ?>"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
