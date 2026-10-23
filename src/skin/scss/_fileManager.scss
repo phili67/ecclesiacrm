@@ -39,6 +39,14 @@
     font-size: 12px !important;
 }
 
+.filmanager-left {
+    min-width: 0;
+}
+
+.edrive-panel-backdrop {
+    display: none;
+}
+
 .filmanager-right {
     -ms-flex: 0 0 380px;
     flex: 0 0 380px;
@@ -58,12 +66,6 @@
     width: 100%; 
     /*height: 200px; */
     object-fit: cover;
-}
-
-.close-file-preview {
-    position: absolute;
-    top: 12px;
-    right: 0px;
 }
 
 .pdf-preview-filemanager {
@@ -148,11 +150,35 @@
     border: 2px solid rgb(98, 190, 255);
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 890px) {
+    body.edrive-panel-open {
+        overflow: hidden;
+    }
+
+    .edrive-panel-backdrop {
+        position: fixed;
+        inset: 0;
+        display: block;
+        background: rgba(0, 0, 0, .5);
+        z-index: 1040;
+    }
+
     .filmanager-right {
+        position: fixed;
+        top: 4rem;
+        bottom: 1rem;
+        left: .75rem;
+        right: .75rem;
+        width: auto;
+        max-width: none;
+        overflow-y: auto;
+        z-index: 1050;
         margin-top:0px;
-       -ms-flex: 0 0 100% !important;
-       flex: 0 0 100% !important;
+        margin-right: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        -ms-flex: none;
+        flex: none;
     } 
     
     .file-image-preview {

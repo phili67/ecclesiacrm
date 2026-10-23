@@ -82,6 +82,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </form>
         <?php } ?>
+        <div class="edrive-panel-backdrop" aria-hidden="true"></div>
         <div class="row">
             <div class="col filmanager-left">
                 <div class="card card-outline card-secondary mb-3">
@@ -111,15 +112,15 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                 </div>
             </div>
-            <div class="col filmanager-right" style="display: none;">
+            <div class="col filmanager-right" style="display: none;" aria-labelledby="edrive-panel-title">
                 <div class="sticky-top">
                     <div class="card card-outline card-primary shadow-sm mb-3">
                         <div class="card-header">
                             <div class="d-flex align-items-start justify-content-between">
                                 <div class="mr-3">
-                                    <div class="preview-title h6 mb-0"></div>
+                                    <div class="preview-title h6 mb-0" id="edrive-panel-title"></div>
                                 </div>
-                                <button type="button" class="close close-file-preview" data-dismiss="alert" aria-label="<?= _("Close") ?>">
+                                <button type="button" class="close close-file-preview" aria-label="<?= _("Close") ?>">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
@@ -224,6 +225,6 @@ require $sRootDocument . '/Include/Header.php';
 <!-- !Drag and Drop -->
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/edrive/CollaboraEditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js?v=<?= filemtime($sRootDocument . '/skin/js/filemanager.js') ?>"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
