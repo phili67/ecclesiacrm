@@ -148,6 +148,8 @@ $(function () {
         searching: true,
         select: true,
         paging: false,
+        scrollY: 'max(200px, calc(100vh - 320px))',
+        scrollCollapse: true,
         columns: [            
             {
                 width: '5%',
@@ -429,7 +431,26 @@ $(function () {
         }
     });
 
+    const fitEDriveTableToViewport = function () {
+        const scrollBody = document.querySelector('#edrive-table_wrapper .dataTables_scrollBody');
+        const table = scrollBody && scrollBody.querySelector('table');
+
+        if (!scrollBody || !table) {
+            return;
+        }
+
+        const availableHeight = window.innerHeight - scrollBody.getBoundingClientRect().top - 160;
+        const tableHeight = table.getBoundingClientRect().height;
+        const height = Math.max(120, Math.min(availableHeight, tableHeight));
+
+        scrollBody.style.height = `${height}px`;
+        scrollBody.style.maxHeight = `${height}px`;
+    };
+
+    $('#edrive-table').on('draw.dt', fitEDriveTableToViewport);
     window.CRM.dataEDriveTable = $("#edrive-table").DataTable(DataTableOpts);
+    $(window).on('resize.edriveTable', fitEDriveTableToViewport);
+    fitEDriveTableToViewport();
 
     $("body").on('click', '.filemanager-download', function (e) {
         var selectedRows = window.CRM.dataEDriveTable.rows({ selected: true }).data()

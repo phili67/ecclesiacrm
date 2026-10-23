@@ -11,6 +11,16 @@
     padding: 5px 10px; /* e.g. change 8x to 4px here */
 }
 
+#edrive-table_wrapper .dataTables_scrollHead,
+#edrive-table_wrapper .dataTables_scrollHead table.dataTable,
+#edrive-table_wrapper .dataTables_scrollBody {
+    border: 0 !important;
+}
+
+#edrive-table_wrapper .dataTables_scrollHead table.dataTable thead th {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
 .col-center {
     text-align:center;
 }
@@ -190,4 +200,3 @@
         border-color: #93c5f9 !important;
     }
 }
-
