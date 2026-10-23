@@ -39,9 +39,17 @@
     font-size: 12px !important;
 }
 
+.filmanager-left {
+    min-width: 0;
+}
+
+.edrive-panel-backdrop {
+    display: none;
+}
+
 .filmanager-right {
-    -ms-flex: 0 0 380px;
-    flex: 0 0 380px;
+    -ms-flex: 0 0 320px;
+    flex: 0 0 320px;
     /*border-left: 1px solid rgba(0, 0, 0, .125);*/
     top: -21px;
     border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
@@ -58,12 +66,6 @@
     width: 100%; 
     /*height: 200px; */
     object-fit: cover;
-}
-
-.close-file-preview {
-    position: absolute;
-    top: 12px;
-    right: 0px;
 }
 
 .pdf-preview-filemanager {
@@ -100,15 +102,13 @@
 }
 
 .folder-back-button {
-    position: absolute !important;
-    margin-top: 0.55em;
-    height: 3em;
-    z-index: 20;
-    padding: 7px 3px;
-    /*margin-top: 7px;
-    height: 37px;
-    z-index: 20;
-    padding: 5px;*/
+    position: static !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    margin: 0 .25rem 0 0 !important;
+    padding: .25rem .35rem;
     width: 37px;
     border: 2px solid rgb(98, 190, 255);
 }
@@ -131,10 +131,6 @@
     margin-top:10px;
 }
 
-.shift-flex-wrapper-right {
-    margin-left:41px !important;
-}
-
 .filemanager-text-container {
     background-color: white;
     color:black;
@@ -148,12 +144,36 @@
     border: 2px solid rgb(98, 190, 255);
 }
 
-@media (max-width: 1300px) {
-    .filmanager-right {
-        margin-top:0px;
-       -ms-flex: 0 0 100% !important;
-       flex: 0 0 100% !important;
-    } 
+@media (max-width: 890px) {
+    body.edrive-panel-open {
+        overflow: hidden;
+    }
+
+    body.edrive-panel-open .edrive-panel-backdrop {
+        position: fixed;
+        inset: 0;
+        display: block;
+        background: rgba(0, 0, 0, .5);
+        z-index: 1040;
+    }
+
+    body.edrive-panel-open .filmanager-right {
+        position: fixed;
+        top: 4rem;
+        bottom: 1rem;
+        left: .75rem;
+        right: .75rem;
+        width: auto;
+        max-width: none;
+        overflow-y: auto;
+        z-index: 1050;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        -ms-flex: none;
+        flex: none;
+    }
     
     .file-image-preview {
         width: 100%;
