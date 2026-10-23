@@ -117,15 +117,14 @@ $user = SessionUser::getUser();
                 </div>
             </form>
         <?php } ?>
+        <div class="edrive-panel-backdrop" aria-hidden="true"></div>
         <div class="row">
             <div class="col filmanager-left">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" style="margin-top: -3px !important;" data-personid="<?= $user->getPersonId() ?>"
-                        data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
-                        <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-                        &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
-                    </button>
-                </div>
+                <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $user->getPersonId() ?>"
+                    data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
+                    <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+                    <i class="fas fa-level-up-alt"></i>
+                </button>
                 <table class="table dataTable table-hover no-footer edrive-table-browse" id="edrive-table" width="100%" style="margin-top:10px!important"></table>
                 <hr />
                 <div class="row">
@@ -137,15 +136,15 @@ $user = SessionUser::getUser();
                 </div>
 
             </div>
-            <div class="col filmanager-right" style="display: none;">
+            <div class="col filmanager-right" style="display: none;" aria-labelledby="edrive-panel-title">
                 <div class="sticky-top">
                     <div class="card card-outline card-primary shadow-sm mb-3">
                         <div class="card-header">
                             <div class="d-flex align-items-start justify-content-between">
                                 <div class="mr-3">
-                                    <div class="preview-title h6 mb-0"></div>
+                                    <div class="preview-title h6 mb-0" id="edrive-panel-title"></div>
                                 </div>
-                                <button type="button" class="close close-file-preview" data-dismiss="alert" aria-label="<?= _("Close") ?>">
+                                <button type="button" class="close close-file-preview" aria-label="<?= _("Close") ?>">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>

@@ -62,7 +62,9 @@ $(function () {
         syncEDrivePanelModal(visible);
     };
 
-    $(window).on('resize.edrivePanel', syncEDrivePanelModal);
+    $(window).on('resize.edrivePanel', function () {
+        syncEDrivePanelModal();
+    });
     $(document).on('keydown.edrivePanel', function (event) {
         if (event.key === 'Escape' && $('body').hasClass('edrive-panel-open')) {
             setEDrivePanelVisible(false);
@@ -71,6 +73,7 @@ $(function () {
     $('body').on('click', '.edrive-panel-backdrop', function () {
         setEDrivePanelVisible(false);
     });
+    syncEDrivePanelModal();
 
     const openShareDialog = function (id) {
         setEDrivePanelVisible(true);
@@ -157,6 +160,17 @@ $(function () {
             }
         });
     }
+
+    let edriveTableInitialized = false;
+
+    const placeEDriveFolderButton = function () {
+        const $button = $('.folder-back-button').first();
+        const $toolbar = $('#edrive-table_wrapper .dt-buttons').first();
+
+        if ($button.length && $toolbar.length && !$button.parent().is($toolbar)) {
+            $button.detach().prependTo($toolbar);
+        }
+    };
 
     var DataTableOpts = {
         ajax: {
@@ -281,9 +295,8 @@ $(function () {
             }
         },
         "initComplete": function (settings, json) {            
-            if (window.CRM.isPublicFolder) {
-                $(".flex-wrap").removeClass('shift-flex-wrapper-right');
-            }
+            placeEDriveFolderButton();
+            edriveTableInitialized = true;
 
             const currentUrl = new URL(window.location.href);
             const itemToSelect = currentUrl.searchParams.get('select');
@@ -308,6 +321,8 @@ $(function () {
                 currentUrl.searchParams.delete('select');
                 window.history.replaceState({}, document.title, currentUrl.toString());
             }
+
+            window.requestAnimationFrame(scheduleEDriveTableLayout);
         }
     };
 
@@ -478,9 +493,34 @@ $(function () {
 
     $('#edrive-table').on('draw.dt', fitEDriveTableToViewport);
     window.CRM.dataEDriveTable = $("#edrive-table").DataTable(DataTableOpts);
-    $(window).on('resize.edriveTable', fitEDriveTableToViewport);
-    fitEDriveTableToViewport();
+    placeEDriveFolderButton();
+    const adjustEDriveTableLayout = function () {
+        if (!edriveTableInitialized) {
+            return;
+        }
 
+        fitEDriveTableToViewport();
+        window.CRM.dataEDriveTable.columns.adjust().responsive.recalc();
+    };
+    let edriveResizeFrame = null;
+    const scheduleEDriveTableLayout = function () {
+        if (edriveResizeFrame !== null) {
+            return;
+        }
+
+        edriveResizeFrame = window.requestAnimationFrame(function () {
+            edriveResizeFrame = null;
+            adjustEDriveTableLayout();
+        });
+    };
+
+    $(window).on('resize.edriveTable', scheduleEDriveTableLayout);
+    if ('ResizeObserver' in window) {
+        const edriveTableContainer = document.querySelector('.filmanager-left');
+        if (edriveTableContainer) {
+            new ResizeObserver(scheduleEDriveTableLayout).observe(edriveTableContainer);
+        }
+    }
     $("body").on('click', '.filemanager-download', function (e) {
         var selectedRows = window.CRM.dataEDriveTable.rows({ selected: true }).data()
         $.each(selectedRows, function (index, value) {
@@ -1005,14 +1045,11 @@ $(function () {
                 setEDrivePanelVisible(false);
 
                 if (data.isCurrentPathPublicFolder && window.CRM.isPublicFolder) {
-                    $(".flex-wrap").removeClass('shift-flex-wrapper-right');
                     $(".folder-back-drop").hide();
                 } else {
-                    $(".flex-wrap").addClass('shift-flex-wrapper-right');
                     $(".folder-back-drop").show();
                 }
                 window.CRM.reloadEDriveTable(function () {
-                    $(".flex-wrap").addClass('shift-flex-wrapper-right');
                     $("#currentPath").html(data.currentPath);
                     window.CRM.currentpath = data.realCurrentPath;
                     selected.length = 0;// no more selected files
@@ -1059,13 +1096,10 @@ $(function () {
                     window.CRM.currentpath = data.realCurrentPath;
 
                     if (data.isHomeFolder || data.isCurrentPathPublicFolder && window.CRM.isPublicFolder) {
-                        $(".flex-wrap").removeClass('shift-flex-wrapper-right');
                         $(".folder-back-drop").hide();
                     } else {
-                        $(".flex-wrap").addClass('shift-flex-wrapper-right');
                         $(".folder-back-drop").show();
                     }
-
                     $("#currentPath").html(data.currentPath);                    
                 });
             }            
@@ -1606,15 +1640,12 @@ $(function () {
 
     $('#edrive-table').on('draw.dt', function () {
         installDragAndDrop();
-        if (window.CRM.currentpath !== "/") {
-            $(".flex-wrap").addClass('shift-flex-wrapper-right');
-        }
+        placeEDriveFolderButton();
     });
 
     uploadEvent();
 
         if (window.CRM.isPublicFolder) {
-                $(".flex-wrap").removeClass('shift-flex-wrapper-right');
                 $(".folder-back-drop").hide();
         }
 

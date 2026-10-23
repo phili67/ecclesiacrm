@@ -93,13 +93,11 @@ require $sRootDocument . '/Include/Header.php';
                             </h3>
                     </div>
                     <div class="card-body">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $personId ?>"
-                                data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
-                                <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-                                &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
-                            </button>
-                        </div>
+                        <button type="button" class="btn btn-primary btn-sm drag-elements folder-back-drop folder-back-button" data-personid="<?= $personId ?>"
+                            data-toggle="tooltip" data-placement="top" title="<?= _("Move up one level, or drag the file(s) to move them up one level.") ?>"
+                            <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+                            <i class="fas fa-level-up-alt"></i>
+                        </button>
                         <table class="table dataTable table-hover no-footer" id="edrive-table" width="100%"></table>
                         <hr />
                         <div class="row">
