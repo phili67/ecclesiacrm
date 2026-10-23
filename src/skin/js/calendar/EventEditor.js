@@ -324,7 +324,7 @@ function addAttendees(typeID, first_time, eventID) {
 
             //$('.ATTENDENCES-title').slideUp();
 
-            var innerHtml = `<input id="countFieldsId" name="countFieldsId" type="hidden" value="' + len + '">
+            var innerHtml = `<input id="countFieldsId" name="countFieldsId" type="hidden" value="${len}">
                 <table width="100%">`;
 
             var notes = "";
