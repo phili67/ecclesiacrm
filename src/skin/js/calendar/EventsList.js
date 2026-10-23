@@ -548,6 +548,7 @@ $(function() {
                                 $(".checkout-button-"+eventId).html('<i class="fas fa-check-circle"></i> ' + i18next.t("Make Check-out"));
                             }
                             $("#allEventAttendees-"+eventId).html(data.results['stats']['total']);
+                            $("#checkinEventAttendees-"+eventId).html(data.results['stats']['checkin']);
                             $("#checkoutEventAttendees-"+eventId).html(data.results['stats']['checkcout']);
                             $("#differenceEventAttendees-"+eventId).html(data.results['stats']['difference']);
                         });

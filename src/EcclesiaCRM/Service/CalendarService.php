@@ -177,18 +177,18 @@ class CalendarService
         // only in case of monthly view
         // for : $for_events_list
         $AVG_stats = [
-            '1' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '2' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '3' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '4' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '5' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '6' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '7' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '8' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '9' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '10' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '11' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '12' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0]
+            '1' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '2' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '3' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '4' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '5' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '6' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '7' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '8' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '9' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '10' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '11' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '12' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0]
         ];
 
         foreach ($calendars as $calendar) {
@@ -354,38 +354,44 @@ class CalendarService
     
                             if (!is_null($attendees)) {
                                 $realStats['attNumRows'] = $attendees->count();
-    
+
                                 $attendees1 = EventAttendQuery::create()
+                                    ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
+                                    ->findByEventId($evnt->getId());
+                                
+                                if (!is_null($realStats)) {
+                                    $realStats['attCheckIn'] = $attendees1->count();
+                                }
+
+                                $attendees2 = EventAttendQuery::create()
                                     ->filterByCheckoutDate(NULL, Criteria::NOT_EQUAL)
                                     ->findByEventId($evnt->getId());
     
                                 if (!is_null($realStats)) {
-                                    $realStats['attCheckOut'] = $attendees1->count();
+                                    $realStats['attCheckOut'] = $attendees2->count();
                                 }
-    
-                                $attendees2 = EventAttendQuery::create()
-                                    ->filterByCheckoutId(NULL, Criteria::NOT_EQUAL)
-                                    ->findByEventId($evnt->getId());
-    
-                                if (!is_null($realStats)) {
-                                    $realStats['realAttCheckOut'] = $attendees2->count();
+
+                                if (is_array($AVG_stats[$month]) && array_key_exists('numTotal', $AVG_stats[$month])) {
+                                    $AVG_stats[$month]['numTotal'] += $realStats['attNumRows'];
+                                } else {
+                                    $AVG_stats[$month]['numTotal'] = $realStats['attNumRows'];
                                 }
     
                                 if (is_array($AVG_stats[$month]) && array_key_exists('numAVG_CheckIn', $AVG_stats[$month])) {
-                                    $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attNumRows'];
+                                    $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attCheckIn'];
                                 } else {
-                                    $AVG_stats[$month]['numAVG_CheckIn'] = 0;
+                                    $AVG_stats[$month]['numAVG_CheckIn'] = $realStats['attCheckIn'];
                                 }
     
                                 if (is_array($AVG_stats[$month]) &&  array_key_exists('numAVG_CheckOut', $AVG_stats[$month])) {
                                     $AVG_stats[$month]['numAVG_CheckOut'] += $realStats['attCheckOut'];
                                 } else {
-                                    $AVG_stats[$month]['numAVG_CheckOut'] = 0;
+                                    $AVG_stats[$month]['numAVG_CheckOut'] = $realStats['attCheckOut'];
                                 }
                             }
     
                             if ($realStats['attNumRows']) {
-                                $AVG_stats[$month]['numAVGAtt']++;
+                                $AVG_stats[$month]['numTotal']++;
                             }
             
                             // RETRIEVE THE list of counts associated with the current event
@@ -607,38 +613,44 @@ class CalendarService
     
                             if (!is_null($attendees)) {
                                 $realStats['attNumRows'] = $attendees->count();
-    
+
                                 $attendees1 = EventAttendQuery::create()
+                                    ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
+                                    ->findByEventId($evnt->getId());
+                                
+                                if (!is_null($realStats)) {
+                                    $realStats['attCheckIn'] = $attendees1->count();
+                                }
+    
+                                $attendees2 = EventAttendQuery::create()
                                     ->filterByCheckoutDate(NULL, Criteria::NOT_EQUAL)
                                     ->findByEventId($evnt->getId());
     
                                 if (!is_null($realStats)) {
-                                    $realStats['attCheckOut'] = $attendees1->count();
+                                    $realStats['attCheckOut'] = $attendees2->count();
                                 }
-    
-                                $attendees2 = EventAttendQuery::create()
-                                    ->filterByCheckoutId(NULL, Criteria::NOT_EQUAL)
-                                    ->findByEventId($evnt->getId());
-    
-                                if (!is_null($realStats)) {
-                                    $realStats['realAttCheckOut'] = $attendees2->count();
+
+                                if (is_array($AVG_stats[$month]) && array_key_exists('numTotal', $AVG_stats[$month])) {
+                                    $AVG_stats[$month]['numTotal'] += $realStats['attNumRows'];
+                                } else {
+                                    $AVG_stats[$month]['numTotal'] = $realStats['attNumRows'];
                                 }
     
                                 if (is_array($AVG_stats[$month]) && array_key_exists('numAVG_CheckIn', $AVG_stats[$month])) {
-                                    $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attNumRows'];
+                                    $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attCheckIn'];
                                 } else {
-                                    $AVG_stats[$month]['numAVG_CheckIn'] = 0;
+                                    $AVG_stats[$month]['numAVG_CheckIn'] = $realStats['attCheckIn'];
                                 }
     
                                 if (is_array($AVG_stats[$month]) &&  array_key_exists('numAVG_CheckOut', $AVG_stats[$month])) {
                                     $AVG_stats[$month]['numAVG_CheckOut'] += $realStats['attCheckOut'];
                                 } else {
-                                    $AVG_stats[$month]['numAVG_CheckOut'] = 0;
+                                    $AVG_stats[$month]['numAVG_CheckOut'] = $realStats['attCheckOut'];
                                 }
                             }
     
                             if ($realStats['attNumRows']) {
-                                $AVG_stats[$month]['numAVGAtt']++;
+                                $AVG_stats[$month]['numTotal']++;
                             }
     
                             // RETRIEVE THE list of counts associated with the current event
@@ -904,18 +916,18 @@ class CalendarService
         // only in case of monthly view
         // for : $for_events_list
         $AVG_stats = [
-            '1' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '2' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '3' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '4' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '5' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '6' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '7' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '8' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '9' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '10' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '11' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
-            '12' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0]
+            '1' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '2' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '3' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '4' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '5' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '6' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '7' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '8' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '9' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '10' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '11' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '12' => ['numTotal' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0]
         ];
 
         foreach ($calendars as $calendar) {
@@ -1050,36 +1062,42 @@ class CalendarService
                             $realStats['attNumRows'] = $attendees->count();
 
                             $attendees1 = EventAttendQuery::create()
-                                ->filterByCheckoutDate(NULL, Criteria::NOT_EQUAL)
+                                ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
                                 ->findByEventId($evnt->getId());
 
-                            if (!is_null($realStats)) {
-                                $realStats['attCheckOut'] = $attendees1->count();
+                            if (!is_null($attendees1)) {
+                                $realStats['attCheckIn'] = $attendees1->count();
                             }
 
                             $attendees2 = EventAttendQuery::create()
-                                ->filterByCheckoutId(NULL, Criteria::NOT_EQUAL)
+                                ->filterByCheckoutDate(NULL, Criteria::NOT_EQUAL)
                                 ->findByEventId($evnt->getId());
 
-                            if (!is_null($realStats)) {
-                                $realStats['realAttCheckOut'] = $attendees2->count();
+                            if (!is_null($attendees2)) {
+                                $realStats['attCheckOut'] = $attendees2->count();
+                            }
+
+                            if (is_array($AVG_stats[$month]) && array_key_exists('numTotal', $AVG_stats[$month])) {
+                                $AVG_stats[$month]['numTotal'] += $realStats['attNumRows'];
+                            } else {
+                                $AVG_stats[$month]['numTotal'] = 0;
                             }
 
                             if (is_array($AVG_stats[$month]) && array_key_exists('numAVG_CheckIn', $AVG_stats[$month])) {
-                                $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attNumRows'];
+                                $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attCheckIn'];
                             } else {
-                                $AVG_stats[$month]['numAVG_CheckIn'] = 0;
+                                $AVG_stats[$month]['numAVG_CheckIn'] = $realStats['attCheckIn'];
                             }
 
                             if (is_array($AVG_stats[$month]) &&  array_key_exists('numAVG_CheckOut', $AVG_stats[$month])) {
                                 $AVG_stats[$month]['numAVG_CheckOut'] += $realStats['attCheckOut'];
                             } else {
-                                $AVG_stats[$month]['numAVG_CheckOut'] = 0;
+                                $AVG_stats[$month]['numAVG_CheckOut'] = $realStats['attCheckOut'];
                             }
                         }
 
                         if ($realStats['attNumRows']) {
-                            $AVG_stats[$month]['numAVGAtt']++;
+                            $AVG_stats[$month]['numTotal']++;
                         }
 
                         // RETRIEVE THE list of counts associated with the current event
@@ -1434,57 +1452,48 @@ class CalendarService
             $ret = '';
 
             if ($realStats['attNumRows']) {
-                $ret = '<table width="100%" class="outer" align="center" style="font-size: 10px;padding: 0px;border-spacing: 0px;">'
-                    . '<tr class="no-background-theme">'
-                    . '   <td style="padding: 7px 2px;border:none;"><b>' . _("Check-in") . '</b></td>'
-                    . '   <td style="padding: 7px 2px;border:none;"><b>' . _("Check-out") . '</b></td>'
-                    . '   <td style="padding: 7px 2px;border:none;" ><b>' . _("Rest") . '</b></td>'
-                    . '</tr>'
-                    . '<tr class="no-background-theme">'
-                    . '  <td style="padding: 7px 2px;border:none;" id="allEventAttendees-' . $eventID . '">' . $realStats['attNumRows'] . '</td>'
-                    . '  <td style="padding: 7px 2px;border:none;" id="checkoutEventAttendees-' . $eventID . '">' . $realStats['attCheckOut'] . '</td>'
-                    . '  <td style="padding: 7px 2px;border:none;" id="differenceEventAttendees-' . $eventID . '">' . ($realStats['attNumRows'] - $realStats['attCheckOut']) . '</td>'
-                    . '</tr>'
-                    . '<tr class="no-background-theme">'
-                    . '    <td colspan="3" style="padding: 7px 0;border:none;">'
-                    . '        <table style="width:330px" class="outer">'
-                    . '            <tr class="no-background-theme">'
-                    . '                <td style="padding: 7px 0;border:none;">';
+                $ret = '<div class="calendar-attendance-summary">'
+                    . '<table class="table table-sm table-borderless text-center mb-2">'
+                    . '  <thead><tr class="small text-muted">'
+                    . '    <th scope="col">' . _("Total") . '</th>'
+                    . '    <th scope="col">' . _("Check-in") . '</th>'
+                    . '    <th scope="col">' . _("Check-out") . '</th>'
+                    . '    <th scope="col">' . _("Rest") . '</th>'
+                    . '  </tr></thead>'
+                    . '  <tbody><tr class="font-weight-bold">'
+                    . '    <td><span class="calendar-attendance-value" id="allEventAttendees-' . $eventID . '">' . $realStats['attNumRows'] . '</span></td>'
+                    . '    <td><span class="calendar-attendance-value" id="checkinEventAttendees-' . $eventID . '">' . $realStats['attCheckIn'] . '</span></td>'
+                    . '    <td><span class="calendar-attendance-value" id="checkoutEventAttendees-' . $eventID . '">' . $realStats['attCheckOut'] . '</span></td>'
+                    . '    <td><span class="calendar-attendance-value" id="differenceEventAttendees-' . $eventID . '">' . ($realStats['attNumRows'] - $realStats['attCheckOut']) . '</span></td>'
+                    . '  </tr></tbody>'
+                    . '</table>'
+                    . '<div class="calendar-attendance-actions">';
 
                 if ($eventRights) {
-                    $ret .= '<form name="EditAttendees" action="' . SystemURLs::getRootPath() . '/v2/calendar/events/Attendees/Edit" method="POST">';
+                    $ret .= '<form class="m-0" name="EditAttendees" action="' . SystemURLs::getRootPath() . '/v2/calendar/events/Attendees/Edit" method="POST">';
                 }
 
                 $ret .= '         <input type="hidden" name="EID" value="' . $eventID . '">'
                     . '       <input type="hidden" name="EName" value="' . $title . '">'
                     . '       <input type="hidden" name="EDesc" value="' . $desc . '">'
                     . '       <input type="hidden" name="EDate" value="' . OutputUtils::FormatDate($start, 1) . '">'
-                    . '       <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-outline-info btn-xs ' . (!($eventRights) ? "disabled" : "") . '" >';
+                    . '       <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-outline-info btn-sm ' . (!($eventRights) ? "disabled" : "") . '" >';
 
                 if ($eventRights) {
                     $ret .= ' </form>';
                 }
 
-                $ret .= '           </td>'
-                    . '           <td style="padding: 7px 0;border:none;">';
-
-
                 if ($eventRights) {
-                    $ret .= '                       <button data-id="' . $eventID . '" title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-outline-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs checkout-event checkout-button-' . $eventID . '" >'
-                        . '                                 <i class="fas fa-check-circle"></i> ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? _("Make Check-out") : _("Check-out done"))
-                        . '                         </button>';
+                    $ret .= ' <button data-id="' . $eventID . '" title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-outline-' . (($realStats['attCheckOut'] == 0) ? "danger" : "success") . ' btn-sm checkout-event checkout-button-' . $eventID . '">'
+                        . '<i class="fas fa-check-circle mr-1"></i>' . (($realStats['attNumRows'] == 0) ? _("Make Check-out") : _("Check-out done"))
+                        . '</button>';
                 } else {
-                    $ret .= '                       <button type="submit"  data-id="" title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs" >'
-                        . '                                 <i class="fas fa-check-circle"></i> ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? _("Make Check-out") : _("Check-out done"))
-                        . '                         </button>';
+                    $ret .= ' <button type="submit" data-id="" title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-' . (($realStats['attCheckOut'] > 0) ? "danger" : "success") . ' btn-sm">'
+                        . '<i class="fas fa-check-circle mr-1"></i>' . (($realStats['attNumRows'] == 0) ? _("Make Check-out") : _("Check-out done"))
+                        . '</button>';
                 }
 
-                $ret .= '          </td>'
-                    . '         </tr>'
-                    . '     </table>'
-                    . '    </td>'
-                    . '</tr>'
-                    . '</table>';
+                $ret .= '</div></div>';
             } else {
                 $ret .= '<form name="EditAttendees" action="' . SystemURLs::getRootPath() . '/v2/calendar/events/Attendees/Edit" method="POST">'
                     . '  <input type="hidden" name="EID" value="' . $eventID . '">'
