@@ -205,6 +205,99 @@ margin-bottom: 0px;
     font-size: 12px !important;
 }
 
+.calendar-attendance-summary {
+    display: inline-block;
+    width: 100%;
+    max-width: 420px;
+    padding: .35rem;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .35rem;
+    background-color: #f8f9fa;
+    font-size: .75rem;
+}
+
+.calendar-attendance-summary .table {
+    table-layout: fixed;
+    margin-bottom: .5rem;
+}
+
+.calendar-attendance-summary thead th,
+.calendar-attendance-label {
+    padding: .2rem .15rem;
+    color: #6c757d;
+    font-size: .55rem;
+    font-weight: 500;
+    line-height: 1.1;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+.calendar-attendance-summary thead th {
+    border-top: 0;
+}
+
+.calendar-attendance-summary tbody td {
+    padding: .15rem;
+    border-top: 0;
+}
+
+.calendar-free-attendance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+    gap: .25rem;
+}
+
+.calendar-free-attendance-stat {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .25rem .15rem;
+    text-align: center;
+}
+
+.calendar-attendance-value {
+    display: inline-block;
+    min-width: 1.75rem;
+    padding: .1rem .35rem;
+    border: 1px solid #dee2e6;
+    border-radius: 1rem;
+    background-color: #fff;
+    color: #343a40;
+    font-size: .75rem;
+}
+
+.calendar-attendance-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+}
+
+.calendar-attendance-actions .btn {
+    padding: .15rem .35rem;
+    font-size: .7rem;
+}
+
+.dark-mode .calendar-attendance-summary {
+    border-color: rgba(148, 163, 184, .24);
+    background-color: #1f2937;
+    color: #e2e8f0;
+}
+
+.dark-mode .calendar-attendance-summary thead th,
+.dark-mode .calendar-attendance-label {
+    color: #94a3b8;
+}
+
+.dark-mode .calendar-attendance-value {
+    border-color: rgba(148, 163, 184, .3);
+    background-color: #334155;
+    color: #f8fafc;
+}
+
 @media screen and (max-width: 800px) {
     .event-infos-sidebar-calendar {
         min-width: 300px;

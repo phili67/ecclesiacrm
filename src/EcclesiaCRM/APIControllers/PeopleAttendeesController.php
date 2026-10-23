@@ -181,37 +181,30 @@ class PeopleAttendeesController
 
             $stats = [
                 'total' => $eventAttents->count(),
+                'checkin' => 0,
                 'checkcout' => 0,
                 'difference' => $eventAttents->count()
-            ];
+            ];        
 
-            /*foreach ($eventAttents as $eventAttent) {
-                if ( $eventAttent->getCheckinId() > 0 and is_null($eventAttent->getCheckoutDate()) ) {
-                    $eventAttent->setCheckoutDate(date('Y-m-d H:i:s'));
-                    $eventAttent->setCheckinDate(date('Y-m-d H:i:s'));
-                    $stats['checkcout']++;
-                    $stats['difference']--;
+            $eventAttents = EventAttendQuery::Create()
+                ->filterByCheckinId(NULL, Criteria::NOT_EQUAL)
+                ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
+                ->filterByEventId($requestValues->eventID)
+                ->find();
 
-                    $res['button'] = "danger";
-                    $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
-                } else if ( $eventAttent->getCheckinId() > 0 and !is_null($eventAttent->getCheckoutDate()) ) {
-                    $eventAttent->setCheckinDate(NULL);
-                    $eventAttent->setCheckoutDate(NULL);
-                    $eventAttent->setCheckoutId(null);
-                }
-
-                $eventAttent->save();
-            }*/
+            $stats['checkin'] = $eventAttents->count();
 
             foreach ($eventAttents as $eventAttent) {
-                if ( $eventAttent->getCheckinId() > 0 and !is_null($eventAttent->getCheckinDate()) and is_null($eventAttent->getCheckoutDate()) ) {
+                if ( is_null($eventAttent->getCheckoutDate()) ) {
                     $eventAttent->setCheckoutDate(date('Y-m-d H:i:s'));
+                    $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
                     $stats['checkcout']++;
                     $stats['difference']--;
 
                     $res['button'] = "danger";
-                } else if ( $eventAttent->getCheckinId() > 0 and !is_null($eventAttent->getCheckinDate()) and !is_null($eventAttent->getCheckoutDate()) ) {
+                } else  {
                     $eventAttent->setCheckoutDate(NULL);
+                    $eventAttent->setCheckoutId(NULL);
                 }
 
                 $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
