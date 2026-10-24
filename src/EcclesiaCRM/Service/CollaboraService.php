@@ -242,7 +242,7 @@ class CollaboraService
     /**
      * Validate a WOPI access token for a file id
      *
-     * @return array{user_id:int,owner_id:int,can_write:bool,path:string,name:string}|null
+     * @return array{user_id:int,owner_id:int,can_write:bool,path:string,name:string,relative_path:string}|null
      */
     public function validateToken(string $token, string $fileId): ?array
     {
@@ -276,8 +276,23 @@ class CollaboraService
             'owner_id' => (int)$row['owner_id'],
             'can_write' => (bool)$row['can_write'],
             'path' => $file[0],
-            'name' => basename($file[0])
+            'name' => basename($file[0]),
+            'relative_path' => $file[1]
         ];
+    }
+
+    public function updateTokensAfterRename(int $ownerId, string $oldRelativePath, string $newRelativePath): void
+    {
+        // Keep file_id unchanged so existing Collabora sessions remain valid.
+        $statement = $this->getConnection()->prepare(
+            'UPDATE wopi_tokens SET rel_path = :new_path
+             WHERE owner_id = :owner_id AND rel_path = :old_path'
+        );
+        $statement->execute([
+            ':new_path' => $newRelativePath,
+            ':owner_id' => $ownerId,
+            ':old_path' => $oldRelativePath
+        ]);
     }
 
     public function purgeExpired(): void

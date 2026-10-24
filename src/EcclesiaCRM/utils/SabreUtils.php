@@ -421,15 +421,15 @@ class SabreUtils {
             $collectionInstances = CollectionsinstancesQuery::create()
                 ->findByCollectionsId($collection->getId());
 
+            $newAbsolutePath = SystemURLs::getDocumentRoot() . "/" . $newPath;
             foreach ($collectionInstances as $collectionInstance) {
-                $newPath = SystemURLs::getDocumentRoot() . "/" .$newPath;
                 $guestPath = SystemURLs::getDocumentRoot()."/".$collectionInstance->getGuestpath();
 
                 if (is_link($guestPath)) {
                     unlink($guestPath);
                 }
 
-                symlink($newPath , $guestPath);                                
+                symlink($newAbsolutePath, $guestPath);
             }
 
         } else {
