@@ -161,7 +161,7 @@ class VIEWEdriveController {
             $modified = $readable ? filemtime($realPath) : false;
             $status = (int)$share['inviteStatus'];
             $access = (int)$share['accessLevel'];
-            $name = basename(str_replace('\\', '/', $share['ownerPath']));
+            $name = basename(str_replace('\\', '/', (string)$relativePath));
             $canEdit = $readable && !$isDirectory
                 && ($direction === 'sent' || ($status === 2 && $access === 3))
                 && is_writable($realPath) && is_writable(dirname($realPath))

@@ -92,7 +92,7 @@ class SharedDocumentService
             'relativePath' => substr($ownerPath, strlen($ownerBasePath)),
             'navigationRelativePath' => $navigationRelativePath,
             'path' => $realPath,
-            'name' => basename($ownerPath),
+            'name' => basename($isGuest ? $currentUserPath : $ownerPath),
             'isDirectory' => is_dir($realPath),
             'canWrite' => $isOwner || (int)$share->getAccess() === 3
         ];

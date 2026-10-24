@@ -18,6 +18,10 @@ $app->group('/wopi', function (RouteCollectorProxy $group) {
      */
     $group->get('/files/{id:[a-f0-9]{40}}', DocumentWopiController::class . ':checkFileInfo' );
     /*
+     * @! RenameFile
+     */
+    $group->post('/files/{id:[a-f0-9]{40}}', DocumentWopiController::class . ':renameFile' );
+    /*
      * @! GetFile
      */
     $group->get('/files/{id:[a-f0-9]{40}}/contents', DocumentWopiController::class . ':getFile' );
