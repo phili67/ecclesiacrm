@@ -17,6 +17,7 @@ use Slim\Http\ServerRequest;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\LocaleInfo;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\InputUtils;
 
 class SidebarSystemSettingsController
@@ -30,6 +31,10 @@ class SidebarSystemSettingsController
 
     public function saveSettings(ServerRequest $request, Response $response, array $args): Response
     {
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(401);
+        }
+
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->type)) {
