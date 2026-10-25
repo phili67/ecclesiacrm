@@ -72,4 +72,33 @@ services:
     image: redis:latest
     ports:
       - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"
+  # Collabora Online (development only). Reached through the caddy proxy at https://office.localhost
+  collabora:
+    image: collabora/code:latest
+    container_name: "${COMPOSE_PROJECT_NAME}-collabora"
+    restart: "always"
+    cap_add:
+      - MKNOD
+    environment:
+      username: ${COLLABORA_ADMIN_USER}
+      password: ${COLLABORA_ADMIN_PASSWORD}
+      server_name: ${COLLABORA_SERVER_NAME}
+      # TLS is terminated by the caddy proxy, Collabora speaks plain HTTP inside the compose network
+      extra_params: "--o:ssl.enable=false --o:ssl.termination=true --o:storage.wopi.alias_groups.mode=groups"
+      aliasgroup1: "http://host.docker.internal:${HOST_MACHINE_UNSECURE_HOST_PORT}"
+    expose:
+      - "9980"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  caddy:
+    image: caddy:latest
+    container_name: "${COMPOSE_PROJECT_NAME}-caddy"
+    restart: "always"
+    depends_on:
+      - collabora
+    ports:
+      - "${COLLABORA_HTTPS_PORT}:443"
+    volumes:
+      - ./config/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./config/caddy/certs:/etc/caddy/certs:ro
 
