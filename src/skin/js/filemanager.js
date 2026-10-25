@@ -655,12 +655,13 @@ $(function () {
 
         const render = function () {
             request('collabora/versions', null, function (data) {
-                let rows = `<tr class="table-active"><td>${escapeHtml(data.currentDate)} <span class="badge badge-primary">${i18next.t('Current version')}</span></td><td>${escapeHtml(data.currentSize)}</td><td></td></tr>`;
+                let rows = `<tr class="table-active"><td>${escapeHtml(data.currentDate)} <span class="badge badge-primary">${i18next.t('Current version')}</span></td><td>${escapeHtml(data.currentSize)}</td><td>${escapeHtml(data.currentAuthor)}</td><td></td></tr>`;
 
                 $.each(data.versions, function (index, version) {
                     rows += `<tr>
 <td>${escapeHtml(version.date)}</td>
 <td>${escapeHtml(version.size)}</td>
+<td>${escapeHtml(version.author)}</td>
 <td class="text-right"><div class="btn-group">
 <button type="button" class="btn btn-outline-primary btn-sm version-download" data-version="${version.id}" title="${i18next.t('Download')}"><i class="fa-solid fa-download"></i></button>
 <button type="button" class="btn btn-outline-success btn-sm version-restore" data-version="${version.id}" title="${i18next.t('Restore')}"><i class="fa-solid fa-rotate-left"></i></button>
@@ -669,10 +670,10 @@ $(function () {
                 });
 
                 if (!data.versions.length) {
-                    rows += `<tr><td colspan="3" class="text-muted">${i18next.t('No previous version')}</td></tr>`;
+                    rows += `<tr><td colspan="4" class="text-muted">${i18next.t('No previous version')}</td></tr>`;
                 }
 
-                dialog.find('.versions-content').html(`<table class="table table-sm mb-0"><thead><tr><th>${i18next.t('Modification Date')}</th><th>${i18next.t('Size')}</th><th></th></tr></thead><tbody>${rows}</tbody></table>`);
+                dialog.find('.versions-content').html(`<table class="table table-sm mb-0"><thead><tr><th>${i18next.t('Modification Date')}</th><th>${i18next.t('Size')}</th><th>${i18next.t('Author')}</th><th></th></tr></thead><tbody>${rows}</tbody></table>`);
             });
         };
 

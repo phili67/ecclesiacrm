@@ -308,7 +308,8 @@ class DocumentCollaboraController
             return [
                 'id' => $version['id'],
                 'date' => date(SystemConfig::getValue('sDateTimeFormat'), $version['timestamp']),
-                'size' => MiscUtils::FileSizeConvert($version['size'])
+                'size' => MiscUtils::FileSizeConvert($version['size']),
+                'author' => $version['author'] ?? ''
             ];
         }, (new CollaboraService())->listVersions($file['path']));
 
@@ -316,7 +317,8 @@ class DocumentCollaboraController
             'success' => true,
             'versions' => $versions,
             'currentDate' => date(SystemConfig::getValue('sDateTimeFormat'), filemtime($file['path'])),
-            'currentSize' => MiscUtils::FileSizeConvert(filesize($file['path']))
+            'currentSize' => MiscUtils::FileSizeConvert(filesize($file['path'])),
+            'currentAuthor' => (new CollaboraService())->getCurrentAuthor($file['path']) ?? ''
         ]);
     }
 

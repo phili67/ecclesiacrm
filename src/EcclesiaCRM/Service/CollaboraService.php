@@ -4,6 +4,7 @@ namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\User;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\DocumentSecurityUtils;
@@ -306,14 +307,75 @@ class CollaboraService
     }
 
     /**
+     * Path of the JSON file which keeps the names of the authors of a file and of its versions
+     */
+    private function getAuthorsPath(string $path): string
+    {
+        return $this->getVersionsDirectory($path) . '/' . basename($path) . '.authors.json';
+    }
+
+    /**
+     * @return array{current:?string,versions:array<string,?string>}
+     */
+    private function readAuthors(string $path): array
+    {
+        $file = $this->getAuthorsPath($path);
+        $data = is_file($file) ? json_decode((string)file_get_contents($file), true) : null;
+
+        return [
+            'current' => $data['current'] ?? null,
+            'versions' => $data['versions'] ?? []
+        ];
+    }
+
+    private function writeAuthors(string $path, array $authors): void
+    {
+        $file = $this->getAuthorsPath($path);
+
+        if (is_null($authors['current']) && !count($authors['versions'])) {
+            @unlink($file);
+            return;
+        }
+
+        $directory = $this->getVersionsDirectory($path);
+        if (!is_dir($directory) && !@mkdir($directory, 0775, true)) {
+            return;
+        }
+
+        file_put_contents($file, json_encode($authors));
+    }
+
+    /**
+     * Record the person who saves the file : the version created at the next backup will be attributed to the previous author
+     */
+    public function recordAuthor(string $path, int $personId): void
+    {
+        $person = PersonQuery::create()->findPk($personId);
+
+        if (is_null($person) || (int)SystemConfig::getValue('iCollaboraMaxVersions') <= 0) {
+            return;
+        }
+
+        $authors = $this->readAuthors($path);
+        $authors['current'] = $person->getFullName();
+        $this->writeAuthors($path, $authors);
+    }
+
+    public function getCurrentAuthor(string $path): ?string
+    {
+        return $this->readAuthors($path)['current'];
+    }
+
+    /**
      * Versions of a file, the newest first. A version is stored as .versions/<file name>.<Ymd-His of its modification date>
      *
-     * @return array<int, array{id:string,timestamp:int,size:int,path:string}>
+     * @return array<int, array{id:string,timestamp:int,size:int,path:string,author:?string}>
      */
     public function listVersions(string $path): array
     {
         $directory = $this->getVersionsDirectory($path);
         $pattern = '/^' . preg_quote(basename($path), '/') . '\.(\d{8}-\d{6})$/';
+        $authors = $this->readAuthors($path)['versions'];
         $versions = [];
 
         foreach (is_dir($directory) ? scandir($directory) : [] as $entry) {
@@ -324,7 +386,8 @@ class CollaboraService
                     'id' => $matches[1],
                     'timestamp' => $date->getTimestamp(),
                     'size' => filesize($directory . '/' . $entry),
-                    'path' => $directory . '/' . $entry
+                    'path' => $directory . '/' . $entry,
+                    'author' => $authors[$matches[1]] ?? null
                 ];
             }
         }
@@ -374,15 +437,21 @@ class CollaboraService
             @mkdir($directory, 0775, true);
         }
 
-        $target = $directory . '/' . basename($path) . '.' . date('Ymd-His', filemtime($path));
-        if (!file_exists($target)) {
-            @copy($path, $target);
+        $id = date('Ymd-His', filemtime($path));
+        $target = $directory . '/' . basename($path) . '.' . $id;
+        if (!file_exists($target) && @copy($path, $target)) {
+            $authors = $this->readAuthors($path);
+            $authors['versions'][$id] = $authors['current'];
+            $this->writeAuthors($path, $authors);
         }
 
         // only the newest versions are kept
+        $authors = $this->readAuthors($path);
         foreach (array_slice($this->listVersions($path), $maxVersions) as $version) {
             @unlink($version['path']);
+            unset($authors['versions'][$version['id']]);
         }
+        $this->writeAuthors($path, $authors);
     }
 
     /**
@@ -402,6 +471,9 @@ class CollaboraService
             return false;
         }
 
+        // the restored content keeps the author of the version it comes from
+        $restoredAuthor = $this->readAuthors($path)['versions'][$versionId] ?? null;
+
         $this->backupFile($path, true);
 
         @chmod($tmpFile, fileperms($path) & 0777);
@@ -410,6 +482,10 @@ class CollaboraService
             @unlink($tmpFile);
             return false;
         }
+
+        $authors = $this->readAuthors($path);
+        $authors['current'] = $restoredAuthor;
+        $this->writeAuthors($path, $authors);
 
         clearstatcache(true, $path);
 
@@ -420,7 +496,15 @@ class CollaboraService
     {
         $versionPath = $this->getVersionPath($path, $versionId);
 
-        return !is_null($versionPath) && @unlink($versionPath);
+        if (is_null($versionPath) || !@unlink($versionPath)) {
+            return false;
+        }
+
+        $authors = $this->readAuthors($path);
+        unset($authors['versions'][$versionId]);
+        $this->writeAuthors($path, $authors);
+
+        return true;
     }
 
     /**
@@ -432,6 +516,7 @@ class CollaboraService
             @unlink($version['path']);
         }
 
+        @unlink($this->getAuthorsPath($path));
         $this->removeVersionsDirectoryIfEmpty($path);
     }
 
@@ -441,8 +526,9 @@ class CollaboraService
     public function moveVersions(string $oldPath, string $newPath): void
     {
         $versions = $this->listVersions($oldPath);
+        $oldAuthorsPath = $this->getAuthorsPath($oldPath);
 
-        if (!count($versions) || $this->getVersionsDirectory($oldPath) . '/' . basename($oldPath) === $this->getVersionsDirectory($newPath) . '/' . basename($newPath)) {
+        if ((!count($versions) && !is_file($oldAuthorsPath)) || $this->getVersionsDirectory($oldPath) . '/' . basename($oldPath) === $this->getVersionsDirectory($newPath) . '/' . basename($newPath)) {
             return;
         }
 
@@ -458,6 +544,16 @@ class CollaboraService
                 @rename($version['path'], $target);
             } else {
                 @unlink($version['path']);
+            }
+        }
+
+        if (is_file($oldAuthorsPath)) {
+            $newAuthorsPath = $this->getAuthorsPath($newPath);
+
+            if (!file_exists($newAuthorsPath)) {
+                @rename($oldAuthorsPath, $newAuthorsPath);
+            } else {
+                @unlink($oldAuthorsPath);
             }
         }
 
