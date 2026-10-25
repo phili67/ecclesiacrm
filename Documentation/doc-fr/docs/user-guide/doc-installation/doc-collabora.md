@@ -241,9 +241,10 @@ La stack `docker/` peut faire tourner Collabora Online à côté du CRM pour le 
 mkcert -install
 cd docker/config/caddy/certs
 mkcert -cert-file office.localhost.pem -key-file office.localhost-key.pem office.localhost
+cp "$(mkcert -CAROOT)/rootCA.pem" rootCA.pem
 ```
 
-2. Dans `docker/.env`, renseignez `COLLABORA_ADMIN_PASSWORD` (voir `sample.env`). `COLLABORA_HTTPS_PORT` vaut `8443` par défaut.
+2. Dans `docker/.env`, renseignez `COLLABORA_ADMIN_PASSWORD` (voir `sample.env`). `COLLABORA_HTTPS_PORT` vaut `8443` par défaut et `COLLABORA_SERVER_NAME` doit l'inclure (`office.localhost:8443`), sinon Collabora annonce des URL sans port.
 3. Démarrez la stack :
 
 ```bash
@@ -256,8 +257,16 @@ docker compose up -d database webserver caddy collabora
 | Paramètre | Valeur |
 |---|---|
 | `sCollaboraURL` | `https://office.localhost:8443` |
-| `sCollaboraWopiURL` | `http://host.docker.internal:80` (le CRM vu depuis le conteneur Collabora) |
+| `sCollaboraWopiURL` | `https://host.docker.internal:443` (le CRM vu depuis le conteneur Collabora) |
 
-`office.localhost` correspond à la machine locale dans les navigateurs actuels : aucune modification du fichier hosts n'est nécessaire. Collabora rappelle le CRM en HTTP simple sur le réseau Docker (`ssl.enable=false`, `aliasgroup1=http://host.docker.internal:80`), le certificat du CRM n'est donc pas vérifié dans cette configuration.
+`office.localhost` correspond à la machine locale dans les navigateurs actuels : aucune modification du fichier hosts n'est nécessaire. Collabora rappelle le CRM en HTTPS sur le réseau Docker (`aliasgroup1=https://host.docker.internal:443`). Le `rootCA.pem` de mkcert est monté dans le conteneur Collabora et déclaré comme autorité de confiance via `ssl.ca_file_path` et `storage.ssl.ca_file_path` (dev uniquement). L'iframe de l'éditeur est autorisée sur la page du CRM via `net.frame_ancestors=https://localhost:*` (une seule origine, `extra_params` est découpé sur les espaces). Le certificat du CRM (`config/ssl/cert.pem`) doit inclure `host.docker.internal` dans son SAN, par exemple : `mkcert -cert-file config/ssl/cert.pem -key-file config/ssl/cert-key.pem localhost 127.0.0.1 ::1 host.docker.internal`.
 
 La console d'administration est accessible sur `https://office.localhost:8443/browser/dist/admin/admin.html`, avec les valeurs `COLLABORA_ADMIN_USER` et `COLLABORA_ADMIN_PASSWORD`.
+
+Dépannage (stack de développement) :
+
+- `rootCA.pem` doit exister dans `docker/config/caddy/certs/` **avant** `docker compose up`, sinon Docker crée un dossier vide portant ce nom et le montage échoue silencieusement.
+- Le conteneur `webserver` installe l'autorité mkcert (`update-ca-certificates`) à chaque démarrage : rien à refaire après une recréation. Si le bouton Edit est absent, supprimez `tmp_attach/collabora_discovery.json` (une découverte en échec est mise en cache brièvement) et testez la découverte depuis PHP.
+- L'image Collabora n'a pas de shell : inspectez-la avec `docker compose logs collabora`. `net.frame_ancestors` est signalé comme obsolète dans les logs, mais c'est la seule forme acceptée via `extra_params`.
+- Une fenêtre d'éditeur blanche avec une erreur `frame-ancestors` dans la console du navigateur signifie que l'origine du CRM n'est pas autorisée : vérifiez la valeur de `net.frame_ancestors`.
+- Safari peut conserver un état périmé de la fenêtre de l'éditeur : rechargez eDrive (Cmd+Maj+R) ou redémarrez Safari après une modification de la configuration Collabora.
