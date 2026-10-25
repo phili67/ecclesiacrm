@@ -80,7 +80,7 @@ services:
     build:
       # Build context is the mkcert CA folder; the Dockerfile lives in bin/collabora
       context: ./config/caddy/certs
-      dockerfile: ../../bin/collabora/Dockerfile
+      dockerfile: ../../../bin/collabora/Dockerfile
     image: "${COMPOSE_PROJECT_NAME}-collabora:dev"
     container_name: "${COMPOSE_PROJECT_NAME}-collabora"
     restart: "always"
