@@ -250,10 +250,12 @@ class SabreUtils {
                 $collectionsInstance->save();
             } else {
                 // we update the $collectionsInstance
+                $guestPath = $collectionsInstance->getGuestpath();
+
                 $collectionsInstance->setCollectionsId($collections->getId());
                 $collectionsInstance->setPrincipaluri($guestPrincipals);
                 $collectionsInstance->setShareInvitestatus($sharee->inviteStatus);
-                $collectionsInstance->setGuestpath($guestPath);
+                //$collectionsInstance->setGuestpath($guestPath);// the guest path is already set and should not be updated here
                 $collectionsInstance->setGuestid($guestUser->getPerson()->getId());
                 //$collectionsInstance->setUri(MiscUtils::gen_uuid()); // is unusefull
                 $collectionsInstance->setAccess($access);            
