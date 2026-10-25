@@ -16,6 +16,8 @@ services:
       - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
       - ${XDEBUG_LOG_DIR-./logs/xdebug}:/var/log/xdebug
+      # Development CA (mkcert) so PHP trusts https://office.localhost:8443, see the Collabora documentation
+      - ./config/caddy/certs/rootCA.pem:/usr/local/share/ca-certificates/mkcert-dev.crt:ro
     environment:
       APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/html}
       PMA_PORT: ${HOST_MACHINE_PMA_PORT}
@@ -30,6 +32,7 @@ services:
       PHP_UPLOAD_LIMIT: 1024M
     extra_hosts:
       - "host.docker.internal:host-gateway"
+      - "office.localhost:host-gateway"
   database:
     build:
       context: "./bin/${DATABASE}"
@@ -74,7 +77,11 @@ services:
       - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"
   # Collabora Online (development only). Reached through the caddy proxy at https://office.localhost
   collabora:
-    image: collabora/code:latest
+    build:
+      # Build context is the mkcert CA folder; the Dockerfile lives in bin/collabora
+      context: ./config/caddy/certs
+      dockerfile: ../../bin/collabora/Dockerfile
+    image: "${COMPOSE_PROJECT_NAME}-collabora:dev"
     container_name: "${COMPOSE_PROJECT_NAME}-collabora"
     restart: "always"
     cap_add:
@@ -85,7 +92,8 @@ services:
       server_name: ${COLLABORA_SERVER_NAME}
       # TLS is terminated by the caddy proxy, Collabora speaks plain HTTP inside the compose network
       extra_params: "--o:ssl.enable=false --o:ssl.termination=true --o:storage.wopi.alias_groups.mode=groups"
-      aliasgroup1: "http://host.docker.internal:${HOST_MACHINE_UNSECURE_HOST_PORT}"
+      # The CRM API only answers over HTTPS: Collabora calls it on the secure host port
+      aliasgroup1: "https://host.docker.internal:${HOST_MACHINE_SECURE_HOST_PORT}"
     expose:
       - "9980"
     extra_hosts:
