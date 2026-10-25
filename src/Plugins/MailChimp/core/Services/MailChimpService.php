@@ -2,8 +2,6 @@
 // copyright Philippe Logel not MIT
 namespace Plugins\Service;
 
-require_once(__DIR__ . '/../../vendor/autoload.php');
-
 use \DrewM\MailChimp\MailChimp;
 
 use EcclesiaCRM\Base\PersonQuery;
