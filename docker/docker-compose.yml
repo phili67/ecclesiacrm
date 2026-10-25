@@ -33,6 +33,8 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
       - "office.localhost:host-gateway"
+    # Install the mkcert CA at every start: it lives in the container filesystem and is lost when the container is recreated
+    command: ["sh", "-c", "update-ca-certificates; exec apache2-foreground"]
   database:
     build:
       context: "./bin/${DATABASE}"
