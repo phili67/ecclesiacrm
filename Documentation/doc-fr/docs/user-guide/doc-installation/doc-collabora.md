@@ -63,9 +63,10 @@ services:
       # Thème « EDrive Office » : nom et icône du CRM dans l'éditeur (facultatif, voir plus bas)
       - /chemin/du/CRM/src/skin/collabora/edrive:/usr/share/coolwsd/browser/dist/edrive:ro
 
-networks:
+    networks:
       default:
         # Adresse IP fixe du conteneur Collabora dans le sous-réseau défini ci-dessous
+        ipv4_address: 172.18.0.2
         ipv4_address: 172.18.0.2
 
 # Sous-réseau fixe : doit correspondre au "Require ip" des vhosts Apache du CRM
@@ -229,3 +230,34 @@ Commandes utiles :
 docker compose -f /var/www/collabora/docker-compose.yml logs -f collabora
 tail -f /var/log/apache2/error.log
 ```
+
+## 8. Environnement de développement (Docker)
+
+La stack `docker/` peut faire tourner Collabora Online à côté du CRM pour le développement local. Collabora **ne fait pas partie** des images PHP : c'est un second serveur web (port 9980) qui tourne dans son propre service. Caddy termine le HTTPS devant lui, si bien que l'éditeur est servi sur `https://office.localhost:8443`. Cette configuration de développement est réservée aux tests et ne doit pas être utilisée en production.
+
+1. Installez [mkcert](https://github.com/FiloSottile/mkcert) et créez le certificat pour `office.localhost` dans `docker/config/caddy/certs/` :
+
+```bash
+mkcert -install
+cd docker/config/caddy/certs
+mkcert -cert-file office.localhost.pem -key-file office.localhost-key.pem office.localhost
+```
+
+2. Dans `docker/.env`, renseignez `COLLABORA_ADMIN_PASSWORD` (voir `sample.env`). `COLLABORA_HTTPS_PORT` vaut `8443` par défaut.
+3. Démarrez la stack :
+
+```bash
+cd docker
+docker compose up -d database webserver caddy collabora
+```
+
+4. Dans **Administration ▸ Paramètres ▸ Intégration** :
+
+| Paramètre | Valeur |
+|---|---|
+| `sCollaboraURL` | `https://office.localhost:8443` |
+| `sCollaboraWopiURL` | `http://host.docker.internal:80` (le CRM vu depuis le conteneur Collabora) |
+
+`office.localhost` correspond à la machine locale dans les navigateurs actuels : aucune modification du fichier hosts n'est nécessaire. Collabora rappelle le CRM en HTTP simple sur le réseau Docker (`ssl.enable=false`, `aliasgroup1=http://host.docker.internal:80`), le certificat du CRM n'est donc pas vérifié dans cette configuration.
+
+La console d'administration est accessible sur `https://office.localhost:8443/browser/dist/admin/admin.html`, avec les valeurs `COLLABORA_ADMIN_USER` et `COLLABORA_ADMIN_PASSWORD`.

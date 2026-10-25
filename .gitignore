@@ -137,4 +137,5 @@ docker/.env
 docker/logs/
 
 docker/config/ssl/
+docker/config/caddy/certs/
 

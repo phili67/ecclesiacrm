@@ -1,0 +1,7 @@
+# Development reverse proxy for Collabora Online.
+# Certificates are generated with mkcert into ./config/caddy/certs
+# (see the Collabora section of the documentation).
+office.localhost {
+	tls /etc/caddy/certs/office.localhost.pem /etc/caddy/certs/office.localhost-key.pem
+	reverse_proxy collabora:9980
+}
