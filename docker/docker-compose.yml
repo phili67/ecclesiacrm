@@ -77,11 +77,7 @@ services:
       - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"
   # Collabora Online (development only). Reached through the caddy proxy at https://office.localhost
   collabora:
-    build:
-      # Build context is the mkcert CA folder; the Dockerfile lives in bin/collabora
-      context: ./config/caddy/certs
-      dockerfile: ../../../bin/collabora/Dockerfile
-    image: "${COMPOSE_PROJECT_NAME}-collabora:dev"
+    image: collabora/code:latest
     container_name: "${COMPOSE_PROJECT_NAME}-collabora"
     restart: "always"
     cap_add:
@@ -90,10 +86,14 @@ services:
       username: ${COLLABORA_ADMIN_USER}
       password: ${COLLABORA_ADMIN_PASSWORD}
       server_name: ${COLLABORA_SERVER_NAME}
+      # OpenSSL reads this bundle: only the mkcert CA is trusted for outgoing WOPI calls (dev only)
+      SSL_CERT_FILE: /etc/ssl/mkcert/rootCA.pem
       # TLS is terminated by the caddy proxy, Collabora speaks plain HTTP inside the compose network
       extra_params: "--o:ssl.enable=false --o:ssl.termination=true --o:storage.wopi.alias_groups.mode=groups"
       # The CRM API only answers over HTTPS: Collabora calls it on the secure host port
       aliasgroup1: "https://host.docker.internal:${HOST_MACHINE_SECURE_HOST_PORT}"
+    volumes:
+      - ./config/caddy/certs/rootCA.pem:/etc/ssl/mkcert/rootCA.pem:ro
     expose:
       - "9980"
     extra_hosts:
