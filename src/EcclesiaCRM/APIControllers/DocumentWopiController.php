@@ -176,6 +176,8 @@ class DocumentWopiController
 
         clearstatcache(true, $file['path']);
 
+        $this->collabora->recordAuthor($file['path'], (int)$file['user_id']);
+
         return $response->withJson(['LastModifiedTime' => gmdate('Y-m-d\TH:i:s', filemtime($file['path'])) . '.0000000Z']);
     }
 

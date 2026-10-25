@@ -7,9 +7,12 @@ use Slim\Http\Response;
 use Slim\Http\ServerRequest;
 
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\CollectionsinstancesQuery;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\User;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Service\CollaboraService;
 use EcclesiaCRM\Service\SharedDocumentService;
@@ -54,32 +57,95 @@ class DocumentCollaboraController
             return $this->error($response, _('Document not found'), 404);
         }
 
-        $file = $collabora->resolveUserFile($user, trim($currentPath, '/') . '/' . $fileName);
-        if (is_null($file)) {
+        $requestedRelativePath = DocumentSecurityUtils::normalizeRelativePath(
+            trim($currentPath, '/') . '/' . $fileName
+        );
+        if (is_null($requestedRelativePath)) {
             return $this->error($response, _('Document not found'), 404);
+        }
+
+        $file = $collabora->resolveUserFile($user, $requestedRelativePath);
+        $ownerId = SessionUser::getId();
+        $title = $fileName;
+        $sharedDocument = null;
+
+        if (is_null($file)) {
+            $sharedDocument = $this->resolveSharedAlias($user, $requestedRelativePath);
+            if (is_null($sharedDocument)) {
+                return $this->error($response, _('Document not found'), 404);
+            }
+            if (!$sharedDocument['canWrite']) {
+                return $this->error($response, _('Forbidden'), 403);
+            }
+
+            $file = $collabora->resolveUserFile($sharedDocument['owner'], $sharedDocument['relativePath']);
+            if (is_null($file) || $file[0] !== $sharedDocument['path']) {
+                return $this->error($response, _('Document not found'), 404);
+            }
+
+            $ownerId = $sharedDocument['ownerId'];
+            $title = $sharedDocument['name'];
         }
 
         [$path, $relativePath] = $file;
 
         // the file is replaced by a rename() : the folder must be writable too
         $canWrite = is_writable($path) && is_writable(dirname($path));
+        if (!is_null($sharedDocument)) {
+            $canWrite = $sharedDocument['canWrite'] && $canWrite;
+            if (!$canWrite) {
+                return $this->error($response, _('Forbidden'), 403);
+            }
+        }
 
-        $fileId = $collabora->getFileId(SessionUser::getId(), $relativePath);
-        $url = $collabora->getEditorURL($fileName, $fileId, Bootstrapper::GetCurrentLocale()->getShortLocale());
+        $fileId = $collabora->getFileId($ownerId, $relativePath);
+        $url = $collabora->getEditorURL($title, $fileId, Bootstrapper::GetCurrentLocale()->getShortLocale());
 
         if (is_null($url)) {
             return $this->error($response, _('Document not found'), 404);
         }
 
-        [$token, $ttl] = $collabora->createToken(SessionUser::getId(), SessionUser::getId(), $relativePath, $canWrite);
+        [$token, $ttl] = $collabora->createToken(SessionUser::getId(), $ownerId, $relativePath, $canWrite);
 
         return $response->withJson([
             'success' => true,
             'url' => $url,
             'access_token' => $token,
             'access_token_ttl' => $ttl,
-            'title' => $fileName
+            'title' => $title
         ]);
+    }
+
+    private function resolveSharedAlias(User $guest, string $relativePath): ?array
+    {
+        $relativePath = DocumentSecurityUtils::normalizeRelativePath($relativePath);
+        if (is_null($relativePath)) {
+            return null;
+        }
+
+        $guestPath = str_replace('\\', '/', rtrim($guest->getUserDir(), '/') . '/' . $relativePath);
+        $linkPath = rtrim(SystemURLs::getDocumentRoot(), '/') . '/' . $guestPath;
+        if (!is_link($linkPath)) {
+            return null;
+        }
+
+        $share = CollectionsinstancesQuery::create()->findOneByGuestpath($guestPath);
+        if (is_null($share) || (int)$share->getGuestid() !== SessionUser::getId()) {
+            return null;
+        }
+
+        $sharedDocument = (new SharedDocumentService())->resolve((int)$share->getId(), SessionUser::getId());
+        if (is_null($sharedDocument)) {
+            return null;
+        }
+
+        $linkTarget = realpath($linkPath);
+        $sourcePath = realpath($sharedDocument['path']);
+        if ($linkTarget === false || $sourcePath === false || $linkTarget !== $sourcePath) {
+            return null;
+        }
+
+        return $sharedDocument;
     }
 
     public function editShared(ServerRequest $request, Response $response, array $args): Response
@@ -179,10 +245,7 @@ class DocumentCollaboraController
         return $response->withJson(['success' => true, 'name' => $fileName]);
     }
 
-    /**
-     * Absolute path of a file of the current folder of the connected user (versions management), null if it isn't usable
-     */
-    private function resolveOwnFile($params): ?string
+    private function resolveVersionFile($params): ?array
     {
         if (!SessionUser::getUser()->isEDriveEnabled() || !isset($params->personID, $params->name)
             || SessionUser::getId() != $params->personID) {
@@ -197,16 +260,47 @@ class DocumentCollaboraController
             return null;
         }
 
-        $file = (new CollaboraService())->resolveUserFile($user, trim($currentPath, '/') . '/' . $fileName);
+        $relativePath = DocumentSecurityUtils::normalizeRelativePath(
+            trim($currentPath, '/') . '/' . $fileName
+        );
+        if (is_null($relativePath)) {
+            return null;
+        }
 
-        return is_null($file) ? null : $file[0];
+        $collabora = new CollaboraService();
+        $file = $collabora->resolveUserFile($user, $relativePath);
+        if (!is_null($file)) {
+            return [
+                'path' => $file[0],
+                'name' => $fileName,
+                'canWrite' => is_writable($file[0]) && is_writable(dirname($file[0]))
+            ];
+        }
+
+        $sharedDocument = $this->resolveSharedAlias($user, $relativePath);
+        if (is_null($sharedDocument)) {
+            return null;
+        }
+
+        $file = $collabora->resolveUserFile($sharedDocument['owner'], $sharedDocument['relativePath']);
+        if (is_null($file) || $file[0] !== $sharedDocument['path']) {
+            return null;
+        }
+
+        return [
+            'path' => $file[0],
+            'name' => $sharedDocument['name'],
+            'canWrite' => $sharedDocument['canWrite']
+                && is_writable($file[0])
+                && is_writable(dirname($file[0]))
+        ];
     }
 
     public function versions(ServerRequest $request, Response $response, array $args): Response
     {
-        $path = $this->resolveOwnFile((object)$request->getParsedBody());
+        $file = $this->resolveVersionFile((object)$request->getParsedBody());
 
-        if (is_null($path)) {
+        if (is_null($file) || !is_readable($file['path'])) {
             return $this->error($response, _('Document not found'), 404);
         }
 
@@ -214,32 +308,34 @@ class DocumentCollaboraController
             return [
                 'id' => $version['id'],
                 'date' => date(SystemConfig::getValue('sDateTimeFormat'), $version['timestamp']),
-                'size' => MiscUtils::FileSizeConvert($version['size'])
+                'size' => MiscUtils::FileSizeConvert($version['size']),
+                'author' => $version['author'] ?? ''
             ];
-        }, (new CollaboraService())->listVersions($path));
+        }, (new CollaboraService())->listVersions($file['path']));
 
         return $response->withJson([
             'success' => true,
             'versions' => $versions,
-            'currentDate' => date(SystemConfig::getValue('sDateTimeFormat'), filemtime($path)),
-            'currentSize' => MiscUtils::FileSizeConvert(filesize($path))
+            'currentDate' => date(SystemConfig::getValue('sDateTimeFormat'), filemtime($file['path'])),
+            'currentSize' => MiscUtils::FileSizeConvert(filesize($file['path'])),
+            'currentAuthor' => (new CollaboraService())->getCurrentAuthor($file['path']) ?? ''
         ]);
     }
 
     public function downloadVersion(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
-        $path = $this->resolveOwnFile($params);
-        $versionPath = (is_null($path) || !isset($params->version)) ? null
-            : (new CollaboraService())->getVersionPath($path, (string)$params->version);
+        $file = $this->resolveVersionFile($params);
+        $versionPath = (is_null($file) || !isset($params->version)) ? null
+            : (new CollaboraService())->getVersionPath($file['path'], (string)$params->version);
 
-        if (is_null($versionPath)) {
+        if (is_null($versionPath) || !is_readable($versionPath)) {
             return $this->error($response, _('Document not found'), 404);
         }
 
         return $response
             ->withHeader('Content-Type', 'application/octet-stream')
-            ->withHeader('Content-Disposition', 'attachment;filename="' . basename($path) . '"')
+            ->withHeader('Content-Disposition', "attachment; filename*=UTF-8''" . rawurlencode($file['name']))
             ->withHeader('Cache-Control', 'no-store')
             ->withBody(new \Slim\Psr7\Stream(fopen($versionPath, 'rb')));
     }
@@ -247,13 +343,16 @@ class DocumentCollaboraController
     public function restoreVersion(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
-        $path = $this->resolveOwnFile($params);
+        $file = $this->resolveVersionFile($params);
 
-        if (is_null($path) || !isset($params->version)) {
+        if (is_null($file) || !isset($params->version)) {
             return $this->error($response, _('Document not found'), 404);
         }
+        if (!$file['canWrite']) {
+            return $this->error($response, _('Forbidden'), 403);
+        }
 
-        if (!(new CollaboraService())->restoreVersion($path, (string)$params->version)) {
+        if (!(new CollaboraService())->restoreVersion($file['path'], (string)$params->version)) {
             return $this->error($response, _('Unable to restore this version'), 400);
         }
 
@@ -263,10 +362,15 @@ class DocumentCollaboraController
     public function deleteVersion(ServerRequest $request, Response $response, array $args): Response
     {
         $params = (object)$request->getParsedBody();
-        $path = $this->resolveOwnFile($params);
+        $file = $this->resolveVersionFile($params);
 
-        if (is_null($path) || !isset($params->version)
-            || !(new CollaboraService())->deleteVersion($path, (string)$params->version)) {
+        if (is_null($file) || !isset($params->version)) {
+            return $this->error($response, _('Document not found'), 404);
+        }
+        if (!$file['canWrite']) {
+            return $this->error($response, _('Forbidden'), 403);
+        }
+        if (!(new CollaboraService())->deleteVersion($file['path'], (string)$params->version)) {
             return $this->error($response, _('Document not found'), 404);
         }
 

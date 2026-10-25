@@ -245,7 +245,7 @@ class DocumentFileManagerController
 
             $item['icon'] = '<img src="' . $item['icon']  . '" width="' . $size . '">';
             $item['currentpath'] = $currentpath;
-            $item['canEdit'] = !$item['dir'] && !$item['link'] && $collabora->isEditable($file) && !$item['locked'];
+            $item['canEdit'] = !$item['dir'] && $collabora->isEditable($file)&& !$item['locked'];
 
             $result[] = $item;
         }

@@ -2,6 +2,57 @@
 
 $(function () {
     window.CRM.dblclick = false;
+    let edriveDragAutoScrollFrame = null;
+    let edriveDragPointerY = null;
+
+    function stopEDriveDragAutoScroll() {
+        edriveDragPointerY = null;
+        if (edriveDragAutoScrollFrame !== null) {
+            window.cancelAnimationFrame(edriveDragAutoScrollFrame);
+            edriveDragAutoScrollFrame = null;
+        }
+    }
+
+    function autoScrollEDriveTableWhileDragging() {
+        edriveDragAutoScrollFrame = null;
+        if (edriveDragPointerY === null) {
+            return;
+        }
+
+        const scrollBody = document.querySelector('#edrive-table_wrapper .dataTables_scrollBody');
+        if (!scrollBody || scrollBody.scrollHeight <= scrollBody.clientHeight + 1) {
+            return;
+        }
+
+        const bounds = scrollBody.getBoundingClientRect();
+        const edgeSize = Math.min(64, Math.max(24, bounds.height * 0.15));
+        let delta = 0;
+
+        if (edriveDragPointerY < bounds.top + edgeSize) {
+            const intensity = Math.min(1, (bounds.top + edgeSize - edriveDragPointerY) / edgeSize);
+            delta = -Math.max(4, Math.ceil(intensity * 18));
+        } else if (edriveDragPointerY > bounds.bottom - edgeSize) {
+            const intensity = Math.min(1, (edriveDragPointerY - (bounds.bottom - edgeSize)) / edgeSize);
+            delta = Math.max(4, Math.ceil(intensity * 18));
+        }
+
+        if (delta === 0) {
+            return;
+        }
+
+        const previousScrollTop = scrollBody.scrollTop;
+        scrollBody.scrollTop += delta;
+        if (scrollBody.scrollTop !== previousScrollTop) {
+            edriveDragAutoScrollFrame = window.requestAnimationFrame(autoScrollEDriveTableWhileDragging);
+        }
+    }
+
+    function updateEDriveDragAutoScroll(pointerY) {
+        edriveDragPointerY = pointerY;
+        if (edriveDragAutoScrollFrame === null) {
+            edriveDragAutoScrollFrame = window.requestAnimationFrame(autoScrollEDriveTableWhileDragging);
+        }
+    }
 
     // Helper function to get parameters from the query string.
     // use to search the ckeditor function to put the right param in the ckeditor image tool
@@ -233,7 +284,7 @@ $(function () {
                 title: i18next.t('Actions'),
                 data: 'id',
                 render: function (data, type, full, meta) {
-                    if (!full.dir && !full.link) {
+                    if (!full.dir && !full.link || full.canEdit) {
                         var ret = `<div class="btn-group">
    <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
    ${full.canEdit ? `<button type="button" class="btn btn-outline-info btn-sm px-2 py-1 editFile" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Edit')}"><i class="fa-solid fa-pen-to-square file-action-icon"></i></button>` : ''}
@@ -604,12 +655,13 @@ $(function () {
 
         const render = function () {
             request('collabora/versions', null, function (data) {
-                let rows = `<tr class="table-active"><td>${escapeHtml(data.currentDate)} <span class="badge badge-primary">${i18next.t('Current version')}</span></td><td>${escapeHtml(data.currentSize)}</td><td></td></tr>`;
+                let rows = `<tr class="table-active"><td>${escapeHtml(data.currentDate)} <span class="badge badge-primary">${i18next.t('Current version')}</span></td><td>${escapeHtml(data.currentSize)}</td><td>${escapeHtml(data.currentAuthor)}</td><td></td></tr>`;
 
                 $.each(data.versions, function (index, version) {
                     rows += `<tr>
 <td>${escapeHtml(version.date)}</td>
 <td>${escapeHtml(version.size)}</td>
+<td>${escapeHtml(version.author)}</td>
 <td class="text-right"><div class="btn-group">
 <button type="button" class="btn btn-outline-primary btn-sm version-download" data-version="${version.id}" title="${i18next.t('Download')}"><i class="fa-solid fa-download"></i></button>
 <button type="button" class="btn btn-outline-success btn-sm version-restore" data-version="${version.id}" title="${i18next.t('Restore')}"><i class="fa-solid fa-rotate-left"></i></button>
@@ -618,10 +670,10 @@ $(function () {
                 });
 
                 if (!data.versions.length) {
-                    rows += `<tr><td colspan="3" class="text-muted">${i18next.t('No previous version')}</td></tr>`;
+                    rows += `<tr><td colspan="4" class="text-muted">${i18next.t('No previous version')}</td></tr>`;
                 }
 
-                dialog.find('.versions-content').html(`<table class="table table-sm mb-0"><thead><tr><th>${i18next.t('Modification Date')}</th><th>${i18next.t('Size')}</th><th></th></tr></thead><tbody>${rows}</tbody></table>`);
+                dialog.find('.versions-content').html(`<table class="table table-sm mb-0"><thead><tr><th>${i18next.t('Modification Date')}</th><th>${i18next.t('Size')}</th><th>${i18next.t('Author')}</th><th></th></tr></thead><tbody>${rows}</tbody></table>`);
             });
         };
 
@@ -980,7 +1032,16 @@ $(function () {
         $('.drag').draggable({
             helper: 'clone',
             appendTo: 'body',
-            zIndex: 1100
+            zIndex: 1100,
+            scroll: false,
+            drag: function (event) {
+                const originalEvent = event.originalEvent || event;
+                const pointerY = Number.isFinite(originalEvent.clientY)
+                    ? originalEvent.clientY
+                    : event.pageY - window.pageYOffset;
+                updateEDriveDragAutoScroll(pointerY);
+            },
+            stop: stopEDriveDragAutoScroll
             //revert : true
         });
 
