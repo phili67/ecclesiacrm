@@ -3638,6 +3638,21 @@ msgstr "删除此版本？"
 msgid "Set the document name"
 msgstr "设置文档名称"
 
+msgid "Organizer"
+msgstr "主办方"
+
+msgid "Attendees"
+msgstr "与会者"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "at"
+msgstr "在"
+
+msgid "from"
+msgstr "来自"
+
 #~ msgid "Info"
 #~ msgstr "信息"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -233,6 +233,24 @@ msgstr "Неделя списков"
 msgid "List Month"
 msgstr "Месяц списка"
 
+msgid "at"
+msgstr "в"
+
+msgid "From"
+msgstr "С сайта"
+
+msgid "to"
+msgstr "на"
+
+msgid "Organizer"
+msgstr "Организатор"
+
+msgid "Attendees"
+msgstr "Участники"
+
+msgid "Notes"
+msgstr "Примечания"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Это событие не изменяемо!!!"
 
@@ -329,12 +347,6 @@ msgstr "Событие успешно добавлено."
 
 msgid "No attendees"
 msgstr "Нет посетителей"
-
-msgid "From"
-msgstr "С сайта"
-
-msgid "to"
-msgstr "на"
 
 msgid "Attendance Notes: "
 msgstr "Заметки о посещаемости:"
@@ -443,9 +455,6 @@ msgstr "Календарь"
 
 msgid "Add as attendees"
 msgstr "Добавить в качестве участников"
-
-msgid "Notes"
-msgstr "Примечания"
 
 msgid "Status"
 msgstr "Статус"
@@ -1366,6 +1375,9 @@ msgstr "Восстановить"
 
 msgid "No previous version"
 msgstr "Предыдущих версий нет"
+
+msgid "Author"
+msgstr "Автор"
 
 msgid "Restore this version ?"
 msgstr "Восстановить эту версию?"
@@ -3084,6 +3096,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Все члены будут уничтожены.  Сами члены не будут изменены."
+
+#~ msgid "from"
+#~ msgstr "из"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Восстановите резервную копию, не закрывайте окно!"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:34:23.897Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -227,6 +227,26 @@ msgstr "名单周"
 msgid "List Month"
 msgstr "列表月"
 
+#, fuzzy
+msgid "at"
+msgstr "日期"
+
+msgid "From"
+msgstr "来自"
+
+msgid "to"
+msgstr "至"
+
+msgid "Organizer"
+msgstr ""
+
+#, fuzzy
+msgid "Attendees"
+msgstr "没有出席者"
+
+msgid "Notes"
+msgstr "笔记"
+
 msgid "This event isn't modifiable !!!"
 msgstr "这个事件是不能修改的！！！。"
 
@@ -319,12 +339,6 @@ msgstr "事件已成功添加。"
 
 msgid "No attendees"
 msgstr "没有出席者"
-
-msgid "From"
-msgstr "来自"
-
-msgid "to"
-msgstr "至"
 
 msgid "Attendance Notes: "
 msgstr "出席情况说明。"
@@ -433,9 +447,6 @@ msgstr "日历"
 
 msgid "Add as attendees"
 msgstr "添加为参会人员"
-
-msgid "Notes"
-msgstr "笔记"
 
 msgid "Status"
 msgstr "状况"
@@ -1405,6 +1416,9 @@ msgid "Restore"
 msgstr "复原错误。"
 
 msgid "No previous version"
+msgstr ""
+
+msgid "Author"
 msgstr ""
 
 #, fuzzy

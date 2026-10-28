@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -236,6 +236,24 @@ msgstr "Veckans lista"
 msgid "List Month"
 msgstr "Lista månad"
 
+msgid "at"
+msgstr "vid"
+
+msgid "From"
+msgstr "Från"
+
+msgid "to"
+msgstr "till"
+
+msgid "Organizer"
+msgstr "Arrangör"
+
+msgid "Attendees"
+msgstr "Deltagare"
+
+msgid "Notes"
+msgstr "Anteckningar"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Denna händelse kan inte ändras !!!!"
 
@@ -332,12 +350,6 @@ msgstr "Evenemanget har lagts till framgångsrikt."
 
 msgid "No attendees"
 msgstr "Inga deltagare"
-
-msgid "From"
-msgstr "Från"
-
-msgid "to"
-msgstr "till"
 
 msgid "Attendance Notes: "
 msgstr "Anteckningar om närvaro:"
@@ -446,9 +458,6 @@ msgstr "Kalender"
 
 msgid "Add as attendees"
 msgstr "Lägg till som deltagare"
-
-msgid "Notes"
-msgstr "Anteckningar"
 
 msgid "Status"
 msgstr "Status"
@@ -1370,6 +1379,9 @@ msgstr "Återställ"
 
 msgid "No previous version"
 msgstr "Ingen tidigare version"
+
+msgid "Author"
+msgstr "Författare"
 
 msgid "Restore this version ?"
 msgstr "Återställa den här versionen?"
@@ -3084,6 +3096,9 @@ msgid ""
 msgstr ""
 "Alla medlemskap kommer att förstöras.  Medlemmarna själva kommer inte att "
 "förändras."
+
+#~ msgid "from"
+#~ msgstr "från"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Återställ säkerhetskopian, stäng inte fönstret!"

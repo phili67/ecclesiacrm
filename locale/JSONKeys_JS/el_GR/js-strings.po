@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -242,6 +242,24 @@ msgstr "Εβδομάδα λίστας"
 msgid "List Month"
 msgstr "Μήνας λίστας"
 
+msgid "at"
+msgstr "στο"
+
+msgid "From"
+msgstr "Από το"
+
+msgid "to"
+msgstr "στο"
+
+msgid "Organizer"
+msgstr "Διοργανωτής"
+
+msgid "Attendees"
+msgstr "Συμμετέχοντες"
+
+msgid "Notes"
+msgstr "Σημειώσεις"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Αυτό το γεγονός δεν μπορεί να τροποποιηθεί !!!"
 
@@ -338,12 +356,6 @@ msgstr "Το συμβάν προστέθηκε με επιτυχία."
 
 msgid "No attendees"
 msgstr "Δεν υπάρχουν συμμετέχοντες"
-
-msgid "From"
-msgstr "Από το"
-
-msgid "to"
-msgstr "στο"
 
 msgid "Attendance Notes: "
 msgstr "Σημειώσεις συμμετοχής:"
@@ -452,9 +464,6 @@ msgstr "Ημερολόγιο"
 
 msgid "Add as attendees"
 msgstr "Προσθέστε ως συμμετέχοντες"
-
-msgid "Notes"
-msgstr "Σημειώσεις"
 
 msgid "Status"
 msgstr "Κατάσταση"
@@ -1382,6 +1391,9 @@ msgstr "Επαναφορά"
 
 msgid "No previous version"
 msgstr "Δεν υπάρχει προηγούμενη έκδοση"
+
+msgid "Author"
+msgstr "Συγγραφέας"
 
 msgid "Restore this version ?"
 msgstr "Να επαναφέρετε αυτή την έκδοση;"
@@ -3134,6 +3146,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Όλα τα μέλη θα καταστραφούν.  Τα ίδια τα μέλη δεν θα μεταβληθούν."
+
+#~ msgid "from"
+#~ msgstr "από"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Επαναφορά αντιγράφου ασφαλείας, μην κλείσετε το παράθυρο !"

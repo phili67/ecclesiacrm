@@ -37,7 +37,7 @@ msgstr ""
 msgid "Groups"
 msgstr ""
 
-#: ../src/Plugins/MailChimp/core/Services/MailChimpService.php:298
+#: ../src/Plugins/MailChimp/core/Services/MailChimpService.php:296
 msgid "Private Data"
 msgstr ""
 
