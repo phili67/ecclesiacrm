@@ -92,7 +92,6 @@ $(function () {
     // EDrive
     var selected = [];// the selected rows
     var uploadWindow = null;
-    var oldTextField = null;
 
     const syncEDrivePanelModal = function (panelVisible = $('.filmanager-right').is(':visible')) {
         const $panel = $('.filmanager-right');
@@ -267,16 +266,14 @@ $(function () {
                 data: 'name',
                 type: 'column-name',
                 render: function (data, type, full, meta) {
-                    if (full.dir) {
-                        var fileName = data.substring(1);
+                    var fileName = full.dir
+                        ? data.substring(1)
+                        : data.substring(0, data.lastIndexOf('.')) || data;
 
-                        return `<input type="text" value="${fileName}" class="fileName form-control form-control-sm" data-name="${data}" data-type="folder" readonly>`;
-                    } else {
-                        var fileName = data;
-                        fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
-
-                        return `<input type="text" value="${fileName}" class="fileName form-control form-control-sm" data-name="${data}" data-type="file" readonly>`;
-                    }
+                    return $('<span>').addClass('fileName')
+                        .attr('data-name', data)
+                        .attr('data-type', full.dir ? 'folder' : 'file')
+                        .text(fileName)[0].outerHTML;
                 }
             },
             {
@@ -378,6 +375,8 @@ $(function () {
     };
 
 
+    window.CRM.plugin.dataTable.buttons = [];
+    
     $.extend(DataTableOpts, window.CRM.plugin.dataTable);
 
     window.CRM.plugin.dataTable.buttons.push({
@@ -758,6 +757,10 @@ $(function () {
 
     // click in the table
     $('#edrive-table tbody').on('click', 'tr', function(event) {
+        if ($(event.target).closest('.fileName-editor').length) {
+            return;
+        }
+
         var data = window.CRM.dataEDriveTable.row(this).data();
         let id = data['name'];
         let clickedCellIndex = $(event.target).closest('td').index();
@@ -869,7 +872,7 @@ $(function () {
                 title: i18next.t("Set a File/Folder name"),
                 value: fileName,
                 callback: function (result) {
-                    if (result != '') {
+                    if (result !== null && result !== '') {
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'filemanager/rename',
@@ -907,17 +910,22 @@ $(function () {
     });
 
     $("body").on('dblclick', '.fileName', function (e) {
-        if (!navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i)) {
-            // we're on a computer
-            if (oldTextField != null) {
-                $(oldTextField).css("background", "transparent");
-                $(oldTextField).attr('readonly');
-            }
+        if (!navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|Windows Phone|webOS/i)
+            && !$(this).find('.fileName-editor').length) {
+            var $name = $(this);
+            var fileName = $name.text();
+            var $input = $('<input>', {
+                type: 'text',
+                class: 'fileName-editor form-control form-control-sm',
+                value: fileName
+            });
 
-            $(this).css("background", "white");
-            $(this).removeAttr('readonly');
-
-            oldTextField = this;
+            $name.empty().append($input);
+            $input.on('blur', function () {
+                $name.text(fileName);
+            });
+            $input.trigger('focus');
+            $input[0].select();
         }
     });
 
@@ -929,53 +937,45 @@ $(function () {
     });
 
 
-    $("body").on('keypress', '.fileName', function (e) {
-        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
-        var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-        var newName = $(this).val();
-        var oldName = $(this).data("name");
-        var type = $(this).data("type");
-
-        switch (key) {
-            case 13:// return
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'filemanager/rename',
-                    data: JSON.stringify({
-                        "personID": window.CRM.currentPersonID,
-                        "oldName": oldName,
-                        "newName": newName,
-                        "type": type
-                    })
-                }, function (data) {
-                    if (data && data.success) {
-                        window.CRM.reloadEDriveTable(function () {
-                           realRows.select();
-                        });
-                    } else  {
-                        window.CRM.DisplayAlert(i18next.t("Error"), data.message);
-                        window.CRM.reloadEDriveTable(function () {
-                            realRows.select();
-                        });
-                    }
-                    
-                });
-                break;
-            case 27:// ESC
-                var fileName = oldName;
-
-                if (type == 'file') {
-                    fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
-                } else {
-                    fileName = fileName.substring(1);
-                }
-
-                $(this).attr('readonly');
-                $(this).css("background", "transparent");
-                $(this).val(fileName);
-                oldTextField = null;
-                break;
+    $("body").on('keydown', '.fileName-editor', function (e) {
+        if (e.key !== 'Enter' && e.key !== 'Escape') {
+            return;
         }
+
+        e.preventDefault();
+        if (e.key === 'Escape') {
+            $(this).trigger('blur');
+            return;
+        }
+
+        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
+        var $input = $(this);
+        var $name = $input.closest('.fileName');
+        var newName = $(this).val();
+        var oldName = $name.data("name");
+        var type = $name.data("type");
+
+        $input.prop('disabled', true);
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'filemanager/rename',
+            data: JSON.stringify({
+                "personID": window.CRM.currentPersonID,
+                "oldName": oldName,
+                "newName": newName,
+                "type": type
+            })
+        }, function (data) {
+            if (!data || !data.success) {
+                window.CRM.DisplayAlert(i18next.t("Error"), data ? data.message : i18next.t("Error"));
+            }
+            window.CRM.reloadEDriveTable(function () {
+                realRows.select();
+            });
+        }, function (error) {
+            window.CRM.DisplayAlert(i18next.t("Error"), error.message);
+            $input.prop('disabled', false).trigger('blur');
+        });
     });
 
     $('.folder-back-drop').droppable({

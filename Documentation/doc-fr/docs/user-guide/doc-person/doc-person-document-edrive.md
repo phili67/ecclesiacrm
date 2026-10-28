@@ -87,6 +87,8 @@ La démarche est simple
 - Valider avec la touche entrée ou retour chariot<br>
        ![Screenshot](../../img/person/edrive14.png)
 
+- Appuyez sur Échap ou cliquez ailleurs pour annuler la modification. Sur mobile, touchez le nom pour ouvrir la boîte de dialogue de renommage.
+
 ## Pour déplacer un fichier dans un dossier
 
 - Sélectionnez l'icône et la déplacer dans le dossier voulu<br>
