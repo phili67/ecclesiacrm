@@ -78,7 +78,7 @@ the steps are simple:
 
 ##Change the name of a file
 
-- double click on the file's namer<br>
+- Double-click the name of the file or folder to edit it<br>
 ![Screenshot](../../img/person/edrive12.png)
 
 - Enter the new name<br>
@@ -86,6 +86,8 @@ the steps are simple:
 
 - Click on "enter"<br>
 ![Screenshot](../../img/person/edrive14.png)
+
+- Press Escape or click elsewhere to cancel. On mobile, tap the name to open the rename dialog.
 
 ##Move a file in a folder
 
