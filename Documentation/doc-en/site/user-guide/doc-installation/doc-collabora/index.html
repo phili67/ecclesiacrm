@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -33,10 +33,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -538,6 +538,17 @@
     <span class="md-ellipsis">
       
         7. Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-development-environment-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Development Environment (Docker)
       
     </span>
   </a>
@@ -4429,6 +4440,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#8-development-environment-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Development Environment (Docker)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4506,7 +4528,7 @@ Collabora ─(3) WOPI ──────────▶ crm.example.com/api/wopi
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dictionaries=fr_FR en_GB</span>
 <span class="w">      </span><span class="c1"># Administration console: /browser/dist/admin/admin.html</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username=admin</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password=CHOOSE_A_STRONG_PASSWORD</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password=change-me-to-a-strong-password</span>
 <span class="w">    </span><span class="c1"># The container reaches the CRM directly via the host, bypassing public IP and router</span>
 <span class="w">    </span><span class="nt">extra_hosts</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;crm.example.com:host-gateway&quot;</span>
@@ -4514,7 +4536,7 @@ Collabora ─(3) WOPI ──────────▶ crm.example.com/api/wopi
 <span class="w">      </span><span class="c1"># &quot;EDrive Office&quot; theme: CRM name and icon inside the editor (optional, see details below)</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/CRM/src/skin/collabora/edrive:/usr/share/coolwsd/browser/dist/edrive:ro</span>
 
-<span class="nt">networks</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">default</span><span class="p">:</span>
 <span class="w">        </span><span class="c1"># Fixed IP address for the Collabora container within the subnet defined below</span>
 <span class="w">        </span><span class="nt">ipv4_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.18.0.2</span>
@@ -4730,6 +4752,57 @@ rm<span class="w"> </span>-f<span class="w"> </span>/var/www/CRM/tmp_attach/coll
 tail<span class="w"> </span>-f<span class="w"> </span>/var/log/apache2/error.log
 </code></pre></div>
 
+<h2 id="8-development-environment-docker">8. Development Environment (Docker)<a class="headerlink" href="#8-development-environment-docker" title="Permanent link">&para;</a></h2>
+<p>The <code>docker/</code> stack can run Collabora Online next to the CRM for local development. Collabora is <strong>not</strong> part of the PHP images: it is a second web server (port 9980) and runs as its own service. Caddy terminates HTTPS in front of it, so the editor is served at <code>https://office.localhost:8443</code>. The development setup is for testing only and must not be used in production.</p>
+<ol>
+<li>Install <a href="https://github.com/FiloSottile/mkcert">mkcert</a> and create the certificate for <code>office.localhost</code> in <code>docker/config/caddy/certs/</code>:</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>mkcert<span class="w"> </span>-install
+<span class="nb">cd</span><span class="w"> </span>docker/config/caddy/certs
+mkcert<span class="w"> </span>-cert-file<span class="w"> </span>office.localhost.pem<span class="w"> </span>-key-file<span class="w"> </span>office.localhost-key.pem<span class="w"> </span>office.localhost
+cp<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>mkcert<span class="w"> </span>-CAROOT<span class="k">)</span><span class="s2">/rootCA.pem&quot;</span><span class="w"> </span>rootCA.pem
+</code></pre></div>
+
+<ol>
+<li>In <code>docker/.env</code>, set <code>COLLABORA_ADMIN_PASSWORD</code> (see <code>sample.env</code>). <code>COLLABORA_HTTPS_PORT</code> defaults to <code>8443</code> and <code>COLLABORA_SERVER_NAME</code> must include it (<code>office.localhost:8443</code>), otherwise Collabora announces URLs without the port.</li>
+<li>Start the stack:</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docker
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>database<span class="w"> </span>webserver<span class="w"> </span>caddy<span class="w"> </span>collabora
+</code></pre></div>
+
+<ol>
+<li>In <strong>Administration ▸ Settings ▸ Integration</strong>:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sCollaboraURL</code></td>
+<td><code>https://office.localhost:8443</code></td>
+</tr>
+<tr>
+<td><code>sCollaboraWopiURL</code></td>
+<td><code>https://host.docker.internal:443</code> (the CRM as seen from the Collabora container)</td>
+</tr>
+</tbody>
+</table>
+<p><code>office.localhost</code> resolves to the local machine in current browsers, so no hosts file change is needed. Collabora calls back the CRM over HTTPS inside the Docker network (<code>aliasgroup1=https://host.docker.internal:443</code>). The mkcert <code>rootCA.pem</code> is mounted in the Collabora container and declared as its trusted authority through <code>ssl.ca_file_path</code> and <code>storage.ssl.ca_file_path</code> (dev only). The editor iframe is allowed on the CRM page through <code>net.frame_ancestors=https://localhost:*</code> (a single origin, <code>extra_params</code> is split on spaces). The CRM certificate (<code>config/ssl/cert.pem</code>) must include <code>host.docker.internal</code> in its SAN, for example: <code>mkcert -cert-file config/ssl/cert.pem -key-file config/ssl/cert-key.pem localhost 127.0.0.1 ::1 host.docker.internal</code>.</p>
+<p>The admin console is available at <code>https://office.localhost:8443/browser/dist/admin/admin.html</code>, with the <code>COLLABORA_ADMIN_USER</code> and <code>COLLABORA_ADMIN_PASSWORD</code> values.</p>
+<p>Troubleshooting (development stack):</p>
+<ul>
+<li><code>rootCA.pem</code> must exist in <code>docker/config/caddy/certs/</code> <strong>before</strong> <code>docker compose up</code>, otherwise Docker creates an empty directory with that name and the mount fails silently.</li>
+<li>The <code>webserver</code> container installs the mkcert CA (<code>update-ca-certificates</code>) at every start, so nothing has to be redone after a recreation. If the Edit button is missing, delete <code>tmp_attach/collabora_discovery.json</code> (the failed discovery is cached for a short time) and check the discovery from PHP.</li>
+<li>The Collabora image has no shell, so inspect it through <code>docker compose logs collabora</code>. <code>net.frame_ancestors</code> is reported as obsolete in the logs, but it is the only form accepted through <code>extra_params</code>.</li>
+<li>A blank editor window with a <code>frame-ancestors</code> error in the browser console means the CRM origin is not allowed: check the <code>net.frame_ancestors</code> value.</li>
+<li>Safari may keep a stale cached state of the editor window: reload eDrive (Cmd+Shift+R) or restart Safari after changing the Collabora configuration.</li>
+</ul>
+
 
 
 
@@ -4798,10 +4871,10 @@ tail<span class="w"> </span>-f<span class="w"> </span>/var/log/apache2/error.log
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   </body>

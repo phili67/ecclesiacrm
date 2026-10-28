@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -33,10 +33,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -538,6 +538,17 @@
     <span class="md-ellipsis">
       
         7. Dépannage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-environnement-de-developpement-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Environnement de développement (Docker)
       
     </span>
   </a>
@@ -4429,6 +4440,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#8-environnement-de-developpement-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Environnement de développement (Docker)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4514,9 +4536,10 @@ Collabora  ──(3) WOPI ────────────▶ crm.example.co
 <span class="w">      </span><span class="c1"># Thème « EDrive Office » : nom et icône du CRM dans l&#39;éditeur (facultatif, voir plus bas)</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/chemin/du/CRM/src/skin/collabora/edrive:/usr/share/coolwsd/browser/dist/edrive:ro</span>
 
-<span class="nt">networks</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">default</span><span class="p">:</span>
 <span class="w">        </span><span class="c1"># Adresse IP fixe du conteneur Collabora dans le sous-réseau défini ci-dessous</span>
+<span class="w">        </span><span class="nt">ipv4_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.18.0.2</span>
 <span class="w">        </span><span class="nt">ipv4_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">172.18.0.2</span>
 
 <span class="c1"># Sous-réseau fixe : doit correspondre au &quot;Require ip&quot; des vhosts Apache du CRM</span>
@@ -4730,6 +4753,57 @@ rm<span class="w"> </span>-f<span class="w"> </span>/var/www/CRM/tmp_attach/coll
 tail<span class="w"> </span>-f<span class="w"> </span>/var/log/apache2/error.log
 </code></pre></div>
 
+<h2 id="8-environnement-de-developpement-docker">8. Environnement de développement (Docker)<a class="headerlink" href="#8-environnement-de-developpement-docker" title="Permanent link">&para;</a></h2>
+<p>La stack <code>docker/</code> peut faire tourner Collabora Online à côté du CRM pour le développement local. Collabora <strong>ne fait pas partie</strong> des images PHP : c'est un second serveur web (port 9980) qui tourne dans son propre service. Caddy termine le HTTPS devant lui, si bien que l'éditeur est servi sur <code>https://office.localhost:8443</code>. Cette configuration de développement est réservée aux tests et ne doit pas être utilisée en production.</p>
+<ol>
+<li>Installez <a href="https://github.com/FiloSottile/mkcert">mkcert</a> et créez le certificat pour <code>office.localhost</code> dans <code>docker/config/caddy/certs/</code> :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code>mkcert<span class="w"> </span>-install
+<span class="nb">cd</span><span class="w"> </span>docker/config/caddy/certs
+mkcert<span class="w"> </span>-cert-file<span class="w"> </span>office.localhost.pem<span class="w"> </span>-key-file<span class="w"> </span>office.localhost-key.pem<span class="w"> </span>office.localhost
+cp<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>mkcert<span class="w"> </span>-CAROOT<span class="k">)</span><span class="s2">/rootCA.pem&quot;</span><span class="w"> </span>rootCA.pem
+</code></pre></div>
+
+<ol>
+<li>Dans <code>docker/.env</code>, renseignez <code>COLLABORA_ADMIN_PASSWORD</code> (voir <code>sample.env</code>). <code>COLLABORA_HTTPS_PORT</code> vaut <code>8443</code> par défaut et <code>COLLABORA_SERVER_NAME</code> doit l'inclure (<code>office.localhost:8443</code>), sinon Collabora annonce des URL sans port.</li>
+<li>Démarrez la stack :</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docker
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>database<span class="w"> </span>webserver<span class="w"> </span>caddy<span class="w"> </span>collabora
+</code></pre></div>
+
+<ol>
+<li>Dans <strong>Administration ▸ Paramètres ▸ Intégration</strong> :</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sCollaboraURL</code></td>
+<td><code>https://office.localhost:8443</code></td>
+</tr>
+<tr>
+<td><code>sCollaboraWopiURL</code></td>
+<td><code>https://host.docker.internal:443</code> (le CRM vu depuis le conteneur Collabora)</td>
+</tr>
+</tbody>
+</table>
+<p><code>office.localhost</code> correspond à la machine locale dans les navigateurs actuels : aucune modification du fichier hosts n'est nécessaire. Collabora rappelle le CRM en HTTPS sur le réseau Docker (<code>aliasgroup1=https://host.docker.internal:443</code>). Le <code>rootCA.pem</code> de mkcert est monté dans le conteneur Collabora et déclaré comme autorité de confiance via <code>ssl.ca_file_path</code> et <code>storage.ssl.ca_file_path</code> (dev uniquement). L'iframe de l'éditeur est autorisée sur la page du CRM via <code>net.frame_ancestors=https://localhost:*</code> (une seule origine, <code>extra_params</code> est découpé sur les espaces). Le certificat du CRM (<code>config/ssl/cert.pem</code>) doit inclure <code>host.docker.internal</code> dans son SAN, par exemple : <code>mkcert -cert-file config/ssl/cert.pem -key-file config/ssl/cert-key.pem localhost 127.0.0.1 ::1 host.docker.internal</code>.</p>
+<p>La console d'administration est accessible sur <code>https://office.localhost:8443/browser/dist/admin/admin.html</code>, avec les valeurs <code>COLLABORA_ADMIN_USER</code> et <code>COLLABORA_ADMIN_PASSWORD</code>.</p>
+<p>Dépannage (stack de développement) :</p>
+<ul>
+<li><code>rootCA.pem</code> doit exister dans <code>docker/config/caddy/certs/</code> <strong>avant</strong> <code>docker compose up</code>, sinon Docker crée un dossier vide portant ce nom et le montage échoue silencieusement.</li>
+<li>Le conteneur <code>webserver</code> installe l'autorité mkcert (<code>update-ca-certificates</code>) à chaque démarrage : rien à refaire après une recréation. Si le bouton Edit est absent, supprimez <code>tmp_attach/collabora_discovery.json</code> (une découverte en échec est mise en cache brièvement) et testez la découverte depuis PHP.</li>
+<li>L'image Collabora n'a pas de shell : inspectez-la avec <code>docker compose logs collabora</code>. <code>net.frame_ancestors</code> est signalé comme obsolète dans les logs, mais c'est la seule forme acceptée via <code>extra_params</code>.</li>
+<li>Une fenêtre d'éditeur blanche avec une erreur <code>frame-ancestors</code> dans la console du navigateur signifie que l'origine du CRM n'est pas autorisée : vérifiez la valeur de <code>net.frame_ancestors</code>.</li>
+<li>Safari peut conserver un état périmé de la fenêtre de l'éditeur : rechargez eDrive (Cmd+Maj+R) ou redémarrez Safari après une modification de la configuration Collabora.</li>
+</ul>
+
 
 
 
@@ -4798,10 +4872,10 @@ tail<span class="w"> </span>-f<span class="w"> </span>/var/log/apache2/error.log
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   </body>

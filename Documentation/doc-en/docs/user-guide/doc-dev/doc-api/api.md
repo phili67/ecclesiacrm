@@ -315,6 +315,13 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/editShared` | POST | DocumentCollaboraController::class . ':editShared' | get the Collabora editor URL for a file shared with the current person
+
+* `{ref}`->`int` :: shareId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/create` | POST | DocumentCollaboraController::class . ':create' | create an empty document (docx, xlsx, pptx, odg) in the current folder
 
 * `{ref}`->`int` :: personID
@@ -431,6 +438,20 @@ Route | Method | function | Description
 
 * `{ref}`->`int` :: personID
 * `{ref}`->`string` :: name
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getSharedPreview` | POST | DocumentFileManagerController::class . ':getSharedPreview' | preview a file or folder shared with the current person
+
+* `{ref}`->`int` :: shareId
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getSharedFile/{shareId:[0-9]+}[/{name:.*}]` | GET | DocumentFileManagerController::class . ':getSharedFile' | retrieve a shared file for an authenticated inline preview
+
+* `{ref}`->`int` :: shareId
 
 ---
 Route | Method | function | Description
@@ -670,6 +691,11 @@ Route | Method | function | Description
 
 * `{ref}`->`string` :: id
 * `{ref}`->`string` :: access_token (query)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/files/{id:[a-f0-9]{40}}` | POST | DocumentWopiController::class . ':renameFile' | RenameFile
 
 ---
 Route | Method | function | Description
