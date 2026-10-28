@@ -79,16 +79,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.CRM.allDay = -1;
             }
 
-            let message = "<b><u><i class='fa fa-calendar-check'></i> " + calEvent.event.title + "</u></b><br>"
-                + '<div class="row"><div class="col-md-6 text-right">Date : </div> <div class="col-md-6"> From : ' + calEvent.event.extendedProps.start_name + '</div></div> '
-                + '<div class="row"><div class="col-md-6 text-right"></div> <div class="col-md-6"> to : ' + calEvent.event.extendedProps.end_name + '</div></div> '
-                + '<div class="row"><div class="col-md-6 text-right">Organizer : </div> <div class="col-md-6">' + calEvent.event.extendedProps.organizer + '</div></div> ';
+            const { start_name, end_name } = calEvent.event.extendedProps;
+            const dateMessage = start_name === end_name
+                ? `<div class="row"><div class="col-md-6 text-right">Date : </div> <div class="col-md-6"> ${i18next.t("at")} : ${start_name}</div></div>`
+                : `<div class="row"><div class="col-md-6 text-right">Date : </div> <div class="col-md-6"> ${i18next.t("From")} : ${start_name}</div></div>
+                <div class="row"><div class="col-md-6 text-right"></div> <div class="col-md-6"> ${i18next.t("to")} : ${end_name}</div></div>`;
 
-            if (calEvent.event.extendedProps.attendees = null) {
-                message += '<div class="row"><div class="col-md-6 text-right">Organizer : </div> <div class="col-md-6">' + calEvent.event.extendedProps.attendees + '</div></div> ';
+            let message = `<b><u><i class='fa fa-calendar-check'></i> ${calEvent.event.title}</u></b><br>
+                ${dateMessage}
+                <div class="row"><div class="col-md-6 text-right">${i18next.t("Organizer")} : </div> <div class="col-md-6">${calEvent.event.extendedProps.organizer}</div></div>`;
+
+            if (calEvent.event.extendedProps.attendees != null) {
+                message += `<div class="row"><div class="col-md-6 text-right">${i18next.t("Attendees")} : </div> <div class="col-md-6">${calEvent.event.extendedProps.attendees}</div></div> `;
             }
 
-            message += '<div class="row"><div class="col-md-6 text-right">Notes : </div> <div class="col-md-6">' + calEvent.event.extendedProps.Desc + '</div></div>';
+            message += `<div class="row"><div class="col-md-6 text-right">${i18next.t("Notes")} : </div> <div class="col-md-6">${calEvent.event.extendedProps.Desc}</div></div>`;
 
             $(calEvent.el).tooltip({
                 title: message,
