@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:34:23.897Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,6 +230,26 @@ msgstr "java e listes"
 msgid "List Month"
 msgstr "muaji i listës"
 
+#, fuzzy
+msgid "at"
+msgstr "Takim"
+
+msgid "From"
+msgstr "Nga ana tjetër."
+
+msgid "to"
+msgstr "për"
+
+msgid "Organizer"
+msgstr ""
+
+#, fuzzy
+msgid "Attendees"
+msgstr "pa të pranishëm"
+
+msgid "Notes"
+msgstr "- Jo."
+
 msgid "This event isn't modifiable !!!"
 msgstr "Kjo ngjarje nuk është e modifikueshme! !"
 
@@ -328,12 +348,6 @@ msgstr "U shtua me sukses ngjarja."
 
 msgid "No attendees"
 msgstr "pa të pranishëm"
-
-msgid "From"
-msgstr "Nga ana tjetër."
-
-msgid "to"
-msgstr "për"
 
 msgid "Attendance Notes: "
 msgstr "Notes e pranimeve:"
@@ -443,9 +457,6 @@ msgstr "kalendar."
 
 msgid "Add as attendees"
 msgstr "shto si të pranishëm"
-
-msgid "Notes"
-msgstr "- Jo."
 
 msgid "Status"
 msgstr "gjendja."
@@ -1428,6 +1439,9 @@ msgid "Restore"
 msgstr "Rivendose gabim."
 
 msgid "No previous version"
+msgstr ""
+
+msgid "Author"
 msgstr ""
 
 #, fuzzy

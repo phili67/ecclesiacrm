@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -234,6 +234,24 @@ msgstr "Minggu List"
 msgid "List Month"
 msgstr "Daftar Bulan"
 
+msgid "at"
+msgstr "di"
+
+msgid "From"
+msgstr "Dari"
+
+msgid "to"
+msgstr "To"
+
+msgid "Organizer"
+msgstr "Penyelenggara"
+
+msgid "Attendees"
+msgstr "Peserta"
+
+msgid "Notes"
+msgstr "Catatan"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Acara ini tidak dapat dimodifikasi! !"
 
@@ -330,12 +348,6 @@ msgstr "Event telah ditambahkan berhasil."
 
 msgid "No attendees"
 msgstr "Tidak ada pengasuh"
-
-msgid "From"
-msgstr "Dari"
-
-msgid "to"
-msgstr "To"
 
 msgid "Attendance Notes: "
 msgstr "Perhatian:"
@@ -445,9 +457,6 @@ msgstr "Kalender"
 
 msgid "Add as attendees"
 msgstr "Tambahkan sebagai perawatan"
-
-msgid "Notes"
-msgstr "Catatan"
 
 msgid "Status"
 msgstr "Status"
@@ -1367,6 +1376,9 @@ msgstr "Kembalikan"
 
 msgid "No previous version"
 msgstr "Tidak ada versi sebelumnya"
+
+msgid "Author"
+msgstr "Penulis"
 
 msgid "Restore this version ?"
 msgstr "Kembalikan ke versi ini?"
@@ -3090,6 +3102,9 @@ msgid ""
 "altered."
 msgstr ""
 "Semua keanggotaan akan dihancurkan.  Anggota itu sendiri tidak akan diubah."
+
+#~ msgid "from"
+#~ msgstr "dari"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Pulihkan cadangan, jangan tutup jendela!"

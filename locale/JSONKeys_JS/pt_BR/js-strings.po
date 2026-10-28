@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:34:23.897Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,6 +232,26 @@ msgstr "Semana da Lista"
 msgid "List Month"
 msgstr "Mês da Lista"
 
+#, fuzzy
+msgid "at"
+msgstr "Data"
+
+msgid "From"
+msgstr "A partir de"
+
+msgid "to"
+msgstr "para"
+
+msgid "Organizer"
+msgstr ""
+
+#, fuzzy
+msgid "Attendees"
+msgstr "Presenças"
+
+msgid "Notes"
+msgstr "Notas"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Este evento não é modificável!!!"
 
@@ -332,12 +352,6 @@ msgstr "O evento foi adicionado com sucesso."
 
 msgid "No attendees"
 msgstr "Nenhum participante"
-
-msgid "From"
-msgstr "A partir de"
-
-msgid "to"
-msgstr "para"
 
 msgid "Attendance Notes: "
 msgstr "Notas de presença:"
@@ -446,9 +460,6 @@ msgstr "Calendário"
 
 msgid "Add as attendees"
 msgstr "Adicionar como participantes"
-
-msgid "Notes"
-msgstr "Notas"
 
 msgid "Status"
 msgstr "Estado"
@@ -1429,6 +1440,9 @@ msgid "Restore"
 msgstr "Restaurar erro."
 
 msgid "No previous version"
+msgstr ""
+
+msgid "Author"
 msgstr ""
 
 #, fuzzy
@@ -3855,9 +3869,6 @@ msgstr ""
 
 #~ msgid "Never"
 #~ msgstr "Nunca"
-
-#~ msgid "Attendances"
-#~ msgstr "Presenças"
 
 #~ msgid "link"
 #~ msgstr "link"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -238,6 +238,24 @@ msgstr "Liste Woche"
 msgid "List Month"
 msgstr "Liste Monat"
 
+msgid "at"
+msgstr "bei"
+
+msgid "From"
+msgstr "Von"
+
+msgid "to"
+msgstr "zu"
+
+msgid "Organizer"
+msgstr "Veranstalter"
+
+msgid "Attendees"
+msgstr "Teilnehmer"
+
+msgid "Notes"
+msgstr "Anmerkungen"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Dieses Ereignis ist nicht änderbar !!!"
 
@@ -337,12 +355,6 @@ msgstr "Das Ereignis wurde erfolgreich hinzugefügt."
 
 msgid "No attendees"
 msgstr "Keine Teilnehmer"
-
-msgid "From"
-msgstr "Von"
-
-msgid "to"
-msgstr "zu"
 
 msgid "Attendance Notes: "
 msgstr "Anmerkungen zur Anwesenheit:"
@@ -451,9 +463,6 @@ msgstr "Kalender"
 
 msgid "Add as attendees"
 msgstr "Als Teilnehmer hinzufügen"
-
-msgid "Notes"
-msgstr "Anmerkungen"
 
 msgid "Status"
 msgstr "Status"
@@ -1398,6 +1407,9 @@ msgstr "Wiederherstellen"
 
 msgid "No previous version"
 msgstr "Keine vorherige Version"
+
+msgid "Author"
+msgstr "Autor"
 
 msgid "Restore this version ?"
 msgstr "Diese Version wiederherstellen?"
@@ -3155,6 +3167,9 @@ msgid ""
 msgstr ""
 "Die gesamte Mitgliedschaft wird vernichtet.  Die Mitglieder selbst werden "
 "nicht verändert."
+
+#~ msgid "from"
+#~ msgstr "aus"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Backup wiederherstellen, nicht das Fenster schließen!"

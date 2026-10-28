@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -237,6 +237,24 @@ msgstr "Lista Săptămâna"
 msgid "List Month"
 msgstr "Listă Luna"
 
+msgid "at"
+msgstr "la"
+
+msgid "From"
+msgstr "De la"
+
+msgid "to"
+msgstr "la"
+
+msgid "Organizer"
+msgstr "Organizator"
+
+msgid "Attendees"
+msgstr "Participanți"
+
+msgid "Notes"
+msgstr "Note"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Acest eveniment nu este modificabil !!!"
 
@@ -333,12 +351,6 @@ msgstr "Evenimentul a fost adăugat cu succes."
 
 msgid "No attendees"
 msgstr "Fără participanți"
-
-msgid "From"
-msgstr "De la"
-
-msgid "to"
-msgstr "la"
 
 msgid "Attendance Notes: "
 msgstr "Note de prezență:"
@@ -447,9 +459,6 @@ msgstr "Calendar"
 
 msgid "Add as attendees"
 msgstr "Adăugați ca participanți"
-
-msgid "Notes"
-msgstr "Note"
 
 msgid "Status"
 msgstr "Stare"
@@ -1375,6 +1384,9 @@ msgstr "Restaurare"
 
 msgid "No previous version"
 msgstr "Nu există versiuni anterioare"
+
+msgid "Author"
+msgstr "Autor"
 
 msgid "Restore this version ?"
 msgstr "Să restabilim această versiune?"
@@ -3121,6 +3133,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
+
+#~ msgid "from"
+#~ msgstr "din"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Restaurați copia de rezervă, nu închideți fereastra !"

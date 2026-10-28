@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-22 21:42+0200\n"
+"POT-Creation-Date: 2026-10-28 13:22+0100\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,19 +57,19 @@ msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 "Spostarsi su un livello o trascinare i file per spostarli su un livello."
 
-#: browser/browse.php:148 Include/Header-function.php:96
+#: browser/browse.php:147 Include/Header-function.php:96
 #: Include/Header-function.php:158 Include/Header.php:243
 #: v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:122 v2/templates/group/groupedit.php:42
+#: v2/templates/edrive/dashboard.php:121 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Chiudere"
 
-#: browser/browse.php:159 v2/templates/edrive/dashboard.php:133
+#: browser/browse.php:158 v2/templates/edrive/dashboard.php:132
 msgid "Internal sharing"
 msgstr "Condivisione interna"
 
-#: browser/browse.php:161 v2/templates/edrive/dashboard.php:135
+#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
@@ -80,12 +80,12 @@ msgstr ""
 "alla condivisione, ma non riesce a trovarla, è possibile inviargli il link "
 "interno per facilitare l'accesso."
 
-#: browser/browse.php:161 v2/templates/edrive/dashboard.php:135
+#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
 #: v2/templates/sidebar/systemsettings.php:396
 msgid "Definition"
 msgstr "Definizione"
 
-#: browser/browse.php:165 v2/templates/edrive/dashboard.php:139
+#: browser/browse.php:164 v2/templates/edrive/dashboard.php:138
 msgid ""
 "Choose people, define their access rights, then manage existing shares from "
 "the list below."
@@ -93,67 +93,67 @@ msgstr ""
 "Scegliere le persone, definire i loro diritti di accesso e gestire le "
 "condivisioni esistenti dall'elenco sottostante."
 
-#: browser/browse.php:169 v2/templates/edrive/dashboard.php:143
+#: browser/browse.php:168 v2/templates/edrive/dashboard.php:142
 msgid "Add users"
 msgstr "Aggiungi utenti"
 
-#: browser/browse.php:185 v2/templates/edrive/dashboard.php:159
+#: browser/browse.php:184 v2/templates/edrive/dashboard.php:158
 msgid "Send email notification"
 msgstr "Inviare una notifica via e-mail"
 
-#: browser/browse.php:190 v2/templates/edrive/dashboard.php:164
+#: browser/browse.php:189 v2/templates/edrive/dashboard.php:163
 #: v2/templates/edrive/shares.php:7
 msgid "Shared with"
 msgstr "Condiviso con"
 
-#: browser/browse.php:194 v2/templates/edrive/dashboard.php:168
+#: browser/browse.php:193 v2/templates/edrive/dashboard.php:167
 msgid "Delete all shares"
 msgstr "Eliminare tutte le azioni"
 
-#: browser/browse.php:197 v2/templates/edrive/dashboard.php:171
+#: browser/browse.php:196 v2/templates/edrive/dashboard.php:170
 msgid "Delete shares for the selected users"
 msgstr "Eliminare le condivisioni per gli utenti selezionati"
 
-#: browser/browse.php:206 v2/templates/edrive/dashboard.php:180
+#: browser/browse.php:205 v2/templates/edrive/dashboard.php:179
 msgid "Set Rights"
 msgstr "Impostare i diritti"
 
-#: browser/browse.php:211 v2/templates/edrive/dashboard.php:185
+#: browser/browse.php:210 v2/templates/edrive/dashboard.php:184
 msgid "Select your rights"
 msgstr "Seleziona i tuoi diritti"
 
-#: browser/browse.php:211 v2/templates/deposit/autaPaymentEditor.php:284
+#: browser/browse.php:210 v2/templates/deposit/autaPaymentEditor.php:284
 #: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:185
+#: v2/templates/edrive/dashboard.php:184
 #: v2/templates/people/personEditor.php:1145
 msgid "or"
 msgstr "o"
+
+#: browser/browse.php:213
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
+#: v2/templates/edrive/dashboard.php:187
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+#: browser/browse.php:213 v2/templates/edrive/dashboard.php:187
+msgid "[R ]"
+msgstr ""
 
 #: browser/browse.php:214
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:54
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:78
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:398
 #: v2/templates/edrive/dashboard.php:188
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-#: browser/browse.php:214 v2/templates/edrive/dashboard.php:188
-msgid "[R ]"
-msgstr ""
-
-#: browser/browse.php:215
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:189
 msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
-#: browser/browse.php:215 v2/templates/edrive/dashboard.php:189
+#: browser/browse.php:214 v2/templates/edrive/dashboard.php:188
 msgid "[RW]"
 msgstr ""
 
-#: browser/browse.php:224 v2/templates/edrive/dashboard.php:198
+#: browser/browse.php:223 v2/templates/edrive/dashboard.php:197
 msgid "Share By"
 msgstr "Condividi con"
 
@@ -164,8 +164,8 @@ msgstr "Condividi con"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:625
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:695
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:715
-#: EcclesiaCRM/Service/CalendarService.php:2084
-#: EcclesiaCRM/Service/CalendarService.php:2116
+#: EcclesiaCRM/Service/CalendarService.php:2093
+#: EcclesiaCRM/Service/CalendarService.php:2125
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr ""
 "Due prenotazioni di risorse non possono essere nella stessa fascia oraria."
@@ -230,7 +230,7 @@ msgid "None"
 msgstr "Nessuno"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:225
-#: EcclesiaCRM/Service/CalendarService.php:1571
+#: EcclesiaCRM/Service/CalendarService.php:1580
 msgid "Share"
 msgstr "Condividi"
 
@@ -344,46 +344,53 @@ msgstr "Nessuna persona trovata per l'anteprima"
 msgid "Create file"
 msgstr "Creare il file"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:42
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:89
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:95
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:111
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:143
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:45
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:78
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:97
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:155
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:161
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:177
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:209
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:352
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:371
 #: v2/templates/query/querylist.php:53 v2/templates/query/querylist.php:88
 msgid "Forbidden"
 msgstr "Proibito"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:49
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:54
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:59
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:71
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:100
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:52
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:57
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:64
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:75
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:83
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:105
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:117
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:210
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:237
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:253
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:270
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:166
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:171
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:183
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:304
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:333
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:349
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:368
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:374
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:305
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:319
 msgid "Document not found"
 msgstr "Documento non trovato"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:154
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:159
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:166
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:220
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:225
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:232
 msgid "Invalid name"
 msgstr "Nome non valido"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:170
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:236
 msgid "The file already exists"
 msgstr "Il file esiste già"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:174
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:240
 msgid "Unable to create the file"
 msgstr "Impossibile creare il file"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:257
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:356
 msgid "Unable to restore this version"
 msgstr "Impossibile ripristinare questa versione"
 
@@ -547,58 +554,58 @@ msgstr "Contanti"
 msgid "Checks"
 msgstr "Controlli"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:309
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:302
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Boy"
 msgstr "Ragazzo"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:310
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:303
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:177
 #: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 msgid "Girl"
 msgstr "Ragazza"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:312
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:305
 msgid "Man"
 msgstr "Uomo"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:313
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:306
 msgid "Woman"
 msgstr "Donna"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:392
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:424
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:385
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:417
 msgid "POST to cart requires a personID and an eventID"
 msgstr "Il POST al carrello richiede un personID e un eventID"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:487
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:508
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:724
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:745
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:480
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:501
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:717
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:738
 msgid "Create From sunday school class view"
 msgstr "Creare Dalla vista della classe della scuola domenicale"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:511
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:748
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:504
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:741
 msgid "Attendance"
 msgstr "Partecipazione"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:549
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:580
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:615
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:650
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:542
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:573
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:608
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:643
 msgid "POST to cart requires a EventID"
 msgstr "Il POST al carrello richiede un EventID"
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:564
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:557
 msgid "POST to delete attendees requires a EventID and personID"
 msgstr ""
 "Il POST per eliminare i partecipanti richiede un EventID e un personID."
 
-#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:792
+#: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:785
 msgid "POST to cart requires an EventID"
 msgstr "Il POST al carrello richiede un EventID"
 
@@ -664,8 +671,8 @@ msgstr "Stato aggiornato"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:628
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:731
 #: EcclesiaCRM/Service/CalendarService.php:289
-#: EcclesiaCRM/Service/CalendarService.php:1024
-#: EcclesiaCRM/Service/CalendarService.php:1424
+#: EcclesiaCRM/Service/CalendarService.php:1036
+#: EcclesiaCRM/Service/CalendarService.php:1442
 #: EcclesiaCRM/Service/ConfirmReportService.php:118
 #: EcclesiaCRM/Service/ConfirmReportService.php:579
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:299
@@ -808,7 +815,7 @@ msgstr "Non assegnato"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:626
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:729
 #: EcclesiaCRM/Service/CalendarService.php:289
-#: EcclesiaCRM/Service/CalendarService.php:1024
+#: EcclesiaCRM/Service/CalendarService.php:1036
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:298
 #: Reports/GDPR/GDPRListExport.php:88
 #: v2/templates/deposit/financialReports.php:433
@@ -1145,7 +1152,7 @@ msgstr "Editor dei tipi di gruppo"
 #: EcclesiaCRM/Search/GroupSearchRes.php:97
 #: EcclesiaCRM/Search/GroupSearchRes.php:194
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:155
-#: EcclesiaCRM/Service/CalendarService.php:1568
+#: EcclesiaCRM/Service/CalendarService.php:1577
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
 #: Include/Footer.php:135 v2/templates/calendar/calendar.php:49
@@ -2601,8 +2608,8 @@ msgid "Invalid Person"
 msgstr "Persona non valida"
 
 #: EcclesiaCRM/dto/SystemConfig.php:48
-#: EcclesiaCRM/Service/CalendarService.php:1750
-#: EcclesiaCRM/Service/CalendarService.php:2145
+#: EcclesiaCRM/Service/CalendarService.php:1759
+#: EcclesiaCRM/Service/CalendarService.php:2154
 msgid "NONE"
 msgstr "NESSUNO"
 
@@ -4805,7 +4812,7 @@ msgstr "Personale"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
 #: EcclesiaCRM/Search/PledgeSearchRes.php:86
 #: EcclesiaCRM/Search/PledgeSearchRes.php:101
-#: EcclesiaCRM/Service/CalendarService.php:1401
+#: EcclesiaCRM/Service/CalendarService.php:1419
 #: v2/templates/calendar/eventnames.php:318
 #: v2/templates/calendar/eventnames.php:320
 #: v2/templates/fundraiser/donatedItemEditor.php:22
@@ -5040,7 +5047,7 @@ msgstr "Evento"
 msgid "Anniversary"
 msgstr "Anniversario"
 
-#: EcclesiaCRM/Service/CalendarService.php:1404
+#: EcclesiaCRM/Service/CalendarService.php:1422
 #: EcclesiaCRM/Service/ConfirmReportService.php:541
 #: ident/templates/verify/verify-family-info.php:47
 #: ident/templates/verify/verify-person-info.php:62
@@ -5070,55 +5077,62 @@ msgstr "Anniversario"
 msgid "Delete"
 msgstr "Cancellare"
 
-#: EcclesiaCRM/Service/CalendarService.php:1407
+#: EcclesiaCRM/Service/CalendarService.php:1425
 msgid "Info"
 msgstr "Info"
 
-#: EcclesiaCRM/Service/CalendarService.php:1439
+#: EcclesiaCRM/Service/CalendarService.php:1458 Reports/AdvancedDeposit.php:402
+#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:509
+#: Reports/AdvancedDeposit.php:523 Reports/AdvancedDeposit.php:685
+#: Reports/CanvassReports.php:145 v2/templates/deposit/pledgeEditor.php:161
+msgid "Total"
+msgstr "Totale"
+
+#: EcclesiaCRM/Service/CalendarService.php:1459
 #: v2/templates/calendar/checkin.php:93
 msgid "Check-in"
 msgstr "Check-in"
 
-#: EcclesiaCRM/Service/CalendarService.php:1440
+#: EcclesiaCRM/Service/CalendarService.php:1460
 #: v2/templates/calendar/checkin.php:107
 msgid "Check-out"
 msgstr "Check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:1441
+#: EcclesiaCRM/Service/CalendarService.php:1461
 msgid "Rest"
 msgstr "Riposo"
 
-#: EcclesiaCRM/Service/CalendarService.php:1462
-#: EcclesiaCRM/Service/CalendarService.php:1495
+#: EcclesiaCRM/Service/CalendarService.php:1480
+#: EcclesiaCRM/Service/CalendarService.php:1504
 #: v2/templates/calendar/checkin.php:43
 #: v2/templates/calendar/eventattendeesedit.php:44
 msgid "Attendees"
 msgstr "Partecipanti"
 
-#: EcclesiaCRM/Service/CalendarService.php:1473
-#: EcclesiaCRM/Service/CalendarService.php:1474
-#: EcclesiaCRM/Service/CalendarService.php:1477
-#: EcclesiaCRM/Service/CalendarService.php:1478
+#: EcclesiaCRM/Service/CalendarService.php:1487
+#: EcclesiaCRM/Service/CalendarService.php:1488
+#: EcclesiaCRM/Service/CalendarService.php:1491
+#: EcclesiaCRM/Service/CalendarService.php:1492
 #: v2/templates/calendar/eventattendeesedit.php:130
 #: v2/templates/calendar/eventattendeesedit.php:131
 #: v2/templates/calendar/eventattendeesedit.php:134
 msgid "Make Check-out"
 msgstr "Effettuare il check-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:1474
-#: EcclesiaCRM/Service/CalendarService.php:1478
+#: EcclesiaCRM/Service/CalendarService.php:1488
+#: EcclesiaCRM/Service/CalendarService.php:1492
 msgid "Check-out done"
 msgstr "Check-out fatto"
 
-#: EcclesiaCRM/Service/CalendarService.php:1520
+#: EcclesiaCRM/Service/CalendarService.php:1529
 msgid "No Attendance Recorded"
 msgstr "Nessuna presenza registrata"
 
-#: EcclesiaCRM/Service/CalendarService.php:1534
+#: EcclesiaCRM/Service/CalendarService.php:1543
 msgid "login"
 msgstr "login"
 
-#: EcclesiaCRM/Service/CalendarService.php:1565
+#: EcclesiaCRM/Service/CalendarService.php:1574
 #: v2/templates/calendar/eventslist.php:52
 msgid "Personal Calendar"
 msgstr "Calendario personale"
@@ -7035,13 +7049,6 @@ msgstr "articoli"
 #: Reports/AdvancedDeposit.php:862
 msgid "item"
 msgstr "articolo"
-
-#: Reports/AdvancedDeposit.php:402 Reports/AdvancedDeposit.php:420
-#: Reports/AdvancedDeposit.php:509 Reports/AdvancedDeposit.php:523
-#: Reports/AdvancedDeposit.php:685 Reports/CanvassReports.php:145
-#: v2/templates/deposit/pledgeEditor.php:161
-msgid "Total"
-msgstr "Totale"
 
 #: Reports/AdvancedDeposit.php:618 Reports/AdvancedDeposit.php:780
 msgid "Dep #"
@@ -9419,7 +9426,7 @@ msgstr ""
 "Gestite i vostri file, le anteprime e la condivisione interna da un'unica "
 "postazione."
 
-#: v2/templates/edrive/dashboard.php:90
+#: v2/templates/edrive/dashboard.php:91
 msgid "Files"
 msgstr "File"
 

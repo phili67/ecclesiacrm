@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -236,6 +236,24 @@ msgstr "Lista Settimana"
 msgid "List Month"
 msgstr "Lista Mese"
 
+msgid "at"
+msgstr "a"
+
+msgid "From"
+msgstr "Da"
+
+msgid "to"
+msgstr "a"
+
+msgid "Organizer"
+msgstr "Organizzatore"
+
+msgid "Attendees"
+msgstr "Partecipanti"
+
+msgid "Notes"
+msgstr "Note"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Questo evento non è modificabile!!!"
 
@@ -331,12 +349,6 @@ msgstr "L'evento è stato aggiunto con successo."
 
 msgid "No attendees"
 msgstr "Nessun partecipante"
-
-msgid "From"
-msgstr "Da"
-
-msgid "to"
-msgstr "a"
 
 msgid "Attendance Notes: "
 msgstr "Note sulla partecipazione:"
@@ -445,9 +457,6 @@ msgstr "Calendario"
 
 msgid "Add as attendees"
 msgstr "Aggiungi come partecipanti"
-
-msgid "Notes"
-msgstr "Note"
 
 msgid "Status"
 msgstr "Stato"
@@ -1371,6 +1380,9 @@ msgstr "Ripristina"
 
 msgid "No previous version"
 msgstr "Nessuna versione precedente"
+
+msgid "Author"
+msgstr "Autore"
 
 msgid "Restore this version ?"
 msgstr "Ripristinare questa versione?"
@@ -3106,6 +3118,9 @@ msgid ""
 msgstr ""
 "Tutti i membri saranno distrutti.  I membri stessi non saranno modificati."
 
+#~ msgid "from"
+#~ msgstr "da"
+
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Ripristinare il backup, non chiudere la finestra!"
 
@@ -3750,9 +3765,6 @@ msgstr ""
 
 #~ msgid "Never"
 #~ msgstr "Mai"
-
-#~ msgid "Attendances"
-#~ msgstr "Presenze"
 
 #~ msgid "link"
 #~ msgstr "link"

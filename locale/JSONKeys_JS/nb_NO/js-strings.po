@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -234,6 +234,24 @@ msgstr "Liste uke"
 msgid "List Month"
 msgstr "Liste Måned"
 
+msgid "at"
+msgstr "ved"
+
+msgid "From"
+msgstr "Fra"
+
+msgid "to"
+msgstr "til"
+
+msgid "Organizer"
+msgstr "Arrangør"
+
+msgid "Attendees"
+msgstr "Deltakere"
+
+msgid "Notes"
+msgstr "Merknader"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Denne hendelsen kan ikke endres !!!"
 
@@ -328,12 +346,6 @@ msgstr "Hendelsen ble lagt til."
 
 msgid "No attendees"
 msgstr "Ingen deltakere"
-
-msgid "From"
-msgstr "Fra"
-
-msgid "to"
-msgstr "til"
 
 msgid "Attendance Notes: "
 msgstr "Notater om oppmøte:"
@@ -442,9 +454,6 @@ msgstr "Kalender"
 
 msgid "Add as attendees"
 msgstr "Legg til som deltakere"
-
-msgid "Notes"
-msgstr "Merknader"
 
 msgid "Status"
 msgstr "Status"
@@ -1363,6 +1372,9 @@ msgstr "Gjenopprett"
 
 msgid "No previous version"
 msgstr "Ingen tidligere versjon"
+
+msgid "Author"
+msgstr "Forfatter"
 
 msgid "Restore this version ?"
 msgstr "Gjenopprette denne versjonen?"
@@ -3074,6 +3086,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Alle medlemskap vil bli ødelagt.  Medlemmene selv vil ikke bli endret."
+
+#~ msgid "from"
+#~ msgstr "fra"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Gjenopprett sikkerhetskopien, ikke lukk vinduet!"

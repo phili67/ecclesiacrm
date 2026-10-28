@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:34:23.897Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -228,6 +228,26 @@ msgstr "ลิซสัปดาห์"
 msgid "List Month"
 msgstr "ลิสท์ มอนท์"
 
+#, fuzzy
+msgid "at"
+msgstr "เดท"
+
+msgid "From"
+msgstr "จาก"
+
+msgid "to"
+msgstr "เพื่อ"
+
+msgid "Organizer"
+msgstr ""
+
+#, fuzzy
+msgid "Attendees"
+msgstr "ไม่มีผู้เข้าร่วม"
+
+msgid "Notes"
+msgstr "โน้ต"
+
 msgid "This event isn't modifiable !!!"
 msgstr "เหตุการณ์นี้ไม่สามารถดัดแปลงได้ !"
 
@@ -320,12 +340,6 @@ msgstr "แต่ก็เพิ่มขึ้น"
 
 msgid "No attendees"
 msgstr "ไม่มีผู้เข้าร่วม"
-
-msgid "From"
-msgstr "จาก"
-
-msgid "to"
-msgstr "เพื่อ"
 
 msgid "Attendance Notes: "
 msgstr "สมุดโน้ต:"
@@ -435,9 +449,6 @@ msgstr "ปฏิทิน"
 
 msgid "Add as attendees"
 msgstr "เพิ่มเป็นผู้เข้าร่วม"
-
-msgid "Notes"
-msgstr "โน้ต"
 
 msgid "Status"
 msgstr "สถานะ"
@@ -1415,6 +1426,9 @@ msgid "Restore"
 msgstr "ฟื้นฟูความบกพร่อง"
 
 msgid "No previous version"
+msgstr ""
+
+msgid "Author"
 msgstr ""
 
 #, fuzzy

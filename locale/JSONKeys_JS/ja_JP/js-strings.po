@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -229,6 +229,24 @@ msgstr "リストウィーク"
 msgid "List Month"
 msgstr "リスト月"
 
+msgid "at"
+msgstr "で"
+
+msgid "From"
+msgstr "より"
+
+msgid "to"
+msgstr "にしています。"
+
+msgid "Organizer"
+msgstr "主催者"
+
+msgid "Attendees"
+msgstr "参加者"
+
+msgid "Notes"
+msgstr "備考"
+
 msgid "This event isn't modifiable !!!"
 msgstr "このイベントは変更できません！！！。"
 
@@ -324,12 +342,6 @@ msgstr "イベントの追加に成功しました。"
 
 msgid "No attendees"
 msgstr "出席者なし"
-
-msgid "From"
-msgstr "より"
-
-msgid "to"
-msgstr "にしています。"
 
 msgid "Attendance Notes: "
 msgstr "アテンダンス・ノート"
@@ -438,9 +450,6 @@ msgstr "カレンダー"
 
 msgid "Add as attendees"
 msgstr "出席者として追加"
-
-msgid "Notes"
-msgstr "備考"
 
 msgid "Status"
 msgstr "ステータス"
@@ -1352,6 +1361,9 @@ msgstr "復元"
 
 msgid "No previous version"
 msgstr "以前のバージョンはありません"
+
+msgid "Author"
+msgstr "著者"
 
 msgid "Restore this version ?"
 msgstr "このバージョンを復元しますか？"
@@ -3053,6 +3065,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "すべての会員権は破棄される。  メンバーそのものが変更されることはない。"
+
+#~ msgid "from"
+#~ msgstr "出典："
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "バックアップを復元し、ウィンドウを閉じないでください！"

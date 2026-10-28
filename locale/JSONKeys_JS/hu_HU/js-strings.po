@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-22T19:42:18.885Z\n"
+"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -237,6 +237,24 @@ msgstr "Listahét"
 msgid "List Month"
 msgstr "Lista hónap"
 
+msgid "at"
+msgstr "a"
+
+msgid "From"
+msgstr "A  címről"
+
+msgid "to"
+msgstr "a  címre."
+
+msgid "Organizer"
+msgstr "Szervező"
+
+msgid "Attendees"
+msgstr "Résztvevők"
+
+msgid "Notes"
+msgstr "Megjegyzések"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Ez az esemény nem módosítható !!!"
 
@@ -333,12 +351,6 @@ msgstr "Az eseményt sikeresen hozzáadtuk."
 
 msgid "No attendees"
 msgstr "Nincsenek résztvevők"
-
-msgid "From"
-msgstr "A  címről"
-
-msgid "to"
-msgstr "a  címre."
 
 msgid "Attendance Notes: "
 msgstr "Részvételi jegyzetek:"
@@ -447,9 +459,6 @@ msgstr "Naptár"
 
 msgid "Add as attendees"
 msgstr "Hozzáadás résztvevőként"
-
-msgid "Notes"
-msgstr "Megjegyzések"
 
 msgid "Status"
 msgstr "Állapot"
@@ -1370,6 +1379,9 @@ msgstr "Visszaállítás"
 
 msgid "No previous version"
 msgstr "Nincs korábbi verzió"
+
+msgid "Author"
+msgstr "Szerző"
 
 msgid "Restore this version ?"
 msgstr "Visszaállítani ezt a verziót?"
@@ -3099,6 +3111,9 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Minden tagság megsemmisül.  Maguk a tagok nem fognak megváltozni."
+
+#~ msgid "from"
+#~ msgstr "a…-ból"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Biztonsági mentés visszaállítása, ne zárja be az ablakot !"
