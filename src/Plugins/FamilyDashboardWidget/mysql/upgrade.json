@@ -1,13 +1,24 @@
 {
-          "current": {
-                   "versions": [
-                   ],
-                   "prescripts": [
-                   ],
-                   "scripts": [
-                   ],
-                   "postcripts": [
-                   ],
-                   "dbVersion": "1.0.0"
-               }
-           }
+    "1.0": {
+        "versions": [
+        ],
+        "prescripts": [
+        ],
+        "scripts": [],
+        "postscripts": [
+        ],
+        "dbVersion": "1.0"
+    },
+    "current": {
+        "versions": [
+        ],
+        "prescripts": [
+        ],
+        "scripts": [
+            "upgrade/1.1.sql"
+        ],
+        "postscripts": [
+        ],
+        "dbVersion": "1.1"
+    }
+}
