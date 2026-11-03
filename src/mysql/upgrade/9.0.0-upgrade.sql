@@ -63,13 +63,14 @@ CREATE TABLE `quick_access` (
   PRIMARY KEY (`qa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('1', 'fa fa-cloud', 'eDrive', 'v2/edrive/dashboard', 'bEnabledEdrive', 131072, '0', '');
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('2', 'far fa-calendar-alt', 'Calendar', 'v2/calendar', 'bEnabledEvents', 1073741824, '0', '');
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('3', 'fas fa-shield-alt fa-lg', 'GDPR', 'v2/gdpr', 'bGDPR', 8, '0', '');
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('4', 'fas fa-search fa-lg', '', 'v2/people/list/none', '', 1073741824, '0', '');
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('5', 'fas fa-hands-helping', 'Volunteers', 'v2/volunteeropportunity', 'bEnabledVolunteers', 1073741824, '0', '');
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('6', 'far fa-user', 'Groups', 'v2/group/list', '', 1024, '0', '');
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('7', 'fa-solid fa-children', 'Sunday School', 'v2/sundayschool/dashboard', 'bEnabledSundaySchool', 1073741824, '0', '');
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('8', 'fas fa-heartbeat', 'Pastoral Care', 'v2/pastoralcare/dashboard', 'bEnabledPastoralCare', 2, '0', '');
-INSERT INTO `quick_access` (`qa_id`, `qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('9', 'fas fa-hand-holding-usd', 'Fundraiser', 'v2/fundraiser/find', 'bEnabledFundraiser', 1048576, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fa fa-cloud', 'eDrive', 'v2/edrive/dashboard', 'bEnabledEdrive', 131072, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('far fa-calendar-alt', 'Calendar', 'v2/calendar', 'bEnabledEvents', 1073741824, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fas fa-shield-alt fa-lg', 'GDPR', 'v2/gdpr', 'bGDPR', 8, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fas fa-search fa-lg', 'Search', 'v2/people/list/none', '', 1073741824, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fas fa-hands-helping', 'Volunteers', 'v2/volunteeropportunity', 'bEnabledVolunteers', 1073741824, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('far fa-user', 'Groups', 'v2/group/list', '', 1024, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fa-solid fa-children', 'Sunday School', 'v2/sundayschool/dashboard', 'bEnabledSundaySchool', 1073741824, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fas fa-heartbeat', 'Pastoral Care', 'v2/pastoralcare/dashboard', 'bEnabledPastoralCare', 2, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fas fa-hand-holding-usd', 'Fundraiser', 'v2/fundraiser/find', 'bEnabledFundraiser', 1048576, '0', '');
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fa fa-cash-register', 'Deposit', 'v2/deposit/find', 'bEnabledFinance', 2048, '0', '');
 
