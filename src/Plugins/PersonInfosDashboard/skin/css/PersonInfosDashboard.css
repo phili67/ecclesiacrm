@@ -1,0 +1,73 @@
+    .person-infos-dashboard .person-dashboard-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: .25rem .75rem;
+        padding: .75rem 1rem 0;
+    }
+
+    .person-infos-dashboard .person-dashboard-tabs {
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        border-bottom: 0;
+    }
+
+    .person-infos-dashboard .person-dashboard-tabs .nav-link {
+        border: 0;
+        border-bottom: 3px solid transparent;
+        border-radius: 0;
+        padding: .6rem .75rem;
+        font-weight: 600;
+    }
+
+    .person-infos-dashboard .person-dashboard-tabs .nav-link.active {
+        border-bottom-color: #007bff;
+    }
+
+    .person-infos-dashboard .card-header>.card-tools {
+        float: none;
+        margin: 0 0 .4rem;
+        white-space: nowrap;
+    }
+
+    .person-infos-dashboard .card-body {
+        padding: .75rem 1rem 1rem;
+    }
+
+    .person-infos-dashboard table.person-dashboard-table {
+        width: 100% !important;
+        margin: 0 !important;
+        font-size: .875rem;
+    }
+
+    .person-infos-dashboard .person-dashboard-table thead th {
+        padding: .75rem;
+        border-top: 0;
+        border-bottom-width: 1px;
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .03em;
+    }
+
+    .person-infos-dashboard .person-dashboard-table tbody td {
+        padding: .85rem .75rem;
+        vertical-align: middle;
+        overflow-wrap: anywhere;
+    }
+
+    .person-infos-dashboard .person-dashboard-table tbody tr:hover {
+        background-color: rgba(0, 123, 255, .06);
+    }
+
+    .person-infos-dashboard .person-dashboard-table tbody td:first-child a {
+        font-weight: 600;
+    }
+
+    .person-infos-dashboard .person-dashboard-table tbody td:first-child img {
+        width: 36px;
+        height: 36px;
+        margin-right: .4rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
