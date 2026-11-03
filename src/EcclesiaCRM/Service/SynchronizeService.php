@@ -90,9 +90,7 @@ class SynchronizeService
 
   public static function getDashboardItems($PageName) {
      $DashboardItems = array (
-       "EcclesiaCRM\Synchronize\FamilyDashboardItem",
        "EcclesiaCRM\Synchronize\GroupsDashboardItem",
-       "EcclesiaCRM\Synchronize\PersonDashboardItem",
        "EcclesiaCRM\Synchronize\PersonDemographicDashboardItem",
        "EcclesiaCRM\Synchronize\SundaySchoolDashboardItem",
        "EcclesiaCRM\Synchronize\EventsDashboardItem",

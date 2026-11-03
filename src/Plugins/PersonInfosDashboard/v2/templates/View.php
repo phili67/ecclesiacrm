@@ -10,45 +10,43 @@ $plugin = PluginQuery::create()
     ->findOneById($PluginId);
 ?>
 
-<div class="card card-tabs <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
-    <div class="card-header p-0 pt-1 border-bottom-0">
-        <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
+<div class="card card-tabs person-infos-dashboard <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
+    <div class="card-header person-dashboard-header">
+        <ul class="nav nav-tabs person-dashboard-tabs" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="custom-tabs-latest-members-tab" data-toggle="pill"
                    href="#custom-tabs-latest-members" role="tab" aria-controls="custom-tabs-latest-members"
-                   aria-selected="false">
-                    <i class="fas fa-user-plus"></i> <?= dgettext("messages-PersonInfosDashboard",'Latest Members') ?>
+                   aria-selected="true">
+                    <i class="fas fa-user-plus mr-1"></i> <?= dgettext("messages-PersonInfosDashboard",'Latest Members') ?>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="custom-tabs-two-settings-tab" data-toggle="pill"
                    href="#custom-tabs-two-settings" role="tab" aria-controls="custom-tabs-two-settings"
                    aria-selected="false">
-                    <i class="fas fa-user"></i><i class="fas fa-check"></i> <?= dgettext("messages-PersonInfosDashboard",'Updated Members') ?>
+                    <i class="fas fa-user"></i><i class="fas fa-check mr-1"></i> <?= dgettext("messages-PersonInfosDashboard",'Updated Members') ?>
                 </a>
             </li>
         </ul>
-        <div class="card-tools" style="margin-top:-33px">
-            <button type="button" class="btn btn-sm" data-card-widget="remove">
+        <div class="card-tools">
+            <button type="button" class="btn btn-sm" data-card-widget="remove" aria-label="Remove">
                 <i class="fas fa-times"></i>
             </button>
-            <button type="button" class="btn btn-sm" data-card-widget="collapse" title="Collapse">
+            <button type="button" class="btn btn-sm" data-card-widget="collapse" title="Collapse" aria-label="Collapse">
                 <i class="fas <?= $Card_collapsed_button?>"></i>
             </button>
         </div>
     </div>
-    <div class="card-body"  style="<?= $Card_body ?>; padding: 1.15px !important">
-        <div class="tab-content" id="custom-tabs-two-tabContent">
-            <div class="tab-pane fade   active show" id="custom-tabs-latest-members" role="tabpanel"
+    <div class="card-body" style="<?= $Card_body ?>">
+        <div class="tab-content">
+            <div class="tab-pane fade active show" id="custom-tabs-latest-members" role="tabpanel"
                  aria-labelledby="custom-tabs-latest-members-tab">
-                <table class=" table table-striped"
-                       id="latestPersonsDashboardItem"
-                       style="width:100%;font-size: 11px;">
+                <table class="table person-dashboard-table" id="latestPersonsDashboardItem">
                     <thead>
                     <tr>
-                        <th data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
-                        <th data-field="address"><?= dgettext("messages-PersonInfosDashboard",'Address') ?></th>
-                        <th data-field="city"><?= dgettext("messages-PersonInfosDashboard",'Updated') ?></th>
+                        <th scope="col" data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
+                        <th scope="col" data-field="address"><?= dgettext("messages-PersonInfosDashboard",'Address') ?></th>
+                        <th scope="col" data-field="city"><?= dgettext("messages",'Created') ?></th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -56,14 +54,12 @@ $plugin = PluginQuery::create()
             </div>
             <div class="tab-pane fade" id="custom-tabs-two-settings" role="tabpanel"
                  aria-labelledby="custom-tabs-two-settings-tab">
-                <table class=" table table-striped"
-                       id="updatedPersonsDashboardItem"
-                       style="width:100%;font-size: 11px;">
+                <table class="table person-dashboard-table" id="updatedPersonsDashboardItem">
                     <thead>
                     <tr>
-                        <th data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
-                        <th data-field="address"><?= dgettext("messages-PersonInfosDashboard",'Address') ?></th>
-                        <th data-field="city"><?= dgettext("messages-PersonInfosDashboard",'Updated') ?></th>
+                        <th scope="col" data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
+                        <th scope="col" data-field="address"><?= dgettext("messages-PersonInfosDashboard",'Address') ?></th>
+                        <th scope="col" data-field="city"><?= dgettext("messages-PersonInfosDashboard",'Updated') ?></th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -71,5 +67,4 @@ $plugin = PluginQuery::create()
             </div>
         </div>
     </div>
-    <!-- /.card -->
 </div>

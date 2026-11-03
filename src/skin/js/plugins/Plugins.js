@@ -46,6 +46,173 @@ $(function() {
         responsive: true
     });
 
+    var pluginUpdateState = null;
+
+    function showPluginUpdates() {
+        var updates = pluginUpdateState.updates;
+        var issues = pluginUpdateState.issues;
+        var content = $('<div class="plugin-updates-dialog"></div>');
+        var running = false;
+        var attempted = false;
+        var dialog;
+
+        if (updates.length) {
+            content.append($('<p class="text-muted mb-3"></p>').text(i18next.t('Select the plugins to update from the files already installed on the server.')));
+            var list = $('<div class="list-group mb-3"></div>');
+            updates.forEach(function (plugin) {
+                var row = $('<label class="list-group-item d-flex align-items-center mb-0"></label>');
+                var checkbox = $('<input type="checkbox" class="plugin-update-choice mr-3" checked>');
+                checkbox.val(plugin.id);
+                var details = $('<span class="flex-grow-1"></span>');
+                details.append($('<span class="font-weight-bold d-block"></span>').text(plugin.name));
+                details.append($('<small class="text-muted"></small>').text(
+                    i18next.t('Database') + ': ' + plugin.installedVersion + ' → ' + i18next.t('Files') + ': ' + plugin.availableVersion
+                ));
+                row.append(checkbox, details, $('<span class="plugin-update-status ml-2"></span>'));
+                list.append(row);
+            });
+            content.append(list);
+            content.append($('<div class="alert alert-warning small"></div>').text(
+                i18next.t('Back up your database before updating. If a migration fails, some changes may already have been applied.')
+            ));
+        }
+
+        if (issues.length) {
+            var warnings = $('<div class="alert alert-warning mb-3"></div>');
+            warnings.append($('<div class="font-weight-bold mb-2"></div>').text(i18next.t('Plugins requiring attention')));
+            var issueList = $('<ul class="mb-0 pl-3"></ul>');
+            issues.forEach(function (plugin) {
+                var text = plugin.reason === 'database_newer'
+                    ? i18next.t('The database version is newer than the files.')
+                    : i18next.t('The configuration or migration is invalid. Check the application logs.');
+                var item = $('<li></li>').append($('<strong></strong>').text(plugin.name + ': '));
+                item.append(document.createTextNode(text));
+                if (plugin.availableVersion) {
+                    item.append($('<small class="d-block text-muted"></small>').text(
+                        i18next.t('Database') + ': ' + plugin.installedVersion + ' · ' + i18next.t('Files') + ': ' + plugin.availableVersion
+                    ));
+                }
+                issueList.append(item);
+            });
+            warnings.append(issueList);
+            content.append(warnings);
+        }
+
+        var feedback = $('<div role="status" aria-live="polite"></div>');
+        content.append(feedback);
+
+        function finish(message, failed) {
+            running = false;
+            feedback.empty().append($('<div></div>')
+                .addClass('alert ' + (failed ? 'alert-danger' : 'alert-success') + ' mb-0')
+                .text(message));
+            dialog.find('[data-bb-handler="update"]').hide();
+            dialog.find('[data-bb-handler="later"]').prop('disabled', false).text(i18next.t('Close and refresh'));
+        }
+
+        function updateNext(selected, index) {
+            if (index === selected.length) {
+                finish(i18next.t('The selected plugins have been updated.'), false);
+                return;
+            }
+
+            var plugin = selected[index];
+            var checkbox = content.find('.plugin-update-choice').filter(function () {
+                return String($(this).val()) === String(plugin.id);
+            });
+            var status = checkbox.closest('label').find('.plugin-update-status');
+            status.empty().append($('<i class="fas fa-spinner fa-spin text-primary" aria-hidden="true"></i>'));
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'plugins/upgrade-installed',
+                data: JSON.stringify({
+                    id: plugin.id,
+                    installedVersion: plugin.installedVersion,
+                    availableVersion: plugin.availableVersion
+                })
+            }, function () {
+                status.empty().append($('<i class="fas fa-check-circle text-success" aria-hidden="true"></i>'));
+                updateNext(selected, index + 1);
+            }, function (error) {
+                status.empty().append($('<i class="fas fa-exclamation-circle text-danger" aria-hidden="true"></i>'));
+                finish(i18next.t('The update stopped at') + ' ' + plugin.name + '. ' + i18next.t(error.message), true);
+            });
+        }
+
+        dialog = bootbox.dialog({
+            title: i18next.t('Plugin updates'),
+            message: content,
+            size: 'large',
+            closeButton: false,
+            backdrop: true,
+            onEscape: function () {
+                if (running) return false;
+                if (attempted) window.location.reload();
+                return true;
+            },
+            buttons: {
+                later: {
+                    label: i18next.t('Later'),
+                    className: 'btn-outline-secondary',
+                    callback: function () {
+                        if (attempted) window.location.reload();
+                    }
+                },
+                update: {
+                    label: i18next.t('Update selected plugins'),
+                    className: 'btn-primary',
+                    callback: function () {
+                        var selectedIds = content.find('.plugin-update-choice:checked').map(function () {
+                            return String($(this).val());
+                        }).get();
+                        var selected = updates.filter(function (plugin) {
+                            return selectedIds.indexOf(String(plugin.id)) !== -1;
+                        });
+                        if (!selected.length) {
+                            feedback.empty().append($('<div class="alert alert-warning mb-0"></div>').text(i18next.t('Select at least one plugin.')));
+                            return false;
+                        }
+                        running = true;
+                        attempted = true;
+                        content.find('.plugin-update-choice').prop('disabled', true);
+                        dialog.find('[data-bb-handler]').prop('disabled', true);
+                        feedback.empty().append($('<p class="text-muted mb-0"></p>').text(i18next.t('Updating plugins. Please wait.')));
+                        updateNext(selected, 0);
+                        return false;
+                    }
+                }
+            }
+        });
+
+        if (!updates.length) {
+            dialog.find('[data-bb-handler="update"]').hide();
+        }
+    }
+
+    function checkPluginUpdates() {
+        window.CRM.APIRequest({path: 'plugins/updates'}, function (data) {
+            if (!data || !Array.isArray(data.updates) || !Array.isArray(data.issues)) {
+                window.CRM.openInfoDialog({title: i18next.t('Error'), lead: i18next.t('Unable to check plugin updates.')});
+                return;
+            }
+            pluginUpdateState = data;
+            if (data.updates.length || data.issues.length) {
+                $('#plugin-updates-label').text(i18next.t('Plugin updates') + ' (' + data.updates.length + ')');
+                $('#plugin-updates-button').removeClass('d-none');
+                showPluginUpdates();
+            }
+        }, function (error) {
+            window.CRM.openInfoDialog({
+                title: i18next.t('Error'),
+                lead: i18next.t('Unable to check plugin updates.'),
+                details: $('<div></div>').text(i18next.t(error.message)).html()
+            });
+        });
+    }
+
+    $('#plugin-updates-button').on('click', showPluginUpdates);
+    checkPluginUpdates();
+
     $('#action-selector').on('change',function (e) {
         switch ($(this).val()) {
             case "activate-selected":
@@ -208,4 +375,3 @@ $(function() {
         });
     });
 });
-

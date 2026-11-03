@@ -1579,6 +1579,20 @@
       </vendor>
     </table>
 
+    <table name="quick_access" idMethod="native" phpName="QuickAccess">
+      <column name="qa_id" phpName="Id" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+      <column name="qa_font_awesome_icon" phpName="FontAwesomeIcon" type="VARCHAR" size="255" description="Font Awesome icon for the quick access item" defaultValue=""/>
+      <column name="qa_label" phpName="Label" type="VARCHAR" size="255" description="name of the menu item bar" defaultValue=""/>
+      <column name="qa_url" phpName="Url" type="VARCHAR" size="255" description="URL for the quick access item" defaultValue=""/>
+      <column name="qa_right" phpName="Right" type="VARCHAR" size="255" description="bGDPR ... the right required to access this quick access item" defaultValue=""/>
+      <column name="qa_user_right" phpName="UserRight" type="INTEGER" description="bit value of the user right required to access this quick access item : SecurityOptions::bit in User.php" defaultValue="0"/>
+      <column name="qa_is_plugin" phpName="IsPlugin" type="BOOLEAN" size="1" description="Indicates if the quick access item is a plugin" defaultValue="false"/>
+      <column name="qa_plugin_name" phpName="PluginName" type="VARCHAR" size="255" description="Name of the plugin if the quick access item is a plugin, the right depends on it" defaultValue=""/>
+      <vendor type="mysql">
+        <parameter name="Engine" value="InnoDB"/>
+      </vendor>
+    </table>
+
     <!--
  <table name="istlookup_lu" idMethod="native" phpName="IstlookupLu" >
    <column name="lu_fam_ID" phpName="LuFamId" type="SMALLINT" size="9" primaryKey="true" required="true" defaultValue="0"/>

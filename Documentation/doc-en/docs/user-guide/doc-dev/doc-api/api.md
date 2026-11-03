@@ -2576,6 +2576,18 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/updates` | GET | PluginsController::class . ':availableUpdates' | List available local plugin updates and version issues (admin role)
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/upgrade-installed` | POST | PluginsController::class . ':upgradeInstalled' | Apply an installed plugin's local migrations (admin role)
+
+* JSON body: `id`, `installedVersion`, `availableVersion`
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/addDashboardPlaces` | POST | PluginsController::class . ':addDashboardPlaces' | Place dashboard items plugins on the dashboard
 
 * `{ref}`->`array` :: dashBoardItems

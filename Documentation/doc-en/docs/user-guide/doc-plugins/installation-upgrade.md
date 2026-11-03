@@ -24,7 +24,9 @@ To do so, you must have administrator rights
 
   ![Screenshot](../../img/plugins/plugins-management-activate-deactivate-suppress.png)
 
-- the update is under development and will come in a future version of EcclesiaCRM.
+- When an installed plugin's files are newer than its database version, the manager displays the available updates. Select the plugins to update: their migration scripts already on the server will run without uploading another archive.
+
+  Back up the database first. If an update fails, processing stops and some changes may already have been applied; check the logs before retrying. A database version newer than the files or an invalid migration is reported without an automatic downgrade. The archive update button remains available.
 
 # User rights management
 

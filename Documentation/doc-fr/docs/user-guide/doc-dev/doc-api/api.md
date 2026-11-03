@@ -2574,6 +2574,18 @@ Route | Method | function | Description
 `/upgrade` | POST | PluginsController::class . ':upgrade' | update/upgrade a plugin (admin role), post $_FILES['pluginFile']
 
 ---
+Route | Méthode | fonction | Description
+------|---------|----------|------------
+`/updates` | GET | PluginsController::class . ':availableUpdates' | Liste les mises à jour locales et les incohérences de version des plugins (administrateur)
+
+---
+Route | Méthode | fonction | Description
+------|---------|----------|------------
+`/upgrade-installed` | POST | PluginsController::class . ':upgradeInstalled' | Exécute les migrations locales d'un plugin installé (administrateur)
+
+* Corps JSON : `id`, `installedVersion`, `availableVersion`
+
+---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/addDashboardPlaces` | POST | PluginsController::class . ':addDashboardPlaces' | Place dashboard items plugins on the dashboard

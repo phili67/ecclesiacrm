@@ -30,6 +30,17 @@ $app->group('/plugins', function (RouteCollectorProxy $group) {
      */
     $group->post('/upgrade', PluginsController::class . ':upgrade' );
     /*
+     * @! Check installed plugin versions and local migrations (admin role)
+     */
+    $group->get('/updates', PluginsController::class . ':availableUpdates');
+    /*
+     * @! Apply the local migration for an installed plugin (admin role)
+     * #! param: ref->int :: id
+     * #! param: ref->string :: installedVersion
+     * #! param: ref->string :: availableVersion
+     */
+    $group->post('/upgrade-installed', PluginsController::class . ':upgradeInstalled');
+    /*
      * @! Place dashboard items plugins on the dashboard
      * #! param: ref->array :: dashBoardItems
      */
@@ -46,5 +57,3 @@ $app->group('/plugins', function (RouteCollectorProxy $group) {
     $group->post('/collapseFromDashboard', PluginsController::class . ':collapseFromDashboard' );
 
 });
-
-

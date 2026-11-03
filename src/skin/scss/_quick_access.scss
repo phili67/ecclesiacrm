@@ -1,0 +1,48 @@
+/* Style de la carte principale */
+.quick-access-card {
+  border-radius: 1rem !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.04) !important;
+}
+
+.quick-access-home-icon {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #321ee9 0%, #2770b0 100%);
+  border-radius: 14px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+/* Style des boutons d'accès rapide avec le dégradé rose/violet */
+.quick-access-icon {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
+  border-radius: 14px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.quick-access-plugin-icon {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #1ee9cb 0%, #2770b0 100%);
+  border-radius: 14px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+/* Petit effet au survol (optionnel mais esthétique) */
+.quick-access-icon:hover, .quick-access-home-icon:hover, .quick-access-plugin-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(156, 39, 176, 0.25) !important;
+  color: #fff;
+}
+
+/* Style de la séparation verticale */
+.vertical-divider {
+  width: 2px;                 /* Épaisseur de la ligne */
+  height: 40px;               /* Hauteur de la ligne (ajustez selon la taille des icônes) */
+  background-color: #e2e8f0;  /* Couleur subtile (gris clair) */
+  border-radius: 2px;         /* Bords légèrement arrondis pour un look moderne */
+}

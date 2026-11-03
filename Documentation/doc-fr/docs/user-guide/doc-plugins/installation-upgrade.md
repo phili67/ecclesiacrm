@@ -24,7 +24,9 @@ Pour cela, il faut avoir des droits administrateurs
 
     ![Screenshot](../../img/plugins/plugins-management-activate-deactivate-suppress.png)
 
-- la mise à jour est en cours de développement et viendra dans une future version d'EcclesiaCRM.
+- Lorsque les fichiers d'un plugin installé sont plus récents que sa version en base, le gestionnaire affiche les mises à jour disponibles. Sélectionnez les plugins à mettre à jour : leurs scripts de migration présents sur le serveur seront exécutés sans envoyer à nouveau d'archive.
+
+  Sauvegardez la base de données avant de commencer. En cas d'échec, la mise à jour s'arrête et certaines modifications peuvent déjà avoir été appliquées ; consultez les journaux avant de réessayer. Une version en base plus récente que les fichiers ou une migration invalide est signalée sans rétrogradation automatique. Le bouton de mise à jour par archive reste disponible.
 
 # Gestion des droits utilisateurs
 
@@ -47,7 +49,6 @@ Pour cela :
 - On n'a plus qu'à activer ou attribuer les droits :
 
   ![Screenshot](../../img/plugins/plugins-management-users3.png)
-
 
 
 

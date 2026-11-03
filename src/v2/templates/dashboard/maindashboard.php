@@ -14,6 +14,7 @@
 // Include the function library
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\QuickAccessQuery;
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
@@ -85,6 +86,64 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
     }
 }
 ?>
+
+<div class="container mt-0">
+  <!-- Section Quick Access -->
+  <div class="card quick-access-card border-0 shadow-sm rounded-lg p-4 bg-white">
+    <h5 class="mb-3 font-weight-bold text-dark"><i class="fas fa-bolt text-primary mr-2" aria-hidden="true"></i><?= _("Quick Access") ?></h5>
+    
+    <div class="d-flex flex-wrap align-items-center">
+
+    <a href="<?= $sRootPath ?>/v2/people/person/view/<?= SessionUser::getId() ?>" class="quick-access-home-icon text-white rounded-lg d-flex align-items-center justify-content-center m-2 shadow-sm"
+        data-toggle="tooltip" data-placement="top" title="<?= _("Private Space") ?>">
+        <!-- Remplacez par votre balise d'icône (ex: FontAwesome) ou une image -->
+        <i class="fas fa-home fa-lg"></i>
+    </a>
+
+    <div class="vertical-divider mx-2 my-2"></div>
+
+    <?php
+    $allUserRights = SessionUser::getUser()->allSecuritiesBits();
+
+    $quickAccessItems = QuickAccessQuery::create()
+        ->filterByIsPlugin(false)
+        ->orderByLabel()
+        ->find();
+
+    foreach ($quickAccessItems as $item) {
+        if ($item->getRight() == '' or SystemConfig::getBooleanValue($item->getRight()) && $item->getUserRight() & $allUserRights) {
+    ?>
+      <a href="<?= $sRootPath ?>/<?= $item->getUrl() ?>" class="quick-access-icon text-white rounded-lg d-flex align-items-center justify-content-center m-2 shadow-sm"
+        data-toggle="tooltip" data-placement="top" title="<?= _($item->getLabel()) ?>">
+        <i class="<?= $item->getFontAwesomeIcon() ?> fa-lg"></i>
+      </a>
+    <?php
+        }
+    }
+    ?>
+
+    <!-- SÉPARATION VERTICALE Plugins -->
+    <div class="vertical-divider mx-2 my-2"></div>
+
+    <?php
+    $quickAccessItems = QuickAccessQuery::create()
+        ->filterByIsPlugin(true)
+        ->orderByLabel()
+        ->find();
+
+    foreach ($quickAccessItems as $item) {
+    ?>
+      <a href="<?= $sRootPath ?>/<?= $item->getUrl() ?>" class="quick-access-plugin-icon text-white rounded-lg d-flex align-items-center justify-content-center m-2 shadow-sm"
+        data-toggle="tooltip" data-placement="top" title="<?= dgettext("messages-".$item->getPluginName(),$item->getLabel()) ?>">
+        <i class="<?= $item->getFontAwesomeIcon() ?> fa-lg"></i>
+      </a>
+    <?php
+    }
+    ?>
+
+    </div>
+  </div>
+</div>
 
 <!-- we start the plugin parts : center plugins -->
 <div class="float-right">
