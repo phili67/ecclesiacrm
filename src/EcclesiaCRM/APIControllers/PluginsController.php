@@ -12,13 +12,11 @@ namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\FileSystemUtils;
-use EcclesiaCRM\Plugin;
 use EcclesiaCRM\PluginUserRoleQuery;
-use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Service\PluginUpgradeService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
-use EcclesiaCRM\Version;
 use Propel\Runtime\Propel;
 use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
@@ -35,6 +33,41 @@ class PluginsController
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+    public function availableUpdates(ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!SessionUser::isAdmin()) {
+            return $response->withJson(['message' => _('Access denied')], 403);
+        }
+
+        return $response->withJson((new PluginUpgradeService())->getUpdates());
+    }
+
+    public function upgradeInstalled(ServerRequest $request, Response $response, array $args): Response
+    {
+        if (!SessionUser::isAdmin()) {
+            return $response->withJson(['message' => _('Access denied')], 403);
+        }
+
+        $payload = $request->getParsedBody();
+        if (!is_array($payload) || !isset($payload['id'], $payload['installedVersion'], $payload['availableVersion'])
+            || filter_var($payload['id'], FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) === false
+            || !is_string($payload['installedVersion']) || !is_string($payload['availableVersion'])) {
+            return $response->withJson(['message' => _('Invalid request')], 400);
+        }
+
+        try {
+            $plugin = (new PluginUpgradeService())->upgrade(
+                (int) $payload['id'],
+                $payload['installedVersion'],
+                $payload['availableVersion']
+            );
+            return $response->withJson(['status' => 'success', 'plugin' => $plugin]);
+        } catch (\Throwable $exception) {
+            LoggerUtils::getAppLogger()->error('Plugin upgrade failed for ID ' . $payload['id'] . ': ' . $exception->getMessage());
+            return $response->withJson(['message' => _('Plugin update failed. Check the application logs; some changes may already have been applied.')], 409);
+        }
     }
 
     public function activate (ServerRequest $request, Response $response, array $args): Response {
