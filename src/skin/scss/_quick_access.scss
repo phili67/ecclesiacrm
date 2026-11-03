@@ -1,48 +1,151 @@
-/* Style de la carte principale */
-.quick-access-card {
-  border-radius: 1rem !important;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.04) !important;
+.quick-access-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.1rem;
 }
 
-.quick-access-home-icon {
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(135deg, #321ee9 0%, #2770b0 100%);
-  border-radius: 14px !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.quick-access-nav-item {
+  position: relative;
+}
+
+.main-header .navbar-nav .quick-access-dropdown-menu {
+  position: absolute;
+  z-index: 1045;
+  width: min(340px, calc(100vw - 1.5rem));
+  min-width: 0;
+  top: 100%;
+  right: auto;
+  left: calc(50% - 170px);
+  padding: 0.75rem;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+  transform: none;
+}
+
+.quick-access-nav-item.show::after {
+  position: absolute;
+  z-index: 1046;
+  top: calc(100% + 2px);
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--quick-access-background, #fff);
+  border-left: 10px solid transparent;
+  content: "";
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  max-height: var(--quick-access-grid-max-height, none);
+  overflow-y: auto;
+}
+
+.quick-access-entry {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.35rem 0.2rem;
+  color: #212529;
+  text-align: center;
   text-decoration: none;
 }
 
-/* Style des boutons d'accès rapide avec le dégradé rose/violet */
-.quick-access-icon {
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
-  border-radius: 14px !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.quick-access-entry-icon {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.35rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5b9bd5 0%, #1761a9 100%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.quick-access-entry-plugin-icon {
+  background: linear-gradient(135deg, #55d4c2 0%, #2770b0 100%);
+}
+
+.quick-access-entry-label {
+  font-size: 11px;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.quick-access-entry:hover,
+.quick-access-entry:focus {
+  color: #212529;
   text-decoration: none;
 }
 
-.quick-access-plugin-icon {
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(135deg, #1ee9cb 0%, #2770b0 100%);
-  border-radius: 14px !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-decoration: none;
+.quick-access-entry:hover .quick-access-entry-icon,
+.quick-access-entry:focus .quick-access-entry-icon {
+  transform: translateY(-2px);
 }
 
-/* Petit effet au survol (optionnel mais esthétique) */
-.quick-access-icon:hover, .quick-access-home-icon:hover, .quick-access-plugin-icon:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0.5rem 1rem rgba(156, 39, 176, 0.25) !important;
+.dark-mode .quick-access-nav-item {
+  --quick-access-background: #343a40;
+}
+
+.dark-mode .quick-access-entry,
+.dark-mode .quick-access-entry:hover,
+.dark-mode .quick-access-entry:focus {
   color: #fff;
 }
 
-/* Style de la séparation verticale */
-.vertical-divider {
-  width: 2px;                 /* Épaisseur de la ligne */
-  height: 40px;               /* Hauteur de la ligne (ajustez selon la taille des icônes) */
-  background-color: #e2e8f0;  /* Couleur subtile (gris clair) */
-  border-radius: 2px;         /* Bords légèrement arrondis pour un look moderne */
+@media (max-width: 767px) {
+  .quick-access-nav-item {
+    position: static;
+  }
+
+  .main-header .navbar-nav .quick-access-dropdown-menu {
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+
+  .quick-access-nav-item.show::after {
+    display: none;
+  }
+
+  .quick-access-dropdown-menu::before {
+    position: absolute;
+    top: -10px;
+    left: var(--quick-access-arrow-left, 50%);
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--quick-access-background, #fff);
+    border-left: 10px solid transparent;
+    content: "";
+    pointer-events: none;
+    transform: translateX(-50%);
+  }
+
+  .dark-mode .quick-access-dropdown-menu {
+    --quick-access-background: #343a40;
+  }
+
+  .quick-access-grid {
+    max-height: var(--quick-access-grid-max-height, 60vh);
+  }
+}
+
+@media (max-width: 360px) {
+  .quick-access-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

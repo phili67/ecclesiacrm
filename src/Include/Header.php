@@ -17,6 +17,8 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\view\MenuRenderer;
 use EcclesiaCRM\Theme;
+use EcclesiaCRM\QuickAccessQuery;
+use EcclesiaCRM\dto\SystemConfig;
 
 
 if (!Bootstrapper::isDBCurrent()) {  //either the DB is good, or the upgrade was successful.
@@ -72,6 +74,7 @@ Header_system_notifications();
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= SessionUser::getUser()->getPersonId() ?>" class="nav-link"><?= _("Private Space") ?></a>
             </li>
+            
         </ul>
 
         <form class="form-inline ml-3 flex-grow-1 navbar-search-form">
@@ -91,6 +94,56 @@ Header_system_notifications();
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item quick-access-nav-item dropdown">
+                <a href="#" class="nav-link quick-access-toggle" id="quickAccessDropdown" data-toggle="dropdown" data-display="static"
+                    aria-haspopup="true" aria-expanded="false" title="<?= _('Quick Access') ?>">
+                    <i class="fas fa-th" aria-hidden="true"></i>
+                    <span class="sr-only"><?= _('Quick Access') ?></span>
+                </a>
+                <div class="dropdown-menu quick-access-dropdown-menu" aria-labelledby="quickAccessDropdown">
+                    <div class="quick-access-grid">
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= SessionUser::getUser()->getPersonId() ?>"
+                            class="quick-access-entry" title="<?= _('Private Space') ?>">
+                            <span class="quick-access-entry-icon"><i class="fas fa-home" aria-hidden="true"></i></span>
+                            <span class="quick-access-entry-label"><?= _('Private Space') ?></span>
+                        </a>
+                        <?php
+                        $allUserRights = SessionUser::getUser()->allSecuritiesBits();
+                        $quickAccessItems = QuickAccessQuery::create()
+                            ->filterByIsPlugin(false)
+                            ->orderByLabel()
+                            ->find();
+
+                        foreach ($quickAccessItems as $item) {
+                            if ($item->getRight() == '' || (SystemConfig::getBooleanValue($item->getRight()) && ($item->getUserRight() & $allUserRights))) {
+                                ?>
+                                <a href="<?= SystemURLs::getRootPath() ?>/<?= $item->getUrl() ?>" class="quick-access-entry"
+                                    title="<?= htmlspecialchars(_($item->getLabel()), ENT_QUOTES, 'UTF-8') ?>">
+                                    <span class="quick-access-entry-icon"><i class="<?= $item->getFontAwesomeIcon() ?>" aria-hidden="true"></i></span>
+                                    <span class="quick-access-entry-label"><?= _($item->getLabel()) ?></span>
+                                </a>
+                                <?php
+                            }
+                        }
+
+                        $quickAccessItems = QuickAccessQuery::create()
+                            ->filterByIsPlugin(true)
+                            ->orderByLabel()
+                            ->find();
+
+                        foreach ($quickAccessItems as $item) {
+                            ?>
+                            <a href="<?= SystemURLs::getRootPath() ?>/<?= $item->getUrl() ?>" class="quick-access-entry"
+                                title="<?= htmlspecialchars(dgettext('messages-' . $item->getPluginName(), $item->getLabel()), ENT_QUOTES, 'UTF-8') ?>">
+                                <span class="quick-access-entry-icon quick-access-entry-plugin-icon"><i class="<?= $item->getFontAwesomeIcon() ?>" aria-hidden="true"></i></span>
+                                <span class="quick-access-entry-label"><?= dgettext('messages-' . $item->getPluginName(), $item->getLabel()) ?></span>
+                            </a>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </li>
             <!-- Cart Functions: style can be found in dropdown.less -->
             <?php if (SessionUser::getUser()->isShowCartEnabled()) : ?>
                 <li class="nav-item dropdown notifications-menu" id="CartBlock">
@@ -190,6 +243,52 @@ Header_system_notifications();
                 </a>
             </li>
         </ul>
+        <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+            (function ($) {
+                var $dropdown = $('#quickAccessDropdown').closest('.quick-access-nav-item');
+                var menu = $dropdown.find('.quick-access-dropdown-menu')[0];
+
+                function positionQuickAccessMenu() {
+                    var toggle = document.getElementById('quickAccessDropdown');
+                    var toggleRect = toggle.getBoundingClientRect();
+                    var parentRect = $dropdown[0].getBoundingClientRect();
+                    var navbarRect = toggle.closest('.main-header').getBoundingClientRect();
+                    var viewportWidth = document.documentElement.clientWidth;
+                    var viewportHeight = document.documentElement.clientHeight;
+                    var padding = 12;
+                    var center = toggleRect.left + toggleRect.width / 2;
+
+                    if (viewportWidth <= 767) {
+                        var mobileWidth = Math.max(0, navbarRect.width - 2 * padding);
+                        var arrowLeft = center - navbarRect.left - padding;
+
+                        menu.style.width = '';
+                        menu.style.left = '';
+                        menu.style.setProperty('--quick-access-arrow-left', Math.max(14, Math.min(mobileWidth - 14, arrowLeft)) + 'px');
+                        menu.style.setProperty('--quick-access-grid-max-height', Math.max(0, viewportHeight - navbarRect.bottom - 2 * padding - 24) + 'px');
+                        return;
+                    }
+
+                    var leftBound = Math.max(0, Math.min(navbarRect.left, toggleRect.left));
+                    var width = Math.max(0, Math.min(340, viewportWidth - leftBound - 2 * padding));
+                    var left = Math.max(leftBound + padding, Math.min(center - width / 2, viewportWidth - width - padding));
+                    var top = parentRect.bottom + padding;
+
+                    menu.style.width = width + 'px';
+                    menu.style.left = (left - parentRect.left) + 'px';
+                    menu.style.setProperty('--quick-access-grid-max-height', Math.max(0, viewportHeight - top - padding - 24) + 'px');
+                }
+
+                $dropdown.on('show.bs.dropdown', positionQuickAccessMenu);
+                $dropdown.on('shown.bs.dropdown', positionQuickAccessMenu);
+                document.getElementById('quickAccessDropdown').addEventListener('click', positionQuickAccessMenu);
+                $(window).on('resize', function () {
+                    if ($dropdown.hasClass('show')) {
+                        positionQuickAccessMenu();
+                    }
+                });
+            })(jQuery);
+        </script>
     </nav>
 
 
@@ -222,7 +321,7 @@ Header_system_notifications();
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="<?= SystemURLs::getRootPath()?>/dashboard"><i class="fas fa-home"></i> <?= _("Home")?></a></li>
+                            <li class="breadcrumb-item"><a href="<?= SystemURLs::getRootPath()?>/dashboard"><i class="fas fa-home"></i> <?= _("Home")?></a></li>                            
                             <li class="breadcrumb-item active"><?= $sPageTitle; ?></li>
                         </ol>
                     </div>
