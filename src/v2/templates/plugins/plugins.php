@@ -30,6 +30,9 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
         <div class="d-flex justify-content-between align-items-center flex-wrap">
             <h3 class="card-title mb-2 mb-md-0"><i class="fas fa-plug mr-2 text-primary"></i> <?= _('Plugins managements') ?></h3>
             <div class="card-tools">
+                <button type="button" class="btn btn-warning btn-sm mr-2 d-none" id="plugin-updates-button">
+                    <i class="fas fa-sync-alt mr-1"></i><span id="plugin-updates-label"></span>
+                </button>
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-wrench mr-1"></i> <?= _("Add a plugin") ?>
