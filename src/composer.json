@@ -1,14 +1,14 @@
 {
   "name": "ecclesiacrm/crm",
   "version": "9.0.0",
-  "build": "8357",
+  "build": "8362",
   "type": "project",
   "keywords": [
     "church",
     "crm"
   ],
   "homepage": "https://ecclesiacrm.com",
-  "time": "2026-10-22",
+  "time": "2026-11-01",
   "license": "Not MIT",
   "authors": [
     {
@@ -44,7 +44,7 @@
     "mustache/mustache": "~2.14.2",
     "phpoffice/phpword": "^1.4.0",
     "phpoffice/phppresentation": "dev-master",
-    "phpoffice/phpspreadsheet": "5.9.0",
+    "phpoffice/phpspreadsheet": "5.10.0",
     "defuse/php-encryption": "^2.4.0",
     "endroid/qr-code": "4.*",
     "ext-gettext": "*",
