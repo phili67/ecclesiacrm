@@ -1,7 +1,7 @@
 {
     "Name": "FinanceDashboard",
     "copyrights": "Philippe Logel © EcclesiaCRM Team",
-    "version": "1.0",
+    "version": "1.0.0",
     "Description": "Dashboard plugin to manage Financial dashboard item",
     "infos": "iMathGeo & Softwares",
     "url_infos": "https://www.ecclesiacrm.com",

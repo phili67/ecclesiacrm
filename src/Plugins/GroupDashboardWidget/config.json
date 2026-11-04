@@ -1,7 +1,7 @@
 {
     "Name": "GroupDashboardWidget",
     "copyrights": "Philippe Logel © EcclesiaCRM Team",
-    "version": "1.0",
+    "version": "1.0.0",
     "Description": "Widget to view groups informations",
     "infos": "iMathGeo & Softwares",
     "url_infos": "https://www.ecclesiacrm.com",

@@ -2,6 +2,12 @@
 // copyright Philippe Logel not MIT
 namespace Plugins\Service;
 
+$autoload = dirname(__DIR__, 2) . '/vendor/autoload.php'; // adapter selon l'arborescence
+if (!file_exists($autoload)) {
+    throw new \RuntimeException("Autoload du plugin MailChimp introuvable : $autoload");
+}
+require_once $autoload;
+
 use \DrewM\MailChimp\MailChimp;
 
 use EcclesiaCRM\Base\PersonQuery;

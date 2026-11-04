@@ -1,7 +1,7 @@
 {
     "Name": "NewsDashboard",
     "copyrights": "Philippe Logel © EcclesiaCRM Team",
-    "version": "1.0",
+    "version": "1.0.0",
     "Description": "Plugin to show news on the dashboard",
     "infos": "EcclesiaCRM Team",
     "url_infos": "https://www.ecclesiacrm.com",

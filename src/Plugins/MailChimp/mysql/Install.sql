@@ -48,3 +48,4 @@ INSERT INTO `mc_params` (`mc_p_api_key`, `mc_p_request_timeout`, `mc_p_with_addr
 ('None', 3600, 0, '', '', '');
 
 
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fab fa-mailchimp', 'MailChimp', 'v2/mailchimp/dashboard', '', 0, '1', 'MailChimp');
