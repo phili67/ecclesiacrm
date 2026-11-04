@@ -4,3 +4,5 @@ DELETE FROM `plugin_menu_bar` WHERE `plgn_mb_plugin_name`='MeetingJitsi';
 DROP TABLE `plugin_pref_jitsimeeting_pjmp`;
 DROP TABLE `personlastjitsimeeting_plm`;
 DROP TABLE `personjitsimeeting_pm`;
+
+DELETE FROM `quick_access` WHERE `qa_is_plugin` = 1 AND `qa_plugin_name` = 'MeetingJitsi';

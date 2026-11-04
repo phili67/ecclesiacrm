@@ -1,0 +1,1 @@
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fab fa-mailchimp', 'MailChimp', 'v2/mailchimp/dashboard', '', 0, '1', 'MailChimp');

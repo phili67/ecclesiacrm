@@ -1,9 +1,9 @@
 {
-    "Name": "MeetingJitsi - meeting | conferences",
+    "Name": "MeetingJitsi",
     "copyrights": "Philippe Logel © EcclesiaCRM Team",
-    "version": "1.0",
+    "version": "1.1.0",
     "Description": "Plugin for jitsi Meeting",
-    "infos": "EcclesiaCRM Team",
+    "infos": "EcclesiaCRM Team - meeting | conferences",
     "url_infos": "https://www.ecclesiacrm.com",
     "url_docs": "https://www.docs.ecclesiacrm.com/en/user-guide/doc-visio/doc-visio-introduction/",
     "Settings_url": "v2/meeting/settings",

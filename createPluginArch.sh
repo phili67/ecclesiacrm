@@ -22,7 +22,7 @@
     echo '{
               "Name": "'${pluginName}'",
               "copyrights": "",
-              "version": "1.0",
+              "version": "1.0.0",
               "Description": "",
               "infos": "Name of your team",
               "url_infos": "https://team_url",
@@ -63,7 +63,7 @@
                    ],
                    "scripts": [
                    ],
-                   "postcripts": [
+                   "postscripts": [
                    ],
                    "dbVersion": "1.0.0"
                }

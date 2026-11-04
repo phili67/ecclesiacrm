@@ -19,7 +19,7 @@ class PluginUpgradeService
         foreach (PluginQuery::create()->find() as $plugin) {
             try {
                 $config = $this->getConfig($plugin);
-                $comparison = version_compare($plugin->getVersion(), $config['version']);
+                $comparison = $this->compareVersions($plugin->getVersion(), $config['version']);
                 if ($comparison < 0) {
                     $this->getMigrationPlan($plugin, $config['version']);
                     $updates[] = $this->describePlugin($plugin, $config['version']);
@@ -58,7 +58,7 @@ class PluginUpgradeService
 
             $config = $this->getConfig($plugin);
             if ($plugin->getVersion() !== $expectedInstalledVersion || $config['version'] !== $expectedVersion
-                || version_compare($plugin->getVersion(), $config['version']) >= 0) {
+                || $this->compareVersions($plugin->getVersion(), $config['version']) >= 0) {
                 throw new \RuntimeException('Plugin versions changed since the update check.');
             }
 
@@ -136,29 +136,45 @@ class PluginUpgradeService
             if (!is_array($update) || !$this->isValidVersion($update['dbVersion'] ?? null)) {
                 throw new \RuntimeException('Invalid migration version.');
             }
-            if (version_compare($update['dbVersion'], $plugin->getVersion()) <= 0
-                || version_compare($update['dbVersion'], $targetVersion) > 0) {
+            if ($this->compareVersions($update['dbVersion'], $plugin->getVersion()) <= 0
+                || $this->compareVersions($update['dbVersion'], $targetVersion) > 0) {
                 continue;
             }
             $steps[] = $update;
         }
 
-        usort($steps, static function ($a, $b) {
-            return version_compare($a['dbVersion'], $b['dbVersion']);
+        usort($steps, function ($a, $b) {
+            return $this->compareVersions($a['dbVersion'], $b['dbVersion']);
         });
-        if (!$steps || version_compare(end($steps)['dbVersion'], $targetVersion) !== 0) {
+        if (!$steps || $this->compareVersions(end($steps)['dbVersion'], $targetVersion) !== 0) {
             throw new \RuntimeException('No migration reaches the available plugin version.');
         }
 
         $scripts = [];
         $currentVersion = $plugin->getVersion();
         foreach ($steps as $step) {
-            if (version_compare($step['dbVersion'], $currentVersion) <= 0) {
+            if ($this->compareVersions($step['dbVersion'], $currentVersion) <= 0) {
                 throw new \RuntimeException('Duplicate migration version.');
             }
-            if (isset($step['versions']) && (!is_array($step['versions'])
-                || ($step['versions'] && !in_array($currentVersion, $step['versions'], true)))) {
-                throw new \RuntimeException('Migration does not support the installed version.');
+            if (isset($step['versions'])) {
+                if (!is_array($step['versions'])) {
+                    throw new \RuntimeException('Invalid supported migration versions.');
+                }
+                if ($step['versions']) {
+                    $isSupportedVersion = false;
+                    foreach ($step['versions'] as $supportedVersion) {
+                        if (!is_string($supportedVersion) || !$this->isValidVersion($supportedVersion)) {
+                            throw new \RuntimeException('Invalid supported migration version.');
+                        }
+                        if ($this->compareVersions($currentVersion, $supportedVersion) === 0) {
+                            $isSupportedVersion = true;
+                            break;
+                        }
+                    }
+                    if (!$isSupportedVersion) {
+                        throw new \RuntimeException('Migration does not support the installed version.');
+                    }
+                }
             }
             foreach (['prescripts', 'scripts', 'postscripts'] as $phase) {
                 $entries = $step[$phase] ?? ($phase === 'postscripts' ? ($step['postcripts'] ?? null) : null);
@@ -204,5 +220,24 @@ class PluginUpgradeService
     {
         return is_string($version)
             && preg_match('/\A[0-9]+(?:[._-][0-9A-Za-z]+)*(?:\+[0-9A-Za-z.-]+)?\z/', $version) === 1;
+    }
+
+    private function compareVersions(string $left, string $right): int
+    {
+        return version_compare($this->normalizeVersion($left), $this->normalizeVersion($right));
+    }
+
+    private function normalizeVersion(string $version): string
+    {
+        if (preg_match('/\A\d+(?:\.\d+)*\z/', $version) !== 1) {
+            return $version;
+        }
+
+        $parts = explode('.', $version);
+        while (count($parts) < 3) {
+            $parts[] = '0';
+        }
+
+        return implode('.', $parts);
     }
 }

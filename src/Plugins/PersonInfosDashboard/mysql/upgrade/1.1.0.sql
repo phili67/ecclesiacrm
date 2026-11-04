@@ -19,14 +19,3 @@ WHERE p.`plgn_Name` = 'PersonInfosDashboard'
       AND d.`plgn_dep_url` = 'Plugins/PersonInfosDashboard/skin/js/synchronize/PersonDashboardItemPlugin.js'
       AND d.`plgn_dep_extension` = 'global_js'
   );
-
-DELETE d FROM `plugin_dependencies` AS d
-INNER JOIN `plugin` AS p ON p.`plgn_ID` = d.`plgn_dep_plugin_ID`
-WHERE p.`plgn_Name` = 'PersonDashboardWidget'
-  AND (
-    (d.`plgn_dep_url` = CONCAT('Plugin', CHAR(92), 'Synchronize', CHAR(92), 'PersonDashboardItemPlugin')
-      AND d.`plgn_dep_extension` = 'synchronize')
-    OR
-    (d.`plgn_dep_url` = 'Plugins/PersonInfosDashboard/skin/js/synchronize/PersonDashboardItemPlugin.js'
-      AND d.`plgn_dep_extension` = 'global_js')
-  );

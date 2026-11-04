@@ -45,22 +45,13 @@ $defaultList = ToDoListDashboardQuery::create()
         </h3>
         <div class="card-tools">
             <div class="float-right" style="margin-left:10px;margin-top: -3px;margin-right:-18px">
-                <button type="button" class="btn btn-sm" data-card-widget="remove">
+                <button type="button" class="btn btn-sm text-muted" data-card-widget="remove">
                     <i class="fas fa-times"></i>
                 </button>
-                <button type="button" class="btn btn-sm" data-card-widget="collapse" title="Collapse">
+                <button type="button" class="btn btn-sm text-muted" data-card-widget="collapse" title="Collapse">
                     <i class="fas <?= $Card_collapsed_button?>"></i>
                 </button>
-            </div>
-            <!--<div class="float-right ">
-                <ul class="pagination pagination-sm">
-                    <li class="page-item"><a href="#" class="page-link">«</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">»</a></li>
-                </ul>
-            </div>-->
+            </div>            
             <div class="float-right d-flex align-items-center" style="margin-right:5px;gap:6px;">
                 <select class="form-control form-control-sm" id="select-to-do-list-dashboard" <?= ($lists->count() == 0?'hidden':'') ?>>
                     <?php foreach ($lists as $list) { ?>

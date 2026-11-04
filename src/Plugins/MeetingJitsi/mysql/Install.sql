@@ -59,7 +59,7 @@ CREATE TABLE `plugin_pref_jitsimeeting_pjmp` (
 --
 
 INSERT INTO `plugin` ( `plgn_Name`, `plgn_Description`, `plgn_Category`, `plgn_image`, `plgn_installation_path`, `plgn_activ`, `plgn_version`, `plgn_prefix`, `plgn_position`)
-VALUES ('MeetingJitsi', 'Plugin for jitsi Meeting', 'Meeting', NULL, '', '0', '1.0', 'jm_', 'after_category_menu');
+VALUES ('MeetingJitsi', 'Plugin for jitsi Meeting', 'Meeting', NULL, '', '0', '1.1', 'jm_', 'after_category_menu');
 
 INSERT INTO `plugin_pref_jitsimeeting_pjmp` (`jm_pjmp_personmeeting_pm_id`, `jm_pjmp_domain` ,`jm_pjmp_domainscriptpath`)
 VALUES (LAST_INSERT_ID(),'meet.jit.si', 'https://meet.jit.si/external_api.js');
@@ -70,3 +70,5 @@ INSERT INTO `plugin_menu_bar` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_na
 ('MeetingJitsi', 'Jitsi', 'v2/meeting/dashboard', 'fas fa-video', ''),
 ('MeetingJitsi', 'Dashboard', 'v2/meeting/dashboard', 'fas fa-tachometer-alt', ''),
 ('MeetingJitsi', 'Settings', 'v2/meeting/settings', 'fas fa-cogs', 'usr_admin');
+
+INSERT INTO `quick_access` (`qa_font_awesome_icon`, `qa_label`, `qa_url`, `qa_right`, `qa_user_right`, `qa_is_plugin`, `qa_plugin_name`) VALUES ('fas fa-video', 'Jitsi', 'v2/meeting/dashboard', '', 0, '1', 'MeetingJitsi');

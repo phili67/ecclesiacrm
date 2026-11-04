@@ -11,82 +11,6 @@ $plugin = PluginQuery::create()
 
 ?>
 
-<style>
-    .family-infos-dashboard .family-dashboard-header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: .25rem .75rem;
-        padding: .75rem 1rem 0;
-    }
-
-    .family-infos-dashboard .family-dashboard-tabs {
-        flex: 1 1 auto;
-        flex-wrap: wrap;
-        border-bottom: 0;
-    }
-
-    .family-infos-dashboard .family-dashboard-tabs .nav-link {
-        border: 0;
-        border-bottom: 3px solid transparent;
-        border-radius: 0;
-        padding: .6rem .75rem;
-        font-weight: 600;
-    }
-
-    .family-infos-dashboard .family-dashboard-tabs .nav-link.active {
-        border-bottom-color: #007bff;
-    }
-
-    .family-infos-dashboard .card-header > .card-tools {
-        float: none;
-        margin: 0 0 .4rem;
-        white-space: nowrap;
-    }
-
-    .family-infos-dashboard .card-body {
-        padding: .75rem 1rem 1rem;
-    }
-
-    .family-infos-dashboard table.family-dashboard-table {
-        width: 100% !important;
-        margin: 0 !important;
-        font-size: .875rem;
-    }
-
-    .family-infos-dashboard .family-dashboard-table thead th {
-        padding: .75rem;
-        border-top: 0;
-        border-bottom-width: 1px;
-        font-size: .75rem;
-        font-weight: 600;
-        letter-spacing: .03em;
-    }
-
-    .family-infos-dashboard .family-dashboard-table tbody td {
-        padding: .85rem .75rem;
-        vertical-align: middle;
-        overflow-wrap: anywhere;
-    }
-
-    .family-infos-dashboard .family-dashboard-table tbody tr:hover {
-        background-color: rgba(0, 123, 255, .06);
-    }
-
-    .family-infos-dashboard .family-dashboard-table tbody td:first-child a {
-        font-weight: 600;
-    }
-
-    .family-infos-dashboard .family-dashboard-table tbody td:first-child img {
-        width: 36px;
-        height: 36px;
-        margin-right: .4rem;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-</style>
-
 <div class="card card-tabs family-infos-dashboard <?= $plugin->getName() ?> <?= $Card_collapsed ?>" data-name="<?= $plugin->getName() ?>">
     <div class="card-header family-dashboard-header">
         <ul class="nav nav-tabs family-dashboard-tabs" role="tablist">
@@ -108,10 +32,10 @@ $plugin = PluginQuery::create()
             </li>
         </ul>
         <div class="card-tools">
-            <button type="button" class="btn btn-sm" data-card-widget="remove" aria-label="Remove">
+            <button type="button" class="btn btn-sm text-muted" data-card-widget="remove" aria-label="Remove">
                 <i class="fas fa-times"></i>
             </button>
-            <button type="button" class="btn btn-sm" data-card-widget="collapse" title="Collapse" aria-label="Collapse">
+            <button type="button" class="btn btn-sm text-muted" data-card-widget="collapse" title="Collapse" aria-label="Collapse">
                 <i class="fas <?= $Card_collapsed_button ?>"></i>
             </button>
         </div>

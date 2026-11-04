@@ -6,3 +6,4 @@ DROP TABLE `mc_attributes`;
 DROP TABLE `mc_account_test`;
 
 
+DELETE FROM `quick_access` WHERE `qa_is_plugin` = 1 AND `qa_plugin_name` = 'MailChimp';
