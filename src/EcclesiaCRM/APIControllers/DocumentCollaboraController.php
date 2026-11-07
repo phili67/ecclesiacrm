@@ -123,29 +123,70 @@ class DocumentCollaboraController
             return null;
         }
 
-        $guestPath = str_replace('\\', '/', rtrim($guest->getUserDir(), '/') . '/' . $relativePath);
-        $linkPath = rtrim(SystemURLs::getDocumentRoot(), '/') . '/' . $guestPath;
-        if (!is_link($linkPath)) {
+        $documentRoot = rtrim(SystemURLs::getDocumentRoot(), '/');
+        $guestDirectory = str_replace('\\', '/', rtrim($guest->getUserDir(), '/'));
+        $guestRoot = realpath($documentRoot . '/' . $guestDirectory);
+        if ($guestRoot === false) {
             return null;
         }
 
-        $share = CollectionsinstancesQuery::create()->findOneByGuestpath($guestPath);
-        if (is_null($share) || (int)$share->getGuestid() !== SessionUser::getId()) {
-            return null;
+        $segments = explode('/', $relativePath);
+        $baseOffset = 0;
+        foreach ($segments as $index => $segment) {
+            $aliasRelativePath = implode('/', array_slice($segments, 0, $index + 1));
+            $guestPath = $guestDirectory . '/' . $aliasRelativePath;
+            $linkPath = $documentRoot . '/' . $guestPath;
+            if (!is_link($linkPath)) {
+                continue;
+            }
+
+            if ($index === 0 && $segment === 'public') {
+                $publicRoot = realpath($documentRoot . '/' . $guest->getUserPublicDir());
+                if ($publicRoot === false || realpath($linkPath) !== $publicRoot) {
+                    return null;
+                }
+                $guestRoot = $publicRoot;
+                $baseOffset = 1;
+                continue;
+            }
+
+            $parentRelativePath = implode('/', array_slice($segments, $baseOffset, $index - $baseOffset));
+            $parentPath = DocumentSecurityUtils::resolvePathWithinBase($guestRoot, $parentRelativePath);
+            if (is_null($parentPath)) {
+                return null;
+            }
+
+            $share = CollectionsinstancesQuery::create()->findOneByGuestpath($guestPath);
+            if (is_null($share) || (int)$share->getGuestid() !== SessionUser::getId()) {
+                return null;
+            }
+
+            $sharedDocument = (new SharedDocumentService())->resolve((int)$share->getId(), SessionUser::getId());
+            if (is_null($sharedDocument) || realpath($linkPath) !== $sharedDocument['path']) {
+                return null;
+            }
+
+            $remainingPath = implode('/', array_slice($segments, $index + 1));
+            if ($remainingPath !== '') {
+                if (!$sharedDocument['isDirectory']) {
+                    return null;
+                }
+
+                $path = DocumentSecurityUtils::resolvePathWithinBase($sharedDocument['path'], $remainingPath);
+                if (is_null($path) || !is_file($path)) {
+                    return null;
+                }
+
+                $sharedDocument['path'] = $path;
+                $sharedDocument['relativePath'] = rtrim($sharedDocument['relativePath'], '/') . '/' . $remainingPath;
+                $sharedDocument['name'] = basename($remainingPath);
+                $sharedDocument['isDirectory'] = false;
+            }
+
+            return $sharedDocument;
         }
 
-        $sharedDocument = (new SharedDocumentService())->resolve((int)$share->getId(), SessionUser::getId());
-        if (is_null($sharedDocument)) {
-            return null;
-        }
-
-        $linkTarget = realpath($linkPath);
-        $sourcePath = realpath($sharedDocument['path']);
-        if ($linkTarget === false || $sourcePath === false || $linkTarget !== $sourcePath) {
-            return null;
-        }
-
-        return $sharedDocument;
+        return null;
     }
 
     public function editShared(ServerRequest $request, Response $response, array $args): Response

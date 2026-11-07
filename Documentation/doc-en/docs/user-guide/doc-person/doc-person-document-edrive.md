@@ -112,6 +112,8 @@ The file or folder will come up in the parent folder
 
 ##delete an element
 
+In a read-only shared folder, deletion is disabled and the Collabora edit and sharing actions are unavailable. This also applies to subfolders.
+
 Two options:
 
 - Click on the element and drag and drop in the Recycle bin ![Screenshot](../../img/person/edrive19.png)

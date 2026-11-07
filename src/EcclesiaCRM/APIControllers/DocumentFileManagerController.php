@@ -183,6 +183,7 @@ class DocumentFileManagerController
 
         $currentNoteDir = SystemURLs::getDocumentRoot() ."/". $realNoteDir . "/" . $userName . $currentpath;
         $sabrepath = $realNoteDir . "/" . $userName . $currentpath;
+        $principalUri = "principals/" . $userName;
         
         $collabora = new CollaboraService();
 
@@ -204,13 +205,15 @@ class DocumentFileManagerController
             $sabrePathToFile = $sabrepath.$file;
             $rights = SabreUtils::getFileOrDirectoryInfos($sabrePathToFile);
 
-            $item['locked'] = false;
+            $item['locked'] = SabreUtils::fileOrCollectionACL(
+                $principalUri,
+                "home/" . $userName . $currentpath . $file
+            ) != 3;
 
             if (count($rights)) {
                 $item['id'] = null;
                 $item['isShared'] = 1;
                 $item['perID'] = SessionUser::getUser()->getPersonId();
-                $item['locked'] = $rights[0]->access == 2;
             } else {                
                 $item['id'] = null;
                 $item['isShared'] = 0;

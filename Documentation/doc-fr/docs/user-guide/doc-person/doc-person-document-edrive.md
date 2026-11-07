@@ -112,6 +112,8 @@ Le fichier ou le dossier remontera dans le dossier parent.
 
 ## Pour supprimer un élément
 
+Dans un dossier partagé en lecture seule, la suppression est désactivée et les actions d'édition Collabora et de partage ne sont pas proposées. Cette restriction s'applique également aux sous-dossiers.
+
 On a deux choix possibles :
 
 - on sélectionne l'élément et on le glisse dépose sur l'icône de la corbeille
