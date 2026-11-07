@@ -22,10 +22,12 @@ use EcclesiaCRM\NoteShareQuery;
 use EcclesiaCRM\NoteShare;
 use EcclesiaCRM\Emails\DocumentEmail;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\WebDav\Utils\SabreUtils;
 use Sabre\DAV\Xml\Element\Sharee;
 
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\DocumentSecurityUtils;
 
 class DocumentShareController
 {
@@ -34,6 +36,36 @@ class DocumentShareController
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+    private function canModifySabreShares($params): bool
+    {
+        if (!SessionUser::getUser()->isEDriveEnabled()
+            || !isset($params->currentPersonID, $params->rows)
+            || (int)$params->currentPersonID !== (int)SessionUser::getId()
+            || !is_array($params->rows) || count($params->rows) === 0) {
+            return false;
+        }
+
+        $user = UserQuery::create()->findOneByPersonId(SessionUser::getId());
+        if (is_null($user)) {
+            return false;
+        }
+
+        $userName = $user->getUserName();
+        foreach ($params->rows as $row) {
+            if (!is_array($row) || !isset($row['path']) || !is_string($row['path'])) {
+                return false;
+            }
+
+            $path = DocumentSecurityUtils::normalizeRelativePath($row['path']);
+            if (is_null($path) || !str_starts_with($path, $userName . '/')
+                || SabreUtils::fileOrCollectionACL('principals/' . $userName, 'home/' . $path) != 3) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public function getAllShareForPerson(ServerRequest $request, Response $response, array $args): Response {
@@ -119,6 +151,10 @@ class DocumentShareController
     public function addPersonSabreToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
+        if (!$this->canModifySabreShares($params)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
+
         if (isset ($params->currentPersonID) 
             && isset ($params->rows) 
             && isset($params->personToShareID) 
@@ -172,6 +208,10 @@ class DocumentShareController
 
     public function addFamilyToShareSabre (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
+
+        if (!$this->canModifySabreShares($params)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
 
         if (isset ($params->currentPersonID)
             && isset ($params->familyToShareID) 
@@ -232,6 +272,10 @@ class DocumentShareController
     public function addGroupToShareSabre (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
+        if (!$this->canModifySabreShares($params)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
+
         if (isset ($params->currentPersonID)
             && isset ($params->groupToShareID) 
             && isset ($params->rows)                          
@@ -271,6 +315,10 @@ class DocumentShareController
     public function deletePersonSabreFromShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
+        if (!$this->canModifySabreShares($params)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
+
         if (isset ($params->personPrincipal) && isset ($params->rows) and isset($params->currentPersonID)) {     
             $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);
             $currentUserName = $currentUser->getUserName();            
@@ -304,6 +352,10 @@ class DocumentShareController
 
     public function setRightsSabreForPerson (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
+
+        if (!$this->canModifySabreShares($params)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
 
         if (isset($params->currentPersonID) && isset ($params->personToShareID) && isset ($params->rightAccess) && $params->rightAccess > 0) {
             $access = $params->rightAccess;
@@ -361,6 +413,10 @@ class DocumentShareController
 
     public function cleardocumentsabre (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
+
+        if (!$this->canModifySabreShares($params)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
 
         if (isset ($params->rows) and isset($params->currentPersonID)) {     
             $currentUser = UserQuery::create()->findOneByPersonId($params->currentPersonID);

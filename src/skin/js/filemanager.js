@@ -286,10 +286,10 @@ $(function () {
    <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
    ${full.canEdit ? `<button type="button" class="btn btn-outline-info btn-sm px-2 py-1 editFile" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Edit')}"><i class="fa-solid fa-pen-to-square file-action-icon"></i></button>` : ''}
    ${full.canEdit ? `<button type="button" class="btn btn-outline-secondary btn-sm px-2 py-1 fileVersions" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Versions')}"><i class="fa-solid fa-clock-rotate-left file-action-icon"></i></button>` : ''}
-   <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
+   ${!full.locked ? `<button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>` : ''}
 </div>`;
                         return ret;
-                    } else if (!full.link && !(full.name == '/public' && full.currentpath == '/')) {
+                    } else if (!full.link && !full.locked && !(full.name == '/public' && full.currentpath == '/')) {
                         var ret = `<div class="btn-group">
    <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
 </div>`;
@@ -297,7 +297,7 @@ $(function () {
                     } else if (full.link) {
                         var ret = `<div class="btn-group">
    <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
-   <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Lien partagé"><i class="fa-solid fa-link file-action-icon"></i></button>
+   ${!full.locked ? `<button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Lien partagé"><i class="fa-solid fa-link file-action-icon"></i></button>` : ''}
 </div>`;
                         return ret;
                     }
@@ -391,6 +391,9 @@ $(function () {
         enabled: false,
         className: 'btn btn-danger btn-sm drag-elements trash-drop ui-droppable',
         action: function (e, dt, node, config) {
+            if (dt.rows({ selected: true }).data().toArray().some(function (item) { return item.locked; })) {
+                return;
+            }
             var selected = $.map(window.CRM.dataEDriveTable.rows({ selected: true }).data(), function (item) {
                 return item['name']
             });
@@ -543,6 +546,13 @@ $(function () {
 
     $('#edrive-table').on('draw.dt', fitEDriveTableToViewport);
     window.CRM.dataEDriveTable = $("#edrive-table").DataTable(DataTableOpts);
+    const updateDeleteButton = function () {
+        const rows = window.CRM.dataEDriveTable.rows({ selected: true }).data().toArray();
+        window.CRM.dataEDriveTable.button('#trash-drop').enable(rows.length > 0 && rows.every(function (item) {
+            return !item.locked;
+        }));
+    };
+    $('#edrive-table').on('select.dt deselect.dt draw.dt', updateDeleteButton);
     placeEDriveFolderButton();
     const adjustEDriveTableLayout = function () {
         if (!edriveTableInitialized) {
@@ -839,11 +849,7 @@ $(function () {
             }
         }        
 
-        if (selectedRows) {
-            $("#trash-drop").removeClass('disabled');            
-        } else {
-            $("#trash-drop").addClass('disabled');            
-        }
+        window.setTimeout(updateDeleteButton, 0);
 
         if (selectedRows != 1 || window.CRM.dblclick || clickedCellIndex !== 2) {
             setEDrivePanelVisible(false);

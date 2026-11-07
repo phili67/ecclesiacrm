@@ -2,6 +2,8 @@
 
 EcclesiaCRM can open eDrive Office documents (docx, doc, odt, rtf, xlsx, xls, ods, csv, pptx, ppt, odp) in a new window and save changes directly back to the original file.
 
+Files in shared folders and their subfolders can also be edited when the share permits writing and the server can write to both the file and its directory.
+
 The **Collabora Online** server (Docker container) is an independent service. The CRM acts as a **WOPI** host: Collabora requests file information and content from it, then sends the saved document back.
 
 In this documentation:
