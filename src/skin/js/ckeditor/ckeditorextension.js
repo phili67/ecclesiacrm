@@ -161,6 +161,10 @@
             return ['bold', 'italic', 'underline', '|', 'fontColor', 'fontBackgroundColor', '|', 'alignment'];
         }
 
+         if (preset === 'event') {
+            return ['undo', 'redo', '|','bold', 'italic', 'underline', '|', 'fontFamily', 'fontSize', 'fontColor',  '|', 'alignment', 'link','|', 'insertTable', 'mediaEmbed', 'insertVideo', '|', 'emoji'];
+        }
+
         const toolbar = [
             'undo', 'redo', '|',
             'findAndReplace', 'selectAll', 'preview', 'print', '|',
