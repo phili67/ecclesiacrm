@@ -5,7 +5,9 @@ $(function () {
     var available_search_type = [];
     var buildMenu = false;
     var cart = [];
-    var search_Term = window.CRM.mode;
+    var search_Term = window.CRM.searchMode === 'none'
+        ? (new URLSearchParams(window.location.search).get('search') || window.CRM.mode)
+        : window.CRM.mode;
     var selected_search_types = [];
     var current_cart_people = [];
     var current_cart_families = [];
@@ -352,8 +354,6 @@ $(function () {
         var newOption = new Option(data.text, data.id, true, true);
         $('#SearchTerm').append(newOption).trigger('change');
         toggleSearchFiltersVisibility(search_Term);
-
-        reloadSearchResults();
     }
 
 

@@ -27,6 +27,7 @@ $app->group('/search', function (RouteCollectorProxy $group) {
     * @! Quick search for left menu search field
     * #! param: ref->string :: query
     */
+    $group->get('/quick/', SearchController::class . ':quickSearch' );
     $group->get('/{query}', SearchController::class . ':quickSearch' );
     /*
     * @! Main search for all options : *, famillies, persons, etc ...
@@ -65,7 +66,6 @@ $app->group('/search', function (RouteCollectorProxy $group) {
     $group->post('/getresultpersonids/', SearchController::class . ':getSearchPeopleIds' );
     //$group->get('/getresult/', SearchController::class . ':getSearchResult' );// for test
 });
-
 
 
 
