@@ -80,7 +80,7 @@ Header_system_notifications();
                         <i class="fas fa-search"></i>
                     </span>
                 </div>
-                <select class="form-control multiSearch left-search-field-menu-bar" multiple data-placeholder="<?= _('Search') ?>"></select>
+                <select class="form-control multiSearch left-search-field-menu-bar" multiple data-placeholder="<?= htmlspecialchars(_('Search'), ENT_QUOTES, 'UTF-8') ?>" data-advanced-search-label="<?= htmlspecialchars(_('Advanced Search'), ENT_QUOTES, 'UTF-8') ?>"></select>
             </div>
         </form>
 

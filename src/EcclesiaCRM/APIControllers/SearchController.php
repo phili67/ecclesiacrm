@@ -413,7 +413,10 @@ class SearchController
     }
 
     public function quickSearch (ServerRequest $request, Response $response, array $args): Response {
-        $query = $args['query'];
+        $query = $args['query'] ?? ($request->getQueryParams()['query'] ?? null);
+        if (!is_string($query) || trim($query) === '') {
+            return $response->withStatus(400)->withJson(['error' => 'A search query is required.']);
+        }
 
         $resultsArray = [];
 

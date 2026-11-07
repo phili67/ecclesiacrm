@@ -58,21 +58,42 @@ $(function() {
         width: '100%',
         placeholder: i18next.t('Search'),
         minimumInputLength: 2,
+        templateResult: function (result, container) {
+            if (!result.globalSearch) {
+                return result.text;
+            }
+
+            $(container).addClass('navbar-search-global-option');
+            return $('<span class="navbar-search-global-content"></span>')
+                .append($('<i class="fas fa-search-plus" aria-hidden="true"></i>'))
+                .append($('<span></span>').text(result.text));
+        },
         ajax: {
-            url: function (params) {
-                return window.CRM.root + "/api/search/" + params.term;
-            },
+            url: window.CRM.root + "/api/search/quick/",
             dataType: 'json',
-            delay: 1500,
-            data: "",
+            delay: 300,
+            data: function (params) {
+                return {query: params.term};
+            },
             headers: {
                 "Authorization" : "Bearer "+window.CRM.jwtToken
             },
             processResults: function (data, params) {
-                return {results: data};
+                var term = params.term.trim();
+                return {
+                    results: [{
+                        id: 'global-search',
+                        text: $('.multiSearch').data('advanced-search-label') + ' : ' + term,
+                        globalSearch: true,
+                        uri: window.CRM.root + '/v2/people/list/none?search=' + encodeURIComponent(term)
+                    }].concat(data)
+                };
             },
             cache: true
         }
+    });
+    $(".multiSearch").each(function () {
+        $(this).data('select2').$dropdown.find('.select2-dropdown').addClass('navbar-search-dropdown');
     });
     $(".multiSearch").on("select2:opening", function () {
         $(this).closest(".navbar-search-form").addClass("is-open");
