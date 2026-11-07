@@ -155,6 +155,12 @@ class DocumentShareController
             return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
         }
 
+        if (!isset($params->personToShareID)
+            || (int)$params->personToShareID === (int)SessionUser::getId()
+            || is_null(UserQuery::create()->findOneByPersonId((int)$params->personToShareID))) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
+        }
+
         if (isset ($params->currentPersonID) 
             && isset ($params->rows) 
             && isset($params->personToShareID) 

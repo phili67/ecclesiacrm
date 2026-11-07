@@ -201,23 +201,38 @@ class PeopleController
     public function searchpeople(ServerRequest $request, Response $response, array $args): Response
     {
         $query = $args['query'];
+        $type = $args['type'] ?? null;
+        $excludeCurrentUser = $type === 'edrive-share';
         $resultsArray = [];
 
         $id = 1;
 
-        $input = (object)$request->getParsedBody();
+        if ($excludeCurrentUser && !SessionUser::getUser()->isEDriveEnabled()) {
+            return $response->withStatus(403);
+        }
 
         $logger = $this->container->get('Logger');
 
-        if (!isset($args['type']) or isset($args['type']) and $args['type'] == 'person') {
+        if ($type === null || $type === 'person' || $excludeCurrentUser) {
 
             //Person Search
             try {
                 $searchLikeString = '%' . $query . '%';
-                $people = PersonQuery::create()->
-                filterByFirstName($searchLikeString, Criteria::LIKE)->
-                _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-                limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
+                $peopleQuery = PersonQuery::create();
+                if ($excludeCurrentUser) {
+                    $peopleQuery
+                        ->condition('firstName', 'Person.FirstName LIKE ?', $searchLikeString)
+                        ->condition('lastName', 'Person.LastName LIKE ?', $searchLikeString)
+                        ->where(['firstName', 'lastName'], Criteria::LOGICAL_OR)
+                        ->filterById(SessionUser::getId(), Criteria::NOT_EQUAL);
+                } else {
+                    $peopleQuery
+                        ->filterByFirstName($searchLikeString, Criteria::LIKE)
+                        ->_or()->filterByLastName($searchLikeString, Criteria::LIKE);
+                }
+                $people = $peopleQuery
+                    ->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
+                    ->find();
 
 
                 if (!empty($people)) {
@@ -225,8 +240,10 @@ class PeopleController
                     $id++;
 
                     foreach ($people as $person) {
-                        if ($person->getDateDeactivated() != null)
+                        if ($person->getDateDeactivated() != null
+                            || ($excludeCurrentUser && (int)$person->getId() === (int)SessionUser::getId())) {
                             continue;
+                        }
 
                         $elt = ['id' => $id++,
                             'text' => $person->getFullName(),
@@ -248,7 +265,7 @@ class PeopleController
             }
         }
 
-        if (!isset($args['type']) or isset($args['type']) and $args['type'] == 'family') {
+        if ($type === null || $type === 'family') {
             // Family search
             try {
                 $families = FamilyQuery::create()
@@ -287,7 +304,7 @@ class PeopleController
             }
         }
 
-        if (!isset($args['type'])) {
+        if ($type === null) {
             // Group Search
             try {
                 $groups = GroupQuery::create()

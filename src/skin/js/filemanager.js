@@ -1308,7 +1308,7 @@ $(function () {
         allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params) {
-                return window.CRM.root + "/api/people/search/" + params.term;
+                return window.CRM.root + "/api/people/search/" + params.term + "/edrive-share";
             },
             headers: {
                 "Authorization": "Bearer " + window.CRM.jwtToken
