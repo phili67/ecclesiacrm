@@ -71,10 +71,6 @@ Header_system_notifications();
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= SessionUser::getUser()->getPersonId() ?>" class="nav-link"><?= _("Private Space") ?></a>
-            </li>
-            
         </ul>
 
         <form class="form-inline ml-3 flex-grow-1 navbar-search-form">
@@ -102,6 +98,11 @@ Header_system_notifications();
                 </a>
                 <div class="dropdown-menu quick-access-dropdown-menu" aria-labelledby="quickAccessDropdown">
                     <div class="quick-access-grid">
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/dashboard"
+                            class="quick-access-entry" title="<?= _('Main Dashboard') ?>">
+                            <span class="quick-access-entry-icon"><i class="fa-solid fa-gauge" aria-hidden="true"></i></span>
+                            <span class="quick-access-entry-label"><?= _('Dashboard') ?></span>
+                        </a>
                         <a href="<?= SystemURLs::getRootPath() ?>/v2/people/person/view/<?= SessionUser::getUser()->getPersonId() ?>"
                             class="quick-access-entry" title="<?= _('Private Space') ?>">
                             <span class="quick-access-entry-icon"><i class="fas fa-home" aria-hidden="true"></i></span>
