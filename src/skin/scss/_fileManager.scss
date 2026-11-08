@@ -39,6 +39,198 @@
     font-size: 12px !important;
 }
 
+.edrive-upload-card {
+    width: 100%;
+    max-width: none;
+}
+
+.edrive-upload-dropzone {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    min-height: 92px;
+    overflow: hidden;
+    margin: 0;
+    padding: 1rem 1.25rem;
+    border: 1px dashed #9bb9d3;
+    border-radius: .5rem;
+    background: #f7fbff;
+    color: #334155;
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+
+.edrive-upload-dropzone:hover,
+.edrive-upload-dropzone.is-drag-over,
+.edrive-upload-dropzone:focus-within {
+    border-color: #3b82a0;
+    background: #eef8fc;
+    box-shadow: 0 0 0 .2rem rgba(59, 130, 160, .12);
+}
+
+.edrive-upload-overlay {
+    position: absolute;
+    inset: .4rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .65rem;
+    border: 2px dashed #287c98;
+    border-radius: .35rem;
+    background: rgba(238, 248, 252, .96);
+    color: #1f6178;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .12s ease;
+}
+
+.edrive-upload-dropzone.is-drag-over .edrive-upload-overlay {
+    opacity: 1;
+}
+
+.edrive-upload-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e2f1f7;
+    color: #287c98;
+    font-size: 1.15rem;
+}
+
+.edrive-upload-copy {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    font-size: .9rem;
+}
+
+.edrive-upload-copy strong {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.edrive-upload-copy span {
+    color: #64748b;
+    font-size: .8rem;
+    font-weight: 400;
+}
+
+.edrive-upload-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.download-zone {
+    align-items: center;
+    gap: .75rem;
+    margin-top: .75rem;
+}
+
+.download-zone progress {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: .55rem;
+    accent-color: #287c98;
+}
+
+.download-zone label {
+    min-width: 3rem;
+    color: #64748b;
+    font-size: .8rem;
+    text-align: right;
+}
+
+.edrive-share-list {
+    padding: .9rem;
+    border: 1px solid #e2e8f0;
+    border-radius: .5rem;
+    background: #f8fafc;
+}
+
+.edrive-shared-users-list {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    max-height: 14rem;
+    overflow-y: auto;
+}
+
+.edrive-shared-users-empty {
+    padding: .65rem;
+    font-size: .85rem;
+}
+
+.edrive-share-user {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    min-width: 0;
+    margin: 0;
+    padding: .55rem .65rem;
+    border: 1px solid #e2e8f0;
+    border-radius: .35rem;
+    background: #fff;
+    cursor: pointer;
+}
+
+.edrive-share-user.is-selected {
+    border-color: #8eb6c5;
+    background: #f0f8fb;
+}
+
+.edrive-share-user-checkbox {
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+.edrive-share-user-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    color: #334155;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.edrive-share-user-rights {
+    flex: 0 0 auto;
+    color: #475569;
+    font-size: .75rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.edrive-share-select {
+    display: none;
+}
+
+.edrive-shared-by-list .list-group-item {
+    gap: .75rem;
+    padding: .7rem .85rem;
+}
+
+.edrive-shared-by-list .badge {
+    flex: 0 0 auto;
+    color: #475569;
+    font-size: .75rem;
+    font-weight: 500;
+}
+
 .filmanager-left {
     min-width: 0;
 }
@@ -78,10 +270,6 @@
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
   font-weight: 900;
   font-size: 11px;
-}
-
-#dropdownMenuButtonRights {
-    margin-left:-10px;
 }
 
 .form-control-access-rights {
@@ -190,18 +378,21 @@
         width:100%;
     }
 
+    .edrive-upload-card {
+        max-width: none;
+    }
 
     .filmanager-right {
         /*border-left: solid 0px #8a2121;*/
     }     
 
-    #dropdownMenuButtonRights {
-        margin-left:+20px;
-    }
-
     .form-control-access-rights {
         width:98%;
     }
+}
+
+.btn-sm-rounded {
+    border-radius: 1.2rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -211,6 +402,39 @@
         box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);
         border-left: solid 1px #5d5b5b;*/
     } 
+
+    .edrive-upload-dropzone {
+        border-color: #64748b;
+        background: #343a40;
+        color: #f8f9fa;
+    }
+
+    .edrive-upload-dropzone:hover,
+    .edrive-upload-dropzone.is-drag-over,
+    .edrive-upload-dropzone:focus-within {
+        border-color: #5ba7c2;
+        background: #3b4b55;
+        box-shadow: 0 0 0 .2rem rgba(91, 167, 194, .18);
+    }
+
+    .edrive-upload-overlay {
+        border-color: #5ba7c2;
+        background: rgba(52, 58, 64, .96);
+        color: #9bd4e8;
+    }
+
+    .edrive-upload-icon {
+        background: #263d49;
+        color: #82c8e0;
+    }
+
+    .edrive-upload-copy strong {
+        color: #f8f9fa;
+    }
+
+    .edrive-upload-copy span {
+        color: #adb5bd;
+    }
 
     .hr-filemanager {
         border-top: 1px solid rgba(245, 245, 245, 0.1);

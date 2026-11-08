@@ -38,6 +38,15 @@ msgstr "Entrée des fichiers"
 msgid "You can also drag and drop files into this area."
 msgstr "Vous pouvez également glisser-déposer des fichiers dans cette zone."
 
+msgid "Click to choose files or drag and drop them here."
+msgstr "Cliquez pour choisir des fichiers ou déposez-les ici."
+
+msgid "Drop files to upload"
+msgstr "Déposez les fichiers ici pour les importer"
+
+msgid "No one has access yet."
+msgstr "Aucune personne n'a encore accès à cet élément."
+
 #: browser/browse.php:94 v2/templates/edrive/dashboard.php:61
 msgid "Download status"
 msgstr "Télécharger l'état"

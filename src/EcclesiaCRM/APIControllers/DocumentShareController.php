@@ -107,7 +107,9 @@ class DocumentShareController
                 foreach ($sharees as $info) {
                     $person = [
                         'id' => $info->principal,
-                        'name' => (($info->access == 3)?gettext("[👀 ✐]"):gettext("[👀  ]"))."   ".$info->principal];
+                        'name' => $info->properties['{DAV:}displayname'] ?? $info->principal,
+                        'access' => (int)$info->access
+                    ];
 
                     array_push($result, $person);                
                 }
@@ -457,7 +459,8 @@ class DocumentShareController
                 foreach ($sharees as $info) {
                     $person = [
                         'principal' => $info->principal,
-                        'fullName' => (($info->access == 3)?gettext("[👀 ✐]"):gettext("[👀  ]"))."   ".$info->properties['{DAV:}displayname']
+                        'fullName' => $info->properties['{DAV:}displayname'] ?? $info->principal,
+                        'access' => (int)$info->access
                     ];
 
                     array_push($result, $person);                
