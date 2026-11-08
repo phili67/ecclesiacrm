@@ -47,6 +47,10 @@ class VIEWMailchimpController {
     public function renderMailChimpDashboard (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MailChimp/v2/templates/');
 
+        if (!SessionUser::getUser()->isEnableForPlugin('MailChimp')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
         return $renderer->render($response, 'dashboard.php', $this->mailchimpDashboardArgumentsArray());
     }
 
@@ -78,6 +82,10 @@ class VIEWMailchimpController {
 
     public function renderMailChimpCampaign (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MailChimp/v2/templates/');
+        
+        if (!SessionUser::getUser()->isEnableForPlugin('MailChimp')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
 
         $campaignId = $args['campaignId'];
 
@@ -120,6 +128,10 @@ class VIEWMailchimpController {
 
     public function renderMailChimpManageList (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MailChimp/v2/templates/');
+
+        if (!SessionUser::getUser()->isEnableForPlugin('MailChimp')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
 
         $listId = $args['listId'];
 
@@ -165,6 +177,10 @@ class VIEWMailchimpController {
     public function renderMailChimpDuplicateEmails (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MailChimp/v2/templates/');
 
+        if (!SessionUser::getUser()->isEnableForPlugin('MailChimp')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }        
+
         $mailchimp       = new MailChimpService();
 
         if ( !$mailchimp->isActive() ) {
@@ -191,6 +207,10 @@ class VIEWMailchimpController {
     public function renderMailChimpNotInMailchimpEmailsPersons (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MailChimp/v2/templates/');
 
+        if (!SessionUser::getUser()->isEnableForPlugin('MailChimp')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+        
         $mailchimp       = new MailChimpService();
 
         if ( !$mailchimp->isActive() ) {
@@ -216,6 +236,10 @@ class VIEWMailchimpController {
     public function renderMailChimpNotInMailchimpEmailsFamilies (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MailChimp/v2/templates/');
 
+        if (!SessionUser::getUser()->isEnableForPlugin('MailChimp')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
         $mailchimp       = new MailChimpService();
 
         if ( !$mailchimp->isActive() ) {
@@ -240,6 +264,10 @@ class VIEWMailchimpController {
 
     public function renderSettings (ServerRequest $request, Response $response, array $args): Response {
         $renderer = new PhpRenderer(SystemURLs::getDocumentRoot().'/Plugins/MailChimp/v2/templates');
+
+        if (!SessionUser::getUser()->isAdminEnableForPlugin('MailChimp')) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
 
         return $renderer->render($response, 'settings.php', $this->argumentSettings());
     }

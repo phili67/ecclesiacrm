@@ -56,18 +56,18 @@ class MenuBar extends Menu
         foreach ($plugins as $plugin) {
             $name = $plugin->getName();
 
-            if ( !( SessionUser::getUser()->isEnableForPlugin($plugin->getName())
-                or SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) ) continue;
+            if ( !( SessionUser::getUser()->isEnableForPlugin($name)
+                or SessionUser::getUser()->isAdminEnableForPlugin($name) ) ) continue;
 
             $isPluginEnabledForuser = true;
 
-            $menuBarItems = PluginMenuBarQuery::create()->filterByName($plugin->getName())->find();
+            $menuBarItems = PluginMenuBarQuery::create()->filterByName($name)->find();
             $first_One = true;            
             $menu = null;
             foreach ($menuBarItems as $menuBarItem) {
                 if (!is_null($menuBarItem->getLinkParentId())) continue;
                 $grp_sec = true;
-                if ( SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) {
+                if ( SessionUser::getUser()->isAdminEnableForPlugin($name) ) {
                     // a plugin admin is locally a menu administrator
                     $grp_sec = true;
                 } else if ( !is_null($menuBarItem->getGrpSec()) and $menuBarItem->getGrpSec() != '' ) {
