@@ -133,6 +133,7 @@ Header_system_notifications();
                             ->find();
 
                         foreach ($quickAccessItems as $item) {
+                            if ( SessionUser::getUser()->isEnableForPlugin($item->getPluginName()) ) {
                             ?>
                             <a href="<?= SystemURLs::getRootPath() ?>/<?= $item->getUrl() ?>" class="quick-access-entry"
                                 title="<?= htmlspecialchars(dgettext('messages-' . $item->getPluginName(), $item->getLabel()), ENT_QUOTES, 'UTF-8') ?>">
@@ -140,6 +141,7 @@ Header_system_notifications();
                                 <span class="quick-access-entry-label"><?= dgettext('messages-' . $item->getPluginName(), $item->getLabel()) ?></span>
                             </a>
                             <?php
+                            }
                         }
                         ?>
                     </div>
