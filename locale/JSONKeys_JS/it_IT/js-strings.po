@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1406,6 +1406,9 @@ msgstr "Impostare un nome di file/cartella"
 msgid "Download Error"
 msgstr "Scarica l'errore"
 
+msgid "Read and write"
+msgstr "Lettura e scrittura"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
 "Siete sicuri di voler interrompere la condivisione per gli utenti "
@@ -2258,9 +2261,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "Impostare i diritti"
 
-msgid "Read and write"
-msgstr "Lettura e scrittura"
-
 msgid "Notification"
 msgstr "Notifica"
 
@@ -2427,6 +2427,62 @@ msgstr "Condividete questo link di verifica sicuro con la persona."
 
 msgid "Comments"
 msgstr "Commenti"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr "Seleziona i plugin da aggiornare tra quelli già installati sul server."
+
+msgid "Database"
+msgstr "Database"
+
+msgid "Files"
+msgstr "File"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"Esegui il backup del database prima di procedere all'aggiornamento. Se la "
+"migrazione non va a buon fine, alcune modifiche potrebbero essere già state "
+"applicate."
+
+msgid "Plugins requiring attention"
+msgstr "Plugin che richiedono attenzione"
+
+msgid "The database version is newer than the files."
+msgstr "La versione del database è più recente rispetto ai file."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr ""
+"La configurazione o la migrazione non è valida. Controllare i log "
+"dell'applicazione."
+
+msgid "Close and refresh"
+msgstr "Chiudi e aggiorna"
+
+msgid "The selected plugins have been updated."
+msgstr "I plugin selezionati sono stati aggiornati."
+
+msgid "The update stopped at"
+msgstr "L'aggiornamento si è interrotto a"
+
+msgid "Plugin updates"
+msgstr "Aggiornamenti dei plugin"
+
+msgid "Later"
+msgstr "Più tardi"
+
+msgid "Update selected plugins"
+msgstr "Aggiorna i plugin selezionati"
+
+msgid "Select at least one plugin."
+msgstr "Seleziona almeno un plugin."
+
+msgid "Updating plugins. Please wait."
+msgstr "Aggiornamento dei plugin. Attendere, per favore."
+
+msgid "Unable to check plugin updates."
+msgstr "Impossibile verificare la disponibilità di aggiornamenti per i plugin."
 
 msgid "Confirmation of plugin removal"
 msgstr "Conferma della rimozione del plugin"
@@ -3230,9 +3286,6 @@ msgstr ""
 #~ msgid "Edit General Settings"
 #~ msgstr "Modifica delle impostazioni generali"
 
-#~ msgid "Then update"
-#~ msgstr "Quindi aggiornare"
-
 #~ msgid "For more info see our "
 #~ msgstr "Per maggiori informazioni vedere il nostro"
 
@@ -3694,9 +3747,6 @@ msgstr ""
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Stai per rimuovere una cartella e il suo contenuto"
-
-#~ msgid "Files input"
-#~ msgstr "Ingresso dei file"
 
 #~ msgid "Upload your files"
 #~ msgstr "Carica i tuoi file"

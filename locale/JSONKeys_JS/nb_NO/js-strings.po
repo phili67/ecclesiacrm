@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1398,6 +1398,9 @@ msgstr "Angi et fil-/mappenavn"
 msgid "Download Error"
 msgstr "Last ned feil"
 
+msgid "Read and write"
+msgstr "Lese og skrive"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "Er du sikker på at du vil stoppe deling for utvalgte brukere?"
 
@@ -2248,9 +2251,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "Angi rettigheter"
 
-msgid "Read and write"
-msgstr "Lese og skrive"
-
 msgid "Notification"
 msgstr "Varsling"
 
@@ -2412,6 +2412,63 @@ msgstr "Del denne sikre bekreftelseskoblingen med personen."
 
 msgid "Comments"
 msgstr "Kommentarer"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"Velg hvilke plugins du vil oppdatere blant filene som allerede er installert "
+"på serveren."
+
+msgid "Database"
+msgstr "Database"
+
+msgid "Files"
+msgstr "Filer"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"Ta sikkerhetskopi av databasen før du oppdaterer. Hvis en migrering "
+"mislykkes, kan det hende at noen endringer allerede er gjennomført."
+
+msgid "Plugins requiring attention"
+msgstr "Plugins som krever oppmerksomhet"
+
+msgid "The database version is newer than the files."
+msgstr "Databasversjonen er nyere enn filene."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr ""
+"Konfigurasjonen eller migreringen er ugyldig. Sjekk applikasjonsloggene."
+
+msgid "Close and refresh"
+msgstr "Lukk og oppdater"
+
+msgid "The selected plugins have been updated."
+msgstr "De valgte pluginene er oppdatert."
+
+msgid "The update stopped at"
+msgstr "Oppdateringen stoppet ved"
+
+msgid "Plugin updates"
+msgstr "Oppdateringer av tilleggsprogrammer"
+
+msgid "Later"
+msgstr "Senere"
+
+msgid "Update selected plugins"
+msgstr "Oppdater valgte plugins"
+
+msgid "Select at least one plugin."
+msgstr "Velg minst én plugin."
+
+msgid "Updating plugins. Please wait."
+msgstr "Oppdaterer plugins. Vennligst vent."
+
+msgid "Unable to check plugin updates."
+msgstr ""
+"Det er ikke mulig å sjekke om det finnes oppdateringer til plugin-modulen."
 
 msgid "Confirmation of plugin removal"
 msgstr "Bekreftelse på fjerning av plugin"
@@ -3197,9 +3254,6 @@ msgstr "Alle medlemskap vil bli ødelagt.  Medlemmene selv vil ikke bli endret."
 #~ msgid "Edit General Settings"
 #~ msgstr "Rediger generelle innstillinger"
 
-#~ msgid "Then update"
-#~ msgstr "Oppdater deretter"
-
 #~ msgid "For more info see our "
 #~ msgstr "For mer informasjon, se vår"
 
@@ -3660,9 +3714,6 @@ msgstr "Alle medlemskap vil bli ødelagt.  Medlemmene selv vil ikke bli endret."
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Du er i ferd med å fjerne en mappe og innholdet i den."
-
-#~ msgid "Files input"
-#~ msgstr "Innlegging av filer"
 
 #~ msgid "Upload your files"
 #~ msgstr "Last opp filene dine"

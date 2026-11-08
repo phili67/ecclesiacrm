@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1387,6 +1387,9 @@ msgstr "ファイル/フォルダ名の設定"
 msgid "Download Error"
 msgstr "ダウンロードエラー"
 
+msgid "Read and write"
+msgstr "読み書き"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "選択したユーザーの共有を停止してもよろしいですか？"
 
@@ -2229,9 +2232,6 @@ msgstr "1人または複数の受信者を選択して、アクセス権を更�
 msgid "Set rights"
 msgstr "権利の設定"
 
-msgid "Read and write"
-msgstr "読み書き"
-
 msgid "Notification"
 msgstr "お知らせ"
 
@@ -2389,6 +2389,61 @@ msgstr "この安全な認証リンクを本人と共有する。"
 
 msgid "Comments"
 msgstr "コメント"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"サーバーにすでにインストールされているファイルの中から、更新するプラグインを"
+"選択してください。"
+
+msgid "Database"
+msgstr "データベース"
+
+msgid "Files"
+msgstr "ファイル"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"更新を行う前に、データベースのバックアップを取ってください。マイグレーション"
+"が失敗した場合、一部の変更がすでに適用されている可能性があります。"
+
+msgid "Plugins requiring attention"
+msgstr "注意が必要なプラグイン"
+
+msgid "The database version is newer than the files."
+msgstr "データベースのバージョンは、ファイルのバージョンよりも新しいです。"
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr "設定または移行が無効です。アプリケーションログを確認してください。"
+
+msgid "Close and refresh"
+msgstr "閉じて更新する"
+
+msgid "The selected plugins have been updated."
+msgstr "選択したプラグインが更新されました。"
+
+msgid "The update stopped at"
+msgstr "更新はここで停止しました"
+
+msgid "Plugin updates"
+msgstr "プラグインの更新"
+
+msgid "Later"
+msgstr "また後で"
+
+msgid "Update selected plugins"
+msgstr "選択したプラグインを更新する"
+
+msgid "Select at least one plugin."
+msgstr "プラグインを少なくとも1つ選択してください。"
+
+msgid "Updating plugins. Please wait."
+msgstr "プラグインを更新しています。しばらくお待ちください。"
+
+msgid "Unable to check plugin updates."
+msgstr "プラグインの更新を確認できません。"
 
 msgid "Confirmation of plugin removal"
 msgstr "プラグイン削除の確認"
@@ -3176,9 +3231,6 @@ msgstr "すべての会員権は破棄される。  メンバーそのものが�
 #~ msgid "Edit General Settings"
 #~ msgstr "一般設定の編集"
 
-#~ msgid "Then update"
-#~ msgstr "そして更新する"
-
 #~ msgid "For more info see our "
 #~ msgstr "詳細はこちらをご覧ください。"
 
@@ -3629,9 +3681,6 @@ msgstr "すべての会員権は破棄される。  メンバーそのものが�
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "フォルダとその内容を削除しようとしている"
-
-#~ msgid "Files input"
-#~ msgstr "入力ファイル"
 
 #~ msgid "Upload your files"
 #~ msgstr "ファイルのアップロード"

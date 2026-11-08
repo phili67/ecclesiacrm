@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 13:22+0100\n"
+"POT-Creation-Date: 2026-11-08 20:08+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,49 +26,35 @@ msgstr "下载"
 msgid "Insert"
 msgstr "插入"
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:39
-msgid "Download files"
-msgstr "下载文件"
-
-#: browser/browse.php:83 v2/templates/edrive/dashboard.php:50
-msgid "Files input"
-msgstr "文件输入"
-
-#: browser/browse.php:87 v2/templates/edrive/dashboard.php:54
-msgid "You can also drag and drop files into this area."
-msgstr "您还可以将文件拖放到该区域。"
-
-#: browser/browse.php:94 v2/templates/edrive/dashboard.php:61
-msgid "Download status"
-msgstr "下载状态"
-
-#: browser/browse.php:108 v2/templates/edrive/dashboard.php:74
+#: browser/browse.php:74 v2/templates/edrive/dashboard.php:42
 msgid "Upload your files"
 msgstr "上传文件"
 
-#: browser/browse.php:111 v2/templates/cart/carttobadge.php:182
-#: v2/templates/cart/carttobadge.php:188 v2/templates/edrive/dashboard.php:77
-#: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
-msgid "Upload"
-msgstr "上传"
+#: browser/browse.php:75 v2/templates/edrive/dashboard.php:43
+msgid "Click to choose files or drag and drop them here."
+msgstr "点击选择文件，或将文件拖放到此处。"
 
-#: browser/browse.php:124 v2/templates/edrive/dashboard.php:97
+#: browser/browse.php:79 v2/templates/edrive/dashboard.php:47
+msgid "Drop files to upload"
+msgstr "将文件拖放到此处进行上传"
+
+#: browser/browse.php:95 v2/templates/edrive/dashboard.php:71
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr "上移一级，或拖动文件上移一级。"
 
-#: browser/browse.php:147 Include/Header-function.php:96
-#: Include/Header-function.php:158 Include/Header.php:243
+#: browser/browse.php:118 Include/Header-function.php:96
+#: Include/Header-function.php:158 Include/Header.php:345
 #: v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:121 v2/templates/group/groupedit.php:42
+#: v2/templates/edrive/dashboard.php:95 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "关闭"
 
-#: browser/browse.php:158 v2/templates/edrive/dashboard.php:132
+#: browser/browse.php:128 v2/templates/edrive/dashboard.php:105
 msgid "Internal sharing"
 msgstr "内部共享"
 
-#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:129 v2/templates/edrive/dashboard.php:106
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
@@ -77,78 +63,90 @@ msgstr ""
 "使用此方法与组织内的个人或团队共享文件。如果接收者已经有访问共享文件的权限，"
 "但却找不到文件，你可以向他们发送内部链接，以方便他们访问。"
 
-#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:129 v2/templates/edrive/dashboard.php:106
 #: v2/templates/sidebar/systemsettings.php:396
 msgid "Definition"
 msgstr "定义"
 
-#: browser/browse.php:164 v2/templates/edrive/dashboard.php:138
+#: browser/browse.php:133 v2/templates/edrive/dashboard.php:110
 msgid ""
 "Choose people, define their access rights, then manage existing shares from "
 "the list below."
 msgstr "选择人员，定义其访问权限，然后从下面的列表中管理现有共享。"
 
-#: browser/browse.php:168 v2/templates/edrive/dashboard.php:142
+#: browser/browse.php:137 v2/templates/edrive/dashboard.php:114
 msgid "Add users"
 msgstr "添加用户"
 
-#: browser/browse.php:184 v2/templates/edrive/dashboard.php:158
+#: browser/browse.php:142 browser/browse.php:170
+#: v2/templates/edrive/dashboard.php:119 v2/templates/edrive/dashboard.php:147
+msgid "Set Rights"
+msgstr "设定权利"
+
+#: browser/browse.php:144 browser/browse.php:172
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: v2/templates/edrive/dashboard.php:121 v2/templates/edrive/dashboard.php:149
+msgid "Read only"
+msgstr "只读"
+
+#: browser/browse.php:145 browser/browse.php:173
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: v2/templates/edrive/dashboard.php:122 v2/templates/edrive/dashboard.php:150
+msgid "Read and write"
+msgstr "读写"
+
+#: browser/browse.php:151 v2/templates/edrive/dashboard.php:128
 msgid "Send email notification"
 msgstr "发送电子邮件通知"
 
-#: browser/browse.php:189 v2/templates/edrive/dashboard.php:163
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:133
 #: v2/templates/edrive/shares.php:7
 msgid "Shared with"
 msgstr "共享"
 
-#: browser/browse.php:193 v2/templates/edrive/dashboard.php:167
-msgid "Delete all shares"
-msgstr "删除所有股份"
+#: browser/browse.php:158 v2/templates/edrive/dashboard.php:135
+msgid "No one has access yet."
+msgstr "目前尚无人能访问。"
 
-#: browser/browse.php:196 v2/templates/edrive/dashboard.php:170
+#: browser/browse.php:163 v2/templates/edrive/dashboard.php:140
 msgid "Delete shares for the selected users"
 msgstr "删除所选用户的共享"
 
-#: browser/browse.php:205 v2/templates/edrive/dashboard.php:179
-msgid "Set Rights"
-msgstr "设定权利"
+#: browser/browse.php:163 EcclesiaCRM/Service/CalendarService.php:1422
+#: EcclesiaCRM/Service/ConfirmReportService.php:541
+#: ident/templates/verify/verify-family-info.php:47
+#: ident/templates/verify/verify-person-info.php:62
+#: v2/templates/calendar/eventattendeesedit.php:96
+#: v2/templates/calendar/eventnames.php:322
+#: v2/templates/calendar/eventnames.php:325
+#: v2/templates/cart/carttobadge.php:170
+#: v2/templates/deposit/electronicPaymentList.php:83
+#: v2/templates/deposit/electronicPaymentList.php:229
+#: v2/templates/deposit/finddepositslip.php:101
+#: v2/templates/deposit/finddepositslip.php:144
+#: v2/templates/edrive/dashboard.php:140 v2/templates/group/groupbadge.php:156
+#: v2/templates/pastoralcare/pastoralcarefamily.php:311
+#: v2/templates/pastoralcare/pastoralcarefamily.php:320
+#: v2/templates/pastoralcare/pastoralcareperson.php:450
+#: v2/templates/pastoralcare/pastoralcareperson.php:459
+#: v2/templates/people/familyCustomFieldEditor.php:410
+#: v2/templates/people/familyview.php:511
+#: v2/templates/people/familyview.php:674
+#: v2/templates/people/familyview.php:990
+#: v2/templates/people/personCustomEditor.php:402
+#: v2/templates/people/personview.php:986
+#: v2/templates/people/personview.php:1090
+#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:61
+#: v2/templates/system/optionManager.php:443
+#: v2/templates/system/optionManager.php:445
+msgid "Delete"
+msgstr "删除"
 
-#: browser/browse.php:210 v2/templates/edrive/dashboard.php:184
-msgid "Select your rights"
-msgstr "选择您的权利"
+#: browser/browse.php:165 v2/templates/edrive/dashboard.php:142
+msgid "Delete all shares"
+msgstr "删除所有股份"
 
-#: browser/browse.php:210 v2/templates/deposit/autaPaymentEditor.php:284
-#: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:184
-#: v2/templates/people/personEditor.php:1145
-msgid "or"
-msgstr "或"
-
-#: browser/browse.php:213
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:187
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-#: browser/browse.php:213 v2/templates/edrive/dashboard.php:187
-msgid "[R ]"
-msgstr ""
-
-#: browser/browse.php:214
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:188
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
-#: browser/browse.php:214 v2/templates/edrive/dashboard.php:188
-msgid "[RW]"
-msgstr ""
-
-#: browser/browse.php:223 v2/templates/edrive/dashboard.php:197
+#: browser/browse.php:183 v2/templates/edrive/dashboard.php:160
 msgid "Share By"
 msgstr "分享"
 
@@ -327,8 +325,8 @@ msgid "No person found for preview"
 msgstr "未找到预览对象"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:161
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:285
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1151
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:288
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1154
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:628
 #: uploader/upload.php:176
 msgid "Create file"
@@ -337,12 +335,18 @@ msgstr "创建文件"
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:45
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:78
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:97
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:155
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:161
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:177
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:209
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:352
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:371
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:196
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:202
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:218
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:250
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:393
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:412
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:157
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:221
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:284
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:327
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:365
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:426
 #: v2/templates/query/querylist.php:53 v2/templates/query/querylist.php:88
 msgid "Forbidden"
 msgstr "禁忌"
@@ -353,34 +357,34 @@ msgstr "禁忌"
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:75
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:83
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:105
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:166
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:171
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:183
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:304
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:333
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:349
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:368
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:207
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:212
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:224
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:345
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:374
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:305
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:319
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:390
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:409
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:415
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:308
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:322
 msgid "Document not found"
 msgstr "未找到文件"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:220
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:225
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:232
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:261
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:266
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:273
 msgid "Invalid name"
 msgstr "名称无效"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:236
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:277
 msgid "The file already exists"
 msgstr "该文件已存在"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:240
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:281
 msgid "Unable to create the file"
 msgstr "无法创建该文件"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:356
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:397
 msgid "Unable to restore this version"
 msgstr "无法还原此版本"
 
@@ -394,127 +398,138 @@ msgstr "本文件由以下人员打开"
 msgid "Minutes left"
 msgstr "还剩几分钟"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:235
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:371
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:238
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:374
 #: EcclesiaCRM/utils/MiscUtils.php:884
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
 msgid "Folder"
 msgstr "文件夹"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:448
-#, fuzzy
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:451
 msgid "Shared folder"
-msgstr "分享者"
+msgstr "共享文件夹"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:620
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:659
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:623
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:662
 msgid "Right of access to folder problem"
 msgstr "查阅文件夹问题的权利"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:689
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1060
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:692
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1063
 msgid "Contact error at api"
 msgstr "api 联系错误"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:716
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:719
 msgid "You can't erase the public folder !"
 msgstr "你不能删除公共文件夹 !"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:756
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:830
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:902
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1016
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:727
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:759
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:833
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:905
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1019
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr "查阅被禁录音文件或文件夹的权利"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:815
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:965
 msgid "A Folder"
 msgstr "A 文件夹"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:815
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:883
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:965
 msgid "already exists at this place."
 msgstr "在这个地方已经存在。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:860
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:863
 msgid "Folder modification"
 msgstr "文件夹修改"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:862
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:931
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:865
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:934
 msgid "File modification"
 msgstr "文件修改"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:883
 msgid "A File"
 msgstr "A 档案"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:974
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:977
 msgid "New Folder"
 msgstr "新文件夹"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:998
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1001
 msgid "can't rename public folder"
 msgstr "无法重命名公共文件夹"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1020
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1023
 msgid "The file or folder name already exists!!!"
 msgstr "文件或文件夹名称已存在！！！"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1075
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1078
 msgid "Invalid CSRF token."
 msgstr "CSRF 令牌无效。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1081
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1084
 msgid "User account not found."
 msgstr "未找到用户帐户。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1089
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1092
 msgid "Invalid target path."
 msgstr "目标路径无效。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1093
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1096
 msgid "No uploaded file received."
 msgstr "未收到上传的文件。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1099
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1134
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1102
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1137
 msgid "Upload problem !!!"
 msgstr "上传问题"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1103
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1106
 msgid "Invalid uploaded file."
 msgstr "上传的文件无效。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1108
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1111
 msgid "Invalid file name."
 msgstr "文件名无效。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1114
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1117
 msgid "This file type is not allowed."
 msgstr "不允许使用此文件类型。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1119
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1122
 msgid "Target directory is invalid."
 msgstr "目标目录无效。"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1130
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1133
 msgid ""
 "A file with the same name already exists. The uploaded file was renamed "
 "automatically."
 msgstr "已存在同名文件。上传的文件已自动重命名。"
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:106
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:161
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:220
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:340
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:140
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:205
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:268
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:400
 #: EcclesiaCRM/utils/SabreUtils.php:125
 msgid ""
 "You can visualize it in your account, in the time Line or the notes tab."
 msgstr "你可以在你的账户中，在时间线或笔记标签中直观地看到它。"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:163
+msgid "Invalid person"
+msgstr "无效人员"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:126
 #: v2/templates/deposit/pledgeEditor.php:191
@@ -597,7 +612,7 @@ msgstr "POST到购物车需要一个EventID"
 #: EcclesiaCRM/APIControllers/PeopleController.php:81
 #: EcclesiaCRM/APIControllers/PeopleController.php:138
 #: EcclesiaCRM/APIControllers/PeopleController.php:188
-#: EcclesiaCRM/APIControllers/PeopleController.php:241
+#: EcclesiaCRM/APIControllers/PeopleController.php:258
 #: EcclesiaCRM/APIControllers/SearchController.php:55
 #: EcclesiaCRM/MenuBar/MenuBar.php:234
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
@@ -608,7 +623,7 @@ msgstr "POST到购物车需要一个EventID"
 msgid "Persons"
 msgstr "人数"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:280
+#: EcclesiaCRM/APIControllers/PeopleController.php:297
 #: EcclesiaCRM/APIControllers/SearchController.php:97
 #: EcclesiaCRM/APIControllers/SearchController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:317
@@ -626,7 +641,7 @@ msgstr "人数"
 msgid "Families"
 msgstr "家庭"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:317
+#: EcclesiaCRM/APIControllers/PeopleController.php:334
 #: EcclesiaCRM/APIControllers/SearchController.php:121
 #: EcclesiaCRM/APIControllers/SearchController.php:340
 #: EcclesiaCRM/APIControllers/SearchController.php:343
@@ -643,13 +658,13 @@ msgstr "家庭"
 msgid "Groups"
 msgstr "群体"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:380
-#: EcclesiaCRM/APIControllers/PeopleController.php:404
+#: EcclesiaCRM/APIControllers/PeopleController.php:397
+#: EcclesiaCRM/APIControllers/PeopleController.php:421
 msgid "Status Updated"
 msgstr "状态已更新"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:381
-#: EcclesiaCRM/APIControllers/PeopleController.php:405
+#: EcclesiaCRM/APIControllers/PeopleController.php:398
+#: EcclesiaCRM/APIControllers/PeopleController.php:422
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:201
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:210
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
@@ -750,12 +765,12 @@ msgstr "名字"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:158
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:169
-#: EcclesiaCRM/APIControllers/SearchController.php:458
-#: EcclesiaCRM/APIControllers/SearchController.php:463
-#: EcclesiaCRM/APIControllers/SearchController.php:471
-#: EcclesiaCRM/APIControllers/SearchController.php:476
-#: EcclesiaCRM/APIControllers/SearchController.php:484
-#: EcclesiaCRM/APIControllers/SearchController.php:489
+#: EcclesiaCRM/APIControllers/SearchController.php:461
+#: EcclesiaCRM/APIControllers/SearchController.php:466
+#: EcclesiaCRM/APIControllers/SearchController.php:474
+#: EcclesiaCRM/APIControllers/SearchController.php:479
+#: EcclesiaCRM/APIControllers/SearchController.php:487
+#: EcclesiaCRM/APIControllers/SearchController.php:492
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:335 EcclesiaCRM/MenuBar/MenuBar.php:587
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
@@ -831,12 +846,27 @@ msgstr "已停用的人员"
 msgid "Person Activated"
 msgstr "被激活的人"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:131
+#: EcclesiaCRM/APIControllers/PluginsController.php:41
+#: EcclesiaCRM/APIControllers/PluginsController.php:50
+msgid "Access denied"
+msgstr "访问被拒绝"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:57
+msgid "Invalid request"
+msgstr "请求无效"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:69
+msgid ""
+"Plugin update failed. Check the application logs; some changes may already "
+"have been applied."
+msgstr "插件更新失败。请检查应用程序日志；某些更改可能已经生效。"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:164
 #: EcclesiaCRM/BackupManager.php:256 EcclesiaCRM/BackupManager.php:543
 msgid "Impossible to open"
 msgstr "不可能打开"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:237
+#: EcclesiaCRM/APIControllers/PluginsController.php:270
 #: EcclesiaCRM/Service/UpgradeService.php:90
 msgid "Databse upgrade failed"
 msgstr "数据库升级失败"
@@ -955,7 +985,7 @@ msgstr "周日小组"
 msgid "groupmasters"
 msgstr "群主"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:453
+#: EcclesiaCRM/APIControllers/SearchController.php:456
 #: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:143
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -970,7 +1000,7 @@ msgstr "群主"
 msgid "Male"
 msgstr "男性"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:453
+#: EcclesiaCRM/APIControllers/SearchController.php:456
 #: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:146
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -985,7 +1015,7 @@ msgstr "男性"
 msgid "Female"
 msgstr "女性"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:509
+#: EcclesiaCRM/APIControllers/SearchController.php:512
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:297
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:419
 #: v2/templates/people/familyEditor.php:1198
@@ -999,7 +1029,7 @@ msgstr "女性"
 msgid "Gender"
 msgstr "性别"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:510
+#: EcclesiaCRM/APIControllers/SearchController.php:513
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:651
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:754
@@ -1018,7 +1048,7 @@ msgstr "性别"
 msgid "Classification"
 msgstr "种类"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:511
+#: EcclesiaCRM/APIControllers/SearchController.php:514
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:316
 #: v2/templates/people/personPrint.php:333
@@ -1027,13 +1057,13 @@ msgstr "种类"
 msgid "Family Role"
 msgstr "家庭角色"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:512
+#: EcclesiaCRM/APIControllers/SearchController.php:515
 #: Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:84
 msgid "Person Property"
 msgstr "个人财产"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:513
+#: EcclesiaCRM/APIControllers/SearchController.php:516
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:142
 #: v2/templates/system/optionManager.php:115
 msgid "Group Type"
@@ -3607,7 +3637,7 @@ msgid "Family Name"
 msgstr "姓氏"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-#: Include/Header.php:240
+#: Include/Header.php:342
 msgid "Notification"
 msgstr "通知书"
 
@@ -3721,7 +3751,7 @@ msgid "Your CRM account was updated"
 msgstr "您的 CRM 账户已更新"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:92
+#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:95
 #: v2/templates/user/userlist.php:65 v2/templates/user/userseditor.php:711
 #: v2/templates/user/userseditor.php:779
 msgid "Status"
@@ -3763,24 +3793,24 @@ msgstr "信息"
 msgid "Please verify your informations"
 msgstr "请核实您的信息"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:73
-#: Include/Header.php:127
+#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:107
+#: Include/Header.php:109 Include/Header.php:183
 msgid "Private Space"
 msgstr "私人空间"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:117 EcclesiaCRM/utils/MiscUtils.php:489
 #: external/templates/registration/family-register-members.php:112
-#: Include/Header.php:225
+#: Include/Header.php:327
 msgid "Home"
 msgstr "首页"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:129
+#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:185
 #: v2/templates/people/personview.php:532
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "更改密码"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:131
+#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:187
 #: v2/templates/people/personview.php:530
 msgid "Change Settings"
 msgstr "更改设置"
@@ -3797,10 +3827,10 @@ msgstr "文件"
 #: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/MenuBar/MenuBar.php:786
 #: EcclesiaCRM/MenuBar/MenuBar.php:834 EcclesiaCRM/MenuBar/MenuBar.php:860
 #: EcclesiaCRM/MenuBar/MenuBar.php:913 EcclesiaCRM/MenuBar/MenuBar.php:936
-#: v2/templates/pastoralcare/pastoralcarefamily.php:349
+#: Include/Header.php:104 v2/templates/pastoralcare/pastoralcarefamily.php:349
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:72
 #: v2/templates/pastoralcare/pastoralcareperson.php:488
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:125
 msgid "Dashboard"
 msgstr "仪表板"
 
@@ -4004,16 +4034,14 @@ msgstr "驱动器"
 #: EcclesiaCRM/MenuBar/MenuBar.php:861
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:216
 #: v2/templates/edrive/shares.php:8 v2/templates/edrive/shares.php:19
-#, fuzzy
 msgid "Shared with me"
-msgstr "共享"
+msgstr "与我分享"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:862
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:216
 #: v2/templates/edrive/shares.php:8 v2/templates/edrive/shares.php:21
-#, fuzzy
 msgid "Shared with others"
-msgstr "共享"
+msgstr "与他人分享"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:873
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
@@ -4959,36 +4987,6 @@ msgstr "活动"
 msgid "Anniversary"
 msgstr "纪念日"
 
-#: EcclesiaCRM/Service/CalendarService.php:1422
-#: EcclesiaCRM/Service/ConfirmReportService.php:541
-#: ident/templates/verify/verify-family-info.php:47
-#: ident/templates/verify/verify-person-info.php:62
-#: v2/templates/calendar/eventattendeesedit.php:96
-#: v2/templates/calendar/eventnames.php:322
-#: v2/templates/calendar/eventnames.php:325
-#: v2/templates/cart/carttobadge.php:170
-#: v2/templates/deposit/electronicPaymentList.php:83
-#: v2/templates/deposit/electronicPaymentList.php:229
-#: v2/templates/deposit/finddepositslip.php:101
-#: v2/templates/deposit/finddepositslip.php:144
-#: v2/templates/group/groupbadge.php:156
-#: v2/templates/pastoralcare/pastoralcarefamily.php:311
-#: v2/templates/pastoralcare/pastoralcarefamily.php:320
-#: v2/templates/pastoralcare/pastoralcareperson.php:450
-#: v2/templates/pastoralcare/pastoralcareperson.php:459
-#: v2/templates/people/familyCustomFieldEditor.php:410
-#: v2/templates/people/familyview.php:511
-#: v2/templates/people/familyview.php:674
-#: v2/templates/people/familyview.php:990
-#: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:986
-#: v2/templates/people/personview.php:1090
-#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:58
-#: v2/templates/system/optionManager.php:443
-#: v2/templates/system/optionManager.php:445
-msgid "Delete"
-msgstr "删除"
-
 #: EcclesiaCRM/Service/CalendarService.php:1425
 msgid "Info"
 msgstr "信息"
@@ -5732,7 +5730,7 @@ msgid "People Dashboard"
 msgstr "人员仪表板"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:63
+#: Include/Header.php:83 query_qry.php:8 query_qry.php:63
 msgid "Advanced Search"
 msgstr "高级搜索"
 
@@ -5965,30 +5963,20 @@ msgid "eGive Import"
 msgstr "eGive进口"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
-#, fuzzy
 msgid "Unavailable"
-msgstr "不详"
-
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
-msgid "Read only"
-msgstr ""
-
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
-msgid "Read and write"
-msgstr ""
+msgstr "不可用"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:199
 msgid "No response"
-msgstr ""
+msgstr "无响应"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:200
 msgid "Accepted"
-msgstr ""
+msgstr "已接受"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:201
-#, fuzzy
 msgid "Declined"
-msgstr "时间轴"
+msgstr "已拒绝"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:202
 #: v2/templates/system/infos.php:204
@@ -6522,7 +6510,7 @@ msgstr "版权声明"
 msgid "All rights reserved"
 msgstr "保留所有权利"
 
-#: Include/Footer.php:32 v2/templates/plugins/plugins.php:135
+#: Include/Footer.php:32 v2/templates/plugins/plugins.php:138
 msgid "Version"
 msgstr "版本"
 
@@ -6724,57 +6712,65 @@ msgstr "更改栏目"
 msgid "Print"
 msgstr "印刷品"
 
-#: Include/Header.php:84 v2/templates/people/familylist.php:172
+#: Include/Header.php:83 v2/templates/people/familylist.php:172
 #: v2/templates/people/lettersandlabels.php:238
 #: v2/templates/people/peoplelist.php:110 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "搜索"
 
-#: Include/Header.php:89
+#: Include/Header.php:88
 msgid "Exit Control"
 msgstr "退出控制"
 
-#: Include/Header.php:97
+#: Include/Header.php:95 Include/Header.php:97
+msgid "Quick Access"
+msgstr "快速访问"
+
+#: Include/Header.php:102 v2/templates/user/userseditor.php:274
+msgid "Main Dashboard"
+msgstr "主仪表板"
+
+#: Include/Header.php:153
 msgid "Your Cart"
 msgstr "您的购物车"
 
-#: Include/Header.php:107
+#: Include/Header.php:163
 msgid "Your settings and more"
 msgstr "您的设置和更多"
 
-#: Include/Header.php:133
+#: Include/Header.php:189
 msgid "Lock"
 msgstr "锁定"
 
-#: Include/Header.php:135
+#: Include/Header.php:191
 msgid "Sign out"
 msgstr "签出"
 
-#: Include/Header.php:146
+#: Include/Header.php:202
 msgid "Help & Support"
 msgstr "帮助与支持"
 
-#: Include/Header.php:150
+#: Include/Header.php:206
 msgid "Help Center"
 msgstr "帮助中心"
 
-#: Include/Header.php:152 Include/Header.php:154
+#: Include/Header.php:208 Include/Header.php:210
 msgid "Help & Manual"
 msgstr "帮助和手册"
 
-#: Include/Header.php:157 Include/Header.php:159
+#: Include/Header.php:213 Include/Header.php:215
 msgid "Report an issue"
 msgstr "报告一个问题"
 
-#: Include/Header.php:162 Include/Header.php:164
+#: Include/Header.php:218 Include/Header.php:220
 msgid "Developer Chat"
 msgstr "开发者聊天"
 
-#: Include/Header.php:168 Include/Header.php:169
+#: Include/Header.php:224 Include/Header.php:225
 msgid "Contributing"
 msgstr "贡献"
 
-#: Include/Header.php:181
+#: Include/Header.php:237
 msgid "Your tasks"
 msgstr "你的任务"
 
@@ -7218,7 +7214,7 @@ msgid "Edited By Name"
 msgstr "按名称编辑"
 
 #: Reports/GDPR/GDPRListExport.php:72 v2/templates/people/familyview.php:92
-#: v2/templates/plugins/plugins.php:75
+#: v2/templates/plugins/plugins.php:78
 msgid "Deactivated"
 msgstr "已停用"
 
@@ -7662,7 +7658,7 @@ msgstr "按类型划分"
 #: v2/templates/calendar/eventslist.php:65
 #: v2/templates/deposit/manageEnvelopes.php:151
 #: v2/templates/deposit/manageEnvelopes.php:187
-#: v2/templates/group/grouplist.php:135 v2/templates/plugins/plugins.php:65
+#: v2/templates/group/grouplist.php:135 v2/templates/plugins/plugins.php:68
 msgid "All"
 msgstr "全部"
 
@@ -7815,7 +7811,7 @@ msgstr "返回到活动"
 #: v2/templates/group/groupPropsEditor.php:236
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
-#: v2/templates/group/groupview.php:401 v2/templates/plugins/plugins.php:91
+#: v2/templates/group/groupview.php:401 v2/templates/plugins/plugins.php:94
 msgid "Description"
 msgstr "描述"
 
@@ -8217,6 +8213,11 @@ msgstr "点击下面的文件名可自动填写该字段。"
 msgid "Available images"
 msgstr "可用图像"
 
+#: v2/templates/cart/carttobadge.php:182 v2/templates/cart/carttobadge.php:188
+#: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
+msgid "Upload"
+msgstr "上传"
+
 #: v2/templates/cart/carttobadge.php:197
 msgid "Layout"
 msgstr "布局"
@@ -8495,7 +8496,7 @@ msgstr "自定义页面"
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:80
-#: v2/templates/plugins/plugins.php:111
+#: v2/templates/plugins/plugins.php:114
 msgid "Settings"
 msgstr "设置"
 
@@ -8530,6 +8531,12 @@ msgstr "右栏"
 #: v2/templates/deposit/autaPaymentEditor.php:279
 msgid "For the"
 msgstr "对于"
+
+#: v2/templates/deposit/autaPaymentEditor.php:284
+#: v2/templates/deposit/pledgeEditor.php:40
+#: v2/templates/people/personEditor.php:1145
+msgid "or"
+msgstr "或"
 
 #: v2/templates/deposit/autaPaymentEditor.php:288
 msgid ""
@@ -9263,7 +9270,7 @@ msgstr "EDrive 工作区"
 msgid "Manage your files, previews and internal sharing from one place."
 msgstr "从一个地方管理文件、预览和内部共享。"
 
-#: v2/templates/edrive/dashboard.php:91
+#: v2/templates/edrive/dashboard.php:65
 msgid "Files"
 msgstr "文件"
 
@@ -9272,14 +9279,12 @@ msgid "Icon"
 msgstr "图标"
 
 #: v2/templates/edrive/shares.php:34
-#, fuzzy
 msgid "Size"
-msgstr "字体大小"
+msgstr "尺寸"
 
 #: v2/templates/edrive/shares.php:35
-#, fuzzy
 msgid "Modification Date"
-msgstr "通知书"
+msgstr "修改日期"
 
 #: v2/templates/error/404.php:17
 msgid "Oops! Can't find route for "
@@ -11401,14 +11406,14 @@ msgid "Get the vCard of the family"
 msgstr "获得家庭的VCard"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:57
-#: v2/templates/plugins/plugins.php:114
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:60
+#: v2/templates/plugins/plugins.php:117
 msgid "Deactivate"
 msgstr "停用"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:56
-#: v2/templates/plugins/plugins.php:114
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:59
+#: v2/templates/plugins/plugins.php:117
 msgid "Activate"
 msgstr "激活"
 
@@ -11892,7 +11897,7 @@ msgstr "角色/性别"
 #: v2/templates/people/peopledashboard.php:354
 #, fuzzy, php-format
 msgid "% of People"
-msgstr "百分比"
+msgstr "占总人数的百分比"
 
 #: v2/templates/people/peopledashboard.php:303
 #: v2/templates/people/peopledashboard.php:355
@@ -12291,9 +12296,8 @@ msgstr "此人已被停用"
 #: v2/templates/people/personview.php:192
 #: v2/templates/people/personview.php:1224
 #: v2/templates/people/personview.php:1295
-#, fuzzy
 msgid "assigned"
-msgstr "未分配的"
+msgstr "已分配"
 
 #: v2/templates/people/personview.php:222
 msgid "No group assignments yet."
@@ -12706,35 +12710,35 @@ msgstr "导出 CSV"
 msgid "Plugins managements"
 msgstr "插件管理"
 
-#: v2/templates/plugins/plugins.php:35
+#: v2/templates/plugins/plugins.php:38
 msgid "Add a plugin"
 msgstr "添加一个插件"
 
-#: v2/templates/plugins/plugins.php:40 v2/templates/plugins/plugins.php:151
+#: v2/templates/plugins/plugins.php:43 v2/templates/plugins/plugins.php:154
 msgid "Add new plugin"
 msgstr "添加新的插件"
 
-#: v2/templates/plugins/plugins.php:43
+#: v2/templates/plugins/plugins.php:46
 msgid "Upload A Plugin"
 msgstr "上传一个插件"
 
-#: v2/templates/plugins/plugins.php:53
+#: v2/templates/plugins/plugins.php:56
 msgid "Select the grouped action"
 msgstr "选择分组的行动"
 
-#: v2/templates/plugins/plugins.php:55
+#: v2/templates/plugins/plugins.php:58
 msgid "Grouped actions"
 msgstr "分组行动"
 
-#: v2/templates/plugins/plugins.php:70
+#: v2/templates/plugins/plugins.php:73
 msgid "Activated"
 msgstr "已激活"
 
-#: v2/templates/plugins/plugins.php:87 v2/templates/user/userlist.php:51
+#: v2/templates/plugins/plugins.php:90 v2/templates/user/userlist.php:51
 msgid "Check all boxes"
 msgstr "勾选所有方框"
 
-#: v2/templates/plugins/plugins.php:89 v2/templates/plugins/plugins.php:126
+#: v2/templates/plugins/plugins.php:92 v2/templates/plugins/plugins.php:129
 #: v2/templates/system/infos.php:306 v2/templates/system/integritycheck.php:135
 #: v2/templates/system/integritycheck.php:230
 #: v2/templates/user/usersettings.php:375
@@ -12742,39 +12746,39 @@ msgstr "勾选所有方框"
 msgid "Plugin"
 msgstr "插件"
 
-#: v2/templates/plugins/plugins.php:90
+#: v2/templates/plugins/plugins.php:93
 msgid "Category"
 msgstr "分类"
 
-#: v2/templates/plugins/plugins.php:93
+#: v2/templates/plugins/plugins.php:96
 msgid "Update"
 msgstr "更新"
 
-#: v2/templates/plugins/plugins.php:116
+#: v2/templates/plugins/plugins.php:119
 msgid "Guided tour"
 msgstr "导游"
 
-#: v2/templates/plugins/plugins.php:124
+#: v2/templates/plugins/plugins.php:127
 msgid "Widget"
 msgstr "小工具"
 
-#: v2/templates/plugins/plugins.php:135
+#: v2/templates/plugins/plugins.php:138
 msgid "By"
 msgstr "由"
 
-#: v2/templates/plugins/plugins.php:139
+#: v2/templates/plugins/plugins.php:142
 msgid "Details"
 msgstr "插件详情"
 
-#: v2/templates/plugins/plugins.php:143
+#: v2/templates/plugins/plugins.php:146
 msgid "Activated Plugin"
 msgstr "激活的插件"
 
-#: v2/templates/plugins/plugins.php:145
+#: v2/templates/plugins/plugins.php:148
 msgid "Deactivated Plugin"
 msgstr "停用的插件"
 
-#: v2/templates/plugins/plugins.php:155
+#: v2/templates/plugins/plugins.php:158
 msgid "Update/upgrade"
 msgstr "更新/升级"
 
@@ -14389,10 +14393,6 @@ msgstr "查看、添加和编辑注释"
 msgid "User Account Permissions"
 msgstr "用户账户权限"
 
-#: v2/templates/user/userseditor.php:274
-msgid "Main Dashboard"
-msgstr "主仪表板"
-
 #: v2/templates/user/userseditor.php:276
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "主仪表板和日历中的出生日期是可见的。"
@@ -15580,6 +15580,21 @@ msgstr "数天"
 
 msgid "Giving Report"
 msgstr "捐赠报告"
+
+#~ msgid "Download files"
+#~ msgstr "下载文件"
+
+#~ msgid "Files input"
+#~ msgstr "文件输入"
+
+#~ msgid "You can also drag and drop files into this area."
+#~ msgstr "您还可以将文件拖放到该区域。"
+
+#~ msgid "Download status"
+#~ msgstr "下载状态"
+
+#~ msgid "Select your rights"
+#~ msgstr "选择您的权利"
 
 #~ msgid "File Manager"
 #~ msgstr "文件管理器"

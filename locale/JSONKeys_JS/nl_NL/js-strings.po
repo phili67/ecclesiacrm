@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1415,6 +1415,9 @@ msgstr "Een bestands-/mapnaam instellen"
 msgid "Download Error"
 msgstr "Fout downloaden"
 
+msgid "Read and write"
+msgstr "Lezen en schrijven"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
 "Weet je zeker dat je het delen voor geselecteerde gebruikers wilt stoppen?"
@@ -2271,9 +2274,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "Rechten instellen"
 
-msgid "Read and write"
-msgstr "Lezen en schrijven"
-
 msgid "Notification"
 msgstr "Melding"
 
@@ -2437,6 +2437,65 @@ msgstr "Deel deze beveiligde verificatielink met de persoon."
 
 msgid "Comments"
 msgstr "Opmerkingen"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"Selecteer de plug-ins die u wilt bijwerken uit de bestanden die al op de "
+"server zijn geïnstalleerd."
+
+msgid "Database"
+msgstr "Database"
+
+msgid "Files"
+msgstr "Bestanden"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"Maak een back-up van je database voordat je de update uitvoert. Als de "
+"migratie mislukt, kunnen sommige wijzigingen al zijn doorgevoerd."
+
+msgid "Plugins requiring attention"
+msgstr "Plug-ins die aandacht vereisen"
+
+msgid "The database version is newer than the files."
+msgstr "De databaseversie is nieuwer dan de bestanden."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr ""
+"De configuratie of migratie is ongeldig. Controleer de logbestanden van de "
+"toepassing."
+
+msgid "Close and refresh"
+msgstr "Sluiten en vernieuwen"
+
+msgid "The selected plugins have been updated."
+msgstr "De geselecteerde plug-ins zijn bijgewerkt."
+
+msgid "The update stopped at"
+msgstr "De update stopte bij"
+
+msgid "Plugin updates"
+msgstr "Updates voor plug-ins"
+
+msgid "Later"
+msgstr "Later"
+
+msgid "Update selected plugins"
+msgstr "Geselecteerde plug-ins bijwerken"
+
+msgid "Select at least one plugin."
+msgstr "Selecteer ten minste één plug-in."
+
+msgid "Updating plugins. Please wait."
+msgstr "Plug-ins worden bijgewerkt. Even geduld a.u.b."
+
+msgid "Unable to check plugin updates."
+msgstr ""
+"Het is niet mogelijk om te controleren of er updates voor de plug-in "
+"beschikbaar zijn."
 
 msgid "Confirmation of plugin removal"
 msgstr "Bevestiging van plugin verwijdering"
@@ -3231,9 +3290,6 @@ msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
 #~ msgid "Edit General Settings"
 #~ msgstr "Algemene instellingen bewerken"
 
-#~ msgid "Then update"
-#~ msgstr "Dan bijwerken"
-
 #~ msgid "For more info see our "
 #~ msgstr "Voor meer info zie onze"
 
@@ -3698,9 +3754,6 @@ msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Je staat op het punt om een map en zijn inhoud te verwijderen"
-
-#~ msgid "Files input"
-#~ msgstr "Bestanden invoer"
 
 #~ msgid "Upload your files"
 #~ msgstr "Upload uw bestanden"

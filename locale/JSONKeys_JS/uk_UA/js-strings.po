@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -1397,6 +1397,9 @@ msgstr "Задати ім'я файлу/папки"
 msgid "Download Error"
 msgstr "Помилка завантаження"
 
+msgid "Read and write"
+msgstr "Читати та писати"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
 "Ви впевнені, що хочете припинити надання спільного доступу для вибраних "
@@ -2243,9 +2246,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "Встановити права"
 
-msgid "Read and write"
-msgstr "Читати та писати"
-
 msgid "Notification"
 msgstr "Повідомлення"
 
@@ -2406,6 +2406,60 @@ msgstr "Поділіться цим захищеним посиланням з �
 
 msgid "Comments"
 msgstr "Коментарі"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"Виберіть плагіни для оновлення зі списку тих, що вже встановлені на сервері."
+
+msgid "Database"
+msgstr "База даних"
+
+msgid "Files"
+msgstr "Файли"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"Перед оновленням створіть резервну копію бази даних. Якщо міграція "
+"завершиться невдало, деякі зміни можуть бути вже застосовані."
+
+msgid "Plugins requiring attention"
+msgstr "Плагіни, що потребують уваги"
+
+msgid "The database version is newer than the files."
+msgstr "Версія бази даних новіша за файли."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr "Конфігурація або міграція є недійсними. Перевірте журнали програми."
+
+msgid "Close and refresh"
+msgstr "Закрити та оновити"
+
+msgid "The selected plugins have been updated."
+msgstr "Вибрані плагіни було оновлено."
+
+msgid "The update stopped at"
+msgstr "Оновлення зупинилося на"
+
+msgid "Plugin updates"
+msgstr "Оновлення плагінів"
+
+msgid "Later"
+msgstr "Пізніше"
+
+msgid "Update selected plugins"
+msgstr "Оновити вибрані плагіни"
+
+msgid "Select at least one plugin."
+msgstr "Виберіть хоча б один плагін."
+
+msgid "Updating plugins. Please wait."
+msgstr "Оновлення плагінів. Будь ласка, зачекайте."
+
+msgid "Unable to check plugin updates."
+msgstr "Не вдається перевірити наявність оновлень для плагіна."
 
 msgid "Confirmation of plugin removal"
 msgstr "Підтвердження видалення плагіна"
@@ -3193,9 +3247,6 @@ msgstr "Все членство буде знищено.  Самі члени н
 #~ msgid "Edit General Settings"
 #~ msgstr "Редагування загальних налаштувань"
 
-#~ msgid "Then update"
-#~ msgstr "Потім оновіть"
-
 #~ msgid "For more info see our "
 #~ msgstr "Для отримання додаткової інформації дивіться наш"
 
@@ -3653,9 +3704,6 @@ msgstr "Все членство буде знищено.  Самі члени н
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Ви збираєтеся видалити папку та її вміст"
-
-#~ msgid "Files input"
-#~ msgstr "Введення файлів"
 
 #~ msgid "Upload your files"
 #~ msgstr "Завантажте свої файли"

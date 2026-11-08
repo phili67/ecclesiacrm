@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 13:22+0100\n"
+"POT-Creation-Date: 2026-11-08 20:08+0100\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,51 +26,38 @@ msgstr "Descărcați"
 msgid "Insert"
 msgstr "Introduceți"
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:39
-msgid "Download files"
-msgstr "Descărcați fișiere"
-
-#: browser/browse.php:83 v2/templates/edrive/dashboard.php:50
-msgid "Files input"
-msgstr "Fișiere de intrare"
-
-#: browser/browse.php:87 v2/templates/edrive/dashboard.php:54
-msgid "You can also drag and drop files into this area."
-msgstr "De asemenea, puteți trage și plasa fișiere în această zonă."
-
-#: browser/browse.php:94 v2/templates/edrive/dashboard.php:61
-msgid "Download status"
-msgstr "Descărcați starea"
-
-#: browser/browse.php:108 v2/templates/edrive/dashboard.php:74
+#: browser/browse.php:74 v2/templates/edrive/dashboard.php:42
 msgid "Upload your files"
 msgstr "Încărcați fișierele dvs."
 
-#: browser/browse.php:111 v2/templates/cart/carttobadge.php:182
-#: v2/templates/cart/carttobadge.php:188 v2/templates/edrive/dashboard.php:77
-#: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
-msgid "Upload"
-msgstr "Încărcați"
+#: browser/browse.php:75 v2/templates/edrive/dashboard.php:43
+msgid "Click to choose files or drag and drop them here."
+msgstr ""
+"Faceți clic pentru a selecta fișierele sau trageți-le și plasați-le aici."
 
-#: browser/browse.php:124 v2/templates/edrive/dashboard.php:97
+#: browser/browse.php:79 v2/templates/edrive/dashboard.php:47
+msgid "Drop files to upload"
+msgstr "Trageți fișierele pe care doriți să le încărcați"
+
+#: browser/browse.php:95 v2/templates/edrive/dashboard.php:71
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 "Deplasați un nivel mai sus sau trageți fișierul (fișierele) pentru a le "
 "deplasa un nivel mai sus."
 
-#: browser/browse.php:147 Include/Header-function.php:96
-#: Include/Header-function.php:158 Include/Header.php:243
+#: browser/browse.php:118 Include/Header-function.php:96
+#: Include/Header-function.php:158 Include/Header.php:345
 #: v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:121 v2/templates/group/groupedit.php:42
+#: v2/templates/edrive/dashboard.php:95 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Închideți"
 
-#: browser/browse.php:158 v2/templates/edrive/dashboard.php:132
+#: browser/browse.php:128 v2/templates/edrive/dashboard.php:105
 msgid "Internal sharing"
 msgstr "Partajare internă"
 
-#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:129 v2/templates/edrive/dashboard.php:106
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
@@ -81,12 +68,12 @@ msgstr ""
 "nu o poate localiza, îi puteți trimite link-ul intern pentru a facilita "
 "accesul."
 
-#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:129 v2/templates/edrive/dashboard.php:106
 #: v2/templates/sidebar/systemsettings.php:396
 msgid "Definition"
 msgstr "Definiție"
 
-#: browser/browse.php:164 v2/templates/edrive/dashboard.php:138
+#: browser/browse.php:133 v2/templates/edrive/dashboard.php:110
 msgid ""
 "Choose people, define their access rights, then manage existing shares from "
 "the list below."
@@ -94,67 +81,79 @@ msgstr ""
 "Alegeți persoanele, definiți drepturile lor de acces, apoi gestionați "
 "partajele existente din lista de mai jos."
 
-#: browser/browse.php:168 v2/templates/edrive/dashboard.php:142
+#: browser/browse.php:137 v2/templates/edrive/dashboard.php:114
 msgid "Add users"
 msgstr "Adăugați utilizatori"
 
-#: browser/browse.php:184 v2/templates/edrive/dashboard.php:158
+#: browser/browse.php:142 browser/browse.php:170
+#: v2/templates/edrive/dashboard.php:119 v2/templates/edrive/dashboard.php:147
+msgid "Set Rights"
+msgstr "Stabilirea drepturilor"
+
+#: browser/browse.php:144 browser/browse.php:172
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: v2/templates/edrive/dashboard.php:121 v2/templates/edrive/dashboard.php:149
+msgid "Read only"
+msgstr "Doar citire"
+
+#: browser/browse.php:145 browser/browse.php:173
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: v2/templates/edrive/dashboard.php:122 v2/templates/edrive/dashboard.php:150
+msgid "Read and write"
+msgstr "Citire și scriere"
+
+#: browser/browse.php:151 v2/templates/edrive/dashboard.php:128
 msgid "Send email notification"
 msgstr "Trimiteți o notificare prin e-mail"
 
-#: browser/browse.php:189 v2/templates/edrive/dashboard.php:163
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:133
 #: v2/templates/edrive/shares.php:7
 msgid "Shared with"
 msgstr "Împărțit cu"
 
-#: browser/browse.php:193 v2/templates/edrive/dashboard.php:167
-msgid "Delete all shares"
-msgstr "Ștergeți toate acțiunile"
+#: browser/browse.php:158 v2/templates/edrive/dashboard.php:135
+msgid "No one has access yet."
+msgstr "Nimeni nu are încă acces."
 
-#: browser/browse.php:196 v2/templates/edrive/dashboard.php:170
+#: browser/browse.php:163 v2/templates/edrive/dashboard.php:140
 msgid "Delete shares for the selected users"
 msgstr "Ștergeți acțiunile pentru utilizatorii selectați"
 
-#: browser/browse.php:205 v2/templates/edrive/dashboard.php:179
-msgid "Set Rights"
-msgstr "Stabilirea drepturilor"
+#: browser/browse.php:163 EcclesiaCRM/Service/CalendarService.php:1422
+#: EcclesiaCRM/Service/ConfirmReportService.php:541
+#: ident/templates/verify/verify-family-info.php:47
+#: ident/templates/verify/verify-person-info.php:62
+#: v2/templates/calendar/eventattendeesedit.php:96
+#: v2/templates/calendar/eventnames.php:322
+#: v2/templates/calendar/eventnames.php:325
+#: v2/templates/cart/carttobadge.php:170
+#: v2/templates/deposit/electronicPaymentList.php:83
+#: v2/templates/deposit/electronicPaymentList.php:229
+#: v2/templates/deposit/finddepositslip.php:101
+#: v2/templates/deposit/finddepositslip.php:144
+#: v2/templates/edrive/dashboard.php:140 v2/templates/group/groupbadge.php:156
+#: v2/templates/pastoralcare/pastoralcarefamily.php:311
+#: v2/templates/pastoralcare/pastoralcarefamily.php:320
+#: v2/templates/pastoralcare/pastoralcareperson.php:450
+#: v2/templates/pastoralcare/pastoralcareperson.php:459
+#: v2/templates/people/familyCustomFieldEditor.php:410
+#: v2/templates/people/familyview.php:511
+#: v2/templates/people/familyview.php:674
+#: v2/templates/people/familyview.php:990
+#: v2/templates/people/personCustomEditor.php:402
+#: v2/templates/people/personview.php:986
+#: v2/templates/people/personview.php:1090
+#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:61
+#: v2/templates/system/optionManager.php:443
+#: v2/templates/system/optionManager.php:445
+msgid "Delete"
+msgstr "Ștergeți"
 
-#: browser/browse.php:210 v2/templates/edrive/dashboard.php:184
-msgid "Select your rights"
-msgstr "Selectați drepturile dumneavoastră"
+#: browser/browse.php:165 v2/templates/edrive/dashboard.php:142
+msgid "Delete all shares"
+msgstr "Ștergeți toate acțiunile"
 
-#: browser/browse.php:210 v2/templates/deposit/autaPaymentEditor.php:284
-#: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:184
-#: v2/templates/people/personEditor.php:1145
-msgid "or"
-msgstr "sau"
-
-#: browser/browse.php:213
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:187
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-#: browser/browse.php:213 v2/templates/edrive/dashboard.php:187
-msgid "[R ]"
-msgstr ""
-
-#: browser/browse.php:214
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:188
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
-#: browser/browse.php:214 v2/templates/edrive/dashboard.php:188
-msgid "[RW]"
-msgstr ""
-
-#: browser/browse.php:223 v2/templates/edrive/dashboard.php:197
+#: browser/browse.php:183 v2/templates/edrive/dashboard.php:160
 msgid "Share By"
 msgstr "Share By"
 
@@ -338,8 +337,8 @@ msgid "No person found for preview"
 msgstr "Nu s-a găsit nicio persoană pentru previzualizare"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:161
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:285
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1151
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:288
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1154
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:628
 #: uploader/upload.php:176
 msgid "Create file"
@@ -348,12 +347,18 @@ msgstr "Creați fișierul"
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:45
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:78
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:97
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:155
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:161
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:177
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:209
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:352
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:371
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:196
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:202
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:218
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:250
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:393
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:412
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:157
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:221
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:284
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:327
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:365
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:426
 #: v2/templates/query/querylist.php:53 v2/templates/query/querylist.php:88
 msgid "Forbidden"
 msgstr "Interzis"
@@ -364,34 +369,34 @@ msgstr "Interzis"
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:75
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:83
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:105
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:166
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:171
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:183
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:304
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:333
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:349
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:368
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:207
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:212
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:224
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:345
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:374
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:305
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:319
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:390
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:409
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:415
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:308
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:322
 msgid "Document not found"
 msgstr "Documentul nu a fost găsit"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:220
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:225
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:232
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:261
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:266
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:273
 msgid "Invalid name"
 msgstr "Nume nevalid"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:236
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:277
 msgid "The file already exists"
 msgstr "Fișierul există deja"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:240
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:281
 msgid "Unable to create the file"
 msgstr "Nu se poate crea fișierul"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:356
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:397
 msgid "Unable to restore this version"
 msgstr "Nu se poate restaura această versiune"
 
@@ -405,114 +410,113 @@ msgstr "Acest document este deschis de"
 msgid "Minutes left"
 msgstr "Minute rămase"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:235
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:371
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:238
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:374
 #: EcclesiaCRM/utils/MiscUtils.php:884
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
 msgid "Folder"
 msgstr "Dosar"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:448
-#, fuzzy
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:451
 msgid "Shared folder"
-msgstr "Împărtășit de"
+msgstr "Dosar partajat"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:620
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:659
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:623
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:662
 msgid "Right of access to folder problem"
 msgstr "Dreptul de acces la problema dosarului"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:689
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1060
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:692
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1063
 msgid "Contact error at api"
 msgstr "Eroare de contact la api"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:716
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:719
 msgid "You can't erase the public folder !"
 msgstr "Nu puteți șterge folderul public!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:756
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:830
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:902
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1016
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:727
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:759
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:833
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:905
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1019
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr "Dreptul de acces la fișierul sau dosarul înregistrării interzise"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:815
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:965
 msgid "A Folder"
 msgstr "Un dosar"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:815
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:883
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:965
 msgid "already exists at this place."
 msgstr "există deja în acest loc."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:860
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:863
 msgid "Folder modification"
 msgstr "Modificarea dosarului"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:862
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:931
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:865
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:934
 msgid "File modification"
 msgstr "Modificarea fișierelor"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:883
 msgid "A File"
 msgstr "Un dosar"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:974
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:977
 msgid "New Folder"
 msgstr "Dosar nou"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:998
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1001
 msgid "can't rename public folder"
 msgstr "nu pot redenumi folderul public"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1020
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1023
 msgid "The file or folder name already exists!!!"
 msgstr "Numele fișierului sau al folderului există deja!!!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1075
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1078
 msgid "Invalid CSRF token."
 msgstr "Token CSRF nevalid."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1081
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1084
 msgid "User account not found."
 msgstr "Contul de utilizator nu a fost găsit."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1089
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1092
 msgid "Invalid target path."
 msgstr "Cale țintă invalidă."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1093
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1096
 msgid "No uploaded file received."
 msgstr "Nu s-a primit niciun fișier încărcat."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1099
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1134
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1102
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1137
 msgid "Upload problem !!!"
 msgstr "Problema de încărcare !!!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1103
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1106
 msgid "Invalid uploaded file."
 msgstr "Fișier încărcat nevalid."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1108
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1111
 msgid "Invalid file name."
 msgstr "Nume fișier invalid."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1114
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1117
 msgid "This file type is not allowed."
 msgstr "Acest tip de fișier nu este permis."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1119
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1122
 msgid "Target directory is invalid."
 msgstr "Directorul țintă este invalid."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1130
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1133
 msgid ""
 "A file with the same name already exists. The uploaded file was renamed "
 "automatically."
@@ -520,15 +524,27 @@ msgstr ""
 "Un fișier cu același nume există deja. Fișierul încărcat a fost redenumit "
 "automat."
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:106
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:161
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:220
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:340
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:140
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:205
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:268
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:400
 #: EcclesiaCRM/utils/SabreUtils.php:125
 msgid ""
 "You can visualize it in your account, in the time Line or the notes tab."
 msgstr ""
 "Îl puteți vizualiza în contul dvs., în linia de timp sau în fila de note."
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:163
+msgid "Invalid person"
+msgstr "Persoană cu dizabilități"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:126
 #: v2/templates/deposit/pledgeEditor.php:191
@@ -611,7 +627,7 @@ msgstr "POST la coș necesită un EventID"
 #: EcclesiaCRM/APIControllers/PeopleController.php:81
 #: EcclesiaCRM/APIControllers/PeopleController.php:138
 #: EcclesiaCRM/APIControllers/PeopleController.php:188
-#: EcclesiaCRM/APIControllers/PeopleController.php:241
+#: EcclesiaCRM/APIControllers/PeopleController.php:258
 #: EcclesiaCRM/APIControllers/SearchController.php:55
 #: EcclesiaCRM/MenuBar/MenuBar.php:234
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
@@ -622,7 +638,7 @@ msgstr "POST la coș necesită un EventID"
 msgid "Persons"
 msgstr "Persoane"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:280
+#: EcclesiaCRM/APIControllers/PeopleController.php:297
 #: EcclesiaCRM/APIControllers/SearchController.php:97
 #: EcclesiaCRM/APIControllers/SearchController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:317
@@ -640,7 +656,7 @@ msgstr "Persoane"
 msgid "Families"
 msgstr "Familii"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:317
+#: EcclesiaCRM/APIControllers/PeopleController.php:334
 #: EcclesiaCRM/APIControllers/SearchController.php:121
 #: EcclesiaCRM/APIControllers/SearchController.php:340
 #: EcclesiaCRM/APIControllers/SearchController.php:343
@@ -657,13 +673,13 @@ msgstr "Familii"
 msgid "Groups"
 msgstr "Grupuri"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:380
-#: EcclesiaCRM/APIControllers/PeopleController.php:404
+#: EcclesiaCRM/APIControllers/PeopleController.php:397
+#: EcclesiaCRM/APIControllers/PeopleController.php:421
 msgid "Status Updated"
 msgstr "Stare actualizată"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:381
-#: EcclesiaCRM/APIControllers/PeopleController.php:405
+#: EcclesiaCRM/APIControllers/PeopleController.php:398
+#: EcclesiaCRM/APIControllers/PeopleController.php:422
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:201
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:210
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
@@ -764,12 +780,12 @@ msgstr "Primul nume"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:158
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:169
-#: EcclesiaCRM/APIControllers/SearchController.php:458
-#: EcclesiaCRM/APIControllers/SearchController.php:463
-#: EcclesiaCRM/APIControllers/SearchController.php:471
-#: EcclesiaCRM/APIControllers/SearchController.php:476
-#: EcclesiaCRM/APIControllers/SearchController.php:484
-#: EcclesiaCRM/APIControllers/SearchController.php:489
+#: EcclesiaCRM/APIControllers/SearchController.php:461
+#: EcclesiaCRM/APIControllers/SearchController.php:466
+#: EcclesiaCRM/APIControllers/SearchController.php:474
+#: EcclesiaCRM/APIControllers/SearchController.php:479
+#: EcclesiaCRM/APIControllers/SearchController.php:487
+#: EcclesiaCRM/APIControllers/SearchController.php:492
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:335 EcclesiaCRM/MenuBar/MenuBar.php:587
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
@@ -845,12 +861,29 @@ msgstr "Persoană dezactivată"
 msgid "Person Activated"
 msgstr "Persoană activată"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:131
+#: EcclesiaCRM/APIControllers/PluginsController.php:41
+#: EcclesiaCRM/APIControllers/PluginsController.php:50
+msgid "Access denied"
+msgstr "Acces refuzat"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:57
+msgid "Invalid request"
+msgstr "Solicitare nevalidă"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:69
+msgid ""
+"Plugin update failed. Check the application logs; some changes may already "
+"have been applied."
+msgstr ""
+"Actualizarea pluginului a eșuat. Verificați jurnalele aplicației; este "
+"posibil ca unele modificări să fi fost deja aplicate."
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:164
 #: EcclesiaCRM/BackupManager.php:256 EcclesiaCRM/BackupManager.php:543
 msgid "Impossible to open"
 msgstr "Imposibil de deschis"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:237
+#: EcclesiaCRM/APIControllers/PluginsController.php:270
 #: EcclesiaCRM/Service/UpgradeService.php:90
 msgid "Databse upgrade failed"
 msgstr "Databse upgrade eșuat"
@@ -969,7 +1002,7 @@ msgstr "Grupuri de duminică"
 msgid "groupmasters"
 msgstr "groupmasteri"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:453
+#: EcclesiaCRM/APIControllers/SearchController.php:456
 #: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:143
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -984,7 +1017,7 @@ msgstr "groupmasteri"
 msgid "Male"
 msgstr "Masculin"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:453
+#: EcclesiaCRM/APIControllers/SearchController.php:456
 #: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:146
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -999,7 +1032,7 @@ msgstr "Masculin"
 msgid "Female"
 msgstr "Femeie"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:509
+#: EcclesiaCRM/APIControllers/SearchController.php:512
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:297
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:419
 #: v2/templates/people/familyEditor.php:1198
@@ -1013,7 +1046,7 @@ msgstr "Femeie"
 msgid "Gender"
 msgstr "Sex"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:510
+#: EcclesiaCRM/APIControllers/SearchController.php:513
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:651
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:754
@@ -1032,7 +1065,7 @@ msgstr "Sex"
 msgid "Classification"
 msgstr "Clasificare"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:511
+#: EcclesiaCRM/APIControllers/SearchController.php:514
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:316
 #: v2/templates/people/personPrint.php:333
@@ -1041,13 +1074,13 @@ msgstr "Clasificare"
 msgid "Family Role"
 msgstr "Rolul familiei"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:512
+#: EcclesiaCRM/APIControllers/SearchController.php:515
 #: Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:84
 msgid "Person Property"
 msgstr "Persoană Proprietate"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:513
+#: EcclesiaCRM/APIControllers/SearchController.php:516
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:142
 #: v2/templates/system/optionManager.php:115
 msgid "Group Type"
@@ -3707,7 +3740,7 @@ msgid "Family Name"
 msgstr "Nume de familie"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-#: Include/Header.php:240
+#: Include/Header.php:342
 msgid "Notification"
 msgstr "Notificare"
 
@@ -3821,7 +3854,7 @@ msgid "Your CRM account was updated"
 msgstr "Contul dvs. CRM a fost actualizat"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:92
+#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:95
 #: v2/templates/user/userlist.php:65 v2/templates/user/userseditor.php:711
 #: v2/templates/user/userseditor.php:779
 msgid "Status"
@@ -3863,24 +3896,24 @@ msgstr "informații"
 msgid "Please verify your informations"
 msgstr "Vă rugăm să vă verificați informațiile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:73
-#: Include/Header.php:127
+#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:107
+#: Include/Header.php:109 Include/Header.php:183
 msgid "Private Space"
 msgstr "Spațiu privat"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:117 EcclesiaCRM/utils/MiscUtils.php:489
 #: external/templates/registration/family-register-members.php:112
-#: Include/Header.php:225
+#: Include/Header.php:327
 msgid "Home"
 msgstr "Acasă"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:129
+#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:185
 #: v2/templates/people/personview.php:532
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "Schimbă parola"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:131
+#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:187
 #: v2/templates/people/personview.php:530
 msgid "Change Settings"
 msgstr "Modificarea setărilor"
@@ -3897,10 +3930,10 @@ msgstr "Documente"
 #: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/MenuBar/MenuBar.php:786
 #: EcclesiaCRM/MenuBar/MenuBar.php:834 EcclesiaCRM/MenuBar/MenuBar.php:860
 #: EcclesiaCRM/MenuBar/MenuBar.php:913 EcclesiaCRM/MenuBar/MenuBar.php:936
-#: v2/templates/pastoralcare/pastoralcarefamily.php:349
+#: Include/Header.php:104 v2/templates/pastoralcare/pastoralcarefamily.php:349
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:72
 #: v2/templates/pastoralcare/pastoralcareperson.php:488
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:125
 msgid "Dashboard"
 msgstr "Tabloul de bord"
 
@@ -4104,16 +4137,14 @@ msgstr "EDrive"
 #: EcclesiaCRM/MenuBar/MenuBar.php:861
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:216
 #: v2/templates/edrive/shares.php:8 v2/templates/edrive/shares.php:19
-#, fuzzy
 msgid "Shared with me"
-msgstr "Împărțit cu"
+msgstr "Mi-a fost împărtășit"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:862
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:216
 #: v2/templates/edrive/shares.php:8 v2/templates/edrive/shares.php:21
-#, fuzzy
 msgid "Shared with others"
-msgstr "Împărțit cu"
+msgstr "Partajat cu alții"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:873
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
@@ -5059,36 +5090,6 @@ msgstr "Eveniment"
 msgid "Anniversary"
 msgstr "Aniversare"
 
-#: EcclesiaCRM/Service/CalendarService.php:1422
-#: EcclesiaCRM/Service/ConfirmReportService.php:541
-#: ident/templates/verify/verify-family-info.php:47
-#: ident/templates/verify/verify-person-info.php:62
-#: v2/templates/calendar/eventattendeesedit.php:96
-#: v2/templates/calendar/eventnames.php:322
-#: v2/templates/calendar/eventnames.php:325
-#: v2/templates/cart/carttobadge.php:170
-#: v2/templates/deposit/electronicPaymentList.php:83
-#: v2/templates/deposit/electronicPaymentList.php:229
-#: v2/templates/deposit/finddepositslip.php:101
-#: v2/templates/deposit/finddepositslip.php:144
-#: v2/templates/group/groupbadge.php:156
-#: v2/templates/pastoralcare/pastoralcarefamily.php:311
-#: v2/templates/pastoralcare/pastoralcarefamily.php:320
-#: v2/templates/pastoralcare/pastoralcareperson.php:450
-#: v2/templates/pastoralcare/pastoralcareperson.php:459
-#: v2/templates/people/familyCustomFieldEditor.php:410
-#: v2/templates/people/familyview.php:511
-#: v2/templates/people/familyview.php:674
-#: v2/templates/people/familyview.php:990
-#: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:986
-#: v2/templates/people/personview.php:1090
-#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:58
-#: v2/templates/system/optionManager.php:443
-#: v2/templates/system/optionManager.php:445
-msgid "Delete"
-msgstr "Ștergeți"
-
 #: EcclesiaCRM/Service/CalendarService.php:1425
 msgid "Info"
 msgstr "Informații"
@@ -5837,7 +5838,7 @@ msgid "People Dashboard"
 msgstr "Tabloul de bord al persoanelor"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:63
+#: Include/Header.php:83 query_qry.php:8 query_qry.php:63
 msgid "Advanced Search"
 msgstr "Căutare avansată"
 
@@ -6070,30 +6071,20 @@ msgid "eGive Import"
 msgstr "eGive Import"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
-#, fuzzy
 msgid "Unavailable"
-msgstr "Nu este disponibil"
-
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
-msgid "Read only"
-msgstr ""
-
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
-msgid "Read and write"
-msgstr ""
+msgstr "Indisponibil"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:199
 msgid "No response"
-msgstr ""
+msgstr "Niciun răspuns"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:200
 msgid "Accepted"
-msgstr ""
+msgstr "Acceptat"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:201
-#, fuzzy
 msgid "Declined"
-msgstr "Cronologie"
+msgstr "Respins"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:202
 #: v2/templates/system/infos.php:204
@@ -6636,7 +6627,7 @@ msgstr "Drepturi de autor"
 msgid "All rights reserved"
 msgstr "Toate drepturile rezervate"
 
-#: Include/Footer.php:32 v2/templates/plugins/plugins.php:135
+#: Include/Footer.php:32 v2/templates/plugins/plugins.php:138
 msgid "Version"
 msgstr "Versiunea"
 
@@ -6850,57 +6841,65 @@ msgstr "Modificați coloanele"
 msgid "Print"
 msgstr "Imprimare"
 
-#: Include/Header.php:84 v2/templates/people/familylist.php:172
+#: Include/Header.php:83 v2/templates/people/familylist.php:172
 #: v2/templates/people/lettersandlabels.php:238
 #: v2/templates/people/peoplelist.php:110 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "Căutare"
 
-#: Include/Header.php:89
+#: Include/Header.php:88
 msgid "Exit Control"
 msgstr "Controlul ieșirii"
 
-#: Include/Header.php:97
+#: Include/Header.php:95 Include/Header.php:97
+msgid "Quick Access"
+msgstr "Acces rapid"
+
+#: Include/Header.php:102 v2/templates/user/userseditor.php:274
+msgid "Main Dashboard"
+msgstr "Tabloul de bord principal"
+
+#: Include/Header.php:153
 msgid "Your Cart"
 msgstr "Coșul dumneavoastră"
 
-#: Include/Header.php:107
+#: Include/Header.php:163
 msgid "Your settings and more"
 msgstr "Setările dvs. și multe altele"
 
-#: Include/Header.php:133
+#: Include/Header.php:189
 msgid "Lock"
 msgstr "Încuietoare"
 
-#: Include/Header.php:135
+#: Include/Header.php:191
 msgid "Sign out"
 msgstr "Deconectați-vă"
 
-#: Include/Header.php:146
+#: Include/Header.php:202
 msgid "Help & Support"
 msgstr "Ajutor și asistență"
 
-#: Include/Header.php:150
+#: Include/Header.php:206
 msgid "Help Center"
 msgstr "Centrul de ajutor"
 
-#: Include/Header.php:152 Include/Header.php:154
+#: Include/Header.php:208 Include/Header.php:210
 msgid "Help & Manual"
 msgstr "Ajutor și manual"
 
-#: Include/Header.php:157 Include/Header.php:159
+#: Include/Header.php:213 Include/Header.php:215
 msgid "Report an issue"
 msgstr "Raportați o problemă"
 
-#: Include/Header.php:162 Include/Header.php:164
+#: Include/Header.php:218 Include/Header.php:220
 msgid "Developer Chat"
 msgstr "Discuții între dezvoltatori"
 
-#: Include/Header.php:168 Include/Header.php:169
+#: Include/Header.php:224 Include/Header.php:225
 msgid "Contributing"
 msgstr "Contribuții"
 
-#: Include/Header.php:181
+#: Include/Header.php:237
 msgid "Your tasks"
 msgstr "Sarcinile dumneavoastră"
 
@@ -7351,7 +7350,7 @@ msgid "Edited By Name"
 msgstr "Editat după nume"
 
 #: Reports/GDPR/GDPRListExport.php:72 v2/templates/people/familyview.php:92
-#: v2/templates/plugins/plugins.php:75
+#: v2/templates/plugins/plugins.php:78
 msgid "Deactivated"
 msgstr "Dezactivat"
 
@@ -7809,7 +7808,7 @@ msgstr "Pe tipuri"
 #: v2/templates/calendar/eventslist.php:65
 #: v2/templates/deposit/manageEnvelopes.php:151
 #: v2/templates/deposit/manageEnvelopes.php:187
-#: v2/templates/group/grouplist.php:135 v2/templates/plugins/plugins.php:65
+#: v2/templates/group/grouplist.php:135 v2/templates/plugins/plugins.php:68
 msgid "All"
 msgstr "Toate"
 
@@ -7962,7 +7961,7 @@ msgstr "Înapoi la Evenimente"
 #: v2/templates/group/groupPropsEditor.php:236
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
-#: v2/templates/group/groupview.php:401 v2/templates/plugins/plugins.php:91
+#: v2/templates/group/groupview.php:401 v2/templates/plugins/plugins.php:94
 msgid "Description"
 msgstr "Descriere"
 
@@ -8374,6 +8373,11 @@ msgstr ""
 msgid "Available images"
 msgstr "Imagini disponibile"
 
+#: v2/templates/cart/carttobadge.php:182 v2/templates/cart/carttobadge.php:188
+#: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
+msgid "Upload"
+msgstr "Încărcați"
+
 #: v2/templates/cart/carttobadge.php:197
 msgid "Layout"
 msgstr "Layout"
@@ -8654,7 +8658,7 @@ msgstr "Personalizați pagina"
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:80
-#: v2/templates/plugins/plugins.php:111
+#: v2/templates/plugins/plugins.php:114
 msgid "Settings"
 msgstr "Setări"
 
@@ -8689,6 +8693,12 @@ msgstr "Coloana din dreapta"
 #: v2/templates/deposit/autaPaymentEditor.php:279
 msgid "For the"
 msgstr "Pentru"
+
+#: v2/templates/deposit/autaPaymentEditor.php:284
+#: v2/templates/deposit/pledgeEditor.php:40
+#: v2/templates/people/personEditor.php:1145
+msgid "or"
+msgstr "sau"
 
 #: v2/templates/deposit/autaPaymentEditor.php:288
 msgid ""
@@ -9435,7 +9445,7 @@ msgstr ""
 "Gestionați-vă fișierele, previzualizările și partajarea internă dintr-un "
 "singur loc."
 
-#: v2/templates/edrive/dashboard.php:91
+#: v2/templates/edrive/dashboard.php:65
 msgid "Files"
 msgstr "Fișiere"
 
@@ -9444,14 +9454,12 @@ msgid "Icon"
 msgstr "Icoană"
 
 #: v2/templates/edrive/shares.php:34
-#, fuzzy
 msgid "Size"
-msgstr "Mărimea fontului"
+msgstr "Dimensiune"
 
 #: v2/templates/edrive/shares.php:35
-#, fuzzy
 msgid "Modification Date"
-msgstr "Notificare"
+msgstr "Data modificării"
 
 #: v2/templates/error/404.php:17
 msgid "Oops! Can't find route for "
@@ -11670,14 +11678,14 @@ msgid "Get the vCard of the family"
 msgstr "Obțineți vCard-ul familiei"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:57
-#: v2/templates/plugins/plugins.php:114
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:60
+#: v2/templates/plugins/plugins.php:117
 msgid "Deactivate"
 msgstr "Dezactivați"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:56
-#: v2/templates/plugins/plugins.php:114
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:59
+#: v2/templates/plugins/plugins.php:117
 msgid "Activate"
 msgstr "Activați"
 
@@ -12624,9 +12632,8 @@ msgstr "Această persoană este dezactivată"
 #: v2/templates/people/personview.php:192
 #: v2/templates/people/personview.php:1224
 #: v2/templates/people/personview.php:1295
-#, fuzzy
 msgid "assigned"
-msgstr "Neatribuite"
+msgstr "alocat"
 
 #: v2/templates/people/personview.php:222
 msgid "No group assignments yet."
@@ -13072,35 +13079,35 @@ msgstr "Export CSV"
 msgid "Plugins managements"
 msgstr "Gestionarea plugin-urilor"
 
-#: v2/templates/plugins/plugins.php:35
+#: v2/templates/plugins/plugins.php:38
 msgid "Add a plugin"
 msgstr "Adăugați un plugin"
 
-#: v2/templates/plugins/plugins.php:40 v2/templates/plugins/plugins.php:151
+#: v2/templates/plugins/plugins.php:43 v2/templates/plugins/plugins.php:154
 msgid "Add new plugin"
 msgstr "Adăugați un nou plugin"
 
-#: v2/templates/plugins/plugins.php:43
+#: v2/templates/plugins/plugins.php:46
 msgid "Upload A Plugin"
 msgstr "Încărcați un Plugin"
 
-#: v2/templates/plugins/plugins.php:53
+#: v2/templates/plugins/plugins.php:56
 msgid "Select the grouped action"
 msgstr "Selectați acțiunea grupată"
 
-#: v2/templates/plugins/plugins.php:55
+#: v2/templates/plugins/plugins.php:58
 msgid "Grouped actions"
 msgstr "Acțiuni grupate"
 
-#: v2/templates/plugins/plugins.php:70
+#: v2/templates/plugins/plugins.php:73
 msgid "Activated"
 msgstr "Activat"
 
-#: v2/templates/plugins/plugins.php:87 v2/templates/user/userlist.php:51
+#: v2/templates/plugins/plugins.php:90 v2/templates/user/userlist.php:51
 msgid "Check all boxes"
 msgstr "Bifați toate căsuțele"
 
-#: v2/templates/plugins/plugins.php:89 v2/templates/plugins/plugins.php:126
+#: v2/templates/plugins/plugins.php:92 v2/templates/plugins/plugins.php:129
 #: v2/templates/system/infos.php:306 v2/templates/system/integritycheck.php:135
 #: v2/templates/system/integritycheck.php:230
 #: v2/templates/user/usersettings.php:375
@@ -13108,39 +13115,39 @@ msgstr "Bifați toate căsuțele"
 msgid "Plugin"
 msgstr "Plugin"
 
-#: v2/templates/plugins/plugins.php:90
+#: v2/templates/plugins/plugins.php:93
 msgid "Category"
 msgstr "Categorie"
 
-#: v2/templates/plugins/plugins.php:93
+#: v2/templates/plugins/plugins.php:96
 msgid "Update"
 msgstr "Actualizare"
 
-#: v2/templates/plugins/plugins.php:116
+#: v2/templates/plugins/plugins.php:119
 msgid "Guided tour"
 msgstr "Tur ghidat"
 
-#: v2/templates/plugins/plugins.php:124
+#: v2/templates/plugins/plugins.php:127
 msgid "Widget"
 msgstr "Widget"
 
-#: v2/templates/plugins/plugins.php:135
+#: v2/templates/plugins/plugins.php:138
 msgid "By"
 msgstr "Prin"
 
-#: v2/templates/plugins/plugins.php:139
+#: v2/templates/plugins/plugins.php:142
 msgid "Details"
 msgstr "Detalii"
 
-#: v2/templates/plugins/plugins.php:143
+#: v2/templates/plugins/plugins.php:146
 msgid "Activated Plugin"
 msgstr "Plugin activat"
 
-#: v2/templates/plugins/plugins.php:145
+#: v2/templates/plugins/plugins.php:148
 msgid "Deactivated Plugin"
 msgstr "Plugin dezactivat"
 
-#: v2/templates/plugins/plugins.php:155
+#: v2/templates/plugins/plugins.php:158
 msgid "Update/upgrade"
 msgstr "Actualizare/actualizare"
 
@@ -14851,10 +14858,6 @@ msgstr "Vizualizați, adăugați și editați note"
 msgid "User Account Permissions"
 msgstr "Permisiuni pentru contul de utilizator"
 
-#: v2/templates/user/userseditor.php:274
-msgid "Main Dashboard"
-msgstr "Tabloul de bord principal"
-
 #: v2/templates/user/userseditor.php:276
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr ""
@@ -16098,6 +16101,21 @@ msgstr "Câteva zile"
 
 msgid "Giving Report"
 msgstr "Raport de donații"
+
+#~ msgid "Download files"
+#~ msgstr "Descărcați fișiere"
+
+#~ msgid "Files input"
+#~ msgstr "Fișiere de intrare"
+
+#~ msgid "You can also drag and drop files into this area."
+#~ msgstr "De asemenea, puteți trage și plasa fișiere în această zonă."
+
+#~ msgid "Download status"
+#~ msgstr "Descărcați starea"
+
+#~ msgid "Select your rights"
+#~ msgstr "Selectați drepturile dumneavoastră"
 
 #~ msgid "File Manager"
 #~ msgstr "Manager de fișiere"

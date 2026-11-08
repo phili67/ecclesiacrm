@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1401,6 +1401,9 @@ msgstr "Задайте имя файла/папки"
 msgid "Download Error"
 msgstr "Скачать ошибку"
 
+msgid "Read and write"
+msgstr "Чтение и запись"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
 "Вы уверены, что хотите прекратить общий доступ для выбранных пользователей?"
@@ -2249,9 +2252,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "Установить права"
 
-msgid "Read and write"
-msgstr "Чтение и запись"
-
 msgid "Notification"
 msgstr "Уведомление"
 
@@ -2416,6 +2416,61 @@ msgstr "Поделитесь с человеком этой защищенной
 
 msgid "Comments"
 msgstr "Комментарии"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"Выберите плагины для обновления из списка тех, которые уже установлены на "
+"сервере."
+
+msgid "Database"
+msgstr "База данных"
+
+msgid "Files"
+msgstr "Файлы"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"Перед обновлением создайте резервную копию базы данных. Если миграция "
+"завершится сбоем, некоторые изменения могут быть уже применены."
+
+msgid "Plugins requiring attention"
+msgstr "Плагины, требующие внимания"
+
+msgid "The database version is newer than the files."
+msgstr "Версия базы данных более новая, чем версия файлов."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr "Конфигурация или миграция неверна. Проверьте журналы приложения."
+
+msgid "Close and refresh"
+msgstr "Закрыть и обновить"
+
+msgid "The selected plugins have been updated."
+msgstr "Выбранные плагины были обновлены."
+
+msgid "The update stopped at"
+msgstr "Обновление остановилось на"
+
+msgid "Plugin updates"
+msgstr "Обновления плагинов"
+
+msgid "Later"
+msgstr "Позже"
+
+msgid "Update selected plugins"
+msgstr "Обновить выбранные плагины"
+
+msgid "Select at least one plugin."
+msgstr "Выберите как минимум один плагин."
+
+msgid "Updating plugins. Please wait."
+msgstr "Обновляются плагины. Пожалуйста, подождите."
+
+msgid "Unable to check plugin updates."
+msgstr "Не удалось проверить наличие обновлений для плагинов."
 
 msgid "Confirmation of plugin removal"
 msgstr "Подтверждение удаления плагина"
@@ -3208,9 +3263,6 @@ msgstr "Все члены будут уничтожены.  Сами члены 
 #~ msgid "Edit General Settings"
 #~ msgstr "Редактирование общих настроек"
 
-#~ msgid "Then update"
-#~ msgstr "Затем обновите"
-
 #~ msgid "For more info see our "
 #~ msgstr "Для получения дополнительной информации см."
 
@@ -3673,9 +3725,6 @@ msgstr "Все члены будут уничтожены.  Сами члены 
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Вы собираетесь удалить папку и ее содержимое"
-
-#~ msgid "Files input"
-#~ msgstr "Ввод файлов"
 
 #~ msgid "Upload your files"
 #~ msgstr "Загрузите свои файлы"
