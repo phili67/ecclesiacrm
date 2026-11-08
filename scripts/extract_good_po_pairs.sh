@@ -19,8 +19,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUTPUT_DIR_REL="${1:-locale}"
 OUTPUT_DIR="${ROOT_DIR}/${OUTPUT_DIR_REL}"
 
-MESSAGES_PO="${ROOT_DIR}/src/locale/textdomain/fr_FR/LC_MESSAGES/messages.po"
-JS_STRINGS_PO="${ROOT_DIR}/locale/JSONKeys_JS/fr_FR/js-strings.po"
+MESSAGES_PO="${ROOT_DIR}/src/locale/textdomain/zh_TW/LC_MESSAGES/messages.po"
+JS_STRINGS_PO="${ROOT_DIR}/locale/JSONKeys_JS/zh_TW/js-strings.po"
 
 for f in "$MESSAGES_PO" "$JS_STRINGS_PO"; do
   if [[ ! -f "$f" ]]; then
