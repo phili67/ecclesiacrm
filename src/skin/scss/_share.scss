@@ -13,6 +13,10 @@
     padding: 1rem;
 }
 
+.edrive-share-actions {
+    gap: .5rem;
+}
+
 .share-part .infoFiles {
     float: none;
     margin-left: .75rem;
@@ -25,4 +29,49 @@
 
 .edrive-share-list .btn-group > .btn {
     border-radius: .25rem !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .share-part .card-header,
+    .share-part-another-user .card-header {
+        background: #454d55;
+        color: #f8f9fa;
+        border-bottom-color: rgba(245, 245, 245, .1);
+    }
+
+    .edrive-share-list {
+        border-color: #58616b;
+        background: #343a40;
+        color: #f8f9fa;
+    }
+
+    .edrive-share-list .edrive-shared-users-empty {
+        color: #adb5bd;
+    }
+
+    .edrive-share-list .edrive-share-user {
+        border-color: #58616b;
+        background: #454d55;
+        color: #f8f9fa;
+    }
+
+    .edrive-share-list .edrive-share-user.is-selected {
+        border-color: #3b829c;
+        background: #214e60;
+    }
+
+    .edrive-share-list .edrive-share-user-name {
+        color: #f8f9fa;
+    }
+
+    .edrive-share-list .edrive-share-user-rights {
+        border-color: #6c757d !important;
+        background: #343a40;
+        color: #dee2e6;
+    }
+
+    .edrive-share-list .btn-outline-secondary {
+        border-color: #adb5bd;
+        color: #dee2e6;
+    }
 }

@@ -272,10 +272,6 @@
   font-size: 11px;
 }
 
-#dropdownMenuButtonRights {
-    margin-left:-10px;
-}
-
 .form-control-access-rights {
     margin-left:-3px;
     margin-right:-10px;
@@ -386,20 +382,9 @@
         max-width: none;
     }
 
-    .edrive-share-list > .d-flex.flex-wrap {
-        align-items: flex-start !important;
-        flex-direction: column;
-        gap: .5rem;
-    }
-
-
     .filmanager-right {
         /*border-left: solid 0px #8a2121;*/
     }     
-
-    #dropdownMenuButtonRights {
-        margin-left:+20px;
-    }
 
     .form-control-access-rights {
         width:98%;
@@ -417,6 +402,39 @@
         box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);
         border-left: solid 1px #5d5b5b;*/
     } 
+
+    .edrive-upload-dropzone {
+        border-color: #64748b;
+        background: #343a40;
+        color: #f8f9fa;
+    }
+
+    .edrive-upload-dropzone:hover,
+    .edrive-upload-dropzone.is-drag-over,
+    .edrive-upload-dropzone:focus-within {
+        border-color: #5ba7c2;
+        background: #3b4b55;
+        box-shadow: 0 0 0 .2rem rgba(91, 167, 194, .18);
+    }
+
+    .edrive-upload-overlay {
+        border-color: #5ba7c2;
+        background: rgba(52, 58, 64, .96);
+        color: #9bd4e8;
+    }
+
+    .edrive-upload-icon {
+        background: #263d49;
+        color: #82c8e0;
+    }
+
+    .edrive-upload-copy strong {
+        color: #f8f9fa;
+    }
+
+    .edrive-upload-copy span {
+        color: #adb5bd;
+    }
 
     .hr-filemanager {
         border-top: 1px solid rgba(245, 245, 245, 0.1);

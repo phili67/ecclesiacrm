@@ -134,14 +134,14 @@ require $sRootDocument . '/Include/Header.php';
                                 </div>
                                 <div id="edrive-shared-users-list" class="edrive-shared-users-list" role="group" aria-labelledby="edrive-shared-users-label" data-empty-label="<?= _("No one has access yet.") ?>"></div>
                                 <select id="select-share-persons-sabre" class="edrive-share-select" multiple aria-hidden="true" tabindex="-1"></select>
-                                <div class="d-flex flex-wrap justify-content-between align-items-center mt-2">
+                                <div class="edrive-share-actions d-flex flex-wrap align-items-center mt-2">
                                     <div class="btn-group btn-group-sm">
-                                        <button type="button" class="btn btn-outline-danger" id="delete-share"
+                                        <button type="button" class="btn btn-outline-danger d-none" id="delete-share"
                                             data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>" disabled><?= _("Delete") ?></button>
-                                        <button type="button" class="btn btn-outline-secondary" id="delete-all-share"
+                                        <button type="button" class="btn btn-outline-secondary d-none" id="delete-all-share"
                                             data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>" disabled><?= _("Delete all shares") ?></button>
                                     </div>
-                                    <div class="dropdown mt-2 mt-sm-0">
+                                    <div class="edrive-share-rights dropdown d-none">
                                         <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button"
                                             id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false" disabled><?= _("Set Rights") ?></button>

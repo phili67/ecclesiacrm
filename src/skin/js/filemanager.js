@@ -1485,7 +1485,9 @@ $(function () {
 
     const addSharedPersonsSabre = () => {
         $("#dropdownMenuButtonRights").prop('disabled', true);
-        $("#delete-share").prop('disabled', true);    
+        $(".edrive-share-rights").addClass('d-none');
+        $("#delete-share").prop('disabled', true).addClass('d-none');
+        $("#delete-all-share").prop('disabled', true).addClass('d-none');
 
         let data = window.CRM.dataEDriveTable.rows({ selected: true }).data();
         let rows = [];
@@ -1505,7 +1507,7 @@ $(function () {
         }, function (data) {
             var len = data.length;
 
-            $("#delete-all-share").prop('disabled', len === 0);
+            $("#delete-all-share").prop('disabled', len === 0).toggleClass('d-none', len === 0);
             renderSharedUsers(data);
         });
     }
@@ -1520,7 +1522,9 @@ $(function () {
         let activated = ($('#select-share-persons-sabre').val() || []).length > 0;
 
         $("#dropdownMenuButtonRights").prop('disabled', !activated);
+        $(".edrive-share-rights").toggleClass('d-none', !activated);
         $("#delete-share").prop('disabled', !activated);
+        $("#delete-share").toggleClass('d-none', !activated);
         //$("#delete-all-share").prop('disabled', !activated);
     });
 
