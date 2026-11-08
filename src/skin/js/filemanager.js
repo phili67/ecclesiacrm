@@ -283,21 +283,21 @@ $(function () {
                 render: function (data, type, full, meta) {
                     if (!full.dir && !full.link || full.canEdit) {
                         var ret = `<div class="btn-group">
-   <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
-   ${full.canEdit ? `<button type="button" class="btn btn-outline-info btn-sm px-2 py-1 editFile" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Edit')}"><i class="fa-solid fa-pen-to-square file-action-icon"></i></button>` : ''}
-   ${full.canEdit ? `<button type="button" class="btn btn-outline-secondary btn-sm px-2 py-1 fileVersions" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Versions')}"><i class="fa-solid fa-clock-rotate-left file-action-icon"></i></button>` : ''}
-   ${!full.locked ? `<button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>` : ''}
+   <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm btn-sm-rounded px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
+   ${full.canEdit ? `<button type="button" class="btn btn-outline-info btn-sm btn-sm-rounded px-2 py-1 editFile" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Edit')}"><i class="fa-solid fa-pen-to-square file-action-icon"></i></button>` : ''}
+   ${full.canEdit ? `<button type="button" class="btn btn-outline-secondary btn-sm btn-sm-rounded px-2 py-1 fileVersions" data-name="${full.name}" data-bs-toggle="tooltip" data-bs-placement="top" title="${i18next.t('Versions')}"><i class="fa-solid fa-clock-rotate-left file-action-icon"></i></button>` : ''}
+   ${!full.locked ? `<button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm btn-sm-rounded px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>` : ''}
 </div>`;
                         return ret;
                     } else if (!full.link && !full.locked && !(full.name == '/public' && full.currentpath == '/')) {
                         var ret = `<div class="btn-group">
-   <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
+   <button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm btn-sm-rounded px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Partager"><i class="fa-solid fa-share-nodes file-action-icon"></i></button>
 </div>`;
                         return ret;
                     } else if (full.link) {
                         var ret = `<div class="btn-group">
-   <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
-   ${!full.locked ? `<button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Lien partagé"><i class="fa-solid fa-link file-action-icon"></i></button>` : ''}
+   <a href="${window.CRM.root}/api/filemanager/getFile/${full.perID}/${full.path}" type="button" id="uploadFile" class="btn btn-outline-primary btn-sm btn-sm-rounded px-2 py-1" data-personid="${window.CRM.currentPersonID}" data-bs-toggle="tooltip" data-bs-placement="top" title="Télécharger"><i class="fa-solid fa-download file-action-icon"></i></a>
+   ${!full.locked ? `<button type="button" class="btn ${full.isShared ? 'btn-success' : 'btn-outline-secondary'} btn-sm btn-sm-rounded px-2 py-1 shareFile" data-personid="${window.CRM.currentPersonID}" data-id="${data}" data-shared="${full.isShared}" data-bs-toggle="tooltip" data-bs-placement="top" title="Lien partagé"><i class="fa-solid fa-link file-action-icon"></i></button>` : ''}
 </div>`;
                         return ret;
                     }
@@ -389,7 +389,7 @@ $(function () {
             'title': i18next.t("Delete"),            
         },
         enabled: false,
-        className: 'btn btn-danger btn-sm drag-elements trash-drop ui-droppable',
+        className: 'btn btn-danger btn-sm btn-sm-rounded drag-elements trash-drop ui-droppable',
         action: function (e, dt, node, config) {
             if (dt.rows({ selected: true }).data().toArray().some(function (item) { return item.locked; })) {
                 return;
@@ -449,7 +449,7 @@ $(function () {
 
     window.CRM.plugin.dataTable.buttons.push({
         text: '<i class="fas fa-folder"></i> ' + i18next.t("Create a Folder"),
-        className: 'btn btn-secondary btn-sm new-folder',
+        className: 'btn btn-secondary btn-sm btn-sm-rounded new-folder',
         attr: {
             id: 'new-folder',
             'data-personid':window.CRM.currentPersonID,
@@ -492,7 +492,7 @@ $(function () {
         window.CRM.plugin.dataTable.buttons.push({
             extend: 'collection',
             text: '<i class="fas fa-file-circle-plus"></i> ' + i18next.t("New document"),
-            className: 'btn btn-secondary btn-sm new-document',
+            className: 'btn btn-secondary btn-sm btn-sm-rounded new-document',
             attr: {
                 id: 'new-document',
                 'title': i18next.t("New document")
@@ -511,7 +511,7 @@ $(function () {
 
     window.CRM.plugin.dataTable.buttons.push({
         text: '<i class="fas fa-sync-alt"></i> ' + i18next.t("Actualize files"),
-        className: 'btn btn-secondary btn-sm drag-elements filemanager-refresh',
+        className: 'btn btn-secondary btn-sm btn-sm-rounded drag-elements filemanager-refresh',
         attr: {
             id: 'filemanager-refresh',
             'data-personid':window.CRM.currentPersonID,
@@ -672,9 +672,9 @@ $(function () {
 <td>${escapeHtml(version.size)}</td>
 <td>${escapeHtml(version.author)}</td>
 <td class="text-right"><div class="btn-group">
-<button type="button" class="btn btn-outline-primary btn-sm version-download" data-version="${version.id}" title="${i18next.t('Download')}"><i class="fa-solid fa-download"></i></button>
-<button type="button" class="btn btn-outline-success btn-sm version-restore" data-version="${version.id}" title="${i18next.t('Restore')}"><i class="fa-solid fa-rotate-left"></i></button>
-<button type="button" class="btn btn-outline-danger btn-sm version-delete" data-version="${version.id}" title="${i18next.t('Delete')}"><i class="fa-solid fa-trash-can"></i></button>
+<button type="button" class="btn btn-outline-primary btn-sm btn-sm-rounded version-download" data-version="${version.id}" title="${i18next.t('Download')}"><i class="fa-solid fa-download"></i></button>
+<button type="button" class="btn btn-outline-success btn-sm btn-sm-rounded version-restore" data-version="${version.id}" title="${i18next.t('Restore')}"><i class="fa-solid fa-rotate-left"></i></button>
+<button type="button" class="btn btn-outline-danger btn-sm btn-sm-rounded version-delete" data-version="${version.id}" title="${i18next.t('Delete')}"><i class="fa-solid fa-trash-can"></i></button>
 </div></td></tr>`;
                 });
 
@@ -1178,6 +1178,9 @@ $(function () {
         const dropZone = document.getElementById('edrive-upload-dropzone');
         const progress = document.getElementById('progress-bar');
         const progressLabel = document.getElementById('progress-bar-label');
+        if (!fileInput || !dropZone || !progress || !progressLabel) {
+            return;
+        }
 
         const setInputFiles = (files) => {
             if (!fileInput || !files || !files.length) {
@@ -1202,7 +1205,7 @@ $(function () {
                 return;
             }
 
-            window.CRM.css(".download-zone", "display:block");
+            window.CRM.css(".download-zone", "display:flex");
             progress.setAttribute('value', 0);
             progressLabel.innerText = "0%";
 
@@ -1259,9 +1262,13 @@ $(function () {
             });
         };
 
+        fileInput.addEventListener('change', function () {
+            uploadFiles(fileInput.files);
+            fileInput.value = '';
+        });
+
         window.CRM.ElementListener('#formId', 'submit', function (event) {
             event.preventDefault();
-            uploadFiles(fileInput.files);
         });
 
         if (dropZone) {
@@ -1274,19 +1281,29 @@ $(function () {
                 dropZone.addEventListener(eventName, preventDefaults, false);
             });
 
-            ["dragenter", "dragover"].forEach((eventName) => {
-                dropZone.addEventListener(eventName, () => {
-                    dropZone.classList.add('border-primary');
-                    dropZone.classList.add('shadow-sm');
-                }, false);
-            });
+            let dragEnterCount = 0;
+            const showDropOverlay = () => {
+                dropZone.classList.add('border-primary', 'shadow-sm', 'is-drag-over');
+            };
+            const hideDropOverlay = () => {
+                dropZone.classList.remove('border-primary', 'shadow-sm', 'is-drag-over');
+            };
 
-            ["dragleave", "drop"].forEach((eventName) => {
-                dropZone.addEventListener(eventName, () => {
-                    dropZone.classList.remove('border-primary');
-                    dropZone.classList.remove('shadow-sm');
-                }, false);
-            });
+            dropZone.addEventListener('dragenter', () => {
+                dragEnterCount++;
+                showDropOverlay();
+            }, false);
+            dropZone.addEventListener('dragover', showDropOverlay, false);
+            dropZone.addEventListener('dragleave', () => {
+                dragEnterCount = Math.max(0, dragEnterCount - 1);
+                if (dragEnterCount === 0) {
+                    hideDropOverlay();
+                }
+            }, false);
+            dropZone.addEventListener('drop', () => {
+                dragEnterCount = 0;
+                hideDropOverlay();
+            }, false);
 
             dropZone.addEventListener('drop', (event) => {
                 const droppedFiles = event.dataTransfer ? event.dataTransfer.files : null;
@@ -1296,6 +1313,7 @@ $(function () {
 
                 setInputFiles(droppedFiles);
                 uploadFiles(droppedFiles);
+                fileInput.value = '';
             }, false);
         }
     }
@@ -1405,16 +1423,65 @@ $(function () {
                 "currentPersonID": window.CRM.currentPersonID,
                 "rows": rows
             })}, function (data) {
-                let res = '<ul>';
+                const list = $('<ul class="edrive-shared-by-list list-group list-group-flush"></ul>');
                 for (const element of data) {
-                    res += '<li>' + element['fullName'] + '</li>';
+                    const access = Number(element.access) === 3 ? i18next.t('Read and write') : i18next.t('Read only');
+                    $('<li class="list-group-item d-flex justify-content-between align-items-center"></li>')
+                        .append($('<span></span>').text(element.fullName))
+                        .append($('<span class="badge badge-light border"></span>').text(access))
+                        .appendTo(list);
                 }
-                res += '</ul>';
-
-                $(".share-part-another-user-content").html(res);
+                $(".share-part-another-user-content").empty().append(list);
             }
         );
     }
+
+    const shareAccessLabel = (access) => Number(access) === 3
+        ? i18next.t('Read and write')
+        : i18next.t('Read only');
+
+    const updateShareOption = (option, access) => {
+        option.dataset.access = String(access);
+        option.textContent = `${option.dataset.name} — ${shareAccessLabel(access)}`;
+
+        $('#edrive-shared-users-list .edrive-share-user-checkbox').each(function () {
+            if (this.value === option.value) {
+                $(this).closest('.edrive-share-user').find('.edrive-share-user-rights').text(shareAccessLabel(access));
+            }
+        });
+    };
+
+    const renderSharedUsers = (users) => {
+        const select = $('#select-share-persons-sabre');
+        const list = $('#edrive-shared-users-list');
+        select.empty();
+        list.empty();
+
+        if (users.length === 0) {
+            list.append($('<div class="edrive-shared-users-empty text-muted"></div>').text(list.data('empty-label')));
+        }
+
+        users.forEach((user) => {
+            const option = document.createElement('option');
+            option.value = user.id;
+            option.dataset.name = user.name;
+            updateShareOption(option, user.access);
+            select.append(option);
+
+            const checkbox = $('<input type="checkbox" class="edrive-share-user-checkbox">').val(user.id);
+            checkbox.on('change', function () {
+                option.selected = this.checked;
+                $(this).closest('.edrive-share-user').toggleClass('is-selected', this.checked);
+                select.trigger('change');
+            });
+
+            $('<label class="edrive-share-user"></label>')
+                .append(checkbox)
+                .append($('<span class="edrive-share-user-name"></span>').text(user.name))
+                .append($('<span class="edrive-share-user-rights badge badge-light border"></span>').text(shareAccessLabel(user.access)))
+                .appendTo(list);
+        });
+    };
 
     const addSharedPersonsSabre = () => {
         $("#dropdownMenuButtonRights").prop('disabled', true);
@@ -1426,7 +1493,7 @@ $(function () {
             rows.push(data[i]);
         }
 
-        $('#select-share-persons-sabre').find('option').remove();
+        renderSharedUsers([]);
 
         window.CRM.APIRequest({
             method: 'POST',
@@ -1436,40 +1503,28 @@ $(function () {
                 "rows": rows
             })
         }, function (data) {
-            var elt = document.getElementById("select-share-persons-sabre");
             var len = data.length;
 
-            $("#delete-all-share").prop('disabled', (len>0)?false:true);
-            
-            for (i = 0; i < len; ++i) {
-                var option = document.createElement("option");
-                // there is a groups.type in function of the new plan of schema
-                option.text = data[i].name;
-                //option.title = data[i].type;
-                option.value = data[i].id;
-
-                //option.classList.add("fontawesome");
-
-                elt.appendChild(option);
-            }
+            $("#delete-all-share").prop('disabled', len === 0);
+            renderSharedUsers(data);
         });
     }
 
     $("#select-share-persons-sabre").on('change', function () {
-        let values = $('#select-share-persons-sabre').val();
+        const selected = new Set(($('#select-share-persons-sabre').val() || []).map(String));
+        $('#edrive-shared-users-list .edrive-share-user-checkbox').each(function () {
+            this.checked = selected.has(this.value);
+            $(this).closest('.edrive-share-user').toggleClass('is-selected', this.checked);
+        });
 
-        let activated = false;
-        if (values.length > 0) {
-            activated = true;
-        }
+        let activated = ($('#select-share-persons-sabre').val() || []).length > 0;
 
         $("#dropdownMenuButtonRights").prop('disabled', !activated);
         $("#delete-share").prop('disabled', !activated);
         //$("#delete-all-share").prop('disabled', !activated);
     });
 
-    $("#set-right-read").on('click', function () {
-        var rightAccess = 2;
+    const setSelectedShareRights = (rightAccess, refreshTable = true) => {
         var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
         let data = realRows.data();
         var rows = [];
@@ -1478,71 +1533,28 @@ $(function () {
         }
 
         $('#select-share-persons-sabre :selected').each(function (i, sel) {
-            var selection = sel;
-            let personID = $(sel).val();
-            let str = $(sel).text();
-
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'sharedocument/setrightssabre',
                 data: JSON.stringify({
                     "rows": rows,
                     "currentPersonID": window.CRM.currentPersonID,
-                    "personToShareID": personID,
+                    "personToShareID": $(sel).val(),
                     "rightAccess": rightAccess
                 })
             }, function (data) {
-                if (rightAccess == 2) {
-                    res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
-                } else {
-                    res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
+                updateShareOption(sel, rightAccess);
+                if (refreshTable) {
+                    window.CRM.reloadEDriveTable(function () {
+                        realRows.select();
+                    });
                 }
-                $(selection).text(res);
-
-                window.CRM.reloadEDriveTable(function () {
-                    realRows.select();
-                });
-            })
+            });
         });
-    });
+    };
 
-    $("#set-right-read-write").on('click', function () {
-        var rightAccess = 3;
-        var realRows = window.CRM.dataEDriveTable.rows({ selected: true });
-        let data = realRows.data();
-        var rows = [];
-        for (let i = 0; i < data.length; i++) {
-            rows.push(data[i]);
-        }
-
-        $('#select-share-persons-sabre :selected').each(function (i, sel) {
-            var selection = sel;
-            let personID = $(sel).val();
-            let str = $(sel).text();
-
-            window.CRM.APIRequest({
-                method: 'POST',
-                path: 'sharedocument/setrightssabre',
-                data: JSON.stringify({
-                    "rows": rows,
-                    "currentPersonID": window.CRM.currentPersonID,
-                    "personToShareID": personID,
-                    "rightAccess": rightAccess
-                })
-            }, function (data) {
-                if (rightAccess == 2) {
-                    res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
-                } else {
-                    res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
-                }
-                $(selection).text(res);
-
-                window.CRM.reloadEDriveTable(function () {
-                    realRows.select();
-                });
-            })
-        });
-    });
+    $("#set-right-read").on('click', function () { setSelectedShareRights(2); });
+    $("#set-right-read-write").on('click', function () { setSelectedShareRights(3); });
 
 
     $("#person-group-rights-sabre").on('change', function () {
@@ -1556,8 +1568,6 @@ $(function () {
         $('#select-share-persons-sabre :selected').each(function (i, sel) {
             var selection = sel;
             let personID = $(sel).val();
-            let str = $(sel).text();
-
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'sharedocument/setrightssabre',
@@ -1568,12 +1578,7 @@ $(function () {
                     "rightAccess": rightAccess
                 })
             }, function (data) {
-                if (rightAccess == 2) {
-                    res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
-                } else {
-                    res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
-                }
-                $(selection).text(res);
+                updateShareOption(selection, rightAccess);
             })
         });
     });
@@ -1600,9 +1605,8 @@ $(function () {
             },
             callback: function (result) {
                 if (result) {
-                    $('#select-share-persons-sabre').each(function (i, sel) {
+                    $('#select-share-persons-sabre :selected').each(function (i, sel) {
                         var personPrincipal = $(sel).val();
-
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'sharedocument/deletepersonsabre',
@@ -1611,13 +1615,14 @@ $(function () {
                                 "personPrincipal": personPrincipal,
                                 "currentPersonID": window.CRM.currentPersonID
                             })
-                        }, function (data) {
-                            window.CRM.reloadEDriveTable(function () {
-                                realRows.select();
+                            }, function (data) {
+                                $("#select-share-persons-sabre option[value='" + personPrincipal + "']").remove();
+                                $("#select-share-persons-sabre").trigger('change');
+                                window.CRM.reloadEDriveTable(function () {
+                                    realRows.select();
+                                });
+                                addSharedPersonsSabre();
                             });
-                            $("#select-share-persons-sabre option[value='" + personPrincipal + "']").remove();
-                            addSharedPersonsSabre();
-                        });
                     });
                 }
             }

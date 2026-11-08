@@ -1,3 +1,28 @@
 .share-part, .share-part-another-user {
-    top:-20px !important;
+    top: auto !important;
+}
+
+.share-part .card-header,
+.share-part-another-user .card-header {
+    background: #fff;
+    border-bottom-color: #e8edf2;
+}
+
+.share-part .card-body,
+.share-part-another-user .card-body {
+    padding: 1rem;
+}
+
+.share-part .infoFiles {
+    float: none;
+    margin-left: .75rem;
+}
+
+.edrive-share-list .btn-group {
+    flex-wrap: wrap;
+    gap: .35rem;
+}
+
+.edrive-share-list .btn-group > .btn {
+    border-radius: .25rem !important;
 }

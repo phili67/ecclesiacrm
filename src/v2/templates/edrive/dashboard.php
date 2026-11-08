@@ -34,51 +34,25 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-body">
         <?php if ($user->isEDriveEnabled()) { ?>
             <form action="#" method="post" id="formId" enctype="multipart/form-data">
-                <div class="card card-outline card-info collapsed-card mb-4">
-                    <div class="card-header">
-                        <h3 class="card-title"><i class="fas fa-file-upload mr-1"></i> <?= _("Download files") ?></h3>
-
-                        <div class="card-tools pull-right">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                <div class="card card-outline card-info edrive-upload-card mb-4">
+                    <div class="card-body p-3">
+                        <label class="edrive-upload-dropzone" id="edrive-upload-dropzone" for="noteInputFile">
+                            <span class="edrive-upload-icon" aria-hidden="true"><i class="fas fa-cloud-arrow-up"></i></span>
+                            <span class="edrive-upload-copy">
+                                <strong><?= _("Upload your files") ?></strong>
+                                <span><?= _("Click to choose files or drag and drop them here.") ?></span>
+                            </span>
+                            <span class="edrive-upload-overlay" aria-hidden="true">
+                                <i class="fas fa-arrow-down"></i>
+                                <strong><?= _("Drop files to upload") ?></strong>
+                            </span>
+                            <input type="file" class="edrive-upload-input" id="noteInputFile" name="noteInputFile[]" multiple>
+                        </label>
+                        <div class="download-zone" style="display: none">
+                            <progress id="progress-bar" value="0" max="100"></progress>
+                            <label id="progress-bar-label" for="progress-bar" class="mb-0">0%</label>
                         </div>
                     </div>
-
-                    <div class="card-body" id="edrive-upload-dropzone">
-                        <div class="border rounded p-3 bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-md-3">
-                                    <label for="noteInputFile" class="mb-0"><?= _("Files input") ?></label>
-                                </div>
-                                <div class="col-md-9">
-                                    <input type="file" class="form-control" id="noteInputFile" name="noteInputFile[]" multiple>
-                                    <small class="text-muted d-block mt-2"><i class="fas fa-hand-paper mr-1"></i><?= _("You can also drag and drop files into this area.") ?></small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-3 download-zone" style="display: none">
-                            <div class="col-md-3">
-                                <label class="mb-0"><?= _("Download status") ?></label>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="d-flex align-items-center">
-                                    <progress id="progress-bar" value="0" max="100" class="mr-2" style="width:100%"></progress>
-                                    <label id="progress-bar-label" for="progress-bar" class="mb-0">0%</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="d-flex flex-wrap justify-content-between align-items-center">
-                            <div class="text-muted mb-2 mb-md-0">
-                                <i class="fas fa-cloud-upload-alt mr-1"></i><?= _('Upload your files') ?>
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-success" name="Submit"><i class="fas fa-cloud-upload-alt mr-1"></i> <?= _("Upload") ?></button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </form>
         <?php } ?>
@@ -128,9 +102,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="share-part card shadow-sm mb-3">
                         <div class="card-header">
                             <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h3 class="card-title mb-0"><i class="fas fa-share-alt mr-1 text-secondary"></i> <?= _("Internal sharing") ?></h3>
-                                </div>
+                                <h3 class="card-title mb-0"><?= _("Internal sharing") ?></h3>
                                 <a data-toggle="popover" title="" data-content="<?= _("Use this method to share files with individuals or teams within your organization. If the recipient already has access to the share, but can't locate it, you can send them the internal link to facilitate access.") ?>" target="_blank" class="text-info infoFiles" data-original-title="<?= _("Definition") ?>"><i class="far fa-question-circle"></i></a>
                             </div>
                         </div>
@@ -139,18 +111,16 @@ require $sRootDocument . '/Include/Header.php';
                             <span class="shared d-block w-100 mb-3"></span>
 
                             <div class="form-group mb-3">
-                                <label for="preview-person-group-sabre-Id" class="font-weight-bold mb-2"><span class="text-danger">*</span> <?= _("Add users") ?></label>
-                                <div class="row">
-                                    <div class="col-md-8 mb-2 mb-md-0">
-                                        <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:100%"></select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
-                                            <option value="2">[👀 ] -- [R ]</option>
-                                            <option value="3">[👀 ✐] -- [RW]</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                <label for="preview-person-group-sabre-Id" class="font-weight-bold"><?= _("Add users") ?></label>
+                                <select name="preview-person-group-sabre-Id" id="preview-person-group-sabre-Id" class="form-control select2" style="width:100%"></select>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="person-group-rights" class="font-weight-bold"><?= _("Set Rights") ?></label>
+                                <select name="person-group-Id" id="person-group-rights" class="form-control" style="width:100%">
+                                    <option value="2"><?= _("Read only") ?></option>
+                                    <option value="3"><?= _("Read and write") ?></option>
+                                </select>
                             </div>
 
                             <div class="custom-control custom-checkbox mb-3">
@@ -158,34 +128,27 @@ require $sRootDocument . '/Include/Header.php';
                                 <label for="sendEmail-sabre" class="custom-control-label fille-mamager-label-small"><?= _("Send email notification") ?></label>
                             </div>
 
-                            <div class="border rounded p-3 bg-light mb-3">
-                                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-2">
-                                    <label for="select-share-persons-sabre" class="mb-2 mb-md-0"><span class="text-danger">*</span> <?= _("Shared with") ?></label>
-                                    <div class="btn-group btn-group-sm">
-                                        <button type="button" class="btn btn-outline-secondary"
-                                            id="delete-all-share"
-                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>"
-                                            disabled><i class="fas fa-times mr-1"></i></button>
-                                        <button type="button" class="btn btn-outline-secondary" id="delete-share"
-                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>"
-                                            disabled><i class="far fa-stop-circle mr-1"></i></button>
-                                    </div>
+                            <div class="edrive-share-list mb-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <label id="edrive-shared-users-label" class="font-weight-bold mb-0"><?= _("Shared with") ?></label>
                                 </div>
-                                <select size="" id="select-share-persons-sabre" class="form-control" multiple>
-                                </select>
-                            </div>
-
-                            <div class="form-group mb-0">
-                                <label class="font-weight-bold d-block mb-2"><span class="text-danger">*</span> <?= _("Set Rights") ?></label>
-                                <div class="dropdown">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                        id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false" disabled>
-                                        <?= _("Select your rights") . " [👀  ] " . _("or") . " [👀 ✐]" . " --" ?>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonRights">
-                                        <button class="dropdown-item" role="button" id="set-right-read"><?= _("[👀  ]") . ' -- ' . _("[R ]") ?></button>
-                                        <button class="dropdown-item" role="button" id="set-right-read-write"><?= _("[👀 ✐]") . ' -- ' . _("[RW]") ?></button>
+                                <div id="edrive-shared-users-list" class="edrive-shared-users-list" role="group" aria-labelledby="edrive-shared-users-label" data-empty-label="<?= _("No one has access yet.") ?>"></div>
+                                <select id="select-share-persons-sabre" class="edrive-share-select" multiple aria-hidden="true" tabindex="-1"></select>
+                                <div class="d-flex flex-wrap justify-content-between align-items-center mt-2">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-outline-danger" id="delete-share"
+                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>" disabled><?= _("Delete") ?></button>
+                                        <button type="button" class="btn btn-outline-secondary" id="delete-all-share"
+                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>" disabled><?= _("Delete all shares") ?></button>
+                                    </div>
+                                    <div class="dropdown mt-2 mt-sm-0">
+                                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button"
+                                            id="dropdownMenuButtonRights" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false" disabled><?= _("Set Rights") ?></button>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButtonRights">
+                                            <button class="dropdown-item" type="button" id="set-right-read"><?= _("Read only") ?></button>
+                                            <button class="dropdown-item" type="button" id="set-right-read-write"><?= _("Read and write") ?></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +157,7 @@ require $sRootDocument . '/Include/Header.php';
 
                     <div class="share-part-another-user card shadow-sm" style="display: none; ">
                         <div class="card-header">
-                            <h3 class="card-title mb-0"><i class="fas fa-link mr-1 text-warning"></i> <?= _("Share By") ?></h3>
+                            <h3 class="card-title mb-0"><?= _("Share By") ?></h3>
                         </div>
                         <div class="card-body">
                             <span class="shared d-block w-100 mb-3"></span>
