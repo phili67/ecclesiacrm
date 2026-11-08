@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1410,6 +1410,9 @@ msgstr "Setați un nume de fișier/folder"
 msgid "Download Error"
 msgstr "Descărcare eroare"
 
+msgid "Read and write"
+msgstr "Citire și scriere"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
 "Sunteți sigur că doriți să opriți partajarea pentru utilizatorii selectați?"
@@ -2270,9 +2273,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "Stabilirea drepturilor"
 
-msgid "Read and write"
-msgstr "Citire și scriere"
-
 msgid "Notification"
 msgstr "Notificare"
 
@@ -2441,6 +2441,63 @@ msgstr ""
 
 msgid "Comments"
 msgstr "Comentarii"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"Selectați pluginurile pe care doriți să le actualizați din fișierele deja "
+"instalate pe server."
+
+msgid "Database"
+msgstr "Baza de date"
+
+msgid "Files"
+msgstr "Fișiere"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"Faceți o copie de rezervă a bazei de date înainte de actualizare. În cazul "
+"în care migrarea eșuează, este posibil ca unele modificări să fi fost deja "
+"aplicate."
+
+msgid "Plugins requiring attention"
+msgstr "Pluginuri care necesită atenție"
+
+msgid "The database version is newer than the files."
+msgstr "Versiunea bazei de date este mai recentă decât cea a fișierelor."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr ""
+"Configurarea sau migrarea nu este validă. Verificați jurnalele aplicației."
+
+msgid "Close and refresh"
+msgstr "Închide și reîmprospătează"
+
+msgid "The selected plugins have been updated."
+msgstr "Pluginurile selectate au fost actualizate."
+
+msgid "The update stopped at"
+msgstr "Actualizarea s-a oprit la"
+
+msgid "Plugin updates"
+msgstr "Actualizări ale pluginurilor"
+
+msgid "Later"
+msgstr "Mai târziu"
+
+msgid "Update selected plugins"
+msgstr "Actualizează pluginurile selectate"
+
+msgid "Select at least one plugin."
+msgstr "Selectați cel puțin un plugin."
+
+msgid "Updating plugins. Please wait."
+msgstr "Se actualizează pluginurile. Vă rugăm să așteptați."
+
+msgid "Unable to check plugin updates."
+msgstr "Nu se pot verifica actualizările pluginului."
 
 msgid "Confirmation of plugin removal"
 msgstr "Confirmarea eliminării plugin-ului"
@@ -3244,9 +3301,6 @@ msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați
 #~ msgid "Edit General Settings"
 #~ msgstr "Editați setările generale"
 
-#~ msgid "Then update"
-#~ msgstr "Apoi actualizați"
-
 #~ msgid "For more info see our "
 #~ msgstr "Pentru mai multe informații, consultați pagina noastră"
 
@@ -3714,9 +3768,6 @@ msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Sunteți pe cale să eliminați un dosar și conținutul acestuia"
-
-#~ msgid "Files input"
-#~ msgstr "Intrarea fișierelor"
 
 #~ msgid "Upload your files"
 #~ msgstr "Încărcați fișierele dvs."

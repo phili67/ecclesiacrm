@@ -6,20 +6,20 @@ msgstr ""
 msgid "Updated Families"
 msgstr ""
 
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:52
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:68
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:50
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:64
 msgid "Family Name"
 msgstr ""
 
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:53
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:69
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:51
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:65
 msgid "Address"
 msgstr ""
 
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:54
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:52
 msgid "Created"
 msgstr ""
 
-#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:70
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:66
 msgid "Updated"
 msgstr ""

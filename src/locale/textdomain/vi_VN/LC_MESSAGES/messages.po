@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 13:22+0100\n"
+"POT-Creation-Date: 2026-11-08 18:46+0100\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,140 +28,134 @@ msgstr "Nạp đạn"
 msgid "Insert"
 msgstr ""
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:39
-#, fuzzy
-msgid "Download files"
-msgstr "Nạp đạn"
-
-#: browser/browse.php:83 v2/templates/edrive/dashboard.php:50
-#, fuzzy
-msgid "Files input"
-msgstr "Đầu vào"
-
-#: browser/browse.php:87 v2/templates/edrive/dashboard.php:54
-#, fuzzy
-msgid "You can also drag and drop files into this area."
-msgstr "Bạn chỉ có thể đọc các sự kiện của lịch này."
-
-#: browser/browse.php:94 v2/templates/edrive/dashboard.php:61
-#, fuzzy
-msgid "Download status"
-msgstr "Nạp đạn"
-
-#: browser/browse.php:108 v2/templates/edrive/dashboard.php:74
+#: browser/browse.php:74 v2/templates/edrive/dashboard.php:42
 #, fuzzy
 msgid "Upload your files"
 msgstr "Tải hồ sơ của cô lên"
 
-#: browser/browse.php:111 v2/templates/cart/carttobadge.php:182
-#: v2/templates/cart/carttobadge.php:188 v2/templates/edrive/dashboard.php:77
-#: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
-msgid "Upload"
-msgstr "Tải lên"
+#: browser/browse.php:75 v2/templates/edrive/dashboard.php:43
+msgid "Click to choose files or drag and drop them here."
+msgstr ""
 
-#: browser/browse.php:124 v2/templates/edrive/dashboard.php:97
+#: browser/browse.php:79 v2/templates/edrive/dashboard.php:47
+#, fuzzy
+msgid "Drop files to upload"
+msgstr "Không có hồ sơ nào được đăng tải."
+
+#: browser/browse.php:95 v2/templates/edrive/dashboard.php:71
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 
-#: browser/browse.php:147 Include/Header-function.php:96
-#: Include/Header-function.php:158 Include/Header.php:243
+#: browser/browse.php:118 Include/Header-function.php:96
+#: Include/Header-function.php:158 Include/Header.php:345
 #: v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:121 v2/templates/group/groupedit.php:42
+#: v2/templates/edrive/dashboard.php:95 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Gần đúng."
 
-#: browser/browse.php:158 v2/templates/edrive/dashboard.php:132
+#: browser/browse.php:128 v2/templates/edrive/dashboard.php:105
 msgid "Internal sharing"
 msgstr ""
 
-#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:129 v2/templates/edrive/dashboard.php:106
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
 "locate it, you can send them the internal link to facilitate access."
 msgstr ""
 
-#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:129 v2/templates/edrive/dashboard.php:106
 #: v2/templates/sidebar/systemsettings.php:396
 #, fuzzy
 msgid "Definition"
 msgstr "Mô tả"
 
-#: browser/browse.php:164 v2/templates/edrive/dashboard.php:138
+#: browser/browse.php:133 v2/templates/edrive/dashboard.php:110
 msgid ""
 "Choose people, define their access rights, then manage existing shares from "
 "the list below."
 msgstr ""
 
-#: browser/browse.php:168 v2/templates/edrive/dashboard.php:142
+#: browser/browse.php:137 v2/templates/edrive/dashboard.php:114
 #, fuzzy
 msgid "Add users"
 msgstr "Thêm người mua"
 
-#: browser/browse.php:184 v2/templates/edrive/dashboard.php:158
+#: browser/browse.php:142 browser/browse.php:170
+#: v2/templates/edrive/dashboard.php:119 v2/templates/edrive/dashboard.php:147
+#, fuzzy
+msgid "Set Rights"
+msgstr "Đúng vậy."
+
+#: browser/browse.php:144 browser/browse.php:172
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: v2/templates/edrive/dashboard.php:121 v2/templates/edrive/dashboard.php:149
+msgid "Read only"
+msgstr ""
+
+#: browser/browse.php:145 browser/browse.php:173
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: v2/templates/edrive/dashboard.php:122 v2/templates/edrive/dashboard.php:150
+msgid "Read and write"
+msgstr ""
+
+#: browser/browse.php:151 v2/templates/edrive/dashboard.php:128
 #, fuzzy
 msgid "Send email notification"
 msgstr "Thay đổi hồ sơ"
 
-#: browser/browse.php:189 v2/templates/edrive/dashboard.php:163
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:133
 #: v2/templates/edrive/shares.php:7
 #, fuzzy
 msgid "Shared with"
 msgstr "Chia sẻ"
 
-#: browser/browse.php:193 v2/templates/edrive/dashboard.php:167
-#, fuzzy
-msgid "Delete all shares"
-msgstr "Xóa hết phòng đi"
+#: browser/browse.php:158 v2/templates/edrive/dashboard.php:135
+msgid "No one has access yet."
+msgstr ""
 
-#: browser/browse.php:196 v2/templates/edrive/dashboard.php:170
+#: browser/browse.php:163 v2/templates/edrive/dashboard.php:140
 #, fuzzy
 msgid "Delete shares for the selected users"
 msgstr "Chuyển hiến tặng sang người được chọn"
 
-#: browser/browse.php:205 v2/templates/edrive/dashboard.php:179
+#: browser/browse.php:163 EcclesiaCRM/Service/CalendarService.php:1422
+#: EcclesiaCRM/Service/ConfirmReportService.php:541
+#: ident/templates/verify/verify-family-info.php:47
+#: ident/templates/verify/verify-person-info.php:62
+#: v2/templates/calendar/eventattendeesedit.php:96
+#: v2/templates/calendar/eventnames.php:322
+#: v2/templates/calendar/eventnames.php:325
+#: v2/templates/cart/carttobadge.php:170
+#: v2/templates/deposit/electronicPaymentList.php:83
+#: v2/templates/deposit/electronicPaymentList.php:229
+#: v2/templates/deposit/finddepositslip.php:101
+#: v2/templates/deposit/finddepositslip.php:144
+#: v2/templates/edrive/dashboard.php:140 v2/templates/group/groupbadge.php:156
+#: v2/templates/pastoralcare/pastoralcarefamily.php:311
+#: v2/templates/pastoralcare/pastoralcarefamily.php:320
+#: v2/templates/pastoralcare/pastoralcareperson.php:450
+#: v2/templates/pastoralcare/pastoralcareperson.php:459
+#: v2/templates/people/familyCustomFieldEditor.php:410
+#: v2/templates/people/familyview.php:511
+#: v2/templates/people/familyview.php:674
+#: v2/templates/people/familyview.php:990
+#: v2/templates/people/personCustomEditor.php:402
+#: v2/templates/people/personview.php:986
+#: v2/templates/people/personview.php:1090
+#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:61
+#: v2/templates/system/optionManager.php:443
+#: v2/templates/system/optionManager.php:445
+msgid "Delete"
+msgstr "Xóa"
+
+#: browser/browse.php:165 v2/templates/edrive/dashboard.php:142
 #, fuzzy
-msgid "Set Rights"
-msgstr "Đúng vậy."
+msgid "Delete all shares"
+msgstr "Xóa hết phòng đi"
 
-#: browser/browse.php:210 v2/templates/edrive/dashboard.php:184
-#, fuzzy
-msgid "Select your rights"
-msgstr "Thiết lập các nguyên tố"
-
-#: browser/browse.php:210 v2/templates/deposit/autaPaymentEditor.php:284
-#: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:184
-#: v2/templates/people/personEditor.php:1145
-msgid "or"
-msgstr "Hoặc"
-
-#: browser/browse.php:213
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:187
-msgid "[👀  ]"
-msgstr "[👀  ]"
-
-#: browser/browse.php:213 v2/templates/edrive/dashboard.php:187
-msgid "[R ]"
-msgstr ""
-
-#: browser/browse.php:214
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:188
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
-#: browser/browse.php:214 v2/templates/edrive/dashboard.php:188
-msgid "[RW]"
-msgstr ""
-
-#: browser/browse.php:223 v2/templates/edrive/dashboard.php:197
+#: browser/browse.php:183 v2/templates/edrive/dashboard.php:160
 #, fuzzy
 msgid "Share By"
 msgstr "Chia sẻ bởi"
@@ -344,8 +338,8 @@ msgid "No person found for preview"
 msgstr ""
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:161
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:285
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1151
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:288
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1154
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:628
 #: uploader/upload.php:176
 msgid "Create file"
@@ -354,12 +348,18 @@ msgstr "Tạo hồ sơ"
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:45
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:78
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:97
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:155
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:161
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:177
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:209
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:352
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:371
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:196
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:202
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:218
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:250
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:393
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:412
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:157
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:221
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:284
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:327
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:365
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:426
 #: v2/templates/query/querylist.php:53 v2/templates/query/querylist.php:88
 msgid "Forbidden"
 msgstr "Cấm"
@@ -370,37 +370,37 @@ msgstr "Cấm"
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:75
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:83
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:105
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:166
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:171
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:183
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:304
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:333
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:349
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:368
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:207
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:212
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:224
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:345
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:374
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:305
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:319
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:390
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:409
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:415
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:308
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:322
 msgid "Document not found"
 msgstr "Không tìm thấy tài liệu"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:220
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:225
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:232
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:261
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:266
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:273
 #, fuzzy
 msgid "Invalid name"
 msgstr "Cứu tên"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:236
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:277
 #, fuzzy
 msgid "The file already exists"
 msgstr "Tên thực địa đó đã tồn tại."
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:240
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:281
 #, fuzzy
 msgid "Unable to create the file"
 msgstr "Dav tạo hồ sơ"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:356
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:397
 #, fuzzy
 msgid "Unable to restore this version"
 msgstr "Không thể khởi động lại mật khẩu"
@@ -415,139 +415,152 @@ msgstr "Tài liệu này được mở bởi"
 msgid "Minutes left"
 msgstr "Còn vài phút"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:235
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:371
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:238
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:374
 #: EcclesiaCRM/utils/MiscUtils.php:884
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
 msgid "Folder"
 msgstr "Thư mục"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:448
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:451
 #, fuzzy
 msgid "Shared folder"
 msgstr "Chia sẻ bởi"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:620
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:659
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:623
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:662
 msgid "Right of access to folder problem"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:689
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1060
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:692
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1063
 #, fuzzy
 msgid "Contact error at api"
 msgstr "Tất cả liên hệ với các nhà sản xuất"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:716
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:719
 msgid "You can't erase the public folder !"
 msgstr "Anh không thể xóa tập tài liệu công cộng!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:756
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:830
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:902
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1016
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:727
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:759
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:833
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:905
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1019
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:815
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:965
 msgid "A Folder"
 msgstr "Một tập tài liệu"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:815
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:883
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:965
 msgid "already exists at this place."
 msgstr "đã tồn tại ở nơi này rồi."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:860
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:863
 msgid "Folder modification"
 msgstr "Thay đổi tập tin"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:862
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:931
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:865
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:934
 msgid "File modification"
 msgstr "Thay đổi hồ sơ"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:883
 msgid "A File"
 msgstr "Một tập tin"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:974
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:977
 msgid "New Folder"
 msgstr "Thư mục mới"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:998
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1001
 #, fuzzy
 msgid "can't rename public folder"
 msgstr "Anh không thể xóa tập tài liệu công cộng!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1020
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1023
 #, fuzzy
 msgid "The file or folder name already exists!!!"
 msgstr "Tên thực địa đó đã tồn tại."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1075
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1078
 #, fuzzy
 msgid "Invalid CSRF token."
 msgstr "Năm bất hợp pháp"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1081
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1084
 #, fuzzy
 msgid "User account not found."
 msgstr "Không tìm thấy tài liệu"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1089
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1092
 #, fuzzy
 msgid "Invalid target path."
 msgstr "Ngày sinh bất giá."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1093
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1096
 #, fuzzy
 msgid "No uploaded file received."
 msgstr "Tải một hồ sơ ở Edrive"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1099
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1134
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1102
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1137
 msgid "Upload problem !!!"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1103
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1106
 #, fuzzy
 msgid "Invalid uploaded file."
 msgstr "Gia đình vô giá"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1108
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1111
 #, fuzzy
 msgid "Invalid file name."
 msgstr "Cứu tên"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1114
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1117
 #, fuzzy
 msgid "This file type is not allowed."
 msgstr "không được phép."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1119
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1122
 msgid "Target directory is invalid."
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1130
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1133
 msgid ""
 "A file with the same name already exists. The uploaded file was renamed "
 "automatically."
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:106
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:161
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:220
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:340
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
+msgid "[👀  ]"
+msgstr "[👀  ]"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:140
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:205
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:268
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:400
 #: EcclesiaCRM/utils/SabreUtils.php:125
 msgid ""
 "You can visualize it in your account, in the time Line or the notes tab."
 msgstr ""
 "Bạn có thể hình dung nó trong tài khoản của bạn, trong dòng thời gian hoặc "
 "các ghi chú."
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:163
+#, fuzzy
+msgid "Invalid person"
+msgstr "Năm bất hợp pháp"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:126
 #: v2/templates/deposit/pledgeEditor.php:191
@@ -631,7 +644,7 @@ msgstr "Thừa thời gian để xe ngựa cần một EventID"
 #: EcclesiaCRM/APIControllers/PeopleController.php:81
 #: EcclesiaCRM/APIControllers/PeopleController.php:138
 #: EcclesiaCRM/APIControllers/PeopleController.php:188
-#: EcclesiaCRM/APIControllers/PeopleController.php:241
+#: EcclesiaCRM/APIControllers/PeopleController.php:258
 #: EcclesiaCRM/APIControllers/SearchController.php:55
 #: EcclesiaCRM/MenuBar/MenuBar.php:234
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
@@ -642,7 +655,7 @@ msgstr "Thừa thời gian để xe ngựa cần một EventID"
 msgid "Persons"
 msgstr "Người của tôi."
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:280
+#: EcclesiaCRM/APIControllers/PeopleController.php:297
 #: EcclesiaCRM/APIControllers/SearchController.php:97
 #: EcclesiaCRM/APIControllers/SearchController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:317
@@ -660,7 +673,7 @@ msgstr "Người của tôi."
 msgid "Families"
 msgstr "Gia đình"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:317
+#: EcclesiaCRM/APIControllers/PeopleController.php:334
 #: EcclesiaCRM/APIControllers/SearchController.php:121
 #: EcclesiaCRM/APIControllers/SearchController.php:340
 #: EcclesiaCRM/APIControllers/SearchController.php:343
@@ -677,14 +690,14 @@ msgstr "Gia đình"
 msgid "Groups"
 msgstr "Các nhóm"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:380
-#: EcclesiaCRM/APIControllers/PeopleController.php:404
+#: EcclesiaCRM/APIControllers/PeopleController.php:397
+#: EcclesiaCRM/APIControllers/PeopleController.php:421
 #, fuzzy
 msgid "Status Updated"
 msgstr "Đã cập nhật ngày tháng"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:381
-#: EcclesiaCRM/APIControllers/PeopleController.php:405
+#: EcclesiaCRM/APIControllers/PeopleController.php:398
+#: EcclesiaCRM/APIControllers/PeopleController.php:422
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:201
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:210
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
@@ -785,12 +798,12 @@ msgstr "Tên đầu tiên"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:158
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:169
-#: EcclesiaCRM/APIControllers/SearchController.php:458
-#: EcclesiaCRM/APIControllers/SearchController.php:463
-#: EcclesiaCRM/APIControllers/SearchController.php:471
-#: EcclesiaCRM/APIControllers/SearchController.php:476
-#: EcclesiaCRM/APIControllers/SearchController.php:484
-#: EcclesiaCRM/APIControllers/SearchController.php:489
+#: EcclesiaCRM/APIControllers/SearchController.php:461
+#: EcclesiaCRM/APIControllers/SearchController.php:466
+#: EcclesiaCRM/APIControllers/SearchController.php:474
+#: EcclesiaCRM/APIControllers/SearchController.php:479
+#: EcclesiaCRM/APIControllers/SearchController.php:487
+#: EcclesiaCRM/APIControllers/SearchController.php:492
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:335 EcclesiaCRM/MenuBar/MenuBar.php:587
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
@@ -866,12 +879,29 @@ msgstr "Người bị vô hiệu hóa"
 msgid "Person Activated"
 msgstr "Đã kích hoạt"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:131
+#: EcclesiaCRM/APIControllers/PluginsController.php:41
+#: EcclesiaCRM/APIControllers/PluginsController.php:50
+#, fuzzy
+msgid "Access denied"
+msgstr "Truy cập"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:57
+#, fuzzy
+msgid "Invalid request"
+msgstr "Năm bất hợp pháp"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:69
+msgid ""
+"Plugin update failed. Check the application logs; some changes may already "
+"have been applied."
+msgstr ""
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:164
 #: EcclesiaCRM/BackupManager.php:256 EcclesiaCRM/BackupManager.php:543
 msgid "Impossible to open"
 msgstr "Không thể mở được"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:237
+#: EcclesiaCRM/APIControllers/PluginsController.php:270
 #: EcclesiaCRM/Service/UpgradeService.php:90
 msgid "Databse upgrade failed"
 msgstr "Nâng cấp Databse thất bại"
@@ -992,7 +1022,7 @@ msgstr "Tập đoàn Chủ nhật"
 msgid "groupmasters"
 msgstr "Các bậc thầy."
 
-#: EcclesiaCRM/APIControllers/SearchController.php:453
+#: EcclesiaCRM/APIControllers/SearchController.php:456
 #: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:143
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -1007,7 +1037,7 @@ msgstr "Các bậc thầy."
 msgid "Male"
 msgstr "Nam"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:453
+#: EcclesiaCRM/APIControllers/SearchController.php:456
 #: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:146
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -1022,7 +1052,7 @@ msgstr "Nam"
 msgid "Female"
 msgstr "Nữ nhi"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:509
+#: EcclesiaCRM/APIControllers/SearchController.php:512
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:297
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:419
 #: v2/templates/people/familyEditor.php:1198
@@ -1036,7 +1066,7 @@ msgstr "Nữ nhi"
 msgid "Gender"
 msgstr "Giới thiệu"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:510
+#: EcclesiaCRM/APIControllers/SearchController.php:513
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:651
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:754
@@ -1055,7 +1085,7 @@ msgstr "Giới thiệu"
 msgid "Classification"
 msgstr "Tuyệt mật"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:511
+#: EcclesiaCRM/APIControllers/SearchController.php:514
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:316
 #: v2/templates/people/personPrint.php:333
@@ -1064,13 +1094,13 @@ msgstr "Tuyệt mật"
 msgid "Family Role"
 msgstr "Gia đình Role"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:512
+#: EcclesiaCRM/APIControllers/SearchController.php:515
 #: Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:84
 msgid "Person Property"
 msgstr "Tài sản cá nhân"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:513
+#: EcclesiaCRM/APIControllers/SearchController.php:516
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:142
 #: v2/templates/system/optionManager.php:115
 msgid "Group Type"
@@ -3708,7 +3738,7 @@ msgid "Family Name"
 msgstr "Tên gia đình"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-#: Include/Header.php:240
+#: Include/Header.php:342
 msgid "Notification"
 msgstr "Thông báo"
 
@@ -3830,7 +3860,7 @@ msgid "Your CRM account was updated"
 msgstr "Tài khoản CRM Ecclesiacủa anh đã được cập nhật"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:92
+#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:95
 #: v2/templates/user/userlist.php:65 v2/templates/user/userseditor.php:711
 #: v2/templates/user/userseditor.php:779
 msgid "Status"
@@ -3874,24 +3904,24 @@ msgstr "Thông tin"
 msgid "Please verify your informations"
 msgstr "Xin hãy xác minh thông tin của gia đình"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:73
-#: Include/Header.php:127
+#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:107
+#: Include/Header.php:109 Include/Header.php:183
 msgid "Private Space"
 msgstr "Vũ trụ tư nhân"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:117 EcclesiaCRM/utils/MiscUtils.php:489
 #: external/templates/registration/family-register-members.php:112
-#: Include/Header.php:225
+#: Include/Header.php:327
 msgid "Home"
 msgstr "♪ Home ♪"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:129
+#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:185
 #: v2/templates/people/personview.php:532
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "Đổi mật khẩu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:131
+#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:187
 #: v2/templates/people/personview.php:530
 msgid "Change Settings"
 msgstr "Thay đổi thiết lập"
@@ -3908,10 +3938,10 @@ msgstr "Tài liệu"
 #: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/MenuBar/MenuBar.php:786
 #: EcclesiaCRM/MenuBar/MenuBar.php:834 EcclesiaCRM/MenuBar/MenuBar.php:860
 #: EcclesiaCRM/MenuBar/MenuBar.php:913 EcclesiaCRM/MenuBar/MenuBar.php:936
-#: v2/templates/pastoralcare/pastoralcarefamily.php:349
+#: Include/Header.php:104 v2/templates/pastoralcare/pastoralcarefamily.php:349
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:72
 #: v2/templates/pastoralcare/pastoralcareperson.php:488
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:125
 msgid "Dashboard"
 msgstr "Dashboard."
 
@@ -5084,36 +5114,6 @@ msgstr "Chào"
 msgid "Anniversary"
 msgstr "Kỷ niệm"
 
-#: EcclesiaCRM/Service/CalendarService.php:1422
-#: EcclesiaCRM/Service/ConfirmReportService.php:541
-#: ident/templates/verify/verify-family-info.php:47
-#: ident/templates/verify/verify-person-info.php:62
-#: v2/templates/calendar/eventattendeesedit.php:96
-#: v2/templates/calendar/eventnames.php:322
-#: v2/templates/calendar/eventnames.php:325
-#: v2/templates/cart/carttobadge.php:170
-#: v2/templates/deposit/electronicPaymentList.php:83
-#: v2/templates/deposit/electronicPaymentList.php:229
-#: v2/templates/deposit/finddepositslip.php:101
-#: v2/templates/deposit/finddepositslip.php:144
-#: v2/templates/group/groupbadge.php:156
-#: v2/templates/pastoralcare/pastoralcarefamily.php:311
-#: v2/templates/pastoralcare/pastoralcarefamily.php:320
-#: v2/templates/pastoralcare/pastoralcareperson.php:450
-#: v2/templates/pastoralcare/pastoralcareperson.php:459
-#: v2/templates/people/familyCustomFieldEditor.php:410
-#: v2/templates/people/familyview.php:511
-#: v2/templates/people/familyview.php:674
-#: v2/templates/people/familyview.php:990
-#: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:986
-#: v2/templates/people/personview.php:1090
-#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:58
-#: v2/templates/system/optionManager.php:443
-#: v2/templates/system/optionManager.php:445
-msgid "Delete"
-msgstr "Xóa"
-
 #: EcclesiaCRM/Service/CalendarService.php:1425
 #, fuzzy
 msgid "Info"
@@ -5865,7 +5865,7 @@ msgid "People Dashboard"
 msgstr "Mọi người đều ở trên bảng"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:63
+#: Include/Header.php:83 query_qry.php:8 query_qry.php:63
 msgid "Advanced Search"
 msgstr "Tìm kiếm tiến bộ"
 
@@ -6104,14 +6104,6 @@ msgstr "egive Import"
 #, fuzzy
 msgid "Unavailable"
 msgstr "Không có"
-
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
-msgid "Read only"
-msgstr ""
-
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
-msgid "Read and write"
-msgstr ""
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:199
 msgid "No response"
@@ -6670,7 +6662,7 @@ msgstr "Rõ."
 msgid "All rights reserved"
 msgstr "Được rồi"
 
-#: Include/Footer.php:32 v2/templates/plugins/plugins.php:135
+#: Include/Footer.php:32 v2/templates/plugins/plugins.php:138
 msgid "Version"
 msgstr "Phiên tòa"
 
@@ -6883,57 +6875,66 @@ msgstr "Thay đổi cột"
 msgid "Print"
 msgstr "In"
 
-#: Include/Header.php:84 v2/templates/people/familylist.php:172
+#: Include/Header.php:83 v2/templates/people/familylist.php:172
 #: v2/templates/people/lettersandlabels.php:238
 #: v2/templates/people/peoplelist.php:110 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "Tìm đi"
 
-#: Include/Header.php:89
+#: Include/Header.php:88
 msgid "Exit Control"
 msgstr ""
 
-#: Include/Header.php:97
+#: Include/Header.php:95 Include/Header.php:97
+#, fuzzy
+msgid "Quick Access"
+msgstr "Thiết lập nhanh"
+
+#: Include/Header.php:102 v2/templates/user/userseditor.php:274
+msgid "Main Dashboard"
+msgstr "Bảng điều khiển chính"
+
+#: Include/Header.php:153
 msgid "Your Cart"
 msgstr "Vé của anh"
 
-#: Include/Header.php:107
+#: Include/Header.php:163
 msgid "Your settings and more"
 msgstr "Cài đặt và nhiều hơn nữa"
 
-#: Include/Header.php:133
+#: Include/Header.php:189
 msgid "Lock"
 msgstr "Khóa"
 
-#: Include/Header.php:135
+#: Include/Header.php:191
 msgid "Sign out"
 msgstr "Ký tên đi"
 
-#: Include/Header.php:146
+#: Include/Header.php:202
 msgid "Help & Support"
 msgstr "Giúp đỡ "
 
-#: Include/Header.php:150
+#: Include/Header.php:206
 msgid "Help Center"
 msgstr "Trung tâm cứu trợ"
 
-#: Include/Header.php:152 Include/Header.php:154
+#: Include/Header.php:208 Include/Header.php:210
 msgid "Help & Manual"
 msgstr "Giúp với "
 
-#: Include/Header.php:157 Include/Header.php:159
+#: Include/Header.php:213 Include/Header.php:215
 msgid "Report an issue"
 msgstr "Báo cáo một vấn đề"
 
-#: Include/Header.php:162 Include/Header.php:164
+#: Include/Header.php:218 Include/Header.php:220
 msgid "Developer Chat"
 msgstr "Cuộc nói chuyện về nhà phát triển"
 
-#: Include/Header.php:168 Include/Header.php:169
+#: Include/Header.php:224 Include/Header.php:225
 msgid "Contributing"
 msgstr "Nạp đạn"
 
-#: Include/Header.php:181
+#: Include/Header.php:237
 msgid "Your tasks"
 msgstr "Nhiệm vụ của anh"
 
@@ -7377,7 +7378,7 @@ msgid "Edited By Name"
 msgstr "Học bởi tên"
 
 #: Reports/GDPR/GDPRListExport.php:72 v2/templates/people/familyview.php:92
-#: v2/templates/plugins/plugins.php:75
+#: v2/templates/plugins/plugins.php:78
 msgid "Deactivated"
 msgstr "Vô hiệu hóa"
 
@@ -7850,7 +7851,7 @@ msgstr "Bởi những loại chữ"
 #: v2/templates/calendar/eventslist.php:65
 #: v2/templates/deposit/manageEnvelopes.php:151
 #: v2/templates/deposit/manageEnvelopes.php:187
-#: v2/templates/group/grouplist.php:135 v2/templates/plugins/plugins.php:65
+#: v2/templates/group/grouplist.php:135 v2/templates/plugins/plugins.php:68
 msgid "All"
 msgstr "Tất cả"
 
@@ -8008,7 +8009,7 @@ msgstr "Trở về với những khoảnh khắc"
 #: v2/templates/group/groupPropsEditor.php:236
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
-#: v2/templates/group/groupview.php:401 v2/templates/plugins/plugins.php:91
+#: v2/templates/group/groupview.php:401 v2/templates/plugins/plugins.php:94
 msgid "Description"
 msgstr "Mô tả"
 
@@ -8445,6 +8446,11 @@ msgstr ""
 msgid "Available images"
 msgstr "Không có"
 
+#: v2/templates/cart/carttobadge.php:182 v2/templates/cart/carttobadge.php:188
+#: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
+msgid "Upload"
+msgstr "Tải lên"
+
 #: v2/templates/cart/carttobadge.php:197
 msgid "Layout"
 msgstr ""
@@ -8728,7 +8734,7 @@ msgstr "Người của tôi"
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:80
-#: v2/templates/plugins/plugins.php:111
+#: v2/templates/plugins/plugins.php:114
 #, fuzzy
 msgid "Settings"
 msgstr "Thiết lập bản đồ"
@@ -8769,6 +8775,12 @@ msgstr "Bắt đầu cột"
 #: v2/templates/deposit/autaPaymentEditor.php:279
 msgid "For the"
 msgstr "Vì cái này"
+
+#: v2/templates/deposit/autaPaymentEditor.php:284
+#: v2/templates/deposit/pledgeEditor.php:40
+#: v2/templates/people/personEditor.php:1145
+msgid "or"
+msgstr "Hoặc"
 
 #: v2/templates/deposit/autaPaymentEditor.php:288
 msgid ""
@@ -9533,7 +9545,7 @@ msgstr "Vũ trụ tư nhân"
 msgid "Manage your files, previews and internal sharing from one place."
 msgstr ""
 
-#: v2/templates/edrive/dashboard.php:91
+#: v2/templates/edrive/dashboard.php:65
 #, fuzzy
 msgid "Files"
 msgstr "Hồ sơ"
@@ -11809,14 +11821,14 @@ msgid "Get the vCard of the family"
 msgstr "Lấy VCard của gia đình"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:57
-#: v2/templates/plugins/plugins.php:114
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:60
+#: v2/templates/plugins/plugins.php:117
 msgid "Deactivate"
 msgstr "Vô hiệu hóa"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:56
-#: v2/templates/plugins/plugins.php:114
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:59
+#: v2/templates/plugins/plugins.php:117
 msgid "Activate"
 msgstr "Kích hoạt"
 
@@ -13193,41 +13205,41 @@ msgstr "Hỗ trợ cho CSV"
 msgid "Plugins managements"
 msgstr "Quản lý Role"
 
-#: v2/templates/plugins/plugins.php:35
+#: v2/templates/plugins/plugins.php:38
 #, fuzzy
 msgid "Add a plugin"
 msgstr "Thêm một lời thề mới"
 
-#: v2/templates/plugins/plugins.php:40 v2/templates/plugins/plugins.php:151
+#: v2/templates/plugins/plugins.php:43 v2/templates/plugins/plugins.php:154
 #, fuzzy
 msgid "Add new plugin"
 msgstr "Thêm một lời thề mới"
 
-#: v2/templates/plugins/plugins.php:43
+#: v2/templates/plugins/plugins.php:46
 #, fuzzy
 msgid "Upload A Plugin"
 msgstr "Tải hồ sơ CSV"
 
-#: v2/templates/plugins/plugins.php:53
+#: v2/templates/plugins/plugins.php:56
 #, fuzzy
 msgid "Select the grouped action"
 msgstr "Chọn một nhóm đi"
 
-#: v2/templates/plugins/plugins.php:55
+#: v2/templates/plugins/plugins.php:58
 #, fuzzy
 msgid "Grouped actions"
 msgstr "Tập đoàn Functions"
 
-#: v2/templates/plugins/plugins.php:70
+#: v2/templates/plugins/plugins.php:73
 #, fuzzy
 msgid "Activated"
 msgstr "Kích hoạt"
 
-#: v2/templates/plugins/plugins.php:87 v2/templates/user/userlist.php:51
+#: v2/templates/plugins/plugins.php:90 v2/templates/user/userlist.php:51
 msgid "Check all boxes"
 msgstr "Kiểm tra tất cả các hộp"
 
-#: v2/templates/plugins/plugins.php:89 v2/templates/plugins/plugins.php:126
+#: v2/templates/plugins/plugins.php:92 v2/templates/plugins/plugins.php:129
 #: v2/templates/system/infos.php:306 v2/templates/system/integritycheck.php:135
 #: v2/templates/system/integritycheck.php:230
 #: v2/templates/user/usersettings.php:375
@@ -13235,43 +13247,43 @@ msgstr "Kiểm tra tất cả các hộp"
 msgid "Plugin"
 msgstr ""
 
-#: v2/templates/plugins/plugins.php:90
+#: v2/templates/plugins/plugins.php:93
 msgid "Category"
 msgstr ""
 
-#: v2/templates/plugins/plugins.php:93
+#: v2/templates/plugins/plugins.php:96
 msgid "Update"
 msgstr "Cập nhật"
 
-#: v2/templates/plugins/plugins.php:116
+#: v2/templates/plugins/plugins.php:119
 msgid "Guided tour"
 msgstr ""
 
-#: v2/templates/plugins/plugins.php:124
+#: v2/templates/plugins/plugins.php:127
 #, fuzzy
 msgid "Widget"
 msgstr "Thiết lập nhanh"
 
-#: v2/templates/plugins/plugins.php:135
+#: v2/templates/plugins/plugins.php:138
 #, fuzzy
 msgid "By"
 msgstr "Cậu bé"
 
-#: v2/templates/plugins/plugins.php:139
+#: v2/templates/plugins/plugins.php:142
 msgid "Details"
 msgstr "Chi tiết"
 
-#: v2/templates/plugins/plugins.php:143
+#: v2/templates/plugins/plugins.php:146
 #, fuzzy
 msgid "Activated Plugin"
 msgstr "Đã kích hoạt."
 
-#: v2/templates/plugins/plugins.php:145
+#: v2/templates/plugins/plugins.php:148
 #, fuzzy
 msgid "Deactivated Plugin"
 msgstr "Vô hiệu hóa"
 
-#: v2/templates/plugins/plugins.php:155
+#: v2/templates/plugins/plugins.php:158
 #, fuzzy
 msgid "Update/upgrade"
 msgstr "Cập nhật"
@@ -14993,10 +15005,6 @@ msgstr "Xem, thêm và chỉnh sửa ghi chú"
 msgid "User Account Permissions"
 msgstr "Số tài khoản đã rõ"
 
-#: v2/templates/user/userseditor.php:274
-msgid "Main Dashboard"
-msgstr "Bảng điều khiển chính"
-
 #: v2/templates/user/userseditor.php:276
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "Tấm bảng mạch chính và ngày sinh trong lịch đều thấy được."
@@ -16250,6 +16258,26 @@ msgstr ""
 #, fuzzy
 msgid "Giving Report"
 msgstr "Báo cáo Generate"
+
+#, fuzzy
+#~ msgid "Download files"
+#~ msgstr "Nạp đạn"
+
+#, fuzzy
+#~ msgid "Files input"
+#~ msgstr "Đầu vào"
+
+#, fuzzy
+#~ msgid "You can also drag and drop files into this area."
+#~ msgstr "Bạn chỉ có thể đọc các sự kiện của lịch này."
+
+#, fuzzy
+#~ msgid "Download status"
+#~ msgstr "Nạp đạn"
+
+#, fuzzy
+#~ msgid "Select your rights"
+#~ msgstr "Thiết lập các nguyên tố"
 
 #~ msgid "File Manager"
 #~ msgstr "Quản lý tài liệu"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1373,6 +1373,9 @@ msgstr "파일/폴더 이름 설정"
 msgid "Download Error"
 msgstr "다운로드 오류"
 
+msgid "Read and write"
+msgstr "읽기 및 쓰기"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "선택한 사용자에 대한 공유를 중지하시겠습니까?"
 
@@ -2207,9 +2210,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "권한 설정"
 
-msgid "Read and write"
-msgstr "읽기 및 쓰기"
-
 msgid "Notification"
 msgstr "알림"
 
@@ -2367,6 +2367,60 @@ msgstr "이 보안 인증 링크를 상대방과 공유하세요."
 
 msgid "Comments"
 msgstr "댓글"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr "서버에 이미 설치된 파일 중에서 업데이트할 플러그인을 선택하십시오."
+
+msgid "Database"
+msgstr "데이터베이스"
+
+msgid "Files"
+msgstr "파일"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"업데이트하기 전에 데이터베이스를 백업하십시오. 마이그레이션이 실패할 경우, 일"
+"부 변경 사항이 이미 적용되었을 수 있습니다."
+
+msgid "Plugins requiring attention"
+msgstr "주의가 필요한 플러그인"
+
+msgid "The database version is newer than the files."
+msgstr "데이터베이스 버전이 파일보다 최신입니다."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr ""
+"구성 또는 마이그레이션이 유효하지 않습니다. 애플리케이션 로그를 확인하십시오."
+
+msgid "Close and refresh"
+msgstr "닫기 및 새로 고침"
+
+msgid "The selected plugins have been updated."
+msgstr "선택한 플러그인이 업데이트되었습니다."
+
+msgid "The update stopped at"
+msgstr "업데이트가 다음에서 중단되었습니다."
+
+msgid "Plugin updates"
+msgstr "플러그인 업데이트"
+
+msgid "Later"
+msgstr "나중에"
+
+msgid "Update selected plugins"
+msgstr "선택한 플러그인 업데이트"
+
+msgid "Select at least one plugin."
+msgstr "플러그인을 하나 이상 선택하십시오."
+
+msgid "Updating plugins. Please wait."
+msgstr "플러그인을 업데이트 중입니다. 잠시만 기다려 주세요."
+
+msgid "Unable to check plugin updates."
+msgstr "플러그인 업데이트를 확인할 수 없습니다."
 
 msgid "Confirmation of plugin removal"
 msgstr "플러그인 제거 확인"
@@ -3147,9 +3201,6 @@ msgstr "모든 회원 자격은 파기됩니다.  멤버십 자체는 변경되�
 #~ msgid "Edit General Settings"
 #~ msgstr "일반 설정 편집"
 
-#~ msgid "Then update"
-#~ msgstr "그런 다음 업데이트"
-
 #~ msgid "For more info see our "
 #~ msgstr "자세한 내용은"
 
@@ -3601,9 +3652,6 @@ msgstr "모든 회원 자격은 파기됩니다.  멤버십 자체는 변경되�
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "폴더를 제거하려고 하는데 폴더에 콘텐츠가 있습니다."
-
-#~ msgid "Files input"
-#~ msgstr "파일 입력"
 
 #~ msgid "Upload your files"
 #~ msgstr "파일 업로드"

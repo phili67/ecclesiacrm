@@ -2574,7 +2574,7 @@ msgid "Please enter a number greater than 0."
 msgstr "请输入大于 0 的数字。"
 
 msgid "You're about to delete the item !!!"
-msgstr ""
+msgstr "您即将删除该项目！！！"
 
 msgid "You're about to delete the buyer !!!"
 msgstr "您即将删除买家！！！"
@@ -3652,6 +3652,57 @@ msgstr "在"
 
 msgid "from"
 msgstr "来自"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr "从服务器上已安装的文件中选择要更新的插件。"
+
+msgid "Database"
+msgstr "数据库"
+
+msgid "Files"
+msgstr "文件"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr "更新前请备份数据库。如果迁移失败，某些更改可能已经生效。"
+
+msgid "Plugins requiring attention"
+msgstr "需要关注的插件"
+
+msgid "The database version is newer than the files."
+msgstr "数据库版本比文件新。"
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr "该配置或迁移操作无效。请检查应用程序日志。"
+
+msgid "Close and refresh"
+msgstr "关闭并刷新"
+
+msgid "The selected plugins have been updated."
+msgstr "所选插件已更新。"
+
+msgid "The update stopped at"
+msgstr "更新停在了"
+
+msgid "Plugin updates"
+msgstr "插件更新"
+
+msgid "Later"
+msgstr "稍后"
+
+msgid "Update selected plugins"
+msgstr "更新所选插件"
+
+msgid "Select at least one plugin."
+msgstr "请至少选择一个插件。"
+
+msgid "Updating plugins. Please wait."
+msgstr "正在更新插件。请稍候。"
+
+msgid "Unable to check plugin updates."
+msgstr "无法检查插件更新。"
 
 #~ msgid "Info"
 #~ msgstr "信息"

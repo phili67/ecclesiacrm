@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-31 22:20+0200\n"
+"POT-Creation-Date: 2026-11-04 16:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,17 +25,20 @@ msgstr ""
 msgid "Updated Members"
 msgstr ""
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:49
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:64
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:47
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:60
 msgid "Name"
 msgstr ""
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:50
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:65
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:48
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:61
 msgid "Address"
 msgstr ""
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:51
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:66
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:49
+msgid "Created"
+msgstr ""
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:62
 msgid "Updated"
 msgstr ""

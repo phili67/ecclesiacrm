@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1405,6 +1405,9 @@ msgstr "Fájl/mappa nevének beállítása"
 msgid "Download Error"
 msgstr "Hiba letöltése"
 
+msgid "Read and write"
+msgstr "Olvasás és írás"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
 "Biztos, hogy le szeretné állítani a megosztást a kiválasztott felhasználók "
@@ -2259,9 +2262,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "Jogok beállítása"
 
-msgid "Read and write"
-msgstr "Olvasás és írás"
-
 msgid "Notification"
 msgstr "Értesítés"
 
@@ -2423,6 +2423,64 @@ msgstr "Ossza meg ezt a biztonságos ellenőrző linket a személlyel."
 
 msgid "Comments"
 msgstr "Megjegyzések"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"Válassza ki a frissíteni kívánt bővítményeket a szerverre már telepített "
+"fájlok közül."
+
+msgid "Database"
+msgstr "Adatbázis"
+
+msgid "Files"
+msgstr "Fájlok"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"A frissítés előtt készítsen biztonsági másolatot az adatbázisról. Ha az "
+"átállás sikertelen, előfordulhat, hogy egyes módosítások már végrehajtásra "
+"kerültek."
+
+msgid "Plugins requiring attention"
+msgstr "Figyelmet igénylő bővítmények"
+
+msgid "The database version is newer than the files."
+msgstr "Az adatbázis verziója újabb, mint a fájloké."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr ""
+"A konfiguráció vagy az áttelepítés érvénytelen. Ellenőrizze az alkalmazás "
+"naplóit."
+
+msgid "Close and refresh"
+msgstr "Bezárás és frissítés"
+
+msgid "The selected plugins have been updated."
+msgstr "A kiválasztott bővítmények frissítésre kerültek."
+
+msgid "The update stopped at"
+msgstr "A frissítés megakadt a"
+
+msgid "Plugin updates"
+msgstr "Bővítményfrissítések"
+
+msgid "Later"
+msgstr "Később"
+
+msgid "Update selected plugins"
+msgstr "A kiválasztott bővítmények frissítése"
+
+msgid "Select at least one plugin."
+msgstr "Válasszon ki legalább egy bővítményt."
+
+msgid "Updating plugins. Please wait."
+msgstr "A bővítmények frissítése folyamatban van. Kérjük, várjon!"
+
+msgid "Unable to check plugin updates."
+msgstr "A bővítmény frissítéseinek ellenőrzése nem sikerült."
 
 msgid "Confirmation of plugin removal"
 msgstr "A plugin eltávolításának megerősítése"
@@ -3222,9 +3280,6 @@ msgstr "Minden tagság megsemmisül.  Maguk a tagok nem fognak megváltozni."
 #~ msgid "Edit General Settings"
 #~ msgstr "Általános beállítások szerkesztése"
 
-#~ msgid "Then update"
-#~ msgstr "Ezután frissítse"
-
 #~ msgid "For more info see our "
 #~ msgstr "További információért lásd a"
 
@@ -3688,9 +3743,6 @@ msgstr "Minden tagság megsemmisül.  Maguk a tagok nem fognak megváltozni."
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Egy mappát és annak tartalmát készül eltávolítani"
-
-#~ msgid "Files input"
-#~ msgstr "Fájlok bemenet"
 
 #~ msgid "Upload your files"
 #~ msgstr "Fájlok feltöltése"

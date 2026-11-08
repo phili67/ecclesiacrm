@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1417,6 +1417,9 @@ msgstr "Ορισμός ονόματος αρχείου/φακέλου"
 msgid "Download Error"
 msgstr "Λήψη σφάλματος"
 
+msgid "Read and write"
+msgstr "Διαβάστε και γράψτε"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
 "Είστε σίγουροι ότι θέλετε να σταματήσετε την κοινή χρήση για επιλεγμένους "
@@ -2282,9 +2285,6 @@ msgstr ""
 msgid "Set rights"
 msgstr "Ορισμός δικαιωμάτων"
 
-msgid "Read and write"
-msgstr "Διαβάστε και γράψτε"
-
 msgid "Notification"
 msgstr "Ειδοποίηση"
 
@@ -2450,6 +2450,64 @@ msgstr "Μοιραστείτε αυτόν τον ασφαλή σύνδεσμο �
 
 msgid "Comments"
 msgstr "Σχόλια"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"Επιλέξτε τα πρόσθετα που θέλετε να ενημερώσετε από τα αρχεία που έχουν ήδη "
+"εγκατασταθεί στον διακομιστή."
+
+msgid "Database"
+msgstr "Βάση δεδομένων"
+
+msgid "Files"
+msgstr "Αρχεία"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"Δημιουργήστε αντίγραφο ασφαλείας της βάσης δεδομένων σας πριν από την "
+"ενημέρωση. Σε περίπτωση αποτυχίας της μετεγκατάστασης, ενδέχεται να έχουν "
+"ήδη εφαρμοστεί ορισμένες αλλαγές."
+
+msgid "Plugins requiring attention"
+msgstr "Πρόσθετα που απαιτούν προσοχή"
+
+msgid "The database version is newer than the files."
+msgstr "Η έκδοση της βάσης δεδομένων είναι νεότερη από τα αρχεία."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr ""
+"Η διαμόρφωση ή η μετεγκατάσταση δεν είναι έγκυρη. Ελέγξτε τα αρχεία "
+"καταγραφής της εφαρμογής."
+
+msgid "Close and refresh"
+msgstr "Κλείσιμο και ανανέωση"
+
+msgid "The selected plugins have been updated."
+msgstr "Τα επιλεγμένα πρόσθετα έχουν ενημερωθεί."
+
+msgid "The update stopped at"
+msgstr "Η ενημέρωση σταμάτησε στο"
+
+msgid "Plugin updates"
+msgstr "Ενημερώσεις προσθηκών"
+
+msgid "Later"
+msgstr "Αργότερα"
+
+msgid "Update selected plugins"
+msgstr "Ενημέρωση επιλεγμένων προσθηκών"
+
+msgid "Select at least one plugin."
+msgstr "Επιλέξτε τουλάχιστον ένα πρόσθετο."
+
+msgid "Updating plugins. Please wait."
+msgstr "Ενημέρωση προσθηκών. Παρακαλώ περιμένετε."
+
+msgid "Unable to check plugin updates."
+msgstr "Δεν είναι δυνατή η επαλήθευση των ενημερώσεων του πρόσθετου."
 
 msgid "Confirmation of plugin removal"
 msgstr "Επιβεβαίωση της αφαίρεσης του plugin"
@@ -3260,9 +3318,6 @@ msgstr "Όλα τα μέλη θα καταστραφούν.  Τα ίδια τα 
 #~ msgid "Edit General Settings"
 #~ msgstr "Επεξεργασία γενικών ρυθμίσεων"
 
-#~ msgid "Then update"
-#~ msgstr "Στη συνέχεια, ενημερώστε"
-
 #~ msgid "For more info see our "
 #~ msgstr "Για περισσότερες πληροφορίες δείτε το"
 
@@ -3732,9 +3787,6 @@ msgstr "Όλα τα μέλη θα καταστραφούν.  Τα ίδια τα 
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "Πρόκειται να αφαιρέσετε έναν φάκελο και το περιεχόμενό του"
-
-#~ msgid "Files input"
-#~ msgstr "Εισαγωγή αρχείων"
 
 #~ msgid "Upload your files"
 #~ msgstr "Ανεβάστε τα αρχεία σας"

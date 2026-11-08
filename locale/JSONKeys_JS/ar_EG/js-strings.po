@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-10-28T12:38:35.428Z\n"
+"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1377,6 +1377,9 @@ msgstr "ضع اسم ملف/فولدر"
 msgid "Download Error"
 msgstr "خطأ في التنزيل"
 
+msgid "Read and write"
+msgstr "القراءة والكتابة"
+
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "هل تريد بالتأكيد إيقاف المشاركة لمستخدمين محددين؟"
 
@@ -2221,9 +2224,6 @@ msgstr "حدد مستلم واحد أو أكثر لتحديث صلاحية وص�
 msgid "Set rights"
 msgstr "تعيين الحقوق"
 
-msgid "Read and write"
-msgstr "القراءة والكتابة"
-
 msgid "Notification"
 msgstr "الإخطار"
 
@@ -2378,6 +2378,60 @@ msgstr "شارك رابط التحقق الآمن هذا مع الشخص."
 
 msgid "Comments"
 msgstr "التعليقات"
+
+msgid ""
+"Select the plugins to update from the files already installed on the server."
+msgstr ""
+"حدد المكونات الإضافية التي تريد تحديثها من الملفات المثبتة بالفعل على الخادم."
+
+msgid "Database"
+msgstr "قاعدة البيانات"
+
+msgid "Files"
+msgstr "الملفات"
+
+msgid ""
+"Back up your database before updating. If a migration fails, some changes "
+"may already have been applied."
+msgstr ""
+"قم بعمل نسخة احتياطية من قاعدة البيانات قبل التحديث. ففي حالة فشل عملية "
+"الترحيل، قد تكون بعض التغييرات قد طُبقت بالفعل."
+
+msgid "Plugins requiring attention"
+msgstr "المكونات الإضافية التي تتطلب اهتمامًا"
+
+msgid "The database version is newer than the files."
+msgstr "إصدار قاعدة البيانات أحدث من الملفات."
+
+msgid "The configuration or migration is invalid. Check the application logs."
+msgstr "التكوين أو عملية الترحيل غير صالحة. يرجى مراجعة سجلات التطبيق."
+
+msgid "Close and refresh"
+msgstr "إغلاق وتحديث"
+
+msgid "The selected plugins have been updated."
+msgstr "تم تحديث المكونات الإضافية المختارة."
+
+msgid "The update stopped at"
+msgstr "توقف التحديث عند"
+
+msgid "Plugin updates"
+msgstr "تحديثات المكونات الإضافية"
+
+msgid "Later"
+msgstr "لاحقًا"
+
+msgid "Update selected plugins"
+msgstr "تحديث المكونات الإضافية المحددة"
+
+msgid "Select at least one plugin."
+msgstr "اختر مكونًا إضافيًا واحدًا على الأقل."
+
+msgid "Updating plugins. Please wait."
+msgstr "جاري تحديث المكونات الإضافية. يرجى الانتظار."
+
+msgid "Unable to check plugin updates."
+msgstr "تعذر التحقق من تحديثات المكون الإضافي."
 
 msgid "Confirmation of plugin removal"
 msgstr "Confirmation de la suppression du plugin"
@@ -3159,9 +3213,6 @@ msgstr "سيتم تدمير جميع الأعضاء.  لن يتم تغيير ا�
 #~ msgid "Edit General Settings"
 #~ msgstr "إديت سيتينغز العامة"
 
-#~ msgid "Then update"
-#~ msgstr "ثم قم بالتحديث"
-
 #~ msgid "For more info see our "
 #~ msgstr "لمزيد من المعلومات نرى لدينا"
 
@@ -3612,9 +3663,6 @@ msgstr "سيتم تدمير جميع الأعضاء.  لن يتم تغيير ا�
 
 #~ msgid "You're about to remove a folder and it's content"
 #~ msgstr "أنت على وشك إزالة ملف وهو محتوى"
-
-#~ msgid "Files input"
-#~ msgstr "ملفات المدخلات"
 
 #~ msgid "Upload your files"
 #~ msgstr "قم بتحميل ملفاتك"

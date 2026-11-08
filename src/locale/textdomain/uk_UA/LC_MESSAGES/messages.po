@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-28 13:22+0100\n"
+"POT-Creation-Date: 2026-11-08 20:08+0100\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,51 +26,37 @@ msgstr "Завантажити"
 msgid "Insert"
 msgstr "Вставити"
 
-#: browser/browse.php:71 v2/templates/edrive/dashboard.php:39
-msgid "Download files"
-msgstr "Завантажити файли"
-
-#: browser/browse.php:83 v2/templates/edrive/dashboard.php:50
-msgid "Files input"
-msgstr "Введення файлів"
-
-#: browser/browse.php:87 v2/templates/edrive/dashboard.php:54
-msgid "You can also drag and drop files into this area."
-msgstr "Ви також можете перетягувати файли в цю область."
-
-#: browser/browse.php:94 v2/templates/edrive/dashboard.php:61
-msgid "Download status"
-msgstr "Статус завантаження"
-
-#: browser/browse.php:108 v2/templates/edrive/dashboard.php:74
+#: browser/browse.php:74 v2/templates/edrive/dashboard.php:42
 msgid "Upload your files"
 msgstr "Завантажте свої файли"
 
-#: browser/browse.php:111 v2/templates/cart/carttobadge.php:182
-#: v2/templates/cart/carttobadge.php:188 v2/templates/edrive/dashboard.php:77
-#: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
-msgid "Upload"
-msgstr "Завантажити"
+#: browser/browse.php:75 v2/templates/edrive/dashboard.php:43
+msgid "Click to choose files or drag and drop them here."
+msgstr "Натисніть, щоб вибрати файли, або перетягніть їх сюди."
 
-#: browser/browse.php:124 v2/templates/edrive/dashboard.php:97
+#: browser/browse.php:79 v2/templates/edrive/dashboard.php:47
+msgid "Drop files to upload"
+msgstr "Перетягніть файли для завантаження"
+
+#: browser/browse.php:95 v2/templates/edrive/dashboard.php:71
 msgid "Move up one level, or drag the file(s) to move them up one level."
 msgstr ""
 "Перейдіть на один рівень або перетягніть файл(и), щоб перемістити їх на один "
 "рівень."
 
-#: browser/browse.php:147 Include/Header-function.php:96
-#: Include/Header-function.php:158 Include/Header.php:243
+#: browser/browse.php:118 Include/Header-function.php:96
+#: Include/Header-function.php:158 Include/Header.php:345
 #: v2/templates/deposit/finddepositslip.php:141
-#: v2/templates/edrive/dashboard.php:121 v2/templates/group/groupedit.php:42
+#: v2/templates/edrive/dashboard.php:95 v2/templates/group/groupedit.php:42
 #: v2/templates/sidebar/systemsettings.php:232
 msgid "Close"
 msgstr "Закрити"
 
-#: browser/browse.php:158 v2/templates/edrive/dashboard.php:132
+#: browser/browse.php:128 v2/templates/edrive/dashboard.php:105
 msgid "Internal sharing"
 msgstr "Внутрішній обмін"
 
-#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:129 v2/templates/edrive/dashboard.php:106
 msgid ""
 "Use this method to share files with individuals or teams within your "
 "organization. If the recipient already has access to the share, but can't "
@@ -81,12 +67,12 @@ msgstr ""
 "не може його знайти, ви можете надіслати йому внутрішнє посилання, щоб "
 "полегшити доступ."
 
-#: browser/browse.php:160 v2/templates/edrive/dashboard.php:134
+#: browser/browse.php:129 v2/templates/edrive/dashboard.php:106
 #: v2/templates/sidebar/systemsettings.php:396
 msgid "Definition"
 msgstr "Визначення"
 
-#: browser/browse.php:164 v2/templates/edrive/dashboard.php:138
+#: browser/browse.php:133 v2/templates/edrive/dashboard.php:110
 msgid ""
 "Choose people, define their access rights, then manage existing shares from "
 "the list below."
@@ -94,67 +80,79 @@ msgstr ""
 "Виберіть людей, визначте їхні права доступу, а потім керуйте наявними "
 "спільними ресурсами зі списку нижче."
 
-#: browser/browse.php:168 v2/templates/edrive/dashboard.php:142
+#: browser/browse.php:137 v2/templates/edrive/dashboard.php:114
 msgid "Add users"
 msgstr "Додати користувачів"
 
-#: browser/browse.php:184 v2/templates/edrive/dashboard.php:158
+#: browser/browse.php:142 browser/browse.php:170
+#: v2/templates/edrive/dashboard.php:119 v2/templates/edrive/dashboard.php:147
+msgid "Set Rights"
+msgstr "Встановити права"
+
+#: browser/browse.php:144 browser/browse.php:172
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: v2/templates/edrive/dashboard.php:121 v2/templates/edrive/dashboard.php:149
+msgid "Read only"
+msgstr "Тільки для читання"
+
+#: browser/browse.php:145 browser/browse.php:173
+#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
+#: v2/templates/edrive/dashboard.php:122 v2/templates/edrive/dashboard.php:150
+msgid "Read and write"
+msgstr "Читати та писати"
+
+#: browser/browse.php:151 v2/templates/edrive/dashboard.php:128
 msgid "Send email notification"
 msgstr "Надіслати сповіщення електронною поштою"
 
-#: browser/browse.php:189 v2/templates/edrive/dashboard.php:163
+#: browser/browse.php:156 v2/templates/edrive/dashboard.php:133
 #: v2/templates/edrive/shares.php:7
 msgid "Shared with"
 msgstr "Поділіться з"
 
-#: browser/browse.php:193 v2/templates/edrive/dashboard.php:167
-msgid "Delete all shares"
-msgstr "Видалити всі акції"
+#: browser/browse.php:158 v2/templates/edrive/dashboard.php:135
+msgid "No one has access yet."
+msgstr "Поки що ніхто не має доступу."
 
-#: browser/browse.php:196 v2/templates/edrive/dashboard.php:170
+#: browser/browse.php:163 v2/templates/edrive/dashboard.php:140
 msgid "Delete shares for the selected users"
 msgstr "Видалення дописів для вибраних користувачів"
 
-#: browser/browse.php:205 v2/templates/edrive/dashboard.php:179
-msgid "Set Rights"
-msgstr "Встановити права"
+#: browser/browse.php:163 EcclesiaCRM/Service/CalendarService.php:1422
+#: EcclesiaCRM/Service/ConfirmReportService.php:541
+#: ident/templates/verify/verify-family-info.php:47
+#: ident/templates/verify/verify-person-info.php:62
+#: v2/templates/calendar/eventattendeesedit.php:96
+#: v2/templates/calendar/eventnames.php:322
+#: v2/templates/calendar/eventnames.php:325
+#: v2/templates/cart/carttobadge.php:170
+#: v2/templates/deposit/electronicPaymentList.php:83
+#: v2/templates/deposit/electronicPaymentList.php:229
+#: v2/templates/deposit/finddepositslip.php:101
+#: v2/templates/deposit/finddepositslip.php:144
+#: v2/templates/edrive/dashboard.php:140 v2/templates/group/groupbadge.php:156
+#: v2/templates/pastoralcare/pastoralcarefamily.php:311
+#: v2/templates/pastoralcare/pastoralcarefamily.php:320
+#: v2/templates/pastoralcare/pastoralcareperson.php:450
+#: v2/templates/pastoralcare/pastoralcareperson.php:459
+#: v2/templates/people/familyCustomFieldEditor.php:410
+#: v2/templates/people/familyview.php:511
+#: v2/templates/people/familyview.php:674
+#: v2/templates/people/familyview.php:990
+#: v2/templates/people/personCustomEditor.php:402
+#: v2/templates/people/personview.php:986
+#: v2/templates/people/personview.php:1090
+#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:61
+#: v2/templates/system/optionManager.php:443
+#: v2/templates/system/optionManager.php:445
+msgid "Delete"
+msgstr "Видалити"
 
-#: browser/browse.php:210 v2/templates/edrive/dashboard.php:184
-msgid "Select your rights"
-msgstr "Виберіть свої права"
+#: browser/browse.php:165 v2/templates/edrive/dashboard.php:142
+msgid "Delete all shares"
+msgstr "Видалити всі акції"
 
-#: browser/browse.php:210 v2/templates/deposit/autaPaymentEditor.php:284
-#: v2/templates/deposit/pledgeEditor.php:40
-#: v2/templates/edrive/dashboard.php:184
-#: v2/templates/people/personEditor.php:1145
-msgid "or"
-msgstr "або"
-
-#: browser/browse.php:213
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:187
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-#: browser/browse.php:213 v2/templates/edrive/dashboard.php:187
-msgid "[R ]"
-msgstr ""
-
-#: browser/browse.php:214
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:54
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:78
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:398
-#: v2/templates/edrive/dashboard.php:188
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
-#: browser/browse.php:214 v2/templates/edrive/dashboard.php:188
-msgid "[RW]"
-msgstr ""
-
-#: browser/browse.php:223 v2/templates/edrive/dashboard.php:197
+#: browser/browse.php:183 v2/templates/edrive/dashboard.php:160
 msgid "Share By"
 msgstr "Share By"
 
@@ -337,8 +335,8 @@ msgid "No person found for preview"
 msgstr "Не знайдено жодної людини для попереднього перегляду"
 
 #: EcclesiaCRM/APIControllers/DocumentCKEditorController.php:161
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:285
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1151
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:288
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1154
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:628
 #: uploader/upload.php:176
 msgid "Create file"
@@ -347,12 +345,18 @@ msgstr "Створити файл"
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:45
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:78
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:97
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:155
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:161
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:177
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:209
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:352
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:371
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:196
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:202
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:218
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:250
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:393
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:412
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:157
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:221
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:284
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:327
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:365
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:426
 #: v2/templates/query/querylist.php:53 v2/templates/query/querylist.php:88
 msgid "Forbidden"
 msgstr "Заборонено."
@@ -363,34 +367,34 @@ msgstr "Заборонено."
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:75
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:83
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:105
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:166
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:171
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:183
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:304
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:333
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:349
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:368
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:207
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:212
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:224
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:345
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:374
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:305
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:319
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:390
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:409
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:415
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:308
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:322
 msgid "Document not found"
 msgstr "Документ не знайдено"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:220
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:225
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:232
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:261
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:266
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:273
 msgid "Invalid name"
 msgstr "Неправильна назва"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:236
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:277
 msgid "The file already exists"
 msgstr "Файл уже існує"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:240
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:281
 msgid "Unable to create the file"
 msgstr "Не вдалося створити файл"
 
-#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:356
+#: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:397
 msgid "Unable to restore this version"
 msgstr "Не вдається відновити цю версію"
 
@@ -404,114 +408,113 @@ msgstr "Цей документ відкривається за допомого
 msgid "Minutes left"
 msgstr "Залишилися лічені хвилини"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:235
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:371
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:238
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:374
 #: EcclesiaCRM/utils/MiscUtils.php:884
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
 msgid "Folder"
 msgstr "Папка"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:448
-#, fuzzy
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:451
 msgid "Shared folder"
-msgstr "Поділіться з нами"
+msgstr "Спільна папка"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:620
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:659
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:623
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:662
 msgid "Right of access to folder problem"
 msgstr "Проблема з правом доступу до папки"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:689
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1060
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:692
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1063
 msgid "Contact error at api"
 msgstr "Помилка контакту в api"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:716
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:719
 msgid "You can't erase the public folder !"
 msgstr "Ви не можете стерти спільну папку!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:724
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:756
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:830
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:902
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1016
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:727
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:759
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:833
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:905
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1019
 msgid "Right of access to the file or folder the prohibited recording"
 msgstr "Право доступу до файлу або папки, в якій знаходиться заборонений запис"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:815
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:965
 msgid "A Folder"
 msgstr "Папка"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:812
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:962
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:815
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:883
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:965
 msgid "already exists at this place."
 msgstr "вже існує на цьому місці."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:860
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:863
 msgid "Folder modification"
 msgstr "Модифікація папки"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:862
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:931
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:865
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:934
 msgid "File modification"
 msgstr "Модифікація файлів"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:880
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:883
 msgid "A File"
 msgstr "Файл"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:974
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:977
 msgid "New Folder"
 msgstr "Нова папка"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:998
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1001
 msgid "can't rename public folder"
 msgstr "не вдається перейменувати спільну папку"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1020
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1023
 msgid "The file or folder name already exists!!!"
 msgstr "Ім'я файлу або папки вже існує!!!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1075
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1078
 msgid "Invalid CSRF token."
 msgstr "Недійсний токен CSRF."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1081
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1084
 msgid "User account not found."
 msgstr "Обліковий запис користувача не знайдено."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1089
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1092
 msgid "Invalid target path."
 msgstr "Неправильний шлях до цілі."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1093
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1096
 msgid "No uploaded file received."
 msgstr "Не отримано жодного завантаженого файлу."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1099
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1134
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1102
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1137
 msgid "Upload problem !!!"
 msgstr "Проблема із завантаженням!!!"
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1103
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1106
 msgid "Invalid uploaded file."
 msgstr "Неправильно завантажений файл."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1108
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1111
 msgid "Invalid file name."
 msgstr "Неправильне ім'я файлу."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1114
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1117
 msgid "This file type is not allowed."
 msgstr "Цей тип файлу не допускається."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1119
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1122
 msgid "Target directory is invalid."
 msgstr "Цільовий каталог є невірним."
 
-#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1130
+#: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:1133
 msgid ""
 "A file with the same name already exists. The uploaded file was renamed "
 "automatically."
@@ -519,16 +522,28 @@ msgstr ""
 "Файл з такою назвою вже існує. Завантажений файл було перейменовано "
 "автоматично."
 
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:106
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:161
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:220
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:340
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:140
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:205
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:268
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:400
 #: EcclesiaCRM/utils/SabreUtils.php:125
 msgid ""
 "You can visualize it in your account, in the time Line or the notes tab."
 msgstr ""
 "Ви можете візуалізувати його у своєму акаунті, на часовій шкалі або у "
 "вкладці нотаток."
+
+#: EcclesiaCRM/APIControllers/DocumentShareController.php:163
+msgid "Invalid person"
+msgstr "Недієздатна особа"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:126
 #: v2/templates/deposit/pledgeEditor.php:191
@@ -611,7 +626,7 @@ msgstr "POST в кошик вимагає EventID"
 #: EcclesiaCRM/APIControllers/PeopleController.php:81
 #: EcclesiaCRM/APIControllers/PeopleController.php:138
 #: EcclesiaCRM/APIControllers/PeopleController.php:188
-#: EcclesiaCRM/APIControllers/PeopleController.php:241
+#: EcclesiaCRM/APIControllers/PeopleController.php:258
 #: EcclesiaCRM/APIControllers/SearchController.php:55
 #: EcclesiaCRM/MenuBar/MenuBar.php:234
 #: EcclesiaCRM/Search/PersonSearchRes.php:36
@@ -622,7 +637,7 @@ msgstr "POST в кошик вимагає EventID"
 msgid "Persons"
 msgstr "Люди"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:280
+#: EcclesiaCRM/APIControllers/PeopleController.php:297
 #: EcclesiaCRM/APIControllers/SearchController.php:97
 #: EcclesiaCRM/APIControllers/SearchController.php:314
 #: EcclesiaCRM/APIControllers/SearchController.php:317
@@ -640,7 +655,7 @@ msgstr "Люди"
 msgid "Families"
 msgstr "Сім'ї"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:317
+#: EcclesiaCRM/APIControllers/PeopleController.php:334
 #: EcclesiaCRM/APIControllers/SearchController.php:121
 #: EcclesiaCRM/APIControllers/SearchController.php:340
 #: EcclesiaCRM/APIControllers/SearchController.php:343
@@ -657,13 +672,13 @@ msgstr "Сім'ї"
 msgid "Groups"
 msgstr "Групи"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:380
-#: EcclesiaCRM/APIControllers/PeopleController.php:404
+#: EcclesiaCRM/APIControllers/PeopleController.php:397
+#: EcclesiaCRM/APIControllers/PeopleController.php:421
 msgid "Status Updated"
 msgstr "Статус оновлено"
 
-#: EcclesiaCRM/APIControllers/PeopleController.php:381
-#: EcclesiaCRM/APIControllers/PeopleController.php:405
+#: EcclesiaCRM/APIControllers/PeopleController.php:398
+#: EcclesiaCRM/APIControllers/PeopleController.php:422
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:201
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:210
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
@@ -764,12 +779,12 @@ msgstr "Ім'я та прізвище"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:158
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:169
-#: EcclesiaCRM/APIControllers/SearchController.php:458
-#: EcclesiaCRM/APIControllers/SearchController.php:463
-#: EcclesiaCRM/APIControllers/SearchController.php:471
-#: EcclesiaCRM/APIControllers/SearchController.php:476
-#: EcclesiaCRM/APIControllers/SearchController.php:484
-#: EcclesiaCRM/APIControllers/SearchController.php:489
+#: EcclesiaCRM/APIControllers/SearchController.php:461
+#: EcclesiaCRM/APIControllers/SearchController.php:466
+#: EcclesiaCRM/APIControllers/SearchController.php:474
+#: EcclesiaCRM/APIControllers/SearchController.php:479
+#: EcclesiaCRM/APIControllers/SearchController.php:487
+#: EcclesiaCRM/APIControllers/SearchController.php:492
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:335 EcclesiaCRM/MenuBar/MenuBar.php:587
 #: EcclesiaCRM/Service/ConfirmReportService.php:201
@@ -845,12 +860,29 @@ msgstr "Особа деактивована"
 msgid "Person Activated"
 msgstr "Особа активована"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:131
+#: EcclesiaCRM/APIControllers/PluginsController.php:41
+#: EcclesiaCRM/APIControllers/PluginsController.php:50
+msgid "Access denied"
+msgstr "Доступ заборонено"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:57
+msgid "Invalid request"
+msgstr "Неправильний запит"
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:69
+msgid ""
+"Plugin update failed. Check the application logs; some changes may already "
+"have been applied."
+msgstr ""
+"Оновлення плагіна не вдалося. Перевірте журнали програми; можливо, деякі "
+"зміни вже було застосовано."
+
+#: EcclesiaCRM/APIControllers/PluginsController.php:164
 #: EcclesiaCRM/BackupManager.php:256 EcclesiaCRM/BackupManager.php:543
 msgid "Impossible to open"
 msgstr "Неможливо відкрити"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:237
+#: EcclesiaCRM/APIControllers/PluginsController.php:270
 #: EcclesiaCRM/Service/UpgradeService.php:90
 msgid "Databse upgrade failed"
 msgstr "Не вдалося оновити базу даних"
@@ -969,7 +1001,7 @@ msgstr "Недільні групи"
 msgid "groupmasters"
 msgstr "групмейстери"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:453
+#: EcclesiaCRM/APIControllers/SearchController.php:456
 #: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:143
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -984,7 +1016,7 @@ msgstr "групмейстери"
 msgid "Male"
 msgstr "Чоловік"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:453
+#: EcclesiaCRM/APIControllers/SearchController.php:456
 #: EcclesiaCRM/Search/PersonSearchRes.php:364
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:146
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -999,7 +1031,7 @@ msgstr "Чоловік"
 msgid "Female"
 msgstr "Жінка"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:509
+#: EcclesiaCRM/APIControllers/SearchController.php:512
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:297
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:419
 #: v2/templates/people/familyEditor.php:1198
@@ -1013,7 +1045,7 @@ msgstr "Жінка"
 msgid "Gender"
 msgstr "Стать"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:510
+#: EcclesiaCRM/APIControllers/SearchController.php:513
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:125
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:651
 #: EcclesiaCRM/Reports/PDF_ConfirmReport.php:754
@@ -1032,7 +1064,7 @@ msgstr "Стать"
 msgid "Classification"
 msgstr "Класифікація"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:511
+#: EcclesiaCRM/APIControllers/SearchController.php:514
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:118
 #: v2/templates/pastoralcare/pastoralcarePersonPrint.php:316
 #: v2/templates/people/personPrint.php:333
@@ -1041,13 +1073,13 @@ msgstr "Класифікація"
 msgid "Family Role"
 msgstr "Роль сім'ї"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:512
+#: EcclesiaCRM/APIControllers/SearchController.php:515
 #: Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:84
 msgid "Person Property"
 msgstr "Особистість Власність"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:513
+#: EcclesiaCRM/APIControllers/SearchController.php:516
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:142
 #: v2/templates/system/optionManager.php:115
 msgid "Group Type"
@@ -3696,7 +3728,7 @@ msgid "Family Name"
 msgstr "Ім'я сім'ї"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-#: Include/Header.php:240
+#: Include/Header.php:342
 msgid "Notification"
 msgstr "Повідомлення"
 
@@ -3810,7 +3842,7 @@ msgid "Your CRM account was updated"
 msgstr "Ваш обліковий запис CRM було оновлено"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:92
+#: v2/templates/edrive/shares.php:33 v2/templates/plugins/plugins.php:95
 #: v2/templates/user/userlist.php:65 v2/templates/user/userseditor.php:711
 #: v2/templates/user/userseditor.php:779
 msgid "Status"
@@ -3852,24 +3884,24 @@ msgstr "інформація"
 msgid "Please verify your informations"
 msgstr "Будь ласка, перевірте свої дані"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:73
-#: Include/Header.php:127
+#: EcclesiaCRM/MenuBar/MenuBar.php:115 Include/Header.php:107
+#: Include/Header.php:109 Include/Header.php:183
 msgid "Private Space"
 msgstr "Приватний простір"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:117 EcclesiaCRM/utils/MiscUtils.php:489
 #: external/templates/registration/family-register-members.php:112
-#: Include/Header.php:225
+#: Include/Header.php:327
 msgid "Home"
 msgstr "Головна"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:129
+#: EcclesiaCRM/MenuBar/MenuBar.php:120 Include/Header.php:185
 #: v2/templates/people/personview.php:532
 #: v2/templates/user/changepassword.php:37
 msgid "Change Password"
 msgstr "Змінити пароль"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:131
+#: EcclesiaCRM/MenuBar/MenuBar.php:121 Include/Header.php:187
 #: v2/templates/people/personview.php:530
 msgid "Change Settings"
 msgstr "Змінити налаштування"
@@ -3886,10 +3918,10 @@ msgstr "Документи"
 #: EcclesiaCRM/MenuBar/MenuBar.php:773 EcclesiaCRM/MenuBar/MenuBar.php:786
 #: EcclesiaCRM/MenuBar/MenuBar.php:834 EcclesiaCRM/MenuBar/MenuBar.php:860
 #: EcclesiaCRM/MenuBar/MenuBar.php:913 EcclesiaCRM/MenuBar/MenuBar.php:936
-#: v2/templates/pastoralcare/pastoralcarefamily.php:349
+#: Include/Header.php:104 v2/templates/pastoralcare/pastoralcarefamily.php:349
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:72
 #: v2/templates/pastoralcare/pastoralcareperson.php:488
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:125
 msgid "Dashboard"
 msgstr "Приладова панель"
 
@@ -4093,16 +4125,14 @@ msgstr "EDrive"
 #: EcclesiaCRM/MenuBar/MenuBar.php:861
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:216
 #: v2/templates/edrive/shares.php:8 v2/templates/edrive/shares.php:19
-#, fuzzy
 msgid "Shared with me"
-msgstr "Поділіться з"
+msgstr "Поділилися зі мною"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:862
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:216
 #: v2/templates/edrive/shares.php:8 v2/templates/edrive/shares.php:21
-#, fuzzy
 msgid "Shared with others"
-msgstr "Поділіться з"
+msgstr "Поділився з іншими"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:873
 #: EcclesiaCRM/VIEWControllers/VIEWFundraiserController.php:243
@@ -5048,36 +5078,6 @@ msgstr "Подія"
 msgid "Anniversary"
 msgstr "Ювілей"
 
-#: EcclesiaCRM/Service/CalendarService.php:1422
-#: EcclesiaCRM/Service/ConfirmReportService.php:541
-#: ident/templates/verify/verify-family-info.php:47
-#: ident/templates/verify/verify-person-info.php:62
-#: v2/templates/calendar/eventattendeesedit.php:96
-#: v2/templates/calendar/eventnames.php:322
-#: v2/templates/calendar/eventnames.php:325
-#: v2/templates/cart/carttobadge.php:170
-#: v2/templates/deposit/electronicPaymentList.php:83
-#: v2/templates/deposit/electronicPaymentList.php:229
-#: v2/templates/deposit/finddepositslip.php:101
-#: v2/templates/deposit/finddepositslip.php:144
-#: v2/templates/group/groupbadge.php:156
-#: v2/templates/pastoralcare/pastoralcarefamily.php:311
-#: v2/templates/pastoralcare/pastoralcarefamily.php:320
-#: v2/templates/pastoralcare/pastoralcareperson.php:450
-#: v2/templates/pastoralcare/pastoralcareperson.php:459
-#: v2/templates/people/familyCustomFieldEditor.php:410
-#: v2/templates/people/familyview.php:511
-#: v2/templates/people/familyview.php:674
-#: v2/templates/people/familyview.php:990
-#: v2/templates/people/personCustomEditor.php:402
-#: v2/templates/people/personview.php:986
-#: v2/templates/people/personview.php:1090
-#: v2/templates/people/personview.php:1743 v2/templates/plugins/plugins.php:58
-#: v2/templates/system/optionManager.php:443
-#: v2/templates/system/optionManager.php:445
-msgid "Delete"
-msgstr "Видалити"
-
 #: EcclesiaCRM/Service/CalendarService.php:1425
 msgid "Info"
 msgstr "Інформація"
@@ -5826,7 +5826,7 @@ msgid "People Dashboard"
 msgstr "Панель управління персоналом"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:231
-#: query_qry.php:8 query_qry.php:63
+#: Include/Header.php:83 query_qry.php:8 query_qry.php:63
 msgid "Advanced Search"
 msgstr "Розширений пошук"
 
@@ -6059,30 +6059,20 @@ msgid "eGive Import"
 msgstr "eGive Import"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
-#, fuzzy
 msgid "Unavailable"
 msgstr "Недоступно"
 
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
-msgid "Read only"
-msgstr ""
-
-#: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:186
-msgid "Read and write"
-msgstr ""
-
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:199
 msgid "No response"
-msgstr ""
+msgstr "Відповіді немає"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:200
 msgid "Accepted"
-msgstr ""
+msgstr "Прийнято"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:201
-#, fuzzy
 msgid "Declined"
-msgstr "Хронологія"
+msgstr "Відхилено"
 
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:202
 #: v2/templates/system/infos.php:204
@@ -6625,7 +6615,7 @@ msgstr "Авторське право"
 msgid "All rights reserved"
 msgstr "Всі права захищені"
 
-#: Include/Footer.php:32 v2/templates/plugins/plugins.php:135
+#: Include/Footer.php:32 v2/templates/plugins/plugins.php:138
 msgid "Version"
 msgstr "Версія"
 
@@ -6844,57 +6834,65 @@ msgstr "Змінити стовпці"
 msgid "Print"
 msgstr "Друк"
 
-#: Include/Header.php:84 v2/templates/people/familylist.php:172
+#: Include/Header.php:83 v2/templates/people/familylist.php:172
 #: v2/templates/people/lettersandlabels.php:238
 #: v2/templates/people/peoplelist.php:110 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "Пошук"
 
-#: Include/Header.php:89
+#: Include/Header.php:88
 msgid "Exit Control"
 msgstr "Контроль виходу"
 
-#: Include/Header.php:97
+#: Include/Header.php:95 Include/Header.php:97
+msgid "Quick Access"
+msgstr "Швидкий доступ"
+
+#: Include/Header.php:102 v2/templates/user/userseditor.php:274
+msgid "Main Dashboard"
+msgstr "Головна інформаційна панель"
+
+#: Include/Header.php:153
 msgid "Your Cart"
 msgstr "Ваш кошик"
 
-#: Include/Header.php:107
+#: Include/Header.php:163
 msgid "Your settings and more"
 msgstr "Ваші налаштування та багато іншого"
 
-#: Include/Header.php:133
+#: Include/Header.php:189
 msgid "Lock"
 msgstr "Блокування."
 
-#: Include/Header.php:135
+#: Include/Header.php:191
 msgid "Sign out"
 msgstr "Вийдіть з системи."
 
-#: Include/Header.php:146
+#: Include/Header.php:202
 msgid "Help & Support"
 msgstr "Допомога та підтримка"
 
-#: Include/Header.php:150
+#: Include/Header.php:206
 msgid "Help Center"
 msgstr "Центр допомоги"
 
-#: Include/Header.php:152 Include/Header.php:154
+#: Include/Header.php:208 Include/Header.php:210
 msgid "Help & Manual"
 msgstr "Довідка та посібник"
 
-#: Include/Header.php:157 Include/Header.php:159
+#: Include/Header.php:213 Include/Header.php:215
 msgid "Report an issue"
 msgstr "Повідомити про проблему"
 
-#: Include/Header.php:162 Include/Header.php:164
+#: Include/Header.php:218 Include/Header.php:220
 msgid "Developer Chat"
 msgstr "Чат для розробників"
 
-#: Include/Header.php:168 Include/Header.php:169
+#: Include/Header.php:224 Include/Header.php:225
 msgid "Contributing"
 msgstr "Внесок"
 
-#: Include/Header.php:181
+#: Include/Header.php:237
 msgid "Your tasks"
 msgstr "Ваші завдання"
 
@@ -7345,7 +7343,7 @@ msgid "Edited By Name"
 msgstr "Відредаговано за іменами"
 
 #: Reports/GDPR/GDPRListExport.php:72 v2/templates/people/familyview.php:92
-#: v2/templates/plugins/plugins.php:75
+#: v2/templates/plugins/plugins.php:78
 msgid "Deactivated"
 msgstr "Деактивовано"
 
@@ -7800,7 +7798,7 @@ msgstr "За типами"
 #: v2/templates/calendar/eventslist.php:65
 #: v2/templates/deposit/manageEnvelopes.php:151
 #: v2/templates/deposit/manageEnvelopes.php:187
-#: v2/templates/group/grouplist.php:135 v2/templates/plugins/plugins.php:65
+#: v2/templates/group/grouplist.php:135 v2/templates/plugins/plugins.php:68
 msgid "All"
 msgstr "Усе."
 
@@ -7953,7 +7951,7 @@ msgstr "Повернутися до подій"
 #: v2/templates/group/groupPropsEditor.php:236
 #: v2/templates/group/groupPropsFormEditor.php:308
 #: v2/templates/group/groupPropsFormEditor.php:353
-#: v2/templates/group/groupview.php:401 v2/templates/plugins/plugins.php:91
+#: v2/templates/group/groupview.php:401 v2/templates/plugins/plugins.php:94
 msgid "Description"
 msgstr "Опис"
 
@@ -8363,6 +8361,11 @@ msgstr "Натисніть на ім'я файлу нижче, щоб автом
 msgid "Available images"
 msgstr "Доступні зображення"
 
+#: v2/templates/cart/carttobadge.php:182 v2/templates/cart/carttobadge.php:188
+#: v2/templates/group/groupbadge.php:168 v2/templates/group/groupbadge.php:174
+msgid "Upload"
+msgstr "Завантажити"
+
 #: v2/templates/cart/carttobadge.php:197
 msgid "Layout"
 msgstr "Макет"
@@ -8641,7 +8644,7 @@ msgstr "Налаштувати сторінку"
 #: v2/templates/dashboard/maindashboard.php:100
 #: v2/templates/gdpr/dashboard.php:31
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:80
-#: v2/templates/plugins/plugins.php:111
+#: v2/templates/plugins/plugins.php:114
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -8676,6 +8679,12 @@ msgstr "Права колонка"
 #: v2/templates/deposit/autaPaymentEditor.php:279
 msgid "For the"
 msgstr "Для"
+
+#: v2/templates/deposit/autaPaymentEditor.php:284
+#: v2/templates/deposit/pledgeEditor.php:40
+#: v2/templates/people/personEditor.php:1145
+msgid "or"
+msgstr "або"
 
 #: v2/templates/deposit/autaPaymentEditor.php:288
 msgid ""
@@ -9421,7 +9430,7 @@ msgstr ""
 "Керуйте файлами, попередніми переглядами та внутрішнім спільним доступом з "
 "одного місця."
 
-#: v2/templates/edrive/dashboard.php:91
+#: v2/templates/edrive/dashboard.php:65
 msgid "Files"
 msgstr "Файли"
 
@@ -9430,14 +9439,12 @@ msgid "Icon"
 msgstr "Ікона"
 
 #: v2/templates/edrive/shares.php:34
-#, fuzzy
 msgid "Size"
-msgstr "Розмір шрифту"
+msgstr "Розмір"
 
 #: v2/templates/edrive/shares.php:35
-#, fuzzy
 msgid "Modification Date"
-msgstr "Повідомлення"
+msgstr "Дата внесення змін"
 
 #: v2/templates/error/404.php:17
 msgid "Oops! Can't find route for "
@@ -11630,14 +11637,14 @@ msgid "Get the vCard of the family"
 msgstr "Отримайте візитну картку сім'ї"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:57
-#: v2/templates/plugins/plugins.php:114
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:60
+#: v2/templates/plugins/plugins.php:117
 msgid "Deactivate"
 msgstr "Деактивувати"
 
 #: v2/templates/people/familyview.php:341
-#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:56
-#: v2/templates/plugins/plugins.php:114
+#: v2/templates/people/personview.php:631 v2/templates/plugins/plugins.php:59
+#: v2/templates/plugins/plugins.php:117
 msgid "Activate"
 msgstr "Активувати"
 
@@ -12136,7 +12143,7 @@ msgstr "Роль / стать"
 #: v2/templates/people/peopledashboard.php:354
 #, fuzzy, php-format
 msgid "% of People"
-msgstr "% людей"
+msgstr "% населення"
 
 #: v2/templates/people/peopledashboard.php:303
 #: v2/templates/people/peopledashboard.php:355
@@ -12564,9 +12571,8 @@ msgstr "Ця особа деактивована"
 #: v2/templates/people/personview.php:192
 #: v2/templates/people/personview.php:1224
 #: v2/templates/people/personview.php:1295
-#, fuzzy
 msgid "assigned"
-msgstr "Не призначено"
+msgstr "призначений"
 
 #: v2/templates/people/personview.php:222
 msgid "No group assignments yet."
@@ -13008,35 +13014,35 @@ msgstr "Експорт CSV"
 msgid "Plugins managements"
 msgstr "Керування плагінами"
 
-#: v2/templates/plugins/plugins.php:35
+#: v2/templates/plugins/plugins.php:38
 msgid "Add a plugin"
 msgstr "Додати плагін"
 
-#: v2/templates/plugins/plugins.php:40 v2/templates/plugins/plugins.php:151
+#: v2/templates/plugins/plugins.php:43 v2/templates/plugins/plugins.php:154
 msgid "Add new plugin"
 msgstr "Додати новий плагін"
 
-#: v2/templates/plugins/plugins.php:43
+#: v2/templates/plugins/plugins.php:46
 msgid "Upload A Plugin"
 msgstr "Завантажити плагін"
 
-#: v2/templates/plugins/plugins.php:53
+#: v2/templates/plugins/plugins.php:56
 msgid "Select the grouped action"
 msgstr "Виберіть згруповану дію"
 
-#: v2/templates/plugins/plugins.php:55
+#: v2/templates/plugins/plugins.php:58
 msgid "Grouped actions"
 msgstr "Групові дії"
 
-#: v2/templates/plugins/plugins.php:70
+#: v2/templates/plugins/plugins.php:73
 msgid "Activated"
 msgstr "Активовано"
 
-#: v2/templates/plugins/plugins.php:87 v2/templates/user/userlist.php:51
+#: v2/templates/plugins/plugins.php:90 v2/templates/user/userlist.php:51
 msgid "Check all boxes"
 msgstr "Поставте всі галочки"
 
-#: v2/templates/plugins/plugins.php:89 v2/templates/plugins/plugins.php:126
+#: v2/templates/plugins/plugins.php:92 v2/templates/plugins/plugins.php:129
 #: v2/templates/system/infos.php:306 v2/templates/system/integritycheck.php:135
 #: v2/templates/system/integritycheck.php:230
 #: v2/templates/user/usersettings.php:375
@@ -13044,39 +13050,39 @@ msgstr "Поставте всі галочки"
 msgid "Plugin"
 msgstr "Плагін"
 
-#: v2/templates/plugins/plugins.php:90
+#: v2/templates/plugins/plugins.php:93
 msgid "Category"
 msgstr "Категорія"
 
-#: v2/templates/plugins/plugins.php:93
+#: v2/templates/plugins/plugins.php:96
 msgid "Update"
 msgstr "Оновлення"
 
-#: v2/templates/plugins/plugins.php:116
+#: v2/templates/plugins/plugins.php:119
 msgid "Guided tour"
 msgstr "Екскурсія з гідом"
 
-#: v2/templates/plugins/plugins.php:124
+#: v2/templates/plugins/plugins.php:127
 msgid "Widget"
 msgstr "Віджет"
 
-#: v2/templates/plugins/plugins.php:135
+#: v2/templates/plugins/plugins.php:138
 msgid "By"
 msgstr "By"
 
-#: v2/templates/plugins/plugins.php:139
+#: v2/templates/plugins/plugins.php:142
 msgid "Details"
 msgstr "Деталі"
 
-#: v2/templates/plugins/plugins.php:143
+#: v2/templates/plugins/plugins.php:146
 msgid "Activated Plugin"
 msgstr "Активований плагін"
 
-#: v2/templates/plugins/plugins.php:145
+#: v2/templates/plugins/plugins.php:148
 msgid "Deactivated Plugin"
 msgstr "Деактивований плагін"
 
-#: v2/templates/plugins/plugins.php:155
+#: v2/templates/plugins/plugins.php:158
 msgid "Update/upgrade"
 msgstr "Оновлення/модернізація"
 
@@ -14765,10 +14771,6 @@ msgstr "Перегляд, додавання та редагування нот�
 msgid "User Account Permissions"
 msgstr "Дозволи облікового запису користувача"
 
-#: v2/templates/user/userseditor.php:274
-msgid "Main Dashboard"
-msgstr "Головна інформаційна панель"
-
 #: v2/templates/user/userseditor.php:276
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "Видно головну інформаційну панель і дати народження в календарі."
@@ -15998,6 +16000,21 @@ msgstr "Кілька днів"
 
 msgid "Giving Report"
 msgstr "Надання звіту"
+
+#~ msgid "Download files"
+#~ msgstr "Завантажити файли"
+
+#~ msgid "Files input"
+#~ msgstr "Введення файлів"
+
+#~ msgid "You can also drag and drop files into this area."
+#~ msgstr "Ви також можете перетягувати файли в цю область."
+
+#~ msgid "Download status"
+#~ msgstr "Статус завантаження"
+
+#~ msgid "Select your rights"
+#~ msgstr "Виберіть свої права"
 
 #~ msgid "File Manager"
 #~ msgstr "Файловий менеджер"

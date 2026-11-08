@@ -6,17 +6,20 @@ msgstr ""
 msgid "Updated Members"
 msgstr ""
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:49
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:64
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:47
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:60
 msgid "Name"
 msgstr ""
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:50
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:65
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:48
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:61
 msgid "Address"
 msgstr ""
 
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:51
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:66
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:49
+msgid "Created"
+msgstr ""
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:62
 msgid "Updated"
 msgstr ""
