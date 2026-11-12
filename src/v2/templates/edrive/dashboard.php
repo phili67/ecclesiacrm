@@ -86,7 +86,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="col filmanager-right" style="display: none;" aria-labelledby="edrive-panel-title">
                 <div class="sticky-top">
-                    <div class="card card-outline card-primary shadow-sm mb-3">
+                    <div class="card card-outline card-primary shadow-sm mb-0">
                         <div class="card-header">
                             <div class="d-flex align-items-start justify-content-between">
                                 <div class="mr-3">
@@ -118,8 +118,8 @@ require $sRootDocument . '/Include/Header.php';
                             <div class="form-group mb-3">
                                 <label for="person-group-rights" class="font-weight-bold"><?= _("Set Rights") ?></label>
                                 <select name="person-group-Id" id="person-group-rights" class="form-control" style="width:100%">
-                                    <option value="2"><?= _("Read only") ?></option>
-                                    <option value="3"><?= _("Read and write") ?></option>
+                                    <option value="2">[R ] -- <?= _("Read only") ?></option>
+                                    <option value="3">[RW] -- <?= _("Read and write") ?></option>
                                 </select>
                             </div>
 
@@ -139,7 +139,7 @@ require $sRootDocument . '/Include/Header.php';
                                         <button type="button" class="btn btn-outline-danger d-none" id="delete-share"
                                             data-toggle="tooltip" data-placement="top" title="<?= _("Delete shares for the selected users") ?>" disabled><?= _("Delete") ?></button>
                                         <button type="button" class="btn btn-outline-secondary d-none" id="delete-all-share"
-                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete all shares") ?>" disabled><?= _("Delete all shares") ?></button>
+                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete All Shares") ?>" disabled><?= _("Delete All Shares") ?></button>
                                     </div>
                                     <div class="edrive-share-rights dropdown d-none">
                                         <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button"

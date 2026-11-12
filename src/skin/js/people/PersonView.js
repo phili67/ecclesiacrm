@@ -456,8 +456,8 @@ $(function () {
                   +'<label class="small text-uppercase text-muted mb-2" for="person-group-rights">' + i18next.t("Set rights") + '</label>'
                   +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm" style="width:100%" data-placeholder="text to place">'
                     +'<option value="0">' + i18next.t("Select your rights") + ' -- </option>'
-                    +'<option value="1">' + i18next.t("Read only") + ' [R]</option>'
-                    +'<option value="2">' + i18next.t("Read and write") + ' [RW]</option>'
+                    +'<option value="1">[R ] -- ' + i18next.t("Read only") + '</option>'
+                    +'<option value="2">[RW] -- ' + i18next.t("Read and write") + '</option>'
                   +'</select>'
                 +'</div>'
               +'</div>'
@@ -577,41 +577,25 @@ $(function () {
 
      $("#person-group-rights").on('change', function() {
        var rightAccess = $(this).val();
-       var deferreds = [];
-       var i = 0;
+
+       if (rightAccess !== "1" && rightAccess !== "2") {
+         return;
+       }
 
        $('#select-share-persons :selected').each(function(i, sel){
           var personID = $(sel).val();
-          var str = $(sel).text();
 
-          deferreds.push(
-            window.CRM.APIRequest({
-               method: 'POST',
-               path: 'sharedocument/setrights',
-               data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
-            }, function(data) {
-              if (rightAccess == 1) {
-                res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
-              } else {
-                res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
-              }
-
-              var elt = [personID,res];
-              deferreds[i++] = elt;
-            })
-          );
-
-        });
-
-        $.when.apply($, deferreds).done(function(data) {
-         // all images are now prefetched
-         //addPersonsFromNotes(noteId);
-
-         deferreds.forEach(function(element) {
-           $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
-         });
-
-         $("#person-group-rights option:first").attr('selected','selected');
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'sharedocument/setrights',
+            data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
+          }, function() {
+            var option = $('#select-share-persons option').filter(function() {
+              return $(this).val() == personID;
+            });
+            var name = option.text();
+            option.text(rightAccess === "1" ? name.replace("[RW]", "[R ]") : name.replace("[R ]", "[RW]"));
+          });
         });
      });
 
