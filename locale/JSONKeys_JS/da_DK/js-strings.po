@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,12 +121,6 @@ msgstr "Medtag/undgå dine kalendere i sidebarmen"
 msgid "Ok"
 msgstr "Ok"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "Med"
 
@@ -142,11 +136,11 @@ msgstr "Vælg dine rettigheder"
 msgid "or"
 msgstr "eller"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "Læs kun"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "Læse og skrive"
 
 msgid "Send email notification"
 msgstr "Send en e-mail-meddelelse"
@@ -1294,9 +1288,6 @@ msgstr "forhåndsvisning, der er ved at blive oprettet"
 msgid "Document preview"
 msgstr "Forhåndsvisning af dokument"
 
-msgid "Read only"
-msgstr "Læs kun"
-
 msgid "Please wait"
 msgstr "Vær venlig at vente"
 
@@ -1393,9 +1384,6 @@ msgstr "Indstil et fil/mappenavn"
 
 msgid "Download Error"
 msgstr "Download fejl"
-
-msgid "Read and write"
-msgstr "Læse og skrive"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "Er du sikker på, at du vil stoppe deling for udvalgte brugere?"
@@ -3138,6 +3126,18 @@ msgid ""
 "altered."
 msgstr ""
 "Alle medlemskaber vil blive ødelagt.  Medlemmerne selv vil ikke blive ændret."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "fra"

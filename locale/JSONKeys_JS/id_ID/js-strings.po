@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,12 +122,6 @@ msgstr "Include/Exclude kalender Anda di SideBar"
 msgid "Ok"
 msgstr "Ok"
 
-msgid "[👀  ]"
-msgstr "[👀]"
-
-msgid "[👀 ✐]"
-msgstr "[👀]"
-
 msgid "With"
 msgstr "Dengan"
 
@@ -144,11 +138,11 @@ msgstr "Pilih hak Anda"
 msgid "or"
 msgstr "Atau"
 
-msgid "[R ]"
-msgstr "[R]"
+msgid "Read only"
+msgstr "Hanya baca"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "Membaca dan menulis"
 
 msgid "Send email notification"
 msgstr "Kirim pesan email"
@@ -1302,9 +1296,6 @@ msgstr "pratinjau yang sedang dibuat"
 msgid "Document preview"
 msgstr "Pratinjau dokumen"
 
-msgid "Read only"
-msgstr "Hanya baca"
-
 msgid "Please wait"
 msgstr "Silakan tunggu."
 
@@ -1401,9 +1392,6 @@ msgstr "Atur nama File/Folder"
 
 msgid "Download Error"
 msgstr "Kesalahan Pengunduhan"
-
-msgid "Read and write"
-msgstr "Membaca dan menulis"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "Apakah Anda yakin ingin berhenti berbagi untuk pengguna tertentu?"
@@ -3157,6 +3145,18 @@ msgid ""
 "altered."
 msgstr ""
 "Semua keanggotaan akan dihancurkan.  Anggota itu sendiri tidak akan diubah."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "dari"

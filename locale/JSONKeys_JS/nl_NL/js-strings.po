@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,12 +123,6 @@ msgstr "Uw kalenders in de SideBar opnemen/uitsluiten"
 msgid "Ok"
 msgstr "Ok"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "Met"
 
@@ -145,11 +139,11 @@ msgstr "Kies uw rechten"
 msgid "or"
 msgstr "of"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "Alleen lezen"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "Lezen en schrijven"
 
 msgid "Send email notification"
 msgstr "E-mail bericht verzenden"
@@ -1314,9 +1308,6 @@ msgstr "voorbeeld wordt momenteel gemaakt"
 msgid "Document preview"
 msgstr "Voorbeeld van een document"
 
-msgid "Read only"
-msgstr "Alleen lezen"
-
 msgid "Please wait"
 msgstr "Even geduld"
 
@@ -1414,9 +1405,6 @@ msgstr "Een bestands-/mapnaam instellen"
 
 msgid "Download Error"
 msgstr "Fout downloaden"
-
-msgid "Read and write"
-msgstr "Lezen en schrijven"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
@@ -3179,6 +3167,18 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Alle leden worden vernietigd.  De leden zelf worden niet gewijzigd."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "uit"

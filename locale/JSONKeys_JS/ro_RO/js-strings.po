@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,12 +124,6 @@ msgstr "Includeți/Excludeți calendarele în SideBar"
 msgid "Ok"
 msgstr "Ok"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "Cu"
 
@@ -147,11 +141,11 @@ msgstr "Selectați drepturile dumneavoastră"
 msgid "or"
 msgstr "sau"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "Doar citire"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "Citire și scriere"
 
 msgid "Send email notification"
 msgstr "Trimiteți o notificare prin e-mail"
@@ -1310,9 +1304,6 @@ msgstr "previzualizare în curs de creare"
 msgid "Document preview"
 msgstr "Previzualizare document"
 
-msgid "Read only"
-msgstr "Doar citire"
-
 msgid "Please wait"
 msgstr "Vă rugăm să așteptați"
 
@@ -1409,9 +1400,6 @@ msgstr "Setați un nume de fișier/folder"
 
 msgid "Download Error"
 msgstr "Descărcare eroare"
-
-msgid "Read and write"
-msgstr "Citire și scriere"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
@@ -3190,6 +3178,18 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Toți membrii vor fi distruși.  Membrii înșiși nu vor fi modificați."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "din"

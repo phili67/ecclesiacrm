@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-08 20:08+0100\n"
+"POT-Creation-Date: 2026-11-12 08:40+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,8 +149,8 @@ msgid "Delete"
 msgstr "Delete"
 
 #: browser/browse.php:165 v2/templates/edrive/dashboard.php:142
-msgid "Delete all shares"
-msgstr "Alle aandelen verwijderen"
+msgid "Delete All Shares"
+msgstr "Alle gedeelde items verwijderen"
 
 #: browser/browse.php:183 v2/templates/edrive/dashboard.php:160
 msgid "Share By"
@@ -163,8 +163,8 @@ msgstr "Deel door"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:625
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:695
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:715
-#: EcclesiaCRM/Service/CalendarService.php:2093
-#: EcclesiaCRM/Service/CalendarService.php:2125
+#: EcclesiaCRM/Service/CalendarService.php:2084
+#: EcclesiaCRM/Service/CalendarService.php:2116
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr ""
 "Twee reserveringen van hulpbronnen kunnen niet in hetzelfde tijdslot staan."
@@ -229,7 +229,7 @@ msgid "None"
 msgstr "Geen"
 
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:225
-#: EcclesiaCRM/Service/CalendarService.php:1580
+#: EcclesiaCRM/Service/CalendarService.php:1571
 msgid "Share"
 msgstr "Deel"
 
@@ -523,14 +523,6 @@ msgid ""
 msgstr ""
 "Er bestaat al een bestand met dezelfde naam. Het geüploade bestand is "
 "automatisch hernoemd."
-
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-#: EcclesiaCRM/APIControllers/DocumentShareController.php:86
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:140
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:205
@@ -1185,7 +1177,7 @@ msgstr "Groep Types Editor"
 #: EcclesiaCRM/Search/GroupSearchRes.php:97
 #: EcclesiaCRM/Search/GroupSearchRes.php:194
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:155
-#: EcclesiaCRM/Service/CalendarService.php:1577
+#: EcclesiaCRM/Service/CalendarService.php:1568
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:122
 #: Include/Footer.php:135 v2/templates/calendar/calendar.php:49
@@ -2640,8 +2632,8 @@ msgid "Invalid Person"
 msgstr "Ongeldig persoon"
 
 #: EcclesiaCRM/dto/SystemConfig.php:48
-#: EcclesiaCRM/Service/CalendarService.php:1759
-#: EcclesiaCRM/Service/CalendarService.php:2154
+#: EcclesiaCRM/Service/CalendarService.php:1750
+#: EcclesiaCRM/Service/CalendarService.php:2145
 msgid "NONE"
 msgstr "GEEN"
 
@@ -5133,15 +5125,11 @@ msgstr "Maak Check-out"
 msgid "Check-out done"
 msgstr "Check-out gedaan"
 
-#: EcclesiaCRM/Service/CalendarService.php:1529
-msgid "No Attendance Recorded"
-msgstr "Geen aanwezigheid geregistreerd"
-
-#: EcclesiaCRM/Service/CalendarService.php:1543
+#: EcclesiaCRM/Service/CalendarService.php:1534
 msgid "login"
 msgstr "inloggen"
 
-#: EcclesiaCRM/Service/CalendarService.php:1574
+#: EcclesiaCRM/Service/CalendarService.php:1565
 #: v2/templates/calendar/eventslist.php:52
 msgid "Personal Calendar"
 msgstr "Persoonlijke kalender"
@@ -5366,7 +5354,7 @@ msgid "by"
 msgstr "door"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:884 EcclesiaCRM/utils/MiscUtils.php:1289
+#: EcclesiaCRM/utils/MiscUtils.php:884 EcclesiaCRM/utils/MiscUtils.php:1290
 #: EcclesiaCRM/VIEWControllers/VIEWEdriveController.php:180
 msgid "File"
 msgstr "Bestand"
@@ -5684,51 +5672,51 @@ msgid "File Type"
 msgstr "Bestandstype"
 
 #: EcclesiaCRM/utils/MiscUtils.php:949 EcclesiaCRM/utils/MiscUtils.php:974
-#: EcclesiaCRM/utils/MiscUtils.php:1010 EcclesiaCRM/utils/MiscUtils.php:1067
-#: EcclesiaCRM/utils/MiscUtils.php:1181 EcclesiaCRM/utils/MiscUtils.php:1232
-#: EcclesiaCRM/utils/MiscUtils.php:1267
+#: EcclesiaCRM/utils/MiscUtils.php:1010 EcclesiaCRM/utils/MiscUtils.php:1068
+#: EcclesiaCRM/utils/MiscUtils.php:1182 EcclesiaCRM/utils/MiscUtils.php:1233
+#: EcclesiaCRM/utils/MiscUtils.php:1268
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "U moet een PDF viewer gebruiken of het bestand hier downloaden"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1074 EcclesiaCRM/utils/MiscUtils.php:1079
-#: EcclesiaCRM/utils/MiscUtils.php:1083 EcclesiaCRM/utils/MiscUtils.php:1356
+#: EcclesiaCRM/utils/MiscUtils.php:1075 EcclesiaCRM/utils/MiscUtils.php:1080
+#: EcclesiaCRM/utils/MiscUtils.php:1084 EcclesiaCRM/utils/MiscUtils.php:1357
 msgid "Your browser does not support the audio element."
 msgstr "Uw browser ondersteunt het audio-element niet."
 
-#: EcclesiaCRM/utils/MiscUtils.php:1089 EcclesiaCRM/utils/MiscUtils.php:1096
-#: EcclesiaCRM/utils/MiscUtils.php:1105 EcclesiaCRM/utils/MiscUtils.php:1366
-#: EcclesiaCRM/utils/MiscUtils.php:1377 EcclesiaCRM/utils/MiscUtils.php:1392
+#: EcclesiaCRM/utils/MiscUtils.php:1090 EcclesiaCRM/utils/MiscUtils.php:1097
+#: EcclesiaCRM/utils/MiscUtils.php:1106 EcclesiaCRM/utils/MiscUtils.php:1367
+#: EcclesiaCRM/utils/MiscUtils.php:1378 EcclesiaCRM/utils/MiscUtils.php:1393
 msgid "Your browser does not support the video tag."
 msgstr "Uw browser ondersteunt de video tag niet."
 
-#: EcclesiaCRM/utils/MiscUtils.php:1298 EcclesiaCRM/utils/MiscUtils.php:1330
-#: EcclesiaCRM/utils/MiscUtils.php:1339 EcclesiaCRM/utils/MiscUtils.php:1354
-#: EcclesiaCRM/utils/MiscUtils.php:1363 EcclesiaCRM/utils/MiscUtils.php:1373
-#: EcclesiaCRM/utils/MiscUtils.php:1386
+#: EcclesiaCRM/utils/MiscUtils.php:1299 EcclesiaCRM/utils/MiscUtils.php:1331
+#: EcclesiaCRM/utils/MiscUtils.php:1340 EcclesiaCRM/utils/MiscUtils.php:1355
+#: EcclesiaCRM/utils/MiscUtils.php:1364 EcclesiaCRM/utils/MiscUtils.php:1374
+#: EcclesiaCRM/utils/MiscUtils.php:1387
 msgid "Expand"
 msgstr "Uitbreiden"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1438
+#: EcclesiaCRM/utils/MiscUtils.php:1439
 msgid "Classic Document"
 msgstr "Klassiek document"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1441
+#: EcclesiaCRM/utils/MiscUtils.php:1442
 msgid "Classic Video"
 msgstr "Klassieke video"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1444
+#: EcclesiaCRM/utils/MiscUtils.php:1445
 msgid "Classic File"
 msgstr "Klassiek bestand"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1447
+#: EcclesiaCRM/utils/MiscUtils.php:1448
 msgid "Classic Audio"
 msgstr "Klassieke Audio"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1553
+#: EcclesiaCRM/utils/MiscUtils.php:1554
 msgid "Select Fiscal Year"
 msgstr "Selecteer fiscaal jaar"
 
-#: EcclesiaCRM/utils/MiscUtils.php:2161
+#: EcclesiaCRM/utils/MiscUtils.php:2162
 #: v2/templates/deposit/autoPaymentClearAccount.php:28
 msgid "Cannot execute query."
 msgstr "Kan query niet uitvoeren."
@@ -16040,6 +16028,18 @@ msgstr "Enkele dagen"
 
 msgid "Giving Report"
 msgstr "Geven Rapport"
+
+#~ msgid "Delete all shares"
+#~ msgstr "Alle aandelen verwijderen"
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "No Attendance Recorded"
+#~ msgstr "Geen aanwezigheid geregistreerd"
 
 #~ msgid "Download files"
 #~ msgstr "Bestanden downloaden"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,12 +124,6 @@ msgstr "Inkludera/uteslut dina kalendrar i sidofältet"
 msgid "Ok"
 msgstr "Ok"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "Med"
 
@@ -146,11 +140,11 @@ msgstr "Välj dina rättigheter"
 msgid "or"
 msgstr "eller ."
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "Endast läsning"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "Läsa och skriva"
 
 msgid "Send email notification"
 msgstr "Skicka e-postmeddelande"
@@ -1305,9 +1299,6 @@ msgstr "förhandsvisning håller på att skapas"
 msgid "Document preview"
 msgstr "Förhandsgranskning av dokument"
 
-msgid "Read only"
-msgstr "Endast läsning"
-
 msgid "Please wait"
 msgstr "Vänligen vänta"
 
@@ -1404,9 +1395,6 @@ msgstr "Ange ett fil-/mappnamn"
 
 msgid "Download Error"
 msgstr "Ladda ner fel"
-
-msgid "Read and write"
-msgstr "Läsa och skriva"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "Är du säker på att du vill stoppa delningen för utvalda användare?"
@@ -3153,6 +3141,18 @@ msgid ""
 msgstr ""
 "Alla medlemskap kommer att förstöras.  Medlemmarna själva kommer inte att "
 "förändras."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "från"

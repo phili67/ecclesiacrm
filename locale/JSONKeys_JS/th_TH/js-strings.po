@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,12 +121,6 @@ msgstr "รวมทั้งแยกปฏิทินของคุณ ใ�
 msgid "Ok"
 msgstr "โอเค"
 
-msgid "[👀  ]"
-msgstr "[👀  ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "ด้วย"
 
@@ -142,11 +136,11 @@ msgstr "เลือกสิทธิของคุณ"
 msgid "or"
 msgstr "หรือ"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr ""
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr ""
 
 msgid "Send email notification"
 msgstr "ส่งอีเมลล์แจ้ง"
@@ -1344,9 +1338,6 @@ msgstr ""
 msgid "Document preview"
 msgstr "เอกสารทิทเทิล"
 
-msgid "Read only"
-msgstr ""
-
 #, fuzzy
 msgid "Please wait"
 msgstr "กรุณาอัพเดทด้วยครับ"
@@ -1452,9 +1443,6 @@ msgid "Set a File/Folder name"
 msgstr "ตั้งชื่อให้ไฟล์กับโวลเดอร์"
 
 msgid "Download Error"
-msgstr ""
-
-msgid "Read and write"
 msgstr ""
 
 #, fuzzy
@@ -3258,6 +3246,18 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "สมาชิกและสมบัติทั้งหมดจะถูกทำลาย กลุ่มสมาชิกตัวเองจะไม่ได้รับการเปลี่ยนแปลง"
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀  ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "Save as Word file in EDrive"
 #~ msgstr "ช่วยเหลือเป็นข้อมูลใน EDrive"

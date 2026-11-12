@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,12 +120,6 @@ msgstr "サイドバーにカレンダーを表示／非表示する"
 msgid "Ok"
 msgstr "OK"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "とのことです。"
 
@@ -141,11 +135,11 @@ msgstr "権利の選択"
 msgid "or"
 msgstr "または"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "読むだけ"
 
-msgid "[RW]"
-msgstr "[RW]."
+msgid "Read and write"
+msgstr "読み書き"
 
 msgid "Send email notification"
 msgstr "通知メールの送信"
@@ -1287,9 +1281,6 @@ msgstr "現在作成中のプレビュー"
 msgid "Document preview"
 msgstr "ドキュメントプレビュー"
 
-msgid "Read only"
-msgstr "読むだけ"
-
 msgid "Please wait"
 msgstr "お待ちください"
 
@@ -1386,9 +1377,6 @@ msgstr "ファイル/フォルダ名の設定"
 
 msgid "Download Error"
 msgstr "ダウンロードエラー"
-
-msgid "Read and write"
-msgstr "読み書き"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "選択したユーザーの共有を停止してもよろしいですか？"
@@ -3120,6 +3108,18 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "すべての会員権は破棄される。  メンバーそのものが変更されることはない。"
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]."
 
 #~ msgid "from"
 #~ msgstr "出典："

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
@@ -123,12 +123,6 @@ msgstr "Включення/виключення календарів на біч
 msgid "Ok"
 msgstr "Гаразд."
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "З"
 
@@ -146,11 +140,11 @@ msgstr "Виберіть свої права"
 msgid "or"
 msgstr "або"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "Тільки для читання"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "Читати та писати"
 
 msgid "Send email notification"
 msgstr "Надіслати сповіщення електронною поштою"
@@ -1297,9 +1291,6 @@ msgstr "попередній перегляд наразі створюєтьс�
 msgid "Document preview"
 msgstr "Попередній перегляд документа"
 
-msgid "Read only"
-msgstr "Тільки для читання"
-
 msgid "Please wait"
 msgstr "Будь ласка, зачекайте."
 
@@ -1396,9 +1387,6 @@ msgstr "Задати ім'я файлу/папки"
 
 msgid "Download Error"
 msgstr "Помилка завантаження"
-
-msgid "Read and write"
-msgstr "Читати та писати"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
@@ -3136,6 +3124,18 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Все членство буде знищено.  Самі члени не будуть змінені."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "з"

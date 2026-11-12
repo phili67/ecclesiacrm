@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -119,12 +119,6 @@ msgstr "إدراج / إستثناء جدول أعمالك في الحانة"
 msgid "Ok"
 msgstr "حسناً"
 
-msgid "[👀  ]"
-msgstr "[👀  ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "مع"
 
@@ -140,11 +134,11 @@ msgstr "اختر حقوقك"
 msgid "or"
 msgstr "أو"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "قراءة فقط"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "القراءة والكتابة"
 
 msgid "Send email notification"
 msgstr "أرسل إشعار بالبريد الإلكتروني"
@@ -1277,9 +1271,6 @@ msgstr "معاينة قيد الإنشاء حالياً"
 msgid "Document preview"
 msgstr "معاينة المستند"
 
-msgid "Read only"
-msgstr "قراءة فقط"
-
 msgid "Please wait"
 msgstr "يرجى الانتظار"
 
@@ -1376,9 +1367,6 @@ msgstr "ضع اسم ملف/فولدر"
 
 msgid "Download Error"
 msgstr "خطأ في التنزيل"
-
-msgid "Read and write"
-msgstr "القراءة والكتابة"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "هل تريد بالتأكيد إيقاف المشاركة لمستخدمين محددين؟"
@@ -3102,6 +3090,18 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "سيتم تدمير جميع الأعضاء.  لن يتم تغيير الأعضاء أنفسهم."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀  ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "من"

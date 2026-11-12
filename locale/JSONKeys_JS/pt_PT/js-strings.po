@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,12 +121,6 @@ msgstr "Incluir/Excluir os seus Calendários na Barra Lateral"
 msgid "Ok"
 msgstr "Ok"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "Com"
 
@@ -142,11 +136,11 @@ msgstr "Seleccione os seus direitos"
 msgid "or"
 msgstr "ou"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr ""
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr ""
 
 msgid "Send email notification"
 msgstr "Enviar notificação por e-mail"
@@ -1357,9 +1351,6 @@ msgstr "visualização que está sendo criada atualmente"
 msgid "Document preview"
 msgstr "Título do documento"
 
-msgid "Read only"
-msgstr ""
-
 #, fuzzy
 msgid "Please wait"
 msgstr "Por favor, atualize o"
@@ -1465,9 +1456,6 @@ msgstr "Definir um nome de arquivo/pasta"
 
 msgid "Download Error"
 msgstr "Erro de download"
-
-msgid "Read and write"
-msgstr ""
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
@@ -3312,6 +3300,18 @@ msgid ""
 msgstr ""
 "Todos os membros e propriedades do grupo serão destruídos.  Os próprios "
 "membros do grupo não serão alterados."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "Restaurar a cópia de segurança, não fechar a janela!"
