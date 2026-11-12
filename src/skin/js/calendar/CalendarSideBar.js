@@ -649,7 +649,7 @@ const addPersonsFromCalendar = (calendarId) => {
             } else if (data[i].access == 3) {
                 var option = document.createElement("option");
 
-                option.text = i18next.t("[RW]") + " " + data[i].principal.replace("principals/", "");
+                option.text = "[RW]" + " " + data[i].principal.replace("principals/", "");
                 option.value = data[i].principal;
 
                 elt.appendChild(option);

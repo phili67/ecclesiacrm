@@ -83,7 +83,7 @@ class DocumentShareController
                 $name = PersonQuery::Create()->findOneById ($id)->getFullName();
 
                 $person = ['id' => $id,
-                    'name' => (($noteShare->getRights() == 1)?gettext("[R ]"):gettext("[RW]"))."   ".$name];
+                    'name' => (($noteShare->getRights() == 1)?"[R ]":"[RW]")."   ".$name];
 
                 array_push($result, $person);
             }
