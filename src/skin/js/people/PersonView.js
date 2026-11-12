@@ -591,9 +591,9 @@ $(function () {
                data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
             }, function(data) {
               if (rightAccess == 1) {
-                res = str.replace("[RW]" + " — ", "[R ]" + " — ");
+                res = str.replace("[RW]", "[R ]");
               } else {
-                res = str.replace("[R ]" + " — ", "[RW]" + " — ");
+                res = str.replace("[R ]", "[RW]");
               }
 
               var elt = [personID,res];
