@@ -1513,26 +1513,17 @@ class CalendarService
         $event['FreeStats'] = '';
 
         if (!empty($freeStats)) {
-            $ret = '<table width="100%" class="table-simple-padding outer" style="font-size: 10px;padding: 0px;border-spacing: 0px;">'
-                . '<tr class="no-background-theme">';
+            $ret = '<div class="calendar-attendance-summary">'
+                . '<div class="calendar-free-attendance-grid">';
 
-            if (!empty($freeStats)) {
-                foreach ($freeStats as $freeStat) {
-                    $ret .= '<td style="padding: 7px 2px;border:none;">'
-                        . '    <div class="text-bold">' . $freeStat['cCountName'] . '</div>'
-                        . '    <div>' . $freeStat['cCount'] . '</div>'
-                        . '</td>';
-                }
-            } else {
-                $ret .= '<td style="padding: 7px 2px;border:none;">'
-                    . '<p class="text-center">'
-                    . _('No Attendance Recorded')
-                    . '</p>'
-                    . '</td>';
+            foreach ($freeStats as $freeStat) {
+                $ret .= '<div class="calendar-free-attendance-stat">'
+                    . '<span class="calendar-attendance-label">' . $freeStat['cCountName'] . '</span>'
+                    . '<span class="calendar-attendance-value">' . $freeStat['cCount'] . '</span>'
+                    . '</div>';
             }
 
-            $ret .= '</tr>'
-                . '</table>';
+            $ret .= '</div></div>';
 
             $event['FreeStats'] = $ret;
         }

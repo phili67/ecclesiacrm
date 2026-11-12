@@ -1010,6 +1010,7 @@ class MiscUtils
                 $res .= "<p>" . _("You've to use a PDF viewer or download the file here ") . ': <a href="' . $realPath . '">télécharger le fichier.</a></p>';
                 $res .= "</object>";
                 break;
+            case "gif":
             case "jpg":
             case "jpeg":
             case "png":

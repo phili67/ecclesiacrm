@@ -86,7 +86,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="col filmanager-right" style="display: none;" aria-labelledby="edrive-panel-title">
                 <div class="sticky-top">
-                    <div class="card card-outline card-primary shadow-sm mb-3">
+                    <div class="card card-outline card-primary shadow-sm mb-0">
                         <div class="card-header">
                             <div class="d-flex align-items-start justify-content-between">
                                 <div class="mr-3">

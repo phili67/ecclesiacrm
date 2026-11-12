@@ -591,9 +591,9 @@ $(function () {
                data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
             }, function(data) {
               if (rightAccess == 1) {
-                res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
+                res = str.replace(i18next.t("[RW]") + " — ", i18next.t("[R ]") + " — ");
               } else {
-                res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
+                res = str.replace(i18next.t("[R ]") + " — ", i18next.t("[RW]") + " — ");
               }
 
               var elt = [personID,res];
