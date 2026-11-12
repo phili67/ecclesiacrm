@@ -681,8 +681,8 @@ const BootboxContentShare = () => {
                 <div class="col-md-8">
                     <select name="person-group-Id-Share" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
                         <option value="0">${i18next.t("Select your rights")} [R ] ${i18next.t("or")} [RW] -- </option>
-                        <option value="1">${i18next.t("Read only")} -- ${i18next.t("[R ]")}</option>
-                        <option value="2">${i18next.t("Read and write")} -- ${i18next.t("[RW]")}</option>
+                        <option value="1">[R ] -- ${i18next.t("Read only")}</option>
+                        <option value="2">[RW] -- ${i18next.t("Read and write")}</option>
                     </select>
                 </div>
             </div>
