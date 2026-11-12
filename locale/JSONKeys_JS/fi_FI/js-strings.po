@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,12 +121,6 @@ msgstr "Kalenterien sisällyttäminen/poissulkeminen sivupalkista"
 msgid "Ok"
 msgstr "Ok"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "Osoitteessa"
 
@@ -143,11 +137,11 @@ msgstr "Valitse oikeutesi"
 msgid "or"
 msgstr "tai"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "Vain luku"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "Lue ja kirjoita"
 
 msgid "Send email notification"
 msgstr "Lähetä sähköposti-ilmoitus"
@@ -1292,9 +1286,6 @@ msgstr "esikatselu parhaillaan luodaan"
 msgid "Document preview"
 msgstr "Asiakirjan esikatselu"
 
-msgid "Read only"
-msgstr "Vain luku"
-
 msgid "Please wait"
 msgstr "Odota"
 
@@ -1391,9 +1382,6 @@ msgstr "Tiedoston/kansioiden nimen asettaminen"
 
 msgid "Download Error"
 msgstr "Lataa Virhe"
-
-msgid "Read and write"
-msgstr "Lue ja kirjoita"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "Oletko varma, että haluat lopettaa jakamisen valituille käyttäjille?"
@@ -3138,6 +3126,18 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "Kaikki jäsenyys tuhotaan.  Jäseniä itseään ei muuteta."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "lähde:"

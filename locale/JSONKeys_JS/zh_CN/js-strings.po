@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,12 +120,6 @@ msgstr "在侧边栏中包括/排除你的日历"
 msgid "Ok"
 msgstr "好的"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "与"
 
@@ -141,11 +135,11 @@ msgstr "选择你的权利"
 msgid "or"
 msgstr "或"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr ""
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr ""
 
 msgid "Send email notification"
 msgstr "发送电子邮件通知"
@@ -1335,9 +1329,6 @@ msgstr "正在创建预览"
 msgid "Document preview"
 msgstr "文件标题"
 
-msgid "Read only"
-msgstr ""
-
 #, fuzzy
 msgid "Please wait"
 msgstr "请更新"
@@ -1443,9 +1434,6 @@ msgstr "设置一个文件/文件夹名称"
 
 msgid "Download Error"
 msgstr "下载错误"
-
-msgid "Read and write"
-msgstr ""
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr "您确定要停止共享选定的用户吗？"
@@ -3227,6 +3215,18 @@ msgid ""
 "All membership will be destroyed.  The members themselves will not be "
 "altered."
 msgstr "所有组的成员和属性都将被销毁。  组成员本身不会被改变。"
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "Restore backup, don't close the window !"
 #~ msgstr "恢复备份，不要关闭窗口 ！"

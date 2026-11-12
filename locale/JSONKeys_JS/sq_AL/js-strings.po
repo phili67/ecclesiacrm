@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,12 +121,6 @@ msgstr "Përfshi dhe përjashto kalendarët në SideBar"
 msgid "Ok"
 msgstr "ok"
 
-msgid "[👀  ]"
-msgstr "[👀  ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "me"
 
@@ -142,11 +136,11 @@ msgstr "Zgjidh të drejtat e tua"
 msgid "or"
 msgstr "ose"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr ""
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr ""
 
 msgid "Send email notification"
 msgstr "Dërgo njoftimin e e-mail"
@@ -1357,9 +1351,6 @@ msgstr ""
 msgid "Document preview"
 msgstr "Titull i dokumenteve"
 
-msgid "Read only"
-msgstr ""
-
 #, fuzzy
 msgid "Please wait"
 msgstr "ju lutem, lajmëroni"
@@ -1465,9 +1456,6 @@ msgid "Set a File/Folder name"
 msgstr "vendos emrin e filmit/folder"
 
 msgid "Download Error"
-msgstr ""
-
-msgid "Read and write"
 msgstr ""
 
 #, fuzzy
@@ -3308,6 +3296,18 @@ msgid ""
 msgstr ""
 "Të gjitha anëtarësimi në grup dhe pronat do të shkatërrohen. vetë anëtarët e "
 "grupit nuk do të ndryshojnë."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀  ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "Save as Word file in EDrive"
 #~ msgstr "ruaj si dosje fjalësh në episod"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-11-08T17:46:06.414Z\n"
+"POT-Creation-Date: 2026-11-12T07:35:36.580Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,12 +124,6 @@ msgstr "Kalender in die Seitenleiste aufnehmen/ausnehmen"
 msgid "Ok"
 msgstr "Ok"
 
-msgid "[👀  ]"
-msgstr "[👀 ]"
-
-msgid "[👀 ✐]"
-msgstr "[👀 ✐]"
-
 msgid "With"
 msgstr "Mit"
 
@@ -147,11 +141,11 @@ msgstr "Wählen Sie Ihre Rechte"
 msgid "or"
 msgstr "oder"
 
-msgid "[R ]"
-msgstr "[R ]"
+msgid "Read only"
+msgstr "Nur lesen"
 
-msgid "[RW]"
-msgstr "[RW]"
+msgid "Read and write"
+msgstr "Lesen und Schreiben"
 
 msgid "Send email notification"
 msgstr "E-Mail-Benachrichtigung senden"
@@ -1333,9 +1327,6 @@ msgstr "Vorschau wird gerade erstellt"
 msgid "Document preview"
 msgstr "Vorschau des Dokuments"
 
-msgid "Read only"
-msgstr "Nur lesen"
-
 msgid "Please wait"
 msgstr "Bitte warten"
 
@@ -1432,9 +1423,6 @@ msgstr "Einen Datei-/Ordnernamen festlegen"
 
 msgid "Download Error"
 msgstr "Fehler herunterladen"
-
-msgid "Read and write"
-msgstr "Lesen und Schreiben"
 
 msgid "Are you sure you want to stop sharing for selected users?"
 msgstr ""
@@ -3225,6 +3213,18 @@ msgid ""
 msgstr ""
 "Die gesamte Mitgliedschaft wird vernichtet.  Die Mitglieder selbst werden "
 "nicht verändert."
+
+#~ msgid "[👀  ]"
+#~ msgstr "[👀 ]"
+
+#~ msgid "[👀 ✐]"
+#~ msgstr "[👀 ✐]"
+
+#~ msgid "[R ]"
+#~ msgstr "[R ]"
+
+#~ msgid "[RW]"
+#~ msgstr "[RW]"
 
 #~ msgid "from"
 #~ msgstr "aus"
