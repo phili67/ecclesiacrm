@@ -255,7 +255,7 @@ class TimelineService
               $title = $dbNote->getTitle();
             }
 
-            $currentUserName = $dbNote->currentEditbyUserName();            
+            $currentUserName = $dbNote->isNoteDocument() ? '' : $dbNote->currentEditbyUserName();
 
             if ($dbNote->getType() == 'video' || $dbNote->getType() == 'audio' || $dbNote->getType() == 'note' || $dbNote->getType() == 'document' ){
               // only in this case : the header title in the timeline should be in function of the note owner
@@ -277,6 +277,8 @@ class TimelineService
                     $item['deleteLink'] = '';
                 }
                 $item['canShare'] = $dbNote->isCreator($userId);
+                $item['hasHistory'] = true;
+                $item['isPrivate'] = $dbNote->isPrivate();
             }
         }
 

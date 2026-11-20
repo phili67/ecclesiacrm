@@ -33,6 +33,7 @@ namespace EcclesiaCRM\Base {
             throw new \BadMethodCallException($method);
         }
         public function save() { \EcclesiaCRM\NoteQuery::$notes[$this->getId()] = $this; }
+        public function reload($deep, $connection) {}
         public function delete() { unset(\EcclesiaCRM\NoteQuery::$notes[$this->getId()]); }
         public function toArray() { return $this->data; }
     }
@@ -120,6 +121,27 @@ namespace EcclesiaCRM\Utils {
     }
 }
 
+namespace Propel\Runtime {
+    class Propel
+    {
+        public static function getWriteConnection($name) { return new class {
+            public function beginTransaction() {}
+            public function commit() {}
+            public function rollBack() {}
+        }; }
+    }
+}
+
+namespace EcclesiaCRM\Service {
+    class NoteRevisionService
+    {
+        public function version($note, $connection) { return 'version'; }
+        public function lock($note, $personId, $connection) {}
+        public function recordInitialIfMissing($note, $connection) {}
+        public function record($note, $author, $date, $connection) {}
+    }
+}
+
 namespace EcclesiaCRM\dto {
     class SystemConfig
     {
@@ -171,8 +193,8 @@ namespace {
     expect($note->canViewNote(8) && !$note->canEditNote(8) && !$note->canViewNote(9), 'Read-only recipient and outsider permissions');
     SessionUser::$id = 8;
     $result = callEndpoint($notes, 'getDocument', ['docID' => 1, 'personID' => 99, 'famID' => 0]);
-    expect($result->body['canEdit'] === false && $note->getCurrentEditedBy() === 7, 'Read-only access must not take the edit lock');
-    $update = ['docID' => 1, 'title' => 'new', 'type' => 'note', 'text' => 'new', 'bPrivate' => true];
+    expect($result->body['canEdit'] === false && $note->getCurrentEditedBy() === 0, 'Read-only access must not take an edit lock');
+    $update = ['docID' => 1, 'title' => 'new', 'type' => 'note', 'text' => 'new', 'bPrivate' => true, 'version' => 'version'];
     expect(callEndpoint($notes, 'updateDocument', $update)->status === 403, 'Read-only recipient cannot edit');
     expect(callEndpoint($shares, 'setRightsForPerson', ['noteId' => 1, 'personID' => 8, 'rightAccess' => 2])->status === 403, 'Recipient cannot grant rights');
 

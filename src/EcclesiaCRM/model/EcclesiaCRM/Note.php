@@ -56,7 +56,7 @@ class Note extends BaseNote
         if ($this->getType() == 'event_attend') {
             return null;
         }
-        if ($this->currentEditbyUserName() != "") {
+        if (!$this->isNoteDocument() && $this->currentEditbyUserName() != "") {
             return '<button class="btn btn-outline-info btn-sm" disabled><i class="fas fa-lock"></i></button>';
         }
 
@@ -81,7 +81,7 @@ class Note extends BaseNote
         if ($this->getType() == 'event_attend') {
             return null;
         }
-        if ($this->currentEditbyUserName() != "") {
+        if (!$this->isNoteDocument() && $this->currentEditbyUserName() != "") {
             return '<button class="btn btn-outline-danger btn-sm deleteDocument" disabled><i class="fas fa-lock"></i></button>';
         }
 

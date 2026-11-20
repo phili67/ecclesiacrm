@@ -65,7 +65,7 @@ $(function() {
                     window.CRM.editor = null;
                 }
 
-                var modal = DocumentEditorWindow('edit', docID);
+                var modal = DocumentEditorWindow('edit', docID, data.version);
 
                 var theme = 'default';
                 if (window.CRM.bDarkMode) {
@@ -103,9 +103,9 @@ $(function() {
             } else {
                 window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t(data.message));
             }
+        }, function (error) {
+            window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
         });
-    }, function (error) {
-        window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
     });
 
     $(document).on("click", ".deleteDocument", function (e) {
@@ -144,12 +144,6 @@ $(function() {
                                     }
                                 }, function (error) {
                                     window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
-                                });
-                            } else {
-                                window.CRM.APIRequest({
-                                    method: 'POST',
-                                    path: 'document/leave',
-                                    data: JSON.stringify({"docID": docID})
                                 });
                             }
                         }
@@ -224,6 +218,13 @@ $(function() {
                     </div>
                 </div>
 
+                <div class="alert alert-warning d-none" id="documentConflict">
+                    <p>${i18next.t("This document has changed since you opened it. Your edits are still in the editor. Compare them with the current version and merge them manually.")}</p>
+                    <div class="font-weight-bold" id="documentConflictTitle"></div>
+                    <div id="documentConflictType"></div>
+                    <textarea id="documentConflictText" class="form-control my-2" rows="8" readonly></textarea>
+                    <button type="button" class="btn btn-warning btn-sm" id="documentUseCurrentVersion">${i18next.t("Use current version as the base for my edits")}</button>
+                </div>
                 <div class="card card-outline card-secondary shadow-sm mb-0">
                     <div class="card-body py-3">
                         <div class="custom-control custom-checkbox">
@@ -240,7 +241,9 @@ $(function() {
         return object;
     }
 
-    const DocumentEditorWindow = (mode, docID) => {
+    const DocumentEditorWindow = (mode, docID, initialVersion) => {
+        var version = initialVersion;
+        var saving = false;
         var dialogTitle = mode == 'edit'
             ? '<i class="fas fa-file-signature text-primary mr-2"></i>' + i18next.t("Edit Document")
             : '<i class="fas fa-file-medical text-primary mr-2"></i>' + i18next.t("Create Document");
@@ -254,24 +257,16 @@ $(function() {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                     className: "btn btn-outline-secondary",
                     callback: function () {
-                        if (mode !== 'edit') {
-                            return;
-                        }
-                        window.CRM.APIRequest({
-                            method: 'POST',
-                            path: 'document/leave',
-                            data: JSON.stringify({"docID": docID})
-                        },function (data) {
-                            console.log("we just close the doc ! ");
-                        }, function (error) {
-                            window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
-                        });
+                        return !saving;
                     }
                 },
                 {
                     label: '<i class="fas fa-save"></i> ' + i18next.t("Save"),
                     className: "btn btn-primary",
                     callback: function () {
+                        if (saving) {
+                            return false;
+                        }
                         var DocumentTitle = $('#documentTitle').val();
                         var perId = window.CRM.currentPersonID;
                         var famId = window.CRM.currentFamily;
@@ -283,6 +278,7 @@ $(function() {
                         }
 
                         if (DocumentTitle != "") {
+                            saving = true;
                             var Type = $("#documentType").val();
                             var Private = $('#private').is(':checked');
                             var htmlBody = window.CRM.getEditor('documentText').getData();
@@ -306,8 +302,12 @@ $(function() {
                                         } else if (window.CRM.docType == 'family') {
                                             location.href = window.CRM.root + '/v2/people/family/view/' + window.CRM.currentFamily + '/Documents';
                                         }
+                                    } else {
+                                        saving = false;
+                                        window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t("Invalid document"));
                                     }
                                 }, function (error) {
+                                    saving = false;
                                     window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
                                 });
                             } else if (mode == 'edit') {
@@ -319,7 +319,8 @@ $(function() {
                                         "title": DocumentTitle,
                                         "type": Type,
                                         "text": htmlBody,
-                                        "bPrivate": Private
+                                        "bPrivate": Private,
+                                        "version": version
                                     })
                                 },function (data) {
                                     if (data.success) {
@@ -328,11 +329,32 @@ $(function() {
                                         } else if (window.CRM.docType == 'family') {
                                             location.href = window.CRM.root + '/v2/people/family/view/' + window.CRM.currentFamily + '/Documents';
                                         }
+                                    } else {
+                                        saving = false;
+                                        window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t("Invalid document"));
                                     }
                                 }, function (error) {
-                                    window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
+                                    saving = false;
+                                    if (error.status === 409 && error.response && error.response.note) {
+                                        var current = error.response;
+                                        modal.find('#documentConflictTitle').text(current.note.Title);
+                                        modal.find('#documentConflictType').text(current.note.Type);
+                                        modal.find('#documentConflictText').val(current.note.Text);
+                                        modal.find('#documentConflict').removeClass('d-none');
+                                        modal.find('#documentUseCurrentVersion').off('click').on('click', function () {
+                                            version = current.version;
+                                            if (!current.canChangePrivacy) {
+                                                modal.find('#private').prop('checked', !!Number(current.note.Private));
+                                            }
+                                            modal.find('#private').prop('disabled', !current.canChangePrivacy);
+                                            modal.find('#documentConflict').addClass('d-none');
+                                        });
+                                    } else {
+                                        window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
+                                    }
                                 });
                             }
+                            return false;
                         } else {
                             window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t("You have to set a Title for your document"));
 
@@ -343,18 +365,7 @@ $(function() {
             ],
             show: false,
             onEscape: function () {
-                if (mode !== 'edit') {
-                    modal.modal("hide");
-                    return;
-                }
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'document/leave',
-                    data: JSON.stringify({"docID": docID})
-                },function (data) {
-                    console.log("we just close the doc ! ");
-                    modal.modal("hide");
-                });
+                return !saving;
             }
         });
 
@@ -365,4 +376,75 @@ $(function() {
 
         return modal;
     }
+
+    $(document).on('click', '.noteHistory', function () {
+        var docID = $(this).data('id');
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'document/history',
+            data: JSON.stringify({docID: docID})
+        }, function (data) {
+            var content = $('<div>');
+            var list = $('<select class="form-control mb-2" size="6">').appendTo(content);
+            var details = $('<div class="mb-2">').appendTo(content);
+            var preview = $('<iframe class="w-100 border rounded" sandbox="">')
+                .attr('title', i18next.t('Preview'))
+                .css({height: '400px', background: '#fff'}).appendTo(content);
+            if (!data.history.length) {
+                $('<p>').text(i18next.t('No versions have been saved yet.')).prependTo(content);
+            }
+            data.history.forEach(function (revision) {
+                $('<option>').val(revision.id).text(revision.created_at + ' — ' + revision.author + ' — ' + revision.title).appendTo(list);
+            });
+            function selectedRevision() {
+                return data.history.find(function (revision) { return String(revision.id) === list.val(); });
+            }
+            list.on('change', function () {
+                var revision = selectedRevision();
+                details.text(revision ? revision.title + ' (' + revision.type + ')' : '');
+                preview.prop('srcdoc', '<!doctype html><html><head><meta charset="utf-8">' +
+                    '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; img-src http: https: data: blob:; media-src http: https: data: blob:; style-src \'unsafe-inline\'; form-action \'none\'; base-uri \'none\'">' +
+                    '<style>body{font-family:Arial,sans-serif;line-height:1.5;margin:1rem;overflow-wrap:anywhere}' +
+                    'img,video{max-width:100%;height:auto}figure{margin:1em 0}table{border-collapse:collapse;max-width:100%}' +
+                    'td,th{border:1px solid #ccc;padding:.4em}</style></head><body>' +
+                    (revision ? revision.content || '' : '') + '</body></html>');
+            });
+            if (data.history.length) {
+                list.val(String(data.history[0].id)).trigger('change');
+            }
+            var buttons = {
+                close: {label: i18next.t('Close'), className: 'btn-outline-secondary'}
+            };
+            if (data.canEdit && data.history.length) {
+                buttons.restore = {
+                    label: i18next.t('Restore this version'),
+                    className: 'btn-warning',
+                    callback: function () {
+                        var revision = selectedRevision();
+                        if (!revision) {
+                            return false;
+                        }
+                        bootbox.confirm(i18next.t('Restore this version? Your current note will remain in the history.'), function (confirmed) {
+                            if (!confirmed) {
+                                return;
+                            }
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'document/restore',
+                                data: JSON.stringify({docID: docID, revisionId: revision.id, version: data.version})
+                            }, function () {
+                                location.reload();
+                            }, function (error) {
+                                window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
+                            });
+                        });
+                        return false;
+                    }
+                };
+            }
+            bootbox.dialog({title: i18next.t('Version history'), message: content, size: 'large', buttons: buttons});
+        }, function (error) {
+            window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
+        });
+    });
 });

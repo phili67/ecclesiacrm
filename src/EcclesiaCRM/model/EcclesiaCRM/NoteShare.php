@@ -19,7 +19,7 @@ class NoteShare extends BaseNoteShare
 {
     public function getEditLink()
     {        
-        if ($this->getNote()->currentEditbyUserName() != "") {
+        if (!$this->getNote()->isNoteDocument() && $this->getNote()->currentEditbyUserName() != "") {
             return '<button class="btn btn-outline-info btn-sm" disabled><i class="fas fa-lock"></i></button>';
         }
 
