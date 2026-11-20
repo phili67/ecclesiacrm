@@ -628,7 +628,7 @@ abstract class ToDoListDashboardItem implements ActiveRecordInterface
             $this->tdl_l_i_list = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ToDoListDashboardItemTableMap::translateFieldName('Checked', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->tdl_l_i_checked = (null !== $col) ? (boolean) $col : null;
+            $this->tdl_l_i_checked = (null !== $col) ? (bool) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ToDoListDashboardItemTableMap::translateFieldName('Name', TableMap::TYPE_PHPNAME, $indexType)];
             $this->tdl_l_i_name = (null !== $col) ? (string) $col : null;

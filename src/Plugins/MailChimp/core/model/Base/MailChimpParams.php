@@ -654,7 +654,7 @@ abstract class MailChimpParams implements ActiveRecordInterface
             $this->mc_p_request_timeout = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : MailChimpParamsTableMap::translateFieldName('WithAddressPhone', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->mc_p_with_address_phone = (null !== $col) ? (boolean) $col : null;
+            $this->mc_p_with_address_phone = (null !== $col) ? (bool) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : MailChimpParamsTableMap::translateFieldName('EmailSender', TableMap::TYPE_PHPNAME, $indexType)];
             $this->mc_p_email_sender = (null !== $col) ? (string) $col : null;

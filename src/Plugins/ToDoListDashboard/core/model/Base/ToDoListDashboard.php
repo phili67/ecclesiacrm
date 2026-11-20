@@ -537,7 +537,7 @@ abstract class ToDoListDashboard implements ActiveRecordInterface
             $this->tdl_l_user_id = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ToDoListDashboardTableMap::translateFieldName('Visible', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->tdl_l_visible = (null !== $col) ? (boolean) $col : null;
+            $this->tdl_l_visible = (null !== $col) ? (bool) $col : null;
 
             $this->resetModified();
             $this->setNew(false);
