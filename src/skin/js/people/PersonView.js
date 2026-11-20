@@ -428,6 +428,8 @@ $(function () {
 
         elt.appendChild(option);
       }
+    }, function (error) {
+      showActionFeedback(error.message, 'warning');
     });
 
     //addProfilesToMainDropdown();
@@ -517,6 +519,8 @@ $(function () {
             }
 
             $("#person-group-Id").val("").trigger("change");
+          }, function (error) {
+            showActionFeedback(error.message, 'warning');
           });
         });
       }
@@ -546,6 +550,8 @@ $(function () {
           if (typeof onComplete === 'function') {
             onComplete();
           }
+        }, function (error) {
+          showActionFeedback(error.message, 'warning');
         });
       }
     });
@@ -595,6 +601,8 @@ $(function () {
             });
             var name = option.text();
             option.text(rightAccess === "1" ? name.replace("[RW]", "[R ]") : name.replace("[R ]", "[RW]"));
+          }, function (error) {
+            showActionFeedback(error.message, 'warning');
           });
         });
      });
@@ -611,11 +619,22 @@ $(function () {
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'sharedocument/addperson',
-                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"personID": e.params.data.personID,"notification":notification})
+                data: JSON.stringify({
+                  "noteId":noteId,
+                  "currentPersonID":window.CRM.currentPersonID,
+                  "personID": e.params.data.personID,
+                  "notification":notification
+                })
            }, function(data) {
+             if (data.status !== 'success') {
+               showActionFeedback(i18next.t('Invalid person'), 'warning');
+               return;
+             }
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
+           }, function (error) {
+             showActionFeedback(error.message, 'warning');
            });
         } else if (e.params.data.groupID !== undefined) {
            window.CRM.APIRequest({
@@ -623,9 +642,15 @@ $(function () {
                 path: 'sharedocument/addgroup',
                 data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"groupID": e.params.data.groupID,"notification":notification})
            }, function(data) {
+             if (data.status !== 'success') {
+               showActionFeedback(i18next.t('Invalid person'), 'warning');
+               return;
+             }
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
+           }, function (error) {
+             showActionFeedback(error.message, 'warning');
            });
         } else if (e.params.data.familyID !== undefined) {
            window.CRM.APIRequest({
@@ -633,9 +658,15 @@ $(function () {
                 path: 'sharedocument/addfamily',
                 data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"familyID": e.params.data.familyID,"notification":notification})
            }, function(data) {
+             if (data.status !== 'success') {
+               showActionFeedback(i18next.t('Invalid person'), 'warning');
+               return;
+             }
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
+           }, function (error) {
+             showActionFeedback(error.message, 'warning');
            });
         }
      });

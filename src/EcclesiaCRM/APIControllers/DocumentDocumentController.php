@@ -36,6 +36,9 @@ class DocumentDocumentController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personID) && isset ($input->famID) && isset ($input->title) && isset ($input->type) && isset ($input->text) && isset ($input->bPrivate)){
+            if (!is_bool($input->bPrivate) || !in_array($input->type, ['note', 'video', 'audio', 'document'], true)) {
+                return $response->withJson(['success' => false, 'message' => _('Invalid document')], 400);
+            }
             $note = new Note();
             $note->setPerId($input->personID);
             $note->setFamId($input->famID);
@@ -63,7 +66,14 @@ class DocumentDocumentController
         if ( isset ($input->docID) && isset ($input->personID) && isset ($input->famID) ){
             $note = NoteQuery::Create()->findOneById ($input->docID);
 
-            if ( $note->getCurrentEditedBy() > 0 && !( SessionUser::getUser()->isAdmin() || $note->isVisualableBy ($input->personID) ) ) {
+            if ($note === null || !$note->isNoteDocument() || !$note->canViewNote(SessionUser::getId())) {
+                return $response->withJson(['success' => false, 'message' => _('Forbidden')], 403);
+            }
+            if (!$note->canEditNote(SessionUser::getId())) {
+                return $response->withJson(['success' => true, 'note' => $note->toArray(), 'canEdit' => false, 'canChangePrivacy' => false]);
+            }
+
+            if ($note->getCurrentEditedBy() > 0 && (int)$note->getCurrentEditedBy() !== (int)SessionUser::getId() && $note->getCurrentEditedDate() !== null) {
                 $currentDate = new \DateTime();
 
                 $since_start = $currentDate->diff($note->getCurrentEditedDate());
@@ -74,29 +84,25 @@ class DocumentDocumentController
 
                 if ( $min < SystemConfig::getValue('iDocumentTimeLeft') ) {
                     $editor = PersonQuery::create()->findPk($note->getCurrentEditedBy());
+                    $currentUserName = gettext("This document is opened by");
                     if ($editor != null) {
-                        $currentUserName = gettext("This document is opened by")." : ".$editor->getFullName()." (".(SystemConfig::getValue('iDocumentTimeLeft')-$min)." ".gettext("Minutes left").")";
+                        $currentUserName .= " : ".$editor->getFullName()." (".(SystemConfig::getValue('iDocumentTimeLeft')-$min)." ".gettext("Minutes left").")";
                     }
 
-                    return $response->withJson(['success' => false ,'note' => $note->toArray(),'message' => $currentUserName]);
+                    return $response->withJson(['success' => false, 'message' => $currentUserName]);
 
                 } else {// we reset the count
                     $note->setCurrentEditedDate(null);
                     $note->setCurrentEditedBy(0);
                     $note->save();
                 }
-            } else {
-
-                // now the document is used by someone
-                $note->setCurrentEditedBy(SessionUser::getUser()->getPersonId());
-                $note->setCurrentEditedDate(new \DateTime());
-
-                $note->save();
-                // !now the document is used by someone
-
             }
 
-            return $response->withJson(['success' => true ,'note' => $note->toArray()]);
+            $note->setCurrentEditedBy(SessionUser::getId());
+            $note->setCurrentEditedDate(new \DateTime());
+            $note->save();
+
+            return $response->withJson(['success' => true, 'note' => $note->toArray(), 'canEdit' => true, 'canChangePrivacy' => $note->isCreator(SessionUser::getId())]);
         }
 
         return $response->withJson(['success' => false]);
@@ -108,7 +114,9 @@ class DocumentDocumentController
         if ( isset ($input->docID) ){
             $note = NoteQuery::Create()->findOneById ($input->docID);
 
-            if (!is_null($note)) {
+            if (!is_null($note) && $note->isNoteDocument()
+                && $note->canEditNote(SessionUser::getId())
+                && (int)$note->getCurrentEditedBy() === (int)SessionUser::getId()) {
 
                 // now the document is used by someone
                 $note->setCurrentEditedBy(0);
@@ -120,7 +128,7 @@ class DocumentDocumentController
                 return $response->withJson(['success' => true ,'note' => $note->toArray()]);
             }
 
-            return $response->withJson(['success' => true]);
+            return $response->withJson(['success' => false, 'message' => _('Forbidden')], 403);
         }
 
         return $response->withJson(['success' => false]);
@@ -130,13 +138,26 @@ class DocumentDocumentController
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->docID) && isset ($input->title) && isset ($input->type) && isset ($input->text) && isset ($input->bPrivate)){
+            if (!is_bool($input->bPrivate) || !in_array($input->type, ['note', 'video', 'audio', 'document'], true)) {
+                return $response->withJson(['success' => false, 'message' => _('Invalid document')], 400);
+            }
             $note = NoteQuery::Create()->findOneById ($input->docID);
+
+            if ($note === null || !$note->isNoteDocument() || !$note->canEditNote(SessionUser::getId())
+                || (!$note->isCreator(SessionUser::getId()) && (bool)$input->bPrivate !== $note->isPrivate())) {
+                return $response->withJson(['success' => false, 'message' => _('Forbidden')], 403);
+            }
+            if ($note->getCurrentEditedBy() > 0 && (int)$note->getCurrentEditedBy() !== (int)SessionUser::getId()
+                && $note->getCurrentEditedDate() !== null
+                && $note->currentEditbyUserName() !== '') {
+                return $response->withJson(['success' => false, 'message' => _('This document is opened by another user')], 409);
+            }
 
             $note->setPrivate($input->bPrivate);
             $note->setTitle(InputUtils::FilterHTML($input->title));
             $note->setText(InputUtils::FilterPresentationHTML($input->text));
             $note->setType($input->type);
-            $note->setEntered(SessionUser::getUser()->getPersonId());
+            $note->setEditedBy(SessionUser::getId());
             $note->setDateLastEdited(new \DateTime());
 
             // now the document is no more used
@@ -158,13 +179,13 @@ class DocumentDocumentController
         if ( isset ($input->docID) ){
             $note = NoteQuery::Create()->findOneById ($input->docID);
 
-            if ($note->getPerId() == SessionUser::getUser()->getPersonId() or SessionUser::getUser()->isAdmin() ) {
+            if ($note !== null && $note->isNoteDocument() && $note->isCreator(SessionUser::getId())) {
                 $note->delete();
 
                 return $response->withJson(['success' => true]);
             }
         }
 
-        return $response->withJson(['success' => false]);
+        return $response->withJson(['success' => false, 'message' => _('Forbidden')], 403);
     }
 }

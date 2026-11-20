@@ -74,6 +74,9 @@ fputcsv($out, [InputUtils::translate_special_charset(_("Full Name"),$charset),
 // only the unday groups
 
  foreach ($notes as $note) {
+    if ($note->isNoteDocument() && !$note->canViewNote(SessionUser::getId())) {
+        continue;
+    }
     $person = PersonQuery::Create()->findOneById($note->getPerId());
 
     fputcsv($out, [

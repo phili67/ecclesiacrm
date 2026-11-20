@@ -1576,7 +1576,7 @@ foreach ($groupIds as $gid) {
                                                             <?= $item['deleteLink'] ?>                                                                                                                        
                                                             <?php
                                                         }
-                                                        if (!isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['FullName'])) {
+                                                        if (!empty($item['canShare']) and !isset($item['sharePersonID'])) {
                                                             ?>
                                                             <button data-id="<?= $item['id'] ?>"
                                                                 data-shared="<?= $item['isShared'] ?>" 
@@ -1667,7 +1667,7 @@ foreach ($groupIds as $gid) {
                                                             <?= $item['editLink'] ?>
                                                             <?= $item['deleteLink'] ?>
                                                             <?php
-                                                            if (!isset($item['sharePersonID'])) {
+                                                            if (!empty($item['canShare']) && !isset($item['sharePersonID'])) {
                                                                 ?>
                                                                 <button type="button" data-id="<?= $item['id'] ?>"
                                                                         data-shared="<?= $item['isShared'] ?>"

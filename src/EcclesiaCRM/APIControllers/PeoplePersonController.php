@@ -604,6 +604,11 @@ class PeoplePersonController
 
             $actualNote = NoteQuery::Create()->findOneById ($input->noteId);
 
+            if ((int)$input->personId !== (int)SessionUser::getId()
+                || $actualNote === null || !$actualNote->isNoteDocument()
+                || !$actualNote->canViewNote(SessionUser::getId())) {
+                return $response->withJson(['success' => false, 'message' => _('Forbidden')], 403);
+            }
 
             if ( !is_null($user) && !is_null($actualNote) ) {
                 $realNoteDir = $userDir = $user->getUserRootDir();

@@ -58,6 +58,9 @@ class SystemGDRPController
         $res = [];
 
         foreach ($notes as $note) {
+            if ($note->isNoteDocument() && !$note->canViewNote(SessionUser::getId())) {
+                continue;
+            }
             $person = PersonQuery::Create()->findOneById($note->getPerId());
 
             $res[] = ['Id' => $note->getId(),

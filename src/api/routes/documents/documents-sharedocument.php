@@ -28,7 +28,8 @@ $app->group('/sharedocument', function (RouteCollectorProxy $group) {
      */
     $group->post('/getallpersonsabre', DocumentShareController::class . ':getAllShareForPersonSabre' );
     /*
-     * @! share a note to a personID from currentPersonID 
+     * @! The creator can share a note with another user. Sharing makes it private;
+     *    only the creator and explicit recipients can view it.
      * #! param: ref->int :: personID
      * #! param: ref->int :: noteId
      * #! param: ref->int :: currentPersonID

@@ -20,6 +20,8 @@ $app->group('/document', function (RouteCollectorProxy $group) {
      * #! param: ref->string :: type
      * #! param: ref->string :: text
      * #! param: ref->bool :: bPrivate
+     * Private notes are visible to their creator and explicit recipients.
+     * Sharing a public note makes it private, including after sharing is stopped.
      */
     $group->post('/create', DocumentDocumentController::class . ':createDocument' );
     /*

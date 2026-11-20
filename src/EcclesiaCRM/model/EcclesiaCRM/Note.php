@@ -126,4 +126,44 @@ class Note extends BaseNote
     {
         return !$this->isPrivate() || $this->getPerId() == $personId;
     }
+
+    public function isNoteDocument(): bool
+    {
+        return in_array($this->getType(), ['note', 'video', 'audio', 'document'], true);
+    }
+
+    public function isCreator($personId): bool
+    {
+        return (int)$personId > 0 && (int)$this->getEnteredBy() === (int)$personId;
+    }
+
+    public function canViewNote($personId): bool
+    {
+        if ($this->isCreator($personId)) {
+            return true;
+        }
+
+        $shares = NoteShareQuery::create()->filterByNoteId($this->getId());
+        $share = (clone $shares)->findOneBySharePerId($personId);
+        if ($share !== null) {
+            return true;
+        }
+
+        return !$this->isPrivate() && $shares->findOne() === null;
+    }
+
+    public function canEditNote($personId): bool
+    {
+        if ($this->isCreator($personId)) {
+            return true;
+        }
+
+        $shares = NoteShareQuery::create()->filterByNoteId($this->getId());
+        $share = (clone $shares)->findOneBySharePerId($personId);
+        if ($share !== null) {
+            return (int)$share->getRights() === 2;
+        }
+
+        return !$this->isPrivate() && $shares->findOne() === null;
+    }
 }

@@ -56,6 +56,10 @@ $(function() {
             data: JSON.stringify({"docID": docID, "personID": perID, "famID": famID})
         },function (data) {
             if (data.success) {
+                if (!data.canEdit) {
+                    window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t("Read only"));
+                    return;
+                }
                 if (window.CRM.editor) {
                     window.CRM.destroyEditor(window.CRM.editor);
                     window.CRM.editor = null;
@@ -92,6 +96,7 @@ $(function() {
                 $('#documentTitle').val(data.note.Title);
                 $("#documentType").val(data.note.Type);
                 $("#private").prop("checked", data.note.Private);
+                $("#private").prop("disabled", !data.canChangePrivacy);
                 window.CRM.editor.then(function (editor) {
                     editor.setData(data.note.Text);
                 });
@@ -99,6 +104,8 @@ $(function() {
                 window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t(data.message));
             }
         });
+    }, function (error) {
+        window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
     });
 
     $(document).on("click", ".deleteDocument", function (e) {
@@ -113,15 +120,6 @@ $(function() {
             data: JSON.stringify({"docID": docID, "personID": perID, "famID": famID})
         },function (data) {
             if (data.success) {
-                window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'document/get',
-                    data: JSON.stringify({
-                        "docID": docID,
-                        "personID": window.CRM.currentPersonID,
-                        "famID": window.CRM.currentFamily
-                    })
-                },function (data) {
                     var message = '<div class="alert alert-danger mb-0"><i class="fas fa-exclamation-triangle text-danger mr-2"></i>' + i18next.t('Please confirm deletion of this document') + ' : <strong>' + data.note.Title + '</strong></div>';
 
                     bootbox.confirm({
@@ -144,14 +142,23 @@ $(function() {
                                     } else if (window.CRM.docType == 'family') {
                                         location.href = window.CRM.root + '/v2/people/family/view/' + window.CRM.currentFamily + '/Documents';
                                     }
+                                }, function (error) {
+                                    window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
+                                });
+                            } else {
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'document/leave',
+                                    data: JSON.stringify({"docID": docID})
                                 });
                             }
                         }
                     });
-                });
             } else {
                 window.CRM.DisplayNormalAlert(i18next.t("Error"), i18next.t(data.message));
             }
+        }, function (error) {
+            window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
         });
     });
 
@@ -223,7 +230,7 @@ $(function() {
                             <input type="checkbox" value="1" id="private" name="private" class="custom-control-input">
                             <label for="private" class="custom-control-label font-weight-bold">${i18next.t('Private')}</label>
                         </div>
-                        <div class="small text-muted mt-2">${i18next.t("Private documents are visible only to authorized users.")}</div>
+                        <div class="small text-muted mt-2">${i18next.t("Private documents are visible only to their creator and selected recipients. Sharing a document makes it private.")}</div>
                     </div>
                 </div>
             </form>`;
@@ -247,12 +254,17 @@ $(function() {
                     label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                     className: "btn btn-outline-secondary",
                     callback: function () {
+                        if (mode !== 'edit') {
+                            return;
+                        }
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'document/leave',
                             data: JSON.stringify({"docID": docID})
                         },function (data) {
                             console.log("we just close the doc ! ");
+                        }, function (error) {
+                            window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
                         });
                     }
                 },
@@ -295,6 +307,8 @@ $(function() {
                                             location.href = window.CRM.root + '/v2/people/family/view/' + window.CRM.currentFamily + '/Documents';
                                         }
                                     }
+                                }, function (error) {
+                                    window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
                                 });
                             } else if (mode == 'edit') {
                                 window.CRM.APIRequest({
@@ -315,6 +329,8 @@ $(function() {
                                             location.href = window.CRM.root + '/v2/people/family/view/' + window.CRM.currentFamily + '/Documents';
                                         }
                                     }
+                                }, function (error) {
+                                    window.CRM.DisplayNormalAlert(i18next.t("Error"), error.message);
                                 });
                             }
                         } else {
@@ -327,6 +343,10 @@ $(function() {
             ],
             show: false,
             onEscape: function () {
+                if (mode !== 'edit') {
+                    modal.modal("hide");
+                    return;
+                }
                 window.CRM.APIRequest({
                     method: 'POST',
                     path: 'document/leave',
