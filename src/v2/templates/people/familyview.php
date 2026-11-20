@@ -638,6 +638,9 @@ $sFamilyEmails = [];
                                                         </span>
 
                                                         <h3 class="timeline-header border-0 font-weight-bold">
+                                                            <?php if (!empty($item['isPrivate'])) { ?>
+                                                                <span class="badge badge-light border mr-1"><i class="fas fa-lock mr-1" aria-hidden="true"></i><?= _('Private Data') ?></span>
+                                                            <?php } ?>
                                                             <?php
                                                             if (array_key_exists('headerlink', $item)) {
                                                             ?>
@@ -857,6 +860,9 @@ $sFamilyEmails = [];
                                                             <div class="btn-group">
                                                                 <?php
                                                                 if ($item['slim']) {
+                                                                    if (!empty($item['hasHistory'])) { ?>
+                                                                        <button type="button" data-id="<?= $item['id'] ?>" class="noteHistory btn btn-outline-secondary btn-sm" title="<?= _('Version history') ?>"><i class="fas fa-history"></i></button>
+                                                                    <?php }
                                                                     if ($item['editLink'] != '') {
                                                                 ?>
                                                                         <button data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>"
@@ -880,6 +886,9 @@ $sFamilyEmails = [];
                                                     </div>
                                                     </span>
                                                     <h3 class="timeline-header">
+                                                        <?php if (!empty($item['isPrivate'])) { ?>
+                                                            <span class="badge badge-light border mr-1"><i class="fas fa-lock mr-1" aria-hidden="true"></i><?= _('Private Data') ?></span>
+                                                        <?php } ?>
                                                         <?php
                                                         if (array_key_exists('headerlink', $item)) {
                                                         ?>

@@ -428,6 +428,8 @@ $(function () {
 
         elt.appendChild(option);
       }
+    }, function (error) {
+      showActionFeedback(error.message, 'warning');
     });
 
     //addProfilesToMainDropdown();
@@ -484,7 +486,7 @@ $(function () {
         return object
   }
 
-  function confirmRemoveSharedRecipients(noteId, button, state) {
+  function confirmRemoveSharedRecipients(noteId, button, state, onComplete) {
     const selectedRecipients = $('#select-share-persons :selected');
 
     if (!selectedRecipients.length) {
@@ -501,6 +503,13 @@ $(function () {
       cancelLabel: i18next.t('Keep access'),
       cancelClass: 'btn-primary',
       onConfirm: function () {
+        let pending = selectedRecipients.length;
+        let failed = false;
+        function complete() {
+          if (--pending === 0 && !failed && typeof onComplete === 'function') {
+            onComplete();
+          }
+        }
         selectedRecipients.each(function (i, sel) {
           var personID = $(sel).val();
 
@@ -517,6 +526,11 @@ $(function () {
             }
 
             $("#person-group-Id").val("").trigger("change");
+            complete();
+          }, function (error) {
+            failed = true;
+            showActionFeedback(error.message, 'warning');
+            complete();
           });
         });
       }
@@ -537,7 +551,11 @@ $(function () {
           method: 'POST',
           path: 'sharedocument/cleardocument',
           data: JSON.stringify({ "noteId": noteId })
-        }, function () {
+        }, function (data) {
+          if (data.status !== 'success') {
+            showActionFeedback(i18next.t('Error'), 'warning');
+            return;
+          }
           addPersonsFromNotes(noteId);
           $(state).css('color', '#777');
           $(button).data('shared', 0);
@@ -546,13 +564,15 @@ $(function () {
           if (typeof onComplete === 'function') {
             onComplete();
           }
+        }, function (error) {
+          showActionFeedback(error.message, 'warning');
         });
       }
     });
   }
 
   // share your notes
-  window.CRM.addSharedButtonsActions = function (noteId,isShared,button,state,modal){
+  window.CRM.addSharedButtonsActions = function (noteId,isShared,button,state,modal,onShared){
      $("#person-group-Id").select2({
         language: window.CRM.shortLocale,
         minimumInputLength: 2,
@@ -595,6 +615,8 @@ $(function () {
             });
             var name = option.text();
             option.text(rightAccess === "1" ? name.replace("[RW]", "[R ]") : name.replace("[R ]", "[RW]"));
+          }, function (error) {
+            showActionFeedback(error.message, 'warning');
           });
         });
      });
@@ -611,11 +633,26 @@ $(function () {
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'sharedocument/addperson',
-                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"personID": e.params.data.personID,"notification":notification})
+                data: JSON.stringify({
+                  "noteId":noteId,
+                  "currentPersonID":window.CRM.currentPersonID,
+                  "personID": e.params.data.personID,
+                  "notification":notification
+                })
            }, function(data) {
+             if (data.status !== 'success') {
+               showActionFeedback(i18next.t('Invalid person'), 'warning');
+               return;
+             }
+             if (typeof onShared === 'function') {
+               onShared();
+               return;
+             }
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
+           }, function (error) {
+             showActionFeedback(error.message, 'warning');
            });
         } else if (e.params.data.groupID !== undefined) {
            window.CRM.APIRequest({
@@ -623,9 +660,19 @@ $(function () {
                 path: 'sharedocument/addgroup',
                 data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"groupID": e.params.data.groupID,"notification":notification})
            }, function(data) {
+             if (data.status !== 'success') {
+               showActionFeedback(i18next.t('Invalid person'), 'warning');
+               return;
+             }
+             if (typeof onShared === 'function') {
+               onShared();
+               return;
+             }
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
+           }, function (error) {
+             showActionFeedback(error.message, 'warning');
            });
         } else if (e.params.data.familyID !== undefined) {
            window.CRM.APIRequest({
@@ -633,9 +680,19 @@ $(function () {
                 path: 'sharedocument/addfamily',
                 data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"familyID": e.params.data.familyID,"notification":notification})
            }, function(data) {
+             if (data.status !== 'success') {
+               showActionFeedback(i18next.t('Invalid person'), 'warning');
+               return;
+             }
+             if (typeof onShared === 'function') {
+               onShared();
+               return;
+             }
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
+           }, function (error) {
+             showActionFeedback(error.message, 'warning');
            });
         }
      });
@@ -712,7 +769,9 @@ $(function () {
           label: '<i class="fas fa-times"></i> ' + i18next.t("Delete"),
           className: "btn btn-warning",
           callback: function () {
-            confirmRemoveSharedRecipients(noteId, button, state);
+            confirmRemoveSharedRecipients(noteId, button, state, function () {
+              window.location.reload();
+            });
             return false;
           }
         },
@@ -720,7 +779,9 @@ $(function () {
           label: '<i class="far fa-stop-circle"></i> ' + i18next.t("Stop sharing"),
           className: "btn btn-danger",
           callback: function () {
-            confirmStopSharing(noteId, button, state, modal);
+            confirmStopSharing(noteId, button, state, modal, function () {
+              window.location.reload();
+            });
             return false;
           }
         },
@@ -739,7 +800,9 @@ $(function () {
       }
     });
 
-    window.CRM.addSharedButtonsActions(noteId, isShared, button, state, modal);
+    window.CRM.addSharedButtonsActions(noteId, isShared, button, state, modal, function () {
+      window.location.reload();
+    });
   });
 
   // end of share notes

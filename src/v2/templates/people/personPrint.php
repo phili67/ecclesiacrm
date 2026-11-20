@@ -634,12 +634,15 @@ if (SessionUser::getUser()->isNotesEnabled()) {
         ->_or()->filterByType('video')
         ->addJoin(NoteTableMap::COL_NTE_EDITEDBY,PersonTableMap::alias('b', PersonTableMap::COL_PER_ID),Criteria::LEFT_JOIN)
             ->filterByPerId($iPersonID)
-        ->_and()
-            ->filterByPrivate(array(0,SessionUser::getUser()->getPersonId()))
         ->find();
 
     // Loop through all the notes
+    $visibleNoteCount = 0;
     foreach ($ormNotes as $note) {
+        if (!$note->canViewNote(SessionUser::getId())) {
+            continue;
+        }
+        ++$visibleNoteCount;
         $icon = '<i class="fa fa-file-word"></i>';
         switch($note->getType()) {
             case 'audio':
@@ -666,7 +669,7 @@ if (SessionUser::getUser()->isNotesEnabled()) {
     }
     ?>
     <?php
-        if ($ormNotes->count() == 0) {
+        if ($visibleNoteCount == 0) {
           ?>
             <p class="print-p-center"><?= _("None") ?></p>
             <hr/>

@@ -445,6 +445,26 @@
       </vendor>
     </table>
 
+    <table name="note_revision" idMethod="native" phpName="NoteRevision">
+      <column name="id" phpName="Id" type="BIGINT" sqlType="bigint(20) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+      <column name="note_id" phpName="NoteId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true"/>
+      <column name="author_id" phpName="AuthorId" type="SMALLINT" size="8" required="true"/>
+      <column name="created_at" phpName="CreatedAt" type="DATETIME" required="true"/>
+      <column name="title" phpName="Title" type="VARCHAR" size="1000" defaultValue=""/>
+      <column name="type" phpName="Type" type="VARCHAR" size="50"/>
+      <column name="content" phpName="Content" type="CLOB"/>
+      <foreign-key foreignTable="note_nte" name="fk_note_revision_note" onDelete="CASCADE">
+        <reference local="note_id" foreign="nte_ID"/>
+      </foreign-key>
+      <index name="idx_note_revision_note">
+        <index-column name="note_id"/>
+        <index-column name="id"/>
+      </index>
+      <vendor type="mysql">
+        <parameter name="Engine" value="InnoDB"/>
+      </vendor>
+    </table>
+
 
     <table name="config_cfg" idMethod="native" phpName="Config" description="This table contains all non-default configuration parameter names and values">
         <column name="cfg_id" phpName="Id" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>

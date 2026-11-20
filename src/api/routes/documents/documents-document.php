@@ -20,6 +20,8 @@ $app->group('/document', function (RouteCollectorProxy $group) {
      * #! param: ref->string :: type
      * #! param: ref->string :: text
      * #! param: ref->bool :: bPrivate
+     * Private notes are visible to their creator and explicit recipients.
+     * Sharing a public note makes it private, including after sharing is stopped.
      */
     $group->post('/create', DocumentDocumentController::class . ':createDocument' );
     /*
@@ -36,8 +38,21 @@ $app->group('/document', function (RouteCollectorProxy $group) {
      * #! param: ref->string :: type
      * #! param: ref->string :: text
      * #! param: ref->bool :: bPrivate
+     * #! param: ref->string :: version (returned by /get)
      */
     $group->post('/update', DocumentDocumentController::class . ':updateDocument' );
+    /*
+     * @! list the note's versions, restricted to users who can view the note
+     * #! param: ref->int :: docID
+     */
+    $group->post('/history', DocumentDocumentController::class . ':history' );
+    /*
+     * @! restore a version as a new revision, preserving the current privacy
+     * #! param: ref->int :: docID
+     * #! param: ref->int :: revisionId
+     * #! param: ref->string :: version
+     */
+    $group->post('/restore', DocumentDocumentController::class . ':restore' );
     /*
      * @! delete a document
      * #! param: ref->int :: docID

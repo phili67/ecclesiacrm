@@ -857,6 +857,9 @@ foreach ($groupIds as $gid) {
                                                 ?>
 
                                                 <h3 class="timeline-header border-0 font-weight-bold">
+                                                    <?php if (!empty($item['isPrivate'])) { ?>
+                                                        <span class="badge badge-light border mr-1"><i class="fas fa-lock mr-1" aria-hidden="true"></i><?= _('Private Data') ?></span>
+                                                    <?php } ?>
                                                     <?php
                                                     if (array_key_exists('headerlink', $item) && $item['type'] != 'file') {
                                                         ?>
@@ -1566,6 +1569,9 @@ foreach ($groupIds as $gid) {
                                                 <div class="btn-group btn-group-sm" role="group">
                                                     <?php
                                                     if ($item['slim']) {
+                                                        if (!empty($item['hasHistory'])) { ?>
+                                                            <button type="button" data-id="<?= $item['id'] ?>" class="noteHistory btn btn-outline-secondary btn-sm" title="<?= _('Version history') ?>"><i class="fas fa-history"></i></button>
+                                                        <?php }
                                                         if ($item['editLink'] != '' or (isset($item['sharePersonID']) and $item['shareRights'] == 2)) {
                                                             ?>                            
                                                             <?= $item['editLink'] ?>                                                                                                                            
@@ -1576,7 +1582,7 @@ foreach ($groupIds as $gid) {
                                                             <?= $item['deleteLink'] ?>                                                                                                                        
                                                             <?php
                                                         }
-                                                        if (!isset($item['sharePersonID']) and (!isset($item['currentUserName']) or $item['userName'] == $PersonInfos['FullName'])) {
+                                                        if (!empty($item['canShare']) and !isset($item['sharePersonID'])) {
                                                             ?>
                                                             <button data-id="<?= $item['id'] ?>"
                                                                 data-shared="<?= $item['isShared'] ?>" 
@@ -1611,6 +1617,9 @@ foreach ($groupIds as $gid) {
                                                     <div class="mr-3 mb-2">
                                                         <div class="mb-1">
                                                             <span class="<?= $noteTypeBadge ?> mr-1"><?= $noteTypeLabel ?></span>
+                                                            <?php if (!empty($item['isPrivate'])) { ?>
+                                                                <span class="badge badge-light border mr-1"><i class="fas fa-lock mr-1" aria-hidden="true"></i><?= _('Private Data') ?></span>
+                                                            <?php } ?>
                                                             <?php if ($item['isShared']) { ?>
                                                                 <span class="badge badge-light border"><?= _('Shared') ?></span>
                                                             <?php } ?>
@@ -1667,7 +1676,7 @@ foreach ($groupIds as $gid) {
                                                             <?= $item['editLink'] ?>
                                                             <?= $item['deleteLink'] ?>
                                                             <?php
-                                                            if (!isset($item['sharePersonID'])) {
+                                                            if (!empty($item['canShare']) && !isset($item['sharePersonID'])) {
                                                                 ?>
                                                                 <button type="button" data-id="<?= $item['id'] ?>"
                                                                         data-shared="<?= $item['isShared'] ?>"

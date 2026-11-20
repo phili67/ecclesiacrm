@@ -813,7 +813,7 @@
         ],
         "dbVersion": "8.0.0"
     },
-    "current": {
+    "9.0.0": {
         "versions": [
             "8.0.0",
             "8.0.1",
@@ -827,5 +827,12 @@
         ],
         "postscripts": [],
         "dbVersion": "9.0.0"
+    },
+    "current": {
+        "versions": ["9.0.0"],
+        "prescripts": [],
+        "scripts": ["/mysql/upgrade/9.0.1-upgrade.sql"],
+        "postscripts": [],
+        "dbVersion": "9.0.1"
     }
 }

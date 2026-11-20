@@ -20,6 +20,8 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\NoteShareQuery;
 use EcclesiaCRM\NoteShare;
+use EcclesiaCRM\Note;
+use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Emails\DocumentEmail;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\SessionUser;
@@ -68,10 +70,50 @@ class DocumentShareController
         return true;
     }
 
+    private function ownedNote($noteId): ?Note
+    {
+        $note = NoteQuery::create()->findOneById($noteId);
+        return $note !== null && $note->isNoteDocument() && $note->isCreator(SessionUser::getId()) ? $note : null;
+    }
+
+    private function shareNoteWithPerson(Note $note, int $personId, bool $notification): bool
+    {
+        if ($personId <= 0 || $personId === (int)SessionUser::getId()) {
+            return false;
+        }
+        $user = UserQuery::create()->findOneByPersonId($personId);
+        if ($user === null) {
+            return false;
+        }
+        if (NoteShareQuery::create()->filterBySharePerId($personId)->findOneByNoteId($note->getId()) !== null) {
+            return false;
+        }
+
+        // Revoking the last share must not make the note public again.
+        if (!$note->isPrivate()) {
+            $note->setPrivate(1);
+            $note->save();
+        }
+        $share = new NoteShare();
+        $share->setSharePerId($personId);
+        $share->setNoteId($note->getId());
+        $share->save();
+
+        if ($notification) {
+            $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the time Line or the notes tab."));
+            $email->send();
+        }
+        return true;
+    }
+
     public function getAllShareForPerson(ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
         $result = [];
+
+        if (!isset($params->noteId) || $this->ownedNote($params->noteId) === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
 
         if (isset ($params->noteId)) {
             $personShareQuery = NoteShareQuery::create()
@@ -122,31 +164,17 @@ class DocumentShareController
     public function addPersonToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
-            $noteShare = NoteShareQuery::Create()->filterBySharePerId($params->personID)->findOneByNoteId($params->noteId);
-
-            if ( empty($noteShare) && $params->currentPersonID != $params->personID && $params->noteId > 0) {
-                $noteShare = new NoteShare();
-
-                $noteShare->setSharePerId($params->personID);
-                $noteShare->setNoteId($params->noteId);
-
-                $noteShare->save();
-
-                if (isset ($params->notification)  && $params->notification) {
-                    $user = UserQuery::Create()->findOneByPersonId($params->personID);
-
-                    if ( !empty($user) ){
-                        $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the time Line or the notes tab."));
-                        $email->send();
-                    }
-                }
-
-                return $response->withJson(['status' => "success"]);
-            }
+        if (!isset($params->noteId, $params->personID, $params->notification)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
         }
-
-        return $response->withJson(['status' => "failed"]);
+        $note = $this->ownedNote($params->noteId);
+        if ($note === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
+        if (!$this->shareNoteWithPerson($note, (int)$params->personID, (bool)$params->notification)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
+        }
+        return $response->withJson(['status' => 'success']);
     }    
 
     // new way through sabre !
@@ -183,35 +211,22 @@ class DocumentShareController
     public function addFamilyToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->familyID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
-            $members = FamilyQuery::Create()->findOneById($params->familyID)->getActivatedPeople();
-
-            foreach ($members as $member) {
-                if ($member->getId() > 0) {
-                    $noteShare = NoteShareQuery::Create()->filterBySharePerId($member->getId())->findOneByNoteId($params->noteId);
-
-                    if ( empty($noteShare) && $params->currentPersonID != $member->getId() ) {
-                        $noteShare = new NoteShare();
-
-                        $noteShare->setSharePerId($member->getId());
-                        $noteShare->setNoteId($params->noteId);
-
-                        $noteShare->save();
-
-                        if (isset ($params->notification)  && $params->notification) {
-                            $user = UserQuery::Create()->findOneByPersonId($member->getId());
-
-                            if ( !empty($user) ){
-                                $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the time Line or the notes tab."));
-                                $email->send();
-                            }
-                        }
-                    }
-                }
-            }
+        if (!isset($params->familyID, $params->noteId, $params->notification)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
         }
-
-        return $response->withJson(['status' => "success"]);
+        $note = $this->ownedNote($params->noteId);
+        if ($note === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
+        $family = FamilyQuery::create()->findOneById($params->familyID);
+        if ($family === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
+        }
+        $added = 0;
+        foreach ($family->getActivatedPeople() as $member) {
+            $added += (int)$this->shareNoteWithPerson($note, (int)$member->getId(), (bool)$params->notification);
+        }
+        return $response->withJson(['status' => $added ? 'success' : 'failed', 'count' => $added]);
     }
 
     public function addFamilyToShareSabre (ServerRequest $request, Response $response, array $args): Response {
@@ -246,35 +261,22 @@ class DocumentShareController
     public function addGroupToShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->groupToShareID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
-            $members = GroupQuery::Create()->findOneById($params->groupToShareID)->getPerson2group2roleP2g2rs();
-
-            foreach ($members as $member) {
-                if ($member->getPersonId() > 0) {
-                    $noteShare = NoteShareQuery::Create()->filterBySharePerId($member->getPersonId())->findOneByNoteId($params->noteId);
-
-                    if ( empty($noteShare) && $params->currentPersonID != $member->getPersonId() ) {
-                        $noteShare = new NoteShare();
-
-                        $noteShare->setSharePerId($member->getPersonId());
-                        $noteShare->setNoteId($params->noteId);
-
-                        $noteShare->save();
-
-                        if (isset ($params->notification) && $params->notification) {
-                            $user = UserQuery::Create()->findOneByPersonId($member->getPersonId());
-
-                            if ( !empty($user) ){
-                                $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the time Line or the notes tab."));
-                                $email->send();
-                            }
-                        }
-                    }
-                }
-            }
+        if (!isset($params->groupID, $params->noteId, $params->notification)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
         }
-
-        return $response->withJson(['status' => $params->groupToShareID]);
+        $note = $this->ownedNote($params->noteId);
+        if ($note === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
+        $group = GroupQuery::create()->findOneById($params->groupID);
+        if ($group === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
+        }
+        $added = 0;
+        foreach ($group->getPerson2group2roleP2g2rs() as $member) {
+            $added += (int)$this->shareNoteWithPerson($note, (int)$member->getPersonId(), (bool)$params->notification);
+        }
+        return $response->withJson(['status' => $added ? 'success' : 'failed', 'count' => $added]);
     }
 
     public function addGroupToShareSabre (ServerRequest $request, Response $response, array $args): Response {
@@ -309,12 +311,18 @@ class DocumentShareController
     public function deletePersonFromShare (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->noteId)) {
-            $noteShare = NoteShareQuery::Create()->filterBySharePerId($params->personID)->findOneByNoteId($params->noteId);
-
-            $noteShare->delete();
+        $note = isset($params->noteId) ? $this->ownedNote($params->noteId) : null;
+        if ($note === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+        }
+        $noteShare = isset($params->personID) ? NoteShareQuery::create()->filterBySharePerId($params->personID)->findOneByNoteId($params->noteId) : null;
+        if ($noteShare === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
         }
 
+        $note->setPrivate(1);
+        $note->save();
+        $noteShare->delete();
         $noteShare = NoteShareQuery::Create()->findByNoteId($params->noteId);
 
         return $response->withJson(['status' => "success",'count' => $noteShare->count()]);
@@ -348,13 +356,18 @@ class DocumentShareController
     public function setRightsForPerson (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->personID) && isset ($params->noteId) && isset ($params->rightAccess) && $params->rightAccess > 0) {
-            $noteShare = NoteShareQuery::Create()->filterBySharePerId($params->personID)->findOneByNoteId($params->noteId);
-
-            $noteShare->setRights($params->rightAccess);
-            $noteShare->save();
+        if (!isset($params->noteId) || $this->ownedNote($params->noteId) === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
         }
-
+        if (!isset($params->personID, $params->rightAccess) || !in_array((string)$params->rightAccess, ['1', '2'], true)) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
+        }
+        $noteShare = NoteShareQuery::create()->filterBySharePerId($params->personID)->findOneByNoteId($params->noteId);
+        if ($noteShare === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Invalid person')], 400);
+        }
+        $noteShare->setRights($params->rightAccess);
+        $noteShare->save();
         return $response->withJson(['status' => "success"]);
     }
 
@@ -410,11 +423,13 @@ class DocumentShareController
     public function clearDocument (ServerRequest $request, Response $response, array $args): Response {
         $params = (object)$request->getParsedBody();
 
-        if (isset ($params->noteId)) {
-            $noteShare = NoteShareQuery::Create()->findByNoteId($params->noteId);
-
-            $noteShare->delete();
+        $note = isset($params->noteId) ? $this->ownedNote($params->noteId) : null;
+        if ($note === null) {
+            return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
         }
+        $note->setPrivate(1);
+        $note->save();
+        NoteShareQuery::create()->findByNoteId($params->noteId)->delete();
 
         return $response->withJson(['status' => "success"]);
     }

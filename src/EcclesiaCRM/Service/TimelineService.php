@@ -145,12 +145,17 @@ class TimelineService
             ->limit(20)            
             ->findBySharePerId($personID);
 
-        // we only share the file from other users
+        $noteTypes = $noteTypes ?? ['note', 'video', 'audio', 'document', 'file'];
         $noteTypes[] = 'file';
 
         foreach ($personShareQuery as $dbNoteShare) {
-          if (in_array($dbNoteShare->getNote()->getType(), $noteTypes)) {
-             $item = $this->noteToTimelineItem($dbNoteShare->getNote(),$dbNoteShare->getNote()->getPerson(),$dbNoteShare->getRights(),$dbNoteShare->getEditLink());
+          if ((int)$personID === (int)$this->currentUser->getPersonId()
+              && in_array($dbNoteShare->getNote()->getType(), $noteTypes)) {
+             $sharedNote = $dbNoteShare->getNote();
+             $sharer = $sharedNote->isNoteDocument()
+                 ? PersonQuery::create()->findPk($sharedNote->getEnteredBy())
+                 : $sharedNote->getPerson();
+             $item = $this->noteToTimelineItem($sharedNote, $sharer, $dbNoteShare->getRights(), $dbNoteShare->getEditLink());
              if (!is_null($item)) {
                  $timeline[$item['key']] = $item;
              }
@@ -223,7 +228,11 @@ class TimelineService
         }
 
 
-        if ( $this->currentUser->isAdmin() || $dbNote->isVisualableBy ($this->currentUser->getPersonId()) || !is_null($sharePerson) ) {
+        $userId = $this->currentUser->getPersonId();
+        $canView = $dbNote->isNoteDocument()
+            ? $dbNote->canViewNote($userId)
+            : ($this->currentUser->isAdmin() || $dbNote->isVisualableBy($userId) || !is_null($sharePerson));
+        if ($canView) {
             $displayEditedBy = _('Unknown');
             if ($dbNote->getDisplayEditedBy() == Person::SELF_REGISTER) {
                 $displayEditedBy = _('Self Registration');
@@ -246,7 +255,7 @@ class TimelineService
               $title = $dbNote->getTitle();
             }
 
-            $currentUserName = $dbNote->currentEditbyUserName();            
+            $currentUserName = $dbNote->isNoteDocument() ? '' : $dbNote->currentEditbyUserName();
 
             if ($dbNote->getType() == 'video' || $dbNote->getType() == 'audio' || $dbNote->getType() == 'note' || $dbNote->getType() == 'document' ){
               // only in this case : the header title in the timeline should be in function of the note owner
@@ -260,6 +269,17 @@ class TimelineService
                 $dbNote->getDisplayEditedDate("Y"),$title_message, '', $dbNote->getText(),
                 (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
                 $sharePerson,$shareRights,$currentUserName,$userName,$perID,$famID,$displayEditedBy);
+            if ($dbNote->isNoteDocument()) {
+                if (!$dbNote->canEditNote($userId)) {
+                    $item['editLink'] = '';
+                }
+                if (!$dbNote->isCreator($userId)) {
+                    $item['deleteLink'] = '';
+                }
+                $item['canShare'] = $dbNote->isCreator($userId);
+                $item['hasHistory'] = true;
+                $item['isPrivate'] = $dbNote->isPrivate();
+            }
         }
 
         return $item;
