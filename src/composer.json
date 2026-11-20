@@ -1,14 +1,14 @@
 {
   "name": "ecclesiacrm/crm",
   "version": "9.0.0",
-  "build": "8368",
+  "build": "8369",
   "type": "project",
   "keywords": [
     "church",
     "crm"
   ],
   "homepage": "https://ecclesiacrm.com",
-  "time": "2026-11-13",
+  "time": "2026-11-20",
   "license": "Not MIT",
   "authors": [
     {
