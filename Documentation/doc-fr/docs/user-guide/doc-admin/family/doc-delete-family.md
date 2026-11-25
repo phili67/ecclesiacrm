@@ -6,7 +6,7 @@ Vous recherchez une famille via le lien de recherche dans le menu de gauche.
 
 Vous obtiendrez la vue suivante avec ses boutons
 
-![Screenshot](../../../img/family/admin/suppressFamily.png)
+![Screenshot](../../../img/family/admin/suppressfamily.png)
 
 La suppression d'une famille peut avoir des impacts au niveau légal
 

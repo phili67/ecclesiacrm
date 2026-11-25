@@ -1,4 +1,4 @@
-# <center><big>Exporter contacts CardDav& Ecclesia**CRM** </big></center>
+# <center><big>Exporter contacts CardDav & Ecclesia**CRM** </big></center>
 
 Pour cela vous sélectionnez le groupe et vous cliquez le bouton suivant
 

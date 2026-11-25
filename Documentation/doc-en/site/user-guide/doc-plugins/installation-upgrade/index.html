@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -4233,8 +4233,9 @@
 </ul>
 <p><img alt="Screenshot" src="../../../img/plugins/plugins-management-activate-deactivate-suppress.png" /></p>
 <ul>
-<li>the update is under development and will come in a future version of EcclesiaCRM.</li>
+<li>When an installed plugin's files are newer than its database version, the manager displays the available updates. Select the plugins to update: their migration scripts already on the server will run without uploading another archive.</li>
 </ul>
+<p>Back up the database first. If an update fails, processing stops and some changes may already have been applied; check the logs before retrying. A database version newer than the files or an invalid migration is reported without an automatic downgrade. The archive update button remains available.</p>
 <h1 id="user-rights-management">User rights management<a class="headerlink" href="#user-rights-management" title="Permanent link">&para;</a></h1>
 <p>Not all users have the right to access the plugin or want to access it.</p>
 <p>To do so:
@@ -4327,7 +4328,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>
