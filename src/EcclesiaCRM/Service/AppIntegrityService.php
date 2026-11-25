@@ -54,6 +54,9 @@ class AppIntegrityService
           // Build a list of known files from signatures
           $knownFiles = [];
           foreach ($signatureData->files as $file) {
+            if ($file->filename === 'Include/Config.php') {
+              continue;
+            }
             $knownFiles[$file->filename] = $file->sha1;
             $currentFile = SystemURLs::getDocumentRoot() . '/' . $file->filename;
             if (file_exists($currentFile)) {
@@ -178,13 +181,14 @@ class AppIntegrityService
 
   private static function recursiveFileSearch(string $basePath, string $currentPath, array $knownFiles, array &$addedFiles, string $prefix = ''): void
   {
+    $basePath = rtrim(str_replace('\\', '/', $basePath), '/');
     $directoryIterator = new \RecursiveDirectoryIterator($currentPath, \RecursiveDirectoryIterator::SKIP_DOTS);
     
     // Filter directories to skip entire branches before iteration
-    $filterIterator = new \RecursiveCallbackFilterIterator($directoryIterator, function ($current, $key, $iterator) {
+    $filterIterator = new \RecursiveCallbackFilterIterator($directoryIterator, function ($current) use ($basePath) {
       if ($current->isDir()) {
-        $realPath = str_replace('\\', '/', $current->getRealPath());
-        if (AppIntegrityService::shouldSkipDirectory($realPath)) {
+        $relativePath = substr(str_replace('\\', '/', $current->getPathname()), strlen($basePath) + 1);
+        if (AppIntegrityService::shouldSkipDirectory('/' . $relativePath . '/')) {
           return false;
         }
       }
@@ -195,9 +199,7 @@ class AppIntegrityService
 
     foreach ($recursiveIterator as $file) {
       if ($file->isFile()) {
-        $realPath = str_replace('\\', '/', $file->getRealPath());
-        $basePath = str_replace('\\', '/', $basePath);
-        $relativeFilePath = str_replace($basePath . '/', '', $realPath);
+        $relativeFilePath = substr(str_replace('\\', '/', $file->getPathname()), strlen($basePath) + 1);
         
         // Exclude certain files from integrity check
         if (AppIntegrityService::shouldIgnoreFile($relativeFilePath)) {
@@ -214,6 +216,10 @@ class AppIntegrityService
 
   private static function shouldIgnoreFile(string $filePath): bool
   {
+    if ($filePath === 'Include/Config.php') {
+      return true;
+    }
+
     // List of file patterns to ignore
     $ignorePatterns = [
       '.gitignore',
@@ -221,7 +227,6 @@ class AppIntegrityService
       'signatures.json',
       '.DS_Store',
       'Thumbs.db',
-      'Include/Config.php',
       'Include/Config.php.example',
       'php.ini_REGISTER_GLOBALS_OFF',
       'Reports/CanvassQuestions.txt',
