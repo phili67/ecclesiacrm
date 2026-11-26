@@ -74,10 +74,6 @@ You can change the size
 
 ![Screenshot](../../img/mailchimp/insertcampaignimagebrowse1.png)
 
-dialog box
-
-![Screenshot](../../img/mailchimp/insertcampaignimagebrowse2.png)
-
 Click on "browse the server"
 
 ![Screenshot](../../img/mailchimp/insertcampaignimagebrowse3.png)

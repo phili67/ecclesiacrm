@@ -74,10 +74,6 @@ Vous pourrez insérer des images ou des documents
 
     ![Screenshot](../../img/mailchimp/insertcampaignimagebrowse1.png)
 
-    Une boite de dialogue
-
-    ![Screenshot](../../img/mailchimp/insertcampaignimagebrowse2.png)
-
     On clique le bouton "Parcourir le serveur"
 
     ![Screenshot](../../img/mailchimp/insertcampaignimagebrowse3.png)
