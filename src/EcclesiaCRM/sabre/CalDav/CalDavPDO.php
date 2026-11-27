@@ -199,9 +199,13 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
         }
         list($calendarId, $instanceId) = $calendarId;
 
-        $stmt = $this->pdo->prepare('SELECT access FROM ' . $this->calendarInstancesTableName . ' where id = ?');
-        $stmt->execute([$instanceId]);
-        $access = (int)$stmt->fetchColumn();
+        $stmt = $this->pdo->prepare('SELECT access FROM ' . $this->calendarInstancesTableName . ' WHERE calendarid = ? AND id = ?');
+        $stmt->execute([$calendarId, $instanceId]);
+        $access = $stmt->fetchColumn();
+        if ($access === false) {
+            throw new DAV\Exception\NotFound('Calendar instance not found');
+        }
+        $access = (int)$access;
 
         if ($access === \Sabre\DAV\Sharing\Plugin::ACCESS_SHAREDOWNER) {
 

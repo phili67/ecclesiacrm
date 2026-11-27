@@ -14,7 +14,9 @@ use Psr\Container\ContainerInterface;
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
 
+use EcclesiaCRM\Calendarinstances;
 use EcclesiaCRM\CalendarinstancesQuery;
+use EcclesiaCRM\User;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\GroupQuery;
@@ -39,6 +41,33 @@ class CalendarV2Controller
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+    private function currentUserCalendarInstance($calIDs): ?Calendarinstances
+    {
+        if (!is_string($calIDs) || !preg_match('/^[0-9]+,[0-9]+$/D', $calIDs)) {
+            return null;
+        }
+
+        [$calendarId, $instanceId] = explode(',', $calIDs);
+
+        return CalendarinstancesQuery::Create()
+            ->filterByCalendarid($calendarId)
+            ->filterById($instanceId)
+            ->filterByPrincipaluri('principals/'.strtolower(SessionUser::getUser()->getUserName()))
+            ->findOne();
+    }
+
+    private function isCalendarOwner($calIDs): bool
+    {
+        $calendar = $this->currentUserCalendarInstance($calIDs);
+
+        return $calendar !== null && $calendar->getAccess() === DAV\Sharing\Plugin::ACCESS_SHAREDOWNER;
+    }
+
+    private function isCurrentUser(User $user): bool
+    {
+        return strtolower($user->getUserName()) === strtolower(SessionUser::getUser()->getUserName());
     }
 
     public function getallCalendarEvents (ServerRequest $request, Response $response, array $args): Response {
@@ -103,12 +132,10 @@ class CalendarV2Controller
 
         if ( isset ($params->calIDs) && isset($params->isPresent) ) {
 
-            $calIDs = explode(",",$params->calIDs);
-
-            $calendarId = $calIDs[0];
-            $Id = $calIDs[1];
-
-            $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+            $calendar = $this->currentUserCalendarInstance($params->calIDs);
+            if ($calendar === null) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
 
             $calendar->setPresent ($params->isPresent);
 
@@ -297,7 +324,7 @@ class CalendarV2Controller
 
             $isAdmin = (SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())?true:false;
 
-            return $response->withJson(["status" => "success","title"=> $title, "message" => $message, "isAdmin" => $isAdmin, "access" => $calendarCU->getAccess()/*, "URI" => $calendar->getPrincipaluri(), "Owner" => $user->getPerson()->getFullName()*/]);
+            return $response->withJson(["status" => "success","title"=> $title, "message" => $message, "isAdmin" => $isAdmin, "isOwner" => $this->isCalendarOwner($params->calIDs), "access" => $calendarCU->getAccess()/*, "URI" => $calendar->getPrincipaluri(), "Owner" => $user->getPerson()->getFullName()*/]);
         }
 
         return $response->withJson(['status' => "failed"]);
@@ -339,12 +366,10 @@ class CalendarV2Controller
 
         if (isset ($params->calIDs) && isset ($params->isChecked)) {
 
-            $calIDs = explode(",",$params->calIDs);
-
-            $calendarId = $calIDs[0];
-            $Id = $calIDs[1];
-
-            $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+            $calendar = $this->currentUserCalendarInstance($params->calIDs);
+            if ($calendar === null) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
 
             $calendar->setVisible ($params->isChecked);
 
@@ -361,14 +386,20 @@ class CalendarV2Controller
 
         if (isset ($params->allCalIDs) && isset ($params->isChecked)) {
 
+            if (!is_array($params->allCalIDs)) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Invalid request')], 400);
+            }
+
+            $calendars = [];
             foreach ($params->allCalIDs as $calID) {
-                $calIDs = explode(",", $calID);
+                $calendar = $this->currentUserCalendarInstance($calID);
+                if ($calendar === null) {
+                    return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+                }
+                $calendars[] = $calendar;
+            }
 
-                $calendarId = $calIDs[0];
-                $Id = $calIDs[1];
-
-                $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
-
+            foreach ($calendars as $calendar) {
                 $calendar->setVisible($params->isChecked);
 
                 $calendar->save();
@@ -487,6 +518,10 @@ class CalendarV2Controller
 
         if ( isset ($params->calIDs) && isset ($params->principal) ) {
 
+            if (!$this->isCalendarOwner($params->calIDs)) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
+
             $calendarId = explode(",",$params->calIDs);
 
             // we'll connect to sabre
@@ -514,9 +549,16 @@ class CalendarV2Controller
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset ($params->personID) && isset ($params->notification) ) {
+            if (!$this->isCalendarOwner($params->calIDs)) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
+
             $user = UserQuery::Create()->findOneByPersonId ($params->personID);
 
             if (!empty($user)) {
+                if ($this->isCurrentUser($user)) {
+                    return $response->withJson(['status' => 'failed', 'message' => _('You cannot share a calendar with yourself.')], 400);
+                }
 
                 $calendarId = explode(",",$params->calIDs);
 
@@ -556,6 +598,10 @@ class CalendarV2Controller
 
         if ( isset ($params->calIDs) && isset ($params->familyID) && isset ($params->notification) ) {
 
+            if (!$this->isCalendarOwner($params->calIDs)) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
+
             $calendarId = explode(",",$params->calIDs);
 
             // We set the BackEnd for sabre Backends
@@ -570,7 +616,7 @@ class CalendarV2Controller
             foreach ($persons as $person) {
                 $user = UserQuery::Create()->findOneByPersonId ($person->getId());
 
-                if (!empty($user)) {
+                if (!empty($user) && !$this->isCurrentUser($user)) {
 
                     // Add a new invite
                     $calendarBackend->updateInvites(
@@ -586,11 +632,10 @@ class CalendarV2Controller
                         ]
                     );
 
-                }
-
-                if ($params->notification) {
-                    $email = new CalendarEmail($user, _("You can visualize it in your account, in the Calendar."));
-                    $email->send();
+                    if ($params->notification) {
+                        $email = new CalendarEmail($user, _("You can visualize it in your account, in the Calendar."));
+                        $email->send();
+                    }
                 }
 
                 $result = $calendarBackend->getInvites($calendarId);
@@ -610,6 +655,10 @@ class CalendarV2Controller
 
         if ( isset ($params->calIDs) && isset ($params->groupID) && isset ($params->notification) ) {
 
+            if (!$this->isCalendarOwner($params->calIDs)) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
+
             $group = GroupQuery::Create()->findOneById ($params->groupID);
 
             $members = Person2group2roleP2g2rQuery::create()
@@ -623,7 +672,7 @@ class CalendarV2Controller
             foreach ($members as $member) {
                 $user = UserQuery::Create()->findOneByPersonId ($member->getPersonId());
 
-                if (!empty($user)) {
+                if (!empty($user) && !$this->isCurrentUser($user)) {
 
                     // Add a new invite
                     $calendarBackend->updateInvites(
@@ -661,6 +710,10 @@ class CalendarV2Controller
 
         if ( isset ($params->calIDs) ) {
 
+            if (!$this->isCalendarOwner($params->calIDs)) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
+
             $calendarId = explode(",",$params->calIDs);
 
             // We set the BackEnd for sabre Backends
@@ -688,6 +741,16 @@ class CalendarV2Controller
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) && isset ($params->principal) && isset ($params->rightAccess) ) {
+            if (!$this->isCalendarOwner($params->calIDs)) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
+            if (strtolower($params->principal) === 'principals/'.strtolower(SessionUser::getUser()->getUserName())) {
+                return $response->withJson(['status' => 'failed', 'message' => _('You cannot change your own calendar access.')], 400);
+            }
+            if ($params->rightAccess != 1 && $params->rightAccess != 2) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Invalid request')], 400);
+            }
+
             $calendarId = explode(",",$params->calIDs);
 
             // We set the BackEnd for sabre Backends
@@ -697,18 +760,16 @@ class CalendarV2Controller
 
             foreach ($shares as $share) {
                 if ($share->principal == $params->principal) {
-                    if ($params->rightAccess == 1)
-                        $share->access = DAV\Sharing\Plugin::ACCESS_READ;
-                    elseif ($params->rightAccess == 2)
-                        $share->access = DAV\Sharing\Plugin::ACCESS_READWRITE;
+                    $share->access = $params->rightAccess == 1
+                        ? DAV\Sharing\Plugin::ACCESS_READ
+                        : DAV\Sharing\Plugin::ACCESS_READWRITE;
+                    $calendarBackend->updateInvites($calendarId, [$share]);
+
+                    return $response->withJson($calendarBackend->getInvites($calendarId));
                 }
             }
 
-            $calendarBackend->updateInvites($calendarId,$shares);
-
-            $result = $calendarBackend->getInvites($calendarId);
-
-            return $response->withJson($result);
+            return $response->withJson(['status' => 'failed', 'message' => _('Not found')], 404);
         }
 
         return $response->withJson(['status' => "failed"]);
@@ -718,6 +779,10 @@ class CalendarV2Controller
         $params = (object)$request->getParsedBody();
 
         if ( isset ($params->calIDs) ) {
+            if ($this->currentUserCalendarInstance($params->calIDs) === null) {
+                return $response->withJson(['status' => 'failed', 'message' => _('Forbidden')], 403);
+            }
+
             $calendarId = explode(",",$params->calIDs);
 
             // We set the BackEnd for sabre Backends

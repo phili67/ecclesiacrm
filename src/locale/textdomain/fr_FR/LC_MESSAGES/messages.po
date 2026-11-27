@@ -367,6 +367,14 @@ msgstr "Création fichier"
 msgid "Forbidden"
 msgstr "Interdit"
 
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php
+msgid "You cannot share a calendar with yourself."
+msgstr "Vous ne pouvez pas partager un calendrier avec vous-même."
+
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php
+msgid "You cannot change your own calendar access."
+msgstr "Vous ne pouvez pas modifier votre propre accès au calendrier."
+
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:52
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:57
 #: EcclesiaCRM/APIControllers/DocumentCollaboraController.php:64
