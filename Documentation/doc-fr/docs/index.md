@@ -5,7 +5,7 @@
 
 Ecclesia**CRM** est un CRM (Customer Relationship Management).
 
-![Screenshot](img/screenshot0.png)
+![Tableau de bord d’EcclesiaCRM 9](img/dashboard-fr-demo.jpg)
 
 ## Vue d'ensemble
 

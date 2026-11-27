@@ -27,7 +27,8 @@ Voir pour cela la section "Panier"
 
 Pour accéder à l'ensemble des groupes, il suffit de déployer la barre latérale comme suit
 
-![Screenshot](../../../img/group/groupsidebar.png)
+<img src="../../../img/group/groupsidebar.png" alt="Screenshot" width="200" />
+
 
 On sélectionne "Lister tous les groupes" et on obtient
 
@@ -41,14 +42,15 @@ Ici vous n'aurez que les groupes de type "Ecole du dimanche"
 
 **Remarque** le type de groupe permet de hiérarchiser les groupes dans la barre de menu latéral à gauche
 
-![Screenshot](../../../img/group/grouphierachy1.png)
+<img src="../../../img/group/grouphierachy1.png" alt="Screenshot" width="150" />
+
 
 
 ##Ajouter un nouveau groupe
 
 On va au bas de ces groupes
 
-![Screenshot](../../../img/group/groupadd.png)
+<img src="../../../img/group/groupadd.png" alt="Screenshot" width="300" />
 
 On ajoute
 
@@ -62,6 +64,9 @@ L'utilisateur doit avoir le rôle panier pour manipuler cet outil.
 Aller dans la section Groupe "Lister tous les groupes"
 
 ![Screenshot](../../../img/group/groupviewcart1.png)
+
+On peut effectuer plusieurs actions sur les groupes listés, comme les ajouter au panier pour des opérations ultérieures ou supprimer les membres du panier.
+
 ![Screenshot](../../../img/group/groupviewcart2.png)
 
 **Remarque**

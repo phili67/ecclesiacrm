@@ -11,6 +11,11 @@ puis de mettre "bEnabledSundaySchool" sur vrai
 
 ![Screenshot](../../img/sundayschool/sundayschoolactivation2.png)	
 
+## Tableau de bord
+
+Le tableau de bord présente les classes, les moniteurs, les élèves et les familles, ainsi que les actions principales.
+
+![Tableau de bord de l'école du dimanche](../../img/sundayschool/sundayschool-dashboard-fr-demo.png)
 
 ## Fonctionnalités
 
