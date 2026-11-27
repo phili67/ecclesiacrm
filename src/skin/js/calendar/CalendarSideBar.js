@@ -627,8 +627,13 @@ $("#manage-all-shared").on('click', function (e) {
 });
 
 // the add people to calendar
+const calendarShareLabel = (share) => {
+    return (share.access == 2 ? "[R ] " : "[RW] ") + share.principal.replace("principals/", "");
+}
+
 const addPersonsFromCalendar = (calendarId) => {
     $('#select-share-persons').find('option').remove();
+    $('#person-group-rights').val(0).prop('disabled', true);
 
     window.CRM.APIRequest({
         method: 'POST',
@@ -638,18 +643,11 @@ const addPersonsFromCalendar = (calendarId) => {
         var elt = document.getElementById("select-share-persons");
         var len = data.length;
 
-        for (i = 0; i < len; ++i) {
-            if (data[i].access == 2) {
+        for (var i = 0; i < len; ++i) {
+            if (data[i].access == 2 || data[i].access == 3) {
                 var option = document.createElement("option");
 
-                option.text = "[R ]" + " " + data[i].principal.replace("principals/", "");
-                option.value = data[i].principal;
-
-                elt.appendChild(option);
-            } else if (data[i].access == 3) {
-                var option = document.createElement("option");
-
-                option.text = "[RW]" + " " + data[i].principal.replace("principals/", "");
+                option.text = calendarShareLabel(data[i]);
                 option.value = data[i].principal;
 
                 elt.appendChild(option);
@@ -679,7 +677,7 @@ const BootboxContentShare = () => {
                     <i class="fas fa-user-shield mr-2 text-warning"></i><span style="color: red">*</span>${i18next.t("Set Rights")}:
                 </div>
                 <div class="col-md-8">
-                    <select name="person-group-Id-Share" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place">
+                    <select name="person-group-Id-Share" id="person-group-rights" class="form-control form-control-sm" style="width:100%" data-placeholder="text to place" disabled>
                         <option value="0">${i18next.t("Select your rights")} [R ] ${i18next.t("or")} [RW] -- </option>
                         <option value="1">[R ] -- ${i18next.t("Read only")}</option>
                         <option value="2">[RW] -- ${i18next.t("Read and write")}</option>
@@ -736,6 +734,7 @@ const createShareWindow = (calIDs) => {
                                     data: JSON.stringify({"calIDs": calIDs, "principal": principal})
                                 }, function (data) {
                                     $("#select-share-persons option[value='" + principal + "']").remove();
+                                    $("#select-share-persons").trigger('change');
                                     window.CRM.calendar.refetchEvents();
                                 });
                             });
@@ -802,32 +801,36 @@ const createShareWindow = (calIDs) => {
 
     $("#person-group-rights").on('change',function () {
         var rightAccess = $(this).val();
-        var i = 0;
+        if (rightAccess != 1 && rightAccess != 2) {
+            return;
+        }
 
         $('#select-share-persons :selected').each(function (i, sel) {
             var principal = $(sel).val();
-            var str = $(sel).text();
 
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'calendar/setrights',
                 data: JSON.stringify({"calIDs": calIDs, "principal": principal, "rightAccess": rightAccess})
             }, function (data) {
-                if (rightAccess == 1) {
-                    res = str.replace(i18next.t("Read and write") + " — ", i18next.t("Read only") + " — ");
-                } else {
-                    res = str.replace(i18next.t("Read only") + " — ", i18next.t("Read and write") + " — ");
+                var share = Array.isArray(data) && data.find(function (item) {
+                    return item.principal === principal && (item.access == 2 || item.access == 3);
+                });
+                if (!share) {
+                    bootbox.alert(i18next.t("Error"));
+                    return;
                 }
-
-                $('#select-share-persons option[value="' + principal + '"]').text(res);
+                $(sel).text(calendarShareLabel(share));
+            }, function (error) {
+                bootbox.alert(error.message);
             });
         });
 
-        $("#person-group-rights option:first").attr('selected', 'selected');
+        $(this).val(0);
     });
 
     $("#select-share-persons").on('change',function () {
-        $("#person-group-rights").val(0);
+        $("#person-group-rights").val(0).prop('disabled', $('#select-share-persons :selected').length === 0);
     });
 
     $("#person-group-Id-Share").on("select2:select", function (e) {
@@ -844,6 +847,8 @@ const createShareWindow = (calIDs) => {
                 })
             }, function (data) {
                 addPersonsFromCalendar(calIDs);
+            }, function (error) {
+                bootbox.alert(error.message);
             });
         } else if (e.params.data.groupID !== undefined) {
             window.CRM.APIRequest({
@@ -960,13 +965,17 @@ $('body').on('click', '#manage-cal-group', function () {
         };
 
         if (type == "personal" || type == "reservation" && data.isAdmin == true) {
-            allButtons = $.extend(allButtons, buttonDelete, buttonManage, buttonOk);
+            allButtons = $.extend(allButtons, buttonDelete, buttonOk);
         } else if (type == "group" && data.isAdmin == true) {
-            allButtons = $.extend(allButtons, buttonManage, buttonOk);
+            allButtons = $.extend(allButtons, buttonOk);
         } else if (type == "group" && data.isAdmin == false) {
             allButtons = $.extend(allButtons, buttonOk);
         } else if (type == "shared") {
             allButtons = $.extend(allButtons, buttonOk);
+        }
+
+        if (data.isOwner) {
+            allButtons = $.extend({}, buttonManage, allButtons);
         }
 
 
